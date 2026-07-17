@@ -24,9 +24,9 @@ Bare NativeActivity does not attach Graphene/AOSP soft IME reliably. **glass-key
 | **glass-keyboard** | Paint letters mode on Skate; hit boxes | same witness · pack | **GREEN** `20260717.180558` · Pixel look `20260717.180933` |
 | **glass-keyboard** | Tap → Dexter Action → live line | same witness · pack | **GREEN** `20260717.180933` · Pixel typing look `20260717.183345` |
 | **glass-keyboard** | Blinking caret on Dexter line | `dexter_glass_witness` · pack · timerfd | **GREEN** `20260717.182826` · Pixel blink look `20260717.183345` |
-| **ZETA2b** | Hit boxes match paint · phone density · portrait fill | glass-keyboard | open — wrong keys / tiny / letterbox named |
+| **ZETA2b** | Hit boxes match paint · phone density · portrait fill | same witness · pack | **GREEN** `20260717.183842` · Pixel look `20260717.184837` |
 | **glass-keyboard** | Emoji mode SLC (bounded) | glass-keyboard | open |
-| **glass-keyboard** | Pixel look — keys + caret + type by tap | glass-keyboard · glass-keyboard | open |
+| **glass-keyboard** | Pixel look — keys + caret + type by tap | glass-keyboard · glass-keyboard · ZETA2b | **GREEN** `20260717.184837` |
 
 ## Hands-on
 

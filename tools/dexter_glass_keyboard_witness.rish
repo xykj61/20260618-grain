@@ -18,5 +18,6 @@ assert selftest.out contains "symbols page" else "glass-keyboard missing symbols
 assert selftest.out contains "letters paint lines" else "glass-keyboard missing paint claim"
 assert selftest.out contains "hit boxes" else "glass-keyboard missing hit-box claim"
 assert selftest.out contains "tap drain" else "glass-keyboard missing tap→Action claim"
+assert selftest.out contains "label-span hit" else "ZETA2b missing label-span hit claim"
 
-say "GREEN: glass-keyboard–glass-keyboard — layout, paint/hit, and tap→Action under waymark glass-keyboard."
+say "GREEN: glass-keyboard–ZETA2b — layout, label-span hit, and tap→Action under waymark glass-keyboard."
