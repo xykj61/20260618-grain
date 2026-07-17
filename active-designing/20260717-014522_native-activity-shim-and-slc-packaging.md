@@ -67,7 +67,7 @@ The native-activity shim is that missing precondition, and it belongs beneath gl
 
 | Rung | Name | Gate | State |
 |---|---|---|---|
-| **glow-publishing.5** | **First installable Glow APK on GrapheneOS** | glow-publishing (GREEN) · pixel-glass (closed, verified-boot Pixel 10a) | **Host pack GREEN `20260717.021857`** · **Sala fold wired `20260717.121445`** · **pixel-glass install GREEN `20260717.122010`** — APK installed; `sala_root.txt` matched pixel-glass root. Pixel USB path still open; surface/finish later |
+| **glow-publishing.5** | **First installable Glow APK on GrapheneOS** | glow-publishing (GREEN) · pixel-glass (closed, verified-boot Pixel 10a) | **GREEN end to end** — host pack · Sala fold · pixel-glass install `20260717.122010` · **Pixel 10a install `20260717.123226`**. Surface/finish later |
 
 glow-publishing.5's host-side half is now checkable. What landed:
 
@@ -80,8 +80,7 @@ glow-publishing.5's host-side half is now checkable. What landed:
 
 ## What remains open
 
-- **Physical Pixel install** — same host one-shot `tools/tube05_install_proof_onpath_host.rish` with USB debugging on the GrapheneOS Pixel 10a (pixel-glass emulator path already GREEN `20260717.122010`).
-- **Activity finish / surface** — onCreate runs the fold today; finishing the activity via the real `ANativeActivity` layout and a first UI surface stay later slices.
+- **Activity finish / surface** — onCreate runs the fold and writes `sala_root.txt` (proven on pixel-glass and Pixel); finishing the activity via the real `ANativeActivity` layout and a first UI surface stay later slices.
 - **APK signing and distribution for publish** stay glow-publishing's and glow-publishing's own territory (signed weave over Granary, content-addressed resins over Comlink). The debug keystore under `tools/.cache/tube05/` is host-local, never for publish.
 
 ## Gratitude
