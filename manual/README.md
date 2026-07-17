@@ -36,6 +36,7 @@ A beginner Glow-language textbook waits on a general parser. Until then, learn R
 | Surface | Role | Register |
 |---------|------|----------|
 | [`guides/pixel-10a-grapheneos-setup.md`](guides/pixel-10a-grapheneos-setup.md) | Flash GrapheneOS on a Pixel 10a | Checkable (guide) |
+| [`../docs/COMPASS.md`](../docs/COMPASS.md) | Day-one rose compressor · [`compass_card.bron`](../docs/compass_card.bron) | Checkable compress |
 | [`../docs/pixel-glass.md`](../docs/pixel-glass.md) | pixel-glass ladder compressor | Checkable compress |
 | [`../docs/glow-publishing.md`](../docs/glow-publishing.md) | App-manifest + NativeActivity APK compressor | Checkable compress |
 | [`../gratitude/grapheneos/`](../gratitude/grapheneos/) | Upstream GrapheneOS docs (MIT mirror) | Study library |
