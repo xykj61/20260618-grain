@@ -8,6 +8,7 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260717.144300` — [send glow-publishing glass and OpenVM silo](20260717-144300_send-tube2-and-openvm-silo.bron) — pier holds glass path + soundness silo
 - `20260717.144200` — [silo OpenVM pairing-hint soundness lessons](20260717-144200_openvm-soundness-silo.bron) — composition · hints · cheap membership; Sigma pin affirmed
 - `20260717.144132` — [pause — save glow-publishing glass progress](20260717-144132_pause-save-tube2-glass.bron) — commit glass path; look still open
 - `20260717.140800` — [glow-publishing publish painted on Skate Android glass](20260717-140800_tube2-pub-on-skate-glass.bron) — pack GREEN; host look for published · verified
