@@ -80,7 +80,7 @@ glow-publishing.5's host-side half is now checkable. What landed:
 
 ## What remains open
 
-- **Richer UI / Skate** — first surface paints the session-root hex on the ANativeWindow (`glow_native_surface.rye`, software pixels). Skate / Realidream-grade views stay later.
+- **Richer Skate / thin-view frames** — first surface now presents via Brushstroke Skate (`glow_native_surface.rye` → `skate_grid.rye` → ANativeWindow). Bounded Sala thin-view frames and Realidream-grade views stay later.
 - **APK signing and distribution for publish** stay glow-publishing's and glow-publishing's own territory (signed weave over Granary, content-addressed resins over Comlink). The debug keystore under `tools/.cache/tube05/` is host-local, never for publish.
 
 ## Gratitude
