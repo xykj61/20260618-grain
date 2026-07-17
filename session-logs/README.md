@@ -8,6 +8,8 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260717.122231` — [Model fields corrected to Cursor Grok 4.5 300k High Fast](20260717-122231_model-field-corrected-to-grok.bron) — Claude credits exhausted; afternoon glow-publishing.5 logs re-attributed; Framework host profile updated
+- `20260717.122010` — [glow-publishing.5 on-device install GREEN on pixel-glass](20260717-122010_tube05-hawm0-install-green.bron) — host pixel-glass boot + install proof; sala_root.txt matches pixel-glass root
 - `20260717.121800` — [Ten batches roll-up — align and send](20260717-121800_align-send-ten-batches.md) ([Bron](20260717-121800_align-send-ten-batches.bron)) — MD summary of Pixel→pixel-glass→glow-publishing.5 arc; compass align; host install proof named as the one next step
 - `20260717.121743` — [glow-publishing.5 jailed slice polished and re-verified GREEN](20260717-121743_tube05-jailed-slice-ready.bron) — rye rebuilt with build-lib; pixel-glass door + README synced; pack witness still GREEN
 - `20260717.121625` — [glow-publishing.5 install-proof host witness ready](20260717-121625_tube05-install-proof-host-witness.bron) — one-shot adb install + sala_root.txt check; jail correctly refuses without a device
@@ -28,6 +30,8 @@ Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../cont
 
 | Stamp | Log | Meaning |
 |-------|-----|---------|
+| 20260717.122231 | [Model fields corrected to Cursor Grok 4.5 300k High Fast](20260717-122231_model-field-corrected-to-grok.bron) | False Sonnet labels on afternoon logs fixed; GLOW_PROFILE + session-log rules name Grok on this host |
+| 20260717.122010 | [glow-publishing.5 on-device install GREEN on pixel-glass](20260717-122010_tube05-hawm0-install-green.bron) | pixel-glass KVM boot + APK install; sala_root.txt = pixel-glass demo root; glow-publishing.5 emulator half closed |
 | 20260717.121800 | [Ten batches roll-up — align and send](20260717-121800_align-send-ten-batches.md) | MD arc summary Pixel→pixel-glass→glow-publishing.5; compass align; one next step = host install proof |
 | 20260717.121743 | [glow-publishing.5 jailed slice polished and re-verified GREEN](20260717-121743_tube05-jailed-slice-ready.bron) | rye rebuild + README/pixel-glass sync; pack witness re-GREEN; jailed packaging slice ready for send |
 | 20260717.121625 | [glow-publishing.5 install-proof host witness ready](20260717-121625_tube05-install-proof-host-witness.bron) | Host one-shot for adb install + run-as sala_root proof; in-jail refuse at no-device assert is correct |
