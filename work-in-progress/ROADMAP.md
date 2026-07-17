@@ -4,7 +4,7 @@
 
 **Language:** EN
 **Version:** `20260715` (Pool keystone revival prioritized · Quin voice seated · align pass reconciles the closed ladder)
-**Last updated:** 2026-07-17 (**README sync** `20260717.161626` · **OTHER_SENSORS** `20260717.161448` — front door names Glow desk + glow-publishing/pixel-glass; glow-publishing/pixel-glass still horizon)
+**Last updated:** 2026-07-17 (**Quin fifth OS variant** `20260717.162114` · glass toggles `20260717.161823` — five boot names; twin for Quin open · glow-publishing/pixel-glass horizon)
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)
 **Voice:** Quin
 **Lens:** TAME — safety, performance, joy; the Seed Law; [SLC](../context/SIMPLE_LOVABLE_COMPLETE.md)
@@ -190,7 +190,7 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **Eighth rune head — `=*`, `20260717.150453`** — [`glow/rune_alias.rye`](../glow/rune_alias.rye) completes the `=` trio. Witness GREEN; `parity_ch01` wired.
 
-**Glow generator hop** (sent through `dbf19e2880`) · **GrapheneOS product edge sent `892ede954c`** · **glow-publishing.5 OTHER_SENSORS `20260717.161448`** — Resource Scope · Network · Sensors grants through gated admit; glass covers photos + contacts; sensors emits OTHER_SENSORS. Hold: GrapheneOS-facing code stays Glow/Rye → native. Next keep-going: send the emission row, or name the next GrapheneOS parallel only after a finish check; pixel-glass/glow-publishing stay horizon.
+**Glow generator hop** (sent through `dbf19e2880`) · **product edge `892ede954c` · templates `185a8ff460` · glass toggles `20260717.161823`** — Resource Scope · Network · Sensors load-bearing on glass; OTHER_SENSORS emit; front door + templates current. Hold: GrapheneOS-facing code stays Glow/Rye → native. Next: send glass toggle cover, then check-in before pixel-glass/glow-publishing or a new parallel domain.
 
 ## The Visual Track — Realidream (horizon lane, ladder already named)
 
