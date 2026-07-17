@@ -8,6 +8,10 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260717.131410` — [Send glow-publishing admission and glass gate GREEN](20260717-131410_send-tube1-glass-pixel.bron) — commit + push; kg glow-publishing next
+- `20260717.131404` — [glow-publishing glass gate seen on the Pixel](20260717-131404_tube1-glass-seen-on-pixel.bron) — install proof GREEN; T1 title confirmed on glass
+- `20260717.131158` — [glow-publishing glass gate wired into NativeActivity onCreate](20260717-131158_tube1-glass-gate-on-create.bron) — R2 paints only after admit; pack GREEN
+- `20260717.131030` — [glow-publishing admission witness GREEN](20260717-131030_tube1-admission-green.bron) — manifest caps must match grant; parity_ch01 wired
 - `20260717.130922` — [Send R2 surface on Pixel GREEN](20260717-130922_send-r2-surface-pixel.bron) — commit + push; kg next after glass present seam
 - `20260717.130848` — [Sala R2 surface seen on the Pixel](20260717-130848_r2-surface-seen-on-pixel.bron) — install proof GREEN; three panels confirmed on glass
 - `20260717.130735` — [Sala R2 multi-panel surface on Skate Android glass](20260717-130735_sala-r2-surface-on-skate-glass.bron) — pack GREEN; host look for three panels next
