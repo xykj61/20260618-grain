@@ -25,7 +25,7 @@ Language path and device path meet here: Glow's fold (language) becomes an insta
 | **glow-publishing** | App-manifest mold validates at the boundary | `tools/tube0_manifest_witness.rish` | GREEN |
 | **glow-publishing.5** | Permissions emit; NativeActivity envelope; signed APK with Sala B0 fold; install + `sala_root.txt` on pixel-glass and Pixel 10a | `tools/tube0_5_android_permission_witness.rish` · `tools/tube05_envelope_witness.rish` · `tools/tube05_apk_pack_witness.rish` · `tools/tube05_install_proof_onpath_host.rish` | **GREEN** pack · Sala wire · pixel-glass `20260717.122010` · **Pixel `20260717.123226`** |
 | **glow-publishing** | Pool admits an agent iff manifest caps match a grant | `tools/tube1_admission_witness.rish` · glass gate `tube1_glass_gate.rye` | **GREEN** device-free `20260717.131000` · glass + Pixel `20260717.131404` |
-| **glow-publishing** | Maker signs app+manifest into Granary; consumer verifies before install | `tools/tube2_publish_witness.rish` | **GREEN** `20260717.131500` (device-free) |
+| **glow-publishing** | Maker signs app+manifest into Granary; consumer verifies before install | `tools/tube2_publish_witness.rish` · glass `tube2_glass_pub.rye` | **GREEN** device-free `20260717.131500`; glass pack GREEN (host look open) |
 | **glow-publishing** | Manifest resin fetched by digest under Comlink seal; verified before admit | `tools/tube3_resin_fetch_witness.rish` | **GREEN** `20260717.133900` (device-free) |
 | **glow-publishing** | Price on Exchange, settle via Neth, unlock sealed fetch | `tools/tube4_market_rail_witness.rish` | **GREEN** `20260717.134300` (device-free) |
 | **glow-publishing** | Update as a Mantra revision; rollback selects prior rev | `tools/tube5_mantra_revision_witness.rish` · glass tip `tube5_glass_tip.rye` | **GREEN** device-free `20260717.135200`; glass pack + Pixel look `20260717.140600` |
@@ -71,7 +71,9 @@ rishi/bin/rishi run tools/tube05_install_proof_onpath_host.rish
 
 **glow-publishing glass gate GREEN `20260717.131404`:** `tube1_glass_gate.rye` admits the sala-broadcaster manifest (three state resources) before R2 paints; title `SALA B0+R2+T1  GREEN` / `glow-publishing admitted · Pool x3`. Install proof GREEN; Keaton confirmed on Pixel.
 
-**glow-publishing tip on glass GREEN `20260717.140600`:** after admit + R2, `tube5_glass_tip.rye` lands Mantra rev1/rev2 and paints `glow-publishing tip rev2 · 0.2.0`. Install proof GREEN (binds `sala_root.txt`); Keaton confirmed the tip line on Pixel. Debug keystore under `tools/.cache/tube05/` is host-local, never for publish.
+**glow-publishing tip on glass GREEN `20260717.140600`:** after admit + R2, `tube5_glass_tip.rye` lands Mantra rev1/rev2 and paints `glow-publishing tip rev2 · 0.2.0`. Install proof GREEN (binds `sala_root.txt`); Keaton confirmed the tip line on Pixel.
+
+**glow-publishing publish on glass (pack GREEN):** after tip + hex, `tube2_glass_pub.rye` runs demo publish + resolve/admit and paints `glow-publishing published · verified` on row 8. Host install + look closes the product claim. Debug keystore under `tools/.cache/tube05/` is host-local, never for publish.
 
 ---
 
