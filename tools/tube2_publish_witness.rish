@@ -1,0 +1,24 @@
+# tube2_publish_witness.rish — glow-publishing: signed app+manifest publish into Granary.
+#
+# Maker publishes a glow-publishing Manifest resin under a signed person/weave name;
+# consumer resolves, clones, and admits (glow-publishing) before install. See
+# linengrow/tube2_publish.rye.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run tools/tube2_publish_witness.rish
+
+let zig = "vendor/zig-toolchain/zig"
+let bin = "linengrow/bin/tube2_publish_witness"
+
+let build = run ["sh" "-c" "mkdir -p linengrow/bin && env RYE_ZIG=${zig} rye/bin/rye build linengrow/tube2_publish_witness.rye -femit-bin=${bin}"]
+assert build.ok else "glow-publishing publish witness build failed"
+
+let selftest = run ["sh" "-c" "${bin} 2>&1"]
+assert selftest.ok else "glow-publishing publish witness exited non-zero"
+assert selftest.out contains "GREEN" else "glow-publishing publish witness not GREEN"
+assert selftest.out contains "welcome publish" else "glow-publishing missing the maker publish path"
+assert selftest.out contains "install after verify" else "glow-publishing missing the consumer install path"
+assert selftest.out contains "lying signature" else "glow-publishing missing the lying-signature refusal"
+assert selftest.out contains "unknown name" else "glow-publishing missing the unknown-name refusal"
+
+say "GREEN: glow-publishing publish witness passed."
