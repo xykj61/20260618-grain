@@ -38,8 +38,8 @@ On-device Sala via `tools/hawm3_sala_device_witness.rish` (aarch64) needs USB de
 | Flash GrapheneOS on a Pixel 10a | [`manual/guides/pixel-10a-grapheneos-setup.md`](../manual/guides/pixel-10a-grapheneos-setup.md) |
 | Upstream install / features wording | [`gratitude/grapheneos/`](../gratitude/grapheneos/) (MIT mirror — study, not our guide) |
 | Living ledger (full register) | [`context/specs/two-dev-environments-and-mobile-emulation.md`](../context/specs/two-dev-environments-and-mobile-emulation.md) |
-| Next packaging seam | [`glow-publishing.md`](glow-publishing.md) — how a Glow binary becomes an installable APK |
-| Install glow-publishing.5 APK + prove Sala root | Host terminal: `tools/tube05_install_proof_onpath_host.rish` — **pixel-glass GREEN `20260717.122010`** · **Pixel 10a GREEN `20260717.123226`** |
+| Packaging + glass rail on Pixel | [`glow-publishing.md`](glow-publishing.md) — glow-publishing.5–glow-publishing + **glow-publishing GREEN** `20260717.145547` (glow-publishing waits on pixel-glass) |
+| Install APK + prove Sala root | Host terminal: `tools/tube05_install_proof_onpath_host.rish` — **pixel-glass** · **Pixel** · glass lines confirmed through glow-publishing |
 
 ---
 
