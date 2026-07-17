@@ -23,7 +23,7 @@ Language path and device path meet here: Glow's fold (language) becomes an insta
 | Rung | Claim | Primary witness | State |
 |------|-------|-----------------|-------|
 | **glow-publishing** | App-manifest mold validates at the boundary | `tools/tube0_manifest_witness.rish` | GREEN |
-| **glow-publishing.5** | Permissions emit; NativeActivity envelope; signed demo APK with `libglowapp.so` | `tools/tube0_5_android_permission_witness.rish` · `tools/tube05_envelope_witness.rish` · `tools/tube05_apk_pack_witness.rish` | **host-side GREEN** `20260717.021857` |
+| **glow-publishing.5** | Permissions emit; NativeActivity envelope; signed APK with Sala B0 fold inside `libglowapp.so` (arm64+x86_64, NDK-linked) | `tools/tube0_5_android_permission_witness.rish` · `tools/tube05_envelope_witness.rish` · `tools/tube05_apk_pack_witness.rish` | **host-side GREEN** `20260717.021857` · Sala fold wired `20260717.121445` |
 | **glow-publishing** | Pool admits an agent iff manifest caps match a grant | — | design (needs agent runtime) |
 | **glow-publishing–5** | Signed publish · resins · market · Mantra revisions | — | design |
 | **glow-publishing–7** | Whole stack on GrapheneOS build / physical Pixel | — | joins [`pixel-glass.md`](pixel-glass.md) |
@@ -36,7 +36,8 @@ Language path and device path meet here: Glow's fold (language) becomes an insta
 rishi/bin/rishi run tools/tube05_apk_pack_witness.rish
 # → tools/.cache/tube05/sala-broadcaster.apk
 #    package org.glow.app.sala_broadcaster
-#    NativeActivity + lib/arm64-v8a/libglowapp.so
+#    NativeActivity + lib/{arm64-v8a,x86_64}/libglowapp.so (NDK-linked, DT_NEEDED libc)
+#    onCreate runs Sala B0; writes files/sala_root.txt (pixel-glass demo root)
 #    INTERNET from the closed permission table
 ```
 
@@ -44,10 +45,21 @@ rishi/bin/rishi run tools/tube05_apk_pack_witness.rish
 |-------|------|
 | Permission emission | `linengrow/tube_manifest_android_permission.rye` |
 | Full AndroidManifest.xml | `linengrow/tube_android_manifest.rye` |
+| Sala B0 fold (same root as pixel-glass) | `linengrow/sala_b0_fold.rye` |
 | Native entry (`ANativeActivity_onCreate`) | `linengrow/glow_native_activity.rye` |
 | Pack worker | `tools/tube05_apk_pack_worker.sh` |
 
-**Still open:** `adb install` on the Pixel 10a; a real Glow fold inside the native entry (today's entry is a symbol-shape stub). Debug keystore under `tools/.cache/tube05/` is host-local, never for publish.
+**Still open (host terminal — needs `/dev/kvm` or USB):** install proof. One-shot after pixel-glass is booted (or Pixel USB authorized):
+
+```bash
+# Host terminal (not ai-jail):
+rishi/bin/rishi run tools/hawm0_boot_onpath_host.rish   # if emulator not up
+rishi/bin/rishi run tools/tube05_install_proof_onpath_host.rish
+# → adb install -r · am start NativeActivity · run-as cat files/sala_root.txt
+# → must contain 99b3ae967c5a230acfc598a7e949b3c2c638ce996be47a51a7c9f8cb12e4c5fe
+```
+
+Debug keystore under `tools/.cache/tube05/` is host-local, never for publish.
 
 ---
 
