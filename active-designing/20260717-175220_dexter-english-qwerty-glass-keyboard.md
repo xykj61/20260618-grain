@@ -33,12 +33,12 @@ Study public layout/behavior notes only. Emit Glow layout tables (Rye). Never ve
 | **glass-keyboard** | Paint letters mode on Skate; hit boxes | **GREEN** `20260717.180558` · Pixel look `20260717.180933` |
 | **glass-keyboard** | Tap → Dexter Action → live line refresh | **GREEN** device-free `20260717.180933` · Pixel typing look = eyes |
 | **glass-keyboard** | Blinking caret on `DEXTER line · …` | **GREEN** device-free `20260717.182826` · Pixel blink look next |
-| **glass-keyboard** | Emoji mode SLC (bounded frequent set) | open |
-| **glass-keyboard** | Pixel look — keys + caret + type by tap | open |
+| **glass-keyboard** | Emoji mode SLC — frequent + 4 tabs · UTF-8 · atlas | **GREEN** device-free `20260717.185520` · Pixel look next |
+| **glass-keyboard** | Pixel look — keys + caret + type by tap | **GREEN** `20260717.184837` |
 
 ## Aligned Next
 
-**ZETA2b** — hit boxes match painted key widths; larger Skate scale on phone; fill portrait height. Typing + blink look GREEN `20260717.183345` with those gaps named. Orientation naming/firmware stays check-in.
+**glass-keyboard Pixel look** — confirm emoji faces, category tabs, and UTF-8 insert on glass. Horizon: more faces, color glyphs, skin tones.
 
 ## Related
 
