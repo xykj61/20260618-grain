@@ -8,6 +8,8 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260717.135053` — [Send glow-publishing market-rail GREEN](20260717-135053_send-tube4-market-rail.bron) — commit + push; kg glow-publishing Mantra revision next
+- `20260717.134355` — [glow-publishing market-rail witness GREEN](20260717-134355_tube4-market-rail-green.bron) — Exchange + Neth settle + fetch unlock; parity wired
 - `20260717.134122` — [Send glow-publishing sealed resin-fetch GREEN](20260717-134122_send-tube3-resin-fetch.bron) — commit + push; next glow-publishing market rail
 - `20260717.134037` — [glow-publishing sealed resin-fetch witness GREEN](20260717-134037_tube3-resin-fetch-green.bron) — Comlink seal + published-set gate; parity wired
 - `20260717.133825` — [Send glow-publishing signed publish GREEN](20260717-133825_send-tube2-publish.bron) — commit + push; kg glow-publishing resin fetch next

@@ -2,7 +2,7 @@
 
 *App = Pool agent. Manifest = bounded mold. Publish = signed fold. Packaging = NativeActivity envelope over Glow-built native code — never a Kotlin transpiler.*
 
-**Status:** Checkable — operator compressor (glow-publishing / glow-publishing.5 / glow-publishing / glow-publishing / glow-publishing GREEN)
+**Status:** Checkable — operator compressor (glow-publishing / glow-publishing.5 / glow-publishing–4 GREEN)
 **Depth:** guide
 **Ceiling:** ≤150 lines
 **Last updated:** 2026-07-17
@@ -27,7 +27,8 @@ Language path and device path meet here: Glow's fold (language) becomes an insta
 | **glow-publishing** | Pool admits an agent iff manifest caps match a grant | `tools/tube1_admission_witness.rish` · glass gate `tube1_glass_gate.rye` | **GREEN** device-free `20260717.131000` · glass + Pixel `20260717.131404` |
 | **glow-publishing** | Maker signs app+manifest into Granary; consumer verifies before install | `tools/tube2_publish_witness.rish` | **GREEN** `20260717.131500` (device-free) |
 | **glow-publishing** | Manifest resin fetched by digest under Comlink seal; verified before admit | `tools/tube3_resin_fetch_witness.rish` | **GREEN** `20260717.133900` (device-free) |
-| **glow-publishing–5** | Market rail · Mantra revisions | — | design |
+| **glow-publishing** | Price on Exchange, settle via Neth, unlock sealed fetch | `tools/tube4_market_rail_witness.rish` | **GREEN** `20260717.134300` (device-free) |
+| **glow-publishing** | Update as a signed Mantra revision | — | design |
 | **glow-publishing–7** | Whole stack on GrapheneOS build / physical Pixel | — | joins [`pixel-glass.md`](pixel-glass.md) |
 
 ---
