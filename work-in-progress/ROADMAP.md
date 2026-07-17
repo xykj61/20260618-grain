@@ -4,7 +4,7 @@
 
 **Language:** EN
 **Version:** `20260715` (Pool keystone revival prioritized · Quin voice seated · align pass reconciles the closed ladder)
-**Last updated:** 2026-07-17 (**glass-keyboard** `20260717.180558` — letters paint + hit boxes GREEN; Pixel look next)
+**Last updated:** 2026-07-17 (**glass-keyboard Pixel typing GREEN** `20260717.183345` — type works; hit-box/density/portrait next)
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)
 **Voice:** Quin
 **Lens:** TAME — safety, performance, joy; the Seed Law; [SLC](../context/SIMPLE_LOVABLE_COMPLETE.md)
@@ -206,7 +206,15 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **Waymark glass-keyboard + glass-keyboard, `20260717.180025`** — keyboard ladder waymark **glass-keyboard** from `glow-english-qwerty-glass-keyboard-3`; English layout tables GREEN; compressor [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md).
 
-**glass-keyboard letters paint + hit boxes, `20260717.180558`** — Skate rows 14–17 paint QWERTY; `HitMap` in window coords; taps on keyboard stay on glass. Witness + pack GREEN. **Aligned next:** glass-keyboard Pixel look; then glass-keyboard tap→Action.
+**glass-keyboard letters paint + hit boxes, `20260717.180558`** — Skate rows 14–17 paint QWERTY; `HitMap` in window coords; taps on keyboard stay on glass. Witness + pack GREEN. Pixel look GREEN `20260717.180933` (Keaton).
+
+**glass-keyboard tap → Dexter Action, `20260717.180933`** — glass taps drain into the same `LineEditor` path as KEY; shift latch + numbers/symbols mode pages; device-free witness GREEN; pack GREEN. Pixel typing look = host eyes (no new Rye).
+
+**TAME SLC realign, `20260717.181715`** — glass season outran assert/print/`copy_disjoint` density; native zero-assert advise falsely reported 0 (exempt-filter precedence); legacy truth **27** zero-assert files + **6** `@memcpy` app sites. Ledger [`../active-designing/20260717-181715_tame-slc-rye-audit-ledger.md`](../active-designing/20260717-181715_tame-slc-rye-audit-ledger.md). Lap 1–2 GREEN; Lap 3 (crypto leftovers) for check-in.
+
+**glass-keyboard blinking caret, `20260717.182826`** — `caret_visible_at` + live line glyph `|`; `timerfd` on the activity ALooper repaints every 500ms; witness + pack GREEN; installed on Pixel.
+
+**glass-keyboard Pixel typing + blink look GREEN, `20260717.183345`** — Keaton: we can type. Honest gaps named: wrong keys on some taps (equal-width hit columns vs space-separated paint), tiny font, portrait letterboxing. **Horizon (check-in):** orientation via Sensors/firmware for true portrait/landscape layout; form-factor product names (desktop vs mobile) without colliding with Sala.
 
 **Witness habitat + markup pipeline, `20260717.173427`** — foundations fit study affirms single-strand · sameness · happy-zone practice in the suite; teaching path was the gap. Seats **witness habitat** as Acme synonym (foundations keep *happy zone*). Fusion map holds Scribble→Brix→Bron→Mantra→Sala with Glow under TAME; Udon/Sail/Zuse horizon. Tutorial scaffold [`../manual/tutorials/cursor-and-the-compass.md`](../manual/tutorials/cursor-and-the-compass.md); silo [`../active-designing/20260717-173427_witness-habitat-and-the-markup-pipeline.md`](../active-designing/20260717-173427_witness-habitat-and-the-markup-pipeline.md). Product next remains Dexter D2.
 
@@ -217,7 +225,7 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 3. **Foundations / LLM compress** (`173848`) — decline archive/Bron essays; COMPASS + compass card seated.
 4. **Glass keyboard / glass-keyboard** (`175220`/`180025`) — decline Graphene IME host; waymark **glass-keyboard**; glass-keyboard layout tables GREEN.
 
-**Aligned next (one step):** **glass-keyboard Pixel look** (host install). Then glass-keyboard tap→Action. Hold B2 layout word, `(jam …)`, Dill, M1 for check-in.
+**Aligned next (one step):** **glass-keyboard hit-box + phone density + portrait fill** — fix wrong keys and tiny centered chrome. Hold orientation/firmware and desktop·mobile product naming for check-in. Hold glass-keyboard emoji, TAME Lap 3 crypto, B2, `(jam …)`, Dill, M1.
 
 ## The Visual Track — Realidream (horizon lane, ladder already named)
 

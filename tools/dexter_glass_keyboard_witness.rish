@@ -1,4 +1,4 @@
-# dexter_glass_keyboard_witness.rish — glass-keyboard tables + glass-keyboard paint/hit.
+# dexter_glass_keyboard_witness.rish — glass-keyboard–glass-keyboard glass keyboard.
 #
 #   rishi/bin/rishi run tools/dexter_glass_keyboard_witness.rish
 
@@ -17,5 +17,6 @@ assert selftest.out contains "numbers page" else "glass-keyboard missing numbers
 assert selftest.out contains "symbols page" else "glass-keyboard missing symbols claim"
 assert selftest.out contains "letters paint lines" else "glass-keyboard missing paint claim"
 assert selftest.out contains "hit boxes" else "glass-keyboard missing hit-box claim"
+assert selftest.out contains "tap drain" else "glass-keyboard missing tap→Action claim"
 
-say "GREEN: glass-keyboard+glass-keyboard — layout tables and letters paint/hit under waymark glass-keyboard."
+say "GREEN: glass-keyboard–glass-keyboard — layout, paint/hit, and tap→Action under waymark glass-keyboard."
