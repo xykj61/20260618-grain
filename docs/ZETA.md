@@ -21,7 +21,7 @@ Bare NativeActivity does not attach Graphene/AOSP soft IME reliably. **glass-key
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
 | **glass-keyboard** | Letters · numbers · symbols layout tables | `tools/dexter_glass_keyboard_witness.rish` | **GREEN** `20260717.180025` |
-| **glass-keyboard** | Paint letters mode on Skate; hit boxes | glass-keyboard | open |
+| **glass-keyboard** | Paint letters mode on Skate; hit boxes | same witness · pack | **GREEN** `20260717.180558` |
 | **glass-keyboard** | Tap → Dexter Action → live line | glass-keyboard | open |
 | **glass-keyboard** | Blinking caret on Dexter line | glass-keyboard+ | open |
 | **glass-keyboard** | Emoji mode SLC (bounded) | glass-keyboard | open |

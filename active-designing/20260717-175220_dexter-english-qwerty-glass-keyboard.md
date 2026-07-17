@@ -5,7 +5,7 @@
 **Version:** `20260717.175220` (Eastern) · waymark **glass-keyboard** + glass-keyboard `20260717.180025`
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)
 **Voice:** Quin
-**Status:** Mixed — design seated; **glass-keyboard** layout tables Checkable GREEN; paint still vision (Two Rooms).
+**Status:** Mixed — **glass-keyboard+glass-keyboard** Checkable GREEN; glass-keyboard+ vision (Two Rooms).
 **World study:** [`../external-research/20260717-175220_glow-english-qwerty-glass-keyboard-ios-inspired.md`](../external-research/20260717-175220_glow-english-qwerty-glass-keyboard-ios-inspired.md)
 **Compressor:** [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md)
 
@@ -29,8 +29,8 @@ Study public layout/behavior notes only. Emit Glow layout tables (Rye). Never ve
 
 | Lap | Claim | State |
 |---|---|---|
-| **glass-keyboard** | English letters + numbers + symbols **layout tables** | **GREEN** · `tools/dexter_glass_keyboard_witness.rish` |
-| **glass-keyboard** | Paint letters mode on Skate; hit boxes | open |
+| **glass-keyboard** | English letters + numbers + symbols **layout tables** | **GREEN** |
+| **glass-keyboard** | Paint letters mode on Skate; hit boxes | **GREEN** `20260717.180558` |
 | **glass-keyboard** | Tap → Dexter Action → live line refresh | open |
 | **glass-keyboard** | Blinking caret on `DEXTER line · …` | open |
 | **glass-keyboard** | Emoji mode SLC (bounded frequent set) | open |
@@ -38,7 +38,7 @@ Study public layout/behavior notes only. Emit Glow layout tables (Rye). Never ve
 
 ## Aligned Next
 
-**glass-keyboard** — paint the letters page on Skate with hit boxes.
+**glass-keyboard Pixel look** — host install; then **glass-keyboard** tap → Dexter Action.
 
 ## Related
 

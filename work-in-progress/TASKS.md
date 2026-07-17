@@ -231,7 +231,8 @@
 - [x] **Dexter D3 Pixel look** `20260717.175220` — Keaton confirmed GREEN for install + `DEXTER line · glow`. **Honest gaps:** no system soft keyboard visible; no blinking caret. Graphene IME via `showSoftInput` insufficient on bare NativeActivity.
 - [x] **Glow English QWERTY glass keyboard — research + silo** `20260717.175220` — study [`../external-research/20260717-175220_glow-english-qwerty-glass-keyboard-ios-inspired.md`](../external-research/20260717-175220_glow-english-qwerty-glass-keyboard-ios-inspired.md); silo [`../active-designing/20260717-175220_dexter-english-qwerty-glass-keyboard.md`](../active-designing/20260717-175220_dexter-english-qwerty-glass-keyboard.md). Own Skate OSK; decline IME host.
 - [x] **Waymark glass-keyboard + glass-keyboard layout tables** `20260717.180025` — input `glow-english-qwerty-glass-keyboard-3` → **glass-keyboard**; [`dexter_glass_keyboard_layout.rye`](../linengrow/dexter_glass_keyboard_layout.rye); witness GREEN; parity wired; compressor [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md).
-- [ ] **glass-keyboard — Paint letters mode on Skate** — bottom glass hit boxes.
+- [x] **glass-keyboard — Paint letters mode on Skate** `20260717.180558` — [`dexter_glass_keyboard_paint.rye`](../linengrow/dexter_glass_keyboard_paint.rye) formats letters rows; glass paints Skate rows 14–17; hit map stored; taps on keyboard do not finish (glass-keyboard drains Actions). Witness + pack GREEN.
+- [ ] **glass-keyboard Pixel look** — host install; eyes on QWERTY rows under Dexter line.
 - [ ] **glass-keyboard — Tap → Dexter Action** — live line without system IME.
 - [ ] **glass-keyboard — Blinking caret on Dexter line** — visible terminal pulse.
 - [ ] **glass-keyboard — Emoji mode SLC** — bounded frequent set + few tabs.
