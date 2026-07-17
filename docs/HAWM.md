@@ -39,6 +39,9 @@ On-device Sala via `tools/hawm3_sala_device_witness.rish` (aarch64) needs USB de
 | Upstream install / features wording | [`gratitude/grapheneos/`](../gratitude/grapheneos/) (MIT mirror — study, not our guide) |
 | Living ledger (full register) | [`context/specs/two-dev-environments-and-mobile-emulation.md`](../context/specs/two-dev-environments-and-mobile-emulation.md) |
 | Packaging + glass rail on Pixel | [`glow-publishing.md`](glow-publishing.md) — glow-publishing.5–glow-publishing + **glow-publishing GREEN** `20260717.145547` (glow-publishing waits on pixel-glass) |
+| GrapheneOS Storage · Contact Scopes → Glow | [`../linengrow/glow_storage_scope.rye`](../linengrow/glow_storage_scope.rye) — **GREEN** `20260717.155846` · glass cover `20260717.161220` (scopes cover declared photos + contacts) |
+| GrapheneOS Network permission toggle → Glow | [`../linengrow/glow_network_grant.rye`](../linengrow/glow_network_grant.rye) — **GREEN** `20260717.160607` · glow-publishing wire `20260717.160828` (binary grant; appears down; glass door live) |
+| GrapheneOS Sensors permission toggle → Glow | [`../linengrow/glow_sensors_grant.rye`](../linengrow/glow_sensors_grant.rye) — **GREEN** `20260717.161013` (binary grant; appears zeroed; gated admit + glass) |
 | Install APK + prove Sala root | Host terminal: `tools/tube05_install_proof_onpath_host.rish` — **pixel-glass** · **Pixel** · glass lines confirmed through glow-publishing |
 
 ---
