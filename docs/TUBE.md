@@ -2,7 +2,7 @@
 
 *App = Pool agent. Manifest = bounded mold. Publish = signed fold. Packaging = NativeActivity envelope over Glow-built native code — never a Kotlin transpiler.*
 
-**Status:** Checkable — operator compressor (glow-publishing / glow-publishing.5 / glow-publishing–4 GREEN)
+**Status:** Checkable — operator compressor (glow-publishing / glow-publishing.5 / glow-publishing–5 GREEN)
 **Depth:** guide
 **Ceiling:** ≤150 lines
 **Last updated:** 2026-07-17
@@ -28,8 +28,9 @@ Language path and device path meet here: Glow's fold (language) becomes an insta
 | **glow-publishing** | Maker signs app+manifest into Granary; consumer verifies before install | `tools/tube2_publish_witness.rish` | **GREEN** `20260717.131500` (device-free) |
 | **glow-publishing** | Manifest resin fetched by digest under Comlink seal; verified before admit | `tools/tube3_resin_fetch_witness.rish` | **GREEN** `20260717.133900` (device-free) |
 | **glow-publishing** | Price on Exchange, settle via Neth, unlock sealed fetch | `tools/tube4_market_rail_witness.rish` | **GREEN** `20260717.134300` (device-free) |
-| **glow-publishing** | Update as a signed Mantra revision | — | design |
-| **glow-publishing–7** | Whole stack on GrapheneOS build / physical Pixel | — | joins [`pixel-glass.md`](pixel-glass.md) |
+| **glow-publishing** | Update as a Mantra revision; rollback selects prior rev | `tools/tube5_mantra_revision_witness.rish` · glass tip `tube5_glass_tip.rye` | **GREEN** device-free `20260717.135200`; glass pack + Pixel look `20260717.140600` |
+| **glow-publishing** | Whole stack on real GrapheneOS build | — | horizon — needs pixel-glass |
+| **glow-publishing** | Packaging + admit on physical Pixel | glow-publishing.5 install + glow-publishing glass | **partial** — pixel-glass closed; Pixel install/look GREEN for 0.5+T1; glow-publishing–4 not yet on-device |
 
 ---
 
@@ -68,7 +69,9 @@ rishi/bin/rishi run tools/tube05_install_proof_onpath_host.rish
 
 **R2 surface on glass GREEN `20260717.130848`:** `sala_r2_surface.rye` hosts ask · receipt · reputation (capability-isolated) onto one `sala_surface.Surface`; Skate paints `[ask] issuer 200` / `[receipt] issuer 250` / `[reputation] issuer 275` above the B0 hex. Install proof GREEN; Keaton confirmed on Pixel.
 
-**glow-publishing glass gate GREEN `20260717.131404`:** `tube1_glass_gate.rye` admits the sala-broadcaster manifest (three state resources) before R2 paints; title `SALA B0+R2+T1  GREEN` / `glow-publishing admitted · Pool x3`. Install proof GREEN; Keaton confirmed on Pixel. Debug keystore under `tools/.cache/tube05/` is host-local, never for publish.
+**glow-publishing glass gate GREEN `20260717.131404`:** `tube1_glass_gate.rye` admits the sala-broadcaster manifest (three state resources) before R2 paints; title `SALA B0+R2+T1  GREEN` / `glow-publishing admitted · Pool x3`. Install proof GREEN; Keaton confirmed on Pixel.
+
+**glow-publishing tip on glass GREEN `20260717.140600`:** after admit + R2, `tube5_glass_tip.rye` lands Mantra rev1/rev2 and paints `glow-publishing tip rev2 · 0.2.0`. Install proof GREEN (binds `sala_root.txt`); Keaton confirmed the tip line on Pixel. Debug keystore under `tools/.cache/tube05/` is host-local, never for publish.
 
 ---
 
