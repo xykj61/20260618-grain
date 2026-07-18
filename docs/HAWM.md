@@ -5,8 +5,8 @@
 **Status:** Checkable — operator compressor
 **Depth:** guide
 **Ceiling:** ≤120 lines
-**Last updated:** 2026-07-17
-**Compresses:** [`two-dev-environments-and-mobile-emulation.md`](../context/specs/two-dev-environments-and-mobile-emulation.md) · [`20260716-115927_waymark-ladder-naming-and-g0-collision-fix.md`](../context/specs/20260716-115927_waymark-ladder-naming-and-g0-collision-fix.md) · [`pixel-10a-grapheneos-setup.md`](../manual/guides/pixel-10a-grapheneos-setup.md)
+**Last updated:** 2026-07-18 (seva-broadcast living name beside Sala fold modules)
+**Compresses:** [`two-dev-environments-and-mobile-emulation.md`](../context/specs/two-dev-environments-and-mobile-emulation.md) · [`20260716-115927_waymark-ladder-naming-and-g0-collision-fix.md`](../context/specs/20260716-115927_waymark-ladder-naming-and-g0-collision-fix.md) · [`pixel-10a-grapheneos-setup.md`](../manual/guides/pixel-10a-grapheneos-setup.md) · [`seva-broadcast.md`](seva-broadcast.md)
 
 ---
 
@@ -23,7 +23,7 @@ pixel-glass/pixel-glass exercise real AOSP/Android userland (useful for Glow cod
 | Rung | Claim | Primary witness / guide | State |
 |------|-------|-------------------------|-------|
 | **pixel-glass** | Stock AOSP AVD boots, KVM-accelerated | `tools/hawm0_boot_onpath_host.rish` | GREEN |
-| **pixel-glass** | Glow Sala B0 fold runs inside that AVD; session root matches native | `tools/hawm1_sala_witness.rish` | GREEN |
+| **pixel-glass** | **seva-broadcast** Sala fold runs inside that AVD (module `sala_b0_fold`); session root matches native | `tools/hawm1_sala_witness.rish` | GREEN |
 | **pixel-glass** | Real GrapheneOS build / image | — | horizon (Linux/KVM + full AOSP) |
 | **pixel-glass** | Physical Pixel, GrapheneOS flashed, boot-key hash matched | [`pixel-10a-grapheneos-setup.md`](../manual/guides/pixel-10a-grapheneos-setup.md) · hash `d8f879d1…` | **closed** `20260717.013700` |
 
@@ -42,7 +42,7 @@ On-device Sala via `tools/hawm3_sala_device_witness.rish` (aarch64) needs USB de
 | GrapheneOS Storage · Contact Scopes → Glow | [`../linengrow/glow_storage_scope.rye`](../linengrow/glow_storage_scope.rye) — **GREEN** `20260717.155846` · glass cover `20260717.161220` (scopes cover declared photos + contacts) |
 | GrapheneOS Network permission toggle → Glow | [`../linengrow/glow_network_grant.rye`](../linengrow/glow_network_grant.rye) — **GREEN** `20260717.160607` · glow-publishing wire `20260717.160828` (binary grant; appears down; glass door live) |
 | GrapheneOS Sensors permission toggle → Glow | [`../linengrow/glow_sensors_grant.rye`](../linengrow/glow_sensors_grant.rye) — **GREEN** `20260717.161013` · emit `20260717.161448` (appears zeroed; `OTHER_SENSORS` table row) |
-| Install APK + prove Sala root | Host terminal: `tools/tube05_install_proof_onpath_host.rish` — **pixel-glass** · **Pixel** · glass through glow-publishing + Sala B1 + Dexter D1 line (`20260717.173133`; D2 Pixel look open) |
+| Install APK + prove Sala root | Host terminal: `tools/tube05_install_proof_onpath_host.rish` — **pixel-glass** · **Pixel** · glass through glow-publishing + **seva-broadcast** carriage + Dexter D1 line (`20260717.173133`; D2 Pixel look open) |
 
 ---
 
