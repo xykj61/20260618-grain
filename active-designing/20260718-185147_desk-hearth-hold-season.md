@@ -3,7 +3,7 @@
 *Opened after usb-hearth–5 closed the warm-wire stand-in ladder. Not usb-hearth (QEMU/Pixel CDC-NCM lab). This season makes Desk **use** what the wire already carried.*
 
 **Stamp:** `20260718.185147` (Eastern)  
-**Status:** Checkable — HOLD0–HOLD1 GREEN; host Pixel look `20260718.193607`  
+**Status:** Checkable — season closed on eyes `20260718.194211` (HOLD0–HOLD1 · HOLD-W)  
 **Voice:** Quin  
 **Why not usb-hearth:** Finishing edge — gadget/lab is a domain jump; the fold and frame already sit on Desk unread.  
 **Compresses into:** [`../docs/usb-hearth.md`](../docs/usb-hearth.md)  
@@ -23,6 +23,7 @@
 |------|-------|-------|
 | **HOLD0** | Desk status: home · preset · wire · ping held · frame bytes; local ignores stale bins | **GREEN** `20260718.190720` |
 | **HOLD1** | Desk Skate paints hold chrome (rows 0–1) under usb-hearth.5 Desk metrics | **GREEN** `20260718.193122` |
+| **HOLD-W** | Desk Wayland eyes — Desk raster + look selftest; eyes seen on Framework | **GREEN** `20260718.194211` |
 | **usb-hearth** | QEMU/Pixel CDC-NCM lab | parked — other season |
 
 ## Stack
