@@ -14,5 +14,6 @@ assert selftest.out contains "GREEN" else "seva-broadcast glass audience witness
 assert selftest.out contains "audience" else "seva-broadcast glass missing audience claim"
 assert selftest.out contains "layout rows" else "seva-broadcast glass missing layout-word claim"
 assert selftest.out contains "Dexter submit" else "seva-broadcast glass missing live chat-face claim"
+assert selftest.out contains "bare ret" else "seva-broadcast glass missing bare-ret chat claim"
 
 say "GREEN: seva-broadcast glass audience witness passed."
