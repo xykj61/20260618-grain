@@ -4,7 +4,7 @@
 
 **Language:** EN
 **Version:** `20260715` (Pool keystone revival prioritized · Quin voice seated · align pass reconciles the closed ladder)
-**Last updated:** 2026-07-18 (**usb-hearth** GREEN — device-wire payload)
+**Last updated:** 2026-07-18 (**HOLD0** GREEN — Desk Hearth Hold season)
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)
 **Voice:** Quin
 **Lens:** TAME — safety, performance, joy; the Seed Law; [SLC](../context/SIMPLE_LOVABLE_COMPLETE.md)
@@ -277,6 +277,8 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 **usb-hearth sent · usb-hearth GREEN, `20260718.184214`–`184323`** — pier `104e642b54`. Affirmed+kg: NCM-framed ping crosses live UDP :38502; host usb0/ncm probe SKIP. Next: **send** usb-hearth.
 
 **usb-hearth sent · usb-hearth GREEN, `20260718.184449`–`184537`** — pier `3512444e73`. Kg: framed ping fits Comlink device max_frame; `lane_frame.bin` held. Live QEMU/Pixel CDC-NCM lab is **usb-hearth** check-in. Next: **send** usb-hearth.
+
+**usb-hearth sent · Desk Hearth Hold · HOLD0 GREEN, `20260718.184733`–`185306`** — pier usb-hearth. Chapter open (not usb-hearth): Desk status line over `station.bron` + held ping/frame. Next: **send** HOLD0; HOLD1 / usb-hearth stay check-in.
 
 **Glow OS · Glow Desk · Glow Glass seated, `20260717.183622`** — Keaton: **Glow OS** unifies; **Glow Desk** = desktop; **Glow Glass** = mobile. Lexicon + silo [`../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md`](../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md). Orientation firmware stays check-in.
 

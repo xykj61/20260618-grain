@@ -2,9 +2,9 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260718.184537` (Eastern) · voice Quin  
-**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth**  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth  
+**Last refreshed:** `20260718.185306` (Eastern) · voice Quin  
+**Product nib:** glass-keyboard · hearth-display–5 · usb-hearth · **HOLD0**  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth · HOLD0  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
 
 ---
@@ -18,7 +18,7 @@
 | **glass-keyboard** | English QWERTY glass keyboard | glass-keyboard–6 GREEN (Pixel look) |
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
-| **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth GREEN** · usb-hearth check-in |
+| **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth · HOLD0 GREEN** · HOLD1 / usb-hearth check-in |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md)
 
@@ -33,8 +33,9 @@ $ADB devices
 $ADB install -r tools/.cache/tube05/sala-broadcaster.apk
 $ADB shell am force-stop org.glow.app.sala_broadcaster
 $ADB shell am start -n org.glow.app.sala_broadcaster/android.app.NativeActivity
-# usb-hearth — pull hearth Bron Glass→Desk (Glass must have saved once)
+# usb-hearth→HOLD0 — pull hearth · station · ping gate · Desk hold line
 rishi/bin/rishi run tools/setu0_hearth_pull_onpath_host.rish
+rishi/bin/rishi run tools/setu_desk_hold0_witness.rish
 ```
 
 ---
@@ -47,8 +48,9 @@ Hold row 1 → Settings: presets · `home ·` · `wire ·` · `cell ·` — all 
 
 | Door | Kind |
 |------|------|
-| Ship usb-hearth device payload | **send** |
-| **usb-hearth** QEMU/Pixel CDC-NCM lab | **check-in** |
+| Ship HOLD0 Desk hold season open | **send** |
+| **HOLD1** Desk Skate chrome from station | **check-in** |
+| **usb-hearth** QEMU/Pixel CDC-NCM lab | **check-in** (parked) |
 | Amber/Amphora Glass↔Desk fuse | **declined** — compose later (`133455`) |
 | seva-broadcast · TAME Lap 3 | **check-in** |
 
