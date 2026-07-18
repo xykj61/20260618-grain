@@ -22,7 +22,7 @@ A broadcast is a fold over a signed, append-only, ordered log. Live carriage and
 |------|-------|----------------|-------|
 | **seva-broadcast** | Session-as-log (signed ordered fold) | `sala_session_core` / B0 fold witnesses | **GREEN** (historical B0) |
 | **seva-broadcast** | Live carriage → one subscriber | `sala_b1_*` glass + delivery | **GREEN** · glass Pixel look |
-| **seva-broadcast** | Audience + back-channel (multi-signer chat) | `sala_backchannel_witness` · glass strip | **GREEN** device-free · glass Pixel `20260717.190807` |
+| **seva-broadcast** | Audience + back-channel (multi-signer chat) | `sala_backchannel_witness` · glass strip | **GREEN** device-free · glass Pixel `20260717.190807` · live chat · finish-zone row 13 only `20260717.213015` |
 | **seva-broadcast** | Inference and economics | B2 · Quin · MALA | open — check-in |
 
 ## Hands-on

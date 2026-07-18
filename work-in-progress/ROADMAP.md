@@ -224,7 +224,11 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glass-keyboard Pixel look GREEN + distinct glyphs, `20260717.190045`** — Keaton: emojis worked; faces looked same within categories. Polish: hand-distinct 8×8 per face; witness binds distinctness; reinstall for eyes.
 
-**glass-keyboard distinct look GREEN · seva-broadcast glass, `20260717.190358`** — Keaton: glyphs look really good; kg to next. Layout word: Skate 20 rows · seva-broadcast audience 14–15 · keyboard 16–19. Device-free B2 glass GREEN; installed for Pixel look.
+**glass-keyboard distinct look GREEN · seva-broadcast glass, `20260717.190358`** — Keaton: glyphs look really good; kg to next. Layout word: Skate 20 rows · seva-broadcast audience 14–15 · keyboard 16–19. Device-free seva-broadcast glass GREEN; Pixel look GREEN.
+
+**seva-broadcast live chat face, `20260717.212257`** — Dexter `ret` refreshes audience row as `chat · …` (paint). Witness + pack GREEN; host-terminal install for eyes.
+
+**seva-broadcast finish-zone + remember, `20260717.213058`–`213242`** — close-hint row 13 only (mode switch no longer finishes the app); mode round-trip GREEN; **remember** word + `REMEMBER.md` card; Acme first-Glow / open-runes note.
 
 **Glow OS · Glow Desk · Glow Glass seated, `20260717.183622`** — Keaton: **Glow OS** unifies; **Glow Desk** = desktop; **Glow Glass** = mobile. Lexicon + silo [`../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md`](../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md). Orientation firmware stays check-in.
 

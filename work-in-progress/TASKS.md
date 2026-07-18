@@ -257,6 +257,9 @@
 - [x] **seva-broadcast glass — layout word + audience strip** `20260717.190358` — Skate **20** rows; seva-broadcast on **14–15**; glass-keyboard keyboard on **16–19**; welcome audience; witness GREEN; pack + install.
 - [x] **seva-broadcast glass Pixel look** `20260717.190807` — Keaton: GREEN, confirm screen yes.
 - [x] **seva-broadcast on glass** `20260717.190358` — layout word seated; audience strip painted.
+- [x] **seva-broadcast live chat face** `20260717.212257` — Dexter `ret` refreshes row 15 as `chat · …` (paint); witness GREEN; pack for host install.
+- [x] **seva-broadcast finish-zone + mode round-trip** `20260717.213058` — close only Skate row 13; taps on seva-broadcast strip stay; glass-keyboard mode round-trip witnesses GREEN; pack for host install.
+- [x] **remember word + living card** `20260717.213242` — rule + `work-in-progress/REMEMBER.md` + Acme open-runes expanding-prompt.
 - [ ] **seva-broadcast — Inference and economics** — check-in (Quin · MALA).
 - [ ] **C2 thin TAME compressor** — optional `docs/TAME.md` only if cold-load pain is measured.
 - [ ] **C3 LEXICON core Bron card** — optional; Keaton's word.
