@@ -260,6 +260,13 @@
 - [x] **seva-broadcast live chat face** `20260717.212257` — Dexter `ret` refreshes row 15 as `chat · …` (paint); witness GREEN; pack for host install.
 - [x] **seva-broadcast finish-zone + mode round-trip** `20260717.213058` — close only Skate row 13; taps on seva-broadcast strip stay; glass-keyboard mode round-trip witnesses GREEN; pack for host install.
 - [x] **remember word + living card** `20260717.213242` — rule + `work-in-progress/REMEMBER.md` + Acme open-runes expanding-prompt.
+- [x] **seva-broadcast bare-ret empty chat** `20260717.213745` — empty prompt still paints `chat ·`; Pixel first-ret GREEN.
+- [x] **Hearth · hearth-display · glass-keyboard design seat** `20260718.122145` — waymark **hearth-display**; expanding-prompt + ER + silo + `docs/hearth-display.md`; ret=newline · ↑=send design; short home `kd`; Pixel 10a 1080×2424 presets; Mantrapod Skate-budget floor; Wired Glass SLC named.
+- [ ] **glass-keyboard — ret = newline · ↑ = submit** — layout + paint + hit + multiline Dexter; device-free witness then pack (kg).
+- [ ] **hearth-display — Bron hearth** — `home_id` (two `a–z`) + `display_preset` enum; device-free witness.
+- [ ] **hearth-display — apply preset in Skate/NativeActivity** — logical size / scale table; Pixel look.
+- [ ] **hearth-display — Settings face** — check-in (Pool-hosted).
+- [ ] **Wired Glass SLC metalsmoke** — cellular optional/off; USB sync to Desk; Setu/CDC-NCM check-in.
 - [ ] **seva-broadcast — Inference and economics** — check-in (Quin · MALA).
 - [ ] **C2 thin TAME compressor** — optional `docs/TAME.md` only if cold-load pain is measured.
 - [ ] **C3 LEXICON core Bron card** — optional; Keaton's word.

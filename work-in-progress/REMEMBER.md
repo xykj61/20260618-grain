@@ -2,9 +2,9 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260717.213242` (Eastern) · voice Quin  
-**Product nib:** seva-broadcast finish-zone + live chat (device-free GREEN; Pixel eyes pending this pack)  
-**Suite nib:** glass-keyboard emoji + mode round-trip GREEN  
+**Last refreshed:** `20260718.122145` (Eastern) · voice Quin  
+**Product nib:** seva-broadcast bare-ret chat GREEN · **glass-keyboard / hearth-display design seated** (build next)  
+**Suite nib:** glass-keyboard–5 GREEN · mode round-trip GREEN  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
 
 ---
@@ -15,10 +15,11 @@
 |---------|--------|-----|
 | **pixel-glass** | GrapheneOS / Pixel SLC | pixel-glass–1 GREEN · pixel-glass real Pixel GrapheneOS |
 | **glow-publishing** | App framework / NativeActivity pack | glow-publishing.5 APK GREEN · glow-publishing admitted glass |
-| **glass-keyboard** | English QWERTY glass keyboard | glass-keyboard–5 GREEN · mode round-trip GREEN |
+| **glass-keyboard** | English QWERTY glass keyboard | glass-keyboard–5 GREEN · **glass-keyboard** ret=newline · ↑=send (design) |
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
+| **hearth-display** | Hearth display · short home · Wired Glass | hearth-display+ open · waymark `20260718.122145` |
 
-Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · draw `tools/waymark_derive.rish`
+Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md)
 
 ---
 
@@ -39,12 +40,12 @@ Re-pack after glass edits: `rishi/bin/rishi run tools/tube05_apk_pack_witness.ri
 
 ---
 
-## Phone look (this pack)
+## Phone look (this pack — pre-glass-keyboard)
 
-1. **ret** — Dexter submit refreshes seva-broadcast row as `chat · …` (paint).
-2. **em / 123 → abc** — mode round-trip; app must stay open (finish-zone fix).
-3. **Close** — only the painted `TAP ABOVE KB TO CLOSE` row (Skate 13). Taps on the audience strip (14–15) stay; they do not finish the app.
-4. Emoji faces still insert UTF-8; distinct atlas glyphs.
+1. **ret** — still **submit** until glass-keyboard lands; bare ret → `chat ·`; typed → `chat · …`.
+2. **em / 123 → abc** — mode round-trip; app stays open (finish-zone).
+3. **Close** — only `TAP ABOVE KB TO CLOSE` (Skate 13).
+4. After glass-keyboard: **ret** = newline · **↑** = send.
 
 ---
 
@@ -52,13 +53,13 @@ Re-pack after glass edits: `rishi/bin/rishi run tools/tube05_apk_pack_witness.ri
 
 | Door | Kind |
 |------|------|
-| Host install + Pixel look for finish-zone / mode switch | **kg** |
-| seva-broadcast inference + economics | **check-in** |
-| TAME Lap 3 (`mantra/bolt_apply_step`, `tally/kumara`, `tally/pedersen`) | **check-in** |
-| Glow Glass orientation (Sensors → layout) | **check-in** |
-| Next Glow language rung `(jam …)` / multi-line composition | language lane — see Acme note |
+| **glass-keyboard** newline + ↑ send | **kg** (design seated) |
+| **hearth-display** Bron hearth `home_id` + preset | **kg** after glass-keyboard |
+| Host install if APK rebuilt | **kg** |
+| seva-broadcast · TAME Lap 3 · Sensors orientation · Setu name | **check-in** |
+| hearth-display Settings UI · Wired Glass metalsmoke | **check-in** |
 
-Acme map for first Glow code + open runes: [`../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md`](../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md)
+Silo: [`../active-designing/20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md`](../active-designing/20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md)
 
 ---
 
@@ -67,7 +68,7 @@ Acme map for first Glow code + open runes: [`../expanding-prompts/20260717-21324
 | Word | Means |
 |------|--------|
 | **remember** | Reprint this card |
-| **kg** | Keep going (mechanical next lap) — not ship |
+| **kg** | Keep going — not ship |
 | **align** | Walk compass · fix plan drift |
 | **send** | Commit · push · merge to pier |
 
