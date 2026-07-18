@@ -22,5 +22,7 @@ assert selftest.out contains "label-span hit" else "ZETA2b missing label-span hi
 assert selftest.out contains "emoji UTF-8" else "glass-keyboard missing emoji UTF-8 claim"
 assert selftest.out contains "distinct atlas" else "glass-keyboard missing distinct-atlas claim"
 assert selftest.out contains "mode round-trip" else "glass-keyboard missing mode round-trip claim"
+assert selftest.out contains "zeta6" else "glass-keyboard missing ret/send claim"
+assert selftest.out contains "ret newline" else "glass-keyboard missing newline claim"
 
-say "GREEN: glass-keyboard–glass-keyboard — layout, label-span hit, tap→Action, emoji, mode round-trip under waymark glass-keyboard."
+say "GREEN: glass-keyboard–glass-keyboard — layout, label-span hit, tap→Action, emoji, mode round-trip, ret/send under waymark glass-keyboard."

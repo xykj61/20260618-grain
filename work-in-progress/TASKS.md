@@ -262,10 +262,24 @@
 - [x] **remember word + living card** `20260717.213242` — rule + `work-in-progress/REMEMBER.md` + Acme open-runes expanding-prompt.
 - [x] **seva-broadcast bare-ret empty chat** `20260717.213745` — empty prompt still paints `chat ·`; Pixel first-ret GREEN.
 - [x] **Hearth · hearth-display · glass-keyboard design seat** `20260718.122145` — waymark **hearth-display**; expanding-prompt + ER + silo + `docs/hearth-display.md`; ret=newline · ↑=send design; short home `kd`; Pixel 10a 1080×2424 presets; Mantrapod Skate-budget floor; Wired Glass SLC named.
-- [ ] **glass-keyboard — ret = newline · ↑ = submit** — layout + paint + hit + multiline Dexter; device-free witness then pack (kg).
-- [ ] **hearth-display — Bron hearth** — `home_id` (two `a–z`) + `display_preset` enum; device-free witness.
-- [ ] **hearth-display — apply preset in Skate/NativeActivity** — logical size / scale table; Pixel look.
-- [ ] **hearth-display — Settings face** — check-in (Pool-hosted).
+- [x] **glass-keyboard — ret = newline · ^ = submit** `20260718.122938` — layout send key; newline Action; Dexter `P{n}` last-line paint; hardware Enter = newline; witnesses GREEN; pack for Pixel look.
+- [x] **glass-keyboard Pixel look** `20260718.123705` — Keaton: GREEN; `P1`–`P6` from several `ret` taps; `^` sends to chat. Primitive Skate chrome intentional (SLC thin edge; hearth-display presets later).
+- [x] **hearth-display — Bron hearth** `20260718.123900` — [`hearth_lulu0.rye`](../linengrow/hearth_lulu0.rye): `home_id` (two `a–z`) + closed presets; Bron format/parse; path `kd/hearth.bron`; witness + parity_ch01.
+- [x] **hearth-display — apply preset in Skate/NativeActivity** `20260718.124214` — [`hearth_lulu1.rye`](../linengrow/hearth_lulu1.rye); `scaled_540` default from Bron; panel_max reads window; larger glyphs on lower presets; pack for Pixel look.
+- [x] **hearth-display Pixel look** `20260718.124528` — Keaton: GREEN; glyphs larger under `scaled_540`.
+- [x] **hearth-display hearth status chrome** `20260718.124610` — Skate row 1 paints `{home_id} · {preset}`; witness + pack for Pixel eyes.
+- [x] **hearth-display status chrome Pixel look** `20260718.124821` — Keaton: sees `kd · scaled_540` GREEN.
+- [x] **hearth-display tap status cycles preset** `20260718.124821` — closed N=4 `DisplayPreset.next`; hit on Skate row 1; Settings list stays hearth-display check-in.
+- [x] **hearth-display tap-cycle Pixel look** `20260718.125312` — Keaton: GREEN; cycling works.
+- [x] **hearth-display hearth Bron persist** `20260718.125312` — cycle writes `files/{home}/hearth.bron`; create loads disk before default; restart keeps last preset.
+- [x] **hearth-display persist Pixel look** `20260718.125639` — Keaton: GREEN; survives force-close + reopen. **hearth-display rung closed.**
+- [x] **hearth-display — Settings face affirmed + built** `20260718.125835` — Keaton affirmed thin four-line list; long-press status opens rows 2–5; tap selects + persists; short tap still cycles; witness + pack for Pixel look.
+- [x] **hearth-display Pixel look** `20260718.130251` — Keaton: GREEN; long-press menu works. Named gap: list waited for release.
+- [x] **hearth-display hold-open** `20260718.130251` — timerfd opens list at 450ms while finger still down; release after hold skips cycle; pack for eyes.
+- [x] **hearth-display hold-open Pixel look** `20260718.130606` — Keaton: GREEN, perfect. **hearth-display rung closed.**
+- [x] **Next doors affirmed** `20260718.130756` — after hearth-display–2 send: **Wired Glass / Setu** and **home_id editor** are the seated next check-ins (build only after a further affirm of thin face).
+- [ ] **Wired Glass SLC / Setu** — affirmed next; check-in thin face before build (cellular optional; USB sync to Desk).
+- [ ] **home_id editor on glass** — affirmed next; check-in thin face before build (`kd` fixture until that face lands).
 - [ ] **Wired Glass SLC metalsmoke** — cellular optional/off; USB sync to Desk; Setu/CDC-NCM check-in.
 - [ ] **seva-broadcast — Inference and economics** — check-in (Quin · MALA).
 - [ ] **C2 thin TAME compressor** — optional `docs/TAME.md` only if cold-load pain is measured.

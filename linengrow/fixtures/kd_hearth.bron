@@ -1,0 +1,5 @@
+# hearth-display fixture — short home kd, Pixel panel_max preset.
+format hearth-lulu0-v1
+home_id kd
+display_preset panel_max
+waymark hearth-display

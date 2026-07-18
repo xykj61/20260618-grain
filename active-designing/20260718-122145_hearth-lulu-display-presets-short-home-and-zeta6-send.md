@@ -3,7 +3,17 @@
 *Owned Glow design: a Hearth preference record (Bron), declared presets (Brix/infuse discipline), waymark **hearth-display**, and glass-keyboard keyboard send — so Glow Glass paragraphs and Glow Desk stations share one short home and one Skate budget down to the Mantrapod floor.*
 
 **Stamp:** `20260718.122145` (Eastern)  
-**Status:** Design — siloed; first buildable rung glass-keyboard then hearth-display  
+**Status:** Design — siloed; glass-keyboard Pixel GREEN · **hearth-display–2 closed** `20260718.130606`  
+
+
+
+
+
+
+
+
+
+
 **Voice:** Quin  
 **Research:** [`../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md`](../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md)  
 **Prompt:** [`../expanding-prompts/20260718-122145_glow-glass-display-short-home-and-dexter-send.md`](../expanding-prompts/20260718-122145_glow-glass-display-short-home-and-dexter-send.md)  
@@ -45,9 +55,9 @@ Keaton’s example home id **`kd`** is the first fixture; schema allows any two 
 
 | Rung | Claim | Gate |
 |------|-------|------|
-| **hearth-display** | Bron hearth: `home_id` (exactly 2 `a–z`) + `display_preset` enum; load/store path under short home | Device-free witness |
-| **hearth-display** | NativeActivity/Skate **applies** preset → logical size / scale table; panel_max reads window | Pack + Pixel look |
-| **hearth-display** | Glass Settings face lists presets (Pool agent when ready) | Check-in UI width |
+| **hearth-display** | Bron hearth: `home_id` (exactly 2 `a–z`) + `display_preset` enum; load/store path under short home | **GREEN** `hearth_lulu0_witness` `20260718.123900` |
+| **hearth-display** | NativeActivity/Skate **applies** preset → logical size / scale table; panel_max reads window | **GREEN** closed `20260718.125639` |
+| **hearth-display** | Glass Settings face lists presets (Pool agent when ready) | **GREEN** closed `20260718.130606` |
 | **Wired Glass** | Metalsmoke: cellular optional/off; USB sync checklist to Desk | Check-in Setu/CDC-NCM |
 
 ### Stack (generalized, not a special-case toggle)
@@ -82,9 +92,8 @@ Ojjo is benchmarks. Pool is the app host. Mantra already versions. **Hearth is a
 
 ## Aligned next
 
-1. Implement **glass-keyboard** (kg — mechanical on seated design).  
-2. **hearth-display** Bron schema + witness.  
-3. Check-in before hearth-display UI chrome or Setu naming affirm.
+1. **Affirmed** `20260718.130756` — next check-ins are **Wired Glass / Setu** and **home_id editor** (propose thin face, then build).  
+2. hearth-display–2 + glass-keyboard sent to pier with this seating.
 
 ---
 
