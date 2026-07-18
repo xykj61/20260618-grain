@@ -285,8 +285,10 @@
 - [x] **hearth-display — cellular preference** `20260718.132031` — Bron `cellular off|optional` (default off); Settings row 10 tap toggles + persists; witness + pack. No radio control yet.
 - [x] **hearth-display Pixel look** `20260718.132503` — Keaton: GREEN; cell toggle works. **hearth-display–5 preference ladder closed.**
 - [x] **usb-hearth — adb Bron pull Glass→Desk** `20260718.132731` — Keaton affirmed thin face; device-free `setu0_hearth_pull_witness` GREEN; host `setu0_hearth_pull_onpath_host` pulled `kd` · `scaled_720` · `wire local` · `cell optional` from Pixel; Desk agree check GREEN. Compressor [`docs/usb-hearth.md`](../docs/usb-hearth.md).
-- [ ] **usb-hearth — CDC-NCM / Comlink** — check-in after usb-hearth (live sync).
-- [ ] **Wired Glass SLC metalsmoke** — cellular optional/off; USB sync to Desk; Setu/CDC-NCM check-in.
+- [x] **usb-hearth.5 — Desk applies pulled hearth** `20260718.133328` — station line + `tools/.cache/setu0/station.bron` under seated 1920×1080; device-free + host path after usb-hearth GREEN; parity_ch01 wired.
+- [x] **Glass↔Desk Amber/Amphora compose-not-fuse** `20260718.133455` — ER + siloed revival; fuse declined; Tilak→resin→Amphora graduation horizon.
+- [ ] **usb-hearth — CDC-NCM / Comlink** — check-in after usb-hearth.5 (live sync; not Amber-on-Glass).
+- [ ] **Wired Glass SLC metalsmoke** — cellular optional/off; USB sync to Desk; Setu live lane check-in.
 - [ ] **seva-broadcast — Inference and economics** — check-in (Quin · MALA).
 - [ ] **C2 thin TAME compressor** — optional `docs/TAME.md` only if cold-load pain is measured.
 - [ ] **C3 LEXICON core Bron card** — optional; Keaton's word.

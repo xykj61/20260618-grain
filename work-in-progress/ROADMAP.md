@@ -4,7 +4,7 @@
 
 **Language:** EN
 **Version:** `20260715` (Pool keystone revival prioritized · Quin voice seated · align pass reconciles the closed ladder)
-**Last updated:** 2026-07-18 (**usb-hearth** GREEN — adb hearth pull Glass→Desk)
+**Last updated:** 2026-07-18 (**usb-hearth.5** GREEN · Amber/Amphora compose-not-fuse seated)
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)
 **Voice:** Quin
 **Lens:** TAME — safety, performance, joy; the Seed Law; [SLC](../context/SIMPLE_LOVABLE_COMPLETE.md)
@@ -265,6 +265,8 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 **hearth-display Pixel GREEN · preference ladder closed, `20260718.132503`** — Keaton: cell toggle GREEN. hearth-display–5 Settings prefs closed on Pixel. Next: **usb-hearth** adb Bron pull — check-in thin face in `docs/hearth-display.md`; or **send** hearth-display–5.
 
 **usb-hearth affirmed + GREEN, `20260718.132731`** — Keaton affirmed adb pull thin face. Device-free parse GREEN; host pull on Pixel 10a GREEN (`home_id kd` agrees). Compressor [`docs/usb-hearth.md`](../docs/usb-hearth.md). Next: **send** hearth-display–5 + usb-hearth; or **usb-hearth** CDC-NCM check-in.
+
+**usb-hearth.5 GREEN · compose-not-fuse seated, `20260718.133328`–`133455`** — Desk applies pulled Hearth → station card; host path chains after usb-hearth. ER + siloed revival: do not fuse hearth-display/usb-hearth into Amber/Amphora; compose later via Tilak→resin→Amphora. Next: **send** usb-hearth.5 + briefs; or **usb-hearth** thin lane check-in.
 
 **Glow OS · Glow Desk · Glow Glass seated, `20260717.183622`** — Keaton: **Glow OS** unifies; **Glow Desk** = desktop; **Glow Glass** = mobile. Lexicon + silo [`../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md`](../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md). Orientation firmware stays check-in.
 

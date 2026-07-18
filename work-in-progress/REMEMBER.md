@@ -2,9 +2,9 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260718.132736` (Eastern) · voice Quin  
-**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth**  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth  
+**Last refreshed:** `20260718.133455` (Eastern) · voice Quin  
+**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5**  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth · usb-hearth.5  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
 
 ---
@@ -18,7 +18,7 @@
 | **glass-keyboard** | English QWERTY glass keyboard | glass-keyboard–6 GREEN (Pixel look) |
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
-| **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth GREEN** · usb-hearth check-in |
+| **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth · usb-hearth.5 GREEN** · usb-hearth check-in |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md)
 
@@ -47,8 +47,9 @@ Hold row 1 → Settings: presets · `home ·` · `wire ·` · `cell ·` — all 
 
 | Door | Kind |
 |------|------|
-| Ship hearth-display–5 + usb-hearth to pier | **send** |
+| Ship usb-hearth.5 + compose briefs | **send** |
 | **usb-hearth** CDC-NCM / Comlink | **check-in** |
+| Amber/Amphora Glass↔Desk fuse | **declined** — compose later (`133455`) |
 | seva-broadcast · TAME Lap 3 | **check-in** |
 
 ---

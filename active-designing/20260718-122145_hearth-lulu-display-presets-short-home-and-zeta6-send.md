@@ -3,25 +3,11 @@
 *Owned Glow design: a Hearth preference record (Bron), declared presets (Brix/infuse discipline), waymark **hearth-display**, and glass-keyboard keyboard send — so Glow Glass paragraphs and Glow Desk stations share one short home and one Skate budget down to the Mantrapod floor.*
 
 **Stamp:** `20260718.122145` (Eastern)  
-**Status:** Design — siloed; glass-keyboard Pixel GREEN · **hearth-display–5 closed** `20260718.132503` · **usb-hearth GREEN** `20260718.132731` · usb-hearth check-in  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+**Status:** Design — siloed; glass-keyboard Pixel GREEN · **hearth-display–5 closed** `20260718.132503` · **usb-hearth** `20260718.132731` · **usb-hearth.5** `20260718.133328` · usb-hearth check-in · Amber/Amphora fuse declined [`20260718-133455`](20260718-133455_glass-desk-compose-amber-amphora-revive.md)  
 **Voice:** Quin  
-**Research:** [`../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md`](../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md)  
+**Research:** [`../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md`](../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md) · compose ER [`../external-research/20260718-133455_glass-desk-amber-amphora-compose-not-fuse.md`](../external-research/20260718-133455_glass-desk-amber-amphora-compose-not-fuse.md)  
 **Prompt:** [`../expanding-prompts/20260718-122145_glow-glass-display-short-home-and-dexter-send.md`](../expanding-prompts/20260718-122145_glow-glass-display-short-home-and-dexter-send.md)  
-**Compressor:** [`../docs/hearth-display.md`](../docs/hearth-display.md)
+**Compressor:** [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md)
 
 ---
 
@@ -66,7 +52,8 @@ Keaton’s example home id **`kd`** is the first fixture; schema allows any two 
 | **hearth-display** | `wire_lane` preference (`local` \| `usb_desk`) on Settings | **GREEN** Pixel closed `20260718.132031` |
 | **hearth-display** | `cellular` preference (`off` \| `optional`) on Settings | **GREEN** Pixel closed `20260718.132503` |
 | **usb-hearth** | adb pull hearth Bron Glass→Desk (USB file path) | **GREEN** device-free + Pixel host `20260718.132731` · [`docs/usb-hearth.md`](../docs/usb-hearth.md) |
-| **usb-hearth** | Live CDC-NCM / Comlink sync | Check-in after usb-hearth |
+| **usb-hearth.5** | Desk applies pulled Hearth → station card | **GREEN** `20260718.133328` |
+| **usb-hearth** | Live CDC-NCM / Comlink sync | Check-in after usb-hearth.5 |
 
 ### Stack (generalized, not a special-case toggle)
 
@@ -100,8 +87,8 @@ Ojjo is benchmarks. Pool is the app host. Mantra already versions. **Hearth is a
 
 ## Aligned next
 
-1. **Send** hearth-display–5 + usb-hearth to the pier (still local vs last ship).  
-2. Or **check-in usb-hearth** — CDC-NCM / Comlink live sync thin face.
+1. **Send** usb-hearth.5 + compose briefs (`133455`) when Keaton says send.  
+2. Or **check-in usb-hearth** — thin live-lane face (not Amber-on-Glass).
 
 ---
 
