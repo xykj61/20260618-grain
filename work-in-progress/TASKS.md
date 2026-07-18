@@ -299,6 +299,7 @@
 - [x] **Desk Hearth Hold season open · HOLD0 GREEN** `20260718.185147`–`185306` — Desk names station + ping/frame hold line; usb-hearth parked; HOLD1 check-in.
 - [x] **HOLD0 stale-bin honesty** `20260718.190720` — local wire ignores leftover ping/frame; host SKIP clears cache bins.
 - [x] **HOLD1 — Desk Skate hold chrome** `20260718.193122` — hold rows 0–1 on Desk metrics; device-free GREEN; host chain after HOLD0.
+- [x] **HOLD1 host Pixel look** `20260718.193607` — full usb-hearth→HOLD1 chain GREEN on authorized Pixel (`local` wire).
 - [ ] **usb-hearth — QEMU/Pixel CDC-NCM / device-wire lab** — check-in (parked; not Amber-on-Glass).
 - [ ] **HOLD Wayland eyes** — optional host look of Skate window; check-in.
 - [ ] **Wired Glass SLC metalsmoke** — cellular optional/off; USB sync to Desk; Setu live lane check-in.

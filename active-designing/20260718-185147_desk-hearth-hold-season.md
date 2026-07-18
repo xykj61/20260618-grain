@@ -3,7 +3,7 @@
 *Opened after usb-hearth–5 closed the warm-wire stand-in ladder. Not usb-hearth (QEMU/Pixel CDC-NCM lab). This season makes Desk **use** what the wire already carried.*
 
 **Stamp:** `20260718.185147` (Eastern)  
-**Status:** Checkable — season open; HOLD0–HOLD1 GREEN `20260718.193122`  
+**Status:** Checkable — HOLD0–HOLD1 GREEN; host Pixel look `20260718.193607`  
 **Voice:** Quin  
 **Why not usb-hearth:** Finishing edge — gadget/lab is a domain jump; the fold and frame already sit on Desk unread.  
 **Compresses into:** [`../docs/usb-hearth.md`](../docs/usb-hearth.md)  
