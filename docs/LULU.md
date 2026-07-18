@@ -2,10 +2,10 @@
 
 *Waymark for Glow Glass / Desk hearth preferences: short two-character home, declared display presets down to the Mantrapod Skate floor, and wire-first sync. Compresses the silo; never replaces it.*
 
-**Status:** Checkable — operator compressor (preference ladder closed · usb-hearth · usb-hearth.5 GREEN)  
+**Status:** Checkable — operator compressor (preference ladder closed · usb-hearth–usb-hearth GREEN)  
 **Depth:** guide  
 **Ceiling:** ≤80 lines  
-**Last updated:** 2026-07-18 (usb-hearth.5 Desk apply GREEN)  
+**Last updated:** 2026-07-18 (usb-hearth lane ping GREEN)  
 **Compresses:** [`../active-designing/20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md`](../active-designing/20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md) · ER [`../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md`](../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md) · Setu [`usb-hearth.md`](usb-hearth.md) · compose [`../active-designing/20260718-133455_glass-desk-compose-amber-amphora-revive.md`](../active-designing/20260718-133455_glass-desk-compose-amber-amphora-revive.md)
 
 ---
@@ -23,7 +23,8 @@ Declare where home is (`kd`) and how dense the glass is (closed presets), so use
 | **hearth-display–5** | Bron · apply · Settings · home · wire · cell | **GREEN** Pixel closed `20260718.132503` |
 | **usb-hearth** | adb pull hearth Bron Glass→Desk | **GREEN** host Pixel `20260718.132731` |
 | **usb-hearth.5** | Desk applies pulled hearth → station | **GREEN** `20260718.133328` |
-| **usb-hearth** | CDC-NCM / Comlink live sync | open — check-in |
+| **usb-hearth** | `usb_desk` Comlink lane ping | **GREEN** `20260718.133853` |
+| **usb-hearth** | CDC-NCM gadget lane | open — check-in |
 
 **Sibling:** **glass-keyboard** ret=newline · `^`=send — Pixel GREEN. Compressor: [`usb-hearth.md`](usb-hearth.md).
 
@@ -39,9 +40,10 @@ Declare where home is (`kd`) and how dense the glass is (closed presets), so use
 ## Setu — affirmed face
 
 1. **usb-hearth** — affirmed and built: host `adb` + `run-as` reads `files/hearth_home` + `files/{id}/hearth.bron`; Desk parse agrees.  
-2. **usb-hearth.5** — Desk applies under seated 1920×1080 window; writes `tools/.cache/setu0/station.bron`; host path chains after usb-hearth.  
-3. **usb-hearth** — CDC-NCM / Comlink live sync (later; separate check-in). Amber/Amphora fuse declined — compose later (`20260718.133455`).  
-4. No cellular plan required; `cell · off` + `wire · usb_desk` is the intended used-Pixel posture.
+2. **usb-hearth.5** — Desk applies under seated 1920×1080 window; writes `tools/.cache/setu0/station.bron`.  
+3. **usb-hearth** — approved and built: `usb_desk` seals one Comlink lane ping; `local` refuses/SKIP. CDC-NCM is **usb-hearth**.  
+4. Amber/Amphora fuse declined — compose later (`20260718.133455`).  
+5. Intended used-Pixel posture: `cell · off` + `wire · usb_desk`.
 
 ---
 

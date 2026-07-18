@@ -8,6 +8,13 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260718.134246` — [Send usb-hearth lane ping](20260718-134246_send-setu1-lane-ping.bron) — pier ship; usb-hearth under approval next
+- `20260718.134110` — [kg usb-hearth persist · host GREEN](20260718-134110_kg-setu1-persist-host-green.bron) — lane_ping.bin hold; host SKIP; send next
+
+- `20260718.134020` — [usb-hearth screen check answer](20260718-134020_setu1-screen-check-answer.bron) — no Pixel look required; usb_desk optional
+- `20260718.133853` — [usb-hearth approved · lane ping GREEN](20260718-133853_setu1-approve-lane-ping-green.bron) — usb_desk seals; local refuses; send next
+
+- `20260718.133735` — [Thoughts after usb-hearth.5 send](20260718-133735_thoughts-after-setu05-send.bron) — check-in usb-hearth; not kg into NCM
 - `20260718.133705` — [Send usb-hearth.5 and compose briefs](20260718-133705_send-setu05-compose-briefs.bron) — pier ship; usb-hearth check-in next
 - `20260718.133619` — [Compose briefs + usb-hearth.5 seat](20260718-133619_compose-briefs-setu05-seat.bron) — ER+revive seated; Desk station GREEN
 - `20260718.133400` — [Fuse Amber Amphora with Glass Desk?](20260718-133400_fuse-amber-amphora-glass-desk.bron) — compose later; finish usb-hearth.5 first
