@@ -4,7 +4,7 @@
 
 **Language:** EN
 **Version:** `20260715` (Pool keystone revival prioritized · Quin voice seated · align pass reconciles the closed ladder)
-**Last updated:** 2026-07-18 (**usb-hearth** GREEN — usb_desk Comlink lane ping)
+**Last updated:** 2026-07-18 (**usb-hearth** GREEN — lane ping over hosted UDP)
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)
 **Voice:** Quin
 **Lens:** TAME — safety, performance, joy; the Seed Law; [SLC](../context/SIMPLE_LOVABLE_COMPLETE.md)
@@ -268,7 +268,9 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **usb-hearth.5 GREEN · compose-not-fuse seated, `20260718.133328`–`133455`** — Desk applies pulled Hearth → station card; host path chains after usb-hearth. ER + siloed revival: do not fuse hearth-display/usb-hearth into Amber/Amphora; compose later via Tilak→resin→Amphora. Next: **send** usb-hearth.5 + briefs; or **usb-hearth** thin lane check-in.
 
-**usb-hearth approved + GREEN, `20260718.133853`** — Keaton approved thin face. `usb_desk` seals one Comlink lane ping; `local` refuses; host SKIP when station still local. CDC-NCM renamed **usb-hearth** check-in. Next: **send** usb-hearth; or check-in usb-hearth.
+**usb-hearth approved + GREEN, `20260718.133853`** — Keaton approved thin face. `usb_desk` seals one Comlink lane ping; `local` refuses; host SKIP when station still local. CDC-NCM renamed later. Next: **send** usb-hearth; or continue usb-hearth.
+
+**usb-hearth sent · usb-hearth GREEN, `20260718.134246`–`134348`** — pier `7a1ce3d1ee`. Approved continue: usb-hearth ping crosses localhost UDP (port 38501) as Setu stand-in. Real CDC-NCM is **usb-hearth** check-in. Next: **send** usb-hearth.
 
 **Glow OS · Glow Desk · Glow Glass seated, `20260717.183622`** — Keaton: **Glow OS** unifies; **Glow Desk** = desktop; **Glow Glass** = mobile. Lexicon + silo [`../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md`](../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md). Orientation firmware stays check-in.
 

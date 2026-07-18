@@ -8,7 +8,11 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260718.134458` — [Send usb-hearth · approve usb-hearth next](20260718-134458_send-setu2-approve-setu3.bron) — pier usb-hearth; usb-hearth NCM frame under approval
+- `20260718.134348` — [Send usb-hearth · usb-hearth hosted UDP GREEN](20260718-134348_send-setu1-setu2-hosted-udp.bron) — pier usb-hearth; usb-hearth demo GREEN; send next
 - `20260718.134246` — [Send usb-hearth lane ping](20260718-134246_send-setu1-lane-ping.bron) — pier ship; usb-hearth under approval next
+
+
 - `20260718.134110` — [kg usb-hearth persist · host GREEN](20260718-134110_kg-setu1-persist-host-green.bron) — lane_ping.bin hold; host SKIP; send next
 
 - `20260718.134020` — [usb-hearth screen check answer](20260718-134020_setu1-screen-check-answer.bron) — no Pixel look required; usb_desk optional

@@ -5,7 +5,7 @@
 **Status:** Checkable — operator compressor (preference ladder closed · usb-hearth–usb-hearth GREEN)  
 **Depth:** guide  
 **Ceiling:** ≤80 lines  
-**Last updated:** 2026-07-18 (usb-hearth lane ping GREEN)  
+**Last updated:** 2026-07-18 (usb-hearth hosted UDP GREEN)  
 **Compresses:** [`../active-designing/20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md`](../active-designing/20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md) · ER [`../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md`](../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md) · Setu [`usb-hearth.md`](usb-hearth.md) · compose [`../active-designing/20260718-133455_glass-desk-compose-amber-amphora-revive.md`](../active-designing/20260718-133455_glass-desk-compose-amber-amphora-revive.md)
 
 ---
@@ -24,6 +24,7 @@ Declare where home is (`kd`) and how dense the glass is (closed presets), so use
 | **usb-hearth** | adb pull hearth Bron Glass→Desk | **GREEN** host Pixel `20260718.132731` |
 | **usb-hearth.5** | Desk applies pulled hearth → station | **GREEN** `20260718.133328` |
 | **usb-hearth** | `usb_desk` Comlink lane ping | **GREEN** `20260718.133853` |
+| **usb-hearth** | Ping over hosted UDP stand-in | **GREEN** `20260718.134348` |
 | **usb-hearth** | CDC-NCM gadget lane | open — check-in |
 
 **Sibling:** **glass-keyboard** ret=newline · `^`=send — Pixel GREEN. Compressor: [`usb-hearth.md`](usb-hearth.md).
@@ -41,9 +42,10 @@ Declare where home is (`kd`) and how dense the glass is (closed presets), so use
 
 1. **usb-hearth** — affirmed and built: host `adb` + `run-as` reads `files/hearth_home` + `files/{id}/hearth.bron`; Desk parse agrees.  
 2. **usb-hearth.5** — Desk applies under seated 1920×1080 window; writes `tools/.cache/setu0/station.bron`.  
-3. **usb-hearth** — approved and built: `usb_desk` seals one Comlink lane ping; `local` refuses/SKIP. CDC-NCM is **usb-hearth**.  
-4. Amber/Amphora fuse declined — compose later (`20260718.133455`).  
-5. Intended used-Pixel posture: `cell · off` + `wire · usb_desk`.
+3. **usb-hearth** — `usb_desk` seals one Comlink lane ping; `local` refuses/SKIP.  
+4. **usb-hearth** — approved and built: that ping crosses localhost UDP (Setu stand-in). CDC-NCM is **usb-hearth**.  
+5. Amber/Amphora fuse declined — compose later (`20260718.133455`).  
+6. Intended used-Pixel posture: `cell · off` + `wire · usb_desk`.
 
 ---
 

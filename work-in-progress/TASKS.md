@@ -287,7 +287,9 @@
 - [x] **usb-hearth — adb Bron pull Glass→Desk** `20260718.132731` — Keaton affirmed thin face; device-free `setu0_hearth_pull_witness` GREEN; host `setu0_hearth_pull_onpath_host` pulled `kd` · `scaled_720` · `wire local` · `cell optional` from Pixel; Desk agree check GREEN. Compressor [`docs/usb-hearth.md`](../docs/usb-hearth.md).
 - [x] **usb-hearth.5 — Desk applies pulled hearth** `20260718.133328` — station line + `tools/.cache/setu0/station.bron` under seated 1920×1080; device-free + host path after usb-hearth GREEN; parity_ch01 wired.
 - [x] **Glass↔Desk Amber/Amphora compose-not-fuse** `20260718.133455` — ER + siloed revival; fuse declined; Tilak→resin→Amphora graduation horizon.
-- [x] **usb-hearth — usb_desk Comlink lane ping** `20260718.133853`–`134110` — Keaton approved thin face; `local` refuses; `usb_desk` seals+opens via `wire_format` and writes `lane_ping.bin`; host SKIP when station still local; parity_ch01 wired. CDC-NCM deferred to usb-hearth.
+- [x] **usb-hearth — usb_desk Comlink lane ping** `20260718.133853`–`134110` — Keaton approved thin face; `local` refuses; `usb_desk` seals+opens via `wire_format` and writes `lane_ping.bin`; host SKIP when station still local; parity_ch01 wired. CDC-NCM deferred.
+- [x] **usb-hearth sent** `20260718.134246` — `7a1ce3d1ee` on pier.
+- [x] **usb-hearth — hosted UDP lane wire** `20260718.134348` — Keaton approved continue; usb-hearth ping crosses localhost UDP port 38501 (Glass send · Desk recv demo); CDC-NCM deferred to usb-hearth; parity_ch01 wired.
 - [ ] **usb-hearth — CDC-NCM gadget lane** — check-in (real USB networking; not Amber-on-Glass).
 - [ ] **Wired Glass SLC metalsmoke** — cellular optional/off; USB sync to Desk; Setu live lane check-in.
 - [ ] **seva-broadcast — Inference and economics** — check-in (Quin · MALA).
