@@ -24,6 +24,7 @@
 | [`glass-keyboard.md`](glass-keyboard.md) | guide · ≤80 | English QWERTY glass keyboard ladder — glass-keyboard–glass-keyboard |
 | [`seva-broadcast.md`](seva-broadcast.md) | guide · ≤80 | Sala broadcast live-session fold — seva-broadcast–seva-broadcast |
 | [`hearth-display.md`](hearth-display.md) | guide · ≤80 | Hearth display presets · short home · Wired Glass |
+| [`usb-hearth.md`](usb-hearth.md) | guide · ≤80 | USB hearth carry Glass↔Desk — usb-hearth–usb-hearth |
 | [`PROVEN_SEAT.md`](PROVEN_SEAT.md) | guide · ≤300 | Proven-seat ladder — Genode G0 through signed-Kumara (not pixel-glass) |
 | [`pixel-glass.md`](pixel-glass.md) | guide · ≤120 | GrapheneOS / Pixel mobile ladder — pixel-glass–pixel-glass |
 | [`glow-publishing.md`](glow-publishing.md) | guide · ≤150 | App-manifest + NativeActivity APK ladder — glow-publishing / glow-publishing.5 |

@@ -8,6 +8,12 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260718.132937` — [Send hearth-display-5 and usb-hearth](20260718-132937_send-lulu3-5-setu0.bron) — pier ship; usb-hearth check-in next
+- `20260718.132736` — [usb-hearth affirmed · GREEN host pull](20260718-132736_setu0-affirm-green-host-pull.bron) — adb pulled kd hearth; Desk agree; send next
+- `20260718.132503` — [hearth-display GREEN · preference ladder closed](20260718-132503_lulu5-green-ladder-closed.bron) — cell affirmed; usb-hearth check-in next
+- `20260718.132031` — [hearth-display GREEN · hearth-display cellular](20260718-132031_lulu4-green-lulu5-cell.bron) — wire affirmed; cell preference packed
+- `20260718.131549` — [hearth-display GREEN · hearth-display wire_lane](20260718-131549_lulu3-green-lulu4-wire.bron) — home edit affirmed; wire preference packed
+- `20260718.130940` — [hearth-display home_id editor](20260718-130940_lulu3-home-id-editor.bron) — Settings home row · draft · pointer; pack for Pixel
 - `20260718.130756` — [Send hearth-display·glass-keyboard · affirm next](20260718-130756_send-lulu-zeta6-affirm-next.bron) — pier ship; Wired Glass + home_id affirmed next
 - `20260718.130606` — [hearth-display hold-open GREEN · closed](20260718-130606_lulu2-hold-open-green-closed.bron) — perfect; hearth-display–2 closed; next check-in or send
 - `20260718.130251` — [hearth-display Pixel GREEN · hold-open](20260718-130251_lulu2-pixel-green-hold-open.bron) — list under finger via timerfd; release quiet

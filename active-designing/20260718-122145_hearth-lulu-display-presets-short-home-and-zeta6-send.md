@@ -3,7 +3,11 @@
 *Owned Glow design: a Hearth preference record (Bron), declared presets (Brix/infuse discipline), waymark **hearth-display**, and glass-keyboard keyboard send — so Glow Glass paragraphs and Glow Desk stations share one short home and one Skate budget down to the Mantrapod floor.*
 
 **Stamp:** `20260718.122145` (Eastern)  
-**Status:** Design — siloed; glass-keyboard Pixel GREEN · **hearth-display–2 closed** `20260718.130606`  
+**Status:** Design — siloed; glass-keyboard Pixel GREEN · **hearth-display–5 closed** `20260718.132503` · **usb-hearth GREEN** `20260718.132731` · usb-hearth check-in  
+
+
+
+
 
 
 
@@ -58,7 +62,11 @@ Keaton’s example home id **`kd`** is the first fixture; schema allows any two 
 | **hearth-display** | Bron hearth: `home_id` (exactly 2 `a–z`) + `display_preset` enum; load/store path under short home | **GREEN** `hearth_lulu0_witness` `20260718.123900` |
 | **hearth-display** | NativeActivity/Skate **applies** preset → logical size / scale table; panel_max reads window | **GREEN** closed `20260718.125639` |
 | **hearth-display** | Glass Settings face lists presets (Pool agent when ready) | **GREEN** closed `20260718.130606` |
-| **Wired Glass** | Metalsmoke: cellular optional/off; USB sync checklist to Desk | Check-in Setu/CDC-NCM |
+| **hearth-display** | Short `home_id` editor on glass | **GREEN** Pixel closed `20260718.131549` |
+| **hearth-display** | `wire_lane` preference (`local` \| `usb_desk`) on Settings | **GREEN** Pixel closed `20260718.132031` |
+| **hearth-display** | `cellular` preference (`off` \| `optional`) on Settings | **GREEN** Pixel closed `20260718.132503` |
+| **usb-hearth** | adb pull hearth Bron Glass→Desk (USB file path) | **GREEN** device-free + Pixel host `20260718.132731` · [`docs/usb-hearth.md`](../docs/usb-hearth.md) |
+| **usb-hearth** | Live CDC-NCM / Comlink sync | Check-in after usb-hearth |
 
 ### Stack (generalized, not a special-case toggle)
 
@@ -92,8 +100,8 @@ Ojjo is benchmarks. Pool is the app host. Mantra already versions. **Hearth is a
 
 ## Aligned next
 
-1. **Affirmed** `20260718.130756` — next check-ins are **Wired Glass / Setu** and **home_id editor** (propose thin face, then build).  
-2. hearth-display–2 + glass-keyboard sent to pier with this seating.
+1. **Send** hearth-display–5 + usb-hearth to the pier (still local vs last ship).  
+2. Or **check-in usb-hearth** — CDC-NCM / Comlink live sync thin face.
 
 ---
 

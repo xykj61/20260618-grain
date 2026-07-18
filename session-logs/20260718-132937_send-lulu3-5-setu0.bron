@@ -1,0 +1,20 @@
+format session-log-v1
+stamp 20260718.132937
+editor Cursor
+model Cursor Grok 4.5 300k High Fast
+voice Quin
+host Ubuntu 26.04 LTS amd64 (Framework 16 AMD) — Eastern
+title Send hearth-display-5 and usb-hearth
+prompt send
+think Re-ran hearth-display hearth-display hearth-display usb-hearth device-free witnesses — all GREEN before ship.
+think Already on main; commit preference ladder + adb hearth pull; push origin and codeberg.
+obs usb-hearth host pull was GREEN on Pixel earlier this hour; usb-hearth CDC-NCM stays check-in.
+product_nib usb-hearth
+suite_nib hearth-display-5 usb-hearth
+file linengrow/hearth_lulu3.rye home_id editor
+file linengrow/hearth_lulu4.rye wire_lane pref
+file linengrow/hearth_lulu5.rye cellular pref
+file linengrow/setu0_hearth_pull.rye Desk pull-parse
+file docs/usb-hearth.md compressor
+file docs/hearth-display.md · REMEMBER · TASKS · ROADMAP seat
+recommend check-in usb-hearth CDC-NCM thin face when Keaton wants live USB sync

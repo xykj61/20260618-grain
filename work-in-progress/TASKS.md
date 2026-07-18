@@ -277,9 +277,15 @@
 - [x] **hearth-display Pixel look** `20260718.130251` — Keaton: GREEN; long-press menu works. Named gap: list waited for release.
 - [x] **hearth-display hold-open** `20260718.130251` — timerfd opens list at 450ms while finger still down; release after hold skips cycle; pack for eyes.
 - [x] **hearth-display hold-open Pixel look** `20260718.130606` — Keaton: GREEN, perfect. **hearth-display rung closed.**
-- [x] **Next doors affirmed** `20260718.130756` — after hearth-display–2 send: **Wired Glass / Setu** and **home_id editor** are the seated next check-ins (build only after a further affirm of thin face).
-- [ ] **Wired Glass SLC / Setu** — affirmed next; check-in thin face before build (cellular optional; USB sync to Desk).
-- [ ] **home_id editor on glass** — affirmed next; check-in thin face before build (`kd` fixture until that face lands).
+- [x] **Next doors affirmed** `20260718.130756` — Wired Glass / Setu and home_id editor.
+- [x] **hearth-display — home_id editor** `20260718.130940` — thin face built: Settings list → tap `home · xx` → type two letters → ^/ret commits; `hearth_home` pointer + `{id}/hearth.bron`; witness + pack for Pixel look.
+- [x] **hearth-display Pixel look** `20260718.131549` — Keaton: GREEN; two-letter home title edit worked. **hearth-display rung closed.**
+- [x] **hearth-display — wire_lane preference** `20260718.131549` — Bron `wire_lane local|usb_desk`; Settings row 9 tap toggles + persists; old Bron defaults local; witness + pack. Live USB/Setu still later.
+- [x] **hearth-display Pixel look** `20260718.132031` — Keaton: GREEN; wire toggle works. **hearth-display rung closed.**
+- [x] **hearth-display — cellular preference** `20260718.132031` — Bron `cellular off|optional` (default off); Settings row 10 tap toggles + persists; witness + pack. No radio control yet.
+- [x] **hearth-display Pixel look** `20260718.132503` — Keaton: GREEN; cell toggle works. **hearth-display–5 preference ladder closed.**
+- [x] **usb-hearth — adb Bron pull Glass→Desk** `20260718.132731` — Keaton affirmed thin face; device-free `setu0_hearth_pull_witness` GREEN; host `setu0_hearth_pull_onpath_host` pulled `kd` · `scaled_720` · `wire local` · `cell optional` from Pixel; Desk agree check GREEN. Compressor [`docs/usb-hearth.md`](../docs/usb-hearth.md).
+- [ ] **usb-hearth — CDC-NCM / Comlink** — check-in after usb-hearth (live sync).
 - [ ] **Wired Glass SLC metalsmoke** — cellular optional/off; USB sync to Desk; Setu/CDC-NCM check-in.
 - [ ] **seva-broadcast — Inference and economics** — check-in (Quin · MALA).
 - [ ] **C2 thin TAME compressor** — optional `docs/TAME.md` only if cold-load pain is measured.
