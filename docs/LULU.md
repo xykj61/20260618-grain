@@ -5,7 +5,7 @@
 **Status:** Checkable — operator compressor (preference ladder closed · usb-hearth–usb-hearth GREEN)  
 **Depth:** guide  
 **Ceiling:** ≤80 lines  
-**Last updated:** 2026-07-18 (usb-hearth NCM frame GREEN)  
+**Last updated:** 2026-07-18 (usb-hearth framed live lane GREEN)  
 **Compresses:** [`../active-designing/20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md`](../active-designing/20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md) · ER [`../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md`](../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md) · Setu [`usb-hearth.md`](usb-hearth.md) · compose [`../active-designing/20260718-133455_glass-desk-compose-amber-amphora-revive.md`](../active-designing/20260718-133455_glass-desk-compose-amber-amphora-revive.md)
 
 ---
@@ -26,7 +26,8 @@ Declare where home is (`kd`) and how dense the glass is (closed presets), so use
 | **usb-hearth** | `usb_desk` Comlink lane ping | **GREEN** `20260718.133853` |
 | **usb-hearth** | Ping over hosted UDP stand-in | **GREEN** `20260718.134348` |
 | **usb-hearth** | NCM-shaped frame wrap/unwrap | **GREEN** `20260718.134613` |
-| **usb-hearth** | Live CDC-NCM gadget | open — check-in |
+| **usb-hearth** | Framed ping over live UDP | **GREEN** `20260718.184323` |
+| **usb-hearth** | CDC-NCM gadget iface | open — check-in |
 
 **Sibling:** **glass-keyboard** ret=newline · `^`=send — Pixel GREEN. Compressor: [`usb-hearth.md`](usb-hearth.md).
 
@@ -45,9 +46,10 @@ Declare where home is (`kd`) and how dense the glass is (closed presets), so use
 2. **usb-hearth.5** — Desk applies under seated 1920×1080 window; writes `tools/.cache/setu0/station.bron`.  
 3. **usb-hearth** — `usb_desk` seals one Comlink lane ping; `local` refuses/SKIP.  
 4. **usb-hearth** — ping crosses localhost UDP (Setu stand-in).  
-5. **usb-hearth** — approved and built: NCM-shaped virtio+eth frame around the ping. Live gadget is **usb-hearth**.  
-6. Amber/Amphora fuse declined — compose later (`20260718.133455`).  
-7. Intended used-Pixel posture: `cell · off` + `wire · usb_desk`.
+5. **usb-hearth** — NCM-shaped virtio+eth frame around the ping.  
+6. **usb-hearth** — affirmed and built: framed ping over live UDP; host gadget probe SKIP. CDC-NCM iface is **usb-hearth**.  
+7. Amber/Amphora fuse declined — compose later (`20260718.133455`).  
+8. Intended used-Pixel posture: `cell · off` + `wire · usb_desk`.
 
 ---
 
