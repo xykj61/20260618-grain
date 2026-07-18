@@ -2,7 +2,7 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260718.184323` (Eastern) · voice Quin  
+**Last refreshed:** `20260718.184537` (Eastern) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth**  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
@@ -47,8 +47,8 @@ Hold row 1 → Settings: presets · `home ·` · `wire ·` · `cell ·` — all 
 
 | Door | Kind |
 |------|------|
-| Ship usb-hearth framed live lane | **send** |
-| **usb-hearth** CDC-NCM gadget iface | **check-in** |
+| Ship usb-hearth device payload | **send** |
+| **usb-hearth** QEMU/Pixel CDC-NCM lab | **check-in** |
 | Amber/Amphora Glass↔Desk fuse | **declined** — compose later (`133455`) |
 | seva-broadcast · TAME Lap 3 | **check-in** |
 

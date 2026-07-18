@@ -293,8 +293,10 @@
 - [x] **usb-hearth sent** `20260718.134458` — `6db3c0be2c` on pier.
 - [x] **usb-hearth — NCM-shaped frame** `20260718.134613` — Keaton approved; wrap/unwrap usb-hearth ping in virtio-net + eth (Comlink lab ethertype 0x1201); bad ethertype refused; live gadget deferred.
 - [x] **usb-hearth sent** `20260718.184214` — `104e642b54` on pier.
-- [x] **usb-hearth — framed ping over live UDP** `20260718.184323` — Keaton affirmed+kg; NCM frame crosses UDP :38502; host gadget probe SKIP when no usb0/ncm; Pixel/QEMU iface bring-up deferred to usb-hearth.
-- [ ] **usb-hearth — CDC-NCM gadget iface bring-up** — check-in (Pixel/QEMU; not Amber-on-Glass).
+- [x] **usb-hearth — framed ping over live UDP** `20260718.184323` — Keaton affirmed+kg; NCM frame crosses UDP :38502; host gadget probe SKIP when no usb0/ncm; Pixel/QEMU iface bring-up deferred.
+- [x] **usb-hearth sent** `20260718.184449` — `3512444e73` on pier.
+- [x] **usb-hearth — device-wire payload bound** `20260718.184537` — kg; framed ping fits virtio max_frame 554; writes `lane_frame.bin`; live QEMU/Pixel lab deferred to usb-hearth.
+- [ ] **usb-hearth — QEMU/Pixel CDC-NCM / device-wire lab** — check-in (not Amber-on-Glass).
 - [ ] **Wired Glass SLC metalsmoke** — cellular optional/off; USB sync to Desk; Setu live lane check-in.
 - [ ] **seva-broadcast — Inference and economics** — check-in (Quin · MALA).
 - [ ] **C2 thin TAME compressor** — optional `docs/TAME.md` only if cold-load pain is measured.
