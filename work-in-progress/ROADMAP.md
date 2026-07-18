@@ -4,7 +4,7 @@
 
 **Language:** EN
 **Version:** `20260715` (Pool keystone revival prioritized · Quin voice seated · align pass reconciles the closed ladder)
-**Last updated:** 2026-07-18 (**usb-hearth** GREEN — lane ping over hosted UDP)
+**Last updated:** 2026-07-18 (**usb-hearth** GREEN — NCM-shaped frame)
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)
 **Voice:** Quin
 **Lens:** TAME — safety, performance, joy; the Seed Law; [SLC](../context/SIMPLE_LOVABLE_COMPLETE.md)
@@ -270,7 +270,9 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **usb-hearth approved + GREEN, `20260718.133853`** — Keaton approved thin face. `usb_desk` seals one Comlink lane ping; `local` refuses; host SKIP when station still local. CDC-NCM renamed later. Next: **send** usb-hearth; or continue usb-hearth.
 
-**usb-hearth sent · usb-hearth GREEN, `20260718.134246`–`134348`** — pier `7a1ce3d1ee`. Approved continue: usb-hearth ping crosses localhost UDP (port 38501) as Setu stand-in. Real CDC-NCM is **usb-hearth** check-in. Next: **send** usb-hearth.
+**usb-hearth sent · usb-hearth GREEN, `20260718.134246`–`134348`** — pier `7a1ce3d1ee`. Approved continue: usb-hearth ping crosses localhost UDP (port 38501) as Setu stand-in. Next: **send** usb-hearth.
+
+**usb-hearth sent · usb-hearth GREEN, `20260718.134458`–`134613`** — pier `6db3c0be2c`. Approved next: NCM-shaped virtio+eth wrap around the lane ping (device-free). Live gadget bring-up is **usb-hearth** check-in. Next: **send** usb-hearth.
 
 **Glow OS · Glow Desk · Glow Glass seated, `20260717.183622`** — Keaton: **Glow OS** unifies; **Glow Desk** = desktop; **Glow Glass** = mobile. Lexicon + silo [`../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md`](../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md). Orientation firmware stays check-in.
 

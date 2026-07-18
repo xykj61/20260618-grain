@@ -3,7 +3,7 @@
 *Owned Glow design: a Hearth preference record (Bron), declared presets (Brix/infuse discipline), waymark **hearth-display**, and glass-keyboard keyboard send — so Glow Glass paragraphs and Glow Desk stations share one short home and one Skate budget down to the Mantrapod floor.*
 
 **Stamp:** `20260718.122145` (Eastern)  
-**Status:** Design — siloed; glass-keyboard Pixel GREEN · **hearth-display–5 closed** · **usb-hearth–usb-hearth GREEN** `20260718.134348` · usb-hearth check-in · Amber/Amphora fuse declined [`20260718-133455`](20260718-133455_glass-desk-compose-amber-amphora-revive.md)  
+**Status:** Design — siloed; glass-keyboard Pixel GREEN · **hearth-display–5 closed** · **usb-hearth–usb-hearth GREEN** `20260718.134613` · usb-hearth check-in · Amber/Amphora fuse declined [`20260718-133455`](20260718-133455_glass-desk-compose-amber-amphora-revive.md)  
 **Voice:** Quin  
 **Research:** [`../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md`](../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md) · compose ER [`../external-research/20260718-133455_glass-desk-amber-amphora-compose-not-fuse.md`](../external-research/20260718-133455_glass-desk-amber-amphora-compose-not-fuse.md)  
 **Prompt:** [`../expanding-prompts/20260718-122145_glow-glass-display-short-home-and-dexter-send.md`](../expanding-prompts/20260718-122145_glow-glass-display-short-home-and-dexter-send.md)  
@@ -55,7 +55,8 @@ Keaton’s example home id **`kd`** is the first fixture; schema allows any two 
 | **usb-hearth.5** | Desk applies pulled Hearth → station card | **GREEN** `20260718.133328` |
 | **usb-hearth** | `usb_desk` Comlink lane ping; `local` refuses | **GREEN** `20260718.133853` |
 | **usb-hearth** | Ping over hosted UDP stand-in (port 38501) | **GREEN** `20260718.134348` |
-| **usb-hearth** | CDC-NCM gadget lane | Check-in after usb-hearth |
+| **usb-hearth** | NCM-shaped virtio+eth frame wrap/unwrap | **GREEN** `20260718.134613` |
+| **usb-hearth** | Live CDC-NCM gadget bring-up | Check-in after usb-hearth |
 
 ### Stack (generalized, not a special-case toggle)
 
@@ -90,7 +91,7 @@ Ojjo is benchmarks. Pool is the app host. Mantra already versions. **Hearth is a
 ## Aligned next
 
 1. **Send** usb-hearth when Keaton says send.  
-2. Or **check-in usb-hearth** — CDC-NCM gadget lane (not Amber-on-Glass).
+2. Or **check-in usb-hearth** — live CDC-NCM gadget (not Amber-on-Glass).
 
 ---
 

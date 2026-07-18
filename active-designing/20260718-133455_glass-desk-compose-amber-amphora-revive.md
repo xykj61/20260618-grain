@@ -47,9 +47,10 @@ Glow Glass and Glow Desk will someday carry Tilak-marked hearth/station resins t
 
 1. **usb-hearth.5** Desk station apply — GREEN.  
 2. **usb-hearth** usb_desk Comlink lane ping — GREEN.  
-3. **usb-hearth** hosted UDP lane stand-in — GREEN `20260718.134348`.  
-4. **usb-hearth** CDC-NCM gadget — check-in.  
-5. Later word: Tilak mark + resin + Amphora pour for hearth/station.
+3. **usb-hearth** hosted UDP lane stand-in — GREEN.  
+4. **usb-hearth** NCM-shaped frame — GREEN `20260718.134613`.  
+5. **usb-hearth** live CDC-NCM gadget — check-in.  
+6. Later word: Tilak mark + resin + Amphora pour for hearth/station.
 
 ## Why the revival exists
 

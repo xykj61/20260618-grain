@@ -289,8 +289,10 @@
 - [x] **Glass↔Desk Amber/Amphora compose-not-fuse** `20260718.133455` — ER + siloed revival; fuse declined; Tilak→resin→Amphora graduation horizon.
 - [x] **usb-hearth — usb_desk Comlink lane ping** `20260718.133853`–`134110` — Keaton approved thin face; `local` refuses; `usb_desk` seals+opens via `wire_format` and writes `lane_ping.bin`; host SKIP when station still local; parity_ch01 wired. CDC-NCM deferred.
 - [x] **usb-hearth sent** `20260718.134246` — `7a1ce3d1ee` on pier.
-- [x] **usb-hearth — hosted UDP lane wire** `20260718.134348` — Keaton approved continue; usb-hearth ping crosses localhost UDP port 38501 (Glass send · Desk recv demo); CDC-NCM deferred to usb-hearth; parity_ch01 wired.
-- [ ] **usb-hearth — CDC-NCM gadget lane** — check-in (real USB networking; not Amber-on-Glass).
+- [x] **usb-hearth — hosted UDP lane wire** `20260718.134348` — Keaton approved continue; usb-hearth ping crosses localhost UDP port 38501 (Glass send · Desk recv demo); CDC-NCM deferred; parity_ch01 wired.
+- [x] **usb-hearth sent** `20260718.134458` — `6db3c0be2c` on pier.
+- [x] **usb-hearth — NCM-shaped frame** `20260718.134613` — Keaton approved; wrap/unwrap usb-hearth ping in virtio-net + eth (Comlink lab ethertype 0x1201); bad ethertype refused; live gadget deferred to usb-hearth.
+- [ ] **usb-hearth — live CDC-NCM gadget** — check-in (Pixel/QEMU bring-up; not Amber-on-Glass).
 - [ ] **Wired Glass SLC metalsmoke** — cellular optional/off; USB sync to Desk; Setu live lane check-in.
 - [ ] **seva-broadcast — Inference and economics** — check-in (Quin · MALA).
 - [ ] **C2 thin TAME compressor** — optional `docs/TAME.md` only if cold-load pain is measured.
