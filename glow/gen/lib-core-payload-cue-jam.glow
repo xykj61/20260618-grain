@@ -1,0 +1,5 @@
+::  Library payload cue-of-jam arm — importable round-trip (glow-language).
+|%
+=/  amount  5
+++  unpack  (cue (jam amount amount))
+--
