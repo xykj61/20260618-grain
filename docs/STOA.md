@@ -1,4 +1,4 @@
-# glow-language — Glow language SLC · nest · product · ≤80 · glow-language–70 GREEN · 2026-07-19 (session-root)
+# glow-language — Glow language SLC · nest · product · ≤80 · glow-language–71 GREEN · 2026-07-19 (import seam)
 Product glass stays Rye-hosted. **glow-language** names the language path (eight GREEN heads = SLC Lap). **Waymark draw:** `glow-language-rune-heads-nest-and-lowering-2` → **glow-language** (`20260718.202730`; **MAIR** superseded).
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
@@ -73,8 +73,9 @@ Product glass stays Rye-hosted. **glow-language** names the language path (eight
 | **glow-language** | `/+` payload nest-both cue-of-jam | `glow_lower_compose_lib` · desk | **GREEN** `20260719.175024` |
 | **glow-language** | next-root product desk (`/+` · payload · cue-jam) | `glow_lower_compose_lib` · desk | **GREEN** `20260719.180837` |
 | **glow-language** | session-root nest-left product desk | `glow_lower_compose_lib` · desk | **GREEN** `20260719.181259` |
+| **glow-language** | NativeActivity-path Glow import seam | `stoa71_glow_import_seam_witness` | **GREEN** `20260719.182120` |
 | **glow-language** | Next language / product | horizon — check-in | horizon |
 ```bash
-cd ~/urbit && rishi/bin/rishi run tools/glow_run.rish glow/gen/use-lib-session-root-nest-cue-jam.glow && rishi/bin/rishi run tools/glow_run_desk_witness.rish
+cd ~/urbit && rishi/bin/rishi run tools/stoa71_glow_import_seam_witness.rish
 ```
 Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.

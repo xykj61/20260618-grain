@@ -338,7 +338,8 @@
 - [x] **glow-language–68 — language ladder through `/+` payload nest-both cue-of-jam** `20260719.175024` — open `++` · `/+` · cue/jam nests · face→payload · `/+` payload nest trios GREEN; compressor [`../docs/glow-language.md`](../docs/glow-language.md); language nib per REMEMBER (plan caught up from glow-language open).
 - [x] **glow-language — next-root product desk (lean A)** `20260719.180837` — `use-lib-next-root-cue-jam` · `lib-next-root-cue-jam`; payload `root` + `/+` + cue-of-jam arm `next-root`; expect **5**.
 - [x] **glow-language — session-root nest-left product desk (lean A)** `20260719.181259` — `use-lib-session-root-nest-cue-jam` · `lib-session-root-nest-cue-jam`; nest-left cue-of-jam arm `session-root`; expect **5**.
-- [ ] **glow-language — next language / product** — check-in (NativeActivity import · molds · Sala B0 rewrite stay later).
+- [x] **glow-language — NativeActivity-path Glow import seam (lean A)** `20260719.182120` — linengrow `@import` of Glow-lowered `lib_session_root_nest_cue_jam`; `session_root() == 5`; device-free; APK wire stays later.
+- [ ] **glow-language — next language / product** — check-in (APK wire of import · molds · Sala B0 rewrite stay later).
 - [ ] **Dill-parallel kernel revival** — separate `active-reviving/` brief when a real need opens; not Dexter.
 - [ ] **M1 Scribble↔html round-trip witness** — named in fusion map; opens when Keaton leans doc pipeline.
 - [ ] **TAME witness-habitat pairing + Glow supplement** — horizon; needs Keaton's word (H2).
