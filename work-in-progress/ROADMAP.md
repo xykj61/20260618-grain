@@ -4,7 +4,7 @@
 
 **Language:** EN
 **Version:** `20260715` (Pool keystone revival prioritized · Quin voice seated · align pass reconciles the closed ladder)
-**Last updated:** 2026-07-18 (**glow-language** GREEN — face→three-arm compose)
+**Last updated:** 2026-07-18 (**glow-language** GREEN — two-face→add core)
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)
 **Voice:** Quin
 **Lens:** TAME — safety, performance, joy; the Seed Law; [SLC](../context/SIMPLE_LOVABLE_COMPLETE.md)
@@ -359,6 +359,10 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 **glow-language face→three-arm GREEN, `20260718.233120`** — desk `compose-core-three`; `max_lines` 6 (bare multi still 4). Next: **send**; then **glow-language** check-in (payload-in-compose · `%+` into a core).
 
 **Send glow-language, `20260718.233813`** — face→three-arm compose on the pier. Next language: **glow-language** check-in (payload-in-compose · `%+` into a core).
+
+**glow-language two-face→`|%` add GREEN, `20260718.234122`** — desk `compose-core-add`; `Core.add(from, amount)` → 8. Next: **send**; then **glow-language** check-in (face→payload compose).
+
+**Send glow-language, `20260718.234338`** — two-face→add core on the pier. Next language: **glow-language** check-in (face→payload compose).
 
 **Glow OS · Glow Desk · Glow Glass seated, `20260717.183622`** — Keaton: **Glow OS** unifies; **Glow Desk** = desktop; **Glow Glass** = mobile. Lexicon + silo [`../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md`](../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md). Orientation firmware stays check-in.
 
