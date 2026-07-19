@@ -1,0 +1,4 @@
+::  Import cue-jam library then call unpack (glow-language).
+/+  lib-core-cue-jam
+=/  amount  5
+%-  unpack  amount
