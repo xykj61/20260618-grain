@@ -38,7 +38,7 @@ Why this one: `(mix …)` is bitwise XOR of two faces — the same *combine two 
 
 Smaller emitters exist (`bound-tick.glow`, `lent-tick.glow`) if you only need to prove the hop. Desk suite: `rishi/bin/rishi run tools/glow_run_desk_witness.rish`.
 
-**Next named language rung (held):** `(jam …)` nest in `glow/expr.rye` — denser paren after `(lent)` / `(mix)`. Not required for Pixel look; open when language appetite returns.
+**Next named language rung:** **glow-language** (multi-line / cores) — after **glow-language** `%*` GREEN `20260718.211343`. Living ladder: waymark **glow-language** · compressor [`../docs/glow-language.md`](../docs/glow-language.md).
 
 ---
 
@@ -55,7 +55,7 @@ Smaller emitters exist (`bound-tick.glow`, `lent-tick.glow`) if you only need to
 | `=.` | Mutate | same |
 | `=*` | Alias | same |
 
-Nest forms in `glow/expr.rye`: decimal · nested `^-` · face · `(lent …)` · `(mix …)`.
+Nest forms in `glow/expr.rye`: decimal · nested `^-` · face · `(lent …)` · `(mix …)` · `(jam …)`.
 
 ---
 
@@ -68,11 +68,11 @@ From the sameness rune brief. These are the heads an Acme reader should treat as
 | **Cores** | `\|=` gate · `\|^` · `\|%` · wet/dry variance family · `$(…)` recompute idiom |
 | **Casts / bind** | `^+` inferred cast · `^=` |
 | **Conditionals** | `?+` default switch · `?=` · `?>` · `?<` |
-| **Calls** | `%-` `%+` `%^` `%*` |
-| **Cells** | `:-` `:+` `:^` `:~` |
+| **Calls** | `%-`/`%+`/`%^`/`%*` **GREEN glow-language–9** · multi-line/cores still open |
+| **Cells** | `:-`/`:+`/`:^`/`:~` **GREEN glow-language–5** |
 | **Molds** | `+$` `$:` `$%` |
 | **Hints / jets** | `~%` `~/` (+ jet witnesses) |
-| **Nest / surface** | `(jam …)` · general token stream · **multi-line** programs |
+| **Nest / surface** | `(cue …)` · nested jam · general token stream · **multi-line** programs |
 | **Auras** | `@ux` · `@p` · `@da` · `@t` (unsigned `@uN` only today) |
 
 **Glass-critical gap in one line:** Skate paint + Dexter drain + seva-broadcast chat need *composed* modules (cores, calls, cells, molds, multi-line). Today Glow emits **one-line demo generators** that lower to self-contained Rye mains — not libraries the NativeActivity imports.

@@ -8,6 +8,22 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260718.211531` — [Send usb-hearth.5 and glow-language-9](20260718-211531_send-setu65-stoa0-9.bron) — pier ship; glow-language multi-line next
+- `20260718.211343` — [glow-language call named GREEN](20260718-211343_stoa9-call-named-green.bron) — sixteenth head %*; desk call-named
+- `20260718.211059` — [glow-language call three GREEN](20260718-211059_stoa8-call-three-green.bron) — fifteenth head %^; desk call-three
+- `20260718.210823` — [glow-language call two GREEN](20260718-210823_stoa7-call-two-green.bron) — fourteenth head %+; desk call-two
+- `20260718.205959` — [glow-language call one GREEN](20260718-205959_stoa6-call-one-green.bron) — thirteenth head %-; desk call-one
+- `20260718.205715` — [glow-language list cell GREEN](20260718-205715_stoa5-list-cell-green.bron) — twelfth head :~; desk cell-list
+- `20260718.205500` — [glow-language quad cell GREEN](20260718-205500_stoa4-quad-cell-green.bron) — eleventh head :^; desk cell-quad
+- `20260718.205303` — [glow-language triple cell GREEN](20260718-205303_stoa3-triple-cell-green.bron) — tenth head :+; desk cell-triple
+- `20260718.205119` — [glow-language witnesses run in-tree](20260718-205119_stoa-witnesses-run-in-tree.bron) — jam · cell · full desk GREEN
+- `20260718.204634` — [glow-language cell pair GREEN](20260718-204634_stoa2-cell-pair-green.bron) — ninth head :-; desk cell-pair
+- `20260718.203656` — [glow-language jam nest GREEN](20260718-203656_stoa1-jam-nest-green.bron) — cell-pack (a<<16)|b; desks GREEN
+- `20260718.202737` — [glow-language supersedes MAIR](20260718-202737_stoa-supersedes-mair.bron) — language waymark redraw; glow-language claimed
+- `20260718.202545` — [MAIR Glow language waymark](20260718-202545_mair-glow-language-waymark.bron) — first draw; superseded same day
+- `20260718.201917` — [Glow language vs product SLC](20260718-201917_glow-language-slc-orientation.bron) — eight heads GREEN; no language waymark yet
+- `20260718.201826` — [usb-hearth.5 lab TX gate GREEN](20260718-201826_setu65-lab-tx-gate-green.bron) — stand-in refuses; host SKIP; send next
+- `20260718.201530` — [usb-hearth.5 check-in after send](20260718-201530_setu65-checkin-after-send.bron) — live TX; await approve or pause
 - `20260718.201510` — [Send usb-hearth lab harness](20260718-201510_send-setu6-lab-harness.bron) — pier ship; usb-hearth.5 check-in
 - `20260718.201446` — [Phone needed for usb-hearth?](20260718-201446_phone-needed-for-setu6.bron) — no for stand-in; usb-hearth.5 later
 - `20260718.201232` — [usb-hearth lab harness GREEN](20260718-201232_setu6-lab-harness-green.bron) — stand-in; payload 289b; send next

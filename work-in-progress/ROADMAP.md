@@ -4,7 +4,7 @@
 
 **Language:** EN
 **Version:** `20260715` (Pool keystone revival prioritized · Quin voice seated · align pass reconciles the closed ladder)
-**Last updated:** 2026-07-18 (**usb-hearth** GREEN — device-wire lab harness)
+**Last updated:** 2026-07-18 (**glow-language** GREEN — `%*` named-arg call)
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)
 **Voice:** Quin
 **Lens:** TAME — safety, performance, joy; the Seed Law; [SLC](../context/SIMPLE_LOVABLE_COMPLETE.md)
@@ -291,6 +291,30 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 **HOLD Wayland eyes seen · Desk Hearth Hold closed, `20260718.194211`** — Keaton saw hold chrome on Wayland. Chapter job complete. Next: **usb-hearth** check-in when ready, or pause.
 
 **usb-hearth lab harness GREEN, `20260718.201232`** — approved: payload ready · iface classified · stand-in on this host (Pixel still charging+debug). Next: **send**; usb-hearth.5 live TX check-in when gadget/QEMU chosen.
+
+**usb-hearth.5 lab TX gate GREEN, `20260718.201601`** — approved thin face: stand-in refuses · armed prepares + iface-bound UDP :38503 attempt · host SKIP GREEN without usb0/ncm. Next: **send**; live “sent” eyes when gadget/QEMU is chosen.
+
+**MAIR Glow language waymark drawn, `20260718.202414`** — first draw; superseded same day by glow-language.
+
+**glow-language Glow language waymark seated, `20260718.202730`** — input `glow-language-rune-heads-nest-and-lowering-2` → **glow-language**. glow-language = eight heads + desk + `(lent)`/`(mix)` claimed GREEN as language SLC Lap 1. Next language kg: **glow-language** `(jam …)`. Product wire stays usb-hearth; glass stays glass-keyboard/hearth-display.
+
+**glow-language `(jam …)` GREEN, `20260718.203000`** — thin cell-pack nest under face and arms; desks GREEN; `(cue …)` still refuses. Next language: **glow-language** composition check-in (call or cell).
+
+**glow-language `:-` pair cell GREEN, `20260718.204500`** — ninth rune head; demo pair `{p,q}`; desk `cell-pair`. Next language: **glow-language** check-in (call `%-`, taller cell, or multi-line).
+
+**glow-language `:+` triple cell GREEN, `20260718.205200`** — tenth rune head; demo triple `{p,q,r}`; desk `cell-triple`. Next language: **glow-language** check-in (call `%-`, quad `:^`, or multi-line).
+
+**glow-language `:^` quad cell GREEN, `20260718.205400`** — eleventh rune head; demo quad `{p,q,r,s}`; desk `cell-quad`. Cell arity family `:-`/`:+`/`:^` closed. Next language: **glow-language** check-in (call `%-`, list `:~`, or multi-line).
+
+**glow-language `:~` list cell GREEN, `20260718.205715`** — twelfth rune head; 1–4 faces → Rye `[_]u32` array; desk `cell-list`. Colon cell family closed through list. Next language: **glow-language** check-in (call `%-` or multi-line / cores).
+
+**glow-language `%-` one-arg call GREEN, `20260718.205959`** — thirteenth rune head; closed demo gate `double` (sample *% 2); desk `call-one`. First `%` call category head. Next language: **glow-language** check-in (`%+` multi-arg, multi-line, or cores).
+
+**glow-language `%+` two-arg call GREEN, `20260718.210823`** — fourteenth rune head; closed demo gate `add` (5 +% 3 → 8); desk `call-two`. Next language: **glow-language** check-in (`%^` `%*`, multi-line, or cores).
+
+**glow-language `%^` three-arg call GREEN, `20260718.211059`** — fifteenth rune head; closed demo gate `sum` (5 +% 3 +% 1 → 9); desk `call-three`. Positional call arity `%-`/`%+`/`%^` closed. Next language: **glow-language** check-in (`%*` named, multi-line, or cores).
+
+**glow-language `%*` named-arg call GREEN, `20260718.211343`** — sixteenth rune head; closed demo gate `mix` with named Sample struct; desk `call-named`. Full `%` call family closed. Next language: **glow-language** check-in (multi-line / cores — composition season).
 
 **Glow OS · Glow Desk · Glow Glass seated, `20260717.183622`** — Keaton: **Glow OS** unifies; **Glow Desk** = desktop; **Glow Glass** = mobile. Lexicon + silo [`../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md`](../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md). Orientation firmware stays check-in.
 

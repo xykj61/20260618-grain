@@ -20,6 +20,7 @@ Before the first rung is written as `X0` / `X1` / … in TASKS, ROADMAP, compres
 | **glass-keyboard** | `glow-english-qwerty-glass-keyboard-3` | Glass English QWERTY keyboard |
 | **seva-broadcast** | `sala-broadcast-live-session-fold` | Sala broadcast session fold (was bare B0–B3) |
 | **hearth-display** | `glow-glass-hearth-display-and-wired-sync` | Hearth display presets · short home · Wired Glass |
+| **glow-language** | `glow-language-rune-heads-nest-and-lowering-2` | Glow language SLC · rune heads · nest · composition |
 
 ## Accrete-never-break
 
