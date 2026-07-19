@@ -1,0 +1,4 @@
+::  Import next-root product library then call next-root (glow-language).
+/+  lib-next-root-cue-jam
+=/  root  5
+%-  next-root  root

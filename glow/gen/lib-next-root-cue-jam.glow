@@ -1,0 +1,5 @@
+::  Library next-root product arm — payload + cue-of-jam (glow-language).
+|%
+=/  root  5
+++  next-root  (cue (jam root root))
+--

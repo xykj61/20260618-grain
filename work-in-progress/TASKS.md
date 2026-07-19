@@ -335,7 +335,9 @@
 - [x] **glow-language — face→three-arm compose** `20260718.233120` — desk `compose-core-three`; `max_lines` 6.
 - [x] **glow-language — two-face→add core** `20260718.234122` — desk `compose-core-add`; `Core.add(from, amount)`.
 - [x] **glow-language — face→payload compose** `20260718.234430` — desk `compose-core-payload`; outer note + inner payload double.
-- [ ] **glow-language — next language / product** — check-in.
+- [x] **glow-language–68 — language ladder through `/+` payload nest-both cue-of-jam** `20260719.175024` — open `++` · `/+` · cue/jam nests · face→payload · `/+` payload nest trios GREEN; compressor [`../docs/glow-language.md`](../docs/glow-language.md); language nib per REMEMBER (plan caught up from glow-language open).
+- [x] **glow-language — next-root product desk (lean A)** `20260719.180837` — `use-lib-next-root-cue-jam` · `lib-next-root-cue-jam`; payload `root` + `/+` + cue-of-jam arm `next-root`; expect **5**.
+- [ ] **glow-language — next language / product** — check-in (NativeActivity import · molds · richer Sala fold stay later).
 - [ ] **Dill-parallel kernel revival** — separate `active-reviving/` brief when a real need opens; not Dexter.
 - [ ] **M1 Scribble↔html round-trip witness** — named in fusion map; opens when Keaton leans doc pipeline.
 - [ ] **TAME witness-habitat pairing + Glow supplement** — horizon; needs Keaton's word (H2).
