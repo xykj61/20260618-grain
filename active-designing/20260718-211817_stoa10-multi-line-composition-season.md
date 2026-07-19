@@ -22,11 +22,13 @@ After usb-hearth.5 + glow-language–9 shipped to the pier (`812e36ff01`), the l
 
 ## Landed next
 
-**glow-language** face→`%-` compose GREEN `20260718.212131` — desk `compose-call`.
+**glow-language** face→`%-` compose GREEN `20260718.212131` — desk `compose-call`.  
+**glow-language** face→face→`%+` compose GREEN `20260718.221812` — desk `compose-add` (approved thin face A).  
+**glow-language** typed multi-line `@u32` GREEN `20260718.223431` — desk `multi-typed`.
 
 ## Held for glow-language+
 
-Typed multi-line molds · cores · `%+` compose · `(cue …)` · nested jam across lines.
+Cores · `(cue …)` · nested jam across lines · other auras in multi-line.
 
 ---
 
