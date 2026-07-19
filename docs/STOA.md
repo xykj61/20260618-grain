@@ -5,7 +5,7 @@
 **Status:** Checkable — operator compressor (glow-language–glow-language GREEN)  
 **Depth:** guide  
 **Ceiling:** ≤80 lines  
-**Last updated:** 2026-07-18 (glow-language core payload GREEN)  
+**Last updated:** 2026-07-18 (glow-language face→core GREEN)  
 **Compresses:** [`../glow/README.md`](../glow/README.md) · first-code [`../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md`](../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md) · sameness [`../active-designing/20260716-033000_sameness-and-the-rune-glow-grammar-riscv.md`](../active-designing/20260716-033000_sameness-and-the-rune-glow-grammar-riscv.md) · seat [`../active-designing/20260718-202730_stoa-glow-language-waymark.md`](../active-designing/20260718-202730_stoa-glow-language-waymark.md)
 
 ---
@@ -38,13 +38,14 @@ Product glass and wire stay Rye-hosted under their own waymarks. **glow-language
 | **glow-language** | Two-arm battery (`double` · `inc`) | `glow_rune_core` · `glow_lower_core` · desk | **GREEN** `20260718.225150` |
 | **glow-language** | Library emit (no `main`) | `glow_lower_core_lib` · consumer | **GREEN** `20260718.225150` |
 | **glow-language** | Core payload `=/` sample | `glow_rune_core` · `glow_lower_core` · desk | **GREEN** `20260718.225931` |
-| **glow-language** | Face→core · 3+ arms · typed payload | horizon — check-in | horizon |
+| **glow-language** | Face→`|%` compose | `glow_lower_compose_core` · desk | **GREEN** `20260718.230846` |
+| **glow-language** | 3+ arms · typed payload · richer compose | horizon — check-in | horizon |
 
 ## Hands-on
 
 ```bash
 cd ~/urbit
-rishi/bin/rishi run tools/glow_run.rish glow/gen/core-payload.glow
+rishi/bin/rishi run tools/glow_run.rish glow/gen/compose-core.glow
 rishi/bin/rishi run tools/glow_run_desk_witness.rish
 ```
 

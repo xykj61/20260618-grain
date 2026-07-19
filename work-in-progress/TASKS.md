@@ -328,7 +328,8 @@
 - [x] **glow-language — two-arm battery** `20260718.225150` — `|%` / `++ double` / `++ inc` / `--`; desk `core-two`; welcome asserts both arms.
 - [x] **glow-language — library emit** `20260718.225150` — Core only, no `main`; desk `lib-core-double`; consumer `@import` exit 0.
 - [x] **glow-language — core payload** `20260718.225931` — `|%` / `=/ amount 5` / `++ double` / `--`; desk `core-payload`; arms use `self.amount`.
-- [ ] **glow-language — face→core / 3+ arms / typed payload** — check-in.
+- [x] **glow-language — face→core compose** `20260718.230846` — outer `=/` then thin `|%` battery; desk `compose-core`; `Core.double(amount)`.
+- [ ] **glow-language — 3+ arms / typed payload / richer compose** — check-in.
 - [ ] **Dill-parallel kernel revival** — separate `active-reviving/` brief when a real need opens; not Dexter.
 - [ ] **M1 Scribble↔html round-trip witness** — named in fusion map; opens when Keaton leans doc pipeline.
 - [ ] **TAME witness-habitat pairing + Glow supplement** — horizon; needs Keaton's word (H2).
