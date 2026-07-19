@@ -2,8 +2,8 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260718.194211` (Eastern) · voice Quin  
-**Product nib:** glass-keyboard · hearth-display–5 · usb-hearth · HOLD0 · HOLD1 · **HOLD-W** (eyes seen)  
+**Last refreshed:** `20260718.201232` (Eastern) · voice Quin  
+**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth** · HOLD0–HOLD1 · HOLD-W  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth · HOLD0–HOLD1 · HOLD-W  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
 
@@ -18,7 +18,7 @@
 | **glass-keyboard** | English QWERTY glass keyboard | glass-keyboard–6 GREEN (Pixel look) |
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
-| **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth · HOLD0–HOLD1 · HOLD-W GREEN** · usb-hearth check-in |
+| **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth · HOLD0–HOLD1 · HOLD-W GREEN** · usb-hearth.5 check-in |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md)
 
@@ -51,7 +51,7 @@ Hold row 1 → Settings: presets · `home ·` · `wire ·` · `cell ·` — all 
 
 | Door | Kind |
 |------|------|
-| **usb-hearth** QEMU/Pixel CDC-NCM lab | **check-in** (parked) |
+| **usb-hearth.5** live framed TX on usb0/ncm | **check-in** (needs gadget/QEMU) |
 | Amber/Amphora Glass↔Desk fuse | **declined** — compose later (`133455`) |
 | seva-broadcast · TAME Lap 3 | **check-in** |
 
