@@ -2,9 +2,8 @@
 
 *Waymark for Glow the language: rune heads that lower, nest forms that deepen, composition that grows toward Glow-authored modules. Compresses the working pin; never replaces it.*
 
-**Status:** Checkable — glow-language–glow-language GREEN · 2026-07-19 (`/+` nest-both cue-of-jam) · guide · ≤80  
+**Status:** Checkable — glow-language–glow-language GREEN · 2026-07-19 (payload cue-of-jam) · guide · ≤80  
 **Compresses:** [`../glow/README.md`](../glow/README.md) · first-code [`../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md`](../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md) · sameness [`../active-designing/20260716-033000_sameness-and-the-rune-glow-grammar-riscv.md`](../active-designing/20260716-033000_sameness-and-the-rune-glow-grammar-riscv.md) · seat [`../active-designing/20260718-202730_stoa-glow-language-waymark.md`](../active-designing/20260718-202730_stoa-glow-language-waymark.md)
-## Thesis — name the language lap
 Product glass and wire stay Rye-hosted under their own waymarks. **glow-language** names the language path so eight GREEN heads count as an SLC Lap, and every nest or composition rung has a home beside them — not a rewrite of usb-hearth or glass-keyboard.
 **Waymark draw:** input `glow-language-rune-heads-nest-and-lowering-2` · SHA3-512 · flw.txt → **glow-language** (`tools/waymark_derive.rish`, `20260718.202730`). First draw **MAIR** (`…-lowering`, `20260718.202414`) superseded same day by Keaton’s redraw.
 ## Rung table
@@ -71,10 +70,11 @@ Product glass and wire stay Rye-hosted under their own waymarks. **glow-language
 | **glow-language** | `/+` nest-left cue-of-jam | `glow_lower_compose_lib` · desk | **GREEN** `20260719.170718` |
 | **glow-language** | `/+` nest-right cue-of-jam | `glow_lower_compose_lib` · desk | **GREEN** `20260719.171131` |
 | **glow-language** | `/+` nest-both cue-of-jam | `glow_lower_compose_lib` · desk | **GREEN** `20260719.171500` |
+| **glow-language** | Face→payload cue-of-jam | `glow_lower_compose_core_payload` · desk | **GREEN** `20260719.171844` |
 | **glow-language** | Next language / product | horizon — check-in | horizon |
 ```bash
 cd ~/urbit
-rishi/bin/rishi run tools/glow_run.rish glow/gen/use-lib-cue-jam-both-nest.glow
+rishi/bin/rishi run tools/glow_run.rish glow/gen/compose-core-payload-cue-jam.glow
 rishi/bin/rishi run tools/glow_run_desk_witness.rish
 ```
-Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**. Door: [`../manual/README.md`](../manual/README.md). *May every head lower honestly, and every nest deepen the same language.*
+Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**. *May every head lower honestly, and every nest deepen the same language.*
