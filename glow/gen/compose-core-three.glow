@@ -1,0 +1,7 @@
+::  Face then three-arm core (glow-language).
+=/  amount  5
+|%
+++  double
+++  inc
+++  dec
+--

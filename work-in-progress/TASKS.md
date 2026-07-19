@@ -332,7 +332,8 @@
 - [x] **glow-language — face→two-arm compose** `20260718.231511` — desk `compose-core-two`; `max_lines` 5.
 - [x] **glow-language — three-arm battery** `20260718.231511` — `++ dec`; desk `core-three`; `max_arms` 3.
 - [x] **glow-language — typed `@u32` payload** `20260718.232419` — desk `core-payload-typed`; bare payload unchanged; other auras refuse.
-- [ ] **glow-language — face→3 / richer compose** — check-in.
+- [x] **glow-language — face→three-arm compose** `20260718.233120` — desk `compose-core-three`; `max_lines` 6.
+- [ ] **glow-language — richer compose (payload / `%+`)** — check-in.
 - [ ] **Dill-parallel kernel revival** — separate `active-reviving/` brief when a real need opens; not Dexter.
 - [ ] **M1 Scribble↔html round-trip witness** — named in fusion map; opens when Keaton leans doc pipeline.
 - [ ] **TAME witness-habitat pairing + Glow supplement** — horizon; needs Keaton's word (H2).
