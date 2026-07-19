@@ -1,0 +1,17 @@
+format session-log-v1
+stamp 20260719.194200
+editor Cursor
+model Cursor Grok 4.5 300k High Fast
+voice Quin
+host Ubuntu 26.04 LTS GNOME Wayland (Framework 16 AMD) — Eastern time convention
+title glow-language check-in after $% payload
+prompt send and approve next rec
+think glow-language $% payload seated · next language check-in
+think A cross-desk named-cast — import +$ then ^- by name
+think B multi-face $% payload — [%mint from=@u32 amount=@u32]
+think C Sala B0 rewrite in Glow — large product lap
+obs A closes the cast seam across desks after same-desk glow-language · jail-reachable finishing edge
+git_nib f0de302057
+product_nib glass-keyboard
+suite_nib glow-language-78
+recommend check-in — glow-language A cross-desk named-cast · B multi-face $% payload · C Sala B0 rewrite in Glow
