@@ -4,7 +4,7 @@
 
 **Language:** EN
 **Version:** `20260715` (Pool keystone revival prioritized · Quin voice seated · align pass reconciles the closed ladder)
-**Last updated:** 2026-07-19 (**glow-language–73** GREEN — product-root write path; nest trios closed through glow-language)
+**Last updated:** 2026-07-19 (**glow-language–74** GREEN — thin +$ / $: mold; nest trios closed through glow-language)
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)
 **Voice:** Quin
 **Lens:** TAME — safety, performance, joy; the Seed Law; [SLC](../context/SIMPLE_LOVABLE_COMPLETE.md)
@@ -379,6 +379,8 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 **glow-language NativeActivity APK Glow import wire GREEN, `20260719.182648`** — lean A: `glow_native_activity` imports the same lowered session-root, asserts expect **5**, exports `glow_last_product_session_root`; `tube05` pack seats symlink and nm-checks both ABIs. Sala B0 hex fold stays painted/file root. Device-free pack; install/eyes stay separate. Next language: **glow-language** check-in.
 
 **glow-language product-root write path GREEN, `20260719.184836`** — lean A device-free half: onCreate writes `files/glow_product_root.txt` with decimal **5**; pack GREEN; `.so` carries the path string. Host install witness authored; jail has no adb/KVM so on-device eyes stay outer-terminal. Next language: **glow-language** check-in.
+
+**glow-language thin `+$` / `$:` mold GREEN, `20260719.190825`** — lean B (host install A still jail-blocked): one-field `@u32` tuple mold; parse · lower to `AmountMold` · desk `mold-amount` · full desk suite GREEN. `$%` · multi-field · named-cast resolve stay later. Next language: **glow-language** check-in.
 
 **Glow OS · Glow Desk · Glow Glass seated, `20260717.183622`** — Keaton: **Glow OS** unifies; **Glow Desk** = desktop; **Glow Glass** = mobile. Lexicon + silo [`../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md`](../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md). Orientation firmware stays check-in.
 
