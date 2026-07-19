@@ -1,0 +1,5 @@
+::  Core with payload sample (glow-language).
+|%
+=/  amount  5
+++  double
+--
