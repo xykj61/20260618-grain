@@ -2,22 +2,22 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260719.182138` (Eastern) · voice Quin  
+**Last refreshed:** `20260719.182648` (Eastern) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–71** GREEN · glow-language open  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–71  
-**Git nib:** `dde4748475` glow-language NativeActivity-path Glow import seam  
+**Language nib:** **glow-language–72** GREEN · glow-language open  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–72  
+**Git nib:** *(pin after seat)* glow-language NativeActivity APK Glow import wire  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
 
 ---
 
 ## Now (language)
 
-**glow-language** NativeActivity-path Glow import seam GREEN `20260719.182120` — linengrow consumer `@import`s Glow-lowered `lib_session_root_nest_cue_jam`, asserts `session_root() == 5`. Device-free. Does not claim APK wire yet. Next door: **glow-language** check-in.
+**glow-language** NativeActivity APK Glow import wire GREEN `20260719.182648` — `glow_native_activity` `@import`s Glow-lowered session-root, asserts expect **5**, exports `glow_last_product_session_root`; pack GREEN both ABIs. Sala B0 hex fold stays painted/file root. Next door: **glow-language** check-in.
 
-Smoke: `rishi/bin/rishi run tools/stoa71_glow_import_seam_witness.rish`
+Smoke: `rishi/bin/rishi run tools/stoa72_glow_apk_import_witness.rish`
 
-Pitfalls: symlink is witness-seated + gitignored · `std.debug.print` is stderr · expect **5**. Hold: APK wire of same import · molds · Sala B0 rewrite · token stream.
+Pitfalls: pack seats gitignored symlink · product root is u32 **5** not Sala hex · install/eyes still separate. Hold: molds · Sala B0 rewrite · token stream · on-device product-root proof.
 
 ---
 
@@ -31,7 +31,7 @@ Pitfalls: symlink is witness-seated + gitignored · `std.debug.print` is stderr 
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
 | **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W GREEN** · live “sent” eyes check-in |
-| **glow-language** | Glow language SLC · nest · composition | **glow-language–71 GREEN** · NativeActivity-path import seam · glow-language next |
+| **glow-language** | Glow language SLC · nest · composition | **glow-language–72 GREEN** · APK Glow import wire · glow-language next |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md) · [`../docs/glow-language.md`](../docs/glow-language.md)
 
@@ -67,7 +67,7 @@ Hold row 1 → Settings: presets · `home ·` · `wire ·` · `cell ·` — all 
 
 | Door | Kind |
 |------|------|
-| **glow-language** next language (APK wire · molds · …) | **check-in** |
+| **glow-language** next language (molds · on-device · …) | **check-in** |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** (needs gadget/QEMU) |
 | Amber/Amphora Glass↔Desk fuse | **declined** — compose later (`133455`) |
 | seva-broadcast · TAME Lap 3 | **check-in** |
