@@ -1,0 +1,5 @@
+::  Core with typed @u32 payload (glow-language).
+|%
+=/  amount=@u32  5
+++  double
+--
