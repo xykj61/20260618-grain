@@ -2,7 +2,7 @@
 //!
 //! glow-language–75: `$:` `@u32` fields → Zig struct + demo main.
 //! glow-language: `$%` cold-atom tags with unit payload → Zig enum + demo main.
-//! Named-cast resolve · payload arms stay later.
+//! Named-cast resolve: `lower_named_cast.rye` (glow-language). Payload arms stay later.
 
 const std = @import("std");
 const rm = @import("rune_mold.rye");

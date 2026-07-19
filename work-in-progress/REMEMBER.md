@@ -2,22 +2,22 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260719.192936` (Eastern) · voice Quin  
+**Last refreshed:** `20260719.193538` (Eastern) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–76** GREEN · glow-language open  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–76  
-**Git nib:** `2c1d65494f` glow-language thin +$ / $% tagged mold  
+**Language nib:** **glow-language–77** GREEN · glow-language open  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–77  
+**Git nib:** *(pin after seat)* glow-language same-desk named-cast  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
 
 ---
 
 ## Now (language)
 
-**glow-language** thin `+$` / `$%` tagged-union mold GREEN `20260719.192936` — desk `mold-kind` → `KindMold` enum (`mint` · `send`); unit payload only. Next door: **glow-language** check-in.
+**glow-language** same-desk named-cast resolve GREEN `20260719.193538` — desk `cast-named-amount` defines `+$ amount-mold` / `$:` then `^-  amount-mold` → `AmountMold`; bare `^-  record` still refused. Next door: **glow-language** check-in.
 
-Smoke: `rishi/bin/rishi run tools/glow_lower_mold_witness.rish`
+Smoke: `rishi/bin/rishi run tools/glow_lower_named_cast_witness.rish`
 
-Pitfalls: unit `[%tag ~]` only · two tags minimum. Hold: payload arms · named-cast resolve · Sala B0 rewrite.
+Pitfalls: same-desk only · one-field `$:` `@u32` · cast name must match mold name. Hold: `$%` payload arms · cross-desk named-cast · Sala B0 rewrite.
 
 ---
 
@@ -31,7 +31,7 @@ Pitfalls: unit `[%tag ~]` only · two tags minimum. Hold: payload arms · named-
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
 | **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W GREEN** · live “sent” eyes check-in |
-| **glow-language** | Glow language SLC · nest · composition | **glow-language–76 GREEN** · $% tagged mold · glow-language next |
+| **glow-language** | Glow language SLC · nest · composition | **glow-language–77 GREEN** · named-cast · glow-language next |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md) · [`../docs/glow-language.md`](../docs/glow-language.md)
 
@@ -70,7 +70,7 @@ Hold row 1 → Settings: presets · `home ·` · `wire ·` · `cell ·` — all 
 
 | Door | Kind |
 |------|------|
-| **glow-language** next language (named-cast · payload $% · …) | **check-in** |
+| **glow-language** next language (`$%` payload · cross-desk cast · …) | **check-in** |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** (needs gadget/QEMU) |
 | Amber/Amphora Glass↔Desk fuse | **declined** — compose later (`133455`) |
 | seva-broadcast · TAME Lap 3 | **check-in** |
