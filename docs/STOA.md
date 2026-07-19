@@ -5,7 +5,7 @@
 **Status:** Checkable — operator compressor (glow-language–glow-language GREEN)  
 **Depth:** guide  
 **Ceiling:** ≤80 lines  
-**Last updated:** 2026-07-18 (glow-language `%*` call GREEN)  
+**Last updated:** 2026-07-18 (glow-language face→call compose GREEN)  
 **Compresses:** [`../glow/README.md`](../glow/README.md) · first-code [`../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md`](../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md) · sameness [`../active-designing/20260716-033000_sameness-and-the-rune-glow-grammar-riscv.md`](../active-designing/20260716-033000_sameness-and-the-rune-glow-grammar-riscv.md) · seat [`../active-designing/20260718-202730_stoa-glow-language-waymark.md`](../active-designing/20260718-202730_stoa-glow-language-waymark.md)
 
 ---
@@ -30,13 +30,15 @@ Product glass and wire stay Rye-hosted under their own waymarks. **glow-language
 | **glow-language** | `%+` two-arg call · fourteenth rune head | `glow_rune_call2` · `glow_lower_call2` · desk | **GREEN** `20260718.210823` |
 | **glow-language** | `%^` three-arg call · fifteenth rune head | `glow_rune_call3` · `glow_lower_call3` · desk | **GREEN** `20260718.211059` |
 | **glow-language** | `%*` named-arg call · sixteenth rune head | `glow_rune_calln` · `glow_lower_calln` · desk | **GREEN** `20260718.211343` |
-| **glow-language** | Multi-line · cores | horizon — check-in | horizon |
+| **glow-language** | Multi-line bare `=/` desk (2–4 lines) | `glow_lower_multi` · desk | **GREEN** `20260718.211817` |
+| **glow-language** | Cross-line face→`%-` compose | `glow_lower_compose` · desk | **GREEN** `20260718.212131` |
+| **glow-language** | Cores · richer composition | horizon — check-in | horizon |
 
 ## Hands-on
 
 ```bash
 cd ~/urbit
-rishi/bin/rishi run tools/glow_run.rish glow/gen/call-named.glow
+rishi/bin/rishi run tools/glow_run.rish glow/gen/compose-call.glow
 rishi/bin/rishi run tools/glow_run_desk_witness.rish
 ```
 

@@ -8,6 +8,9 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260718.221526` — [Send glow-language-11 compose](20260718-221526_send-stoa10-11-compose.bron) — pier ship; multi-line + face→call
+- `20260718.212131` — [glow-language compose call GREEN](20260718-212131_stoa11-compose-call-green.bron) — face→%-; desk compose-call
+- `20260718.211817` — [glow-language multi-line GREEN](20260718-211817_stoa10-multi-line-green.bron) — 2–4 bare faces; desk multi-face
 - `20260718.211531` — [Send usb-hearth.5 and glow-language-9](20260718-211531_send-setu65-stoa0-9.bron) — pier ship; glow-language multi-line next
 - `20260718.211343` — [glow-language call named GREEN](20260718-211343_stoa9-call-named-green.bron) — sixteenth head %*; desk call-named
 - `20260718.211059` — [glow-language call three GREEN](20260718-211059_stoa8-call-three-green.bron) — fifteenth head %^; desk call-three

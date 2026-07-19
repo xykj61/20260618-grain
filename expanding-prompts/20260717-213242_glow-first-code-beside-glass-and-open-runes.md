@@ -38,7 +38,7 @@ Why this one: `(mix …)` is bitwise XOR of two faces — the same *combine two 
 
 Smaller emitters exist (`bound-tick.glow`, `lent-tick.glow`) if you only need to prove the hop. Desk suite: `rishi/bin/rishi run tools/glow_run_desk_witness.rish`.
 
-**Next named language rung:** **glow-language** (multi-line / cores) — after **glow-language** `%*` GREEN `20260718.211343`. Living ladder: waymark **glow-language** · compressor [`../docs/glow-language.md`](../docs/glow-language.md).
+**Next named language rung:** **glow-language** (cores · richer composition) — after **glow-language** face→call GREEN `20260718.212131`. Living ladder: waymark **glow-language** · compressor [`../docs/glow-language.md`](../docs/glow-language.md).
 
 ---
 
@@ -68,7 +68,8 @@ From the sameness rune brief. These are the heads an Acme reader should treat as
 | **Cores** | `\|=` gate · `\|^` · `\|%` · wet/dry variance family · `$(…)` recompute idiom |
 | **Casts / bind** | `^+` inferred cast · `^=` |
 | **Conditionals** | `?+` default switch · `?=` · `?>` · `?<` |
-| **Calls** | `%-`/`%+`/`%^`/`%*` **GREEN glow-language–9** · multi-line/cores still open |
+| **Calls** | `%-`/`%+`/`%^`/`%*` **GREEN glow-language–9** |
+| **Multi-line** | bare `=/` **GREEN glow-language** · face→`%-` **GREEN glow-language** · cores still open |
 | **Cells** | `:-`/`:+`/`:^`/`:~` **GREEN glow-language–5** |
 | **Molds** | `+$` `$:` `$%` |
 | **Hints / jets** | `~%` `~/` (+ jet witnesses) |

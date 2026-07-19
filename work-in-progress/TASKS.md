@@ -320,7 +320,9 @@
 - [x] **glow-language — `%+` two-arg call** `20260718.210823` — fourteenth rune head; closed demo gate `add`; desk `call-two`.
 - [x] **glow-language — `%^` three-arg call** `20260718.211059` — fifteenth rune head; closed demo gate `sum`; desk `call-three`.
 - [x] **glow-language — `%*` named-arg call** `20260718.211343` — sixteenth rune head; closed demo gate `mix` + Sample struct; desk `call-named`. `%` call family closed.
-- [ ] **glow-language — multi-line / cores** — check-in (composition season).
+- [x] **glow-language — multi-line bare faces** `20260718.211817` — 2–4 `=/  face  decimal` lines → one Rye main; desk `multi-face`; single-line desks unchanged.
+- [x] **glow-language — face→call compose** `20260718.212131` — `=/` then `%-  double  <same-face>`; desk `compose-call`; sample must match prior face.
+- [ ] **glow-language — cores / richer composition** — check-in (cores, typed multi-line, `%+` compose).
 - [ ] **Dill-parallel kernel revival** — separate `active-reviving/` brief when a real need opens; not Dexter.
 - [ ] **M1 Scribble↔html round-trip witness** — named in fusion map; opens when Keaton leans doc pipeline.
 - [ ] **TAME witness-habitat pairing + Glow supplement** — horizon; needs Keaton's word (H2).
