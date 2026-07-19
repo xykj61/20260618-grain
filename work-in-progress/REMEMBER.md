@@ -2,22 +2,22 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260719.190825` (Eastern) · voice Quin  
+**Last refreshed:** `20260719.191719` (Eastern) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
 **Language nib:** **glow-language–74** GREEN · glow-language open  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–74  
-**Git nib:** `6c36806299` glow-language thin +$ / $: mold  
+**Git nib:** *(pin after seat)* glow-language Pixel product-root eyes  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
 
 ---
 
 ## Now (language)
 
-**glow-language** thin `+$` / `$:` one-field `@u32` mold GREEN `20260719.190825` — desk `mold-amount` → `AmountMold`; host install A stayed jail-blocked so lean B molds landed. Next door: **glow-language** check-in.
+**glow-language** Pixel install eyes GREEN `20260719.191719` — `glow_product_root.txt` = **5**; Sala B0 hex still present. Language nib still **glow-language** molds; next door: **glow-language** check-in (multi-field `$:` recommended).
 
-Smoke: `rishi/bin/rishi run tools/glow_lower_mold_witness.rish`
+Smoke: `rishi/bin/rishi run tools/stoa73_product_root_install_onpath_host.rish`
 
-Pitfalls: one field `@u32` only · `$%` / multi-field / named-cast resolve stay later. Hold: host install eyes · `$%` · Sala B0 rewrite · token stream.
+Pitfalls: need outer-terminal adb · product file is ASCII **5**. Hold: `$%` · multi-field · named-cast · Sala B0 rewrite.
 
 ---
 
@@ -31,7 +31,7 @@ Pitfalls: one field `@u32` only · `$%` / multi-field / named-cast resolve stay 
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
 | **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W GREEN** · live “sent” eyes check-in |
-| **glow-language** | Glow language SLC · nest · composition | **glow-language–74 GREEN** · thin +$ / $: mold · glow-language next |
+| **glow-language** | Glow language SLC · nest · composition | **glow-language–74 GREEN** · Pixel product-root eyes · glow-language next |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md) · [`../docs/glow-language.md`](../docs/glow-language.md)
 
@@ -70,8 +70,7 @@ Hold row 1 → Settings: presets · `home ·` · `wire ·` · `cell ·` — all 
 
 | Door | Kind |
 |------|------|
-| **glow-language** host install product-root eyes | **check-in** (outer terminal) |
-| **glow-language** next language ($% · named-cast · …) | **check-in** |
+| **glow-language** next language (multi-field $: · $% · …) | **check-in** |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** (needs gadget/QEMU) |
 | Amber/Amphora Glass↔Desk fuse | **declined** — compose later (`133455`) |
 | seva-broadcast · TAME Lap 3 | **check-in** |

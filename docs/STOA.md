@@ -75,7 +75,7 @@ Product glass stays Rye-hosted. **glow-language** names the language path (eight
 | **glow-language** | session-root nest-left product desk | `glow_lower_compose_lib` · desk | **GREEN** `20260719.181259` |
 | **glow-language** | NativeActivity-path Glow import seam | `stoa71_glow_import_seam_witness` | **GREEN** `20260719.182120` |
 | **glow-language** | NativeActivity APK Glow import wire | `stoa72_glow_apk_import_witness` · pack | **GREEN** `20260719.182648` |
-| **glow-language** | product-root write path (expect 5) | `stoa73_product_root_write_witness` · pack | **GREEN** `20260719.184836` |
+| **glow-language** | product-root write + Pixel install (expect 5) | write · `stoa73_…_install_onpath_host` | **GREEN** write `184836` · eyes `191719` |
 | **glow-language** | thin `+$` / `$:` one-field `@u32` mold | `glow_rune_mold` · `glow_lower_mold` · desk | **GREEN** `20260719.190825` |
 | **glow-language** | Next language / product | horizon — check-in | horizon |
 Smoke: `rishi/bin/rishi run tools/glow_lower_mold_witness.rish` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
