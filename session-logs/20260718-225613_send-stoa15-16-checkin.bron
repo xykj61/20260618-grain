@@ -1,0 +1,18 @@
+format session-log-v1
+stamp 20260718.225613
+editor Cursor
+model Cursor Grok 4.5 300k High Fast
+voice Quin
+host Ubuntu 26.04 LTS GNOME Wayland (Framework 16 AMD) — Eastern time convention
+title Send glow-language-16 check-in
+prompt send and check in
+think Commit and push glow-language two-arm and glow-language library with session logs and living docs
+think Already on main — ship is commit then push origin and codeberg; no separate merge branch
+think After pier lands present glow-language forks and wait
+obs Witnesses were GREEN before send — core-two desk, library consumer exit 0, full glow_run desk
+obs Fork C face-to-core from prior check-in becomes one glow-language option beside payload and three-plus arms
+file glow/gen/core-two.glow glow-language desk
+file glow/gen/lib-core-double.glow glow-language battery
+file tools/glow_lower_core_lib_witness.rish library hop
+file docs/glow-language.md glow-language-16 GREEN
+recommend check-in glow-language forks after pier push

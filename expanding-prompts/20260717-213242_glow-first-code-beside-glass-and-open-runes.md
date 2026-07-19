@@ -38,7 +38,7 @@ Why this one: `(mix …)` is bitwise XOR of two faces — the same *combine two 
 
 Smaller emitters exist (`bound-tick.glow`, `lent-tick.glow`) if you only need to prove the hop. Desk suite: `rishi/bin/rishi run tools/glow_run_desk_witness.rish`.
 
-**Next named language rung:** **glow-language** (payload · multi-arm · library emit) — after **glow-language** thin `|%` GREEN `20260718.224030`. Living ladder: waymark **glow-language** · compressor [`../docs/glow-language.md`](../docs/glow-language.md).
+**Next named language rung:** **glow-language** (payload · face→core · 3+ arms) — after **glow-language–16** two-arm + library GREEN `20260718.225150`. Living ladder: waymark **glow-language** · compressor [`../docs/glow-language.md`](../docs/glow-language.md).
 
 ---
 
@@ -70,7 +70,7 @@ From the sameness rune brief. These are the heads an Acme reader should treat as
 | **Conditionals** | `?+` default switch · `?=` · `?>` · `?<` |
 | **Calls** | `%-`/`%+`/`%^`/`%*` **GREEN glow-language–9** |
 | **Multi-line** | bare **glow-language** · compose **glow-language–12** · typed `@u32` **glow-language** |
-| **Cores** | thin `\|%` / `++` / `--` **GREEN glow-language** · payload / multi-arm / library still open |
+| **Cores** | thin `\|%` one/two arms **GREEN glow-language–15** · library emit **GREEN glow-language** · payload / face→core / 3+ arms still open |
 | **Cells** | `:-`/`:+`/`:^`/`:~` **GREEN glow-language–5** |
 | **Molds** | `+$` `$:` `$%` |
 | **Hints / jets** | `~%` `~/` (+ jet witnesses) |

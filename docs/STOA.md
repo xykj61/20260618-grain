@@ -5,7 +5,7 @@
 **Status:** Checkable — operator compressor (glow-language–glow-language GREEN)  
 **Depth:** guide  
 **Ceiling:** ≤80 lines  
-**Last updated:** 2026-07-18 (glow-language thin `|%` core GREEN)  
+**Last updated:** 2026-07-18 (glow-language–16 two-arm + library GREEN)  
 **Compresses:** [`../glow/README.md`](../glow/README.md) · first-code [`../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md`](../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md) · sameness [`../active-designing/20260716-033000_sameness-and-the-rune-glow-grammar-riscv.md`](../active-designing/20260716-033000_sameness-and-the-rune-glow-grammar-riscv.md) · seat [`../active-designing/20260718-202730_stoa-glow-language-waymark.md`](../active-designing/20260718-202730_stoa-glow-language-waymark.md)
 
 ---
@@ -35,13 +35,16 @@ Product glass and wire stay Rye-hosted under their own waymarks. **glow-language
 | **glow-language** | Cross-line face→face→`%+` compose | `glow_lower_compose2` · desk | **GREEN** `20260718.221812` |
 | **glow-language** | Typed multi-line `@u32` desks | `glow_lower_multi_typed` · desk | **GREEN** `20260718.223431` |
 | **glow-language** | Thin `|%` / `++` / `--` core | `glow_rune_core` · `glow_lower_core` · desk | **GREEN** `20260718.224030` |
-| **glow-language** | Payload · multi-arm · library emit | horizon — check-in | horizon |
+| **glow-language** | Two-arm battery (`double` · `inc`) | `glow_rune_core` · `glow_lower_core` · desk | **GREEN** `20260718.225150` |
+| **glow-language** | Library emit (no `main`) | `glow_lower_core_lib` · consumer | **GREEN** `20260718.225150` |
+| **glow-language** | Payload · face→core · 3+ arms | horizon — check-in | horizon |
 
 ## Hands-on
 
 ```bash
 cd ~/urbit
-rishi/bin/rishi run tools/glow_run.rish glow/gen/core-double.glow
+rishi/bin/rishi run tools/glow_run.rish glow/gen/core-two.glow
+rishi/bin/rishi run tools/glow_lower_core_lib_witness.rish
 rishi/bin/rishi run tools/glow_run_desk_witness.rish
 ```
 

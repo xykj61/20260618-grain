@@ -325,7 +325,9 @@
 - [x] **glow-language — face→face→`%+` compose** `20260718.221812` — two bare faces then `%+  add  from  amount`; desk `compose-add`; samples must match bind order.
 - [x] **glow-language — typed multi-line `@u32`** `20260718.223431` — 2–4 `=/  face=@u32  decimal` lines; desk `multi-typed`; bare multi (glow-language) unchanged.
 - [x] **glow-language — thin `|%` core** `20260718.224030` — brief then `|%` / `++ double` / `--`; desk `core-double`; no Hoon variance.
-- [ ] **glow-language — payload / multi-arm / library** — check-in (sample, two arms, or emit without `main`).
+- [x] **glow-language — two-arm battery** `20260718.225150` — `|%` / `++ double` / `++ inc` / `--`; desk `core-two`; welcome asserts both arms.
+- [x] **glow-language — library emit** `20260718.225150` — Core only, no `main`; desk `lib-core-double`; consumer `@import` exit 0.
+- [ ] **glow-language — payload / face→core / 3+ arms** — check-in.
 - [ ] **Dill-parallel kernel revival** — separate `active-reviving/` brief when a real need opens; not Dexter.
 - [ ] **M1 Scribble↔html round-trip witness** — named in fusion map; opens when Keaton leans doc pipeline.
 - [ ] **TAME witness-habitat pairing + Glow supplement** — horizon; needs Keaton's word (H2).

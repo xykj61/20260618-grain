@@ -38,9 +38,9 @@ Exactly three Glow lines, no payload sample yet:
 - Welcome exit 0 / unwelcome exit 1
 - Desk `glow/gen/core-double.glow` on the desk hop
 
-## Held for glow-language+
+## Held for glow-language+ (landed `20260718.225150`)
 
-Payload/sample · two-arm batteries · face→core compose · library emit (no `main`) for NativeActivity.
+Two-arm batteries and library emit (no `main`) landed as **glow-language–16**. Still held: payload/sample · face→core compose · three-plus arms.
 
 ---
 
