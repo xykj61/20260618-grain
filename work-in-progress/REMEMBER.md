@@ -6,7 +6,7 @@
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
 **Language nib:** **glow-language–52** GREEN · glow-language open  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–52  
-**Git nib:** *(pin after seat)* glow-language bind→inline nest-both cue-of-jam  
+**Git nib:** `8b83f693b2` glow-language bind→inline nest-both cue-of-jam  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
 
 ---
