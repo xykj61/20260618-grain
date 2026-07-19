@@ -334,7 +334,8 @@
 - [x] **glow-language — typed `@u32` payload** `20260718.232419` — desk `core-payload-typed`; bare payload unchanged; other auras refuse.
 - [x] **glow-language — face→three-arm compose** `20260718.233120` — desk `compose-core-three`; `max_lines` 6.
 - [x] **glow-language — two-face→add core** `20260718.234122` — desk `compose-core-add`; `Core.add(from, amount)`.
-- [ ] **glow-language — face→payload compose / more** — check-in.
+- [x] **glow-language — face→payload compose** `20260718.234430` — desk `compose-core-payload`; outer note + inner payload double.
+- [ ] **glow-language — next language / product** — check-in.
 - [ ] **Dill-parallel kernel revival** — separate `active-reviving/` brief when a real need opens; not Dexter.
 - [ ] **M1 Scribble↔html round-trip witness** — named in fusion map; opens when Keaton leans doc pipeline.
 - [ ] **TAME witness-habitat pairing + Glow supplement** — horizon; needs Keaton's word (H2).
