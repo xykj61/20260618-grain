@@ -3,9 +3,8 @@
 *Waymark for Glow the language: rune heads that lower, nest forms that deepen, composition that grows toward Glow-authored modules. Compresses the working pin; never replaces it.*
 
 **Status:** Checkable — operator compressor (glow-language–glow-language GREEN)  
-**Depth:** guide  
-**Ceiling:** ≤80 lines  
-**Last updated:** 2026-07-19 (glow-language face→nest-right cue-of-jam GREEN)  
+**Depth:** guide · **Ceiling:** ≤80 lines  
+**Last updated:** 2026-07-19 (glow-language face→nest-both cue-of-jam GREEN)  
 **Compresses:** [`../glow/README.md`](../glow/README.md) · first-code [`../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md`](../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md) · sameness [`../active-designing/20260716-033000_sameness-and-the-rune-glow-grammar-riscv.md`](../active-designing/20260716-033000_sameness-and-the-rune-glow-grammar-riscv.md) · seat [`../active-designing/20260718-202730_stoa-glow-language-waymark.md`](../active-designing/20260718-202730_stoa-glow-language-waymark.md)
 ## Thesis — name the language lap
 Product glass and wire stay Rye-hosted under their own waymarks. **glow-language** names the language path so eight GREEN heads count as an SLC Lap, and every nest or composition rung has a home beside them — not a rewrite of usb-hearth or glass-keyboard.
@@ -69,11 +68,12 @@ Product glass and wire stay Rye-hosted under their own waymarks. **glow-language
 | **glow-language** | Face→`|%` cue-of-jam | `glow_lower_compose_core` · desk | **GREEN** `20260719.164640` |
 | **glow-language** | Face→nest-left cue-of-jam | `glow_lower_compose_core` · desk | **GREEN** `20260719.165048` |
 | **glow-language** | Face→nest-right cue-of-jam | `glow_lower_compose_core` · desk | **GREEN** `20260719.165404` |
+| **glow-language** | Face→nest-both cue-of-jam | `glow_lower_compose_core` · desk | **GREEN** `20260719.165724` |
 | **glow-language** | Next language / product | horizon — check-in | horizon |
 ## Hands-on
 ```bash
 cd ~/urbit
-rishi/bin/rishi run tools/glow_run.rish glow/gen/compose-core-cue-jam-right-nest.glow
+rishi/bin/rishi run tools/glow_run.rish glow/gen/compose-core-cue-jam-both-nest.glow
 rishi/bin/rishi run tools/glow_run_desk_witness.rish
 ```
 Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**. Door: [`../manual/README.md`](../manual/README.md).
