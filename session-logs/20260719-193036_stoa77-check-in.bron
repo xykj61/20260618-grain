@@ -1,0 +1,17 @@
+format session-log-v1
+stamp 20260719.193036
+editor Cursor
+model Cursor Grok 4.5 300k High Fast
+voice Quin
+host Ubuntu 26.04 LTS GNOME Wayland (Framework 16 AMD) — Eastern time convention
+title glow-language check-in after $% mold
+prompt send and approve next rec
+think glow-language $% tagged mold seated and pushed · next language check-in
+think A named-cast resolve — ^- against a defined +$ mold (closes NamedMoldNotYetLowered)
+think B $% payload arms — [%mint amount=@u32] richer than unit ~
+think C Sala B0 rewrite in Glow — large product lap
+obs A finishes the mold cast seam already refused GREEN · jail-reachable finishing edge
+git_nib 983c996af7
+product_nib glass-keyboard
+suite_nib glow-language-76
+recommend check-in — glow-language A named-cast resolve · B $% payload arms · C Sala B0 rewrite in Glow
