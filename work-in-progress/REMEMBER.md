@@ -2,9 +2,9 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260719.175326` (Eastern) · voice Quin  
+**Last refreshed:** `20260719.175835` (Eastern) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–68** GREEN · glow-language open  
+**Language nib:** **glow-language–68** GREEN · glow-language check-in (lean A product desk)  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–68  
 **Git nib:** `f0526b6b18` glow-language `/+` payload nest-both cue-of-jam  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
@@ -13,11 +13,11 @@
 
 ## Now (language)
 
-**glow-language** `/+` payload nest-both cue-of-jam GREEN `20260719.175024` — import `lib-core-payload-cue-jam-both-nest`, unpack `(cue (jam (mix amount amount) (mix amount amount)))`. Next door: **glow-language** check-in.
+**glow-language** closed the `/+` payload cue-jam nest trio. **glow-language** check-in `20260719.175835` — nest polarity ladders are finished; next need is product-shaped Glow, not another thin compose rung.
 
 Smoke: `rishi/bin/rishi run tools/glow_run.rish glow/gen/use-lib-payload-cue-jam-both-nest.glow`
 
-Pitfalls: face/payload **5** · unpack **0** · call `core.unpack()`. `/+` payload cue-jam nest trio closed.
+Still needed (named, not yet GREEN): one richer product desk toward glass import · molds/auras/hints when a desk demands them · NativeActivity import seam · Glow TAME · general token stream later.
 
 ---
 
@@ -31,7 +31,7 @@ Pitfalls: face/payload **5** · unpack **0** · call `core.unpack()`. `/+` paylo
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
 | **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W GREEN** · live “sent” eyes check-in |
-| **glow-language** | Glow language SLC · nest · composition | **glow-language–68 GREEN** · `/+` payload nest-both cue-of-jam · glow-language next |
+| **glow-language** | Glow language SLC · nest · composition | **glow-language–68 GREEN** · nest trios closed · glow-language product-desk check-in |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md) · [`../docs/glow-language.md`](../docs/glow-language.md)
 
@@ -67,7 +67,7 @@ Hold row 1 → Settings: presets · `home ·` · `wire ·` · `cell ·` — all 
 
 | Door | Kind |
 |------|------|
-| **glow-language** next language toward product-in-Glow | **check-in** |
+| **glow-language** richer product desk (lean A) | **check-in** — approve shape before kg |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** (needs gadget/QEMU) |
 | Amber/Amphora Glass↔Desk fuse | **declined** — compose later (`133455`) |
 | seva-broadcast · TAME Lap 3 | **check-in** |
