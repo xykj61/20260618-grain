@@ -1,0 +1,4 @@
+::  Import nest library then call pack (glow-language).
+/+  lib-core-nest
+=/  amount  5
+%-  pack  amount

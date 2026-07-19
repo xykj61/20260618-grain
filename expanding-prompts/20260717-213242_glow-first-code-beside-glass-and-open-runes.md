@@ -70,14 +70,14 @@ From the sameness rune brief. These are the heads an Acme reader should treat as
 | **Conditionals** | `?+` default switch · `?=` · `?>` · `?<` |
 | **Calls** | `%-`/`%+`/`%^`/`%*` **GREEN glow-language–9** |
 | **Multi-line** | bare **glow-language** · compose **glow-language–12** · typed `@u32` **glow-language** |
-| **Cores** | arms through three **glow-language–15/20** · library **glow-language** · bare/typed payload **glow-language/21** · face→core one/two/three **glow-language–19/22** · two-face→add **glow-language** · face→payload **glow-language** |
+| **Cores** | arms through three **glow-language–15/20** · library **glow-language** · bare/typed payload **glow-language/21** · face→core one/two/three **glow-language–19/22** · two-face→add **glow-language** · face→payload **glow-language** · open `++` body **glow-language** · `/+` library compose **glow-language** · nest `++` body **glow-language** · face→open `|%` **glow-language** · `/+` nest library **glow-language** |
 | **Cells** | `:-`/`:+`/`:^`/`:~` **GREEN glow-language–5** |
 | **Molds** | `+$` `$:` `$%` |
 | **Hints / jets** | `~%` `~/` (+ jet witnesses) |
 | **Nest / surface** | `(cue …)` · nested jam · general token stream · **multi-line** programs |
 | **Auras** | `@ux` · `@p` · `@da` · `@t` (unsigned `@uN` only today) |
 
-**Glass-critical gap in one line:** Skate paint + Dexter drain + seva-broadcast chat need *composed* modules (cores, calls, cells, molds, multi-line). Today Glow emits **one-line demo generators** that lower to self-contained Rye mains — not libraries the NativeActivity imports.
+**Glass-critical gap in one line:** Skate paint + Dexter drain + seva-broadcast chat still need molds, richer arm bodies, and a NativeActivity import seam. Glow now emits cores · open `++` bodies · `/+` Glow→Glow library compose (**glow-language**) — still not a module the APK imports.
 
 ---
 

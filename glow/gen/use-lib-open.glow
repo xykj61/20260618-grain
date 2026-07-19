@@ -1,0 +1,4 @@
+::  Import Glow library then call open arm (glow-language).
+/+  lib-core-open
+=/  amount  5
+%-  id  amount
