@@ -343,7 +343,8 @@
 - [x] **glow-language — product-root write path (lean A, device-free half)** `20260719.184836` — onCreate writes `files/glow_product_root.txt` with **5**; pack GREEN; host install witness `stoa73_product_root_install_onpath_host.rish` ready (needs outer terminal).
 - [x] **glow-language — Pixel product-root install eyes** `20260719.191719` — Keaton host: `glow_product_root.txt` = **5**; Sala B0 hex still present; install witness GREEN on GrapheneOS Pixel.
 - [x] **glow-language — thin `+$` / `$:` one-field `@u32` mold (lean B)** `20260719.190825` — host install A jail-blocked; molds: `rune_mold` · `lower_mold` · desk `mold-amount` → `AmountMold`; welcome exit 0.
-- [ ] **glow-language — next language / product** — check-in (multi-field `$:` · `$%` · named-cast resolve · Sala B0 rewrite stay later).
+- [x] **glow-language — multi-field `+$` / `$:` `@u32` mold (lean A)** `20260719.192241` — desk `mold-pair` → `PairMold` (`from` · `amount` demo 5·3); one-field kept; full desk suite GREEN.
+- [ ] **glow-language — next language / product** — check-in (`$%` · named-cast resolve · Sala B0 rewrite stay later).
 - [ ] **Dill-parallel kernel revival** — separate `active-reviving/` brief when a real need opens; not Dexter.
 - [ ] **M1 Scribble↔html round-trip witness** — named in fusion map; opens when Keaton leans doc pipeline.
 - [ ] **TAME witness-habitat pairing + Glow supplement** — horizon; needs Keaton's word (H2).
