@@ -1,0 +1,4 @@
+::  Import payload nest library then call pack (glow-language).
+/+  lib-core-payload-nest
+=/  amount  5
+%-  pack  amount

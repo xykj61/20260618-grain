@@ -1,0 +1,5 @@
+::  Library payload nest arm — importable jam pack (glow-language).
+|%
+=/  amount  5
+++  pack  (jam amount amount)
+--
