@@ -2,22 +2,22 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260719.181143` (Eastern) · voice Quin  
+**Last refreshed:** `20260719.181703` (Eastern) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–69** GREEN · glow-language open  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–69  
-**Git nib:** `60f7c6fe00` glow-language next-root product desk  
+**Language nib:** **glow-language–70** GREEN · glow-language open  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–70  
+**Git nib:** *(pin after seat)* glow-language session-root nest-left product desk  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
 
 ---
 
 ## Now (language)
 
-**glow-language** next-root product desk GREEN `20260719.180837` — import `lib-next-root-cue-jam`, call `next-root` on payload `root` via `(cue (jam root root))`. Next door: **glow-language** check-in.
+**glow-language** session-root nest-left product desk GREEN `20260719.181259` — import `lib-session-root-nest-cue-jam`, call `session-root` via `(cue (jam (mix root root) root))`. Next door: **glow-language** check-in.
 
-Smoke: `rishi/bin/rishi run tools/glow_run.rish glow/gen/use-lib-next-root-cue-jam.glow`
+Smoke: `rishi/bin/rishi run tools/glow_run.rish glow/gen/use-lib-session-root-nest-cue-jam.glow`
 
-Pitfalls: face/payload **5** · `next_root()` **5**. Hold: NativeActivity import · molds · Sala B0-in-Glow · token stream.
+Pitfalls: face/payload **5** · `session_root()` **5**. Hold: NativeActivity import · molds · Sala B0 rewrite · token stream.
 
 ---
 
@@ -31,7 +31,7 @@ Pitfalls: face/payload **5** · `next_root()` **5**. Hold: NativeActivity import
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
 | **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W GREEN** · live “sent” eyes check-in |
-| **glow-language** | Glow language SLC · nest · composition | **glow-language–69 GREEN** · next-root product desk · glow-language next |
+| **glow-language** | Glow language SLC · nest · composition | **glow-language–70 GREEN** · session-root product desk · glow-language next |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md) · [`../docs/glow-language.md`](../docs/glow-language.md)
 
