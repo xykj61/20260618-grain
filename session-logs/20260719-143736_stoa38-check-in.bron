@@ -1,0 +1,14 @@
+format session-log-v1
+stamp 20260719.143736
+editor Cursor
+model Cursor Grok 4.5 300k High Fast
+voice Quin
+host Ubuntu 26.04 LTS GNOME Wayland (Framework 16 AMD) — Eastern time convention
+title glow-language check-in — cue-of-jam shape
+prompt check in
+think glow-language GREEN unsent · name glow-language before kg
+think weigh multi-line bind-then-cue vs nest (cue (jam …)) vs send-first
+obs lean send then multi-line round-trip desk — cue stays face-only
+file work-in-progress/REMEMBER.md glow-language door
+file glow/gen/face-cue.glow face-jam.glow separate desks today
+recommend check-in — send glow-language · then approve glow-language shape

@@ -2,12 +2,22 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260719.010738` (Eastern) · voice Quin  
+**Last refreshed:** `20260719.144120` (Eastern) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–36** GREEN · glow-language open  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–36  
-**Git nib:** `fd17c15730` glow-language–36 nest jam 
+**Language nib:** **glow-language–37** GREEN · glow-language open (cue-of-jam)  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–37  
+**Git nib:** glow-language nest jam both (sending)  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
+
+---
+
+## Now (language)
+
+**glow-language** both-mix jam GREEN `20260719.143329` — await **send**. Next named door: **glow-language cue-of-jam** (check-in).
+
+Smoke: `rishi/bin/rishi run tools/glow_run.rish glow/gen/face-jam-both-nest.glow`
+
+Pitfalls: cue subject is `cell` · face both-mix expect **393222** · core both-mix expect **0** · arm right-mix faces avoid `tick` (collides with `?:` prelude).
 
 ---
 
@@ -21,7 +31,7 @@
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
 | **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W GREEN** · live “sent” eyes check-in |
-| **glow-language** | Glow language SLC · nest · composition | **glow-language–36 GREEN** · nest jam right · glow-language next |
+| **glow-language** | Glow language SLC · nest · composition | **glow-language–37 GREEN** · nest jam both · glow-language cue-of-jam next |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md) · [`../docs/glow-language.md`](../docs/glow-language.md)
 
@@ -57,7 +67,7 @@ Hold row 1 → Settings: presets · `home ·` · `wire ·` · `cell ·` — all 
 
 | Door | Kind |
 |------|------|
-| **glow-language** next language toward product-in-Glow | **check-in** |
+| **glow-language** cue-of-jam round-trip | **check-in** |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** (needs gadget/QEMU) |
 | Amber/Amphora Glass↔Desk fuse | **declined** — compose later (`133455`) |
 | seva-broadcast · TAME Lap 3 | **check-in** |

@@ -8,6 +8,11 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260719.144120` — [glow-language nest jam both send](20260719-144120_stoa37-nest-jam-both-send.bron) — ship both-mix; then glow-language cue nest
+- `20260719.143736` — [glow-language check-in](20260719-143736_stoa38-check-in.bron) — cue-of-jam shapes; send glow-language first
+- `20260719.143329` — [glow-language nest jam both GREEN](20260719-143329_stoa37-nest-jam-both-green.bron) — both-mix seats; await send · glow-language cue-of-jam
+- `20260719.140950` — [glow-language check-in after rest](20260719-140950_stoa37-check-in.bron) — lean A both-mix · then B round-trip
+- `20260719.010916` — [Rest handoff · morning continue](20260719-010916_rest-handoff-morning-continue.bron) — REMEMBER dawn card; glow-language A/B/C
 - `20260719.010738` — [glow-language–36 nest jam send](20260719-010738_stoa34-36-nest-jam-send.bron) — ship nest jam left/right; glow-language check-in
 - `20260719.010610` — [glow-language desk GREEN · kg pause](20260719-010610_stoa36-desk-green-kg-pause.bron) — full desk suite GREEN; send / glow-language check-in
 - `20260719.010409` — [glow-language nest jam right GREEN](20260719-010409_stoa36-nest-jam-right-green.bron) — jam right mix; await send with glow-language–35

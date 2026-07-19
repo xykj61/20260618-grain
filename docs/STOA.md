@@ -5,7 +5,7 @@
 **Status:** Checkable — operator compressor (glow-language–glow-language GREEN)  
 **Depth:** guide  
 **Ceiling:** ≤80 lines  
-**Last updated:** 2026-07-19 (glow-language nest jam right GREEN)  
+**Last updated:** 2026-07-19 (glow-language nest jam both GREEN)  
 **Compresses:** [`../glow/README.md`](../glow/README.md) · first-code [`../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md`](../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md) · sameness [`../active-designing/20260716-033000_sameness-and-the-rune-glow-grammar-riscv.md`](../active-designing/20260716-033000_sameness-and-the-rune-glow-grammar-riscv.md) · seat [`../active-designing/20260718-202730_stoa-glow-language-waymark.md`](../active-designing/20260718-202730_stoa-glow-language-waymark.md)
 
 ---
@@ -57,13 +57,14 @@ Product glass and wire stay Rye-hosted under their own waymarks. **glow-language
 | **glow-language** | Nest jam under `?:`/`?-`/`?~` arms | `glow_lower_*` · desks | **GREEN** `20260719.005207` |
 | **glow-language** | Nest jam under open `++` | `glow_rune_core` · `glow_lower_core` · desk | **GREEN** `20260719.005650` |
 | **glow-language** | `(jam … (mix …))` nest right | `glow_expr` · `glow_lower_*` · desks | **GREEN** `20260719.010409` |
-| **glow-language** | Next language / product | horizon — check-in | horizon |
+| **glow-language** | `(jam (mix …) (mix …))` nest both | `glow_expr` · `glow_lower_*` · desks | **GREEN** `20260719.143329` |
+| **glow-language** | cue-of-jam round-trip (named) | horizon — check-in | horizon |
 
 ## Hands-on
 
 ```bash
 cd ~/urbit
-rishi/bin/rishi run tools/glow_run.rish glow/gen/face-jam-right-nest.glow
+rishi/bin/rishi run tools/glow_run.rish glow/gen/face-jam-both-nest.glow
 rishi/bin/rishi run tools/glow_run_desk_witness.rish
 ```
 
