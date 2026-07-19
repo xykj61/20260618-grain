@@ -4,7 +4,7 @@
 
 **Language:** EN
 **Version:** `20260715` (Pool keystone revival prioritized · Quin voice seated · align pass reconciles the closed ladder)
-**Last updated:** 2026-07-18 (**glow-language** GREEN — face→core compose)
+**Last updated:** 2026-07-18 (**glow-language–20** GREEN — face→two-arm · three-arm)
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)
 **Voice:** Quin
 **Lens:** TAME — safety, performance, joy; the Seed Law; [SLC](../context/SIMPLE_LOVABLE_COMPLETE.md)
@@ -345,6 +345,12 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 **glow-language face→`|%` compose GREEN, `20260718.230846`** — outer `=/ amount 5` then thin `|%` / `++ double` / `--`; desk `compose-core`. Next: **send**; then **glow-language** check-in (3+ arms · typed payload · richer compose).
 
 **Send glow-language, `20260718.231243`** — face→core compose on the pier. Next language: **glow-language** check-in (3+ arms · typed payload · richer compose).
+
+**glow-language face→two-arm GREEN, `20260718.231511`** — `compose-core-two`; `max_lines` 5 (bare multi still 4). Next: **glow-language** three-arm in the same approve pass.
+
+**glow-language three-arm battery GREEN, `20260718.231511`** — `++ dec`; desk `core-three`; `max_arms` 3. Next: **send**; then **glow-language** check-in (typed payload · face→3 · richer compose).
+
+**Send glow-language–20, `20260718.232145`** — face→two-arm + three-arm on the pier. Next language: **glow-language** check-in (typed payload · face→3 · richer compose).
 
 **Glow OS · Glow Desk · Glow Glass seated, `20260717.183622`** — Keaton: **Glow OS** unifies; **Glow Desk** = desktop; **Glow Glass** = mobile. Lexicon + silo [`../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md`](../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md). Orientation firmware stays check-in.
 

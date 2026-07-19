@@ -1,0 +1,6 @@
+::  Three-arm core (glow-language).
+|%
+++  double
+++  inc
+++  dec
+--
