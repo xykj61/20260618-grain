@@ -8,6 +8,7 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260719.182754` — [glow-language check-in after APK import wire](20260719-182754_stoa73-check-in.bron) — lean A on-device product-root proof
 - `20260719.182724` — [glow-language NativeActivity APK Glow import wire send](20260719-182724_stoa72-glow-apk-import-send.bron) — ship APK import wire; then glow-language check-in
 - `20260719.182648` — [glow-language NativeActivity APK Glow import wire GREEN](20260719-182648_stoa72-glow-apk-import-green.bron) — pack expect 5; await send
 - `20260719.182321` — [glow-language check-in after import seam](20260719-182321_stoa72-check-in.bron) — lean A APK wire of same import
