@@ -1,0 +1,5 @@
+::  Face then nest-right cue-of-jam arm (glow-language).
+=/  amount  5
+|%
+++  unpack  (cue (jam sample (mix sample sample)))
+--
