@@ -5,7 +5,7 @@
 **Status:** Checkable — operator compressor (glow-language–glow-language GREEN)  
 **Depth:** guide  
 **Ceiling:** ≤80 lines  
-**Last updated:** 2026-07-19 (glow-language bind→nest-right-jam→cue GREEN)  
+**Last updated:** 2026-07-19 (glow-language bind→nest-both-jam→cue GREEN)  
 **Compresses:** [`../glow/README.md`](../glow/README.md) · first-code [`../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md`](../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md) · sameness [`../active-designing/20260716-033000_sameness-and-the-rune-glow-grammar-riscv.md`](../active-designing/20260716-033000_sameness-and-the-rune-glow-grammar-riscv.md) · seat [`../active-designing/20260718-202730_stoa-glow-language-waymark.md`](../active-designing/20260718-202730_stoa-glow-language-waymark.md)
 
 ## Thesis — name the language lap
@@ -64,12 +64,13 @@ Product glass and wire stay Rye-hosted under their own waymarks. **glow-language
 | **glow-language** | Bind→jam→cue product multi-line | `glow_lower_compose_jam_cue` · desk | **GREEN** `20260719.153556` |
 | **glow-language** | Bind→nest-jam→cue product multi-line | `glow_lower_compose_jam_cue` · desk | **GREEN** `20260719.154112` |
 | **glow-language** | Bind→nest-right-jam→cue product | `glow_lower_compose_jam_cue` · desk | **GREEN** `20260719.154325` |
+| **glow-language** | Bind→nest-both-jam→cue product | `glow_lower_compose_jam_cue` · desk | **GREEN** `20260719.154840` |
 | **glow-language** | Next language / product | horizon — check-in | horizon |
 
 ## Hands-on
 ```bash
 cd ~/urbit
-rishi/bin/rishi run tools/glow_run.rish glow/gen/compose-bind-nest-right-jam-cue.glow
+rishi/bin/rishi run tools/glow_run.rish glow/gen/compose-bind-nest-both-jam-cue.glow
 rishi/bin/rishi run tools/glow_run_desk_witness.rish
 ```
 Sibling product ladders: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**. Language door: [`../manual/README.md`](../manual/README.md).
