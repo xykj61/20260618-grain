@@ -1,11 +1,11 @@
 # Glow — Language Tooling, Grown from Real Design
 
 **Language:** EN
-**Last updated:** 2026-07-18 (**glow-language** typed multi-line · TAME + Acme first-code pointers)
+**Last updated:** 2026-07-18 (**glow-language** thin `|%` core · TAME + Acme first-code pointers)
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)
 **Voice:** Quin
 **Audience:** Acme Corporation employees reading the working Glow pin
-**Status:** Checkable — **glow-language–13** sixteen heads · multi-line bare+typed · compose · nests · cells · `%` calls · truth, GREEN
+**Status:** Checkable — **glow-language–14** sixteen heads · thin core · multi-line · compose · nests · cells · `%` calls · truth, GREEN
 **Waymark:** **glow-language** — compressor [`../docs/glow-language.md`](../docs/glow-language.md) · seat [`../active-designing/20260718-202730_stoa-glow-language-waymark.md`](../active-designing/20260718-202730_stoa-glow-language-waymark.md)
 **Ground:** [`active-designing/20260716-033000_sameness-and-the-rune-glow-grammar-riscv.md`](../active-designing/20260716-033000_sameness-and-the-rune-glow-grammar-riscv.md) · [`20260716-093000_glow-and-rye-what-shares-under-the-hood.md`](../active-designing/20260716-093000_glow-and-rye-what-shares-under-the-hood.md) · truth [`../context/specs/20260717-154943_glow-truth-zig-ambient-nock-loobean-seam.md`](../context/specs/20260717-154943_glow-truth-zig-ambient-nock-loobean-seam.md)
 **Law:** [`../context/TAME_GUIDANCE.md`](../context/TAME_GUIDANCE.md) (root) · Glow supplement still horizon — scoping [`../external-research/20260713-225841_glow-supplement-scoping-runes-auras-jet-state.md`](../external-research/20260713-225841_glow-supplement-scoping-runes-auras-jet-state.md)
@@ -39,18 +39,19 @@ Glow is the **language** (Hoon-parallel). Rishi is the **shell** (Dojo-parallel)
 | [`rune_call2.rye`](rune_call2.rye) | `%+` | Two-arg call — closed demo gate `add` (glow-language) |
 | [`rune_call3.rye`](rune_call3.rye) | `%^` | Three-arg call — closed demo gate `sum` (glow-language) |
 | [`rune_calln.rye`](rune_calln.rye) | `%*` | Named-arg call — closed demo gate `mix` (glow-language) |
+| [`rune_core.rye`](rune_core.rye) | `\|%` | Thin core — one `++` arm, closed with `--` (glow-language) |
 
 ## Generator hop
 
-All sixteen heads lower today; multi-line desks share one Rye main via [`lower_multi.rye`](lower_multi.rye) (bare), [`lower_multi_typed.rye`](lower_multi_typed.rye) (`@u32`), [`lower_compose.rye`](lower_compose.rye) (face→`%-`), or [`lower_compose2.rye`](lower_compose2.rye) (face→face→`%+`). Desk files live under [`gen/`](gen/). Rishi hand: [`../tools/glow_run.rish`](../tools/glow_run.rish) · desk witness: [`../tools/glow_run_desk_witness.rish`](../tools/glow_run_desk_witness.rish).
+All sixteen single-line heads lower today; multi-line adds compose, typed faces, and a thin `|%` core. Desk files live under [`gen/`](gen/). Rishi hand: [`../tools/glow_run.rish`](../tools/glow_run.rish) · desk witness: [`../tools/glow_run_desk_witness.rish`](../tools/glow_run_desk_witness.rish). Brief: [`../active-designing/20260718-223906_stoa14-cores-thin-battery-brief.md`](../active-designing/20260718-223906_stoa14-cores-thin-battery-brief.md).
 
 ```bash
-rishi/bin/rishi run tools/glow_run.rish glow/gen/multi-typed.glow
+rishi/bin/rishi run tools/glow_run.rish glow/gen/core-double.glow
 rishi/bin/rishi run tools/glow_run_desk_witness.rish
 # → GREEN: glow_run desk — all desk generators …
 ```
 
-Each single-line hop lowers one named shape from its front-half parser. Under `|-`, `(lent …)` still emits a shrinking-list fold under `face.len`. Nest forms parse once through [`expr.rye`](expr.rye): decimal · nested `^-  @uN  <decimal>` through `@u64` · bare face · **`(lent <face>)`** · **`(mix <face> <face>)`** · **`(jam <face> <face>)`** under `=/` and arms (desks as before; witness [`../tools/glow_expr_witness.rish`](../tools/glow_expr_witness.rish)). Cell heads: **`:-`** pair · **`:+`** triple · **`:^`** quad · **`:~`** list. Calls: **`%-`** · **`%+`** · **`%^`** · **`%*`**. Multi-line: `multi-face` · `compose-call` · `compose-add` · `multi-typed`. `=.` takes optional trailing decimals; `=*` takes an optional source wing. Cast hop covers `@u8` · `@u16` · `@u32` · `@u64`. `(cue …)`, nested jam, and cores stay **glow-language+**. Generator welcome/unwelcome paths use Zig/POSIX exits (0 / 1), per the Truth section above.
+Each single-line hop lowers one named shape from its front-half parser. Under `|-`, `(lent …)` still emits a shrinking-list fold under `face.len`. Nest forms parse once through [`expr.rye`](expr.rye). Cell heads · `%` calls · multi-line bare/typed · face→call compose · thin `|%` core (`core-double`) are GREEN. `=.` takes optional trailing decimals; `=*` takes an optional source wing. Cast hop covers `@u8` · `@u16` · `@u32` · `@u64`. `(cue …)`, nested jam, multi-arm cores, payload/sample, and library emit (no `main`) stay **glow-language+**. Generator welcome/unwelcome paths use Zig/POSIX exits (0 / 1), per the Truth section above.
 
 ---
 

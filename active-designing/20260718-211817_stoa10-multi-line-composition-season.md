@@ -24,11 +24,12 @@ After usb-hearth.5 + glow-language–9 shipped to the pier (`812e36ff01`), the l
 
 **glow-language** face→`%-` compose GREEN `20260718.212131` — desk `compose-call`.  
 **glow-language** face→face→`%+` compose GREEN `20260718.221812` — desk `compose-add` (approved thin face A).  
-**glow-language** typed multi-line `@u32` GREEN `20260718.223431` — desk `multi-typed`.
+**glow-language** typed multi-line `@u32` GREEN `20260718.223431` — desk `multi-typed`.  
+**glow-language** thin `|%` core GREEN `20260718.224030` — desk `core-double` · brief `20260718-223906`.
 
 ## Held for glow-language+
 
-Cores · `(cue …)` · nested jam across lines · other auras in multi-line.
+Payload · multi-arm · library emit · `(cue …)` · nested jam · other auras in multi-line.
 
 ---
 
