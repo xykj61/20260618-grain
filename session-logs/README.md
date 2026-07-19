@@ -8,6 +8,8 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260719.193640` — [glow-language check-in after named-cast](20260719-193640_stoa78-check-in.bron) — lean A $% payload arms
+- `20260719.193621` — [glow-language same-desk named-cast send](20260719-193621_stoa77-named-cast-send.bron) — pin 4dcad53d30; then glow-language check-in
 - `20260719.193538` — [glow-language same-desk named-cast resolve GREEN](20260719-193538_stoa77-named-cast-green.bron) — AmountMold from +$ then ^-; await send
 - `20260719.193036` — [glow-language check-in after $% mold](20260719-193036_stoa77-check-in.bron) — lean A named-cast resolve
 - `20260719.193002` — [glow-language thin +$ / $% tagged mold send](20260719-193002_stoa76-tagged-mold-send.bron) — ship $% mold; then glow-language check-in
