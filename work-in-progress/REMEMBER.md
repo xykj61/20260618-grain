@@ -2,22 +2,22 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260719.145927` (Eastern) · voice Quin  
+**Last refreshed:** `20260719.150811` (Eastern) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–39** GREEN · glow-language open  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–39  
-**Git nib:** `4446223846` glow-language jam→cue compose  
+**Language nib:** **glow-language–40** GREEN · glow-language open  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–40  
+**Git nib:** *(pin after seat)* glow-language cue nest jam left  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
 
 ---
 
 ## Now (language)
 
-**glow-language** jam→cue compose GREEN `20260719.145738` — await **send**. Next door: **glow-language** check-in.
+**glow-language** cue nest jam left GREEN `20260719.150634` — `(cue (jam (mix …) …))` under face · arms · open `++`. Next door: **glow-language** check-in.
 
-Smoke: `rishi/bin/rishi run tools/glow_run.rish glow/gen/compose-jam-cue.glow`
+Smoke: `rishi/bin/rishi run tools/glow_run.rish glow/gen/face-cue-jam-nest.glow`
 
-Pitfalls: copy face buffers out of `rf.parse` before return · Zig `packed` · cue subject must name prior pack face · expect **3**.
+Pitfalls: Zig `packed` → `cell_pack` · nest-left faces `face`/`face2`/`face3` · expect **3** (face) · core unpack **5**.
 
 ---
 
@@ -31,7 +31,7 @@ Pitfalls: copy face buffers out of `rf.parse` before return · Zig `packed` · c
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
 | **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W GREEN** · live “sent” eyes check-in |
-| **glow-language** | Glow language SLC · nest · composition | **glow-language–39 GREEN** · jam→cue compose · glow-language next |
+| **glow-language** | Glow language SLC · nest · composition | **glow-language–40 GREEN** · cue nest jam left · glow-language next |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md) · [`../docs/glow-language.md`](../docs/glow-language.md)
 
