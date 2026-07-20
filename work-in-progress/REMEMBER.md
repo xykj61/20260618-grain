@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260720.151247` (UTC cloud · Eastern season) · voice Quin  
+**Last refreshed:** `20260720.151450` (UTC cloud · Eastern season) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
 **Language nib:** **glow-language–111** GREEN · glow-language open  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–111  
-**Git nib:** (await send) glow-language barket tokenize  
+**Git nib:** `eb2a65794210` glow-language barket tokenize on main  
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
@@ -15,7 +15,7 @@
 
 ## Now (language)
 
-**glow-language** GREEN · barket tokenize (`|^` → 27). Await send.  
+**glow-language** sent · barket tokenize (`|^` → 27).  
 **glow-language** next — check-in before thin barket parse (or refuse-only parse).
 
 ```bash
