@@ -94,4 +94,5 @@
 | **glow-language** | Wet-nests under stated mold | `glow_nest_type_witness` | **GREEN** `20260720.181950` |
 | **glow-language** | Wet-nests barket/bartis wire | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.182450` |
 | **glow-language** | Barket wet-through-nests | `glow_barket_lower_witness` | **GREEN** `20260720.182915` |
+| **glow-language** | Count-mold named allowlist | `glow_nest_type_witness` · barket · bartis | **GREEN** `20260720.183259` |
 Smoke: `glow_barket_lower_witness` · `glow_barket_parse_witness` · `glow_nest_type_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.

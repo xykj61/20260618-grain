@@ -1,8 +1,8 @@
-# glow_nest_type_witness.rish — nest/type surface (glow-language–110 · glow-language).
+# glow_nest_type_witness.rish — nest/type surface (glow-language–110 · glow-language · glow-language).
 #
 # Proves dry aura · $% tag · named-mold · wet-sample refuse (glow-language) ·
-# wet-sample accept under stated closed molds (glow-language). Glow wet syntax
-# and ambient gold stay held. Barket/bartis keep dry pins.
+# wet-sample accept under stated closed molds (glow-language) · count-mold (glow-language).
+# Ambient gold · kind-mold gate samples stay held.
 #
 #   rishi/bin/rishi run tools/glow_nest_type_witness.rish
 
@@ -11,7 +11,7 @@ let zig = "vendor/zig-toolchain/zig"
 let bin = "glow/bin/nest_type_witness"
 
 let tame_pin = run ["sh" "-c" "grep -F 'glow-language' ${tame}"]
-assert tame_pin.ok else "TAME missing glow-language wet-nests accept"
+assert tame_pin.ok else "TAME missing glow-language count-mold named allowlist"
 
 let build = run ["sh" "-c" "mkdir -p glow/bin glow/.cache && env RYE_ZIG=${zig} rye/bin/rye build glow/nest_type_witness.rye -femit-bin=${bin}"]
 assert build.ok else "nest_type_witness build failed: ${build.err}${build.out}"
@@ -26,14 +26,18 @@ assert selftest.out contains "mold-kind.glow" else "nest_type_witness missing $%
 assert selftest.out contains "%burn" else "nest_type_witness missing $% tag refuse"
 assert selftest.out contains "tuple mold" else "nest_type_witness missing tuple refuse"
 assert selftest.out contains "gate-amount.glow" else "nest_type_witness missing amount-mold accept"
+assert selftest.out contains "gate-count.glow" else "nest_type_witness missing count-mold accept"
 assert selftest.out contains "gate-kind-refuse.glow" else "nest_type_witness missing kind-mold refuse"
 assert selftest.out contains "is_wet=false" else "nest_type_witness missing dry wet-refuse accept"
 assert selftest.out contains "is_wet=true" else "nest_type_witness missing wet-refuse claim"
 assert selftest.out contains "wet @u32 under @u32" else "nest_type_witness missing wet aura accept"
 assert selftest.out contains "wet amount-mold under amount-mold" else "nest_type_witness missing wet named-mold accept"
+assert selftest.out contains "wet count-mold under count-mold" else "nest_type_witness missing wet count-mold accept"
+assert selftest.out contains "wet amount-mold under count-mold" else "nest_type_witness missing wet named cross refuse"
 assert selftest.out contains "wet @u64 under @u32" else "nest_type_witness missing wet aura refuse"
 assert selftest.out contains "wet kind-mold" else "nest_type_witness missing wet kind-mold refuse"
 assert selftest.out contains "wet-nests" else "nest_type_witness missing wet-nests claim"
+assert selftest.out contains "count-mold" else "nest_type_witness missing count-mold claim"
 
 # Sibling horizons stay GREEN.
 let surface = run ["sh" "-c" "rishi/bin/rishi run tools/glow_nest_type_surface_witness.rish"]
@@ -49,4 +53,4 @@ assert bartis.ok else "glow_lower_bartis_witness failed under nest implement"
 assert bartis.out contains "GREEN" else "glow_lower_bartis_witness not GREEN"
 assert bartis.out contains "SampleDoesNotNest" else "glow_lower_bartis_witness missing nest refuse"
 
-say "GREEN: Glow nest/type — dry aura · $% tag · amount-mold · wet refuse · wet-nests; glow-language–110/119."
+say "GREEN: Glow nest/type — dry aura · $% tag · amount-mold · count-mold · wet refuse · wet-nests; glow-language–110/119/122."
