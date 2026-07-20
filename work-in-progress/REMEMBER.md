@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260720.231018` (UTC cloud) · voice Quin  
+**Last refreshed:** `20260720.231128` (UTC cloud) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
 **Language nib:** **glow-language–146** GREEN · glow-language open  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–146  
-**Git nib:** *(pin after send)* — glow-language nona-mold gate  
+**Git nib:** `08069058b5` — glow-language nona-mold gate  
 
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
@@ -18,7 +18,7 @@
 
 **glow-language** seated · nona-mold gate identity (NonaMold · baked 5/3/1/2/7/4/6/8/9 ref · deca refuse · flip/argv under nona held).  
 **Shape** seated as Glow OS surface word · mold stays Hoon study / desk suffix (`20260720.223226`).  
-**glow-language** next — lean A check-in after send (call-body under nona · or next closed widen).
+**glow-language** next — lean A map: **nona-mold flip** call-body (Sala B0 Framework).
 
 ```bash
 rishi/bin/rishi run tools/glow_nest_type_witness.rish
@@ -62,7 +62,7 @@ $ADB install -r tools/.cache/tube05/sala-broadcaster.apk
 
 | Door | Kind |
 |------|------|
-| **glow-language** next lean after nona identity · tagged argv · gold held | **open** — map after send; Sala B0 Framework |
+| **glow-language** nona-mold flip call-body (lean A) · deca-mold · tagged argv · gold held | **open** — map seated; Sala B0 Framework |
 | Glow nesting syntax · ambient gold | **held** |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** — Framework host |
 | seva-broadcast · TAME Lap 3 | **check-in** |
