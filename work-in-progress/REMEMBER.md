@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260720.190544` (UTC cloud · Eastern season) · voice Quin  
+**Last refreshed:** `20260720.190941` (UTC cloud · Eastern season) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
 **Language nib:** **glow-language–127** GREEN · glow-language open  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–127  
-**Git nib:** *(seated on send)* — glow-language kind-mold flip call-body  
+**Git nib:** `03f39d2eff` — glow-language kind-mold flip call-body  
  
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
@@ -16,8 +16,8 @@
 
 ## Now (language)
 
-**glow-language** seating · kind-mold flip call-body (`KindMold` switch · baked `.mint` → `.send`).  
-**glow-language** next — compass pick: gold · call-body under xact/xfer/pair · argv · Sala B0 Framework.
+**glow-language** sent · kind-mold flip call-body (`KindMold` switch · baked `.mint` → `.send`).  
+**glow-language** next — compass pick: gold · call-body under xact (Sala B0 Framework).
 
 ```bash
 rishi/bin/rishi run tools/glow_nest_type_witness.rish
