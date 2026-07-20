@@ -7,6 +7,7 @@
 //! Closed demo gates: `double` · `inc` · `dec` (`@u32`) · `flip` (kind · xact · xfer · pair · triple · quad · penta · hexa · hepta · octa · nona · glow-language–131/136–139/141/143/145/147).
 //! glow-language: TAME tidy — copy_disjoint · parse_body split.
 //! glow-language: closed named mold `amount-mold` (one-field `$:` ≡ `@u32` lower).
+//! glow-language: closed allowlist alias `amount-shape` ≡ `amount-mold` (Glow OS shape word).
 //! glow-language: expansion calls `assert_sample_nesting_nests` at the mold seam.
 //! glow-language / glow-language: barket passes `is_nesting=true` through nesting-nests under stated molds.
 //! glow-language: closed allowlist adds `count-mold` beside `amount-mold`.

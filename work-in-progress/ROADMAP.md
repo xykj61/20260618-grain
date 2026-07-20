@@ -538,9 +538,13 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language deca-mold gate sample map withdrawn, `20260720.231547`→freeze** — map kept as horizon; lean A withdrawn by capacity freeze. Brief [`active-designing/20260720-231547_stoa148-deca-mold-gate.md`](../active-designing/20260720-231547_stoa148-deca-mold-gate.md).
 
+**glow-language amount-shape alias GREEN, `20260720.234340`** — lean A (compass): closed allowlist `amount-shape` ≡ `amount-mold` (one-field `$:` / `@u32`); bartis · barket desks; deca refuse; capacity freeze held; mold stays Hoon study / desk suffix. Brief [`active-designing/20260720-234340_stoa148-amount-shape-alias.md`](../active-designing/20260720-234340_stoa148-amount-shape-alias.md).
+
+**glow-language approved A · shape-first, `20260720.235200`** — Keaton: prioritize shape language. Next kg: `count-shape` ≡ `count-mold` (twin one-field alias). Capacity freeze held. Sala B0 Glow · seva-broadcast · N-field generalize stay behind the shape surface.
+
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
 
-**Framework host resumes on UDT, `20260720.232932`** — Keaton set this host's system clock to **UDT (UTC)** for stamps (iOS/cloud season alignment). Spec [`context/specs/20260720-232932_udt-framework-host-convention.md`](../context/specs/20260720-232932_udt-framework-host-convention.md). Language nib held at glow-language–147 + capacity freeze. Next: usb-hearth.5 live-sent check-in.
+**Framework host resumes on UDT, `20260720.232932`** — Keaton set this host's system clock to **UDT (UTC)** for stamps (iOS/cloud season alignment). Spec [`context/specs/20260720-232932_udt-framework-host-convention.md`](../context/specs/20260720-232932_udt-framework-host-convention.md). Language nib then glow-language–147 + capacity freeze; **glow-language** amount-shape later same day.
 
 **usb-hearth.5 live-sent attempt, `20260720.233109`–`233220`** — lean A: stand-in SKIP GREEN; Pixel 10a on adb without NCM iface; Graphene expects `ncm\d` for USB tether. Awaiting replug + USB tethering on. Brief [`active-designing/20260720-233109_setu65-live-sent-attempt-stand-in.md`](../active-designing/20260720-233109_setu65-live-sent-attempt-stand-in.md).
 
