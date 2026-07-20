@@ -9,6 +9,7 @@ Living index for the append-only session stream. This table reads **newest first
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
 - `20260720.223012` — [Mold vocabulary search — keep Hoon word](20260720-223012_mold-vocabulary-search.bron) — no Glow-native mold rename found; glow-language renamed wet/dry only
+- `20260720.223226` — [Glow OS shape vocabulary seated](20260720-223226_glow-os-shape-seated.bron) — shape surface · mold study; desk rename horizon
 - `20260720.223052` — [Glow OS word other than mold](20260720-223052_glow-os-word-than-mold.bron) — recommend shape · norm · rupa; rename is check-in
 - `20260720.222829` — [Finish glow-language pin then seat glow-language](20260720-222829_finish-stoa140-pin.bron) — pin leftovers · hexa flip sent · glow-language mapped
 - `20260720.222828` — [Glow compass send glow-language](20260720-222828_glow-compass-stoa141-send.bron) — hexa flip sent; glow-language mapped
