@@ -1,7 +1,7 @@
 # Lexicon — Module Names and Their Meanings
 
 **Language:** EN
-**Last updated:** 2026-07-20 (**glow-language** pair-mold gate sample GREEN)
+**Last updated:** 2026-07-20 (**glow-language** kind-mold flip call-body GREEN)
 **Style:** Radiant (see `RADIANT_STYLE.md`)
 
 ---
