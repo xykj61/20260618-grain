@@ -1,4 +1,4 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–105 GREEN · 2026-07-20 (G0–G5 · bartis) · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · glow-language–106 GREEN · 2026-07-20 (G0–G5 · bartis · nest/type) · draw → **glow-language**
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
 | **glow-language** | Eight rune heads + desk hop · `(lent)` · `(mix)` | `glow_run_desk_witness` · `glow_expr_witness` | **GREEN** (claimed `20260718.202730`) |
@@ -78,4 +78,5 @@
 | **glow-language–75** | `+$` / `$:` `@u32` mold (1–3 fields) | `glow_rune_mold` · `glow_lower_mold` · desk | **GREEN** `190825` · `192241` |
 | **glow-language–83** | `$%` · cast · payload · multi · tag/pay · token stream | mold · named-cast · tokens | **GREEN** `192936`…`200706` |
 | **glow-language–105** | Cast · alphabet · G4–G5 · bartis tidy | tokens · G5 · bartis | **GREEN** `201027`…`042300` |
-Smoke: `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
+| **glow-language** | Nest/type surface wording (wet samples) | `glow_nest_type_surface_witness` | **GREEN** `20260720.042931` |
+Smoke: `glow_nest_type_surface_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
