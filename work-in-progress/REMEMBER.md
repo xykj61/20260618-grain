@@ -2,11 +2,12 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260720.184953` (UTC cloud · Eastern season) · voice Quin  
+**Last refreshed:** `20260720.185421` (UTC cloud · Eastern season) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
 **Language nib:** **glow-language–125** GREEN · glow-language open  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–125  
-**Git nib:** *(pin after send)* — glow-language xfer-mold gate sample  
+**Git nib:** `a8630d802b` — glow-language xfer-mold gate sample  
+ 
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
@@ -15,8 +16,8 @@
 
 ## Now (language)
 
-**glow-language** seating · xfer-mold gate sample (`XferMold` · baked `.mint` from 5 amount 3).  
-**glow-language** next — compass pick: gold · thicker doors (Sala B0 Framework).
+**glow-language** sent · xfer-mold gate sample (`XferMold` · baked `.mint` from 5 amount 3).  
+**glow-language** next — compass pick: gold · pair-mold · call-body under tagged molds (Sala B0 Framework).
 
 ```bash
 rishi/bin/rishi run tools/glow_nest_type_witness.rish
@@ -59,7 +60,7 @@ $ADB install -r tools/.cache/tube05/sala-broadcaster.apk
 
 | Door | Kind |
 |------|------|
-| **glow-language** gold · thicker doors | **open** — Sala B0 Framework |
+| **glow-language** gold · pair-mold · call-body | **open** — thicker doors; Sala B0 Framework |
 | Glow wet syntax · ambient gold | **held** |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** — Framework host |
 | seva-broadcast · TAME Lap 3 | **check-in** |
