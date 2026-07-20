@@ -6,9 +6,16 @@
 //! glow-language: `$%` arms with multi-face `@u32` payload → same union shape.
 //! Named-cast resolve: `lower_named_cast.rye` (glow-language).
 //! Library emit (no main) is glow-language for `/+` mold import.
+//! glow-language: mold-only dispatch peek delegates to `tokens.looks_like_mold_only`.
 
 const std = @import("std");
 const rm = @import("rune_mold.rye");
+const tokens = @import("tokens.rye");
+
+/// True when a multi-line desk is mold-only `+$` … `==` (no trailing `^-`).
+pub fn looks_like_mold_only(src: []const u8) bool {
+    return tokens.looks_like_mold_only(src);
+}
 
 pub const LowerError = rm.ParseError || error{
     Overflow,
