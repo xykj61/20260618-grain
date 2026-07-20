@@ -8,6 +8,7 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260720.225744` — [Why mold ladder — Hoon nest with TAME bounds](20260720-225744_why-mold-bounds-ladder.bron) — emulate molds/nest; refuse unbounded gold; SLC field ladder
 - `20260720.225659` — [kg glow-language-144 complete · glow-language mapped](20260720-225659_kg-stoa144-complete.bron) — hepta flip + octa identity sent; octa flip mapped
 - `20260720.225659` — [Glow compass send glow-language](20260720-225659_glow-compass-stoa144-send.bron) — octa-mold sent; glow-language mapped
 - `20260720.225659` — [glow-language approved and sent](20260720-225659_stoa144-approved-sent.bron) — claim a7f22cfcb7
