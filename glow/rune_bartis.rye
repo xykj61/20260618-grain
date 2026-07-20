@@ -22,7 +22,8 @@
 //! glow-language: closed call-body under pair-mold — `flip` (from↔amount).
 //! glow-language: closed call-body under triple-mold — `flip` (from↔amount · fee stays).
 //! glow-language: closed call-body under quad-mold — `flip` (from↔amount · fee/nonce stay).
-//! Nesting / gold · open `$:` beyond pair bartis samples held.
+//! glow-language: closed allowlist adds five-field `$:` `penta-mold` (identity lower).
+//! Nesting / gold · open `$:` beyond penta bartis samples held.
 //!
 //! Parse shape (token stream):
 //!   1. skip leading newlines
