@@ -1,4 +1,4 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–109 GREEN · 2026-07-20 (G0–G5 · bartis · nest/type) · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · glow-language–110 GREEN · 2026-07-20 (G0–G5 · bartis · nest/type) · draw → **glow-language**
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
 | **glow-language** | Eight rune heads + desk hop · `(lent)` · `(mix)` | `glow_run_desk_witness` · `glow_expr_witness` | **GREEN** (claimed `20260718.202730`) |
@@ -82,4 +82,5 @@
 | **glow-language** | Nest/type thin implement (dry aura) | `glow_nest_type_witness` · bartis | **GREEN** `20260720.043251` |
 | **glow-language** | Nest/type `$%` tag nest | `glow_nest_type_witness` · mold-kind | **GREEN** `20260720.145814` |
 | **glow-language** | Named-mold bartis (`amount-mold`) | `glow_nest_type_witness` · bartis · desk | **GREEN** `20260720.150155` |
+| **glow-language** | Wet-refuse nest path | `glow_nest_type_witness` · barket horizon | **GREEN** `20260720.150635` |
 Smoke: `glow_nest_type_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
