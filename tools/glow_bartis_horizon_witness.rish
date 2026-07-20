@@ -19,7 +19,7 @@ assert tame_pin.ok else "TAME missing glow-language bartis implement"
 let has_bartis = run ["sh" "-c" "awk '/const pairs =/,/};/' ${tokens} | grep -F '|='"]
 assert has_bartis.ok else "tokens.rye must now tokenize |= (glow-language)"
 
-# |^ barket tokenizes as of glow-language (sibling of bartis; parse/lower held).
+# |^ barket tokenizes as of glow-language (sibling of bartis; lower held).
 let has_barket = run ["sh" "-c" "awk '/const pairs =/,/};/' ${tokens} | grep -F '|^'"]
 assert has_barket.ok else "tokens.rye must tokenize |^ (glow-language)"
 
