@@ -103,4 +103,5 @@
 | **glow-language** | Xact-mold flip call-body | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.191033` |
 | **glow-language** | Xfer-mold flip call-body | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.192038` |
 | **glow-language** | Stated · nesting · gold vocabulary | `glow_nest_type_witness` · barket · bartis | **GREEN** `20260720.192738` |
+| **glow-language** | Pair-mold flip call-body | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.193357` |
 Smoke: `glow_barket_lower_witness` · `glow_barket_parse_witness` · `glow_nest_type_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
