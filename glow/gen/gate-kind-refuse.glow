@@ -1,4 +1,4 @@
-::  Refuse desk — sample=triple-mold is open multi-field $:; not gate-welcome this lap (glow-language).
+::  Refuse desk — sample=quad-mold is open multi-field $:; not gate-welcome this lap (glow-language).
 ::  Parse-only; do not glow_run — nest/type refuses SampleDoesNotNest.
-|=  sample=triple-mold
+|=  sample=quad-mold
 sample

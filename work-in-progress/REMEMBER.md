@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260720.194421` (UTC cloud) · voice Quin  
+**Last refreshed:** `20260720.194437` (UTC cloud) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–133** GREEN · glow-language open  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–133  
-**Git nib:** `df051870f7` — glow-language count-mold argv  
+**Language nib:** **glow-language–134** GREEN · glow-language open  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–134  
+**Git nib:** *(pin after send)* — glow-language triple-mold gate  
 
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
@@ -16,8 +16,8 @@
 
 ## Now (language)
 
-**glow-language** seated · count-mold argv (`gate-count-u32` · `gate-barket-count-u32`).  
-**glow-language** next — compass pick: gold · argv under tagged/pair · triple-mold (Sala B0 Framework).
+**glow-language** seated · triple-mold gate identity (`TripleMold` · baked 5/3/1).  
+**glow-language** next — compass pick: gold · tagged/pair/triple argv · call-body under triple · quad-mold (Sala B0 Framework).
 
 ```bash
 rishi/bin/rishi run tools/glow_nest_type_witness.rish
@@ -25,7 +25,7 @@ rishi/bin/rishi run tools/glow_barket_lower_witness.rish
 rishi/bin/rishi run tools/glow_lower_bartis_witness.rish
 ```
 
-Hold on iOS: ambient gold · bartis stated · named allowlist amount/count/kind/xact/xfer/pair · closed call gates double/inc/dec/flip. Defer Pixel/usb-hearth / Sala B0 to Framework.
+Hold on iOS: ambient gold · bartis stated · named allowlist amount/count/kind/xact/xfer/pair/triple · closed call gates double/inc/dec/flip. Defer Pixel/usb-hearth / Sala B0 to Framework.
 
 ---
 
@@ -39,7 +39,7 @@ Hold on iOS: ambient gold · bartis stated · named allowlist amount/count/kind/
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
 | **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W GREEN** |
-| **glow-language** | Glow language SLC · nest · composition | **glow-language–133 GREEN** · glow-language next |
+| **glow-language** | Glow language SLC · nest · composition | **glow-language–134 GREEN** · glow-language next |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md) · [`../docs/glow-language.md`](../docs/glow-language.md)
 
@@ -61,7 +61,7 @@ $ADB install -r tools/.cache/tube05/sala-broadcaster.apk
 
 | Door | Kind |
 |------|------|
-| **glow-language** gold · tagged/pair argv · triple-mold | **open** — thicker doors; Sala B0 Framework |
+| **glow-language** gold · tagged/pair/triple argv · call-body under triple · quad-mold | **open** — thicker doors; Sala B0 Framework |
 | Glow nesting syntax · ambient gold | **held** |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** — Framework host |
 | seva-broadcast · TAME Lap 3 | **check-in** |
