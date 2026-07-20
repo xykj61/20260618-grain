@@ -16,6 +16,7 @@
 //! glow-language: `xact-mold` call body `%-  flip` → XactMold switch · baked mint/5 → `.send`.
 //! glow-language: `xfer-mold` call body `%-  flip` → XferMold switch · baked mint/5/3 → `.send`.
 //! glow-language: `pair-mold` call body `%-  flip` → PairMold swap · baked 5/3 → 3/5.
+//! glow-language: `amount-mold` argv identity — generator beside fixture (u32-shaped named mold).
 //! Gate function named `bartis_gate` to avoid collisions with the sample face.
 
 const std = @import("std");
