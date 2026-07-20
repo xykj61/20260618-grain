@@ -7,7 +7,7 @@ type: reference
 # TAME Guidance — Operational Supplement
 
 **Language:** EN
-**Last updated:** 2026-07-20 (Glow G0–G5 · bartis horizon wording glow-language · thin bartis implement glow-language)
+**Last updated:** 2026-07-20 (Glow G0–G5 · bartis identity glow-language · bartis argv glow-language)
 **Style:** Radiant (see `RADIANT_STYLE.md`)
 **Voice:** Quin
 **Status:** Active — grow by supplement, earned when the language is ready
@@ -23,7 +23,7 @@ Three layers, one discipline — filenames follow TigerBeetle's `docs/TIGER_STYL
 | **Source** | `gratitude/TIGER_STYLE.md` | TigerBeetle team's guide, kept whole and unaltered |
 | **Voiced canon** | `external-research/TAME_GUIDANCE.md` | Our radiant adaptation; Safety, Performance, DX, and the full why |
 | **Operational supplement** | this document | Checkable root + Rye / Brix / Rishi rules for authors and agents |
-| **Glow working pin** | [`../glow/README.md`](../glow/README.md) · alphabet · argv · token · G5 Nock · bartis | Fixture desks + asserts · G0–G5 · **G4** MoldSpec · **G5** Nock notes (glow-language) · **bartis horizon wording** (glow-language) · **thin bartis identity gate** (glow-language GREEN) |
+| **Glow working pin** | [`../glow/README.md`](../glow/README.md) · alphabet · argv · token · G5 Nock · bartis | Fixture desks + asserts · G0–G5 · **G4** MoldSpec · **G5** Nock notes (glow-language) · **bartis identity** (glow-language) · **bartis argv sample** (glow-language GREEN) |
 | **Glow supplement (horizon)** | [`../external-research/20260713-225841_glow-supplement-scoping-runes-auras-jet-state.md`](../external-research/20260713-225841_glow-supplement-scoping-runes-auras-jet-state.md) | Scoping for a future Glow supplement; root still binds Glow authors now |
 
 Read the voiced canon (`external-research/TAME_GUIDANCE.md`) for philosophy and expert Tiger discipline. Read **this file** at the keyboard for what to assert, name, and bound. Organization prose lives in `active-designing/yonder/20260618-184912_growing-a-language.md`.
@@ -45,7 +45,7 @@ Hoon's positive and negative assertion runes — [`?>` wutgar](https://docs.urbi
 
 ### Glow — rune alphabet and fixture desks (working pin, glow-language–91; G5 glow-language)
 
-**glow-language** seats the compact glyph alphabet and family index below (G2). Glow adopts Hoon's one-syllable glyph alphabet so digraphs stay speakable. Primary compile path is Glow→Rye→Zig→**RISC-V**; Nock is a second backend at a seam. Most `glow/gen/` files are **fixture desks** (baked sample). **G3** seats one thin parameterized **generator**: `glow/gen/sample-u32.glow` reads one `@u32` from Rishi argv. **G4** closes the lexer→lower mold seam: cross-desk parts · same-desk mold-body · mold-only peek · TAME tidy `lower_mold` · token→`MoldSpec` in `rune_mold.parse_source` (glow-language–97). **glow-language** implements thin `|=` bartis identity gate — `|=  sample=@u32` / `sample`, baked sample 5 exits 0. Canon: [`../active-designing/20260719-204001_glow-rune-pronunciation-alphabet-riscv-and-generators.md`](../active-designing/20260719-204001_glow-rune-pronunciation-alphabet-riscv-and-generators.md) · G3 plan [`../active-designing/20260720-022956_stoa92-thin-argv-sample-g3-plan.md`](../active-designing/20260720-022956_stoa92-thin-argv-sample-g3-plan.md) · G4 plans [`../active-designing/20260720-023513_stoa93-token-driven-lower-slice-g4-plan.md`](../active-designing/20260720-023513_stoa93-token-driven-lower-slice-g4-plan.md) · [`../active-designing/20260720-024223_stoa94-same-desk-mold-body-tokens-g4-plan.md`](../active-designing/20260720-024223_stoa94-same-desk-mold-body-tokens-g4-plan.md). **G1 closed table**: [`../active-designing/20260719-220814_glow-rune-pronunciation-closed-table.md`](../active-designing/20260719-220814_glow-rune-pronunciation-closed-table.md).
+**glow-language** seats the compact glyph alphabet and family index below (G2). Glow adopts Hoon's one-syllable glyph alphabet so digraphs stay speakable. Primary compile path is Glow→Rye→Zig→**RISC-V**; Nock is a second backend at a seam. Most `glow/gen/` files are **fixture desks** (baked sample). **G3** seats one thin parameterized **generator**: `glow/gen/sample-u32.glow` reads one `@u32` from Rishi argv. **G4** closes the lexer→lower mold seam: cross-desk parts · same-desk mold-body · mold-only peek · TAME tidy `lower_mold` · token→`MoldSpec` in `rune_mold.parse_source` (glow-language–97). **glow-language–101** seat thin `|=` bartis identity (baked 5) and argv generator `gate-sample-u32.glow`. Canon: [`../active-designing/20260719-204001_glow-rune-pronunciation-alphabet-riscv-and-generators.md`](../active-designing/20260719-204001_glow-rune-pronunciation-alphabet-riscv-and-generators.md) · G3 plan [`../active-designing/20260720-022956_stoa92-thin-argv-sample-g3-plan.md`](../active-designing/20260720-022956_stoa92-thin-argv-sample-g3-plan.md) · G4 plans [`../active-designing/20260720-023513_stoa93-token-driven-lower-slice-g4-plan.md`](../active-designing/20260720-023513_stoa93-token-driven-lower-slice-g4-plan.md) · [`../active-designing/20260720-024223_stoa94-same-desk-mold-body-tokens-g4-plan.md`](../active-designing/20260720-024223_stoa94-same-desk-mold-body-tokens-g4-plan.md). **G1 closed table**: [`../active-designing/20260719-220814_glow-rune-pronunciation-closed-table.md`](../active-designing/20260719-220814_glow-rune-pronunciation-closed-table.md).
 
 #### Glyph alphabet (compact)
 
@@ -89,18 +89,19 @@ Primary path stays Glow→Rye→Zig→**RISC-V**. **Nock** is the second backend
 
 G5 brief: [`../active-designing/20260720-033200_stoa98-g5-nock-second-backend-family-notes.md`](../active-designing/20260720-033200_stoa98-g5-nock-second-backend-family-notes.md). Witness: `tools/glow_g5_nock_family_notes_witness.rish`.
 
-### Glow — bartis horizon wording (glow-language) · thin identity gate implement (glow-language GREEN)
+### Glow — bartis identity (glow-language) · argv sample (glow-language GREEN)
 
-`|=` spoken **bartis** is the Hoon/Glow one-arm core with a typed **sample**. Language docs say **Glow gate** or **bartis gate** — never bare itinerary **Gate** ([`LEXICON.md`](LEXICON.md)). **glow-language** implements the thin `@u32` identity gate: `|=  sample=@u32` / `sample` lowers to ordinary Rye via `rune_bartis` + `lower_bartis`; `glow_run` dispatches the 2-line `|=` desk; baked sample 5 exits 0. `|=` is now in `glow/tokens.rye` `match_rune2`; `|^` barket stays horizon. G3 `sample-u32.glow` remains the argv precursor — bartis does not rewrite it.
+`|=` spoken **bartis** is the Hoon/Glow one-arm core with a typed **sample**. Language docs say **Glow gate** or **bartis gate** — never bare itinerary **Gate** ([`LEXICON.md`](LEXICON.md)). **glow-language** implements the thin `@u32` identity gate with baked sample 5. **glow-language** deepens the same desk shape with an argv generator: `glow/gen/gate-sample-u32.glow` reads one `@u32` from Rishi argv via `lower_bartis.lower_source_argv_sample`; fixture `gate-sample.glow` stays argv-free. G3 `sample-u32.glow` remains the cast argv precursor — bartis does not rewrite it. `|^` barket stays horizon.
 
 | Status | Item |
 |--------|------|
 | **glow-language GREEN** | Thin `|=  sample=@u32` identity gate — token parse · Rye emit · baked 5 · fixture desk |
+| **glow-language GREEN** | Bartis argv sample — generator desk · `--sample-argv` · fixture stays baked |
 | Still held | Wet / gold polymorphic cores — nest/type surface per cores port-order brief |
 | Still held | `\|^` barket tokenize / lower |
 | Still held | Sala B0 in Glow — framework / product season |
 
-G1 row brief (glow-language): [`../active-designing/20260720-033852_glow-bartis-g1-row.md`](../active-designing/20260720-033852_glow-bartis-g1-row.md). Horizon wording brief (glow-language): [`../active-designing/20260720-033340_stoa99-bartis-horizon-wording.md`](../active-designing/20260720-033340_stoa99-bartis-horizon-wording.md). Witness: `tools/glow_bartis_horizon_witness.rish`.
+G1 row brief (glow-language): [`../active-designing/20260720-033852_glow-bartis-g1-row.md`](../active-designing/20260720-033852_glow-bartis-g1-row.md). Argv brief (glow-language): [`../active-designing/20260720-040200_glow-bartis-argv-sample.md`](../active-designing/20260720-040200_glow-bartis-argv-sample.md). Horizon wording brief (glow-language): [`../active-designing/20260720-033340_stoa99-bartis-horizon-wording.md`](../active-designing/20260720-033340_stoa99-bartis-horizon-wording.md). Witnesses: `tools/glow_bartis_horizon_witness.rish` · `tools/glow_bartis_argv_witness.rish`.
 
 Cursor and Claude rules (`.cursor/rules/tame-guidance.mdc`, `.claude/rules/tame-guidance.md`) point here. Root rule **9** (docs and implementation stay synced) has its own always-on agent rule pair: `.cursor/rules/docs-implementation-sync.mdc`, `.claude/rules/docs-implementation-sync.md`.
 
