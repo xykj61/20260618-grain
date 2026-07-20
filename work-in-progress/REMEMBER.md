@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260719.200836` (Eastern) · voice Quin  
+**Last refreshed:** `20260719.201411` (Eastern) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–83** GREEN · glow-language open  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–83  
-**Git nib:** `b1f29af76f` glow-language bounded token stream  
+**Language nib:** **glow-language–84** GREEN · glow-language open  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–84  
+**Git nib:** `0316619e39` glow-language named-cast token peek  
  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
 
@@ -14,11 +14,11 @@
 
 ## Now (language)
 
-**glow-language** bounded shared token stream GREEN `20260719.200706` — `glow/tokens.rye` classifies desk bytes into a fixed-cap kind+span array; witness pins `cast-named-xact` kinds, skips `::`, refuses overflow/unknown; parity beside `glow_expr`. `glow_run` still desk-shaped. Next door: **glow-language** check-in.
+**glow-language** named-cast peek via tokens GREEN `20260719.201027` — `tokens.looks_like_named_cast` drives same-desk named-cast dispatch; `lower_named_cast` delegates; mold-only and cross-desk stay false; desk suite GREEN. Next door: **glow-language** check-in.
 
 Smoke: `rishi/bin/rishi run tools/glow_tokens_witness.rish`
 
-Pitfalls: comment lines eat their newline · max_tokens 64. Hold: wire `glow_run` onto tokens · Sala B0 rewrite.
+Pitfalls: peek is dispatch only · lowers still parse bytes. Hold: cross-desk token peek · token-driven lowers · Sala B0 rewrite.
 
 ---
 
@@ -32,7 +32,7 @@ Pitfalls: comment lines eat their newline · max_tokens 64. Hold: wire `glow_run
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
 | **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W GREEN** · live “sent” eyes check-in |
-| **glow-language** | Glow language SLC · nest · composition | **glow-language–83 GREEN** · token stream · glow-language next |
+| **glow-language** | Glow language SLC · nest · composition | **glow-language–84 GREEN** · token peek · glow-language next |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md) · [`../docs/glow-language.md`](../docs/glow-language.md)
 
@@ -71,7 +71,7 @@ Hold row 1 → Settings: presets · `home ·` · `wire ·` · `cell ·` — all 
 
 | Door | Kind |
 |------|------|
-| **glow-language** next language (wire `glow_run` · Sala B0 · …) | **check-in** |
+| **glow-language** next language (cross-desk peek · token lowers · Sala B0) | **check-in** |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** (needs gadget/QEMU) |
 | Amber/Amphora Glass↔Desk fuse | **declined** — compose later (`133455`) |
 | seva-broadcast · TAME Lap 3 | **check-in** |
