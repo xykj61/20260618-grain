@@ -1,4 +1,4 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–83 GREEN · 2026-07-19 (tokens) · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · glow-language–84 GREEN · 2026-07-19 (tok peek) · draw → **glow-language**
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
 | **glow-language** | Eight rune heads + desk hop · `(lent)` · `(mix)` | `glow_run_desk_witness` · `glow_expr_witness` | **GREEN** (claimed `20260718.202730`) |
@@ -76,6 +76,6 @@
 | **glow-language** | NativeActivity APK Glow import wire | `stoa72_glow_apk_import_witness` · pack | **GREEN** `20260719.182648` |
 | **glow-language** | product-root write + Pixel install (expect 5) | write · `stoa73_…_install_onpath_host` | **GREEN** write `184836` · eyes `191719` |
 | **glow-language–75** | `+$` / `$:` `@u32` mold (1–3 fields) | `glow_rune_mold` · `glow_lower_mold` · desk | **GREEN** `190825` · `192241` |
-| **glow-language–82** | `$%` · cast · payload · cross · multi · tag/pay-cast | mold · named-cast · desk | **GREEN** `192936`…`200508` |
-| **glow-language** | Bounded shared token stream | `glow_tokens_witness` · parity | **GREEN** `20260719.200706` |
+| **glow-language–83** | `$%` · cast · payload · multi · tag/pay · token stream | mold · named-cast · tokens | **GREEN** `192936`…`200706` |
+| **glow-language** | Named-cast peek via token stream | `glow_tokens_witness` · desk | **GREEN** `20260719.201027` |
 Smoke: `rishi/bin/rishi run tools/glow_tokens_witness.rish` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
