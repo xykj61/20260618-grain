@@ -7,8 +7,8 @@
 //! glow-language: cross-desk named-cast parse joins the lexer→lower seam
 //! (`cross_desk_parts`).
 //! glow-language: same-desk named-cast mold-body span via `named_cast_parts`.
-//! glow-language: mold-only `+$` dispatch peek via `looks_like_mold_only`;
-//! other lowers may still parse bytes.
+//! glow-language: mold-only `+$` dispatch peek via `looks_like_mold_only`.
+//! glow-language: `rune_mold.parse_source` consumes this stream → MoldSpec.
 //!
 //!   +$  xact-mold
 //!     $%  [%mint amount=@u32]

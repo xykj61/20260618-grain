@@ -432,6 +432,8 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language TAME tidy `lower_mold` GREEN, `20260719.231400`** — lean A: assert · u32 · append_print · split emitters; width-check + one-file ban overflow seat (256 roster ceiling). Next language: **glow-language** check-in (token→`MoldSpec` · Sala B0).
 
+**glow-language token→`MoldSpec` G4 GREEN, `20260719.233050`** — lean A (compass): `rune_mold.parse_source` builds from `tokens.tokenize`; retires line-collect byte heads; `copy_disjoint`; Sala B0 held (iOS language season). Next language: **glow-language** check-in (G5 Nock note · bartis · Sala B0).
+
 **Glow OS · Glow Desk · Glow Glass seated, `20260717.183622`** — Keaton: **Glow OS** unifies; **Glow Desk** = desktop; **Glow Glass** = mobile. Lexicon + silo [`../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md`](../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md). Orientation firmware stays check-in.
 
 **Witness habitat + markup pipeline, `20260717.173427`** — foundations fit study affirms single-strand · sameness · happy-zone practice in the suite; teaching path was the gap. Seats **witness habitat** as Acme synonym (foundations keep *happy zone*). Fusion map holds Scribble→Brix→Bron→Mantra→Sala with Glow under TAME; Udon/Sail/Zuse horizon. Tutorial scaffold [`../manual/tutorials/cursor-and-the-compass.md`](../manual/tutorials/cursor-and-the-compass.md); silo [`../active-designing/20260717-173427_witness-habitat-and-the-markup-pipeline.md`](../active-designing/20260717-173427_witness-habitat-and-the-markup-pipeline.md). Product next remains Dexter D2.
