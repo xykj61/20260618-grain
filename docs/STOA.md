@@ -96,4 +96,5 @@
 | **glow-language** | Barket wet-through-nests | `glow_barket_lower_witness` | **GREEN** `20260720.182915` |
 | **glow-language** | Count-mold named allowlist | `glow_nest_type_witness` · barket · bartis | **GREEN** `20260720.183259` |
 | **glow-language** | Kind-mold gate sample | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.183837` |
+| **glow-language** | Xact-mold gate sample | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.184304` |
 Smoke: `glow_barket_lower_witness` · `glow_barket_parse_witness` · `glow_nest_type_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
