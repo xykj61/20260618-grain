@@ -30,7 +30,8 @@
 //! glow-language: closed call-body under hepta-mold — `flip` (from↔amount · fee/nonce/memo/tag/to stay).
 //! glow-language: closed allowlist adds eight-field `$:` `octa-mold` (identity lower).
 //! glow-language: closed call-body under octa-mold — `flip` (from↔amount · fee/nonce/memo/tag/to/via stay).
-//! Nesting / gold · open `$:` beyond octa bartis samples held.
+//! glow-language: closed allowlist adds nine-field `$:` `nona-mold` (identity lower).
+//! Nesting / gold · open `$:` beyond nona bartis samples held.
 //!
 //! Parse shape (token stream):
 //!   1. skip leading newlines

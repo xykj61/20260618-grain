@@ -30,8 +30,9 @@
 //! glow-language: closed call-body under hepta-mold — `flip` (from↔amount · fee/nonce/memo/tag/to stay).
 //! glow-language: closed allowlist adds eight-field `$:` `octa-mold` (identity lower).
 //! glow-language: closed call-body under octa-mold — `flip` (from↔amount · fee/nonce/memo/tag/to/via stay).
+//! glow-language: closed allowlist adds nine-field `$:` `nona-mold` (identity lower).
 //! Sample nests under `@u32` / named allowlist via nest_type; ambient gold held.
-//! Token-driven via tokens.rye. Open `$:` beyond octa barket samples held.
+//! Token-driven via tokens.rye. Open `$:` beyond nona barket samples held.
 
 const std = @import("std");
 const assert = std.debug.assert;
