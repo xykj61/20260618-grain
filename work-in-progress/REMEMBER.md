@@ -4,9 +4,9 @@
 
 **Last refreshed:** `20260719.223110` (Eastern) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–91** GREEN · glow-language open (G3 argv — in flight)  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–91  
-**Git nib:** `1022d8cab1` glow-language TAME alphabet pin G2 (sent)  
+**Language nib:** **glow-language–92** GREEN · glow-language open  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–92  
+**Git nib:** (refresh after send) glow-language thin argv `@u32` G3  
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
@@ -15,14 +15,19 @@
 
 ## Now (language)
 
-**glow-language** GREEN · TAME Glow pin: compact glyph alphabet + family index (G2).  
-**glow-language** GREEN · closed pronunciation table G1 (25 heads).  
-**glow-language** next — check-in (G3 argv · token lower · tidy mold · Sala B0).  
-**Cores / port:** dry cores fit TAME · wet/gold hold · L→R→G — [`../active-designing/20260719-204650_hoon-core-polymorphism-tame-and-port-order.md`](../active-designing/20260719-204650_hoon-core-polymorphism-tame-and-port-order.md).
+**glow-language** GREEN · thin generator `sample-u32.glow` reads one `@u32` from Rishi argv; fixture `cast-u32.glow` kept.  
+**glow-language** next — check-in (token-driven lower · tidy mold · Sala B0).  
+**Cores / port:** dry cores fit TAME · wet/gold hold · L→R→G.
 
-Alphabet: G0 [`../active-designing/20260719-204001_glow-rune-pronunciation-alphabet-riscv-and-generators.md`](../active-designing/20260719-204001_glow-rune-pronunciation-alphabet-riscv-and-generators.md) · G1 closed [`../active-designing/20260719-220814_glow-rune-pronunciation-closed-table.md`](../active-designing/20260719-220814_glow-rune-pronunciation-closed-table.md) · G2 pin [`../context/TAME_GUIDANCE.md`](../context/TAME_GUIDANCE.md).
+Alphabet G0–G2 · G3 plan [`../active-designing/20260720-022956_stoa92-thin-argv-sample-g3-plan.md`](../active-designing/20260720-022956_stoa92-thin-argv-sample-g3-plan.md).
 
-Hold on iOS: argv G3 · token lower · tidy mold. Defer Pixel/usb-hearth adb to Framework outer terminal.
+```bash
+rishi/bin/rishi run tools/glow_run.rish glow/gen/cast-u32.glow
+rishi/bin/rishi run tools/glow_run.rish glow/gen/sample-u32.glow 42
+rishi/bin/rishi run tools/glow_sample_argv_witness.rish
+```
+
+Hold on iOS: token lower · tidy mold. Defer Pixel/usb-hearth adb to Framework outer terminal.
 
 ---
 
@@ -36,7 +41,7 @@ Hold on iOS: argv G3 · token lower · tidy mold. Defer Pixel/usb-hearth adb to 
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
 | **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W GREEN** · live “sent” eyes check-in |
-| **glow-language** | Glow language SLC · nest · composition | **glow-language–91 GREEN** · glow-language next |
+| **glow-language** | Glow language SLC · nest · composition | **glow-language–92 GREEN** · glow-language next |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md) · [`../docs/glow-language.md`](../docs/glow-language.md)
 
@@ -68,7 +73,7 @@ Hold row 1 → Settings: presets · `home ·` · `wire ·` · `cell ·` — all 
 
 | Door | Kind |
 |------|------|
-| **glow-language** G3 argv sample · token lower · tidy mold · Sala B0 | **check-in** — iOS season |
+| **glow-language** token-driven lower · tidy mold · Sala B0 | **check-in** — iOS season |
 | Wet/gold core polymorphism | **held** (design seated) |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** — Framework host |
 | seva-broadcast · TAME Lap 3 | **check-in** |

@@ -1,4 +1,4 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–91 GREEN · 2026-07-19 (G2 pin) · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · glow-language–92 GREEN · 2026-07-19 (G3 argv) · draw → **glow-language**
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
 | **glow-language** | Eight rune heads + desk hop · `(lent)` · `(mix)` | `glow_run_desk_witness` · `glow_expr_witness` | **GREEN** (claimed `20260718.202730`) |
@@ -77,5 +77,5 @@
 | **glow-language** | product-root write + Pixel install (expect 5) | write · `stoa73_…_install_onpath_host` | **GREEN** write `184836` · eyes `191719` |
 | **glow-language–75** | `+$` / `$:` `@u32` mold (1–3 fields) | `glow_rune_mold` · `glow_lower_mold` · desk | **GREEN** `190825` · `192241` |
 | **glow-language–83** | `$%` · cast · payload · multi · tag/pay · token stream | mold · named-cast · tokens | **GREEN** `192936`…`200706` |
-| **glow-language–91** | Cast peeks · TAME · `?>`/`?<` · alphabet G0–G2 | tokens · assert · `glow_rune_alphabet_witness` | **GREEN** `201027`…`222657` |
-Smoke: `glow_rune_alphabet_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
+| **glow-language–92** | Cast · TAME · alphabet G0–G2 · argv `@u32` G3 | alphabet · `glow_sample_argv_witness` | **GREEN** `201027`…`223110` |
+Smoke: `glow_sample_argv_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
