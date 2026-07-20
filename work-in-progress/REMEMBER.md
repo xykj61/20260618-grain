@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260720.231547` (UTC cloud) · voice Quin  
+**Last refreshed:** `20260720.231857` (UTC cloud) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–147** GREEN · glow-language open  
+**Language nib:** **glow-language–147** GREEN · field capacity freeze at 9 · glow-language withdrawn  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–147  
-**Git nib:** `2e84c960d4` — glow-language nona-mold flip
+**Git nib:** `0f6b5c674c` — capacity freeze · Framework next
 
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
@@ -16,16 +16,17 @@
 
 ## Now (language)
 
-**glow-language** seated · nona-mold flip call-body (NonaMold · from↔amount · fee/nonce/memo/tag/to/via/ref stay · baked 5/3/1/2/7/4/6/8/9 → 3/5/1/2/7/4/6/8/9 · double under nona refuse · argv held).  
+**glow-language** seated · nona-mold flip · capacity freeze at nine faces (`max_fields == 9`).  
 **Shape** seated as Glow OS surface word · mold stays Hoon study / desk suffix (`20260720.223226`).  
-**glow-language** next — lean A map: **deca-mold** gate identity (Sala B0 Framework).
+**Capacity freeze** [`20260720-231857_closed-field-capacity-freeze-and-framework-next.md`](../active-designing/20260720-231857_closed-field-capacity-freeze-and-framework-next.md) — no more `*-mold` field widens by default.  
+**Framework next** (when host resumes): live usb-hearth.5 **sent** on `usb0`/`ncm`.
 
 ```bash
 rishi/bin/rishi run tools/glow_barket_lower_witness.rish
 rishi/bin/rishi run tools/glow_lower_bartis_witness.rish
 ```
 
-Hold on iOS: ambient gold · bartis stated · named allowlist amount/count/kind/xact/xfer/pair/triple/quad/penta/hexa/hepta/octa/nona · closed call gates double/inc/dec/flip. Defer Pixel/usb-hearth / Sala B0 to Framework.
+Hold on iOS: ambient gold · bartis stated · named allowlist through **nona** (capacity freeze) · closed call gates double/inc/dec/flip. Defer Pixel/usb-hearth live-sent / Sala B0 Glow rewrite to Framework.
 
 ---
 
@@ -39,7 +40,7 @@ Hold on iOS: ambient gold · bartis stated · named allowlist amount/count/kind/
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
 | **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W GREEN** |
-| **glow-language** | Glow language SLC · nest · composition | **glow-language–147 GREEN** · glow-language next |
+| **glow-language** | Glow language SLC · nest · composition | **glow-language–147 GREEN** · capacity freeze · Framework usb-hearth-sent next |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md) · [`../docs/glow-language.md`](../docs/glow-language.md)
 
@@ -61,9 +62,9 @@ $ADB install -r tools/.cache/tube05/sala-broadcaster.apk
 
 | Door | Kind |
 |------|------|
-| **glow-language** deca-mold gate identity (lean A) · tagged argv · gold held | **open** — map seated; Sala B0 Framework |
+| **Closed-field capacity freeze** at 9 · glow-language withdrawn | **seated** — brief `20260720.231857` |
 | Glow nesting syntax · ambient gold | **held** |
-| Live usb-hearth.5 **sent** on usb0/ncm | **check-in** — Framework host |
+| Live usb-hearth.5 **sent** on usb0/ncm | **check-in** — Framework lean A when host resumes |
 | seva-broadcast · TAME Lap 3 | **check-in** |
 
 ---
