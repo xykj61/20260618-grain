@@ -1,4 +1,4 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–98 GREEN · 2026-07-19 (G0–G5) · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · glow-language–99 GREEN · 2026-07-19 (G0–G5 · bartis) · draw → **glow-language**
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
 | **glow-language** | Eight rune heads + desk hop · `(lent)` · `(mix)` | `glow_run_desk_witness` · `glow_expr_witness` | **GREEN** (claimed `20260718.202730`) |
@@ -77,5 +77,5 @@
 | **glow-language** | product-root write + Pixel install (expect 5) | write · `stoa73_…_install_onpath_host` | **GREEN** write `184836` · eyes `191719` |
 | **glow-language–75** | `+$` / `$:` `@u32` mold (1–3 fields) | `glow_rune_mold` · `glow_lower_mold` · desk | **GREEN** `190825` · `192241` |
 | **glow-language–83** | `$%` · cast · payload · multi · tag/pay · token stream | mold · named-cast · tokens | **GREEN** `192936`…`200706` |
-| **glow-language–98** | Cast · alphabet · argv · G4 MoldSpec · G5 Nock | tokens · `rune_mold` · G5 wit | **GREEN** `201027`…`233200` |
+| **glow-language–99** | Cast · alphabet · G4–G5 · bartis horizon | tokens · G5 · bartis wit | **GREEN** `201027`…`233340` |
 Smoke: `glow_tokens_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.

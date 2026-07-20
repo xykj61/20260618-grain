@@ -8,6 +8,8 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260719.233340` — [glow-language bartis horizon wording GREEN](20260719-233340_stoa99-bartis-horizon-green.bron) — Glow gate named; await send
+- `20260719.233327` — [glow-language send complete](20260719-233327_stoa98-send-complete.bron) — origin main at 620a7cb58f
 - `20260719.233200` — [glow-language G5 Nock family notes GREEN](20260719-233200_stoa98-g5-nock-notes-green.bron) — wut truth pin; await send
 - `20260719.233140` — [glow-language send complete](20260719-233140_stoa97-send-complete.bron) — origin main at 21c158ff01
 - `20260719.233050` — [glow-language token MoldSpec G4 GREEN](20260719-233050_stoa97-token-mold-spec-green.bron) — compass lean A; await send

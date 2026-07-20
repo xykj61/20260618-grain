@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260719.233200` (Eastern) · voice Quin  
+**Last refreshed:** `20260719.233340` (Eastern) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–98** GREEN · glow-language open  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–98  
-**Git nib:** (refresh after send) glow-language G5 Nock family notes  
+**Language nib:** **glow-language–99** GREEN · glow-language open  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–99  
+**Git nib:** (refresh after send) glow-language bartis horizon wording  
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
@@ -15,8 +15,8 @@
 
 ## Now (language)
 
-**glow-language** GREEN · G5 Nock second-backend notes beside **wut** truth (jets horizon).  
-**glow-language** next — check-in (bartis · Sala B0 · next language).
+**glow-language** GREEN · bartis horizon wording — Glow gate named; `|=` untokenized.  
+**glow-language** next — check-in (implement bartis · Sala B0 · next language).
 
 ```bash
 rishi/bin/rishi run tools/glow_tokens_witness.rish
@@ -24,7 +24,7 @@ rishi/bin/rishi run tools/glow_lower_named_cast_witness.rish
 rishi/bin/rishi run tools/glow_run_desk_witness.rish
 ```
 
-Hold on iOS: bartis. Defer Pixel/usb-hearth / Sala B0 adb to Framework.
+Hold on iOS: bartis implement. Defer Pixel/usb-hearth / Sala B0 adb to Framework.
 
 ---
 
@@ -38,7 +38,7 @@ Hold on iOS: bartis. Defer Pixel/usb-hearth / Sala B0 adb to Framework.
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
 | **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W GREEN** |
-| **glow-language** | Glow language SLC · nest · composition | **glow-language–98 GREEN** · glow-language next |
+| **glow-language** | Glow language SLC · nest · composition | **glow-language–99 GREEN** · glow-language next |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md) · [`../docs/glow-language.md`](../docs/glow-language.md)
 
@@ -60,7 +60,7 @@ $ADB install -r tools/.cache/tube05/sala-broadcaster.apk
 
 | Door | Kind |
 |------|------|
-| **glow-language** bartis · Sala B0 · next language | **check-in** — iOS season |
+| **glow-language** implement bartis · Sala B0 · next language | **check-in** — iOS season |
 | Wet/gold core polymorphism | **held** |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** — Framework host |
 | seva-broadcast · TAME Lap 3 | **check-in** |
