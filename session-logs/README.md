@@ -8,6 +8,7 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260720.040612` — [glow-language send complete](20260720-040612_stoa101-send-complete.bron) — origin main at 21d402ad3013
 - `20260720.040546` — [glow-language send + glow-language lean A approve](20260720-040546_stoa100-send-stoa101-approve.bron) — main 7e5970f715; argv bartis PR await send
 - `20260720.040533` — [glow-language bartis argv sample GREEN](20260720-040533_stoa101-bartis-argv-green.bron) — generator gate-sample-u32; fixture stays baked; await send
 - `20260720.040050` — [glow-language send complete](20260720-040050_stoa100-send-complete.bron) — origin main at 7e5970f71529
