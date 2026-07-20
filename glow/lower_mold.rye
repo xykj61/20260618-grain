@@ -7,7 +7,7 @@
 //! Named-cast resolve: `lower_named_cast.rye` (glow-language).
 //! Library emit (no main) is glow-language for `/+` mold import.
 //! glow-language: mold-only dispatch peek delegates to `tokens.looks_like_mold_only`.
-//! glow-language: TAME tidy — assert · u32 · copy_disjoint · split emitters.
+//! glow-language: TAME tidy — assert · u32 · append_print · split emitters.
 
 const std = @import("std");
 const assert = std.debug.assert;
