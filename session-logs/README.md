@@ -11,6 +11,7 @@ Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../cont
 - `20260720.150538` — [glow-language wet-refuse nest vs barket map](20260720-150538_stoa110-wet-refuse-vs-barket-map.bron) — lean A wet refuse first; barket held
 - `20260720.150042` — [glow-language named-mold bartis vs barket map](20260720-150042_stoa109-named-mold-vs-barket-map.bron) — lean A sample=amount-mold; barket held
 - `20260720.145715` — [glow-language $% tag nest vs barket map](20260720-145715_stoa108-tag-nest-vs-barket-map.bron) — lean A assert_tag_nests; barket held
+- `20260720.150618` — [glow-language send complete](20260720-150618_stoa109-send-complete.bron) — origin main at 8e7bb3cbc3fa
 - `20260720.150429` — [glow-language named-mold bartis GREEN](20260720-150429_stoa109-named-mold-bartis-green.bron) — sample=amount-mold · kind refuse; await send
 - `20260720.150127` — [glow-language send complete](20260720-150127_stoa108-send-complete.bron) — origin main at a98ebdc488be
 - `20260720.145928` — [glow-language nest/type $% tag nest GREEN](20260720-145928_stoa108-tag-nest-green.bron) — assert_tag_nests · mold-kind; await send
