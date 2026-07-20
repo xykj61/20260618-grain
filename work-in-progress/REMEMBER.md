@@ -2,11 +2,12 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260720.184304` (UTC cloud · Eastern season) · voice Quin  
+**Last refreshed:** `20260720.184838` (UTC cloud · Eastern season) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
 **Language nib:** **glow-language–124** GREEN · glow-language open  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–124  
-**Git nib:** *(pin after send)* — glow-language xact-mold gate sample  
+**Git nib:** `404a1d1ef0` — glow-language xact-mold gate sample  
+ 
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
@@ -15,7 +16,7 @@
 
 ## Now (language)
 
-**glow-language** seating · xact-mold gate sample (`XactMold` · baked `.mint` amount 5).  
+**glow-language** sent · xact-mold gate sample (`XactMold` · baked `.mint` amount 5).  
 **glow-language** next — compass pick: gold · multi-face `$%` / xfer-mold (Sala B0 Framework).
 
 ```bash
