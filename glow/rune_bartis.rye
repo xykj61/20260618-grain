@@ -26,7 +26,8 @@
 //! glow-language: closed call-body under penta-mold — `flip` (from↔amount · fee/nonce/memo stay).
 //! glow-language: closed allowlist adds six-field `$:` `hexa-mold` (identity lower).
 //! glow-language: closed call-body under hexa-mold — `flip` (from↔amount · fee/nonce/memo/tag stay).
-//! Nesting / gold · open `$:` beyond hexa bartis samples held.
+//! glow-language: closed allowlist adds seven-field `$:` `hepta-mold` (identity lower).
+//! Nesting / gold · open `$:` beyond hepta bartis samples held.
 //!
 //! Parse shape (token stream):
 //!   1. skip leading newlines
