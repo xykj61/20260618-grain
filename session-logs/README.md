@@ -8,6 +8,11 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260720.225659` — [kg glow-language-144 complete · glow-language mapped](20260720-225659_kg-stoa144-complete.bron) — hepta flip + octa identity sent; octa flip mapped
+- `20260720.225659` — [Glow compass send glow-language](20260720-225659_glow-compass-stoa144-send.bron) — octa-mold sent; glow-language mapped
+- `20260720.225659` — [glow-language approved and sent](20260720-225659_stoa144-approved-sent.bron) — claim a7f22cfcb7
+- `20260720.225659` — [glow-language send complete](20260720-225659_stoa144-send-complete.bron) — origin main language claim a7f22cfcb7
+- `20260720.225659` — [glow-language next map after octa-mold](20260720-225659_stoa145-next-map.bron) — lean A octa-mold flip call-body
 - `20260720.225448` — [glow-language octa-mold gate GREEN](20260720-225448_stoa144-octa-mold-green.bron) — OctaMold identity · via 8 · nona refuse
 - `20260720.224907` — [kg glow-language complete · glow-language mapped](20260720-224907_kg-stoa143-complete.bron) — hepta flip sent; octa identity mapped
 - `20260720.224907` — [Glow compass send glow-language](20260720-224907_glow-compass-stoa143-send.bron) — hepta flip sent; glow-language mapped
