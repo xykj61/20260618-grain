@@ -1,29 +1,26 @@
-//! glow/nest_type.rye — nest/type surface (glow-language–110 · glow-language–120).
+//! glow/nest_type.rye — nest/type surface (glow-language–110 · glow-language–130).
 //!
 //! Expansion-time checks that a sample nests under a stated mold:
-//!   - glow-language: dry aura equality (`@u32` under `@u32`)
+//!   - glow-language: stated aura equality (`@u32` under `@u32`)
 //!   - glow-language: unit `$%` tag membership (`mint` under kind-mold)
 //!   - glow-language: closed named-mold bartis sample (`amount-mold` one-field `$:`)
-//!   - glow-language: wet-sample refuse — wet-flagged claims do not nest (no Glow wet syntax)
+//!   - glow-language: nesting-sample refuse — nesting-flagged claims do not nest
 //!   - glow-language: same closed named mold on barket samples
-//!   - glow-language: wet-sample accept under a stated closed mold (`assert_sample_wet_nests`)
-//!   - glow-language: barket/bartis expansion call `assert_sample_wet_nests`
-//!   - glow-language: barket passes `is_wet=true` through wet-nests under stated molds
-//!   - glow-language: closed named-mold allowlist adds `count-mold` beside `amount-mold`
-//!   - glow-language: closed allowlist adds unit `$%` `kind-mold` gate samples
-//!   - glow-language: closed allowlist adds payload `$%` `xact-mold` gate samples
-//!   - glow-language: closed allowlist adds multi-face payload `$%` `xfer-mold` gate samples
-//!   - glow-language: closed allowlist adds multi-field `$:` `pair-mold` gate samples
+//!   - glow-language: nesting-sample accept under a stated closed mold
+//!   - glow-language: barket/bartis expansion call `assert_sample_nesting_nests`
+//!   - glow-language: barket passes `is_nesting=true` through nesting-nests under stated molds
+//!   - glow-language–126: closed allowlist amount · count · kind · xact · xfer · pair
+//!   - glow-language: Glow vocabulary — stated · nesting · gold (Hoon study: dry · wet · gold)
 //! Ambient gold / free polymorphism · open `$:` beyond pair stay held.
 //!
-//! Bartis calls wet-nests dry (`false`). Barket calls wet-nests wet (`true`).
-//! glow-language `assert_sample_not_wet(true)` refuse stays on the nest_type witness.
+//! Bartis calls nesting-nests stated (`false`). Barket calls nesting-nests nesting (`true`).
+//! glow-language `assert_sample_not_nesting(true)` refuse stays on the nest_type witness.
 
 const std = @import("std");
 const assert = std.debug.assert;
 const rune_mold = @import("rune_mold.rye");
 
-pub const nest_type_version = "20260720.185502";
+pub const nest_type_version = "20260720.192738";
 
 /// Closed named molds welcome in gate samples.
 /// `$:` one-field ≡ `@u32`: amount · count. `$:` two-field: pair.
@@ -39,7 +36,7 @@ pub const NestError = error{
     SampleDoesNotNest,
 };
 
-/// Assert `sample_aura` nests under `stated_mold` (dry aura equality).
+/// Assert `sample_aura` nests under `stated_mold` (stated aura equality).
 pub fn assert_aura_nests(sample_aura: []const u8, stated_mold: []const u8) NestError!void {
     assert(sample_aura.len > 0); // precondition: sample aura non-empty
     assert(stated_mold.len > 0); // precondition: stated mold non-empty
@@ -154,20 +151,21 @@ pub fn assert_xfer_mold_nests(mold_name: []const u8, spec: *const rune_mold.Mold
     if (!any_multi_face_payload(spec)) return error.SampleDoesNotNest;
 }
 
-/// Assert a sample claim is dry. Wet-flagged claims refuse `SampleDoesNotNest`.
-/// glow-language step 1 / glow-language: unconditional refuse for wet samples — kept beside
-/// glow-language mold-bounded wet accept (`assert_sample_wet_nests`).
-pub fn assert_sample_not_wet(is_wet: bool) NestError!void {
-    if (is_wet) return error.SampleDoesNotNest;
+/// Assert a sample claim is stated. Nesting-flagged claims refuse `SampleDoesNotNest`.
+/// glow-language refuse kept beside glow-language mold-bounded nesting accept.
+/// Hoon study word for nesting here was *wet*.
+pub fn assert_sample_not_nesting(is_nesting: bool) NestError!void {
+    if (is_nesting) return error.SampleDoesNotNest;
 }
 
-/// Wet-sample accept under a stated closed mold (glow-language).
-/// Dry (`is_wet=false`): no-op success.
-/// Wet (`is_wet=true`): sample must nest under `stated_mold` via aura equality
-/// (`@…`) or the closed named-mold allowlist (amount · count · kind · xact · xfer · pair).
-pub fn assert_sample_wet_nests(is_wet: bool, sample: []const u8, stated_mold: []const u8) NestError!void {
-    if (!is_wet) return;
-    assert(sample.len > 0); // precondition: wet sample non-empty
+/// Nesting-sample accept under a stated closed mold (glow-language · glow-language).
+/// Stated path (`is_nesting=false`): no-op success.
+/// Nesting path (`is_nesting=true`): sample must nest under `stated_mold` via aura
+/// equality (`@…`) or the closed named-mold allowlist
+/// (amount · count · kind · xact · xfer · pair).
+pub fn assert_sample_nesting_nests(is_nesting: bool, sample: []const u8, stated_mold: []const u8) NestError!void {
+    if (!is_nesting) return;
+    assert(sample.len > 0); // precondition: nesting sample non-empty
     assert(stated_mold.len > 0); // precondition: stated mold non-empty
     if (sample[0] == '@' or stated_mold[0] == '@') {
         try assert_aura_nests(sample, stated_mold);

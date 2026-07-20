@@ -1,14 +1,14 @@
 //! glow/rune_barket.rye — parses Glow's `|^` barket (glow-language–120).
 //!
-//! Dry-shaped demo: `|^  sample=@u32` or `|^  sample=amount-mold` header, then either:
+//! Stated-sample demo: `|^  sample=@u32` or `|^  sample=amount-mold` header, then either:
 //!   - header-only (glow-language)
 //!   - identity body face (glow-language)
 //!   - call body: `%-  <gate>  <sample-face>` (glow-language–116)
 //! Closed demo gates: `double` · `inc` · `dec` (`@u32`) · `flip` (kind · xact · xfer · glow-language–129).
 //! glow-language: TAME tidy — copy_disjoint · parse_body split.
 //! glow-language: closed named mold `amount-mold` (one-field `$:` ≡ `@u32` lower).
-//! glow-language: expansion calls `assert_sample_wet_nests` at the mold seam.
-//! glow-language: barket passes `is_wet=true` through wet-nests under stated molds.
+//! glow-language: expansion calls `assert_sample_nesting_nests` at the mold seam.
+//! glow-language / glow-language: barket passes `is_nesting=true` through nesting-nests under stated molds.
 //! glow-language: closed allowlist adds `count-mold` beside `amount-mold`.
 //! glow-language: closed allowlist adds unit `$%` `kind-mold` (identity lower).
 //! glow-language: closed allowlist adds payload `$%` `xact-mold` (identity lower).
@@ -181,8 +181,8 @@ pub fn parse_source(src: []const u8) ParseError!BarketSpec {
         sample_text = mold_text;
         stated_mold = mold_text;
     } else return error.MissingAura;
-    // glow-language: |^ carries wetness through mold-bounded wet-nests (no new token).
-    nest_type.assert_sample_wet_nests(true, sample_text, stated_mold) catch return error.SampleDoesNotNest;
+    // glow-language / glow-language: |^ carries nesting through mold-bounded nesting-nests (no new token).
+    nest_type.assert_sample_nesting_nests(true, sample_text, stated_mold) catch return error.SampleDoesNotNest;
     i += 1;
 
     while (i < n and toks[@as(usize, @intCast(i))].kind == .newline) : (i += 1) {}

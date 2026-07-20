@@ -78,22 +78,22 @@
 | **glow-language–75** | `+$` / `$:` `@u32` mold (1–3 fields) | `glow_rune_mold` · `glow_lower_mold` · desk | **GREEN** `190825` · `192241` |
 | **glow-language–83** | `$%` · cast · payload · multi · tag/pay · token stream | mold · named-cast · tokens | **GREEN** `192936`…`200706` |
 | **glow-language–105** | Cast · alphabet · G4–G5 · bartis tidy | tokens · G5 · bartis | **GREEN** `201027`…`042300` |
-| **glow-language** | Nest/type surface wording (wet samples) | `glow_nest_type_surface_witness` | **GREEN** `20260720.042931` |
-| **glow-language** | Nest/type thin implement (dry aura) | `glow_nest_type_witness` · bartis | **GREEN** `20260720.043251` |
+| **glow-language** | Nest/type surface wording (nesting samples) | `glow_nest_type_surface_witness` | **GREEN** `20260720.042931` |
+| **glow-language** | Nest/type thin implement (stated aura) | `glow_nest_type_witness` · bartis | **GREEN** `20260720.043251` |
 | **glow-language** | Nest/type `$%` tag nest | `glow_nest_type_witness` · mold-kind | **GREEN** `20260720.145814` |
 | **glow-language** | Named-mold bartis (`amount-mold`) | `glow_nest_type_witness` · bartis · desk | **GREEN** `20260720.150155` |
-| **glow-language** | Wet-refuse nest path | `glow_nest_type_witness` · barket horizon | **GREEN** `20260720.150635` |
+| **glow-language** | Nesting-refuse nest path | `glow_nest_type_witness` · barket horizon | **GREEN** `20260720.150635` |
 | **glow-language** | Barket tokenize (`\|^` → 27) | `glow_barket_tokenize_witness` · alphabet | **GREEN** `20260720.151119` |
-| **glow-language** | Barket header parse (dry demo) | `glow_barket_parse_witness` · tokenize | **GREEN** `20260720.174115` |
+| **glow-language** | Barket header parse (stated demo) | `glow_barket_parse_witness` · tokenize | **GREEN** `20260720.174115` |
 | **glow-language** | Barket identity lower (`barket_gate`) | `glow_barket_lower_witness` · `glow_run` | **GREEN** `20260720.175115` |
 | **glow-language** | Barket argv sample | `glow_barket_lower_witness` · `--sample-argv` | **GREEN** `20260720.175643` |
 | **glow-language** | Barket call-body double | `glow_barket_lower_witness` · `glow_run` | **GREEN** `20260720.180047` |
 | **glow-language** | Barket call-body inc/dec | `glow_barket_lower_witness` · `glow_run` | **GREEN** `20260720.180445` |
 | **glow-language** | Barket TAME tidy | `glow_barket_lower_witness` · `tame_style_scan_bans` | **GREEN** `20260720.180900` |
 | **glow-language** | Named-mold barket | `glow_barket_lower_witness` · `glow_run` | **GREEN** `20260720.181347` |
-| **glow-language** | Wet-nests under stated mold | `glow_nest_type_witness` | **GREEN** `20260720.181950` |
-| **glow-language** | Wet-nests barket/bartis wire | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.182450` |
-| **glow-language** | Barket wet-through-nests | `glow_barket_lower_witness` | **GREEN** `20260720.182915` |
+| **glow-language** | Nesting-nests under stated mold | `glow_nest_type_witness` | **GREEN** `20260720.181950` |
+| **glow-language** | Nesting-nests barket/bartis wire | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.182450` |
+| **glow-language** | Barket nesting-through-nests | `glow_barket_lower_witness` | **GREEN** `20260720.182915` |
 | **glow-language** | Count-mold named allowlist | `glow_nest_type_witness` · barket · bartis | **GREEN** `20260720.183259` |
 | **glow-language** | Kind-mold gate sample | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.183837` |
 | **glow-language** | Xact-mold gate sample | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.184304` |
@@ -102,4 +102,5 @@
 | **glow-language** | Kind-mold flip call-body | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.190544` |
 | **glow-language** | Xact-mold flip call-body | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.191033` |
 | **glow-language** | Xfer-mold flip call-body | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.192038` |
+| **glow-language** | Stated · nesting · gold vocabulary | `glow_nest_type_witness` · barket · bartis | **GREEN** `20260720.192738` |
 Smoke: `glow_barket_lower_witness` · `glow_barket_parse_witness` · `glow_nest_type_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
