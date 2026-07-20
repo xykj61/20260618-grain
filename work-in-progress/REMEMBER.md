@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260720.224734` (UTC cloud) · voice Quin  
+**Last refreshed:** `20260720.224907` (UTC cloud) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
 **Language nib:** **glow-language–143** GREEN · glow-language open  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–143  
-**Git nib:** *(pin after send)* — glow-language hepta-mold flip  
+**Git nib:** `d7a4c1653f` — glow-language hepta-mold flip  
 
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
@@ -62,7 +62,7 @@ $ADB install -r tools/.cache/tube05/sala-broadcaster.apk
 
 | Door | Kind |
 |------|------|
-| **glow-language** octa-mold gate identity (lean A) · tagged argv · gold held | **open** — map next; Sala B0 Framework |
+| **glow-language** octa-mold gate identity (lean A) · tagged argv · gold held | **open** — map seated; Sala B0 Framework |
 | Glow nesting syntax · ambient gold | **held** |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** — Framework host |
 | seva-broadcast · TAME Lap 3 | **check-in** |
