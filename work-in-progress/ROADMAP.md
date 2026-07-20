@@ -4,7 +4,7 @@
 
 **Language:** EN
 **Version:** `20260715` (Pool keystone revival prioritized · Quin voice seated · align pass reconciles the closed ladder)
-**Last updated:** 2026-07-20 (**glow-language–118** GREEN — named-mold barket; TAME tidy; call-body trio)
+**Last updated:** 2026-07-20 (**glow-language–119** GREEN — wet-nests accept; named-mold barket)
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)
 **Voice:** Quin
 **Lens:** TAME — safety, performance, joy; the Seed Law; [SLC](../context/SIMPLE_LOVABLE_COMPLETE.md)
@@ -474,7 +474,9 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language barket TAME tidy GREEN, `20260720.180900`** — lean A (compass): `append_print` · `parse_body` · overflow seat · width list; desks unchanged. Brief [`active-designing/20260720-180900_stoa117-barket-tame-tidy.md`](../active-designing/20260720-180900_stoa117-barket-tame-tidy.md). Next language: **glow-language** check-in (wet accept · Sala B0).
 
-**glow-language named-mold barket GREEN, `20260720.181347`** — lean A (compass): `sample=amount-mold` · `gate-barket-amount` · `kind-mold` refuse; wet accept · Sala B0 held. Brief [`active-designing/20260720-181347_stoa118-named-mold-barket.md`](../active-designing/20260720-181347_stoa118-named-mold-barket.md). Next language: **glow-language** check-in (wet accept · Sala B0).
+**glow-language named-mold barket GREEN, `20260720.181347`** — lean A (compass): `sample=amount-mold` · `gate-barket-amount` · `kind-mold` refuse; wet accept · Sala B0 held. Brief [`active-designing/20260720-181347_stoa118-named-mold-barket.md`](../active-designing/20260720-181347_stoa118-named-mold-barket.md). Next language: **glow-language** wet-nests accept.
+
+**glow-language wet-nests accept GREEN, `20260720.181950`** — lean A (compass): `assert_sample_wet_nests` · wet `@u32` + `amount-mold` share one path; glow-language refuse kept; Glow wet syntax · gold held. Brief [`active-designing/20260720-181950_stoa119-wet-accept-under-stated-mold.md`](../active-designing/20260720-181950_stoa119-wet-accept-under-stated-mold.md). Next language: **glow-language** check-in (wire wet into gates · gold · Sala B0).
 
 **Glow OS · Glow Desk · Glow Glass seated, `20260717.183622`** — Keaton: **Glow OS** unifies; **Glow Desk** = desktop; **Glow Glass** = mobile. Lexicon + silo [`../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md`](../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md). Orientation firmware stays check-in.
 
