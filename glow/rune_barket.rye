@@ -19,8 +19,9 @@
 //! glow-language: closed call-body under xfer-mold — `flip` (mint↔send).
 //! glow-language: closed call-body under pair-mold — `flip` (from↔amount).
 //! glow-language: closed allowlist adds three-field `$:` `triple-mold` (identity lower).
+//! glow-language: closed allowlist adds four-field `$:` `quad-mold` (identity lower).
 //! Sample nests under `@u32` / named allowlist via nest_type; ambient gold held.
-//! Token-driven via tokens.rye. Open `$:` beyond triple barket samples held.
+//! Token-driven via tokens.rye. Open `$:` beyond quad barket samples held.
 
 const std = @import("std");
 const assert = std.debug.assert;
