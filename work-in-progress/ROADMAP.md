@@ -4,7 +4,7 @@
 
 **Language:** EN
 **Version:** `20260715` (Pool keystone revival prioritized · Quin voice seated · align pass reconciles the closed ladder)
-**Last updated:** 2026-07-20 (**glow-language–102** GREEN — barket horizon wording; bartis identity + argv)
+**Last updated:** 2026-07-20 (**glow-language–103** GREEN — bartis call-body double; barket horizon)
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)
 **Voice:** Quin
 **Lens:** TAME — safety, performance, joy; the Seed Law; [SLC](../context/SIMPLE_LOVABLE_COMPLETE.md)
@@ -443,6 +443,8 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 **glow-language bartis argv sample GREEN, `20260720.040200`** — lean A (compass): generator `gate-sample-u32.glow` + `lower_bartis.lower_source_argv_sample`; fixture `gate-sample.glow` stays baked; cast G3 `sample-u32` untouched. Brief [`active-designing/20260720-040200_glow-bartis-argv-sample.md`](../active-designing/20260720-040200_glow-bartis-argv-sample.md). Next language: **glow-language** check-in (barket · body beyond identity · Sala B0).
 
 **glow-language barket horizon wording GREEN, `20260720.040700`** — lean A (compass): TAME pin + brief seat **barket** / wet Glow gate; `|^` stays out of tokens; wet/gold · tokenize/lower · Sala B0 held. Brief [`active-designing/20260720-040700_stoa102-barket-horizon-wording.md`](../active-designing/20260720-040700_stoa102-barket-horizon-wording.md). Next language: **glow-language** check-in (body beyond identity · nest surface · Sala B0).
+
+**glow-language bartis call-body double GREEN, `20260720.040800`** — lean A (compass): `|=  sample=@u32` / `%-  double  sample`; fixture + argv; baked 5 → 10; closed demo gate only. Brief [`active-designing/20260720-040800_glow-bartis-call-body.md`](../active-designing/20260720-040800_glow-bartis-call-body.md). Next language: **glow-language** check-in (wider call-body set · nest · Sala B0).
 
 **Glow OS · Glow Desk · Glow Glass seated, `20260717.183622`** — Keaton: **Glow OS** unifies; **Glow Desk** = desktop; **Glow Glass** = mobile. Lexicon + silo [`../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md`](../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md). Orientation firmware stays check-in.
 
