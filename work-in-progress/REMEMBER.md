@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260720.150635` (UTC cloud · Eastern season) · voice Quin  
+**Last refreshed:** `20260720.151046` (UTC cloud · Eastern season) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
 **Language nib:** **glow-language–110** GREEN · glow-language open  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–110  
-**Git nib:** (refresh after send) glow-language wet-refuse nest  
+**Git nib:** `8b181a4f46ab` glow-language wet-refuse nest on main  
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
@@ -15,8 +15,8 @@
 
 ## Now (language)
 
-**glow-language** GREEN · wet-refuse nest (`assert_sample_not_wet`).  
-**glow-language** next — check-in (barket tokenize · Sala B0).
+**glow-language** sent · wet-refuse nest (`assert_sample_not_wet`).  
+**glow-language** next — lean A barket tokenize-only (`|^` → 27).
 
 ```bash
 rishi/bin/rishi run tools/glow_nest_type_witness.rish
