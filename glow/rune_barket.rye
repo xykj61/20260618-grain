@@ -4,7 +4,7 @@
 //!   - header-only (glow-language)
 //!   - identity body face (glow-language)
 //!   - call body: `%-  <gate>  <sample-face>` (glow-language–116)
-//! Closed demo gates: `double` · `inc` · `dec` (`@u32`) · `flip` (kind · glow-language · xact · glow-language).
+//! Closed demo gates: `double` · `inc` · `dec` (`@u32`) · `flip` (kind · xact · xfer · glow-language–129).
 //! glow-language: TAME tidy — copy_disjoint · parse_body split.
 //! glow-language: closed named mold `amount-mold` (one-field `$:` ≡ `@u32` lower).
 //! glow-language: expansion calls `assert_sample_wet_nests` at the mold seam.
@@ -16,6 +16,7 @@
 //! glow-language: closed allowlist adds multi-field `$:` `pair-mold` (identity lower).
 //! glow-language: closed call-body under kind-mold — `flip` (mint↔send).
 //! glow-language: closed call-body under xact-mold — `flip` (mint↔send).
+//! glow-language: closed call-body under xfer-mold — `flip` (mint↔send).
 //! Sample nests under `@u32` / named allowlist via nest_type; ambient gold held.
 //! Token-driven via tokens.rye. Open `$:` beyond pair barket samples held.
 
@@ -90,6 +91,11 @@ pub fn is_kind_call_gate(gate: []const u8) bool {
 
 /// True when `gate` is the closed xact-mold call-body gate (glow-language).
 pub fn is_xact_call_gate(gate: []const u8) bool {
+    return std.mem.eql(u8, gate, "flip");
+}
+
+/// True when `gate` is the closed xfer-mold call-body gate (glow-language).
+pub fn is_xfer_call_gate(gate: []const u8) bool {
     return std.mem.eql(u8, gate, "flip");
 }
 

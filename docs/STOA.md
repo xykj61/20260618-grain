@@ -101,4 +101,5 @@
 | **glow-language** | Pair-mold gate sample | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.185502` |
 | **glow-language** | Kind-mold flip call-body | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.190544` |
 | **glow-language** | Xact-mold flip call-body | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.191033` |
+| **glow-language** | Xfer-mold flip call-body | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.192038` |
 Smoke: `glow_barket_lower_witness` · `glow_barket_parse_witness` · `glow_nest_type_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
