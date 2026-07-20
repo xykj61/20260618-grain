@@ -4,7 +4,7 @@
 //! then either:
 //!   - identity body: bare face matching the sample (glow-language)
 //!   - call body: `%-  <gate>  <sample-face>` (glow-language–104)
-//! Closed demo gates: `double` · `inc` · `dec` (`@u32`) · `flip` (kind · xact · xfer · pair · glow-language–131).
+//! Closed demo gates: `double` · `inc` · `dec` (`@u32`) · `flip` (kind · xact · xfer · pair · triple · glow-language–131/136).
 //! Token-driven via tokens.rye.
 //! glow-language: TAME tidy — copy_disjoint · split header/body parse · assert alias.
 //! glow-language: nest/type — sample aura nests under `@u32` via nest_type;
@@ -20,6 +20,7 @@
 //! glow-language: closed call-body under xact-mold — `flip` (mint↔send).
 //! glow-language: closed call-body under xfer-mold — `flip` (mint↔send).
 //! glow-language: closed call-body under pair-mold — `flip` (from↔amount).
+//! glow-language: closed call-body under triple-mold — `flip` (from↔amount · fee stays).
 //! Nesting / gold · open `$:` beyond pair bartis samples held.
 //!
 //! Parse shape (token stream):
@@ -111,6 +112,11 @@ pub fn is_xfer_call_gate(gate: []const u8) bool {
 
 /// Closed call-body gates under pair-mold (glow-language) — `flip` only today.
 pub fn is_pair_call_gate(gate: []const u8) bool {
+    return std.mem.eql(u8, gate, "flip");
+}
+
+/// Closed call-body gates under triple-mold (glow-language) — `flip` only today.
+pub fn is_triple_call_gate(gate: []const u8) bool {
     return std.mem.eql(u8, gate, "flip");
 }
 
