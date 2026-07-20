@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260720.222406` (UTC cloud) · voice Quin  
+**Last refreshed:** `20260720.222724` (UTC cloud) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–140** GREEN · glow-language open  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–140  
-**Git nib:** `33922c54c8` — glow-language hexa-mold gate  
+**Language nib:** **glow-language–141** GREEN · glow-language open  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–141  
+**Git nib:** *(pin after send)* — glow-language hexa-mold flip  
 
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
@@ -16,8 +16,8 @@
 
 ## Now (language)
 
-**glow-language** seated · hexa-mold gate identity (`HexaMold` · baked 5/3/1/2/7/4) · claim `33922c54c8`.  
-**glow-language** next — lean A map: **hexa-mold flip** call-body (Sala B0 Framework).
+**glow-language** seated · hexa-mold flip (`%-  flip` · from↔amount · fee/nonce/memo/tag stay · 5/3/1/2/7/4 → 3/5/1/2/7/4).  
+**glow-language** next — lean A map: **hepta-mold** gate identity (Sala B0 Framework).
 
 ```bash
 rishi/bin/rishi run tools/glow_nest_type_witness.rish
@@ -39,7 +39,7 @@ Hold on iOS: ambient gold · bartis stated · named allowlist amount/count/kind/
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
 | **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W GREEN** |
-| **glow-language** | Glow language SLC · nest · composition | **glow-language–140 GREEN** · glow-language next |
+| **glow-language** | Glow language SLC · nest · composition | **glow-language–141 GREEN** · glow-language next |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md) · [`../docs/glow-language.md`](../docs/glow-language.md)
 
@@ -61,7 +61,7 @@ $ADB install -r tools/.cache/tube05/sala-broadcaster.apk
 
 | Door | Kind |
 |------|------|
-| **glow-language** hexa-mold flip call-body (lean A) · hepta-mold · tagged argv · gold held | **open** — map seated; Sala B0 Framework |
+| **glow-language** hepta-mold gate identity (lean A) · tagged argv · gold held | **open** — map next; Sala B0 Framework |
 | Glow nesting syntax · ambient gold | **held** |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** — Framework host |
 | seva-broadcast · TAME Lap 3 | **check-in** |
