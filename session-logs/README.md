@@ -8,6 +8,7 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260720.231825` — [Framework season survey for parent](20260720-231825_framework-season-survey.bron) — Framework host vs iOS language; usb-hearth live-sent thinnest Framework door
 - `20260720.231633` — [How far the closed-field mold ladder](20260720-231633_how-far-field-ladder.bron) — no stop policy yet; recommend capacity ceiling check-in
 - `20260720.231547` — [kg glow-language-147 complete · glow-language mapped](20260720-231547_kg-stoa147-complete.bron) — octa/nona laps sent; deca identity mapped
 - `20260720.231547` — [Glow compass send glow-language](20260720-231547_glow-compass-stoa147-send.bron) — nona flip sent; glow-language mapped
