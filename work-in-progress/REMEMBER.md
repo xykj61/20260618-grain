@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260720.182915` (UTC cloud · Eastern season) · voice Quin  
+**Last refreshed:** `20260720.183105` (UTC cloud · Eastern season) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
 **Language nib:** **glow-language–121** GREEN · glow-language open  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–121  
-**Git nib:** (await send) glow-language barket wet-through-nests  
+**Git nib:** `c33f775cd2` — glow-language barket wet-through-nests  
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
@@ -15,8 +15,8 @@
 
 ## Now (language)
 
-**glow-language** GREEN · barket wet-through-nests (`assert_sample_wet_nests(true, …)`). Await send.  
-**glow-language** next — map (gold · Sala B0 · open named-mold held).
+**glow-language** sent · barket wet-through-nests (`assert_sample_wet_nests(true, …)`).  
+**glow-language** next — compass pick: open named-mold · kind-mold samples · gold (Sala B0 Framework).
 
 ```bash
 rishi/bin/rishi run tools/glow_nest_type_witness.rish
@@ -59,7 +59,7 @@ $ADB install -r tools/.cache/tube05/sala-broadcaster.apk
 
 | Door | Kind |
 |------|------|
-| **glow-language** wire wet into gates · gold · Sala B0 | **open** — iOS season |
+| **glow-language** open named-mold · kind-mold · gold | **open** — compass pick; Sala B0 Framework |
 | Glow wet syntax · ambient gold | **held** |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** — Framework host |
 | seva-broadcast · TAME Lap 3 | **check-in** |
