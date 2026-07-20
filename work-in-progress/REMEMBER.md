@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260720.175029` (UTC cloud · Eastern season) · voice Quin  
+**Last refreshed:** `20260720.175115` (UTC cloud · Eastern season) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–112** GREEN · glow-language open  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–112  
-**Git nib:** `6d02c6f968` glow-language barket header parse on main  
+**Language nib:** **glow-language–113** GREEN · glow-language open  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–113  
+**Git nib:** (await send) glow-language barket identity lower  
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
@@ -15,16 +15,16 @@
 
 ## Now (language)
 
-**glow-language** sent · barket dry header parse (`BarketSpec` · `BodyNotYetLowered`).  
-**glow-language** next — check-in before thin barket lower.
+**glow-language** GREEN · barket identity lower (`barket_gate` · fixture exits 0). Await send.  
+**glow-language** next — check-in before barket argv / call-body / wet accept.
 
 ```bash
-rishi/bin/rishi run tools/glow_barket_parse_witness.rish
-rishi/bin/rishi run tools/glow_barket_tokenize_witness.rish
+rishi/bin/rishi run tools/glow_barket_lower_witness.rish
+rishi/bin/rishi run tools/glow_run.rish glow/gen/gate-barket-sample.glow
 rishi/bin/rishi run tools/glow_lower_bartis_witness.rish
 ```
 
-Hold on iOS: ambient wet/gold *accept* · barket lower · open named-mold set · open call-body beyond trio. Defer Pixel/usb-hearth / Sala B0 to Framework.
+Hold on iOS: ambient wet/gold *accept* · barket call-body / argv · open named-mold set · open call-body beyond trio. Defer Pixel/usb-hearth / Sala B0 to Framework.
 
 ---
 
@@ -38,7 +38,7 @@ Hold on iOS: ambient wet/gold *accept* · barket lower · open named-mold set ·
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
 | **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W GREEN** |
-| **glow-language** | Glow language SLC · nest · composition | **glow-language–112 GREEN** · glow-language next |
+| **glow-language** | Glow language SLC · nest · composition | **glow-language–113 GREEN** · glow-language next |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md) · [`../docs/glow-language.md`](../docs/glow-language.md)
 
@@ -60,8 +60,8 @@ $ADB install -r tools/.cache/tube05/sala-broadcaster.apk
 
 | Door | Kind |
 |------|------|
-| **glow-language** barket lower · Sala B0 | **check-in** — iOS season |
-| Wet/gold · `|^` barket lower | **held** |
+| **glow-language** barket argv/call-body · wet accept · Sala B0 | **check-in** — iOS season |
+| Wet/gold · `|^` barket call-body / argv | **held** |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** — Framework host |
 | seva-broadcast · TAME Lap 3 | **check-in** |
 

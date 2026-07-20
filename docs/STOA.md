@@ -85,4 +85,5 @@
 | **glow-language** | Wet-refuse nest path | `glow_nest_type_witness` · barket horizon | **GREEN** `20260720.150635` |
 | **glow-language** | Barket tokenize (`\|^` → 27) | `glow_barket_tokenize_witness` · alphabet | **GREEN** `20260720.151119` |
 | **glow-language** | Barket header parse (dry demo) | `glow_barket_parse_witness` · tokenize | **GREEN** `20260720.174115` |
-Smoke: `glow_barket_parse_witness` · `glow_barket_tokenize_witness` · `glow_nest_type_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
+| **glow-language** | Barket identity lower (`barket_gate`) | `glow_barket_lower_witness` · `glow_run` | **GREEN** `20260720.175115` |
+Smoke: `glow_barket_lower_witness` · `glow_barket_parse_witness` · `glow_nest_type_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
