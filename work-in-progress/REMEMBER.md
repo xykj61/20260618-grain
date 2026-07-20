@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260719.201411` (Eastern) · voice Quin  
+**Last refreshed:** `20260719.201819` (Eastern) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–84** GREEN · glow-language open  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–84  
-**Git nib:** `0316619e39` glow-language named-cast token peek  
+**Language nib:** **glow-language–85** GREEN · glow-language open  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–85  
+**Git nib:** `08b0a63d60` glow-language cross-desk token peek  
  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
 
@@ -14,11 +14,11 @@
 
 ## Now (language)
 
-**glow-language** named-cast peek via tokens GREEN `20260719.201027` — `tokens.looks_like_named_cast` drives same-desk named-cast dispatch; `lower_named_cast` delegates; mold-only and cross-desk stay false; desk suite GREEN. Next door: **glow-language** check-in.
+**glow-language** cross-desk named-cast peek via tokens GREEN `20260719.201500` — `tokens.looks_like_cross_desk` drives `/+` then `^-` dispatch; `lower_named_cast` delegates; same-desk and mold-only stay false; desk suite GREEN. Next door: **glow-language** check-in.
 
 Smoke: `rishi/bin/rishi run tools/glow_tokens_witness.rish`
 
-Pitfalls: peek is dispatch only · lowers still parse bytes. Hold: cross-desk token peek · token-driven lowers · Sala B0 rewrite.
+Pitfalls: peek is dispatch only · lowers still parse bytes. Hold: token-driven lower slice · mold peek · Sala B0 rewrite.
 
 ---
 
@@ -32,7 +32,7 @@ Pitfalls: peek is dispatch only · lowers still parse bytes. Hold: cross-desk to
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
 | **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W GREEN** · live “sent” eyes check-in |
-| **glow-language** | Glow language SLC · nest · composition | **glow-language–84 GREEN** · token peek · glow-language next |
+| **glow-language** | Glow language SLC · nest · composition | **glow-language–85 GREEN** · both cast peeks · glow-language next |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md) · [`../docs/glow-language.md`](../docs/glow-language.md)
 
@@ -71,7 +71,7 @@ Hold row 1 → Settings: presets · `home ·` · `wire ·` · `cell ·` — all 
 
 | Door | Kind |
 |------|------|
-| **glow-language** next language (cross-desk peek · token lowers · Sala B0) | **check-in** |
+| **glow-language** next language (token lower · mold peek · Sala B0) | **check-in** |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** (needs gadget/QEMU) |
 | Amber/Amphora Glass↔Desk fuse | **declined** — compose later (`133455`) |
 | seva-broadcast · TAME Lap 3 | **check-in** |
