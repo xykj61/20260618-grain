@@ -8,6 +8,7 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260720.200332` — [glow-language quad-mold flip GREEN](20260720-200332_stoa137-quad-flip-green.bron) — from↔amount · fee/nonce stay; await send
 - `20260720.200046` — [Glow compass send glow-language–136](20260720-200046_glow-compass-stoa134-136-send.bron) — triple · quad · triple flip sent; glow-language mapped
 - `20260720.200023` — [glow-language approved and sent](20260720-200023_stoa136-approved-sent.bron) — claim aa460089fb
 - `20260720.200022` — [glow-language send complete](20260720-200022_stoa136-send-complete.bron) — origin main language claim aa460089fb

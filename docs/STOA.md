@@ -109,4 +109,5 @@
 | **glow-language** | Triple-mold gate sample | `glow_nest_type_witness` · barket · bartis | **GREEN** `20260720.194437` |
 | **glow-language** | Quad-mold gate sample | `glow_nest_type_witness` · barket · bartis | **GREEN** `20260720.195131` |
 | **glow-language** | Triple-mold flip call-body | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.195742` |
+| **glow-language** | Quad-mold flip call-body | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.200022` |
 Smoke: `glow_barket_lower_witness` · `glow_barket_parse_witness` · `glow_nest_type_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
