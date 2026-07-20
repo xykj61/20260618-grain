@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260720.192038` (UTC cloud · Eastern season) · voice Quin  
+**Last refreshed:** `20260720.192448` (UTC cloud · Eastern season) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
 **Language nib:** **glow-language–129** GREEN · glow-language open  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–129  
-**Git nib:** *(seated on send)* — glow-language xfer-mold flip call-body  
+**Git nib:** `fa2c85e9b8` — glow-language xfer-mold flip call-body  
  
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
@@ -16,7 +16,7 @@
 
 ## Now (language)
 
-**glow-language** seating · xfer-mold flip call-body (`XferMold` switch · baked mint/5/3 → `.send`).  
+**glow-language** sent · xfer-mold flip call-body (`XferMold` switch · baked mint/5/3 → `.send`).  
 **glow-language** next — compass pick: gold · call-body under pair (Sala B0 Framework).
 
 ```bash
