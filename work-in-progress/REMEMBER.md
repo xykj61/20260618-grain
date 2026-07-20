@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260720.183837` (UTC cloud · Eastern season) · voice Quin  
+**Last refreshed:** `20260720.184219` (UTC cloud · Eastern season) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
 **Language nib:** **glow-language–123** GREEN · glow-language open  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–123  
-**Git nib:** (await send) glow-language kind-mold gate sample  
+**Git nib:** `7b9d350d26` — glow-language kind-mold gate sample  
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
@@ -15,8 +15,8 @@
 
 ## Now (language)
 
-**glow-language** GREEN · kind-mold gate sample (`KindMold` · baked `.mint`). Await send.  
-**glow-language** next — map (gold · payload `$%` · Sala B0 held).
+**glow-language** sent · kind-mold gate sample (`KindMold` · baked `.mint`).  
+**glow-language** next — compass pick: gold · payload `$%` / xact-mold (Sala B0 Framework).
 
 ```bash
 rishi/bin/rishi run tools/glow_nest_type_witness.rish

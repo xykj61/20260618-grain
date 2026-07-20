@@ -8,9 +8,11 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
-- `20260720.183712` — [glow-language kind-mold gate samples map](20260720-183712_stoa123-kind-mold-samples-map.bron) — parse+lower identity lean A; gold held
+- `20260720.184219` — [glow-language send complete](20260720-184219_stoa123-send-complete.bron) — origin main language claim 7b9d350d26 · tip f15f33c18d
+- `20260720.184219` — [glow-language next map after kind-mold gate](20260720-184219_stoa124-next-map.bron) — gold vs xact-mold; compass pick
 - `20260720.184155` — [glow-language kind-mold gate sample GREEN](20260720-184155_stoa123-kind-mold-green.bron) — KindMold · baked .mint; await send
 - `20260720.183837` — [glow-language kind-mold gate sample map](20260720-183837_stoa123-kind-mold-map.bron) — lean A unit $% gate identity
+- `20260720.183712` — [glow-language kind-mold gate samples map](20260720-183712_stoa123-kind-mold-samples-map.bron) — parse+lower identity lean A; gold held
 - `20260720.183547` — [glow-language send complete](20260720-183547_stoa122-send-complete.bron) — origin main language claim 04865f8715 · tip 094c2dd83a
 - `20260720.183547` — [glow-language next map after count-mold](20260720-183547_stoa123-next-map.bron) — kind-mold vs gold; compass pick
 - `20260720.183524` — [glow-language count-mold named allowlist GREEN](20260720-183524_stoa122-count-mold-green.bron) — amount · count closed set; await send
