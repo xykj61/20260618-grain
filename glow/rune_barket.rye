@@ -4,7 +4,7 @@
 //!   - header-only (glow-language)
 //!   - identity body face (glow-language)
 //!   - call body: `%-  <gate>  <sample-face>` (glow-language–116)
-//! Closed demo gates: `double` · `inc` · `dec` (`@u32`) · `flip` (kind · xact · xfer · pair · triple · quad · penta · hexa · hepta · glow-language–131/136–139/141/143).
+//! Closed demo gates: `double` · `inc` · `dec` (`@u32`) · `flip` (kind · xact · xfer · pair · triple · quad · penta · hexa · hepta · octa · glow-language–131/136–139/141/143/145).
 //! glow-language: TAME tidy — copy_disjoint · parse_body split.
 //! glow-language: closed named mold `amount-mold` (one-field `$:` ≡ `@u32` lower).
 //! glow-language: expansion calls `assert_sample_nesting_nests` at the mold seam.
@@ -29,6 +29,7 @@
 //! glow-language: closed allowlist adds seven-field `$:` `hepta-mold` (identity lower).
 //! glow-language: closed call-body under hepta-mold — `flip` (from↔amount · fee/nonce/memo/tag/to stay).
 //! glow-language: closed allowlist adds eight-field `$:` `octa-mold` (identity lower).
+//! glow-language: closed call-body under octa-mold — `flip` (from↔amount · fee/nonce/memo/tag/to/via stay).
 //! Sample nests under `@u32` / named allowlist via nest_type; ambient gold held.
 //! Token-driven via tokens.rye. Open `$:` beyond octa barket samples held.
 
@@ -138,6 +139,11 @@ pub fn is_hexa_call_gate(gate: []const u8) bool {
 
 /// Closed call-body gates under hepta-mold (glow-language) — `flip` only today.
 pub fn is_hepta_call_gate(gate: []const u8) bool {
+    return std.mem.eql(u8, gate, "flip");
+}
+
+/// Closed call-body gates under octa-mold (glow-language) — `flip` only today.
+pub fn is_octa_call_gate(gate: []const u8) bool {
     return std.mem.eql(u8, gate, "flip");
 }
 
