@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260720.181950` (UTC cloud · Eastern season) · voice Quin  
+**Last refreshed:** `20260720.182420` (UTC cloud · Eastern season) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
 **Language nib:** **glow-language–119** GREEN · glow-language open  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–119  
-**Git nib:** (await send) glow-language wet-nests accept  
+**Git nib:** `471fe68b04` — glow-language wet-nests accept  
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
@@ -15,8 +15,8 @@
 
 ## Now (language)
 
-**glow-language** GREEN · wet-nests under stated mold (`assert_sample_wet_nests`). Await send.  
-**glow-language** next — wire wet into gates / gold / Sala B0.
+**glow-language** sent · wet-nests under stated mold (`assert_sample_wet_nests`).  
+**glow-language** next — wire `assert_sample_wet_nests` into barket/bartis expansion (dry still).
 
 ```bash
 rishi/bin/rishi run tools/glow_nest_type_witness.rish
