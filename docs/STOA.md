@@ -75,7 +75,7 @@
 | **glow-language** | NativeActivity-path Glow import seam | `stoa71_glow_import_seam_witness` | **GREEN** `20260719.182120` |
 | **glow-language** | NativeActivity APK Glow import wire | `stoa72_glow_apk_import_witness` · pack | **GREEN** `20260719.182648` |
 | **glow-language** | product-root write + Pixel install (expect 5) | write · `stoa73_…_install_onpath_host` | **GREEN** write `184836` · eyes `191719` |
-| **glow-language–75** | `+$` / `$:` `@u32` mold (1–7 fields · capacity through glow-language) | `glow_rune_mold` · `glow_lower_mold` · desk | **GREEN** `190825` · `192241` |
+| **glow-language–75** | `+$` / `$:` `@u32` mold (1–8 fields · capacity through glow-language) | `glow_rune_mold` · `glow_lower_mold` · desk | **GREEN** `190825` · `192241` |
 | **glow-language–83** | `$%` · cast · payload · multi · tag/pay · token stream | mold · named-cast · tokens | **GREEN** `192936`…`200706` |
 | **glow-language–105** | Cast · alphabet · G4–G5 · bartis tidy | tokens · G5 · bartis | **GREEN** `201027`…`042300` |
 | **glow-language** | Nest/type surface wording (nesting samples) | `glow_nest_type_surface_witness` | **GREEN** `20260720.042931` |
@@ -116,4 +116,5 @@
 | **glow-language** | Hexa-mold flip call-body | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.222724` |
 | **glow-language** | Hepta-mold gate sample | `glow_nest_type_witness` · barket · bartis | **GREEN** `20260720.224116` |
 | **glow-language** | Hepta-mold flip call-body | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.224734` |
+| **glow-language** | Octa-mold gate sample | `glow_nest_type_witness` · barket · bartis | **GREEN** `20260720.225448` |
 Smoke: `glow_barket_lower_witness` · `glow_barket_parse_witness` · `glow_nest_type_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
