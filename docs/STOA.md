@@ -115,4 +115,5 @@
 | **glow-language** | Hexa-mold gate sample | `glow_nest_type_witness` · barket · bartis | **GREEN** `20260720.222338` |
 | **glow-language** | Hexa-mold flip call-body | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.222724` |
 | **glow-language** | Hepta-mold gate sample | `glow_nest_type_witness` · barket · bartis | **GREEN** `20260720.224116` |
+| **glow-language** | Hepta-mold flip call-body | `glow_barket_lower_witness` · bartis | **GREEN** `20260720.224734` |
 Smoke: `glow_barket_lower_witness` · `glow_barket_parse_witness` · `glow_nest_type_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
