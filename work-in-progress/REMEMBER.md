@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260720.224116` (UTC cloud) · voice Quin  
+**Last refreshed:** `20260720.224200` (UTC cloud) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
 **Language nib:** **glow-language–142** GREEN · glow-language open  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–142  
-**Git nib:** *(pin after send)* — glow-language hepta-mold gate  
+**Git nib:** `3ed907d693` — glow-language hepta-mold gate  
 
 
 **Chapter:** Cursor iOS / cloud — **Glow language TAME only** (no adb). Handoff [`20260719-204650_cursor-ios-handoff-glow-language.md`](20260719-204650_cursor-ios-handoff-glow-language.md).  
@@ -16,7 +16,7 @@
 
 ## Now (language)
 
-**glow-language** seated · hepta-mold gate identity (`HeptaMold` · baked 5/3/1/2/7/4/6).  
+**glow-language** seated · hepta-mold gate identity (`HeptaMold` · baked 5/3/1/2/7/4/6) · claim `3ed907d693`.  
 **Shape** seated as Glow OS surface word · mold stays Hoon study / desk suffix (`20260720.223226`).  
 **glow-language** next — lean A map: **hepta-mold flip** call-body (Sala B0 Framework).
 
@@ -62,7 +62,7 @@ $ADB install -r tools/.cache/tube05/sala-broadcaster.apk
 
 | Door | Kind |
 |------|------|
-| **glow-language** hepta-mold flip call-body (lean A) · octa-mold · tagged argv · gold held | **open** — map next; Sala B0 Framework |
+| **glow-language** hepta-mold flip call-body (lean A) · octa-mold · tagged argv · gold held | **open** — map seated; Sala B0 Framework |
 | Glow nesting syntax · ambient gold | **held** |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** — Framework host |
 | seva-broadcast · TAME Lap 3 | **check-in** |

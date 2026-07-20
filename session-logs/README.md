@@ -10,6 +10,10 @@ Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../cont
 
 - `20260720.223440` — [glow-language hexa-mold seat map for glow-language](20260720-223440_stoa140-hexa-mirror-map.bron) — claim 33922c54c8 edit checklist · hepta mirror keys
 - `20260720.223012` — [Mold vocabulary search — keep Hoon word](20260720-223012_mold-vocabulary-search.bron) — no Glow-native mold rename found; glow-language renamed wet/dry only
+- `20260720.224201` — [Glow compass send glow-language](20260720-224201_glow-compass-stoa142-send.bron) — hepta-mold sent; glow-language mapped
+- `20260720.224201` — [glow-language approved and sent](20260720-224201_stoa142-approved-sent.bron) — claim 3ed907d693
+- `20260720.224200` — [glow-language send complete](20260720-224200_stoa142-send-complete.bron) — origin main language claim 3ed907d693
+- `20260720.224200` — [glow-language next map after hepta-mold](20260720-224200_stoa143-next-map.bron) — lean A hepta-mold flip call-body
 - `20260720.224116` — [glow-language hepta-mold gate GREEN](20260720-224116_stoa142-hepta-mold-green.bron) — HeptaMold identity · baked 5/3/1/2/7/4/6; await send
 - `20260720.223226` — [Glow OS shape vocabulary seated](20260720-223226_glow-os-shape-seated.bron) — shape surface · mold study; desk rename horizon
 - `20260720.223052` — [Glow OS word other than mold](20260720-223052_glow-os-word-than-mold.bron) — recommend shape · norm · rupa; rename is check-in
