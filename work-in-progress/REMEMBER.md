@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**. Rule: [`.cursor/rules/remember.mdc`](../.cursor/rules/remember.mdc) · [`.claude/rules/remember.md`](../.claude/rules/remember.md).*
 
-**Last refreshed:** `20260719.203726` (Eastern) · voice Quin  
+**Last refreshed:** `20260719.204340` (Eastern) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–88** GREEN · glow-language open  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–88  
-**Git nib:** `0530ed5f20` glow-language ?> / ?< assertion runes  
+**Language nib:** **glow-language–89** GREEN · glow-language open  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W · glow-language–89  
+**Git nib:** `f29414bb99` glow-language rune alphabet · fixture/generator wording  
  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
 
@@ -14,11 +14,11 @@
 
 ## Now (language)
 
-**glow-language** Glow `?>` / `?<` TAME assertion runes GREEN `20260719.203207` — Hoon wutgar/wutgal parallel; desks `assert-true` · `assert-false` lower to unqualified Rye `assert`; pin in `context/TAME_GUIDANCE.md`. Next door: **glow-language** check-in.
+**glow-language** rune pronunciation alphabet · RISC-V notes · fixture/generator wording GREEN `20260719.204001` — Hoon glyph alphabet adopted as Glow canon; Lexicon **Fixture desk** · **Generator** · **Sample** · **Glow gate** · **Rune alphabet**; roadmap G0–G5 seated. Next door: **glow-language** check-in.
 
-Smoke: `rishi/bin/rishi run tools/glow_lower_assert_witness.rish`
+Canon: [`../active-designing/20260719-204001_glow-rune-pronunciation-alphabet-riscv-and-generators.md`](../active-designing/20260719-204001_glow-rune-pronunciation-alphabet-riscv-and-generators.md) · Acme [`../expanding-prompts/20260719-204001_glow-fixture-desks-and-parameterized-generators.md`](../expanding-prompts/20260719-204001_glow-fixture-desks-and-parameterized-generators.md)
 
-Pitfalls: thin test `(gth tick 32)` only · `?=` type-match stays later. Hold: token-driven lower · tidy `lower_mold` · Sala B0 rewrite.
+Hold: closed pronunciation table (G1) · argv sample generator (G3) · token-driven lower · tidy `lower_mold` · Sala B0 rewrite.
 
 ---
 
@@ -32,7 +32,7 @@ Pitfalls: thin test `(gth tick 32)` only · `?=` type-match stays later. Hold: t
 | **seva-broadcast** | Sala broadcast live-session fold | seva-broadcast–2 GREEN · seva-broadcast check-in |
 | **hearth-display** | Hearth · short home · Wired Glass | **hearth-display–5 closed** |
 | **usb-hearth** | USB hearth carry Glass↔Desk | **usb-hearth–usb-hearth.5 · HOLD0–HOLD1 · HOLD-W GREEN** · live “sent” eyes check-in |
-| **glow-language** | Glow language SLC · nest · composition | **glow-language–88 GREEN** · ?> ?< · glow-language next |
+| **glow-language** | Glow language SLC · nest · composition | **glow-language–89 GREEN** · alphabet roadmap · glow-language next |
 
 Canon: [`../docs/pixel-glass.md`](../docs/pixel-glass.md) · [`../docs/glow-publishing.md`](../docs/glow-publishing.md) · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) · [`../docs/seva-broadcast.md`](../docs/seva-broadcast.md) · [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md) · [`../docs/glow-language.md`](../docs/glow-language.md)
 
@@ -71,7 +71,7 @@ Hold row 1 → Settings: presets · `home ·` · `wire ·` · `cell ·` — all 
 
 | Door | Kind |
 |------|------|
-| **glow-language** next language (token lower · tidy mold · Sala B0) | **check-in** |
+| **glow-language** next language (pronunciation table · argv sample · token lower · tidy mold · Sala B0) | **check-in** |
 | Live usb-hearth.5 **sent** on usb0/ncm | **check-in** (needs gadget/QEMU) |
 | Amber/Amphora Glass↔Desk fuse | **declined** — compose later (`133455`) |
 | seva-broadcast · TAME Lap 3 | **check-in** |
