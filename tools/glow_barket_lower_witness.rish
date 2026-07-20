@@ -1,7 +1,7 @@
 # glow_barket_lower_witness.rish — `|^` barket lowers to Rye; emitted program runs.
 #
 # Proves identity (glow-language), argv (glow-language), call-body trio (glow-language–116),
-# TAME tidy (glow-language), and named-mold amount-mold (glow-language): barket_gate emit,
+# TAME tidy (glow-language), named-mold amount-mold (glow-language), wet-nests wire (glow-language): barket_gate emit,
 # fixtures/generators, welcome exit 0, argv exit 0, ban overflow seat.
 #
 #   rishi/bin/rishi run tools/glow_barket_lower_witness.rish
@@ -27,7 +27,7 @@ let dec_argv_rye = "glow/.cache/gate_barket_dec_argv.rye"
 let dec_argv_bin = "glow/bin/gate_barket_dec_argv"
 
 let tame_pin = run ["sh" "-c" "grep -F 'glow-language' ${tame}"]
-assert tame_pin.ok else "TAME missing glow-language named-mold barket"
+assert tame_pin.ok else "TAME missing glow-language wet-nests barket wire"
 
 let has_lower = run ["sh" "-c" "test -f glow/lower_barket.rye; echo $?"]
 assert trim has_lower.out == "0" else "glow/lower_barket.rye must exist"
@@ -146,4 +146,8 @@ let run_amt = run ["sh" "-c" "${amt_bin}; echo EXIT:$?"]
 assert run_amt.ok else "barket amount-mold welcome binary failed to launch"
 assert run_amt.out contains "EXIT:0" else "barket amount-mold welcome binary did not exit 0"
 
-say "GREEN: Glow barket lower — identity · argv · call-body · amount-mold · TAME tidy; glow-language–118."
+# glow-language: expansion seats assert_sample_wet_nests (dry no-op wire).
+let wet_wire = run ["sh" "-c" "grep -c 'assert_sample_wet_nests' glow/rune_barket.rye | tr -d ' '"]
+assert trim wet_wire.out != "0" else "glow/rune_barket.rye must call assert_sample_wet_nests"
+
+say "GREEN: Glow barket lower — identity · argv · call-body · amount-mold · wet-nests wire; glow-language–120."

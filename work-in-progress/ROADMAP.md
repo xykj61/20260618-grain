@@ -4,7 +4,7 @@
 
 **Language:** EN
 **Version:** `20260715` (Pool keystone revival prioritized · Quin voice seated · align pass reconciles the closed ladder)
-**Last updated:** 2026-07-20 (**glow-language–119** GREEN — wet-nests accept; named-mold barket)
+**Last updated:** 2026-07-20 (**glow-language–120** GREEN — wet-nests wire; wet-nests accept; named-mold barket)
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)
 **Voice:** Quin
 **Lens:** TAME — safety, performance, joy; the Seed Law; [SLC](../context/SIMPLE_LOVABLE_COMPLETE.md)
@@ -476,7 +476,9 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language named-mold barket GREEN, `20260720.181347`** — lean A (compass): `sample=amount-mold` · `gate-barket-amount` · `kind-mold` refuse; wet accept · Sala B0 held. Brief [`active-designing/20260720-181347_stoa118-named-mold-barket.md`](../active-designing/20260720-181347_stoa118-named-mold-barket.md). Next language: **glow-language** wet-nests accept.
 
-**glow-language wet-nests accept GREEN, `20260720.181950`** — lean A (compass): `assert_sample_wet_nests` · wet `@u32` + `amount-mold` share one path; glow-language refuse kept; Glow wet syntax · gold held. Brief [`active-designing/20260720-181950_stoa119-wet-accept-under-stated-mold.md`](../active-designing/20260720-181950_stoa119-wet-accept-under-stated-mold.md). Next language: **glow-language** wire wet-nests into barket expansion (dry still; no Glow wet spelling · gold · Sala B0 held).
+**glow-language wet-nests accept GREEN, `20260720.181950`** — lean A (compass): `assert_sample_wet_nests` · wet `@u32` + `amount-mold` share one path; glow-language refuse kept; Glow wet syntax · gold held. Brief [`active-designing/20260720-181950_stoa119-wet-accept-under-stated-mold.md`](../active-designing/20260720-181950_stoa119-wet-accept-under-stated-mold.md). Next language: **glow-language** wet-nests wire.
+
+**glow-language wet-nests barket/bartis wire GREEN, `20260720.182450`** — lean A (compass): expansion calls `assert_sample_wet_nests(false, …)` on barket + bartis; glow-language/119 held; Glow wet syntax · gold · Sala B0 held. Brief [`active-designing/20260720-182450_stoa120-wet-nests-barket-wire.md`](../active-designing/20260720-182450_stoa120-wet-nests-barket-wire.md). Next language: **glow-language** map (wet spelling · gold · Sala B0 still held).
 
 **Glow OS · Glow Desk · Glow Glass seated, `20260717.183622`** — Keaton: **Glow OS** unifies; **Glow Desk** = desktop; **Glow Glass** = mobile. Lexicon + silo [`../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md`](../active-designing/20260717-183425_glow-form-factor-names-and-orientation.md). Orientation firmware stays check-in.
 
