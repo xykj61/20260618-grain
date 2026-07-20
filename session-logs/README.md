@@ -8,6 +8,8 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260719.201942` — [glow-language TAME tidy tokens GREEN](20260719-201942_stoa86-tame-tidy-tokens-green.bron) — first Glow roster surface; await send
+- `20260719.201904` — [glow-language redirect — not enough tidy TAME Glow](20260719-201904_stoa86-tame-tidy-redirect.bron) — lean A TAME tidy tokens
 - `20260719.201830` — [glow-language check-in after cross-desk token peek](20260719-201830_stoa86-check-in.bron) — lean A token-driven lower slice
 - `20260719.201819` — [glow-language cross-desk token peek send](20260719-201819_stoa85-cross-desk-token-peek-send.bron) — pin 08b0a63d60; then glow-language check-in
 - `20260719.201500` — [glow-language cross-desk token peek GREEN](20260719-201500_stoa85-cross-desk-token-peek-green.bron) — /+ then ^- peek; await send
