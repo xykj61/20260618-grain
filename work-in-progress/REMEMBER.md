@@ -8,7 +8,7 @@
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–147  
 **Git nib:** *(pending send)* usb-hearth.5 live-sent enx  
 
-**Chapter:** Framework · UDT · **usb-hearth.5 live-sent GREEN** on Pixel CDC-NCM `enx96e56705b13c` → `10.201.192.38:38503`.  
+**Chapter:** Framework · UDT · **usb-hearth.5 live-sent GREEN** on Pixel CDC-NCM `enx*` → tether gateway :38503.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
 
 ---
