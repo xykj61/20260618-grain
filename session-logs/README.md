@@ -8,6 +8,7 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260720.043140` — [glow-language nest/type thin implement map](20260720-043140_stoa107-nest-type-thin-map.bron) — bartis dry-aura nest assert; barket/wet held
 - `20260720.043033` — [glow-language nest/type surface wording GREEN](20260720-043033_stoa106-nest-type-surface-green.bron) — wet-sample precondition named; await send
 - `20260720.042913` — [glow-language send complete](20260720-042913_stoa105-send-complete.bron) — origin main at b8b1e0d65369
 - `20260720.042833` — [glow-language bartis TAME tidy GREEN](20260720-042833_stoa105-bartis-tame-tidy-green.bron) — append_print · copy_disjoint · overflow seat; await send
