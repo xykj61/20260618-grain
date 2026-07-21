@@ -11,6 +11,7 @@
 //!   refuse is `SampleDoesNotNest`.
 //! glow-language: closed named mold `amount-mold` (one-field `$:` ≡ `@u32` lower).
 //! glow-language: closed allowlist alias `amount-shape` ≡ `amount-mold` (Glow OS shape word).
+//! glow-language: closed allowlist alias `count-shape` ≡ `count-mold` (Glow OS shape word).
 //! glow-language / glow-language: expansion calls `assert_sample_nesting_nests(false, …)` (stated no-op).
 //! glow-language: closed allowlist adds `count-mold` beside `amount-mold`.
 //! glow-language: closed allowlist adds unit `$%` `kind-mold` (identity lower).

@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260720.235230` (UDT) · voice Quin  
+**Last refreshed:** `20260720.235652` (UDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–148** GREEN · capacity freeze at 9 · **amount-shape**  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–148  
-**Git nib:** `e83eb36bd5` glow-language amount-shape · next glow-language count-shape  
+**Language nib:** **glow-language–149** GREEN · capacity freeze at 9 · **amount-shape** · **count-shape**  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–149  
+**Git nib:** *(pin after glow-language send)*  
 
 **Chapter:** Framework · UDT · shape language first · usb-hearth.5 live-sent GREEN.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
@@ -15,13 +15,13 @@
 
 ## Now
 
-**glow-language** `20260720.234340` — `amount-shape` ≡ `amount-mold` GREEN. Brief [`../active-designing/20260720-234340_stoa148-amount-shape-alias.md`](../active-designing/20260720-234340_stoa148-amount-shape-alias.md).
+**glow-language** `20260720.235652` — `count-shape` ≡ `count-mold` GREEN. Brief [`../active-designing/20260720-235652_stoa149-count-shape-alias.md`](../active-designing/20260720-235652_stoa149-count-shape-alias.md).
 
-**Approved next (A):** **glow-language** `count-shape` ≡ `count-mold` — twin one-field shape alias; capacity freeze held.
+**Next:** **glow-language** check-in — further shape aliases · rename itinerary · Sala B0 behind shape.
 
 ```bash
 rishi/bin/rishi run tools/glow_nest_type_witness.rish
-rishi/bin/rishi run tools/glow_run.rish glow/gen/gate-amount-shape.glow
+rishi/bin/rishi run tools/glow_run.rish glow/gen/gate-count-shape.glow
 ```
 
 ---
@@ -30,7 +30,7 @@ rishi/bin/rishi run tools/glow_run.rish glow/gen/gate-amount-shape.glow
 
 | Door | Kind |
 |------|------|
-| glow-language count-shape alias | **kg** (approved A · shape-first) |
+| glow-language shape-language next | **check-in** |
 | Capacity freeze at 9 | **seated** |
 | usb-hearth.5 live-sent | **GREEN** `20260720.233805` |
 | Sala B0 Glow · seva-broadcast | **check-in** (behind shape) |
