@@ -1,6 +1,6 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–204 GREEN · glow-language check-in · 2026-07-21 · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · glow-language–207 GREEN · 2026-07-21 · draw → **glow-language**
 
-Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–204 · **glow-language** after digest honesty check-in. Hoon study twins under `glow/gen/hoon-study/`.
+Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–206 · **glow-language** fact-line cast twin. Hoon study twins under `glow/gen/hoon-study/`.
 
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
@@ -55,5 +55,7 @@ Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; p
 | **glow-language** | log-line format/parse (B2) | `glow_sala_b0_line_witness` | **GREEN** `190240` |
 | **glow-language** | append via sign+line compose | `glow_sala_b0_append_witness` · fold | **GREEN** `190527` |
 | **glow-language** | replay product digest honesty | `glow_sala_b0_replay_witness` · fold | **GREEN** `190637` |
-| **glow-language** | after digest honesty check-in | leans A–D awaiting word | **open** `190850` |
+| **glow-language** | after digest honesty check-in | A rest · B → glow-language | **GREEN** `190850` |
+| **glow-language** | fact-line shape desk (B3) | `glow_run` · desk suite | **GREEN** `191254` |
+| **glow-language** | fact-line cast twin | `glow_run` · desk suite pin | **GREEN** `192558` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.

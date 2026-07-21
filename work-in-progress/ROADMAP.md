@@ -664,7 +664,11 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language replay product digest honesty GREEN, `20260721.190637`** — claim path → `claim_digest_log`; agrees elder replay · fixture · fold. Brief [`active-designing/20260721-190637_stoa204-replay-product-digest-honesty.md`](../active-designing/20260721-190637_stoa204-replay-product-digest-honesty.md).
 
-**glow-language after digest honesty check-in, `20260721.190850`** — leans A rest (rec) · B B3 desk · C replay-body inventory · D seva-broadcast held. Brief [`active-designing/20260721-190850_stoa205-after-digest-honesty-checkin.md`](../active-designing/20260721-190850_stoa205-after-digest-honesty-checkin.md).
+**glow-language after digest honesty check-in, `20260721.190850`** — lean A rest taken · lean B chosen as glow-language. Brief [`active-designing/20260721-190850_stoa205-after-digest-honesty-checkin.md`](../active-designing/20260721-190850_stoa205-after-digest-honesty-checkin.md).
+
+**glow-language fact-line shape desk GREEN, `20260721.191254`** — B3; `fact-line-shape` · `sig`/`fact` `@t`; desk suite wire. Brief [`active-designing/20260721-191254_stoa206-fact-line-shape-desk.md`](../active-designing/20260721-191254_stoa206-fact-line-shape-desk.md).
+
+**glow-language fact-line cast twin GREEN, `20260721.192558`** — same-desk `^- fact-line-shape`; desk suite pin. Brief [`active-designing/20260721-192558_stoa207-fact-line-cast-twin.md`](../active-designing/20260721-192558_stoa207-fact-line-cast-twin.md). Next check-in: cord capacity · C replay inventory · send · seva-broadcast held.
 
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.

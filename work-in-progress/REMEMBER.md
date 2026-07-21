@@ -2,27 +2,26 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260721.190850` (UDT) · voice Quin  
-**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow digest honesty**  
-**Language nib:** **glow-language–204** GREEN · **glow-language** check-in open · sign through digest  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–204  
-**Git nib:** `7d4dcddac4` · glow-language–204 + glow-language check-in  
+**Last refreshed:** `20260721.192558` (UDT) · voice Quin  
+**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow fact-line cast**  
+**Language nib:** **glow-language–207** GREEN · fact-line cast · fact-line shape · digest honesty  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–207  
+**Git nib:** `7d4dcddac4` · glow-language–204 (glow-language–207 unsent)  
 
-
-**Chapter:** Framework · UDT · vane surfaces sent · check-in leans A–D · usb-hearth.5 live-sent GREEN.  
+**Chapter:** Framework · UDT · fact-line cast twin GREEN · usb-hearth.5 live-sent GREEN.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
 
 ---
 
 ## Now
 
-**glow-language** `20260721.190850` — after digest honesty check-in. Brief [`../active-designing/20260721-190850_stoa205-after-digest-honesty-checkin.md`](../active-designing/20260721-190850_stoa205-after-digest-honesty-checkin.md).
+**glow-language** `20260721.192558` — fact-line cast twin GREEN. Brief [`../active-designing/20260721-192558_stoa207-fact-line-cast-twin.md`](../active-designing/20260721-192558_stoa207-fact-line-cast-twin.md).
 
-**Next** — name a lean: **A** rest (rec) · **B** B3 desk · **C** replay-body inventory · **D** seva-broadcast held.
+**Next** — **send** glow-language–207 (finishing edge), or check-in: cord capacity · C replay inventory. seva-broadcast held.
 
 ```bash
 export RYE_ZIG=vendor/zig-toolchain/zig
-rishi/bin/rishi run tools/glow_sala_b0_fold_witness.rish
+rishi/bin/rishi run tools/glow_run.rish glow/gen/cast-named-fact-line.glow
 ```
 
 ---
@@ -31,10 +30,10 @@ rishi/bin/rishi run tools/glow_sala_b0_fold_witness.rish
 
 | Door | Kind |
 |------|------|
-| A Rest | **check-in** (recommended) |
-| B B3 desk deepen | **check-in** |
-| C Replay body inventory | **check-in** |
-| D seva-broadcast | **held** |
+| Send glow-language–207 | **kg** when you say send |
+| Cord capacity / fixture literals | **check-in** |
+| C Replay-body inventory | **check-in** |
+| seva-broadcast inference · economics | **held** |
 | usb-hearth.5 live-sent | **GREEN** `20260720.233805` |
 
 ---

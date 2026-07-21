@@ -1,0 +1,9 @@
+::  Sala B0 log-line shape — sig hex + fact bytes as faces (glow-language / B3).
+::  Mirrors elder format_log_line halves (glow-language product wrap).
+::  @t bound 256: sig hex (128) fits; max fact hex (1024) can exceed — debt named.
+::  glow-language: cast twin at cast-named-fact-line.glow.
+::  Glow source literals · rewrite glow_sala_b0_line held.
++$  fact-line-shape
+  $:  sig=@t
+      fact=@t
+  ==
