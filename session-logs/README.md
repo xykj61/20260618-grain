@@ -8,6 +8,8 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260721.182250` — [glow-language fixture desk GREEN](20260721-182250_stoa192-fixture-desk-green.bron) — lean B demo-fixture-constants-shape
+- `20260721.182041` — [glow-language after claim wire check-in](20260721-182041_stoa192-after-claim-wire-checkin.bron) — leans A–E; lean B chosen
 - `20260721.181903` — [glow-language claim wire · send](20260721-181903_stoa191-claim-wire-send.bron) — NativeActivity via claim_demo_fold; pier send
 - `20260721.181551` — [glow-language mold→shape · send](20260721-181551_stoa190-mold-to-shape-send.bron) — living shape surface; pier send
 - `20260721.180917` — [glow-language ShapeSpec API GREEN](20260721-180917_stoa189-shapespec-api-green.bron) — rune_shape · lower_shape; unsent with 186–188
