@@ -574,7 +574,9 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language shape-pair dual GREEN, `20260721.010610`** — first multi-field dual `shape-pair` → `PairShape`; mold-pair kept; cast twins held (named-cast one-field). Brief [`active-designing/20260721-010610_stoa163-shape-pair-dual-desk.md`](../active-designing/20260721-010610_stoa163-shape-pair-dual-desk.md).
 
-**glow-language shape-kind dual GREEN, `20260721.010739`** — first unit `$%` dual `shape-kind` · cast twins; mold-kind kept. Brief [`active-designing/20260721-010739_stoa164-shape-kind-dual-desk.md`](../active-designing/20260721-010739_stoa164-shape-kind-dual-desk.md). Next language: **glow-language** `shape-xact` dual.
+**glow-language shape-kind dual GREEN, `20260721.010739`** — first unit `$%` dual `shape-kind` · cast twins; mold-kind kept. Brief [`active-designing/20260721-010739_stoa164-shape-kind-dual-desk.md`](../active-designing/20260721-010739_stoa164-shape-kind-dual-desk.md).
+
+**glow-language shape-xact dual GREEN, `20260721.010935`** — first payload `$%` dual `shape-xact` · cast twins; mold-xact kept. Brief [`active-designing/20260721-010935_stoa165-shape-xact-dual-desk.md`](../active-designing/20260721-010935_stoa165-shape-xact-dual-desk.md). Next language: **glow-language** `shape-xfer` dual.
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
 
