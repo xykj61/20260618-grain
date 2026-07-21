@@ -2,10 +2,10 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260721.003545` (UDT) · voice Quin  
+**Last refreshed:** `20260721.004052` (UDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–156** GREEN · capacity freeze at 9 · amount…penta-shape  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–156  
+**Language nib:** **glow-language–157** GREEN · capacity freeze at 9 · amount…hexa-shape  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–157  
 **Git nib:** *(pin after glow-language send)*  
 
 **Chapter:** Framework · UDT · shape alias path (no sed) · usb-hearth.5 live-sent GREEN.  
@@ -15,13 +15,13 @@
 
 ## Now
 
-**glow-language sent** `9a66cd6822` · **glow-language** `20260721.003545` — `penta-shape` ≡ `penta-mold` GREEN. Brief [`../active-designing/20260721-003545_stoa156-penta-shape-alias.md`](../active-designing/20260721-003545_stoa156-penta-shape-alias.md).
+**glow-language sent** `4c86c751e2` · **glow-language** `20260721.004052` — `hexa-shape` ≡ `hexa-mold` GREEN. Brief [`../active-designing/20260721-004052_stoa157-hexa-shape-alias.md`](../active-designing/20260721-004052_stoa157-hexa-shape-alias.md).
 
-**Next:** **glow-language** check-in — hexa-shape · rename itinerary · Sala behind shape.
+**Next:** **glow-language** check-in — hepta-shape · rename itinerary · Sala behind shape.
 
 ```bash
 rishi/bin/rishi run tools/glow_nest_type_witness.rish
-rishi/bin/rishi run tools/glow_run.rish glow/gen/gate-penta-shape.glow
+rishi/bin/rishi run tools/glow_run.rish glow/gen/gate-hexa-shape.glow
 ```
 
 ---
