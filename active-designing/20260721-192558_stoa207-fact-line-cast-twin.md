@@ -32,4 +32,4 @@ rishi/bin/rishi run tools/glow_run.rish glow/gen/cast-named-fact-line.glow
 
 ## Hold
 
-Cord capacity for max fact hex. Fixture Glow literals. Line product wire. C replay inventory. seva-broadcast.
+Cord capacity for max fact hex. Fixture Glow literals. Line product wire. C replay inventory. seva-broadcast. (Import cast: glow-language.)

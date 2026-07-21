@@ -1,5 +1,6 @@
 ::  Sala B0 session-event shape — FactFields face names (glow-language).
-::  glow-language: from/to are @ux (bound 32); memo/stamp @t (bound 256); amount @u32.
+::  glow-language: from/to are @ux (bound 32); memo/stamp @t; amount @u32.
+::  glow-language: @t bound 1024 (nest_type.aura_t_max_bytes).
 ::  glow-language: cast twin at cast-named-sala-event.glow; no mold twin; elder fold stays.
 +$  sala-event-shape
   $:  from=@ux

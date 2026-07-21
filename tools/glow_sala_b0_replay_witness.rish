@@ -1,4 +1,4 @@
-# glow_sala_b0_replay_witness.rish — Glow replay + product digest honesty (glow-language).
+# glow_sala_b0_replay_witness.rish — Glow replay compose via line·sign·digest (glow-language).
 #
 #   rishi/bin/rishi run tools/glow_sala_b0_replay_witness.rish
 
@@ -19,8 +19,8 @@ assert selftest.out contains "replay root agrees elder run_demo_fold" else "glow
 assert selftest.out contains "glow-language" else "glow_sala_b0_replay_witness missing glow-language"
 assert selftest.out contains "99b3ae967c5a230acfc598a7e949b3c2c638ce996be47a51a7c9f8cb12e4c5fe" else "glow_sala_b0_replay_witness missing expected hex"
 
-# Source honestly calls product digest on the claim path.
-let src = run ["sh" "-c" "grep -q 'claim_digest_log' linengrow/glow_sala_b0_replay.rye"]
-assert src.ok else "glow_sala_b0_replay missing claim_digest_log on claim path"
+# Source honestly composes product wraps (docs-implementation sync).
+let src = run ["sh" "-c" "grep -q 'glow_sala_b0_line.rye' linengrow/glow_sala_b0_replay.rye && grep -q 'glow_sala_b0_sign.rye' linengrow/glow_sala_b0_replay.rye && grep -q 'glow_sala_b0_fields.rye' linengrow/glow_sala_b0_replay.rye && grep -q 'digest_log_bytes' linengrow/glow_sala_b0_replay.rye && ! grep -E 'sala\\.replay\\(' linengrow/glow_sala_b0_replay.rye && ! grep -q 'rc.parse_fact_fields' linengrow/glow_sala_b0_replay.rye"]
+assert src.ok else "glow_sala_b0_replay missing line·fields·sign·digest compose / still calls sala.replay( or rc.parse_fact_fields"
 
-say "GREEN: Glow Sala B0 replay port — product digest honesty; glow-language."
+say "GREEN: Glow Sala B0 replay port — line·sign·digest compose; glow-language."
