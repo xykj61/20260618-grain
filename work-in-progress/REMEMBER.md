@@ -6,7 +6,7 @@
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD0–HOLD1 · HOLD-W  
 **Language nib:** **glow-language–160** GREEN · capacity freeze at 9 · shape alias ladder closed  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–160  
-**Git nib:** *(pin after glow-language send)*  
+**Git nib:** `3ac6464df6` glow-language pin · glow-language check-in awaiting lean  
 
 **Chapter:** Framework · UDT · shape ladder closed · usb-hearth.5 live-sent GREEN.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
