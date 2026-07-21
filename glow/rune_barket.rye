@@ -13,6 +13,7 @@
 //! glow-language: closed allowlist alias `kind-shape` ≡ `kind-mold` (Glow OS shape word · KindMold).
 //! glow-language: closed allowlist alias `xact-shape` ≡ `xact-mold` (Glow OS shape word · XactMold).
 //! glow-language: closed allowlist alias `xfer-shape` ≡ `xfer-mold` (Glow OS shape word · XferMold).
+//! glow-language: closed allowlist alias `triple-shape` ≡ `triple-mold` (Glow OS shape word · TripleMold).
 //! glow-language: expansion calls `assert_sample_nesting_nests` at the mold seam.
 //! glow-language / glow-language: barket passes `is_nesting=true` through nesting-nests under stated molds.
 //! glow-language: closed allowlist adds `count-mold` beside `amount-mold`.
