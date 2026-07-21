@@ -6,7 +6,8 @@
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow digest honesty**  
 **Language nib:** **glow-language–204** GREEN · **glow-language** check-in open · sign through digest  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–204  
-**Git nib:** pending send · glow-language–204 + glow-language check-in  
+**Git nib:** `7d4dcddac4` · glow-language–204 + glow-language check-in  
+
 
 **Chapter:** Framework · UDT · vane surfaces sent · check-in leans A–D · usb-hearth.5 live-sent GREEN.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`

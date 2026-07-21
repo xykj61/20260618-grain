@@ -17,7 +17,7 @@
 
 ## What just closed
 
-glow-language–204 on one send: sign/verify surface · log-line format/parse · append via sign+line compose · replay product digest honesty. Product path still calls elder bodies underneath; pixel-glass hex and elder `run_demo_fold` agree. Pixel eyes already GREEN for the Glow fold wire (STOA199A); re-eyes only if pack behavior changes.
+glow-language–204 on one send (`7d4dcddac4`): sign/verify surface · log-line format/parse · append via sign+line compose · replay product digest honesty. Product path still calls elder bodies underneath; pixel-glass hex and elder `run_demo_fold` agree. Pixel eyes already GREEN for the Glow fold wire (STOA199A); re-eyes only if pack behavior changes.
 
 ---
 
