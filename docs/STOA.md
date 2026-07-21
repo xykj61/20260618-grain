@@ -1,6 +1,6 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–185 GREEN · 2026-07-21 · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · glow-language–190 GREEN · 2026-07-21 · draw → **glow-language**
 
-Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–184 · **glow-language** claim shell. Mold twins stay for Hoon study.
+Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–189 · **glow-language** mold→shape surface. Hoon study twins under `glow/gen/hoon-study/`.
 
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
@@ -31,9 +31,14 @@ Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; p
 | **glow-language** | Sala B0 Glow gap inventory | inventory brief | **GREEN** `165732` |
 | **glow-language** | sala-event-shape desk | `glow_run` | **GREEN** `170403` |
 | **glow-language** | thin `@t` cord aura | tokens · nest · rune · lower refuse | **GREEN** `171800` |
-| **glow-language** | `@t` cord lower emit · sala text faces | `glow_lower_mold` · `glow_run` sala-event | **GREEN** `173504` |
+| **glow-language** | `@t` cord lower emit · sala text faces | `glow_lower_shape` · `glow_run` sala-event | **GREEN** `173504` |
 | **glow-language** | named-cast cord emit (lean A) | `glow_lower_named_cast_witness` | **GREEN** `174530` |
 | **glow-language** | thin `@ux` hex aura | tokens · nest · rune · lower refuse | **GREEN** `174747` |
-| **glow-language** | `@ux` hex lower · sala from/to | `glow_lower_mold` · named-cast · sala-event | **GREEN** `175343` |
+| **glow-language** | `@ux` hex lower · sala from/to | `glow_lower_shape` · named-cast · sala-event | **GREEN** `175343` |
 | **glow-language** | Glow Sala B0 claim shell | `glow_sala_b0_claim_witness` | **GREEN** `175857` |
+| **glow-language** | sala-event cast twin (lean A) | `glow_run` cast-named-sala-event | **GREEN** `180054` |
+| **glow-language** | thin `$%` payload `@t` / `@ux` (lean B) | rune_shape · lower refuse | **GREEN** `180520` |
+| **glow-language** | `$%` payload `@t` / `@ux` emit | lower_shape · named-cast | **GREEN** `180725` |
+| **glow-language** | ShapeSpec / rune_shape / lower_shape API | shape witnesses · glow_run | **GREEN** `180917` |
+| **glow-language** | remaining mold→shape surface | bartis · nest · shape witnesses | **GREEN** `181551` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.

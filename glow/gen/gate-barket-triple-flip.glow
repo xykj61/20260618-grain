@@ -1,4 +1,4 @@
-::  Thin barket — sample=triple-mold through closed flip call body (glow-language).
-::  TripleMold flip: from↔amount · fee stays; baked 5/3/1 → expect 3/5/1.
-|^  sample=triple-mold
+::  Thin barket — sample=triple-shape through closed flip call body (glow-language).
+::  TripleShape flip: from↔amount · fee stays; baked 5/3/1 → expect 3/5/1.
+|^  sample=triple-shape
 %-  flip  sample

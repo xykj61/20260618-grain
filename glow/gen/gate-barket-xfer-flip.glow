@@ -1,4 +1,4 @@
-::  Thin barket — sample=xfer-mold through closed flip call body (glow-language).
-::  XferMold flip: .mint → .send; baked expect .send.
-|^  sample=xfer-mold
+::  Thin barket — sample=xfer-shape through closed flip call body (glow-language).
+::  XferShape flip: .mint → .send; baked expect .send.
+|^  sample=xfer-shape
 %-  flip  sample

@@ -1,4 +1,4 @@
-::  Thin bartis — sample=pair-mold through closed flip call body (glow-language).
-::  PairMold flip: from↔amount; baked 5/3 → expect 3/5.
-|=  sample=pair-mold
+::  Thin bartis — sample=pair-shape through closed flip call body (glow-language).
+::  PairShape flip: from↔amount; baked 5/3 → expect 3/5.
+|=  sample=pair-shape
 %-  flip  sample

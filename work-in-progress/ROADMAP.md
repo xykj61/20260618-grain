@@ -618,10 +618,17 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language `@ux` hex lower GREEN, `20260721.175343`** — `[32]u8` emit · named-cast · sala `from`/`to` `@ux`. Brief [`active-designing/20260721-175343_stoa184-ux-hex-lower-emit.md`](../active-designing/20260721-175343_stoa184-ux-hex-lower-emit.md).
 
-**glow-language Glow claim shell GREEN, `20260721.175857`** — lean B; elder `run_demo_fold` behind Glow assert. Brief [`active-designing/20260721-175857_stoa185-glow-sala-b0-claim-shell.md`](../active-designing/20260721-175857_stoa185-glow-sala-b0-claim-shell.md). Next check-in: sala cast · `$%` · rest. seva-broadcast held.
+**glow-language Glow claim shell GREEN, `20260721.175857`** — lean B; elder `run_demo_fold` behind Glow assert. Brief [`active-designing/20260721-175857_stoa185-glow-sala-b0-claim-shell.md`](../active-designing/20260721-175857_stoa185-glow-sala-b0-claim-shell.md).
 
+**glow-language sala-event cast GREEN, `20260721.180054`** — lean A; `cast-named-sala-event`. Brief [`active-designing/20260721-180054_stoa186-sala-event-cast-twin.md`](../active-designing/20260721-180054_stoa186-sala-event-cast-twin.md).
 
+**glow-language thin `$%` payload `@t`/`@ux` GREEN, `20260721.180520`** — lean B (compass language door); parse + `PayloadAuraNotYetLowered`. Brief [`active-designing/20260721-180520_stoa187-pct-payload-at-thin.md`](../active-designing/20260721-180520_stoa187-pct-payload-at-thin.md).
 
+**glow-language `$%` payload emit GREEN, `20260721.180725`** — retire refuse; cord/hex payload lower + named-cast. Brief [`active-designing/20260721-180725_stoa188-pct-payload-at-emit.md`](../active-designing/20260721-180725_stoa188-pct-payload-at-emit.md).
+
+**glow-language ShapeSpec API rename GREEN, `20260721.180917`** — `ShapeSpec` · `rune_shape` · `lower_shape`. Brief [`active-designing/20260721-180917_stoa189-shapespec-api-rename.md`](../active-designing/20260721-180917_stoa189-shapespec-api-rename.md).
+
+**glow-language remaining mold→shape GREEN, `20260721.181551`** — errors · APIs · Zig `*Shape` · living gates · `hoon-study/` twins. Brief [`active-designing/20260721-181551_stoa190-remaining-mold-to-shape.md`](../active-designing/20260721-181551_stoa190-remaining-mold-to-shape.md). Next check-in: NativeActivity claim wire · rest. seva-broadcast held.
 
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.

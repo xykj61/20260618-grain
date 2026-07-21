@@ -45,7 +45,7 @@ Hoon's positive and negative assertion runes — [`?>` wutgar](https://docs.urbi
 
 ### Glow — rune alphabet and fixture desks (working pin, glow-language–91; G5 glow-language)
 
-**glow-language** seats the compact glyph alphabet and family index below (G2). Glow adopts Hoon's one-syllable glyph alphabet so digraphs stay speakable. Primary compile path is Glow→Rye→Zig→**RISC-V**; Nock is a second backend at a seam. Most `glow/gen/` files are **fixture desks** (baked sample). **G3** seats one thin parameterized **generator**: `glow/gen/sample-u32.glow` reads one `@u32` from Rishi argv. **G4** closes the lexer→lower mold seam: cross-desk parts · same-desk mold-body · mold-only peek · TAME tidy `lower_mold` · token→`MoldSpec` in `rune_mold.parse_source` (glow-language–97). **glow-language–101** seat thin `|=` bartis identity (baked 5) and argv generator `gate-sample-u32.glow`. **glow-language** seats `|^` **barket** horizon wording — wet-gate digraph stays untokenized. Canon: [`../active-designing/20260719-204001_glow-rune-pronunciation-alphabet-riscv-and-generators.md`](../active-designing/20260719-204001_glow-rune-pronunciation-alphabet-riscv-and-generators.md) · G3 plan [`../active-designing/20260720-022956_stoa92-thin-argv-sample-g3-plan.md`](../active-designing/20260720-022956_stoa92-thin-argv-sample-g3-plan.md) · G4 plans [`../active-designing/20260720-023513_stoa93-token-driven-lower-slice-g4-plan.md`](../active-designing/20260720-023513_stoa93-token-driven-lower-slice-g4-plan.md) · [`../active-designing/20260720-024223_stoa94-same-desk-mold-body-tokens-g4-plan.md`](../active-designing/20260720-024223_stoa94-same-desk-mold-body-tokens-g4-plan.md). **G1 closed table**: [`../active-designing/20260719-220814_glow-rune-pronunciation-closed-table.md`](../active-designing/20260719-220814_glow-rune-pronunciation-closed-table.md).
+**glow-language** seats the compact glyph alphabet and family index below (G2). Glow adopts Hoon's one-syllable glyph alphabet so digraphs stay speakable. Primary compile path is Glow→Rye→Zig→**RISC-V**; Nock is a second backend at a seam. Most `glow/gen/` files are **fixture desks** (baked sample). **G3** seats one thin parameterized **generator**: `glow/gen/sample-u32.glow` reads one `@u32` from Rishi argv. **G4** closes the lexer→lower mold seam: cross-desk parts · same-desk mold-body · shape-only peek · TAME tidy `lower_shape` · token→`ShapeSpec` in `rune_shape.parse_source` (glow-language–97 · API rename glow-language). **glow-language–101** seat thin `|=` bartis identity (baked 5) and argv generator `gate-sample-u32.glow`. **glow-language** seats `|^` **barket** horizon wording — wet-gate digraph stays untokenized. Canon: [`../active-designing/20260719-204001_glow-rune-pronunciation-alphabet-riscv-and-generators.md`](../active-designing/20260719-204001_glow-rune-pronunciation-alphabet-riscv-and-generators.md) · G3 plan [`../active-designing/20260720-022956_stoa92-thin-argv-sample-g3-plan.md`](../active-designing/20260720-022956_stoa92-thin-argv-sample-g3-plan.md) · G4 plans [`../active-designing/20260720-023513_stoa93-token-driven-lower-slice-g4-plan.md`](../active-designing/20260720-023513_stoa93-token-driven-lower-slice-g4-plan.md) · [`../active-designing/20260720-024223_stoa94-same-desk-mold-body-tokens-g4-plan.md`](../active-designing/20260720-024223_stoa94-same-desk-mold-body-tokens-g4-plan.md). **G1 closed table**: [`../active-designing/20260719-220814_glow-rune-pronunciation-closed-table.md`](../active-designing/20260719-220814_glow-rune-pronunciation-closed-table.md).
 
 #### Glyph alphabet (compact)
 
@@ -164,7 +164,7 @@ G5 brief: [`../active-designing/20260720-033200_stoa98-g5-nock-second-backend-fa
 | **glow-language GREEN** | first payload `$%` dual `shape-xact` / cast twins; mold-xact kept |
 | **glow-language GREEN** | multi-face payload `$%` dual `shape-xfer` / cast twins; tagged dual family closed |
 | **glow-language GREEN** | three-field `$:` dual `shape-triple` → `TripleShape`; mold-triple kept; cast held |
-| **glow-language GREEN** | four-field `$:` dual `shape-quad` · mold-only peek ≤11 · glow_run early mold path |
+| **glow-language GREEN** | four-field `$:` dual `shape-quad` · shape-only peek ≤11 · glow_run early mold path |
 | **glow-language GREEN** | five-field `$:` dual `shape-penta` → `PentaShape`; mold-penta kept; cast held |
 | **glow-language GREEN** | six-field `$:` dual `shape-hexa` → `HexaShape`; mold-hexa kept; cast held |
 | **glow-language GREEN** | seven-field `$:` dual `shape-hepta` → `HeptaShape`; mold-hepta kept; cast held |
@@ -180,6 +180,11 @@ G5 brief: [`../active-designing/20260720-033200_stoa98-g5-nock-second-backend-fa
 | **glow-language GREEN** | thin `@ux` hex · bound 32 · parse · lower held |
 | **glow-language GREEN** | `@ux` hex lower → `[32]u8` · sala from/to `@ux` |
 | **glow-language GREEN** | Glow Sala B0 claim shell · elder `run_demo_fold` |
+| **glow-language GREEN** | sala-event cast twin · mixed `@ux`/`@u32`/`@t` |
+| **glow-language GREEN** | thin `$%` payload `@t`/`@ux` · lower refuse `PayloadAuraNotYetLowered` |
+| **glow-language GREEN** | `$%` payload `@t`/`@ux` emit · named-cast mirror · refuse retired |
+| **glow-language GREEN** | `ShapeSpec` · `rune_shape` · `lower_shape` API rename |
+| **glow-language GREEN** | remaining mold→shape · Zig `*Shape` · living gates · `hoon-study/` twins |
 | Still held | Ambient gold / free nesting polymorphism · bartis stays stated |
 | Still held | Open bartis/barket call-body gate set beyond `double` · `inc` · `dec` · `flip` |
 | Still held | Open named-mold set beyond nona (capacity freeze) · argv under tagged/multi-field shapes · further field widens horizon |
