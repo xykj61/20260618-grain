@@ -20,4 +20,5 @@
 | **glow-language** | `shape-hexa` dual desk | `glow_run` | **GREEN** `012029` |
 | **glow-language** | `shape-hepta` dual desk | `glow_run` | **GREEN** `012229` |
 | **glow-language** | `shape-octa` dual desk | `glow_run` | **GREEN** `012414` |
+| **glow-language** | `shape-nona` dual · inventary closed | `glow_run` | **GREEN** `012555` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.

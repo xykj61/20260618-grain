@@ -33,7 +33,7 @@
 | `mold-hexa` | `hexa-mold` | multi-field `$:` | **`shape-hexa`** glow-language (cast held) |
 | `mold-hepta` | `hepta-mold` | multi-field `$:` | **`shape-hepta`** glow-language (cast held) |
 | `mold-octa` | `octa-mold` | multi-field `$:` | **`shape-octa`** glow-language (cast held) |
-| `mold-nona` | `nona-mold` | multi-field `$:` | glow-language horizon |
+| `mold-nona` | `nona-mold` | multi-field `$:` | **`shape-nona`** glow-language (cast held; inventary closed) |
 | `mold-kind` | `kind-mold` | unit `$%` | **`shape-kind`** glow-language |
 | `mold-xact` | `xact-mold` | payload `$%` | **`shape-xact`** glow-language |
 | `mold-xfer` | `xfer-mold` | multi-face `$%` | **`shape-xfer`** glow-language |
