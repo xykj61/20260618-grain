@@ -2,25 +2,26 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260721.013420` (UDT) · voice Quin  
+**Last refreshed:** `20260721.014926` (UDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD0–HOLD1 · HOLD-W  
-**Language nib:** **glow-language–175** GREEN · inventary closed · pair named-cast open  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–175  
-**Git nib:** `4513f26522` glow-language on origin+codeberg · glow-language packing  
+**Language nib:** **glow-language–176** GREEN · multi-field cast inventary closed · glow-language check-in  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–176  
+**Git nib:** packing glow-language send  
 
-**Chapter:** Framework · UDT · pair-shape cast twins · usb-hearth.5 live-sent GREEN.  
+**Chapter:** Framework · UDT · cast inventary closed · usb-hearth.5 live-sent GREEN.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
 
 ---
 
 ## Now
 
-**glow-language** sent `4513f26522` (origin · codeberg caught up `20260721.013608`).  
-**glow-language** `20260721.013225` — multi-field `$:` named-cast · pair cast twins GREEN. Brief [`../active-designing/20260721-013225_stoa175-pair-shape-named-cast.md`](../active-designing/20260721-013225_stoa175-pair-shape-named-cast.md).
+**glow-language** `20260721.014114` — named-cast peek 4–12 · early `glow_run` path · cast twins triple…nona. Brief [`../active-designing/20260721-014114_stoa176-named-cast-peek-widen-triple-nona.md`](../active-designing/20260721-014114_stoa176-named-cast-peek-widen-triple-nona.md).
+
+**glow-language check-in** [`../active-designing/20260721-014926_stoa177-after-multifield-cast-checkin.md`](../active-designing/20260721-014926_stoa177-after-multifield-cast-checkin.md) — lean A Sala B0 / product · B MoldSpec rename · C next language · D rest.
 
 ```bash
-rishi/bin/rishi run tools/glow_lower_named_cast_witness.rish
-rishi/bin/rishi run tools/glow_run.rish glow/gen/cast-named-pair-shape.glow
+rishi/bin/rishi run tools/glow_tokens_witness.rish
+rishi/bin/rishi run tools/glow_run.rish glow/gen/cast-named-nona-shape.glow
 ```
 
 ---
@@ -29,8 +30,7 @@ rishi/bin/rishi run tools/glow_run.rish glow/gen/cast-named-pair-shape.glow
 
 | Door | Kind |
 |------|------|
-| glow-language named-cast peek widen · triple…nona casts | **kg** after send |
-| Sala B0 Glow / seva-broadcast | **check-in** |
+| glow-language lean | **check-in** (awaiting word) |
 | usb-hearth.5 live-sent | **GREEN** `20260720.233805` |
 
 ---
