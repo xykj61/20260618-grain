@@ -20,6 +20,7 @@
 //! glow-language: closed allowlist alias `quad-shape` ≡ `quad-mold` (Glow OS shape word · QuadMold).
 //! glow-language: closed allowlist alias `penta-shape` ≡ `penta-mold` (Glow OS shape word · PentaMold).
 //! glow-language: closed allowlist alias `hexa-shape` ≡ `hexa-mold` (Glow OS shape word · HexaMold).
+//! glow-language: closed allowlist alias `hepta-shape` ≡ `hepta-mold` (Glow OS shape word · HeptaMold).
 //! glow-language / glow-language: expansion calls `assert_sample_nesting_nests(false, …)` (stated no-op).
 //! glow-language: closed allowlist adds `count-mold` beside `amount-mold`.
 //! glow-language: closed allowlist adds unit `$%` `kind-mold` (identity lower).
