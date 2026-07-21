@@ -646,7 +646,9 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language replay thin port GREEN, `20260721.183126`** — `claim_replay_demo_root` over elder `replay`; double replay · fixture root; agrees claim fold. Brief [`active-designing/20260721-183126_stoa196-replay-thin-port.md`](../active-designing/20260721-183126_stoa196-replay-thin-port.md). Sent `02357d9cec`.
 
-**glow-language claim compose append+replay GREEN, `20260721.183253`** — `claim_demo_fold` via ports; agrees elder `run_demo_fold`; pack GREEN. Brief [`active-designing/20260721-183253_stoa197-claim-compose-append-replay.md`](../active-designing/20260721-183253_stoa197-claim-compose-append-replay.md). Next check-in: Glow fold body · Pixel eyes · rest. seva-broadcast held.
+**glow-language claim compose append+replay GREEN, `20260721.183253`** — `claim_demo_fold` via ports; agrees elder `run_demo_fold`; pack GREEN. Brief [`active-designing/20260721-183253_stoa197-claim-compose-append-replay.md`](../active-designing/20260721-183253_stoa197-claim-compose-append-replay.md). Sent `37164ad3f9`.
+
+**glow-language Glow fold product surface GREEN, `20260721.183554`** — `glow_sala_b0_fold` · NativeActivity `run_demo_fold`; pack GREEN. Brief [`active-designing/20260721-183554_stoa198-glow-fold-product-surface.md`](../active-designing/20260721-183554_stoa198-glow-fold-product-surface.md). Next check-in: Glow vane bodies · Pixel eyes · rest. seva-broadcast held.
 
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
