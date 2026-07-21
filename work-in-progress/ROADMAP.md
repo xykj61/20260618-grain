@@ -608,7 +608,9 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language sala-event-shape GREEN, `20260721.170403`** — FactFields-named five-face desk; `SalaEventShape`; stand-in `@u32`. Brief [`active-designing/20260721-170403_stoa179-sala-event-shape-desk.md`](../active-designing/20260721-170403_stoa179-sala-event-shape-desk.md).
 
-**glow-language thin `@t` GREEN, `20260721.171800`** — lean A; cord lex/nest/parse; lower held; shape affirmed over type. Brief [`active-designing/20260721-171800_stoa180-at-cord-aura-thin.md`](../active-designing/20260721-171800_stoa180-at-cord-aura-thin.md). Next: **glow-language** `@t` lower emit. seva-broadcast held.
+**glow-language thin `@t` GREEN, `20260721.171800`** — lean A; cord lex/nest/parse; lower held; shape affirmed over type. Brief [`active-designing/20260721-171800_stoa180-at-cord-aura-thin.md`](../active-designing/20260721-171800_stoa180-at-cord-aura-thin.md).
+
+**glow-language `@t` cord lower GREEN, `20260721.173504`** — `$:` `@t` → `[256]u8` demo emit; `sala-event-shape` text faces `@t`; amount `@u32`. Brief [`active-designing/20260721-173504_stoa181-at-cord-lower-emit.md`](../active-designing/20260721-173504_stoa181-at-cord-lower-emit.md). Next: check-in (`@ux` / named-cast cord / claim shell / rest). seva-broadcast held.
 
 
 
