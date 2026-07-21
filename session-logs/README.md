@@ -8,6 +8,10 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260721.005729` — [glow-language send · glow-language check-in](20260721-005729_stoa160-send-stoa161-checkin.bron) — send nona-shape; rename/Sala check-in
+- `20260721.005350` — [glow-language sent · glow-language GREEN closes ladder](20260721-005350_stoa159-sent-stoa160-green.bron) — pier 2e963fcd01; next rename/Sala
+- `20260721.005327` — [glow-language nona-shape alias GREEN](20260721-005327_stoa160-nona-shape-green.bron) — nona-shape ≡ nona-mold; ladder closed; unsent
+
 - `20260721.005252` — [glow-language send then kg nona-shape](20260721-005252_stoa159-send-then-kg.bron) — send octa-shape; kg glow-language
 - `20260721.005000` — [glow-language sent · glow-language GREEN](20260721-005000_stoa158-sent-stoa159-green.bron) — pier 214e0a8b8f; next nona-shape
 - `20260721.004935` — [glow-language octa-shape alias GREEN](20260721-004935_stoa159-octa-shape-green.bron) — octa-shape ≡ octa-mold; unsent
