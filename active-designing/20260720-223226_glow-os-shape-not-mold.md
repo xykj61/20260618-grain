@@ -75,8 +75,11 @@
 | glow-language–160 | Glow OS allowlist aliases `amount-shape` … `nona-shape` |
 | glow-language–173 | Inventary dual desks `shape-*` beside every `mold-*` twin |
 | glow-language lean A `20260721.013023` | Living pins lead with shape; mold twins named as study |
+| glow-language–176 | Multi-field named-cast cast twins through nona |
+| glow-language–179 | Sala B0 Glow season · `sala-event-shape` |
+| glow-language `20260721.171800` | Thin `@t` cord aura; living shape-primary residual; **type** reopen refused (`20260721.171644`) |
 
-`MoldSpec` · `rune_mold` · Zig `*Mold` type names stay until a separate API rename. Multi-field named-cast cast twins stay held.
+`MoldSpec` · `rune_mold` · Zig `*Mold` type names stay until a separate API rename.
 
 ---
 

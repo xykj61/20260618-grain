@@ -8,6 +8,12 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260721.173330` — [glow-language send · then kg glow-language](20260721-173330_stoa180-send.bron) — thin @t pack to pier; cord lower next
+- `20260721.173239` — [glow-language handoff witnesses GREEN](20260721-173239_stoa180-handoff-witnesses-green.bron) — await send; then glow-language
+- `20260721.173015` — [Cursor handoff glow-language](20260721-173015_cursor-handoff-stoa180.bron) — fresh-agent card; send then glow-language
+- `20260721.172935` — [Deferred witness diags closed](20260721-172935_deferred-witness-diag-closed.bron) — barket RED was compound assert; already fixed
+- `20260721.172554` — [glow-language thin @t GREEN · shape kept](20260721-172554_stoa180-at-thin-shape-kept.bron) — cord bound 256; lower held; mold prose residual
+- `20260721.171644` — [Shape vs type vocabulary](20260721-171644_shape-vs-type-vocabulary.bron) — recommend keep shape; type already refused
 - `20260721.171030` — [glow-language–179 send · glow-language check-in](20260721-171030_stoa177-179-send-stoa180-checkin.bron) — Sala B0 Glow pack; @t aura leans A–E
 - `20260721.170403` — [glow-language sala-event-shape GREEN](20260721-170403_stoa179-sala-event-shape-green.bron) — SalaEventShape desk; @t debt held; cast held
 
