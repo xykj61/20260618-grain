@@ -32,7 +32,8 @@
 | `mold-penta` | `penta-mold` | multi-field `$:` | **`shape-penta`** glow-language (cast held) |
 | `mold-hexa` | `hexa-mold` | multi-field `$:` | **`shape-hexa`** glow-language (cast held) |
 | `mold-hepta` | `hepta-mold` | multi-field `$:` | **`shape-hepta`** glow-language (cast held) |
-| `mold-octa` … `mold-nona` | `*-mold` | multi-field `$:` | later |
+| `mold-octa` | `octa-mold` | multi-field `$:` | **`shape-octa`** glow-language (cast held) |
+| `mold-nona` | `nona-mold` | multi-field `$:` | glow-language horizon |
 | `mold-kind` | `kind-mold` | unit `$%` | **`shape-kind`** glow-language |
 | `mold-xact` | `xact-mold` | payload `$%` | **`shape-xact`** glow-language |
 | `mold-xfer` | `xfer-mold` | multi-face `$%` | **`shape-xfer`** glow-language |
