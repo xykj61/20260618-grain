@@ -8,7 +8,12 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260721.001326` — [glow-language send · stay on alias path](20260721-001326_stoa151-send-alias-path.bron) — send kind-shape; kg xact-shape
+- `20260721.001244` — [Shape sed force-push counsel](20260721-001244_shape-sed-force-push-counsel.bron) — no whole-tree sed; aliases or scoped rename
+- `20260721.000743` — [glow-language kind-shape alias GREEN](20260721-000743_stoa151-kind-shape-green.bron) — kind-shape ≡ kind-mold; unsent
+
 - `20260721.000705` — [glow-language send then kg kind-shape](20260721-000705_stoa150-send-then-kg.bron) — send pair-shape; kg glow-language
+
 - `20260721.000234` — [glow-language pair-shape alias GREEN](20260721-000234_stoa150-pair-shape-green.bron) — pair-shape ≡ pair-mold; unsent
 - `20260721.000044` — [glow-language send then kg pair-shape](20260721-000044_stoa149-send-then-kg.bron) — send count-shape; kg glow-language
 - `20260720.235652` — [glow-language count-shape alias GREEN](20260720-235652_stoa149-count-shape-green.bron) — count-shape ≡ count-mold; unsent

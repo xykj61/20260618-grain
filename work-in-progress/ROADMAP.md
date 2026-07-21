@@ -544,7 +544,9 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language count-shape alias GREEN, `20260720.235652`** — lean A (compass): closed allowlist `count-shape` ≡ `count-mold` (one-field `$:` / `@u32`); bartis · barket desks; deca refuse; capacity freeze held. Brief [`active-designing/20260720-235652_stoa149-count-shape-alias.md`](../active-designing/20260720-235652_stoa149-count-shape-alias.md). Sent `0fa867ac2d`.
 
-**glow-language pair-shape alias GREEN, `20260721.000234`** — lean A (compass): closed allowlist `pair-shape` ≡ `pair-mold` (two-field `$:` / PairMold); `is_pair_named_mold` accepts the alias; bartis · barket desks; capacity freeze held. Brief [`active-designing/20260721-000234_stoa150-pair-shape-alias.md`](../active-designing/20260721-000234_stoa150-pair-shape-alias.md). Next: **glow-language** check-in (kind-shape · triple-shape · rename · Sala behind shape).
+**glow-language pair-shape alias GREEN, `20260721.000234`** — lean A (compass): closed allowlist `pair-shape` ≡ `pair-mold` (two-field `$:` / PairMold); `is_pair_named_mold` accepts the alias; bartis · barket desks; capacity freeze held. Brief [`active-designing/20260721-000234_stoa150-pair-shape-alias.md`](../active-designing/20260721-000234_stoa150-pair-shape-alias.md). Sent `4221f3304d`.
+
+**glow-language kind-shape alias GREEN, `20260721.000743`** — lean A (compass): closed allowlist `kind-shape` ≡ `kind-mold` (unit `$%` / KindMold); `is_kind_named_mold` accepts the alias; bartis · barket desks; capacity freeze held. Brief [`active-designing/20260721-000743_stoa151-kind-shape-alias.md`](../active-designing/20260721-000743_stoa151-kind-shape-alias.md). Next: **glow-language** check-in (xact-shape · triple-shape · rename · Sala behind shape).
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
 
