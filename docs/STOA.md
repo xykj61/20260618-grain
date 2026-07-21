@@ -25,4 +25,5 @@ Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; p
 | **glow-language** | `shape-octa` dual desk | `glow_run` | **GREEN** `012414` |
 | **glow-language** | `shape-nona` dual · inventary closed | `glow_run` | **GREEN** `012555` |
 | **glow-language** | living pin polish · shape primary | LEXICON · pins | **GREEN** `013023` |
+| **glow-language** | pair-shape multi-field named-cast | named-cast witness · desks | **GREEN** `013225` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.

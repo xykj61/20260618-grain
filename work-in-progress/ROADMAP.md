@@ -596,7 +596,9 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language check-in, `20260721.012555`** — inventary duals closed. Leans: **A** living prose/pin polish (recommended) · **B** multi-field named-cast · **C** Sala B0 · **D** rest. Brief [`active-designing/20260721-012555_stoa174-after-dual-inventary-checkin.md`](../active-designing/20260721-012555_stoa174-after-dual-inventary-checkin.md).
 
-**glow-language living pin polish GREEN, `20260721.013023`** — lean A: living pins lead with `shape-*` (LEXICON · glow-language · glow README · vocabulary brief accretion); mold twins stay study; `MoldSpec` / Zig `*Mold` held. Brief [`active-designing/20260721-013023_stoa174-living-pin-polish-shape-primary.md`](../active-designing/20260721-013023_stoa174-living-pin-polish-shape-primary.md). Next language: **glow-language** check-in (named-cast · Sala · rest).
+**glow-language living pin polish GREEN, `20260721.013023`** — lean A: living pins lead with `shape-*` (LEXICON · glow-language · glow README · vocabulary brief accretion); mold twins stay study; `MoldSpec` / Zig `*Mold` held. Brief [`active-designing/20260721-013023_stoa174-living-pin-polish-shape-primary.md`](../active-designing/20260721-013023_stoa174-living-pin-polish-shape-primary.md).
+
+**glow-language pair-shape named-cast GREEN, `20260721.013225`** — multi-field `$:` cast emit (1…9 faces); `cast-named-pair-shape` · `cast-import-pair-shape`; one-field kept. Brief [`active-designing/20260721-013225_stoa175-pair-shape-named-cast.md`](../active-designing/20260721-013225_stoa175-pair-shape-named-cast.md). Next language: **glow-language** named-cast peek widen · triple…nona cast desks.
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
 
