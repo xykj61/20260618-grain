@@ -8,4 +8,5 @@
 | **glow-language–133** | Named allowlist amount→pair · flips · amount/count argv | nest · barket · glow_run | **GREEN** `183259`…`194143` |
 | **glow-language–147** | Triple→nona `$:` ladder · flips · capacity freeze at 9 | nest · barket · bartis | **GREEN** `194437`…`231419` |
 | **glow-language–160** | amount…nona-shape Glow OS aliases | `glow_nest_type_witness` · desks | **GREEN** `234340`…`005327` |
+| **glow-language** | inventary · `shape-amount` dual desk | `glow_run` desks | **GREEN** `010211` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
