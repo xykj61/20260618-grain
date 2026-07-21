@@ -8,6 +8,9 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260721.182623` — [glow-language digest port GREEN](20260721-182623_stoa194-digest-port-green.bron) — lean C claim_digest_log
+- `20260721.182501` — [glow-language fixture pin GREEN](20260721-182501_stoa193-fixture-pin-green.bron) — lean B product stamps/memos/root
+- `20260721.182415` — [glow-language send · glow-language check-in](20260721-182415_stoa192-send-stoa193-checkin.bron) — pier send; lean B chosen
 - `20260721.182250` — [glow-language fixture desk GREEN](20260721-182250_stoa192-fixture-desk-green.bron) — lean B demo-fixture-constants-shape
 - `20260721.182041` — [glow-language after claim wire check-in](20260721-182041_stoa192-after-claim-wire-checkin.bron) — leans A–E; lean B chosen
 - `20260721.181903` — [glow-language claim wire · send](20260721-181903_stoa191-claim-wire-send.bron) — NativeActivity via claim_demo_fold; pier send

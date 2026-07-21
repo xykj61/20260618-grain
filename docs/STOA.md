@@ -1,6 +1,6 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–192 GREEN · 2026-07-21 · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · glow-language–194 GREEN · 2026-07-21 · draw → **glow-language**
 
-Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–191 · **glow-language** demo fixture constants. Hoon study twins under `glow/gen/hoon-study/`.
+Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–193 · **glow-language** digest thin port. Hoon study twins under `glow/gen/hoon-study/`.
 
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
@@ -43,4 +43,6 @@ Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; p
 | **glow-language** | remaining mold→shape surface | bartis · nest · shape witnesses | **GREEN** `181551` |
 | **glow-language** | NativeActivity claim wire (lean C) | `stoa191_native_claim_wire_witness` | **GREEN** `181903` |
 | **glow-language** | demo fixture constants desk (lean B) | `glow_run` shape-demo-fixture-constants | **GREEN** `182250` |
+| **glow-language** | demo fixture product pin (lean B) | `glow_sala_b0_demo_fixture_witness` | **GREEN** `182501` |
+| **glow-language** | digest thin port (lean C) | `glow_sala_b0_digest_witness` | **GREEN** `182623` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
