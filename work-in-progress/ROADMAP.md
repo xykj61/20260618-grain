@@ -616,7 +616,9 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language thin `@ux` GREEN, `20260721.174747`** — lean A; hex lex/nest/parse; lower held. Brief [`active-designing/20260721-174747_stoa183-ux-hex-aura-thin.md`](../active-designing/20260721-174747_stoa183-ux-hex-aura-thin.md).
 
-**glow-language `@ux` hex lower GREEN, `20260721.175343`** — `[32]u8` emit · named-cast · sala `from`/`to` `@ux`. Brief [`active-designing/20260721-175343_stoa184-ux-hex-lower-emit.md`](../active-designing/20260721-175343_stoa184-ux-hex-lower-emit.md). Next check-in: claim shell · sala cast · `$%` `@t`/`@ux` · rest. seva-broadcast held.
+**glow-language `@ux` hex lower GREEN, `20260721.175343`** — `[32]u8` emit · named-cast · sala `from`/`to` `@ux`. Brief [`active-designing/20260721-175343_stoa184-ux-hex-lower-emit.md`](../active-designing/20260721-175343_stoa184-ux-hex-lower-emit.md).
+
+**glow-language Glow claim shell GREEN, `20260721.175857`** — lean B; elder `run_demo_fold` behind Glow assert. Brief [`active-designing/20260721-175857_stoa185-glow-sala-b0-claim-shell.md`](../active-designing/20260721-175857_stoa185-glow-sala-b0-claim-shell.md). Next check-in: sala cast · `$%` · rest. seva-broadcast held.
 
 
 
