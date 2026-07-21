@@ -4,9 +4,9 @@
 
 **Last refreshed:** `20260721.194756` (UDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow compose season**  
-**Language nib:** **glow-language–214** send · literals lean C next  
+**Language nib:** **glow-language–214** GREEN · literals lean C next  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–214  
-**Git nib:** pending send · glow-language–214  
+**Git nib:** `b7ee8fb7cf` · glow-language–214  
 
 **Chapter:** Framework · UDT · compose season send · Glow source literals opening.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
