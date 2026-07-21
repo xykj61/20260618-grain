@@ -27,13 +27,13 @@
 | `mold-amount` | `amount-mold` | one-field `$:` | **`shape-amount`** GREEN |
 | `mold-count` | `count-mold` | one-field `$:` | **`shape-count`** glow-language |
 | `mold-pair` | `pair-mold` | two-field `$:` | **`shape-pair`** glow-language · cast twins glow-language |
-| `mold-triple` | `triple-mold` | multi-field `$:` | **`shape-triple`** glow-language (cast held) |
-| `mold-quad` | `quad-mold` | multi-field `$:` | **`shape-quad`** glow-language (cast held; mold-only budget) |
-| `mold-penta` | `penta-mold` | multi-field `$:` | **`shape-penta`** glow-language (cast held) |
-| `mold-hexa` | `hexa-mold` | multi-field `$:` | **`shape-hexa`** glow-language (cast held) |
-| `mold-hepta` | `hepta-mold` | multi-field `$:` | **`shape-hepta`** glow-language (cast held) |
-| `mold-octa` | `octa-mold` | multi-field `$:` | **`shape-octa`** glow-language (cast held) |
-| `mold-nona` | `nona-mold` | multi-field `$:` | **`shape-nona`** glow-language (cast held; inventary closed) |
+| `mold-triple` | `triple-mold` | multi-field `$:` | **`shape-triple`** glow-language · cast twins glow-language |
+| `mold-quad` | `quad-mold` | multi-field `$:` | **`shape-quad`** glow-language · cast twins glow-language |
+| `mold-penta` | `penta-mold` | multi-field `$:` | **`shape-penta`** glow-language · cast twins glow-language |
+| `mold-hexa` | `hexa-mold` | multi-field `$:` | **`shape-hexa`** glow-language · cast twins glow-language |
+| `mold-hepta` | `hepta-mold` | multi-field `$:` | **`shape-hepta`** glow-language · cast twins glow-language |
+| `mold-octa` | `octa-mold` | multi-field `$:` | **`shape-octa`** glow-language · cast twins glow-language |
+| `mold-nona` | `nona-mold` | multi-field `$:` | **`shape-nona`** glow-language · cast twins glow-language |
 | `mold-kind` | `kind-mold` | unit `$%` | **`shape-kind`** glow-language |
 | `mold-xact` | `xact-mold` | payload `$%` | **`shape-xact`** glow-language |
 | `mold-xfer` | `xfer-mold` | multi-face `$%` | **`shape-xfer`** glow-language |

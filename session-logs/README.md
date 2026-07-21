@@ -8,6 +8,9 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260721.014926` — [glow-language send · glow-language check-in](20260721-014926_stoa176-send-stoa177-checkin.bron) — cast inventary ship; leans A–D awaiting word
+- `20260721.014657` — [glow-language full desk witness GREEN](20260721-014657_stoa175-desk-witness-green.bron) — glow_run_desk_witness exit 0 after glow-language pack
+- `20260721.014503` — [glow-language sent · glow-language cast widen](20260721-014503_stoa175-sent-stoa176-cast-widen.bron) — pier 0494e655fe; peek 4–12 · triple…nona casts unsent
 - `20260721.013450` — [glow-language sent · glow-language pair named-cast](20260721-013450_stoa174-sent-stoa175-pair-cast.bron) — origin 4513f26522; pair cast unsent; codeberg retry
 - `20260721.013147` — [glow-language sent · glow-language lean A pin polish](20260721-013147_stoa173-sent-stoa174-pin-polish.bron) — pier 32a54b483b; shape-primary pins unsent
 - `20260721.012720` — [glow-language sent · glow-language nona · glow-language check-in](20260721-012720_stoa172-sent-stoa173-green-checkin.bron) — inventary closed; await A/B/C/D

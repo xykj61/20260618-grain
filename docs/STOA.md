@@ -1,6 +1,6 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–174 GREEN · 2026-07-21 · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · glow-language–176 GREEN · 2026-07-21 · draw → **glow-language**
 
-Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language). Mold twins stay for Hoon study.
+Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Mold twins stay for Hoon study.
 
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
@@ -26,4 +26,5 @@ Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; p
 | **glow-language** | `shape-nona` dual · inventary closed | `glow_run` | **GREEN** `012555` |
 | **glow-language** | living pin polish · shape primary | LEXICON · pins | **GREEN** `013023` |
 | **glow-language** | pair-shape multi-field named-cast | named-cast witness · desks | **GREEN** `013225` |
+| **glow-language** | named-cast peek widen · triple…nona casts | tokens · glow_run desks | **GREEN** `014114` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
