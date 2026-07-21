@@ -648,7 +648,13 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language claim compose append+replay GREEN, `20260721.183253`** — `claim_demo_fold` via ports; agrees elder `run_demo_fold`; pack GREEN. Brief [`active-designing/20260721-183253_stoa197-claim-compose-append-replay.md`](../active-designing/20260721-183253_stoa197-claim-compose-append-replay.md). Sent `37164ad3f9`.
 
-**glow-language Glow fold product surface GREEN, `20260721.183554`** — `glow_sala_b0_fold` · NativeActivity `run_demo_fold`; pack GREEN. Brief [`active-designing/20260721-183554_stoa198-glow-fold-product-surface.md`](../active-designing/20260721-183554_stoa198-glow-fold-product-surface.md). Next check-in: Glow vane bodies · Pixel eyes · rest. seva-broadcast held.
+**glow-language Glow fold product surface GREEN, `20260721.183554`** — `glow_sala_b0_fold` · NativeActivity `run_demo_fold`; pack GREEN. Brief [`active-designing/20260721-183554_stoa198-glow-fold-product-surface.md`](../active-designing/20260721-183554_stoa198-glow-fold-product-surface.md). Sent `b7966301a2`.
+
+**glow-language after Glow fold check-in seated, `20260721.185137`** — leans A–E (Pixel eyes · vane-body inventory · sign surface · rest · seva-broadcast held). Brief [`active-designing/20260721-185137_stoa199-after-glow-fold-checkin.md`](../active-designing/20260721-185137_stoa199-after-glow-fold-checkin.md).
+
+**STOA199A Pixel Glow-fold eyes GREEN, `20260721.185805`** — lean A; title GREEN · pixel-glass hex · tap-to-close. Brief [`active-designing/20260721-185805_stoa199a-pixel-glow-fold-eyes.md`](../active-designing/20260721-185805_stoa199a-pixel-glow-fold-eyes.md).
+
+**glow-language vane-body inventory GREEN, `20260721.185942`** — lean B; wrappers vs elder bodies; sub-leans B1–B4 (rec B1 sign). Brief [`active-designing/20260721-185942_stoa200-vane-body-inventory.md`](../active-designing/20260721-185942_stoa200-vane-body-inventory.md). Next: choose B1–B4 or send. seva-broadcast held.
 
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.

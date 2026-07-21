@@ -1,6 +1,6 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–198 GREEN · 2026-07-21 · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · glow-language–200 GREEN · 2026-07-21 · draw → **glow-language**
 
-Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–197 · **glow-language** Glow fold surface. Hoon study twins under `glow/gen/hoon-study/`.
+Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–199A · **glow-language** vane-body inventory. Hoon study twins under `glow/gen/hoon-study/`.
 
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
@@ -49,4 +49,6 @@ Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; p
 | **glow-language** | replay thin port | `glow_sala_b0_replay_witness` | **GREEN** `183126` |
 | **glow-language** | claim compose append+replay | `glow_sala_b0_claim_witness` · stoa191 | **GREEN** `183253` |
 | **glow-language** | Glow fold product surface | `glow_sala_b0_fold_witness` · stoa198 | **GREEN** `183554` |
+| **STOA199A** | Pixel Glow-fold eyes (lean A) | Keaton eyes · pixel-glass hex | **GREEN** `185805` |
+| **glow-language** | vane-body inventory (lean B) | inventory brief · sub-leans B1–B4 | **GREEN** `185942` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
