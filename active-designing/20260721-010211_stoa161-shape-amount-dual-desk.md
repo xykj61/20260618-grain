@@ -28,7 +28,7 @@
 | `mold-count` | `count-mold` | one-field `$:` | **`shape-count`** glow-language |
 | `mold-pair` | `pair-mold` | two-field `$:` | **`shape-pair`** glow-language (cast held) |
 | `mold-triple` … `mold-nona` | `*-mold` | multi-field `$:` | later |
-| `mold-kind` | `kind-mold` | unit `$%` | later |
+| `mold-kind` | `kind-mold` | unit `$%` | **`shape-kind`** glow-language |
 | `mold-xact` | `xact-mold` | payload `$%` | later |
 | `mold-xfer` | `xfer-mold` | multi-face `$%` | later |
 

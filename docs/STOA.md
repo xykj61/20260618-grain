@@ -11,4 +11,5 @@
 | **glow-language** | inventary · `shape-amount` dual desk | `glow_run` desks | **GREEN** `010211` |
 | **glow-language** | `shape-count` dual desk | `glow_run` desks | **GREEN** `010435` |
 | **glow-language** | `shape-pair` dual desk | `glow_run` | **GREEN** `010610` |
+| **glow-language** | `shape-kind` dual desk | `glow_run` desks | **GREEN** `010739` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
