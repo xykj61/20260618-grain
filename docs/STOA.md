@@ -1,6 +1,6 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–190 GREEN · 2026-07-21 · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · glow-language–191 GREEN · 2026-07-21 · draw → **glow-language**
 
-Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–189 · **glow-language** mold→shape surface. Hoon study twins under `glow/gen/hoon-study/`.
+Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–190 · **glow-language** NativeActivity claim wire. Hoon study twins under `glow/gen/hoon-study/`.
 
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
@@ -41,4 +41,5 @@ Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; p
 | **glow-language** | `$%` payload `@t` / `@ux` emit | lower_shape · named-cast | **GREEN** `180725` |
 | **glow-language** | ShapeSpec / rune_shape / lower_shape API | shape witnesses · glow_run | **GREEN** `180917` |
 | **glow-language** | remaining mold→shape surface | bartis · nest · shape witnesses | **GREEN** `181551` |
+| **glow-language** | NativeActivity claim wire (lean C) | `stoa191_native_claim_wire_witness` | **GREEN** `181903` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.

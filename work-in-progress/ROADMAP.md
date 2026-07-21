@@ -628,7 +628,9 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language ShapeSpec API rename GREEN, `20260721.180917`** — `ShapeSpec` · `rune_shape` · `lower_shape`. Brief [`active-designing/20260721-180917_stoa189-shapespec-api-rename.md`](../active-designing/20260721-180917_stoa189-shapespec-api-rename.md).
 
-**glow-language remaining mold→shape GREEN, `20260721.181551`** — errors · APIs · Zig `*Shape` · living gates · `hoon-study/` twins. Brief [`active-designing/20260721-181551_stoa190-remaining-mold-to-shape.md`](../active-designing/20260721-181551_stoa190-remaining-mold-to-shape.md). Next check-in: NativeActivity claim wire · rest. seva-broadcast held.
+**glow-language remaining mold→shape GREEN, `20260721.181551`** — errors · APIs · Zig `*Shape` · living gates · `hoon-study/` twins. Brief [`active-designing/20260721-181551_stoa190-remaining-mold-to-shape.md`](../active-designing/20260721-181551_stoa190-remaining-mold-to-shape.md).
+
+**glow-language NativeActivity claim wire GREEN, `20260721.181903`** — lean C; `claim_demo_fold` on product path; pack GREEN. Brief [`active-designing/20260721-181903_stoa191-native-claim-wire.md`](../active-designing/20260721-181903_stoa191-native-claim-wire.md). Next check-in: rest · seva-broadcast held.
 
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
