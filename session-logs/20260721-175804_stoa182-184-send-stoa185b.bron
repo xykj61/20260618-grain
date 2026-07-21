@@ -1,0 +1,18 @@
+format session-log-v1
+stamp 20260721.175804
+editor Cursor
+model Cursor Grok 4.5 300k High Fast
+voice Quin
+host Ubuntu 26.04 LTS GNOME Wayland (Framework 16 AMD) — UDT (UTC) time convention
+title glow-language–184 send · approve claim shell
+prompt send and approve next rec
+think send STOA182A named-cast cord · glow-language thin @ux · glow-language @ux lower + sala from/to
+think next rec after ROADMAP list = claim shell (glow-language lean B) — Glow adapter over elder run_demo_fold
+obs pier prior 48af79c996; pack unsent through glow-language
+file glow/lower_named_cast.rye glow-language cord cast
+file glow/tokens.rye glow-language @ux lex
+file glow/lower_mold.rye glow-language @ux emit
+file glow/gen/shape-sala-event.glow from/to @ux
+recommend keep-going glow-language claim shell after remotes ack
+product_nib Sala B0 Glow
+suite_nib glow-language-184

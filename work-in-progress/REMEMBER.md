@@ -2,25 +2,26 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260721.174435` (UDT) · voice Quin  
+**Last refreshed:** `20260721.175804` (UDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow**  
-**Language nib:** **glow-language–181** GREEN · `@t` lower · shape kept  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–181  
-**Git nib:** *(refresh after push)* · glow-language sending  
+**Language nib:** **glow-language–184** GREEN · `@t` · `@ux` lower · named-cast  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–184  
+**Git nib:** *(refresh after push)* · glow-language–184 sending  
 
-**Chapter:** Framework · UDT · Sala B0 Glow · `@t` cord emit GREEN · usb-hearth.5 live-sent GREEN.  
+**Chapter:** Framework · UDT · Sala B0 Glow · `@ux` lower GREEN · usb-hearth.5 live-sent GREEN.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
 
 ---
 
 ## Now
 
-**glow-language** `20260721.173504` — `@t` cord lower **sent**. Brief [`../active-designing/20260721-173504_stoa181-at-cord-lower-emit.md`](../active-designing/20260721-173504_stoa181-at-cord-lower-emit.md).
+**glow-language** `20260721.175343` — `@ux` hex lower **sent**. Brief [`../active-designing/20260721-175343_stoa184-ux-hex-lower-emit.md`](../active-designing/20260721-175343_stoa184-ux-hex-lower-emit.md).
 
-**glow-language** lean **A** *(now)* — named-cast cord emit. Check-in [`../active-designing/20260721-173800_stoa182-after-cord-lower-checkin.md`](../active-designing/20260721-173800_stoa182-after-cord-lower-checkin.md).
+**glow-language** lean **B** *(now)* — Glow claim shell over elder `run_demo_fold`. Check-in [`../active-designing/20260721-174709_stoa183-after-named-cast-cord-checkin.md`](../active-designing/20260721-174709_stoa183-after-named-cast-cord-checkin.md).
 
 ```bash
-rishi/bin/rishi run tools/glow_lower_named_cast_witness.rish
+rishi/bin/rishi run tools/glow_lower_mold_witness.rish
+rishi/bin/rishi run tools/glow_run.rish glow/gen/shape-sala-event.glow
 ```
 
 ---
@@ -29,7 +30,7 @@ rishi/bin/rishi run tools/glow_lower_named_cast_witness.rish
 
 | Door | Kind |
 |------|------|
-| STOA182A named-cast cord | **kg** |
+| STOA185B claim shell | **kg** |
 | seva-broadcast inference · economics | **check-in** (held) |
 | usb-hearth.5 live-sent | **GREEN** `20260720.233805` |
 
