@@ -578,7 +578,9 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language shape-xact dual GREEN, `20260721.010935`** — first payload `$%` dual `shape-xact` · cast twins; mold-xact kept. Brief [`active-designing/20260721-010935_stoa165-shape-xact-dual-desk.md`](../active-designing/20260721-010935_stoa165-shape-xact-dual-desk.md).
 
-**glow-language shape-xfer dual GREEN, `20260721.011110`** — multi-face payload `$%` dual `shape-xfer` · cast twins; mold-xfer kept; tagged dual family closed. Brief [`active-designing/20260721-011110_stoa166-shape-xfer-dual-desk.md`](../active-designing/20260721-011110_stoa166-shape-xfer-dual-desk.md). Next language: **glow-language** `shape-triple` dual.
+**glow-language shape-xfer dual GREEN, `20260721.011110`** — multi-face payload `$%` dual `shape-xfer` · cast twins; mold-xfer kept; tagged dual family closed. Brief [`active-designing/20260721-011110_stoa166-shape-xfer-dual-desk.md`](../active-designing/20260721-011110_stoa166-shape-xfer-dual-desk.md).
+
+**glow-language shape-triple dual GREEN, `20260721.011244`** — three-field `$:` dual `shape-triple` → `TripleShape`; mold-triple kept; cast held. Brief [`active-designing/20260721-011244_stoa167-shape-triple-dual-desk.md`](../active-designing/20260721-011244_stoa167-shape-triple-dual-desk.md). Next language: **glow-language** `shape-quad` dual.
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
 
