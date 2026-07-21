@@ -30,7 +30,7 @@
 | `mold-triple` … `mold-nona` | `*-mold` | multi-field `$:` | later |
 | `mold-kind` | `kind-mold` | unit `$%` | **`shape-kind`** glow-language |
 | `mold-xact` | `xact-mold` | payload `$%` | **`shape-xact`** glow-language |
-| `mold-xfer` | `xfer-mold` | multi-face `$%` | later |
+| `mold-xfer` | `xfer-mold` | multi-face `$%` | **`shape-xfer`** glow-language |
 
 Cast twins already on mold path: `cast-named-amount` · `cast-import-amount` (and kind/xact). Gate desks already lead with `gate-*-shape` from glow-language–160.
 
