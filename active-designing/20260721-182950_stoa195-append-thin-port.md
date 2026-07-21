@@ -31,7 +31,7 @@ rishi/bin/rishi run tools/glow_sala_b0_append_witness.rish
 
 ## Hold
 
-Replay product port. Fold rewrite. Pixel eyes. seva-broadcast.
+Fold rewrite. Pixel eyes. seva-broadcast. (Replay product port landed glow-language.)
 
 ---
 

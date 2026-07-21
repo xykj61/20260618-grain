@@ -642,7 +642,9 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language digest thin port GREEN, `20260721.182623`** — lean C; `claim_digest_log` over elder `digest_log`; demo log via elder append; agrees claim fold. Brief [`active-designing/20260721-182623_stoa194-digest-thin-port.md`](../active-designing/20260721-182623_stoa194-digest-thin-port.md). Sent with glow-language `dc57dacc5e`.
 
-**glow-language append thin port GREEN, `20260721.182950`** — `append_demo_log` · `claim_append_demo_root` over elder `append_event`; agrees claim fold. Brief [`active-designing/20260721-182950_stoa195-append-thin-port.md`](../active-designing/20260721-182950_stoa195-append-thin-port.md). Next check-in: replay port · Pixel eyes · rest. seva-broadcast held.
+**glow-language append thin port GREEN, `20260721.182950`** — `append_demo_log` · `claim_append_demo_root` over elder `append_event`; agrees claim fold. Brief [`active-designing/20260721-182950_stoa195-append-thin-port.md`](../active-designing/20260721-182950_stoa195-append-thin-port.md). Sent `c60f3ae46e`.
+
+**glow-language replay thin port GREEN, `20260721.183126`** — `claim_replay_demo_root` over elder `replay`; double replay · fixture root; agrees claim fold. Brief [`active-designing/20260721-183126_stoa196-replay-thin-port.md`](../active-designing/20260721-183126_stoa196-replay-thin-port.md). Next check-in: compose claim onto append+replay · Pixel eyes · rest. seva-broadcast held.
 
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
