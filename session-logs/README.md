@@ -8,6 +8,8 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260721.000705` — [glow-language send then kg kind-shape](20260721-000705_stoa150-send-then-kg.bron) — send pair-shape; kg glow-language
+- `20260721.000234` — [glow-language pair-shape alias GREEN](20260721-000234_stoa150-pair-shape-green.bron) — pair-shape ≡ pair-mold; unsent
 - `20260721.000044` — [glow-language send then kg pair-shape](20260721-000044_stoa149-send-then-kg.bron) — send count-shape; kg glow-language
 - `20260720.235652` — [glow-language count-shape alias GREEN](20260720-235652_stoa149-count-shape-green.bron) — count-shape ≡ count-mold; unsent
 - `20260720.235434` — [glow-language pushed · glow-language approved](20260720-235434_stoa148-pushed-shape-next.bron) — origin+codeberg; next count-shape kg
