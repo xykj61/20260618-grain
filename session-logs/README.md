@@ -8,6 +8,7 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260721.011650` — [glow-language sent · glow-language shape-quad GREEN](20260721-011650_stoa167-sent-stoa168-green.bron) — pier 90c3c29d78; quad dual + mold-only budget unsent
 - `20260721.011330` — [glow-language sent · glow-language shape-triple GREEN](20260721-011330_stoa166-sent-stoa167-green.bron) — pier b7a177689d; triple dual unsent
 - `20260721.011210` — [glow-language sent · glow-language shape-xfer GREEN](20260721-011210_stoa165-sent-stoa166-green.bron) — pier e12a95e0b2; xfer dual unsent
 - `20260721.011040` — [glow-language sent · glow-language shape-xact GREEN](20260721-011040_stoa164-sent-stoa165-green.bron) — pier 2a1630e4f2; xact dual unsent

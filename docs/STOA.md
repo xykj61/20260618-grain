@@ -15,4 +15,5 @@
 | **glow-language** | `shape-xact` dual desk | `glow_run` desks | **GREEN** `010935` |
 | **glow-language** | `shape-xfer` dual desk | `glow_run` desks | **GREEN** `011110` |
 | **glow-language** | `shape-triple` dual desk | `glow_run` | **GREEN** `011244` |
+| **glow-language** | `shape-quad` dual · mold-only budget | `glow_run` · tokens | **GREEN** `011412` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
