@@ -654,7 +654,17 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **STOA199A Pixel Glow-fold eyes GREEN, `20260721.185805`** — lean A; title GREEN · pixel-glass hex · tap-to-close. Brief [`active-designing/20260721-185805_stoa199a-pixel-glow-fold-eyes.md`](../active-designing/20260721-185805_stoa199a-pixel-glow-fold-eyes.md).
 
-**glow-language vane-body inventory GREEN, `20260721.185942`** — lean B; wrappers vs elder bodies; sub-leans B1–B4 (rec B1 sign). Brief [`active-designing/20260721-185942_stoa200-vane-body-inventory.md`](../active-designing/20260721-185942_stoa200-vane-body-inventory.md). Next: choose B1–B4 or send. seva-broadcast held.
+**glow-language vane-body inventory GREEN, `20260721.185942`** — lean B; wrappers vs elder bodies; sub-leans B1–B4 (rec B1 sign). Brief [`active-designing/20260721-185942_stoa200-vane-body-inventory.md`](../active-designing/20260721-185942_stoa200-vane-body-inventory.md). Sent `01e7428ee7`.
+
+**glow-language sign/verify product surface GREEN, `20260721.190209`** — B1; `claim_demo_sign` · tamper refuse. Brief [`active-designing/20260721-190209_stoa201-sign-verify-surface.md`](../active-designing/20260721-190209_stoa201-sign-verify-surface.md).
+
+**glow-language log-line format/parse GREEN, `20260721.190240`** — B2; `claim_demo_line` · bad-line refuse. Brief [`active-designing/20260721-190240_stoa202-line-format-parse.md`](../active-designing/20260721-190240_stoa202-line-format-parse.md).
+
+**glow-language append via sign+line compose GREEN, `20260721.190527`** — `append_event` → sign · line · copy; no `sala.append_event`; fixture + elder fold agree. Brief [`active-designing/20260721-190527_stoa203-append-sign-line-compose.md`](../active-designing/20260721-190527_stoa203-append-sign-line-compose.md).
+
+**glow-language replay product digest honesty GREEN, `20260721.190637`** — claim path → `claim_digest_log`; agrees elder replay · fixture · fold. Brief [`active-designing/20260721-190637_stoa204-replay-product-digest-honesty.md`](../active-designing/20260721-190637_stoa204-replay-product-digest-honesty.md).
+
+**glow-language after digest honesty check-in, `20260721.190850`** — leans A rest (rec) · B B3 desk · C replay-body inventory · D seva-broadcast held. Brief [`active-designing/20260721-190850_stoa205-after-digest-honesty-checkin.md`](../active-designing/20260721-190850_stoa205-after-digest-honesty-checkin.md).
 
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.

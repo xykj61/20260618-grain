@@ -1,6 +1,6 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–200 GREEN · 2026-07-21 · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · glow-language–204 GREEN · glow-language check-in · 2026-07-21 · draw → **glow-language**
 
-Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–199A · **glow-language** vane-body inventory. Hoon study twins under `glow/gen/hoon-study/`.
+Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–204 · **glow-language** after digest honesty check-in. Hoon study twins under `glow/gen/hoon-study/`.
 
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
@@ -51,4 +51,9 @@ Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; p
 | **glow-language** | Glow fold product surface | `glow_sala_b0_fold_witness` · stoa198 | **GREEN** `183554` |
 | **STOA199A** | Pixel Glow-fold eyes (lean A) | Keaton eyes · pixel-glass hex | **GREEN** `185805` |
 | **glow-language** | vane-body inventory (lean B) | inventory brief · sub-leans B1–B4 | **GREEN** `185942` |
+| **glow-language** | sign/verify product surface (B1) | `glow_sala_b0_sign_witness` | **GREEN** `190209` |
+| **glow-language** | log-line format/parse (B2) | `glow_sala_b0_line_witness` | **GREEN** `190240` |
+| **glow-language** | append via sign+line compose | `glow_sala_b0_append_witness` · fold | **GREEN** `190527` |
+| **glow-language** | replay product digest honesty | `glow_sala_b0_replay_witness` · fold | **GREEN** `190637` |
+| **glow-language** | after digest honesty check-in | leans A–D awaiting word | **open** `190850` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
