@@ -31,7 +31,7 @@ rishi/bin/rishi run tools/glow_sala_b0_replay_witness.rish
 
 ## Hold
 
-Fold rewrite (compose claim shell onto append+replay). Pixel eyes. seva-broadcast.
+Glow-authored fold body. Pixel eyes. seva-broadcast. (Claim compose onto append+replay landed glow-language.)
 
 ---
 
