@@ -1,0 +1,24 @@
+format session-log-v1
+stamp 20260721.182950
+editor Cursor
+model Cursor Grok 4.5 300k High Fast
+voice Quin
+host Ubuntu 26.04 LTS GNOME Wayland (Framework 16 AMD) — UDT (UTC) time convention
+title glow-language-194 send · glow-language append GREEN
+prompt send and approve next rec
+think Send glow-language-194 fixture pin and digest to pier origin and codeberg.
+think Next rec after digest is thin append port wrapping elder append_event with fixture pins.
+think Seat glow_sala_b0_append append_demo_log claim_append_demo_root; witness GREEN agrees claim fold.
+obs Sign stays inside elder append; replay and fold rewrite held; glow-language unsent.
+file linengrow/glow_sala_b0_append.rye append product surface
+file linengrow/glow_sala_b0_append_witness.rye selftest
+file tools/glow_sala_b0_append_witness.rish hand
+file active-designing/20260721-182950_stoa195-append-thin-port.md brief
+file work-in-progress/TASKS.md glow-language checked
+file work-in-progress/ROADMAP.md glow-language GREEN
+file work-in-progress/REMEMBER.md Now glow-language
+file docs/glow-language.md glow-language-195
+git_nib dc57dacc5e
+product_nib Sala-B0-Glow-append
+suite_nib glow-language-195
+recommend check-in replay Pixel or rest; or send glow-language to pier
