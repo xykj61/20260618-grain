@@ -822,6 +822,10 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language after serial pin check-in, `20260722.153358`** — lean A send · lean B host boot→harvest retry. Brief [`active-designing/20260722-153358_stoa280-after-serial-pin-checkin.md`](../active-designing/20260722-153358_stoa280-after-serial-pin-checkin.md).
 
+**glow-language pixel-glass boot→harvest host GREEN, `20260722.153651`** — host onpath GREEN beside Pixel; harvest `serial` field. Brief [`active-designing/20260722-153651_stoa281-hawm-boot-harvest-host-green.md`](../active-designing/20260722-153651_stoa281-hawm-boot-harvest-host-green.md).
+
+**glow-language after host boot→harvest check-in, `20260722.153651`** — lean A send · lean B root-into-harvest. Brief [`active-designing/20260722-153651_stoa282-after-host-boot-harvest-checkin.md`](../active-designing/20260722-153651_stoa282-after-host-boot-harvest-checkin.md).
+
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
 

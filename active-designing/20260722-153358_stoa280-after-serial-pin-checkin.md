@@ -6,8 +6,8 @@
 **Version:** `20260722.153358` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send with round-close · lean **B** host retry  
-**Register:** Checkable (Two Rooms) — serial pin GREEN; full chain Intent until host GREEN  
+**Status:** Checkable — lean **A** send done · lean **B** → glow-language host GREEN  
+**Register:** Checkable (Two Rooms) — serial pin GREEN; host boot→harvest GREEN as glow-language  
 
 **Grounds in:** glow-language · glow-language lean B failure printout  
 
@@ -20,7 +20,7 @@
 | | Lean | What it opens |
 |---|---|---|
 | **A** | **Send glow-language** — **chosen** with round-close | pier carries serial pin |
-| **B** | **Host boot→harvest retry** — **recommended** | same onpath; Pixel may stay plugged |
+| **B** | **Host boot→harvest retry** — **chosen** → glow-language | host GREEN `20260722.153549` beside Pixel |
 | **C** | **pixel-glass / Pixel root into harvest Bron** | after host GREEN, or parallel kg |
 | **D** | **Fleets · pixel-glass · gold · seva-broadcast · UDP** | **held** |
 
