@@ -146,4 +146,6 @@ Living Glow OS desks lead with `shape-*` (shape duals glow-language–173; pin p
 | **glow-language** | after penta argv check-in | A send · B rest available · **C** hexa argv chosen | **GREEN** `20260722.192541` |
 | **glow-language** | N-field argv survey · hexa | `emit_hexa_argv` · bartis+barket | **GREEN** `20260722.192737` |
 | **glow-language** | after hexa argv check-in | A send · B rest available · **C** hepta argv recommended | **GREEN** `20260722.193120` |
+| **glow-language** | N-field argv survey · hepta | `emit_hepta_argv` · bartis+barket | **GREEN** `20260722.193725` |
+| **glow-language** | after hepta argv check-in | A send · B rest available · **C** octa argv recommended | **GREEN** `20260722.193733` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.

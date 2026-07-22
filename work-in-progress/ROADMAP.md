@@ -898,6 +898,10 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language after hexa argv check-in, `20260722.193120`** — lean A send · lean B rest available · lean **C** hepta argv recommended. Brief [`active-designing/20260722-193120_stoa316-after-hexa-argv-checkin.md`](../active-designing/20260722-193120_stoa316-after-hexa-argv-checkin.md).
 
+**glow-language N-field argv survey · hepta GREEN, `20260722.193725`** — `emit_hepta_argv` · seven fields · octa refuse pinned. Brief [`active-designing/20260722-193725_stoa317-n-field-argv-survey-hepta.md`](../active-designing/20260722-193725_stoa317-n-field-argv-survey-hepta.md).
+
+**glow-language after hepta argv check-in, `20260722.193733`** — lean A send · lean B rest available · lean **C** octa argv recommended. Brief [`active-designing/20260722-193733_stoa318-after-hepta-argv-checkin.md`](../active-designing/20260722-193733_stoa318-after-hepta-argv-checkin.md).
+
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
 
