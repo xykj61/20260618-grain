@@ -7,6 +7,8 @@ Living index for the append-only session stream. This table reads **newest first
 **Day’s truth is this index’s order, not filename sort.** One-clock stamps sort ascending on disk; trust the table for sequence within a day.
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
+- `20260722.154726` — [glow-language after pixel-glass rest resume check-in](20260722-154726_stoa288-after-hawm-rest-resume-checkin.bron) — lean A Pixel LIVE eyes
+- `20260722.154549` — [REMEMBER git nib after glow-language](20260722-154549_remember-git-nib-stoa287.bron) — pin c6334634ad20
 - `20260722.154539` — [glow-language pixel-glass season rest](20260722-154539_stoa287-hawm-season-rest.bron) — lean B rest chosen; no next kg
 - `20260722.154430` — [REMEMBER git nib after glow-language](20260722-154430_remember-git-nib-stoa286.bron) — pin df35bb113ce8
 - `20260722.154415` — [glow-language hawm0 stopped season fold](20260722-154415_stoa286-hawm0-stopped-season-fold.bron) — AVD down; harvest kept; rest

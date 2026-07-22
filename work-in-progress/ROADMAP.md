@@ -836,6 +836,8 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language pixel-glass season rest, `20260722.154515`** — lean B rest chosen; no next kg until reopen. Brief [`active-designing/20260722-154515_stoa287-hawm-season-rest.md`](../active-designing/20260722-154515_stoa287-hawm-season-rest.md).
 
+**glow-language after pixel-glass rest resume check-in, `20260722.154654`** — lean A Pixel LIVE eyes · lean B language inventary · lean C reopen pixel-glass · lean D held. Brief [`active-designing/20260722-154654_stoa288-after-hawm-rest-resume-checkin.md`](../active-designing/20260722-154654_stoa288-after-hawm-rest-resume-checkin.md).
+
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
 
