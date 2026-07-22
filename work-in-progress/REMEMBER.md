@@ -2,14 +2,14 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260722.144300` (EDT) · voice Quin  
+**Last refreshed:** `20260722.145236` (EDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow compose** · authored line · sign · digest · fields  
-**Language nib:** **glow-language–258** · shape-only living · bartis · barket N-field identity  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–258  
-**Git nib:** *(refresh after send)* · glow-language–258
+**Language nib:** **glow-language–260** · shape-only living · bartis N-field identity · flip  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–260  
+**Git nib:** *(refresh after send)* · glow-language–260
 
 
-**Chapter:** Framework · Eastern / EDT · shape-only living GREEN · round-close on.  
+**Chapter:** Framework · Eastern / EDT · bartis N-field flip GREEN · round-close on.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`  
 **ADB:** `tools/.cache/hawm0/android-sdk/platform-tools/adb` — not on bare PATH
 
@@ -17,7 +17,7 @@
 
 ## Now
 
-**glow-language** `20260722.144300` — shape-only living GREEN; lean B flip collapse; lean C pixel-glass 1A held. Brief [`../active-designing/20260722-144300_stoa258-after-shape-only-living-checkin.md`](../active-designing/20260722-144300_stoa258-after-shape-only-living-checkin.md).
+**glow-language** `20260722.145236` — bartis N-field flip GREEN; lean B barket flip twin. Brief [`../active-designing/20260722-145236_stoa260-after-n-field-flip-checkin.md`](../active-designing/20260722-145236_stoa260-after-n-field-flip-checkin.md).
 
 **ADB (copy-paste):**
 
@@ -37,13 +37,13 @@ $ADB shell run-as org.glow.app.sala_broadcaster cat files/sala_root.txt
 
 | Door | Kind |
 |------|------|
-| Flip call-body collapse | **kg** (glow-language lean B) |
+| Barket flip twin | **kg** (glow-language lean B) |
 | pixel-glass log-harvest inventary | **held** (approved 1A · mobile season) |
 | Ambient gold | **held** |
 | Shared package / true `@import` face_lit | **held** |
 | seva-broadcast | **held** |
+| Bartis N-field flip emit | **GREEN** `20260722.145110` |
 | Shape-only living | **GREEN** `20260722.144300` |
-| Barket N-field identity emit | **GREEN** `20260722.142939` |
 | Pixel embedded-desk eyes | **GREEN** `20260722.135605` |
 
 ---

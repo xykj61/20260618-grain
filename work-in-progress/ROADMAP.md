@@ -776,6 +776,12 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language after shape-only living check-in, `20260722.144300`** — lean A send · lean B flip collapse · lean C pixel-glass 1A held. Brief [`active-designing/20260722-144300_stoa258-after-shape-only-living-checkin.md`](../active-designing/20260722-144300_stoa258-after-shape-only-living-checkin.md).
 
+**Check-in humanity · green runes · Glow name, `20260722.144843`** — finishing edge · density without kWh claim · keep Glow (glow-language throwaway ladder). Brief [`active-designing/20260722-144843_checkin-humanity-green-runes-glow-name.md`](../active-designing/20260722-144843_checkin-humanity-green-runes-glow-name.md).
+
+**glow-language bartis N-field flip emit GREEN, `20260722.145110`** — `emit_n_field_flip_call_body` · eight wrappers · tagged `$%` flip held. Brief [`active-designing/20260722-145110_stoa259-n-field-flip-emit.md`](../active-designing/20260722-145110_stoa259-n-field-flip-emit.md).
+
+**glow-language after N-field flip check-in, `20260722.145236`** — lean A send · lean B barket flip twin. Brief [`active-designing/20260722-145236_stoa260-after-n-field-flip-checkin.md`](../active-designing/20260722-145236_stoa260-after-n-field-flip-checkin.md).
+
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
 
