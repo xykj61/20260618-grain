@@ -6,7 +6,8 @@
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow compose** · fixture lit wire  
 **Language nib:** **glow-language–224** GREEN · literals + fixture wire sent · check-in open  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–224  
-**Git nib:** *(filled after send)* · glow-language–224  
+**Git nib:** `91ad5674502a` · glow-language–224  
+
 
 **Chapter:** Framework · Eastern / EDT · fixture lit wire on pier · usb-hearth.5 live-sent GREEN.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`
