@@ -6,7 +6,8 @@
 **Version:** `20260722.131841` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send chosen with this seating · next lean open  
+**Status:** Checkable — lean **A** send chosen `20260722.131841` · lean **B** chosen `20260722.132020` as **glow-language**  
+
 **Register:** Checkable (Two Rooms) — glow-language GREEN on pier with this send; fold runtime desk read held  
 
 **Grounds in:** glow-language product fixture wire · glow-language lean C fact-line · glow-language lit desk
