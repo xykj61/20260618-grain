@@ -562,6 +562,7 @@
 - [x] **glow-language — after host GREEN check-in sized** `20260722.153820` — lean A pixel-glass→root-into-harvest; lean B pixel-glass only; lean C stop/rest; lean D held. Brief [`../active-designing/20260722-153820_stoa283-after-host-green-checkin-sized.md`](../active-designing/20260722-153820_stoa283-after-host-green-checkin-sized.md).
 - [x] **glow-language — harvest session_root** `20260722.154128` — pixel-glass GREEN; `session_root` 64-hex in hawm-harvest-v1. Brief [`../active-designing/20260722-154128_stoa284-hawm-harvest-session-root.md`](../active-designing/20260722-154128_stoa284-hawm-harvest-session-root.md).
 - [x] **glow-language — after session_root check-in** `20260722.154128` — lean A send; lean B stop hawm0/rest. Brief [`../active-designing/20260722-154128_stoa285-after-session-root-checkin.md`](../active-designing/20260722-154128_stoa285-after-session-root-checkin.md).
+- [x] **glow-language — hawm0 stopped season fold** `20260722.154348` — stop GREEN; harvest Bron kept; lean B rest. Brief [`../active-designing/20260722-154348_stoa286-hawm0-stopped-season-fold.md`](../active-designing/20260722-154348_stoa286-hawm0-stopped-season-fold.md).
 
 
 - [x] **UDT stamp convention on Framework host** `20260720.232932` — Keaton set system clock to UDT (UTC); [`context/specs/20260720-232932_udt-framework-host-convention.md`](../context/specs/20260720-232932_udt-framework-host-convention.md); Eastern era stamps stay; session-log rules + `GLOW_PROFILE` pointed at Etc/UTC for that season.

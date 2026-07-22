@@ -6,8 +6,8 @@
 **Version:** `20260722.154128` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send with round-close · lean **B** stop hawm0  
-**Register:** Checkable (Two Rooms) — glow-language GREEN; fleets Intent  
+**Status:** Checkable — lean **A** send done · lean **B** → glow-language stop GREEN  
+**Register:** Checkable (Two Rooms) — glow-language GREEN; hawm0 stopped as glow-language  
 
 **Grounds in:** glow-language · glow-language lean A  
 
@@ -26,7 +26,7 @@ glow-language: pixel-glass GREEN on `emulator-5554` · `session_root` in `hawm-h
 | | Lean | What it opens |
 |---|---|---|
 | **A** | **Send glow-language** — **chosen** with round-close | pier carries root-in-harvest |
-| **B** | **Stop hawm0 · rest** — **recommended** when mobile season pauses | `tools/hawm0_stop.sh` |
+| **B** | **Stop hawm0 · rest** — **chosen** → glow-language | `tools/hawm0_stop.sh` GREEN `20260722.154348` |
 | **C** | **Pixel / pixel-glass root eyes** (optional note) | phone look vs AVD hex — no new field required |
 | **D** | **Fleets · pixel-glass · gold · seva-broadcast · UDP** | **held** |
 
