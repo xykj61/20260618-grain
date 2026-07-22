@@ -2,14 +2,14 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260722.150432` (EDT) · voice Quin  
-**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow compose** · authored line · sign · digest · fields · **Pixel authored-fold eyes**  
-**Language nib:** **glow-language–264** · shape-only living · N-field identity · flip on bartis+barket  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–264  
-**Git nib:** *(pin after send)* · glow-language–264
+**Last refreshed:** `20260722.150806` (EDT) · voice Quin  
+**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow compose** · authored bodies · **Pixel authored-fold eyes**  
+**Language nib:** **glow-language–265** · shape-only · N-field inventary deepen closed · Dexter→Sala check-in seated  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–265  
+**Git nib:** *(pin after send)* · glow-language
 
 
-**Chapter:** Framework · Eastern / EDT · Pixel authored-fold eyes GREEN · finishing edge on glass · round-close on.  
+**Chapter:** Framework · Eastern / EDT · Dexter→Sala thin face sized · lean A typed memo→append · round-close on.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`  
 **ADB:** `tools/.cache/hawm0/android-sdk/platform-tools/adb` — not on bare PATH
 
@@ -17,7 +17,7 @@
 
 ## Now
 
-**glow-language** `20260722.150432` — authored-fold Pixel eyes GREEN; lean B Dexter→Sala thin face (check-in first). Brief [`../active-designing/20260722-150432_stoa264-after-authored-fold-eyes-checkin.md`](../active-designing/20260722-150432_stoa264-after-authored-fold-eyes-checkin.md).
+**glow-language** `20260722.150806` — Dexter→Sala append check-in; lean A device-free typed memo→`append_event` (recommended). Brief [`../active-designing/20260722-150806_stoa265-dexter-sala-append-checkin.md`](../active-designing/20260722-150806_stoa265-dexter-sala-append-checkin.md).
 
 **ADB (copy-paste):**
 
@@ -37,14 +37,12 @@ $ADB shell run-as org.glow.app.sala_broadcaster cat files/sala_root.txt
 
 | Door | Kind |
 |------|------|
-| Dexter → signed Sala append | **check-in** (glow-language lean B · thin face) |
+| Typed memo → Glow `append_event` | **kg** (glow-language lean A) |
+| Dexter submit helper module | lean B (after A) |
+| NativeActivity submit → append | lean C (glass · after A) |
 | pixel-glass log-harvest inventary | **held** (approved 1A · mobile season) |
-| Ambient gold | **held** |
-| Shared package / true `@import` face_lit | **held** |
-| seva-broadcast | **held** |
+| Ambient gold · shared-package · seva-broadcast · UDP | **held** |
 | Pixel authored-fold eyes | **GREEN** `20260722.150432` |
-| Barket N-field flip emit | **GREEN** `20260722.145715` |
-| Shape-only living | **GREEN** `20260722.144300` |
 
 ---
 

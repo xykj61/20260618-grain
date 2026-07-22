@@ -790,6 +790,8 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language after authored-fold eyes check-in, `20260722.150432`** — lean A send · lean B Dexter→Sala thin face · lean C pixel-glass 1A held. Brief [`active-designing/20260722-150432_stoa264-after-authored-fold-eyes-checkin.md`](../active-designing/20260722-150432_stoa264-after-authored-fold-eyes-checkin.md).
 
+**glow-language Dexter → signed Sala append check-in, `20260722.150806`** — lean A typed memo→`append_event` device-free (recommended) · lean C glass wire later · pixel-glass untouched. Brief [`active-designing/20260722-150806_stoa265-dexter-sala-append-checkin.md`](../active-designing/20260722-150806_stoa265-dexter-sala-append-checkin.md).
+
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
 
