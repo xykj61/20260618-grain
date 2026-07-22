@@ -1,6 +1,6 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–238 GREEN · 2026-07-22 · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · glow-language–240 GREEN · 2026-07-22 · draw → **glow-language**
 
-Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–238 · **glow-language** after embedded desk check-in (Pixel eyes next). Hoon study twins under `glow/gen/hoon-study/`.
+Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–240 · **glow-language** after Pixel embedded-desk eyes (name next door). Hoon study twins under `glow/gen/hoon-study/`.
 
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
@@ -88,5 +88,7 @@ Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; p
 | **glow-language** | claim/fold desk-file I/O | claim + fold witnesses | **GREEN** `20260722.134552` |
 | **glow-language** | after desk-file claim check-in | leans A send · B as glow-language | **GREEN** `20260722.134657` |
 | **glow-language** | NativeActivity embedded lit desk | `stoa237_native_embedded_desk_witness` | **GREEN** `20260722.134831` |
-| **glow-language** | after embedded desk check-in | leans A send · B Pixel eyes | **GREEN** `20260722.135324` |
+| **glow-language** | after embedded desk check-in | leans A send · B as glow-language | **GREEN** `20260722.135324` |
+| **glow-language** | Pixel embedded-desk eyes | `tube05_install_proof_onpath_host` | **GREEN** `20260722.135605` |
+| **glow-language** | after Pixel eyes check-in | leans A send · B name next door | **GREEN** `20260722.135605` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.

@@ -732,7 +732,11 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language NativeActivity embedded lit desk GREEN, `20260722.134831`** — embed · onCreate · pack · `.so` markers. Brief [`active-designing/20260722-134831_stoa237-native-embedded-lit-desk.md`](../active-designing/20260722-134831_stoa237-native-embedded-lit-desk.md).
 
-**glow-language after embedded desk check-in, `20260722.135324`** — lean A send · lean B Pixel eyes. Brief [`active-designing/20260722-135324_stoa238-after-embedded-desk-checkin.md`](../active-designing/20260722-135324_stoa238-after-embedded-desk-checkin.md). seva-broadcast held.
+**glow-language after embedded desk check-in, `20260722.135324`** — lean A send · lean B as glow-language. Brief [`active-designing/20260722-135324_stoa238-after-embedded-desk-checkin.md`](../active-designing/20260722-135324_stoa238-after-embedded-desk-checkin.md).
+
+**glow-language Pixel embedded-desk eyes GREEN, `20260722.135605`** — SDK adb · sala_root pixel-glass · install-proof. Brief [`active-designing/20260722-135605_stoa239-pixel-embedded-desk-eyes.md`](../active-designing/20260722-135605_stoa239-pixel-embedded-desk-eyes.md).
+
+**glow-language after Pixel eyes check-in, `20260722.135605`** — lean A send · lean B name next door (`face_lit` / seva-broadcast). Brief [`active-designing/20260722-135605_stoa240-after-pixel-eyes-checkin.md`](../active-designing/20260722-135605_stoa240-after-pixel-eyes-checkin.md). seva-broadcast held.
 
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.

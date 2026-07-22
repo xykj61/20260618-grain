@@ -6,7 +6,8 @@
 **Version:** `20260722.135324` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send chosen `20260722.135324` · lean **B** Pixel eyes recommended next  
+**Status:** Checkable — lean **A** send `20260722.135324` · lean **B** as **glow-language** `20260722.135549`  
+
 **Register:** Checkable (Two Rooms) — glow-language GREEN with this send; device eyes outer-terminal  
 
 **Grounds in:** glow-language embedded desk · glow-publishing.5 pack · usb-hearth.5 live-sent season
@@ -26,7 +27,7 @@ glow-language embed twin · onCreate embedded-desk fold · pack GREEN · desk ma
 | | Lean | What it opens |
 |---|---|---|
 | **A** | **Send glow-language** — **chosen** `20260722.135324` | pier matches hand |
-| **B** | **Pixel / install-proof eyes** — **recommended next** | outer-terminal adb install · sala_root eyes |
+| **B** | **Pixel / install-proof eyes** — **as glow-language** `20260722.135549` | SDK adb · sala_root pixel-glass on device |
 | **C** | **Glow `face_lit` on product path** | thicker module-path seam — **held** |
 | **D** | **seva-broadcast** | inference · economics — **held**; explicit word only |
 
