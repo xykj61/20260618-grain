@@ -1,6 +1,6 @@
 # glow-language — Glow SLC · nest · product · ≤80 · glow-language–294 · 2026-07-22 · draw → **glow-language**
 
-Living Glow OS desks lead with `shape-*` (shape duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–296 · **glow-language** after barket tagged payload flip (kind unit helper next). Hoon study twins under `glow/gen/hoon-study/`.
+Living Glow OS desks lead with `shape-*` (shape duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–298 · **glow-language** after tagged unit flip (two-family `$%` flip closed). Hoon study twins under `glow/gen/hoon-study/`.
 
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
@@ -126,4 +126,6 @@ Living Glow OS desks lead with `shape-*` (shape duals glow-language–173; pin p
 | **glow-language** | after tagged flip survey check-in | leans A send · B barket twin | **GREEN** `20260722.155802` |
 | **glow-language** | barket tagged payload flip twin | `emit_tagged_payload_flip` · barket witness | **GREEN** `20260722.160418` |
 | **glow-language** | after barket tagged flip check-in | leans A send · C kind unit helper | **GREEN** `20260722.160422` |
+| **glow-language** | tagged unit flip helper | `emit_tagged_unit_flip` · bartis+barket | **GREEN** `20260722.160822` |
+| **glow-language** | after tagged unit flip check-in | leans A send · B rest | **GREEN** `20260722.160700` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.

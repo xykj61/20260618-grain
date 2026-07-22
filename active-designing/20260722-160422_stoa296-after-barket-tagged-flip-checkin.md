@@ -6,8 +6,8 @@
 **Version:** `20260722.160422` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send with round-close · lean **C** kind unit helper recommended next  
-**Register:** Checkable (Two Rooms) — glow-language GREEN; unit helper Intent  
+**Status:** Checkable — lean **A** send with round-close · lean **C** kind unit helper **chosen** → glow-language GREEN  
+**Register:** Checkable (Two Rooms) — glow-language GREEN; unit helper Checkable as glow-language  
 
 **Grounds in:** glow-language · glow-language lean B  
 
@@ -27,7 +27,7 @@ glow-language: barket `emit_tagged_payload_flip_call_body` · xact/xfer wrappers
 |---|---|---|
 | **A** | **Send glow-language** — **chosen** with round-close | pier carries barket twin |
 | **B** | **Rest** | season pause; no next kg until reopen |
-| **C** | **Kind unit flip helper** — **recommended** | optional thin family for KindShape on bartis then barket |
+| **C** | **Kind unit flip helper** — **chosen** → glow-language | thin family for KindShape on bartis + barket |
 | **D** | **Gold · face_lit · fleets · seva-broadcast** | **held** |
 
 ---
