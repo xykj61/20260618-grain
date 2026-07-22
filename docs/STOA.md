@@ -1,6 +1,6 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–229 GREEN · 2026-07-22 · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · glow-language–230 GREEN · 2026-07-22 · draw → **glow-language**
 
-Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–229 · **glow-language** append first event from pin emit. Hoon study twins under `glow/gen/hoon-study/`.
+Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–230 · **glow-language** after append pin wire check-in (send · rest). Hoon study twins under `glow/gen/hoon-study/`.
 
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
@@ -80,4 +80,5 @@ Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; p
 | **glow-language** | demo line emit from seated pins | `glow_sala_b0_line_witness` | **GREEN** `20260722.132533` |
 | **glow-language** | after demo pin emit check-in | leans A send · B as glow-language | **GREEN** `20260722.132705` |
 | **glow-language** | append first event from pin emit | `glow_sala_b0_append_witness` | **GREEN** `20260722.133004` |
+| **glow-language** | after append pin wire check-in | leans A send `133343` · B rest | **GREEN** `20260722.133211` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
