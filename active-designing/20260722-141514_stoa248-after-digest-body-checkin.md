@@ -6,7 +6,7 @@
 **Version:** `20260722.141514` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send chosen with round-close · lean **B** name next door  
+**Status:** Checkable — lean **A** send chosen with round-close · lean **B** became **glow-language** `20260722.141630`  
 **Register:** Checkable (Two Rooms) — glow-language GREEN with this send; line/sign/digest authored bodies closed  
 
 **Grounds in:** glow-language digest body · glow-language–246 authored season · glow-language vane inventory  

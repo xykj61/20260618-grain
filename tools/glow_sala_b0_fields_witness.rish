@@ -1,4 +1,4 @@
-# glow_sala_b0_fields_witness.rish — Glow FactFields parse surface (glow-language · C2).
+# glow_sala_b0_fields_witness.rish — Glow FactFields parse surface (glow-language · glow-language).
 #
 #   rishi/bin/rishi run tools/glow_sala_b0_fields_witness.rish
 
@@ -16,5 +16,7 @@ assert selftest.out contains "claim_demo_fields round-trip" else "glow_sala_b0_f
 assert selftest.out contains "incomplete fact refuses parse" else "glow_sala_b0_fields_witness missing incomplete refuse"
 assert selftest.out contains "leading-zero amount refuses" else "glow_sala_b0_fields_witness missing amount refuse"
 assert selftest.out contains "glow-language" else "glow_sala_b0_fields_witness missing glow-language"
+assert selftest.out contains "glow-language" else "glow_sala_b0_fields_witness missing glow-language"
+assert selftest.out contains "fields body agrees elder" else "glow_sala_b0_fields_witness missing authored body agree"
 
-say "GREEN: Glow Sala B0 fields surface — elder parse_fact_fields behind Glow assert; glow-language."
+say "GREEN: Glow Sala B0 fields surface — product-authored fields body; glow-language."
