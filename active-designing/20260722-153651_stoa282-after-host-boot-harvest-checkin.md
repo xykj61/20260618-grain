@@ -6,7 +6,7 @@
 **Version:** `20260722.153651` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send with round-close · lean **B** root-into-harvest  
+**Status:** Checkable — lean **A** send done · leans sized further as glow-language  
 **Register:** Checkable (Two Rooms) — glow-language host GREEN; root field Intent until witnessed  
 
 **Grounds in:** glow-language · glow-language lean B · glow-language lean C  

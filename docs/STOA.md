@@ -1,6 +1,6 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–282 · 2026-07-22 · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · glow-language–283 · 2026-07-22 · draw → **glow-language**
 
-Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–282 · **glow-language** after host boot→harvest GREEN (root-into-harvest next). Hoon study twins under `glow/gen/hoon-study/`.
+Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–283 · **glow-language** sized check-in (pixel-glass→root next). Hoon study twins under `glow/gen/hoon-study/`.
 
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
@@ -112,4 +112,5 @@ Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; p
 | **glow-language** | after serial pin check-in | leans A send · B host retry | **GREEN** `20260722.153358` |
 | **glow-language** | pixel-glass boot→harvest host GREEN | host printout · serial field | **GREEN** `20260722.153651` |
 | **glow-language** | after host boot→harvest check-in | leans A send · B root field | **GREEN** `20260722.153651` |
+| **glow-language** | after host GREEN check-in sized | leans A pixel-glass→root · B pixel-glass | **GREEN** `20260722.153820` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
