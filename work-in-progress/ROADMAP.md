@@ -800,6 +800,10 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language after Dexter Sala helper check-in, `20260722.151335`** — lean A send · lean B NativeActivity submit wire · lean C Pixel eyes. Brief [`active-designing/20260722-151335_stoa269-after-dexter-sala-helper-checkin.md`](../active-designing/20260722-151335_stoa269-after-dexter-sala-helper-checkin.md).
 
+**glow-language NativeActivity submit → live root GREEN, `20260722.151515`** — `.submit` → helper · `sala_live_root.txt` beside pixel-glass; pack+install GREEN. Brief [`active-designing/20260722-151515_stoa270-native-submit-live-root.md`](../active-designing/20260722-151515_stoa270-native-submit-live-root.md).
+
+**glow-language after live-root wire check-in, `20260722.151834`** — lean A send · lean B live-root paint · lean C pixel-glass 1A held. Brief [`active-designing/20260722-151834_stoa271-after-live-root-wire-checkin.md`](../active-designing/20260722-151834_stoa271-after-live-root-wire-checkin.md).
+
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
 

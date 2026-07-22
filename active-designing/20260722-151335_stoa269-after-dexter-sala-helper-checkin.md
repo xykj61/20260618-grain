@@ -6,8 +6,8 @@
 **Version:** `20260722.151335` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send with round-close · lean **B** NativeActivity submit wire  
-**Register:** Checkable (Two Rooms) — glow-language GREEN with this send; glass submit still paint-only until lean B  
+**Status:** Checkable — lean **A** send done · lean **B** chosen → glow-language GREEN  
+**Register:** Checkable (Two Rooms) — glow-language GREEN; glass live-root wire GREEN as glow-language  
 
 **Grounds in:** glow-language Dexter helper · glow-language typed memo · glow-language Pixel eyes · glow-language lean C  
 
@@ -26,7 +26,7 @@ glow-language: `dexter_sala_append` · `append_demo_submit` · Dexter `glow` →
 | | Lean | What it opens |
 |---|---|---|
 | **A** | **Send glow-language** — **chosen** with round-close | pier carries Dexter submit helper |
-| **B** | **NativeActivity submit → helper + live-root file** — **recommended** | glass hand; pack; Pixel eyes follow |
+| **B** | **NativeActivity submit → helper + live-root file** — **chosen** → glow-language | glass hand; pack; Pixel eyes follow |
 | **C** | **Pack + Pixel eyes only** (after B lands in same or next lap) | finishing loop on device |
 | **D** | **pixel-glass 1A · gold · shared-package · seva-broadcast · UDP** | thicker — **held** |
 
