@@ -8,6 +8,8 @@ Living index for the append-only session stream. This table reads **newest first
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
 
+- `20260722.132831` — [REMEMBER git nib after glow-language](20260722-132831_remember-git-nib-stoa228.bron) — pin 0db7ef379153
+- `20260722.132757` — [glow-language send · glow-language · lean B next](20260722-132757_stoa227-send-stoa228-checkin.bron) — pier send; append wire
 - `20260722.132705` — [glow-language after demo pin emit check-in](20260722-132705_stoa228-after-demo-pin-emit-checkin.bron) — rec send; then append/fold
 - `20260722.132533` — [glow-language demo line pin emit GREEN](20260722-132533_stoa227-demo-line-pin-emit.bron) — pins ≡ claim_demo_line
 
