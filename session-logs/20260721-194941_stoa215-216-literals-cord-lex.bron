@@ -1,0 +1,23 @@
+format session-log-v1
+stamp 20260721.194941
+editor Cursor
+model Cursor Grok 4.5 300k High Fast
+voice Quin
+host Ubuntu 26.04 LTS GNOME Wayland (Framework 16 AMD) — UDT (UTC) time convention
+title glow-language inventory · glow-language cord lit lex
+prompt send and approve next rec
+think Pier send glow-language-214 landed b7ee8fb7cf; next lean C Glow source literals.
+think Inventory first: no honest desk lap until lex parse lower; C1 cord-lit lex.
+think Kind.cord_lit single-quoted; empty/unclosed refuse; tokens witness GREEN.
+obs Parse/lower/desk pin held. glow-language-216 unsent on hand.
+file glow/tokens.rye cord_lit lex
+file glow/tokens_witness.rye glow-language asserts
+file tools/glow_tokens_witness.rish cord lit pins
+file active-designing/20260721-194941_stoa215-glow-source-literals-inventory.md inventory
+file active-designing/20260721-194941_stoa216-cord-literal-lex.md brief
+file work-in-progress/REMEMBER.md Now glow-language
+file docs/glow-language.md glow-language-216
+git_nib b7ee8fb7cf
+product_nib Sala-B0-Glow-compose
+suite_nib glow-language-216
+recommend check-in C2 hex lit or C3 parse; or send glow-language-216
