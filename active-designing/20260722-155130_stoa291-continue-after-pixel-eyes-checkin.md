@@ -6,8 +6,8 @@
 **Version:** `20260722.155130` (EDT · Framework host) · living lean wording survey `20260722.155438`  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean table · awaiting choose · **Survey** seated beside this lean  
-**Register:** Checkable for the lean; Intent until survey or first GREEN  
+**Status:** Checkable — lean **A** approved → glow-language GREEN · **Survey** seated  
+**Register:** Checkable (Two Rooms) — tagged payload flip survey GREEN as glow-language  
 
 **Grounds in:** glow-language lean C · “I want to continue working” · glow-language held tagged `$%` flip · N-field deepen closed glow-language · Survey Lexicon `20260722.155438`  
 
@@ -30,7 +30,7 @@
 
 | | Lean | Size | What it opens |
 |---|---|---|---|
-| **A** | **Tagged `$%` flip survey** — **recommended** | survey → first code lap | map kind/xact/xfer flip emit sites; name one helper collapse (same grain as glow-language/261); first GREEN on one gate |
+| **A** | **Tagged `$%` flip survey** — **chosen** → glow-language | survey → first code lap | map kind/xact/xfer; bartis payload helper GREEN |
 | **B** | **Shared-package `face_lit`** | thicker seam | module-path — needs its own size |
 | **C** | **Ambient gold** | thick | port-order — **held** unless you override |
 | **D** | **Measurement survey (2A)** | research | green-runes meters — not a lower lap |
