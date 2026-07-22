@@ -6,7 +6,8 @@
 **Version:** `20260722.133211` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send chosen `20260722.133343` · lean **B** rest recommended next  
+**Status:** Checkable — lean **A** send `20260722.133343` · lean **B** rest taken · lean **C** as **glow-language** `20260722.133717`  
+
 
 **Register:** Checkable (Two Rooms) — glow-language GREEN on pier; fold inherits pin seed; events 2–3 still sign+line  
 
@@ -27,8 +28,8 @@ glow-language `append_demo_log` seeds event 1 from `format_demo_line_from_pins`;
 | | Lean | What it opens |
 |---|---|---|
 | **A** | **Send this check-in** — **chosen** `20260722.133343` | pier carries glow-language seating |
-| **B** | **Rest** — **recommended next** | finishing edge after a closed append pin wire |
-| **C** | **Events 2–3 from pins** | thicker product twins — **held** until sized |
+| **B** | **Rest** — **taken** before glow-language | finishing edge after a closed append pin wire |
+| **C** | **Events 2–3 from pins** — **as glow-language** `20260722.133717` | pin twins · desk · append wire |
 | **D** | **Runtime `.glow` file parse** | thicker seam — **held** |
 | **E** | **seva-broadcast** | inference · economics — **held**; explicit word only |
 
