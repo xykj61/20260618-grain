@@ -834,6 +834,8 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language hawm0 stopped season fold, `20260722.154348`** — stop GREEN; harvest kept; lean B rest. Brief [`active-designing/20260722-154348_stoa286-hawm0-stopped-season-fold.md`](../active-designing/20260722-154348_stoa286-hawm0-stopped-season-fold.md).
 
+**glow-language pixel-glass season rest, `20260722.154515`** — lean B rest chosen; no next kg until reopen. Brief [`active-designing/20260722-154515_stoa287-hawm-season-rest.md`](../active-designing/20260722-154515_stoa287-hawm-season-rest.md).
+
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
 
