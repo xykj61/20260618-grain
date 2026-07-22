@@ -6,7 +6,7 @@
 **Version:** `20260722.191301` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send with round-close · lean **C** quad argv recommended  
+**Status:** Checkable — lean **A** send with round-close · lean **C** quad argv **chosen** (implement glow-language)  
 **Register:** Checkable (Two Rooms) — glow-language GREEN; quad argv Intent  
 
 **Grounds in:** glow-language · glow-language lean C · rest habit `20260722.185058`  
