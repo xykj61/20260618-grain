@@ -7,6 +7,7 @@ Living index for the append-only session stream. This table reads **newest first
 **Day’s truth is this index’s order, not filename sort.** One-clock stamps sort ascending on disk; trust the table for sequence within a day.
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
+- `20260722.150432` — [glow-language–264 Pixel authored-fold eyes](20260722-150432_stoa263-264-pixel-authored-fold-eyes.bron) — pack+install pixel-glass; Dexter→Sala next
 - `20260722.145936` — [REMEMBER git nib after glow-language](20260722-145936_remember-git-nib-stoa262.bron) — pin c1ed098ebcf8
 - `20260722.145840` — [glow-language–262 barket N-field flip](20260722-145840_stoa261-262-barket-n-field-flip-round.bron) — barket flip emit; inventary deepen closed; finishing edge next
 - `20260722.145314` — [REMEMBER git nib after glow-language](20260722-145314_remember-git-nib-stoa260.bron) — pin 171b5c7bbdff
