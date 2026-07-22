@@ -7,6 +7,8 @@ Living index for the append-only session stream. This table reads **newest first
 **Day’s truth is this index’s order, not filename sort.** One-clock stamps sort ascending on disk; trust the table for sequence within a day.
 
 Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../context/specs/20260627-102012_one-clock-naming-law.md).
+- `20260722.152849` — [glow-language–278 boot harvest chain](20260722-152849_stoa277-278-boot-harvest-chain-round.bron) — onpath authored; harvest half GREEN; host KVM for full
+- `20260722.152716` — [REMEMBER git nib after glow-language](20260722-152716_remember-git-nib-stoa276.bron) — pin ee27364f841e
 - `20260722.152631` — [glow-language–276 pixel-glass log harvest](20260722-152631_stoa275-276-hawm-harvest-round.bron) — hawm-harvest-v1; boot→harvest next
 - `20260722.152450` — [REMEMBER git nib after glow-language](20260722-152450_remember-git-nib-stoa274.bron) — pin 450cf2f9afdf
 - `20260722.152404` — [glow-language after Dexter Sala finish check-in](20260722-152404_stoa274-after-dexter-sala-finish-checkin.bron) — season turn; pixel-glass 1A inventary next

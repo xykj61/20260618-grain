@@ -2,14 +2,14 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260722.152631` (EDT) · voice Quin  
-**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE paint · **pixel-glass harvest-v1**  
-**Language nib:** **glow-language–276** · shape-only · Dexter→Sala LIVE closed · pixel-glass inventary GREEN  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–276  
-**Git nib:** *(pin after send)* · glow-language–276
+**Last refreshed:** `20260722.152849` (EDT) · voice Quin  
+**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE paint · **pixel-glass harvest-v1** · boot→harvest chain  
+**Language nib:** **glow-language–278** · shape-only · Dexter→Sala LIVE closed · pixel-glass harvest chain authored  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–278  
+**Git nib:** *(pin after send)* · glow-language–278
 
 
-**Chapter:** Framework · Eastern / EDT · pixel-glass harvest inventary GREEN · host boot→harvest next · round-close on.  
+**Chapter:** Framework · Eastern / EDT · boot→harvest chain authored · jail has no `/dev/kvm` · host onpath for full GREEN · round-close on.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`  
 **ADB:** `tools/.cache/hawm0/android-sdk/platform-tools/adb` — not on bare PATH  
 
@@ -17,16 +17,22 @@
 
 ## Now
 
-**glow-language** `20260722.152631` — pixel-glass harvest inventary GREEN; lean B host boot→harvest chain. Brief [`../active-designing/20260722-152631_stoa276-after-hawm-harvest-checkin.md`](../active-designing/20260722-152631_stoa276-after-hawm-harvest-checkin.md).
+**glow-language** `20260722.152849` — boot→harvest chain authored; lean B host onpath full GREEN. Brief [`../active-designing/20260722-152849_stoa278-after-boot-harvest-chain-checkin.md`](../active-designing/20260722-152849_stoa278-after-boot-harvest-chain-checkin.md).
 
-**Harvest (device-free):**
+**Host onpath (lean B — needs `/dev/kvm`, plain terminal):**
 
 ```bash
-rishi/bin/rishi run tools/hawm_log_harvest_witness.rish
-# output: tools/.cache/hawm0/hawm-harvest.bron
+rishi/bin/rishi run tools/hawm0_boot_harvest_onpath_host.rish
+cat tools/.cache/hawm0/hawm-harvest.bron
 ```
 
-**ADB / Pixel (copy-paste):**
+**Device-free chain check:**
+
+```bash
+rishi/bin/rishi run tools/hawm0_boot_harvest_chain_witness.rish
+```
+
+**ADB / Pixel:**
 
 ```bash
 export ADB=tools/.cache/hawm0/android-sdk/platform-tools/adb
@@ -34,8 +40,6 @@ $ADB devices
 $ADB install -r tools/.cache/tube05/sala-broadcaster.apk
 $ADB shell am force-stop org.glow.app.sala_broadcaster
 $ADB shell am start -n org.glow.app.sala_broadcaster/android.app.NativeActivity
-$ADB shell run-as org.glow.app.sala_broadcaster cat files/sala_root.txt
-$ADB shell run-as org.glow.app.sala_broadcaster cat files/sala_live_root.txt
 ```
 
 ---
@@ -44,11 +48,10 @@ $ADB shell run-as org.glow.app.sala_broadcaster cat files/sala_live_root.txt
 
 | Door | Kind |
 |------|------|
-| Host boot → harvest chain | **kg** (glow-language lean B · needs `/dev/kvm` host) |
-| pixel-glass root into harvest Bron | lean C |
+| Host onpath full boot→harvest GREEN | **host** (glow-language lean B · `/dev/kvm`) |
+| pixel-glass / Pixel root into harvest Bron | **kg** after approve (lean C · Pixel adb works here) |
 | Fleets · pixel-glass · gold · seva-broadcast · UDP | **held** |
-| pixel-glass log-harvest inventary | **GREEN** `20260722.152523` |
-| Dexter→Sala finishing edge | **closed** through glow-language |
+| Boot→harvest chain authored | **GREEN** harvest half `20260722.152801` |
 
 ---
 

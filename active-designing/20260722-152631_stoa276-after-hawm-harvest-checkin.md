@@ -6,8 +6,8 @@
 **Version:** `20260722.152631` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send with round-close · lean **B** host boot→harvest chain  
-**Register:** Checkable (Two Rooms) — glow-language GREEN with this send; multi-AVD still Intent  
+**Status:** Checkable — lean **A** send done · lean **B** chosen → glow-language  
+**Register:** Checkable (Two Rooms) — glow-language GREEN; boot→harvest chain authored as glow-language  
 
 **Grounds in:** glow-language inventary · glow-language lean A · pixel-glass/1 host path  
 
@@ -26,7 +26,7 @@ glow-language: inventary of meta · emulator log · ephemeral Rish · logcat-hel
 | | Lean | What it opens |
 |---|---|---|
 | **A** | **Send glow-language** — **chosen** with round-close | pier carries harvest inventary |
-| **B** | **Host boot → harvest chain** — **recommended** | `hawm0_boot` then harvest worker as one onpath GREEN (needs `/dev/kvm`) |
+| **B** | **Host boot → harvest chain** — **chosen** → glow-language | `hawm0_boot` then harvest worker as one onpath GREEN (needs `/dev/kvm`) |
 | **C** | **pixel-glass root into harvest Bron** | extend shape with sala root hex after hawm1 |
 | **D** | **Fleets · pixel-glass · gold · seva-broadcast · UDP** | thicker — **held** |
 
