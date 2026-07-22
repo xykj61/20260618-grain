@@ -2,14 +2,14 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260722.141940` (EDT) · voice Quin  
+**Last refreshed:** `20260722.142326` (EDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow compose** · authored line · sign · digest · fields  
-**Language nib:** **glow-language–252** · language return · N-field emit inventary  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–252  
-**Git nib:** *(set after send)* · glow-language–252  
+**Language nib:** **glow-language–254** · language return · bartis N-field identity emit  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–254  
+**Git nib:** *(set after send)* · glow-language–254  
 
 
-**Chapter:** Framework · Eastern / EDT · language return opens on N-field emit · round-close on.  
+**Chapter:** Framework · Eastern / EDT · language return · bartis N-field identity GREEN · round-close on.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`  
 **ADB:** `tools/.cache/hawm0/android-sdk/platform-tools/adb` — not on bare PATH
 
@@ -17,7 +17,7 @@
 
 ## Now
 
-**glow-language** `20260722.141940` — N-field emit inventary seated; lean B thin identity N-field emit. Brief [`../active-designing/20260722-141940_stoa252-after-n-field-inventory-checkin.md`](../active-designing/20260722-141940_stoa252-after-n-field-inventory-checkin.md).
+**glow-language** `20260722.142326` — bartis N-field identity GREEN; lean B barket identity twin. Brief [`../active-designing/20260722-142326_stoa254-after-n-field-identity-checkin.md`](../active-designing/20260722-142326_stoa254-after-n-field-identity-checkin.md).
 
 **ADB (copy-paste):**
 
@@ -37,13 +37,12 @@ $ADB shell run-as org.glow.app.sala_broadcaster cat files/sala_root.txt
 
 | Door | Kind |
 |------|------|
-| Thin identity N-field emit | **kg** (glow-language lean B) |
-| Barket identity twin / flip collapse | **held** one lap |
+| Barket identity twin | **kg** (glow-language lean B) |
+| Flip call-body collapse | **held** |
 | Ambient gold | **held** |
 | Shared package / true `@import` face_lit | **held** |
 | seva-broadcast | **held** |
-| N-field emit inventary | **seated** `20260722.141918` |
-| Product-authored fields body | **GREEN** `20260722.141630` |
+| Bartis N-field identity emit | **GREEN** `20260722.142142` |
 | Pixel embedded-desk eyes | **GREEN** `20260722.135605` |
 
 ---

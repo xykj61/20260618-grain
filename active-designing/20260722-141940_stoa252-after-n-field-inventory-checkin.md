@@ -6,8 +6,8 @@
 **Version:** `20260722.141940` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send chosen with round-close · lean **B** thin identity N-field emit  
-**Register:** Checkable (Two Rooms) — glow-language inventary seated with this send; emit collapse not yet claimed  
+**Status:** Checkable — lean **A** send chosen with round-close · lean **B** became **glow-language** `20260722.142142`  
+**Register:** Checkable (Two Rooms) — glow-language inventary seated with this send; identity emit collapse claimed as glow-language  
 
 **Grounds in:** glow-language N-field inventary · capacity freeze · glow-language name-next-door  
 

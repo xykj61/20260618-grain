@@ -760,7 +760,11 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language N-field emit generalize inventory, `20260722.141918`** — language return first rung; pair…nona emit map; identity code next. Brief [`active-designing/20260722-141918_stoa251-n-field-emit-generalize-inventory.md`](../active-designing/20260722-141918_stoa251-n-field-emit-generalize-inventory.md).
 
-**glow-language after N-field inventory check-in, `20260722.141940`** — lean A send · lean B thin identity N-field emit. Brief [`active-designing/20260722-141940_stoa252-after-n-field-inventory-checkin.md`](../active-designing/20260722-141940_stoa252-after-n-field-inventory-checkin.md). Gold · shared-package · seva-broadcast held.
+**glow-language after N-field inventory check-in, `20260722.141940`** — lean A send · lean B → glow-language identity emit. Brief [`active-designing/20260722-141940_stoa252-after-n-field-inventory-checkin.md`](../active-designing/20260722-141940_stoa252-after-n-field-inventory-checkin.md). Gold · shared-package · seva-broadcast held.
+
+**glow-language bartis N-field identity emit GREEN, `20260722.142142`** — `emit_n_field_identity` · eight wrappers · flip held. Brief [`active-designing/20260722-142142_stoa253-n-field-identity-emit.md`](../active-designing/20260722-142142_stoa253-n-field-identity-emit.md).
+
+**glow-language after N-field identity check-in, `20260722.142326`** — lean A send · lean B barket identity twin. Brief [`active-designing/20260722-142326_stoa254-after-n-field-identity-checkin.md`](../active-designing/20260722-142326_stoa254-after-n-field-identity-checkin.md). Flip · gold · seva-broadcast held.
 
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
