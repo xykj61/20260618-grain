@@ -6,7 +6,7 @@
 **Version:** `20260722.140015` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send chosen with round-close · lean **B** name next door  
+**Status:** Checkable — lean **A** send chosen with round-close · lean **B** became **glow-language** `20260722.140957`  
 **Register:** Checkable (Two Rooms) — glow-language GREEN with this send; thin face_lit product path closed  
 
 **Grounds in:** glow-language face_lit agree · glow-language–240 lit/desk/embed/Pixel season · pixel-glass
