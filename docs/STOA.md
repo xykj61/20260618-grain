@@ -1,6 +1,6 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–222 GREEN · 2026-07-22 · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · glow-language–224 GREEN · 2026-07-22 · draw → **glow-language**
 
-Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–221 · **glow-language** after literals check-in. Hoon study twins under `glow/gen/hoon-study/`.
+Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–223 · **glow-language** after fixture wire check-in. Hoon study twins under `glow/gen/hoon-study/`.
 
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
@@ -73,4 +73,6 @@ Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; p
 | **glow-language** | face=lit lower emit (C4) | `glow_lower_face_lit_witness` | **GREEN** `20260722.130902` |
 | **glow-language** | fixture elder lits desk (C5) | `glow_sample_demo_fixture_lits_witness` | **GREEN** `20260722.131153` |
 | **glow-language** | after literals season check-in | leans A send · B product wire | **GREEN** `20260722.131348` |
+| **glow-language** | product fixture lit desk wire | `glow_sala_b0_demo_fixture_witness` | **GREEN** `20260722.131511` |
+| **glow-language** | after fixture wire check-in | leans A send · B fact-line lits | **GREEN** `20260722.131841` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.

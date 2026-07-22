@@ -495,7 +495,9 @@
 - [x] **glow-language — face=lit lower emit (C4)** `20260722.130902` — lit bytes into Zig; no face-name demos. Brief [`../active-designing/20260722-130902_stoa220-face-lit-lower-emit.md`](../active-designing/20260722-130902_stoa220-face-lit-lower-emit.md).
 - [x] **glow-language — fixture elder lits desk (C5)** `20260722.131153` — `sample-demo-fixture-lits.glow` · pixel-glass root. Brief [`../active-designing/20260722-131153_stoa221-fixture-lits-desk-pin.md`](../active-designing/20260722-131153_stoa221-fixture-lits-desk-pin.md).
 - [x] **Session-logs archive fold** `20260722.131028` — 613 prior-day logs under `session-logs/archive/`; day `20260722` flat.
-- [x] **glow-language — after literals season check-in** `20260722.131348` — lean A send; rec lean B product fixture wire. Brief [`../active-designing/20260722-131348_stoa222-after-literals-season-checkin.md`](../active-designing/20260722-131348_stoa222-after-literals-season-checkin.md).
+- [x] **glow-language — after literals season check-in** `20260722.131348` — lean A send; lean B as glow-language. Brief [`../active-designing/20260722-131348_stoa222-after-literals-season-checkin.md`](../active-designing/20260722-131348_stoa222-after-literals-season-checkin.md).
+- [x] **glow-language — product fixture lit desk wire** `20260722.131511` — `lit_desk_binds_pins` · product pins ↔ sample desk. Brief [`../active-designing/20260722-131511_stoa223-product-fixture-lit-desk-wire.md`](../active-designing/20260722-131511_stoa223-product-fixture-lit-desk-wire.md).
+- [x] **glow-language — after fixture wire check-in** `20260722.131841` — lean A send; rec lean B fact-line demo lits. Brief [`../active-designing/20260722-131841_stoa224-after-fixture-wire-checkin.md`](../active-designing/20260722-131841_stoa224-after-fixture-wire-checkin.md).
 
 
 - [x] **UDT stamp convention on Framework host** `20260720.232932` — Keaton set system clock to UDT (UTC); [`context/specs/20260720-232932_udt-framework-host-convention.md`](../context/specs/20260720-232932_udt-framework-host-convention.md); Eastern era stamps stay; session-log rules + `GLOW_PROFILE` pointed at Etc/UTC for that season.
