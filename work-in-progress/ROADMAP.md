@@ -858,6 +858,8 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language after tagged unit flip check-in, `20260722.160700`** — lean A send · lean B rest. Brief [`active-designing/20260722-160700_stoa298-after-tagged-unit-flip-checkin.md`](../active-designing/20260722-160700_stoa298-after-tagged-unit-flip-checkin.md).
 
+**glow-language continue after tagged flip check-in, `20260722.161041`** — lean A tagged argv survey · lean B face_lit survey · lean E held. Brief [`active-designing/20260722-161041_stoa299-continue-after-tagged-flip-checkin.md`](../active-designing/20260722-161041_stoa299-continue-after-tagged-flip-checkin.md).
+
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
 

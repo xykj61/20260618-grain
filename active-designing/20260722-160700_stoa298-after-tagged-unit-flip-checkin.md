@@ -6,8 +6,8 @@
 **Version:** `20260722.160700` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send with round-close · lean **B** rest recommended  
-**Register:** Checkable (Two Rooms) — glow-language GREEN; thicker doors held  
+**Status:** Checkable — lean **A** send with round-close · lean **B** rest offered · continue → glow-language  
+**Register:** Checkable (Two Rooms) — glow-language GREEN; continue sized as glow-language  
 
 **Grounds in:** glow-language · glow-language lean C  
 
@@ -26,7 +26,7 @@ glow-language: `emit_tagged_unit_flip_call_body` on bartis + barket · kind wrap
 | | Lean | What it opens |
 |---|---|---|
 | **A** | **Send glow-language** — **chosen** with round-close | pier carries unit + payload on both gates |
-| **B** | **Rest** — **recommended** | season pause; flip emit inventary closed |
+| **B** | **Rest** — offered; continue → glow-language | season pause; flip emit inventary closed |
 | **C** | **Gold · face_lit · fleets · seva-broadcast** | **held** |
 
 ---
