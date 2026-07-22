@@ -2,14 +2,14 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260722.154953` (EDT) · voice Quin  
-**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **LIVE eyes after pixel-glass**  
-**Language nib:** **glow-language–290** · shape-only · pixel-glass folded · Pixel LIVE re-proved  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–290  
-**Git nib:** *(pin after send)* · glow-language–290
+**Last refreshed:** `20260722.155130` (EDT) · voice Quin  
+**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded**  
+**Language nib:** **glow-language–291** · shape-only · continue · tagged `$%` flip inventary next  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–291  
+**Git nib:** *(pin after send)* · glow-language
 
 
-**Chapter:** Framework · Eastern / EDT · Pixel LIVE eyes GREEN · lean B rest · round-close on.  
+**Chapter:** Framework · Eastern / EDT · continue after Pixel eyes · lean A tagged `$%` flip inventary · round-close on.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`  
 **ADB:** `tools/.cache/hawm0/android-sdk/platform-tools/adb` — not on bare PATH  
 
@@ -17,16 +17,7 @@
 
 ## Now
 
-**glow-language** `20260722.154953` — Pixel LIVE eyes GREEN; lean B rest. Brief [`../active-designing/20260722-154953_stoa290-after-pixel-live-eyes-checkin.md`](../active-designing/20260722-154953_stoa290-after-pixel-live-eyes-checkin.md).
-
-**On-device roots (last proof):**
-
-| File | Hex (prefix) |
-|---|---|
-| `sala_root.txt` | `99b3ae96…c5fe` (pixel-glass) |
-| `sala_live_root.txt` | `84822ce5…9b1a` (LIVE · ≠ pixel-glass) |
-
-**Optional hand look:** LIVE · N · hex8 on Skate; tip/pixel-glass row honest.
+**glow-language** `20260722.155130` — continue check-in; lean A tagged `$%` flip inventary. Brief [`../active-designing/20260722-155130_stoa291-continue-after-pixel-eyes-checkin.md`](../active-designing/20260722-155130_stoa291-continue-after-pixel-eyes-checkin.md).
 
 ---
 
@@ -34,10 +25,10 @@
 
 | Door | Kind |
 |------|------|
-| Rest | **recommended** (glow-language lean B) |
-| Language inventary size | **await** (lean C) |
-| Fleets · pixel-glass · gold · seva-broadcast · UDP | **held** |
-| Pixel LIVE after pixel-glass | **GREEN** `20260722.154953` |
+| Tagged `$%` flip inventary (kind·xact·xfer) | **await approve** (glow-language lean A) |
+| Shared-package `face_lit` / ambient gold | **await** / **held** |
+| Fleets · pixel-glass · seva-broadcast · UDP | **held** |
+| Pixel LIVE · pixel-glass harvest chain | **GREEN** folded |
 
 ---
 

@@ -6,8 +6,8 @@
 **Version:** `20260722.154953` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send with round-close · lean **B** rest  
-**Register:** Checkable (Two Rooms) — glow-language GREEN; language inventary Intent until sized  
+**Status:** Checkable — lean **A** send done · continue → glow-language (rest deferred)  
+**Register:** Checkable (Two Rooms) — glow-language GREEN; language inventary sized as glow-language  
 
 **Grounds in:** glow-language · glow-language lean A  
 
