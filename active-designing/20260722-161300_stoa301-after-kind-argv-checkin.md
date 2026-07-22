@@ -6,8 +6,8 @@
 **Version:** `20260722.161300` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send with round-close · lean **B** rest recommended  
-**Register:** Checkable (Two Rooms) — glow-language GREEN; payload argv Intent  
+**Status:** Checkable — lean **A** send with round-close · lean **B** rest offered · continue → glow-language  
+**Register:** Checkable (Two Rooms) — glow-language GREEN; continue sized as glow-language  
 
 **Grounds in:** glow-language · glow-language lean A  
 
@@ -26,8 +26,8 @@ glow-language: tagged argv survey · `emit_kind_argv` bartis+barket · tag desks
 | | Lean | What it opens |
 |---|---|---|
 | **A** | **Send glow-language** — **chosen** with round-close | pier carries kind argv |
-| **B** | **Rest** — **recommended** | unit-tag argv family seated; pause |
-| **C** | **Payload argv survey** (xact first) | thicker — tag + faces |
+| **B** | **Rest** — offered; continue → glow-language | unit-tag argv family seated; pause |
+| **C** | **Payload argv survey** (xact first) — carried to glow-language lean A | thicker — tag + faces |
 | **D** | **Gold · face_lit · fleets · seva-broadcast** | **held** |
 
 ---

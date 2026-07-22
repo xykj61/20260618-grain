@@ -2,14 +2,14 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260722.183720` (EDT) · voice Quin  
+**Last refreshed:** `20260722.184311` (EDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded**  
-**Language nib:** **glow-language–301** · Survey seated · kind unit-tag argv GREEN  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–301  
-**Git nib:** *(pin after send)* · cursorignore · glow-language–301
+**Language nib:** **glow-language–302** · Survey seated · continue Glow · payload argv next  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–302  
+**Git nib:** *(pin after send)* · glow-language align
 
 
-**Chapter:** Framework · Eastern / EDT · `.cursorignore` seated · lean B rest · round-close on.  
+**Chapter:** Framework · Eastern / EDT · aligned continue Glow · lean A payload argv · round-close on.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`  
 **ADB:** `tools/.cache/hawm0/android-sdk/platform-tools/adb` — not on bare PATH  
 
@@ -17,11 +17,11 @@
 
 ## Now
 
-**After cursorignore** `20260722.183720` — lean B rest. Brief [`../active-designing/20260722-183720_after-cursorignore-checkin.md`](../active-designing/20260722-183720_after-cursorignore-checkin.md).
+**glow-language** `20260722.184311` — continue Glow language; lean A payload argv (xact). Brief [`../active-designing/20260722-184311_stoa302-continue-glow-language-checkin.md`](../active-designing/20260722-184311_stoa302-continue-glow-language-checkin.md).
 
-**Language last:** glow-language after kind argv. Brief [`../active-designing/20260722-161300_stoa301-after-kind-argv-checkin.md`](../active-designing/20260722-161300_stoa301-after-kind-argv-checkin.md).
+**Align:** [`../active-designing/20260722-184311_align-continue-glow-language.md`](../active-designing/20260722-184311_align-continue-glow-language.md).
 
-**Witness (language):**
+**Witness (language last GREEN):**
 
 ```bash
 export RYE_ZIG=vendor/zig-toolchain/zig
@@ -34,11 +34,10 @@ rishi/bin/rishi run tools/glow_run.rish glow/gen/gate-kind-tag.glow mint
 
 | Door | Kind |
 |------|------|
-| Rest | **recommended** (after cursorignore lean B) |
-| Yonder old designing | await (lean C) |
-| Payload argv survey (xact) | await |
+| Payload argv survey (xact) | **kg** after approve (glow-language lean A) |
+| Docs compressor (Glow completeness) | await (lean B) |
 | Gold · face_lit · fleets · seva-broadcast | **held** |
-| `.cursorignore` | **seated** `20260722.183653` |
+| `.cursorignore` | **seated** |
 
 ---
 
