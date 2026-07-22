@@ -42,7 +42,8 @@
 
 | Later | Claim |
 |---|---|
-| Xact / xfer argv | payload tag + faces — thicker reader |
+| Xact argv | **GREEN** glow-language |
+| Xfer argv | two mint faces — thicker reader |
 | Pair…nona argv | multi-field `$:` — thicker reader |
 | Kind flip argv | call-body under kind + argv — optional |
 | Held | gold · face_lit package · fleets · seva-broadcast · `deca-*` |
