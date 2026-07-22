@@ -804,6 +804,10 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language after live-root wire check-in, `20260722.151834`** — lean A send · lean B live-root paint · lean C pixel-glass 1A held. Brief [`active-designing/20260722-151834_stoa271-after-live-root-wire-checkin.md`](../active-designing/20260722-151834_stoa271-after-live-root-wire-checkin.md).
 
+**glow-language live-root Skate paint GREEN, `20260722.151957`** — `LIVE · N · hex8` on row 5; tip yields; pixel-glass rows 6–7 kept. Brief [`active-designing/20260722-151957_stoa272-live-root-skate-paint.md`](../active-designing/20260722-151957_stoa272-live-root-skate-paint.md).
+
+**glow-language after live paint check-in, `20260722.152217`** — lean A send · lean B pixel-glass 1A when mobile · lean D gold/seva-broadcast held. Brief [`active-designing/20260722-152217_stoa273-after-live-paint-checkin.md`](../active-designing/20260722-152217_stoa273-after-live-paint-checkin.md).
+
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
 

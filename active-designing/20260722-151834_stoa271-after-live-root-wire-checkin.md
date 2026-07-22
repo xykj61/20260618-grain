@@ -6,8 +6,8 @@
 **Version:** `20260722.151834` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send with round-close · lean **B** live-root paint / eyes polish  
-**Register:** Checkable (Two Rooms) — glow-language GREEN with this send; typed glass→Sala seam closed through install  
+**Status:** Checkable — lean **A** send done · lean **B** chosen → glow-language GREEN  
+**Register:** Checkable (Two Rooms) — glow-language GREEN; LIVE paint GREEN as glow-language  
 
 **Grounds in:** glow-language live-root wire · glow-language lean B · humanity finishing edge  
 
@@ -26,7 +26,7 @@ glow-language: NativeActivity `.submit` → `commit_live_typed_memo` · onCreate
 | | Lean | What it opens |
 |---|---|---|
 | **A** | **Send glow-language** — **chosen** with round-close | pier carries glass live append |
-| **B** | **Live-root paint / Skate eyes** — **recommended** | show live hex or event count on glass |
+| **B** | **Live-root paint / Skate eyes** — **chosen** → glow-language | show live hex or event count on glass |
 | **C** | **pixel-glass 1A log-harvest inventary** | approved mobile autonomy · when season turns |
 | **D** | **Gold / shared-package / seva-broadcast / UDP** | thicker — **held** |
 

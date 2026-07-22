@@ -2,14 +2,14 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260722.151834` (EDT) · voice Quin  
-**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow** · Dexter Sala helper · **live-root wire**  
-**Language nib:** **glow-language–271** · shape-only · N-field inventary deepen closed · glass typed→Sala live root  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–271  
-**Git nib:** *(pin after send)* · glow-language–271
+**Last refreshed:** `20260722.152217` (EDT) · voice Quin  
+**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow** · live-root wire · **LIVE Skate paint**  
+**Language nib:** **glow-language–273** · shape-only · N-field inventary deepen closed · typed→Sala LIVE face  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–273  
+**Git nib:** *(pin after send)* · glow-language–273
 
 
-**Chapter:** Framework · Eastern / EDT · glass live append GREEN · live-root paint next · round-close on.  
+**Chapter:** Framework · Eastern / EDT · LIVE paint GREEN · Dexter→Sala finishing edge closed · round-close on.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`  
 **ADB:** `tools/.cache/hawm0/android-sdk/platform-tools/adb` — not on bare PATH
 
@@ -17,7 +17,9 @@
 
 ## Now
 
-**glow-language** `20260722.151834` — live-root wire GREEN; lean B live-root paint / Skate eyes. Brief [`../active-designing/20260722-151834_stoa271-after-live-root-wire-checkin.md`](../active-designing/20260722-151834_stoa271-after-live-root-wire-checkin.md).
+**glow-language** `20260722.152217` — LIVE paint GREEN; lean B pixel-glass 1A when mobile season turns. Brief [`../active-designing/20260722-152217_stoa273-after-live-paint-checkin.md`](../active-designing/20260722-152217_stoa273-after-live-paint-checkin.md).
+
+**Look (Pixel):** Skate row 5 shows `LIVE · 1 · 84822ce5` (or updated seq/prefix after more submits). Rows 6–7 still show pixel-glass hex.
 
 **ADB (copy-paste):**
 
@@ -30,7 +32,7 @@ $ADB shell am start -n org.glow.app.sala_broadcaster/android.app.NativeActivity
 $ADB shell run-as org.glow.app.sala_broadcaster cat files/sala_root.txt
 # expect pixel-glass: 99b3ae967c5a230acfc598a7e949b3c2c638ce996be47a51a7c9f8cb12e4c5fe
 $ADB shell run-as org.glow.app.sala_broadcaster cat files/sala_live_root.txt
-# expect 64-hex ≠ pixel-glass (seeded live glow append)
+# expect 64-hex ≠ pixel-glass
 ```
 
 ---
@@ -39,12 +41,12 @@ $ADB shell run-as org.glow.app.sala_broadcaster cat files/sala_live_root.txt
 
 | Door | Kind |
 |------|------|
-| Live-root paint / Skate eyes | **kg** (glow-language lean B) |
-| pixel-glass log-harvest inventary | **held** (approved 1A · mobile season) |
+| pixel-glass log-harvest inventary | **held** (approved 1A · mobile season · glow-language lean B) |
+| Pixel screenshot / eyes note | optional (lean C) |
 | Ambient gold · shared-package · seva-broadcast · UDP | **held** |
+| LIVE Skate paint | **GREEN** `20260722.151957` |
 | Native submit → live root | **GREEN** `20260722.151515` |
 | Dexter Sala helper | **GREEN** `20260722.151257` |
-| Pixel authored-fold eyes | **GREEN** `20260722.150432` |
 
 ---
 

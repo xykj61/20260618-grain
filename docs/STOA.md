@@ -1,6 +1,6 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–271 GREEN · 2026-07-22 · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · glow-language–273 GREEN · 2026-07-22 · draw → **glow-language**
 
-Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–271 · **glow-language** after live-root wire (live-root paint next). Hoon study twins under `glow/gen/hoon-study/`.
+Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Sala B0 Glow: glow-language–273 · **glow-language** after LIVE paint (pixel-glass 1A when mobile). Hoon study twins under `glow/gen/hoon-study/`.
 
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
@@ -101,4 +101,6 @@ Living Glow OS desks lead with `shape-*` (inventary duals glow-language–173; p
 | **glow-language** | after Dexter helper check-in | leans A send · B glass submit wire | **GREEN** `20260722.151335` |
 | **glow-language** | NativeActivity submit → live root | tube05 pack + install onpath | **GREEN** `20260722.151515` |
 | **glow-language** | after live-root wire check-in | leans A send · B live-root paint | **GREEN** `20260722.151834` |
+| **glow-language** | live-root Skate paint | `sala_live_root_glass_witness` | **GREEN** `20260722.151957` |
+| **glow-language** | after live paint check-in | leans A send · B pixel-glass 1A | **GREEN** `20260722.152217` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
