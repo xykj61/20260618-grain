@@ -1,6 +1,6 @@
 //! glow/rune_bartis.rye — parses Glow's `|=` bartis gate rune (glow-language–109 · glow-language).
 //!
-//! Thin one-arm gate: `|=  sample=@u32` or `|=  sample=amount-mold` on line one,
+//! Thin one-arm gate: `|=  sample=@u32` or `|=  sample=amount-shape` on line one,
 //! then either:
 //!   - identity body: bare face matching the sample (glow-language)
 //!   - call body: `%-  <gate>  <sample-face>` (glow-language–104)

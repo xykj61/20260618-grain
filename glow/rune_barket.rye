@@ -1,6 +1,6 @@
 //! glow/rune_barket.rye — parses Glow's `|^` barket (glow-language–120).
 //!
-//! Stated-sample demo: `|^  sample=@u32` or `|^  sample=amount-mold` header, then either:
+//! Stated-sample demo: `|^  sample=@u32` or `|^  sample=amount-shape` header, then either:
 //!   - header-only (glow-language)
 //!   - identity body face (glow-language)
 //!   - call body: `%-  <gate>  <sample-face>` (glow-language–116)
