@@ -6,8 +6,8 @@
 **Version:** `20260722.152217` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send with round-close · lean **B** pixel-glass 1A when mobile turns  
-**Register:** Checkable (Two Rooms) — glow-language GREEN with this send; Dexter→Sala live path closed through paint  
+**Status:** Checkable — lean **A** send done · lean **B** → glow-language season check-in  
+**Register:** Checkable (Two Rooms) — glow-language GREEN; Dexter→Sala live path closed; pixel-glass turn sized as glow-language  
 
 **Grounds in:** glow-language LIVE paint · glow-language live-root wire · humanity finishing edge · pixel-glass fleet check-in  
 
@@ -28,7 +28,7 @@ Together with glow-language–270, the finishing-edge loop is: typed memo → ap
 | | Lean | What it opens |
 |---|---|---|
 | **A** | **Send glow-language** — **chosen** with round-close | pier carries LIVE paint |
-| **B** | **pixel-glass 1A log-harvest inventary** — **recommended** when mobile season turns | approved autonomy door |
+| **B** | **pixel-glass 1A log-harvest inventary** — **chosen** → glow-language | approved autonomy door · season turn |
 | **C** | **Pixel screenshot / eyes note** | optional look record; not required for GREEN |
 | **D** | **Gold / shared-package / seva-broadcast / UDP** | thicker — **held** |
 

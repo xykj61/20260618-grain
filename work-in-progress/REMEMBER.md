@@ -2,14 +2,14 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260722.152217` (EDT) · voice Quin  
-**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow** · live-root wire · **LIVE Skate paint**  
-**Language nib:** **glow-language–273** · shape-only · N-field inventary deepen closed · typed→Sala LIVE face  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–273  
-**Git nib:** *(pin after send)* · glow-language–273
+**Last refreshed:** `20260722.152404` (EDT) · voice Quin  
+**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow** · LIVE Skate paint · Dexter→Sala finish  
+**Language nib:** **glow-language–274** · shape-only · N-field inventary deepen closed · typed→Sala LIVE closed  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–274  
+**Git nib:** *(pin after send)* · glow-language
 
 
-**Chapter:** Framework · Eastern / EDT · LIVE paint GREEN · Dexter→Sala finishing edge closed · round-close on.  
+**Chapter:** Framework · Eastern / EDT · Dexter→Sala finishing edge closed · pixel-glass 1A inventary sized · round-close on.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`  
 **ADB:** `tools/.cache/hawm0/android-sdk/platform-tools/adb` — not on bare PATH
 
@@ -17,9 +17,9 @@
 
 ## Now
 
-**glow-language** `20260722.152217` — LIVE paint GREEN; lean B pixel-glass 1A when mobile season turns. Brief [`../active-designing/20260722-152217_stoa273-after-live-paint-checkin.md`](../active-designing/20260722-152217_stoa273-after-live-paint-checkin.md).
+**glow-language** `20260722.152404` — season check-in after Dexter→Sala finish; lean A pixel-glass 1A inventary (recommended). Brief [`../active-designing/20260722-152404_stoa274-after-dexter-sala-finish-checkin.md`](../active-designing/20260722-152404_stoa274-after-dexter-sala-finish-checkin.md).
 
-**Look (Pixel):** Skate row 5 shows `LIVE · 1 · 84822ce5` (or updated seq/prefix after more submits). Rows 6–7 still show pixel-glass hex.
+**Look (Pixel):** Skate row 5 `LIVE · 1 · 84822ce5` (prefix may move with more submits). Rows 6–7 pixel-glass hex.
 
 **ADB (copy-paste):**
 
@@ -41,12 +41,11 @@ $ADB shell run-as org.glow.app.sala_broadcaster cat files/sala_live_root.txt
 
 | Door | Kind |
 |------|------|
-| pixel-glass log-harvest inventary | **held** (approved 1A · mobile season · glow-language lean B) |
-| Pixel screenshot / eyes note | optional (lean C) |
-| Ambient gold · shared-package · seva-broadcast · UDP | **held** |
+| pixel-glass 1A log-harvest inventary | **kg** (glow-language lean A · host-onpath) |
+| Pixel screenshot / look note | optional (lean B) |
+| Ambient gold · shared-package · seva-broadcast · UDP · pixel-glass | **held** |
 | LIVE Skate paint | **GREEN** `20260722.151957` |
-| Native submit → live root | **GREEN** `20260722.151515` |
-| Dexter Sala helper | **GREEN** `20260722.151257` |
+| Dexter→Sala finishing edge | **closed** through glow-language |
 
 ---
 
