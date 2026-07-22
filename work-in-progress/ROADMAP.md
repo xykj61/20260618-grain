@@ -708,7 +708,11 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language fact-line demo lit sample GREEN, `20260722.132020`** — demo sig/fact pins · desk · bind. Brief [`active-designing/20260722-132020_stoa225-fact-line-demo-lit-sample.md`](../active-designing/20260722-132020_stoa225-fact-line-demo-lit-sample.md).
 
-**glow-language after fact-line lits check-in, `20260722.132320`** — lean A send · rec lean B rest. Brief [`active-designing/20260722-132320_stoa226-after-fact-line-lits-checkin.md`](../active-designing/20260722-132320_stoa226-after-fact-line-lits-checkin.md). seva-broadcast held.
+**glow-language after fact-line lits check-in, `20260722.132320`** — lean A send · lean B rest · lean C thin as glow-language. Brief [`active-designing/20260722-132320_stoa226-after-fact-line-lits-checkin.md`](../active-designing/20260722-132320_stoa226-after-fact-line-lits-checkin.md).
+
+**glow-language demo line pin emit GREEN, `20260722.132533`** — `format_demo_line_from_pins` ≡ claim. Brief [`active-designing/20260722-132533_stoa227-demo-line-pin-emit.md`](../active-designing/20260722-132533_stoa227-demo-line-pin-emit.md).
+
+**glow-language after demo pin emit check-in, `20260722.132705`** — rec lean A send · lean B append/fold wire. Brief [`active-designing/20260722-132705_stoa228-after-demo-pin-emit-checkin.md`](../active-designing/20260722-132705_stoa228-after-demo-pin-emit-checkin.md). seva-broadcast held.
 
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.

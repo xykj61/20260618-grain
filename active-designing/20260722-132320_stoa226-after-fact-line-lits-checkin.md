@@ -6,7 +6,8 @@
 **Version:** `20260722.132320` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send chosen with this seating · next lean open  
+**Status:** Checkable — lean **A** send chosen `20260722.132320` · lean **B** rest taken · lean **C** thin as **glow-language** `20260722.132533`  
+
 **Register:** Checkable (Two Rooms) — glow-language GREEN on pier with this send; runtime desk emit held  
 
 **Grounds in:** glow-language fact-line demo lits · glow-language fixture wire · glow-language–221 literals path
