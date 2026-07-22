@@ -720,7 +720,11 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language demo events 2–3 pin emit GREEN, `20260722.133717`** — sig2/fact2 · sig3/fact3 · desk six faces · append all pins; pixel-glass. Brief [`active-designing/20260722-133717_stoa231-demo-events-2-3-pin-emit.md`](../active-designing/20260722-133717_stoa231-demo-events-2-3-pin-emit.md).
 
-**glow-language after events 2–3 pin emit check-in, `20260722.134008`** — lean A send · lean B rest. Brief [`active-designing/20260722-134008_stoa232-after-events-2-3-pin-emit-checkin.md`](../active-designing/20260722-134008_stoa232-after-events-2-3-pin-emit-checkin.md). seva-broadcast held.
+**glow-language after events 2–3 pin emit check-in, `20260722.134008`** — lean A send · lean B rest already taken · lean C as glow-language. Brief [`active-designing/20260722-134008_stoa232-after-events-2-3-pin-emit-checkin.md`](../active-designing/20260722-134008_stoa232-after-events-2-3-pin-emit-checkin.md).
+
+**glow-language runtime fact-line desk emit GREEN, `20260722.134205`** — desk extract · emit ≡ pins · desk append pixel-glass. Brief [`active-designing/20260722-134205_stoa233-runtime-desk-emit.md`](../active-designing/20260722-134205_stoa233-runtime-desk-emit.md).
+
+**glow-language after runtime desk emit check-in, `20260722.134415`** — lean A send · lean B fold desk I/O; round-close automation seated. Brief [`active-designing/20260722-134415_stoa234-after-runtime-desk-emit-checkin.md`](../active-designing/20260722-134415_stoa234-after-runtime-desk-emit-checkin.md). seva-broadcast held.
 
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.

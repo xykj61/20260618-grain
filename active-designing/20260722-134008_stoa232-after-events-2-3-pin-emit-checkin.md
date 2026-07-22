@@ -6,7 +6,8 @@
 **Version:** `20260722.134008` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send chosen `20260722.134008` · lean **B** rest recommended next  
+**Status:** Checkable — lean **A** send `20260722.134008` · lean **B** rest already taken · lean **C** as **glow-language** `20260722.134205`  
+
 **Register:** Checkable (Two Rooms) — glow-language GREEN with this send; runtime `.glow` held  
 
 **Grounds in:** glow-language events 2–3 pin emit · glow-language–229 event-1 recipe · pixel-glass root
@@ -26,15 +27,15 @@ glow-language `demo_sig2/fact2` · `demo_sig3/fact3` · six-face lit desk · `fo
 | | Lean | What it opens |
 |---|---|---|
 | **A** | **Send glow-language** — **chosen** `20260722.134008` | pier matches hand |
-| **B** | **Rest** — **recommended next** | finishing edge after a closed pin-emit season |
-| **C** | **Runtime `.glow` file parse** | thicker seam — **held**; needs a sized brief |
+| **B** | **Rest** — already taken (Keaton rested before kg) | not the next door |
+| **C** | **Runtime `.glow` desk emit** — **as glow-language** `20260722.134205` | product reads fact-line lit desk · emit ≡ pins |
 | **D** | **seva-broadcast** | inference · economics — **held**; explicit word only |
 
 ---
 
 ## Why a lean now
 
-Events 1–3 from pins closed the product pin-emit path for the Sala B0 demo log. Ship (A), then rest (B) rather than silently opening runtime desk parse.
+Events 1–3 from pins closed the pin-emit path. Rest was already taken. The open product door is runtime desk emit (C), sized thin as glow-language — not another rest.
 
 ---
 
