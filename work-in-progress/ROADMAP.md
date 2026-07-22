@@ -724,7 +724,11 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language runtime fact-line desk emit GREEN, `20260722.134205`** — desk extract · emit ≡ pins · desk append pixel-glass. Brief [`active-designing/20260722-134205_stoa233-runtime-desk-emit.md`](../active-designing/20260722-134205_stoa233-runtime-desk-emit.md).
 
-**glow-language after runtime desk emit check-in, `20260722.134415`** — lean A send · lean B fold desk I/O; round-close automation seated. Brief [`active-designing/20260722-134415_stoa234-after-runtime-desk-emit-checkin.md`](../active-designing/20260722-134415_stoa234-after-runtime-desk-emit-checkin.md). seva-broadcast held.
+**glow-language after runtime desk emit check-in, `20260722.134415`** — lean A send · lean B as glow-language; round-close automation seated. Brief [`active-designing/20260722-134415_stoa234-after-runtime-desk-emit-checkin.md`](../active-designing/20260722-134415_stoa234-after-runtime-desk-emit-checkin.md).
+
+**glow-language claim/fold desk-file I/O GREEN, `20260722.134552`** — `*_from_desk_file` ≡ pin; NA pin path. Brief [`active-designing/20260722-134552_stoa235-claim-fold-desk-file.md`](../active-designing/20260722-134552_stoa235-claim-fold-desk-file.md).
+
+**glow-language after desk-file claim check-in, `20260722.134657`** — lean A send · lean B NA desk asset. Brief [`active-designing/20260722-134657_stoa236-after-desk-file-claim-checkin.md`](../active-designing/20260722-134657_stoa236-after-desk-file-claim-checkin.md). seva-broadcast held.
 
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.

@@ -6,7 +6,8 @@
 **Version:** `20260722.134415` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send chosen `20260722.134415` · lean **B** fold desk I/O recommended next  
+**Status:** Checkable — lean **A** send `20260722.134415` · lean **B** as **glow-language** `20260722.134552`  
+
 **Register:** Checkable (Two Rooms) — glow-language GREEN with this send; claim path still pin-append  
 
 **Grounds in:** glow-language runtime desk emit · glow-language pin emit · glow-language/198 claim·fold compose
@@ -26,7 +27,7 @@ glow-language `extract_desk_cord` · `format_demo_line*_from_desk` · `append_de
 | | Lean | What it opens |
 |---|---|---|
 | **A** | **Send glow-language** — **chosen** `20260722.134415` | pier matches hand |
-| **B** | **Wire claim/fold to desk file I/O** — **recommended next** | `claim_demo_fold` (or thin twin) reads lit desk · desk append |
+| **B** | **Wire claim/fold to desk file I/O** — **as glow-language** `20260722.134552` | desk-file claim/fold twin · pixel-glass |
 | **C** | **Glow `face_lit` on product path** | thicker module-path seam — **held** |
 | **D** | **seva-broadcast** | inference · economics — **held**; explicit word only |
 
