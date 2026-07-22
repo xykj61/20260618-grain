@@ -7,11 +7,11 @@
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
 **Status:** Checkable — survey seated · bartis payload flip GREEN with this lap  
-**Register:** Checkable (Two Rooms) — helper + witnesses; barket twin Intent  
+**Register:** Checkable (Two Rooms) — helper + witnesses; barket twin Checkable as glow-language  
 
 **Grounds in:** glow-language lean **A** · Survey Lexicon · glow-language–129 · N-field pattern glow-language  
 
-**dated_guard:** Do **not** merge with `$:` N-field path. Do **not** open ambient gold. Kind unit flip stays a second family this lap. Barket twin next.
+**dated_guard:** Do **not** merge with `$:` N-field path. Do **not** open ambient gold. Kind unit flip stays a second family this lap. Barket twin → glow-language.
 
 ---
 
