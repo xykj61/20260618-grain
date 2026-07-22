@@ -744,7 +744,11 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language product-authored line body GREEN, `20260722.140957`** — format/parse own body ≡ elder peer; no rc delegate. Brief [`active-designing/20260722-140957_stoa243-product-authored-line-body.md`](../active-designing/20260722-140957_stoa243-product-authored-line-body.md).
 
-**glow-language after line body check-in, `20260722.141029`** — lean A send · lean B next authored body (sign/verify or digest). Brief [`active-designing/20260722-141029_stoa244-after-line-body-checkin.md`](../active-designing/20260722-141029_stoa244-after-line-body-checkin.md). seva-broadcast held.
+**glow-language after line body check-in, `20260722.141029`** — lean A send · lean B → glow-language sign body. Brief [`active-designing/20260722-141029_stoa244-after-line-body-checkin.md`](../active-designing/20260722-141029_stoa244-after-line-body-checkin.md). seva-broadcast held.
+
+**glow-language product-authored sign body GREEN, `20260722.141141`** — sign/verify own body ≡ elder peer. Brief [`active-designing/20260722-141141_stoa245-product-authored-sign-body.md`](../active-designing/20260722-141141_stoa245-product-authored-sign-body.md).
+
+**glow-language after sign body check-in, `20260722.141319`** — lean A send · lean B digest authored body. Brief [`active-designing/20260722-141319_stoa246-after-sign-body-checkin.md`](../active-designing/20260722-141319_stoa246-after-sign-body-checkin.md). seva-broadcast held.
 
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
