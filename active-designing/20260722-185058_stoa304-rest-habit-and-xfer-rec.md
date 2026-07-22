@@ -29,7 +29,7 @@ Rule twins: `.cursor/rules/round-close-send-checkin.mdc` · `.claude/rules/round
 |---|---|---|
 | **A** | **Send glow-language** — chosen | pier already carries xact argv |
 | **B** | **Rest** — available; not recommended | Keaton’s word only |
-| **C** | **Xfer argv survey** — **recommended** | two mint faces · thicker payload reader |
+| **C** | **Xfer argv survey** — **chosen** → glow-language | two mint faces · thicker payload reader |
 | **D** | **Gold · face_lit · fleets · seva-broadcast** | **held** |
 
 ---

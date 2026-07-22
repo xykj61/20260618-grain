@@ -6,7 +6,7 @@
 **Version:** `20260722.184520` (EDT · Framework host) · living recommend `20260722.185058`  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send with round-close · lean **C** xfer argv recommended (`20260722.185058`)  
+**Status:** Checkable — lean **A** send with round-close · lean **C** xfer argv **chosen** (`20260722.185058` · implement glow-language)  
 **Register:** Checkable (Two Rooms) — glow-language GREEN; xfer argv Intent  
 
 **Grounds in:** glow-language · glow-language lean A · rest habit `20260722.185058`  
