@@ -6,8 +6,8 @@
 **Version:** `20260722.150806` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean table · recommend **A** · no wire yet  
-**Register:** Checkable for the lean; Intent until the typed-append witness GREEN  
+**Status:** Checkable — lean **A** approved `20260722.151008` → glow-language GREEN  
+**Register:** Checkable (Two Rooms) — typed-append witness GREEN as glow-language; glass wire still Intent  
 **Grounds in:** glow-language lean **B** · glow-language Pixel authored-fold eyes · glow-language append compose · glow-language–249 authored bodies · Dexter glass-keyboard/seva-broadcast glass · humanity 1A  
 
 **dated_guard:** Do **not** reopen glow-language eyes as unfinished. Do **not** claim seva-broadcast chat paint is a signed Sala event. Do **not** change `sala_root.txt` pixel-glass pin in the first typed-append lap. pixel-glass 1A · gold · shared-package · seva-broadcast · UDP hop stay held.
@@ -44,7 +44,7 @@
 
 | | Lean | What it opens |
 |---|---|---|
-| **A** | **Typed memo → Glow `append_event` (device-free)** — **recommended** | First real signed event from a Dexter-shaped string; pixel-glass fold untouched |
+| **A** | **Typed memo → Glow `append_event` (device-free)** — **chosen** → glow-language | First real signed event from a Dexter-shaped string; pixel-glass fold untouched |
 | **B** | **Dexter submit helper module** (still host witness) | Names LineEditor→append before glass wire |
 | **C** | **NativeActivity submit → append + paint / live-root file** | Glass hand; pack; Pixel eyes follow |
 | **D** | **Rest / other season door** | Explicit hold |
