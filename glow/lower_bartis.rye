@@ -48,7 +48,8 @@
 //! glow-language: `penta-mold` argv identity — `$:` five-field reader (`… <memo>`).
 //! glow-language: `hexa-mold` argv identity — `$:` six-field reader (`… <tag>`).
 //! glow-language: `hepta-mold` argv identity — `$:` seven-field reader (`… <to>`).
-//! glow-language: `octa-mold` argv identity — `$:` eight-field reader (`… <via>`); nona held.
+//! glow-language: `octa-mold` argv identity — `$:` eight-field reader (`… <via>`).
+//! glow-language: `nona-mold` argv identity — `$:` nine-field reader (`… <ref>`); closes pair…nona.
 //! Gate function named `bartis_gate` to avoid collisions with the sample face.
 
 const std = @import("std");
@@ -591,6 +592,11 @@ fn emit_octa_argv(out: []u8, zface: []const u8, comment: []const u8) LowerError!
     return emit_n_field_argv(out, 8, zface, comment);
 }
 
+/// glow-language: closed nine-field `$:` nona-mold argv → NonaShape (via N-field argv).
+fn emit_nona_argv(out: []u8, zface: []const u8, comment: []const u8) LowerError!u32 {
+    return emit_n_field_argv(out, 9, zface, comment);
+}
+
 /// glow-language: one N-field identity emit for closed `$:` pair…nona (N = 2…9).
 fn emit_n_field_identity(out: []u8, field_count: u32, zface: []const u8, comment: []const u8) LowerError!u32 {
     assert(field_count >= 2);
@@ -1127,7 +1133,7 @@ fn emit_argv(spec: *const rb.GateSpec, out: []u8) LowerError!u32 {
         }
     }
 
-    // glow-language: octa `$:` argv identity — eight field decimals; nona held.
+    // glow-language: octa `$:` argv identity — eight field decimals.
     if (is_octa_sample(spec)) {
         switch (spec.body) {
             .identity => {
@@ -1139,7 +1145,18 @@ fn emit_argv(spec: *const rb.GateSpec, out: []u8) LowerError!u32 {
         }
     }
 
-    if (is_nona_sample(spec)) return error.SampleDoesNotNest;
+    // glow-language: nona `$:` argv identity — nine field decimals; closes pair…nona.
+    if (is_nona_sample(spec)) {
+        switch (spec.body) {
+            .identity => {
+                var comment_buf: [192]u8 = undefined;
+                const comment = std.fmt.bufPrint(&comment_buf, "Lowered from Glow `|=  {s}={s}` bartis — NonaShape argv fields (glow-language).", .{ face, mold }) catch return error.Overflow;
+                return emit_nona_argv(out, zface, comment);
+            },
+            .call_one => return error.SampleDoesNotNest,
+        }
+    }
+
     var used: u32 = 0;
 
     try emit_prelude(out, &used);

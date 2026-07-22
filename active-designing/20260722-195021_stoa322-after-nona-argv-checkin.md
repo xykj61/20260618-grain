@@ -1,0 +1,35 @@
+# glow-language — After Nona Argv · Check-In
+
+*An Acme Corporation employee reading this gets the fork after nona `$:` argv landed on both gates: the N-field argv survey’s pair…nona family is GREEN and closed, and the next door is a named glow-language beyond `$:` argv or a held thicker season.*
+
+**Language:** EN  
+**Version:** `20260722.195021` (EDT · Framework host)  
+**Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
+**Voice:** Quin  
+**Status:** Checkable — lean **A** send with round-close · lean **C** next glow-language door recommended  
+**Register:** Checkable (Two Rooms) — glow-language GREEN; next glow-language Intent  
+
+**Grounds in:** glow-language · glow-language lean C · rest habit `20260722.185058`  
+
+**dated_guard:** Deca argv · gold · face_lit · fleets · seva-broadcast stay held unless chosen. Do not recommend rest unprompted.
+
+---
+
+## What just closed
+
+glow-language: N-field argv survey · `emit_nona_argv` · nine decimals · both gates GREEN · `$:` argv family closed (pair…nona).
+
+---
+
+## glow-language leans
+
+| | Lean | What it opens |
+|---|---|---|
+| **A** | **Send glow-language** — **chosen** with round-close | pier carries nona argv |
+| **B** | **Rest** — available; Keaton’s word | pause when he asks |
+| **C** | **Name next glow-language door** — **recommended** | beyond `$:` argv; Claude check-in if a seam |
+| **D** | **Gold · face_lit · fleets · seva-broadcast · deca** | **held** |
+
+---
+
+*May the next door open from a named lean, not from habit alone.*
