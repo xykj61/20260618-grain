@@ -6,8 +6,8 @@
 **Version:** `20260722.152849` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send with round-close · lean **B** host onpath full GREEN  
-**Register:** Checkable (Two Rooms) — glow-language chain authored + harvest half GREEN; full boot Intent until host KVM  
+**Status:** Checkable — lean **A** send done · lean **B** attempted `20260722.153130` → serial race → glow-language  
+**Register:** Checkable (Two Rooms) — glow-language chain authored; host full GREEN still Intent until serial-pin retry  
 
 **Grounds in:** glow-language chain · glow-language lean B · pixel-glass host seat  
 
@@ -26,7 +26,7 @@ glow-language: `hawm0_boot_harvest_onpath_host` · chain witness GREEN · onpath
 | | Lean | What it opens |
 |---|---|---|
 | **A** | **Send glow-language** — **chosen** with round-close | pier carries boot→harvest chain |
-| **B** | **Host onpath full GREEN** — **recommended** | run chain outside jail with `/dev/kvm`; pin eyes |
+| **B** | **Host onpath full GREEN** — **attempted** → glow-language | Pixel raced bare adb; serial pin then retry |
 | **C** | **pixel-glass / Pixel root into harvest Bron** | extend `hawm-harvest-v1` with sala root (Pixel adb works in this seat) |
 | **D** | **Fleets · pixel-glass · gold · seva-broadcast · UDP** | thicker — **held** |
 
