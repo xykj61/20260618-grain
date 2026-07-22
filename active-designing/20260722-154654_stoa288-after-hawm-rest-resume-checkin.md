@@ -6,8 +6,8 @@
 **Version:** `20260722.154654` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean table · awaiting choose  
-**Register:** Checkable for the lean; Intent until the chosen door’s witness GREEN  
+**Status:** Checkable — lean **A** approved → glow-language GREEN  
+**Register:** Checkable (Two Rooms) — Pixel LIVE eyes GREEN as glow-language  
 
 **Grounds in:** glow-language rest · “let’s continue” · Pixel `66041JEA306288` attached · APK `tools/.cache/tube05/sala-broadcaster.apk` present  
 
@@ -29,7 +29,7 @@
 
 | | Lean | Size | What it opens |
 |---|---|---|---|
-| **A** | **Pixel glass LIVE eyes** — **recommended** | one kg lap | pack/install/start Sala APK; eyes confirm LIVE row + pixel-glass tip; short look note |
+| **A** | **Pixel glass LIVE eyes** — **chosen** → glow-language | one kg lap | pack/install/start Sala APK; eyes confirm LIVE row + pixel-glass tip; short look note |
 | **B** | **Glow language inventary** | check-in first | next language door (tagged `$%` flip · gold · other) — needs its own size before kg |
 | **C** | **Reopen pixel-glass** | host onpath | boot→harvest again — low value right after stop unless a new harvest field is named |
 | **D** | **Fleets · pixel-glass · gold · seva-broadcast · UDP** | thick | **held** |
