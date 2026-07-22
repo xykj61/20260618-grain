@@ -892,7 +892,11 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language N-field argv survey · penta GREEN, `20260722.192146`** — `emit_penta_argv` · five fields · hexa refuse pinned. Brief [`active-designing/20260722-192146_stoa313-n-field-argv-survey-penta.md`](../active-designing/20260722-192146_stoa313-n-field-argv-survey-penta.md).
 
-**glow-language after penta argv check-in, `20260722.192541`** — lean A send · lean B rest available · lean **C** hexa argv recommended. Brief [`active-designing/20260722-192541_stoa314-after-penta-argv-checkin.md`](../active-designing/20260722-192541_stoa314-after-penta-argv-checkin.md).
+**glow-language after penta argv check-in, `20260722.192541`** — lean A send · lean B rest available · lean **C** hexa argv chosen. Brief [`active-designing/20260722-192541_stoa314-after-penta-argv-checkin.md`](../active-designing/20260722-192541_stoa314-after-penta-argv-checkin.md).
+
+**glow-language N-field argv survey · hexa GREEN, `20260722.192737`** — `emit_hexa_argv` · six fields · hepta refuse pinned. Brief [`active-designing/20260722-192737_stoa315-n-field-argv-survey-hexa.md`](../active-designing/20260722-192737_stoa315-n-field-argv-survey-hexa.md).
+
+**glow-language after hexa argv check-in, `20260722.193120`** — lean A send · lean B rest available · lean **C** hepta argv recommended. Brief [`active-designing/20260722-193120_stoa316-after-hexa-argv-checkin.md`](../active-designing/20260722-193120_stoa316-after-hexa-argv-checkin.md).
 
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
