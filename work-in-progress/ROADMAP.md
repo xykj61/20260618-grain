@@ -738,6 +738,10 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language after Pixel eyes check-in, `20260722.135605`** — lean A send · lean B name next door (`face_lit` / seva-broadcast). Brief [`active-designing/20260722-135605_stoa240-after-pixel-eyes-checkin.md`](../active-designing/20260722-135605_stoa240-after-pixel-eyes-checkin.md). seva-broadcast held.
 
+**glow-language face_lit product agree GREEN, `20260722.135948`** — product stand-in ≡ Glow face_lit via seated pins; no `@import`. Brief [`active-designing/20260722-135948_stoa241-face-lit-product-agree.md`](../active-designing/20260722-135948_stoa241-face-lit-product-agree.md).
+
+**glow-language after face_lit agree check-in, `20260722.140015`** — lean A send · lean B name next door (shared-package import / new product door / seva-broadcast). Brief [`active-designing/20260722-140015_stoa242-after-face-lit-agree-checkin.md`](../active-designing/20260722-140015_stoa242-after-face-lit-agree-checkin.md). seva-broadcast held.
+
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
 

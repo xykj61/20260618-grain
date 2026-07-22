@@ -2,14 +2,14 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260722.135605` (EDT) · voice Quin  
-**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow compose** · embedded desk · **Pixel eyes**  
-**Language nib:** **glow-language–240** GREEN · after Pixel embedded-desk eyes  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–240  
-**Git nib:** *(after send)* · glow-language–240  
+**Last refreshed:** `20260722.140015` (EDT) · voice Quin  
+**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow compose** · embedded desk · **Pixel eyes** · face_lit agree  
+**Language nib:** **glow-language–242** GREEN · after face_lit product agree  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–242  
+**Git nib:** *(set after send)* · glow-language–242  
 
 
-**Chapter:** Framework · Eastern / EDT · Pixel eyes GREEN on embedded desk · round-close on.  
+**Chapter:** Framework · Eastern / EDT · thin face_lit agree GREEN · round-close on.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`  
 **ADB:** `tools/.cache/hawm0/android-sdk/platform-tools/adb` — not on bare PATH
 
@@ -17,7 +17,7 @@
 
 ## Now
 
-**glow-language** `20260722.135605` — Pixel eyes GREEN; lean B name next door (`face_lit` · seva-broadcast). Brief [`../active-designing/20260722-135605_stoa240-after-pixel-eyes-checkin.md`](../active-designing/20260722-135605_stoa240-after-pixel-eyes-checkin.md).
+**glow-language** `20260722.140015` — face_lit product agree GREEN; lean B name next door (shared-package import · new product door · seva-broadcast). Brief [`../active-designing/20260722-140015_stoa242-after-face-lit-agree-checkin.md`](../active-designing/20260722-140015_stoa242-after-face-lit-agree-checkin.md).
 
 **ADB (copy-paste):**
 
@@ -37,9 +37,10 @@ $ADB shell run-as org.glow.app.sala_broadcaster cat files/sala_root.txt
 
 | Door | Kind |
 |------|------|
-| Name next door | **check-in** (`face_lit` · seva-broadcast · …) |
-| Glow `face_lit` on product path | **held** |
+| Name next door | **check-in** (shared-package `face_lit` · new product door · seva-broadcast) |
+| Shared package / true `@import` face_lit | **held** |
 | seva-broadcast | **held** |
+| face_lit product agree | **GREEN** `20260722.135948` |
 | Pixel embedded-desk eyes | **GREEN** `20260722.135605` |
 | usb-hearth.5 live-sent | **GREEN** `20260720.233805` |
 

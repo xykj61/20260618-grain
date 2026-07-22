@@ -6,12 +6,12 @@
 **Version:** `20260722.135605` (EDT · Framework host)  
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send chosen `20260722.135605` · lean **B** name next door  
+**Status:** Checkable — lean **A** send chosen `20260722.135605` · lean **B** became **glow-language** `20260722.135948`  
 **Register:** Checkable (Two Rooms) — glow-language GREEN with this send; pin/desk/embed/Pixel arc closed  
 
 **Grounds in:** glow-language Pixel eyes · glow-language–238 lit/desk season · pixel-glass
 
-**dated_guard:** Do **not** reopen pin/desk emit as unfinished. seva-broadcast and product `face_lit` stay held until named.
+**dated_guard:** Do **not** reopen pin/desk emit as unfinished. seva-broadcast and shared-package `face_lit` import stay held until named.
 
 ---
 
