@@ -880,7 +880,11 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language N-field argv survey · pair GREEN, `20260722.190655`** — `emit_n_field_argv` / `emit_pair_argv` · from/amount · triple refuse pinned. Brief [`active-designing/20260722-190655_stoa307-n-field-argv-survey-pair.md`](../active-designing/20260722-190655_stoa307-n-field-argv-survey-pair.md).
 
-**glow-language after pair argv check-in, `20260722.190720`** — lean A send · lean B rest available · lean **C** triple argv recommended. Brief [`active-designing/20260722-190720_stoa308-after-pair-argv-checkin.md`](../active-designing/20260722-190720_stoa308-after-pair-argv-checkin.md).
+**glow-language after pair argv check-in, `20260722.190720`** — lean A send · lean B rest available · lean **C** triple argv chosen. Brief [`active-designing/20260722-190720_stoa308-after-pair-argv-checkin.md`](../active-designing/20260722-190720_stoa308-after-pair-argv-checkin.md).
+
+**glow-language N-field argv survey · triple GREEN, `20260722.190839`** — `emit_triple_argv` · from/amount/fee · quad refuse pinned. Brief [`active-designing/20260722-190839_stoa309-n-field-argv-survey-triple.md`](../active-designing/20260722-190839_stoa309-n-field-argv-survey-triple.md).
+
+**glow-language after triple argv check-in, `20260722.191301`** — lean A send · lean B rest available · lean **C** quad argv recommended. Brief [`active-designing/20260722-191301_stoa310-after-triple-argv-checkin.md`](../active-designing/20260722-191301_stoa310-after-triple-argv-checkin.md).
 
 
 **Framework next (host resume), `20260720.231857`** — lean A: live usb-hearth.5 **sent** eyes on real `usb0`/`ncm`. Lab TX gate already GREEN; Sala B0 Glow rewrite · seva-broadcast stay thicker check-ins. Same freeze brief.
