@@ -2,14 +2,14 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260722.141659` (EDT) · voice Quin  
-**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow compose** · authored line · sign · digest · **fields**  
-**Language nib:** **glow-language–250** GREEN · after product-authored fields body  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–250  
-**Git nib:** *(set after send)* · glow-language–250  
+**Last refreshed:** `20260722.141940` (EDT) · voice Quin  
+**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · **Sala B0 Glow compose** · authored line · sign · digest · fields  
+**Language nib:** **glow-language–252** · language return · N-field emit inventary  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–252  
+**Git nib:** *(set after send)* · glow-language–252  
 
 
-**Chapter:** Framework · Eastern / EDT · authored deepen (line·sign·digest·fields) GREEN · round-close on.  
+**Chapter:** Framework · Eastern / EDT · language return opens on N-field emit · round-close on.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`  
 **ADB:** `tools/.cache/hawm0/android-sdk/platform-tools/adb` — not on bare PATH
 
@@ -17,7 +17,7 @@
 
 ## Now
 
-**glow-language** `20260722.141659` — authored fields body GREEN; lean B name next door (shared-package · language · season). Brief [`../active-designing/20260722-141659_stoa250-after-fields-body-checkin.md`](../active-designing/20260722-141659_stoa250-after-fields-body-checkin.md).
+**glow-language** `20260722.141940` — N-field emit inventary seated; lean B thin identity N-field emit. Brief [`../active-designing/20260722-141940_stoa252-after-n-field-inventory-checkin.md`](../active-designing/20260722-141940_stoa252-after-n-field-inventory-checkin.md).
 
 **ADB (copy-paste):**
 
@@ -37,14 +37,14 @@ $ADB shell run-as org.glow.app.sala_broadcaster cat files/sala_root.txt
 
 | Door | Kind |
 |------|------|
-| Name next door | **check-in** (shared-package · language · season) |
+| Thin identity N-field emit | **kg** (glow-language lean B) |
+| Barket identity twin / flip collapse | **held** one lap |
+| Ambient gold | **held** |
 | Shared package / true `@import` face_lit | **held** |
-| Language return | **held** until named |
 | seva-broadcast | **held** |
+| N-field emit inventary | **seated** `20260722.141918` |
 | Product-authored fields body | **GREEN** `20260722.141630` |
-| Product-authored digest body | **GREEN** `20260722.141443` |
 | Pixel embedded-desk eyes | **GREEN** `20260722.135605` |
-| usb-hearth.5 live-sent | **GREEN** `20260720.233805` |
 
 ---
 
