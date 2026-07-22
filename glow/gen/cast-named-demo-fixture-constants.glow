@@ -1,5 +1,6 @@
 ::  Same-desk named-cast — +$ demo-fixture-constants-shape then ^- (glow-language / C3).
-::  Seven faces: stamp1–3 · memo1–3 @t · root @ux. Source literals still held.
+::  Seven faces: stamp1–3 · memo1–3 @t · root @ux.
+::  glow-language: elder pins as face=lit at sample-demo-fixture-lits.glow.
 +$  demo-fixture-constants-shape
   $:  stamp1=@t
       stamp2=@t
