@@ -153,4 +153,6 @@ Living Glow OS desks lead with `shape-*` (shape duals glow-language–173; pin p
 | **glow-language** | N-field argv survey · nona | `emit_nona_argv` · bartis+barket · family closed | **GREEN** `20260722.195019` |
 | **glow-language** | after nona argv check-in | A send · B rest available · **C** name next glow-language door | **GREEN** `20260722.195021` |
 | **glow-language** | after sameness argv check-in | A send · B rest available · **C** `$:` argv collapse recommended | **GREEN** `20260722.200205` |
+| **glow-language** | `$:` argv sameness collapse | mold→N→emit · worker stem→N | **GREEN** `20260722.200916` |
+| **glow-language** | after argv sameness check-in | A send · B rest available · **C** name next glow-language door | **GREEN** `20260722.200918` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.

@@ -2,14 +2,14 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260722.200205` (EDT) · voice Quin  
+**Last refreshed:** `20260722.200918` (EDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded**  
-**Language nib:** **glow-language–323** · `$:` argv family GREEN · sameness collapse next  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–323  
-**Git nib:** *(pin after send)* · glow-language
+**Language nib:** **glow-language–325** · `$:` argv sameness collapse GREEN  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–325  
+**Git nib:** *(pin after send)* · glow-language–325
 
 
-**Chapter:** Framework · Eastern / EDT · do not recommend rest · lean C `$:` argv sameness collapse · round-close on.  
+**Chapter:** Framework · Eastern / EDT · do not recommend rest · lean C name next glow-language door · round-close on.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`  
 **ADB:** `tools/.cache/hawm0/android-sdk/platform-tools/adb` — not on bare PATH  
 
@@ -17,9 +17,9 @@
 
 ## Now
 
-**glow-language** `20260722.200205` — after sameness critique; lean C `$:` argv collapse to one N-path. Brief [`../active-designing/20260722-200205_stoa323-after-sameness-argv-checkin.md`](../active-designing/20260722-200205_stoa323-after-sameness-argv-checkin.md).
+**glow-language** `20260722.200918` — after `$:` argv sameness collapse; lean C name next glow-language door. Brief [`../active-designing/20260722-200918_stoa325-after-argv-sameness-checkin.md`](../active-designing/20260722-200918_stoa325-after-argv-sameness-checkin.md).
 
-**Witness (family still GREEN):**
+**Witness:**
 
 ```bash
 export RYE_ZIG=vendor/zig-toolchain/zig
@@ -32,10 +32,10 @@ rishi/bin/rishi run tools/glow_run.rish glow/gen/gate-nona-fields.glow 5 3 1 2 7
 
 | Door | Kind |
 |------|------|
-| `$:` argv sameness collapse | **kg** after approve (glow-language lean C) |
+| Name next glow-language door | **check-in** (beyond `$:` argv) |
 | Rest | Keaton’s word only — not recommended |
 | Gold · face_lit · fleets · seva-broadcast · deca | **held** |
-| Nona `$:` argv | **GREEN** `20260722.195019` |
+| `$:` argv sameness collapse | **GREEN** `20260722.200916` |
 
 ---
 
