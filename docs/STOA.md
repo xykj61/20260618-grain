@@ -155,6 +155,8 @@ Living Glow OS desks lead with `shape-*` (shape duals glow-language–173; pin p
 | **glow-language** | after sameness argv check-in | A send · B rest available · **C** `$:` argv collapse recommended | **GREEN** `20260722.200205` |
 | **glow-language** | `$:` argv sameness collapse | mold→N→emit · worker stem→N | **GREEN** `20260722.200916` |
 | **glow-language** | after argv sameness check-in | A send · B rest available · **C** name next glow-language door | **GREEN** `20260722.200918` |
-| **glow-language** | `$:` welcome sameness collapse | mold→N→identity/flip · one call-gate | **GREEN** `20260722.201812` |
+| **glow-language** | `$:` welcome sameness collapse | shape→N→identity/flip · one call-gate | **GREEN** `20260722.201812` |
 | **glow-language** | after welcome sameness check-in | A send · B rest available · **C** nest_type table recommended | **GREEN** `20260722.201814` |
+| **glow-language** | nest_type table · shape params | allowlist/N tables · living `shape_name` | **GREEN** `20260722.203753` |
+| **glow-language** | after nest_type shape check-in | A send · B rest available · **C** gate-spec shape_name | **GREEN** `20260722.203755` |
 Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
