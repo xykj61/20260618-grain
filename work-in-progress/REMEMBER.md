@@ -2,14 +2,14 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260722.203755` (EDT) · voice Quin  
+**Last refreshed:** `20260722.204133` (EDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded**  
-**Language nib:** **glow-language–329** · nest_type shape table GREEN  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–329  
-**Git nib:** *(pin after send)* · glow-language–329
+**Language nib:** **glow-language–331** · gate-spec shape_name GREEN  
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–331  
+**Git nib:** *(pin after send)* · glow-language–331
 
 
-**Chapter:** Framework · Eastern / EDT · do not recommend rest · lean C gate-spec shape_name · round-close on.  
+**Chapter:** Framework · Eastern / EDT · do not recommend rest · lean C cast/face mold→shape · round-close on.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`  
 **ADB:** `tools/.cache/hawm0/android-sdk/platform-tools/adb` — not on bare PATH  
 
@@ -17,7 +17,7 @@
 
 ## Now
 
-**glow-language** `20260722.203755` — after nest_type shape table; lean C `mold_name`→`shape_name` on GateSpec/BarketSpec. Brief [`../active-designing/20260722-203755_stoa329-after-nest-type-shape-checkin.md`](../active-designing/20260722-203755_stoa329-after-nest-type-shape-checkin.md).
+**glow-language** `20260722.204133` — after gate-spec shape_name; lean C cast/face mold→shape. Brief [`../active-designing/20260722-204133_stoa331-after-gate-shape-name-checkin.md`](../active-designing/20260722-204133_stoa331-after-gate-shape-name-checkin.md).
 
 **Witness:**
 
@@ -32,11 +32,10 @@ rishi/bin/rishi run tools/glow_nest_type_witness.rish
 
 | Door | Kind |
 |------|------|
-| GateSpec/BarketSpec `mold_name`→`shape_name` | **kg** after approve (glow-language lean C) |
-| lower_face / cast / tokens mold locals | later kg |
+| cast / face mold→shape | **kg** after approve (glow-language lean C) |
 | Rest | Keaton’s word only — not recommended |
 | Gold · face_lit · fleets · seva-broadcast · deca · tagged merge | **held** |
-| nest_type shape table | **GREEN** `20260722.203753` |
+| gate-spec shape_name | **GREEN** `20260722.204131` |
 
 ---
 
