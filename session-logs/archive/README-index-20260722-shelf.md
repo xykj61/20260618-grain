@@ -8,3 +8,6 @@
 - `20260722.130753` — [Hoon.hoon study vs Glow path](20260722-130753_hoon-hoon-study-vs-glow-path.bron) — selective study; not continuous mint mirror
 - `20260722.130902` — [glow-language face=lit lower GREEN](20260722-130902_stoa220-face-lit-lower-emit.bron) — lit bytes; demos absent
 - `20260722.131153` — [Archive fold · glow-language fixture lits](20260722-131153_archive-fold-stoa221-fixture-lits.bron) — 613 folded; C5 GREEN
+- `20260722.131348` — [glow-language-221 send · glow-language check-in](20260722-131348_stoa219-221-send-stoa222-checkin.bron) — pier send; rec product wire
+- `20260722.131432` — [REMEMBER git nib after glow-language](20260722-131432_remember-git-nib-stoa222.bron) — pin 6285b8182ee4
+- `20260722.131511` — [glow-language product fixture lit wire](20260722-131511_stoa223-product-fixture-lit-desk-wire.bron) — lit_desk_binds_pins GREEN
