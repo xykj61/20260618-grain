@@ -4,4 +4,4 @@
 
 | Waymark | Claim | Path |
 |---------|-------|------|
-| _(empty — next glow-language claim after 331 lands here)_ | | |
+| glow-language | Rishi `glow` mode SLC stub GREEN | [`20260724-144740_stoa332-rishi-glow-mode-slc.md`](20260724-144740_stoa332-rishi-glow-mode-slc.md) |
