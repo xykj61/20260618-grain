@@ -6,7 +6,7 @@
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded**  
 **Language nib:** **glow-language–331** · gate-spec shape_name GREEN  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–331  
-**Git nib:** `262e4a471f` · vanes-shelves-names-maps
+**Git nib:** `5cf6dba2f8` · vanes-shelves-names-maps
 
 **Chapter:** Framework · EDT · **aparigraha / anatomy+strategy braid** · lean C cast/face held · round-close on.  
 **APK:** `tools/.cache/tube05/sala-broadcaster.apk` · pkg `org.glow.app.sala_broadcaster`  
