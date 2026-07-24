@@ -21,6 +21,9 @@ Before the first rung is written as `X0` / `X1` / … in TASKS, ROADMAP, compres
 | **seva-broadcast** | `sala-broadcast-live-session-fold` | Sala broadcast session fold (was bare B0–B3) |
 | **hearth-display** | `glow-glass-hearth-display-and-wired-sync` | Hearth display presets · short home · Wired Glass |
 | **glow-language** | `glow-language-rune-heads-nest-and-lowering-2` | Glow language SLC · rune heads · nest · composition |
+| **usb-hearth** | *(hand-seated; not a corpus draw — absent from flw)* | USB hearth carry Glass↔Desk |
+
+Corpus pin: `tools/fixtures/flw-four-letter.txt` · witness `tools/waymark_derive_witness.rish`.
 
 ## Accrete-never-break
 
