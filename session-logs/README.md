@@ -10,6 +10,7 @@ Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../cont
 
 **Living pin bound:** `living_pin_max_bytes = 24576` ([spec](../context/specs/20260724-132812_pin-and-ledger-living-pin-max-bytes.md)). Closed index rows through `20260721`: [`archive/README-index-through-20260721.md`](archive/README-index-through-20260721.md). Early `20260722` overflow: [`archive/README-index-20260722-shelf.md`](archive/README-index-20260722-shelf.md).
 
+- `20260724.194239` — [Hands We Grow relay — jamcue · twin 1a](20260724-194239_hands-we-grow-relay.bron) — JAMCUE reframe · digraph harden · PARK 2–8
 - `20260724.181332` — [Send list512 and digraph twin to main](20260724-181332_send-list512-digraph-twin.bron) — FF merge · glow-language · list512
 - `20260724.181241` — [list512 and digraph-table twin glow-language](20260724-181241_list512-digraph-twin.bron) — max_list_items=512 · glow-language GREEN
 - `20260724.221013` — [Rung-1 digraph twin research for Quin](20260724-221013_rung1-digraph-twin-research.bron) — Ojjo twin · Glow @t limits · glow-language thin plan
@@ -168,9 +169,3 @@ Naming follows [`context/specs/20260627-102012_one-clock-naming-law.md`](../cont
 - `20260722.133004` — [glow-language append first-event pin emit](20260722-133004_stoa229-append-first-event-pin-emit.bron) — event 1 from pins; pixel-glass
 - `20260722.132831` — [REMEMBER git nib after glow-language](20260722-132831_remember-git-nib-stoa228.bron) — pin 0db7ef379153
 - `20260722.132757` — [glow-language send · glow-language · lean B next](20260722-132757_stoa227-send-stoa228-checkin.bron) — pier send; append wire
-- `20260722.132705` — [glow-language after demo pin emit check-in](20260722-132705_stoa228-after-demo-pin-emit-checkin.bron) — rec send; then append/fold
-- `20260722.132533` — [glow-language demo line pin emit GREEN](20260722-132533_stoa227-demo-line-pin-emit.bron) — pins ≡ claim_demo_line
-- `20260722.132402` — [REMEMBER git nib after glow-language](20260722-132402_remember-git-nib-stoa226.bron) — pin d1feb98c479a
-- `20260722.132320` — [glow-language send · glow-language check-in](20260722-132320_stoa225-send-stoa226-checkin.bron) — pier send; rec rest
-- `20260722.132020` — [glow-language fact-line demo lit sample](20260722-132020_stoa225-fact-line-demo-lit-sample.bron) — sig/fact pins · desk bind GREEN
-- `20260722.131928` — [REMEMBER git nib after glow-language](20260722-131928_remember-git-nib-stoa224.bron) — pin 91ad5674502a
