@@ -12,6 +12,8 @@
 
 **dated_guard:** Do **not** rewrite dated glow-language–147 GREEN briefs. glow-language’s map brief keeps its stamp; this pin **withdraws** it as lean A.
 
+Radiant pass `20260725.111815`
+
 ---
 
 ## Verdict (one breath)

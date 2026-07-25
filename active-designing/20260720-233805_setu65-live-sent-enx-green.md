@@ -10,6 +10,8 @@
 **Privacy:** Host-local IPv4 and MAC-bearing iface names are **not** recorded here (see [`../context/specs/20260713-211800_local-host-system-hardware-anonymized.md`](../context/specs/20260713-211800_local-host-system-hardware-anonymized.md)). Port **38503** is the lab constant already seated in usb-hearth.5.  
 **Grounds in:** [`20260718-201601_setu65-lab-tx-gate.md`](20260718-201601_setu65-lab-tx-gate.md) · [`20260720-233109_setu65-live-sent-attempt-stand-in.md`](20260720-233109_setu65-live-sent-attempt-stand-in.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md)
 
+Radiant pass `20260725.111815`
+
 ---
 
 ## Claim
