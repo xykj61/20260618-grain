@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260724.203813` (EDT) · voice Quin  
+**Last refreshed:** `20260724.203949` (EDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded** · **Seva** · **Mand ring-1**  
 **Language nib:** **glow-language–333** · glow mode SLC · digraph twin rung 1a GREEN · list512 GREEN  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–333 · **Mand ring-1 GREEN**  
-**Git nib:** `7b27758ff3` · pre-mand-ring1 (update after send)
+**Git nib:** `9e59d53527` · Mand ring-1 · one-clock (PR #80)
 
 **Chapter:** Framework · EDT · **finishing edge:** newcomer clones · bootstraps · one witness green · one Glow line at `rishi glow` · inside thirty minutes.  
 **APK:** `tools/.cache/tube05/seva-broadcaster.apk` · pkg `org.glow.app.seva_broadcaster`  
