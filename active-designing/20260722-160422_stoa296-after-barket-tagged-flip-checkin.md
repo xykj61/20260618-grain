@@ -13,6 +13,8 @@
 
 **dated_guard:** Gold · face_lit · fleets · seva-broadcast stay held unless chosen.
 
+Radiant pass `20260725.112115`
+
 ---
 
 ## What just closed

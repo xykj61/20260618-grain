@@ -13,6 +13,8 @@
 
 **dated_guard:** Do **not** force KindShape through `parseInt(u32)`. Do **not** open xact/xfer/pair argv this lap. Ambient gold · fleets · seva-broadcast stay held.
 
+Radiant pass `20260725.112115`
+
 ---
 
 ## Survey — where argv lives

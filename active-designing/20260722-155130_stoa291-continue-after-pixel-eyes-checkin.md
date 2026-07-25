@@ -13,6 +13,8 @@
 
 **dated_guard:** Fleets · pixel-glass · ambient gold · seva-broadcast · UDP · Glow rename · `deca-*` stay **held** unless explicitly chosen.
 
+Radiant pass `20260725.112115`
+
 ---
 
 ## Seat right now

@@ -13,6 +13,8 @@
 
 **dated_guard:** Do **not** treat `hawm-harvest.bron` as fresh unless its stamp is newer than the boot meta and the chain printed GREEN. Fleets · pixel-glass · gold · seva-broadcast stay held.
 
+Radiant pass `20260725.112115`
+
 ---
 
 ## What the host printout showed
