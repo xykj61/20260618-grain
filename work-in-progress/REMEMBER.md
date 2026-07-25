@@ -10,7 +10,7 @@
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded** · **Seva** · **Mand ring-1 · ring-2** · **THREATS** · **five pillars** · **accrete tiers** · **redaction stance** · **always-in-it rhythm**  
 **Language nib:** **glow-language–333** · glow mode SLC · digraph twin rung 1a GREEN · list512 GREEN · **stamp @u64 · Crockford** · **shape aura floor**  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–333 · **Mand ring-2** · **one-clock blocking** · **tools/*.py blocking** · **stranger lap warm REPORT** · **markdown_structure blocking** · **OQ #1 · #3 · #5 answered** · **pass ledger** · **campaign STOPPED** · **growth law**  
-**Git nib:** pending · repair `20260725.114400`
+**Git nib:** `dae4eeb647` · repair PR #130
 
 **Chapter:** Framework · EDT · **finishing edge:** Radiant **on-touch only** · Mand ring-3 · shell harvest · Glow text floor.
 
