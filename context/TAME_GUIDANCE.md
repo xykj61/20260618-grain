@@ -144,19 +144,19 @@ G5 brief: [`../active-designing/20260720-033200_stoa98-g5-nock-second-backend-fa
 | **glow-language GREEN** | Nona-mold gate sample — nine-field `$:` · `NonaMold` struct · baked from 5 amount 3 fee 1 nonce 2 memo 7 tag 4 to 6 via 8 ref 9 |
 | **Capacity freeze** | Closed `$:` allowlist stops at nine faces (`nona-mold` · `max_fields == 9`) — brief `20260720.231857` |
 | **glow-language GREEN** | Nona-mold call body — closed nine-field `$:` flip · NonaMold swap · baked 5/3/1/2/7/4/6/8/9 → 3/5/1/2/7/4/6/8/9 |
-| **glow-language GREEN** | `amount-shape` — first Glow OS shape allowlist alias ≡ `amount-mold` (one-field `$:` / `@u32`) |
-| **glow-language GREEN** | `count-shape` — twin Glow OS shape allowlist alias ≡ `count-mold` (one-field `$:` / `@u32`) |
-| **glow-language GREEN** | `pair-shape` — first multi-field Glow OS shape allowlist alias ≡ `pair-mold` (PairMold) |
-| **glow-language GREEN** | `kind-shape` — first unit `$%` Glow OS shape allowlist alias ≡ `kind-mold` (KindMold) |
-| **glow-language GREEN** | `xact-shape` — first payload `$%` Glow OS shape allowlist alias ≡ `xact-mold` (XactMold) |
-| **glow-language GREEN** | `xfer-shape` — first multi-face payload `$%` Glow OS shape allowlist alias ≡ `xfer-mold` (XferMold) |
-| **glow-language GREEN** | `triple-shape` — three-field `$:` Glow OS shape allowlist alias ≡ `triple-mold` (TripleMold) |
-| **glow-language GREEN** | `quad-shape` — four-field `$:` Glow OS shape allowlist alias ≡ `quad-mold` (QuadMold) |
-| **glow-language GREEN** | `penta-shape` — five-field `$:` Glow OS shape allowlist alias ≡ `penta-mold` (PentaMold) |
-| **glow-language GREEN** | `hexa-shape` — six-field `$:` Glow OS shape allowlist alias ≡ `hexa-mold` (HexaMold) |
-| **glow-language GREEN** | `hepta-shape` — seven-field `$:` Glow OS shape allowlist alias ≡ `hepta-mold` (HeptaMold) |
-| **glow-language GREEN** | `octa-shape` — eight-field `$:` Glow OS shape allowlist alias ≡ `octa-mold` (OctaMold) |
-| **glow-language GREEN** | `nona-shape` — nine-field `$:` Glow OS shape allowlist alias ≡ `nona-mold` (NonaMold); closes multi-field shape ladder at capacity freeze |
+| **glow-language GREEN** | `amount-shape` — first Grain shape allowlist alias ≡ `amount-mold` (one-field `$:` / `@u32`) |
+| **glow-language GREEN** | `count-shape` — twin Grain shape allowlist alias ≡ `count-mold` (one-field `$:` / `@u32`) |
+| **glow-language GREEN** | `pair-shape` — first multi-field Grain shape allowlist alias ≡ `pair-mold` (PairMold) |
+| **glow-language GREEN** | `kind-shape` — first unit `$%` Grain shape allowlist alias ≡ `kind-mold` (KindMold) |
+| **glow-language GREEN** | `xact-shape` — first payload `$%` Grain shape allowlist alias ≡ `xact-mold` (XactMold) |
+| **glow-language GREEN** | `xfer-shape` — first multi-face payload `$%` Grain shape allowlist alias ≡ `xfer-mold` (XferMold) |
+| **glow-language GREEN** | `triple-shape` — three-field `$:` Grain shape allowlist alias ≡ `triple-mold` (TripleMold) |
+| **glow-language GREEN** | `quad-shape` — four-field `$:` Grain shape allowlist alias ≡ `quad-mold` (QuadMold) |
+| **glow-language GREEN** | `penta-shape` — five-field `$:` Grain shape allowlist alias ≡ `penta-mold` (PentaMold) |
+| **glow-language GREEN** | `hexa-shape` — six-field `$:` Grain shape allowlist alias ≡ `hexa-mold` (HexaMold) |
+| **glow-language GREEN** | `hepta-shape` — seven-field `$:` Grain shape allowlist alias ≡ `hepta-mold` (HeptaMold) |
+| **glow-language GREEN** | `octa-shape` — eight-field `$:` Grain shape allowlist alias ≡ `octa-mold` (OctaMold) |
+| **glow-language GREEN** | `nona-shape` — nine-field `$:` Grain shape allowlist alias ≡ `nona-mold` (NonaMold); closes multi-field shape ladder at capacity freeze |
 | **glow-language GREEN** | inventary of `mold-*` desks · first dual `shape-amount` / cast twins; mold twins kept; rename itinerary open |
 | **glow-language GREEN** | second one-field dual `shape-count` / cast twins; mold-count kept; one-field dual ladder closed |
 | **glow-language GREEN** | first multi-field dual `shape-pair` → `PairShape`; mold-pair kept; cast twins held |
