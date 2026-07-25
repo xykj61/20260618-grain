@@ -10,6 +10,8 @@
 **Waymark:** **glow-language** — TAME tidy bartis modules  
 **Grounds in:** glow-language `lower_mold` tidy · [`20260707-164612_tame-tidy-rules-brief.md`](20260707-164612_tame-tidy-rules-brief.md)
 
+Radiant pass `20260725.111715`
+
 ---
 
 ## Claim

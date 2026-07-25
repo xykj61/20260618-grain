@@ -6,6 +6,8 @@
 **Voice:** Quin  
 **Waymark:** **glow-language** · compressor [`../docs/glow-language.md`](../docs/glow-language.md) · prior [`20260719-000132_stoa28-face-to-open-core-brief.md`](20260719-000132_stoa28-face-to-open-core-brief.md)
 
+Radiant pass `20260725.111715`
+
 ---
 
 ## Thin face claim
