@@ -13,8 +13,6 @@
 
 **dated_guard:** Do **not** claim desks parse or lower cord literals yet. No escapes this lap. seva-broadcast held.
 
-Radiant pass `20260725.111915`
-
 ---
 
 ## Verdict (one breath)

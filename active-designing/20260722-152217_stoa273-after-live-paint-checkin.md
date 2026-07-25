@@ -13,8 +13,6 @@
 
 **dated_guard:** Do **not** reopen glow-language–272 as unfinished. Gold · shared-package · seva-broadcast · UDP stay held.
 
-Radiant pass `20260725.112115`
-
 ---
 
 ## What just closed

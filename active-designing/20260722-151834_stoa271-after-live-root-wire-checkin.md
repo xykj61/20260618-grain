@@ -13,8 +13,6 @@
 
 **dated_guard:** Do **not** reopen glow-language as unfinished. Do **not** merge live root into `sala_root.txt`. pixel-glass 1A · gold · seva-broadcast · UDP stay held.
 
-Radiant pass `20260725.112115`
-
 ---
 
 ## What just closed

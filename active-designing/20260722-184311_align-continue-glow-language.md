@@ -13,8 +13,6 @@
 
 **dated_guard:** Ambient gold · doors · fleets · pixel-glass · seva-broadcast · UDP · content-merge of dated files stay **held**. Do not reopen N-field or tagged flip emit as unfinished.
 
-Radiant pass `20260725.112115`
-
 ---
 
 ## Compass rose (walked)

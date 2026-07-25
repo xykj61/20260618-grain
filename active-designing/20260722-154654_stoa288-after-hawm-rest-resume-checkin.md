@@ -13,8 +13,6 @@
 
 **dated_guard:** Fleets · pixel-glass · ambient gold · tagged `$%` flip collapse · seva-broadcast · UDP stay **held** until their own check-in.
 
-Radiant pass `20260725.112115`
-
 ---
 
 ## What already closed (this season arc)

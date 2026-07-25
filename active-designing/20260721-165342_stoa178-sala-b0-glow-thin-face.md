@@ -12,8 +12,6 @@
 
 **dated_guard:** Do **not** rewrite dated seva-broadcast / pixel-glass / glow-language–73 records. Elder Rye fold stays until a Glow path earns the same root. seva-broadcast stays a separate thicker check-in. No whole-vane dump from `old/`.
 
-Radiant pass `20260725.111915`
-
 ---
 
 ## Verdict (one breath)

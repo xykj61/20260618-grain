@@ -13,8 +13,6 @@
 
 **dated_guard:** Fleets · pixel-glass · gold · seva-broadcast · UDP stay **held**. Do not claim root-in-harvest GREEN from this check-in alone.
 
-Radiant pass `20260725.112115`
-
 ---
 
 ## Seat right now

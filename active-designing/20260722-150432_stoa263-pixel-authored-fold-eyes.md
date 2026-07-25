@@ -13,8 +13,6 @@
 
 **dated_guard:** Do **not** claim bare `adb` is on PATH — use SDK `adb`. Do **not** reopen N-field inventary deepen. pixel-glass 1A · seva-broadcast · Dexter→Sala typed append stay named doors, not this lap.
 
-Radiant pass `20260725.112015`
-
 ---
 
 ## Verdict (one breath)

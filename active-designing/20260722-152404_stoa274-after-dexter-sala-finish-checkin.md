@@ -12,8 +12,6 @@
 
 **dated_guard:** Do **not** reopen glow-language–272 as unfinished. Do **not** start a “Glow GrapheneOS emulator” ladder (pixel-glass 1C refuse). Do **not** claim fleets are checkable before a harvest shape GREEN. Gold · shared-package · seva-broadcast · UDP stay held.
 
-Radiant pass `20260725.112115`
-
 ---
 
 ## What just closed (finishing edge)

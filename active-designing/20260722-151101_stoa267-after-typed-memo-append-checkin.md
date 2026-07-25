@@ -13,8 +13,6 @@
 
 **dated_guard:** Do **not** reopen glow-language as unfinished. Do **not** claim chat paint equals signed append. pixel-glass pin stays.
 
-Radiant pass `20260725.112115`
-
 ---
 
 ## What just closed

@@ -12,8 +12,6 @@
 
 **dated_guard:** Do **not** claim NativeActivity claim wire or fold rewrite. Prefer **send** of glow-language–188 when the pier should match the hand. seva-broadcast held.
 
-Radiant pass `20260725.111915`
-
 ---
 
 ## Verdict (one breath)

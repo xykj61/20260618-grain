@@ -13,8 +13,6 @@
 
 **dated_guard:** Compose landed as glow-language. FactFields/amount parse still elder (C2). seva-broadcast held.
 
-Radiant pass `20260725.111915`
-
 ---
 
 ## Verdict (one breath)

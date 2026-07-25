@@ -6,8 +6,6 @@
 **Last updated:** 2026-07-18 (hearth-display · seva-broadcast · glass-keyboard · COMPASS · pixel-glass · glow-publishing)
 **Compresses:** [`20260712-221600`](../active-designing/20260712-221600_docs-compression-layer-design.md) · [`20260717-173848`](../active-designing/20260717-173848_compass-card-and-foundations-compress.md)
 
-Radiant pass `20260725.112515`
-
 ---
 
 ## Law

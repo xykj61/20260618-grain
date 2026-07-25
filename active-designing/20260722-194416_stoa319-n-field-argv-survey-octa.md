@@ -13,8 +13,6 @@
 
 **dated_guard:** Do **not** open nona argv this lap. Gold · fleets · seva-broadcast stay held.
 
-Radiant pass `20260725.112215`
-
 ---
 
 ## Survey — argv families (updated)

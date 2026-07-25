@@ -8,8 +8,6 @@
 **Waymark drawn:** **hearth-display** ← `glow-glass-hearth-display-and-wired-sync`  
 **glass-keyboard continuation:** send-key / newline is **glass-keyboard** (same waymark glass-keyboard — not a new ladder)
 
-Radiant pass `20260725.111615`
-
 ---
 
 ## Restated intent

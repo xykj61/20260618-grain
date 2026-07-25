@@ -13,8 +13,6 @@
 
 **dated_guard:** Do **not** claim NativeActivity submit appends. Do **not** change `sala_root.txt` pixel-glass pin. Lean B/C and pixel-glass 1A stay later.
 
-Radiant pass `20260725.112115`
-
 ---
 
 ## Verdict (one breath)

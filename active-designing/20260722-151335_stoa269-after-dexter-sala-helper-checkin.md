@@ -13,8 +13,6 @@
 
 **dated_guard:** Do **not** reopen glow-language as unfinished. Do **not** overwrite pixel-glass `sala_root.txt` with the live typed root — keep a separate live-root file if wiring glass.
 
-Radiant pass `20260725.112115`
-
 ---
 
 ## What just closed

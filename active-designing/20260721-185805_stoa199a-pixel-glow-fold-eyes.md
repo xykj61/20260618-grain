@@ -13,8 +13,6 @@
 
 **dated_guard:** Do **not** claim Glow-authored vane bodies. seva-broadcast held.
 
-Radiant pass `20260725.111915`
-
 ---
 
 ## Verdict (one breath)

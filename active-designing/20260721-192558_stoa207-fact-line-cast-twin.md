@@ -13,8 +13,6 @@
 
 **dated_guard:** Do **not** claim mold twin, real hex literals, or wire into `glow_sala_b0_line`. seva-broadcast held.
 
-Radiant pass `20260725.111915`
-
 ---
 
 ## Verdict (one breath)

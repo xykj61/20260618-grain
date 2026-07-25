@@ -13,8 +13,6 @@
 
 **dated_guard:** Fleets · pixel-glass · gold · seva-broadcast stay held.
 
-Radiant pass `20260725.112115`
-
 ---
 
 ## glow-language leans

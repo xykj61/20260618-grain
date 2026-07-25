@@ -12,8 +12,6 @@
 
 **dated_guard:** Do **not** rewrite dated glow-language mold briefs or historical ROADMAP rows. Accrete living pins only.
 
-Radiant pass `20260725.111815`
-
 ---
 
 ## Verdict (one breath)

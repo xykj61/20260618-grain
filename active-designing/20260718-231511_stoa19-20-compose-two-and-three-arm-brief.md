@@ -6,8 +6,6 @@
 **Voice:** Quin  
 **Waymark:** **glow-language** · compressor [`../docs/glow-language.md`](../docs/glow-language.md)
 
-Radiant pass `20260725.111615`
-
 ---
 
 ## glow-language — face→two-arm

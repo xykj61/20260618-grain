@@ -12,8 +12,6 @@
 
 **dated_guard:** Do **not** rewrite dated glow-language mold briefs or historical ROADMAP/TASKS rows. Do **not** delete `mold-*` study twins. Prefer **send** with glow-language–188 when the pier should match the hand.
 
-Radiant pass `20260725.111915`
-
 ---
 
 ## Verdict (one breath)

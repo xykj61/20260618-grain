@@ -13,8 +13,6 @@
 
 **dated_guard:** Do **not** reopen glow-language as unfinished. Glow-rune crypto jets · shared-package `face_lit` · seva-broadcast stay held until named.
 
-Radiant pass `20260725.112015`
-
 ---
 
 ## What just closed

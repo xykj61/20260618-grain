@@ -14,8 +14,6 @@
 
 **dated_guard:** Do **not** claim Pixel confirmed the new embed path until outer-terminal eyes. seva-broadcast opens only on explicit word.
 
-Radiant pass `20260725.112015`
-
 ---
 
 ## What just closed (on the hand → pier)

@@ -13,8 +13,6 @@
 
 **dated_guard:** Study `-mold` strings and `glow/gen/hoon-study/` stay. Do **not** rewrite dated glow-language titles. Gold · fleets · seva-broadcast · deca stay held.
 
-Radiant pass `20260725.112215`
-
 ---
 
 ## Verdict (one breath)

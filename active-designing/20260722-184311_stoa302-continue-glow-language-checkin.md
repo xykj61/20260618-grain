@@ -13,8 +13,6 @@
 
 **dated_guard:** Gold · face_lit package · fleets · pixel-glass · seva-broadcast · UDP · `deca-*` stay **held** unless explicitly chosen.
 
-Radiant pass `20260725.112115`
-
 ---
 
 ## Seat right now

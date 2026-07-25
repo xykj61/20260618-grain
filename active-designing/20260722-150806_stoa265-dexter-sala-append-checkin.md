@@ -12,8 +12,6 @@
 
 **dated_guard:** Do **not** reopen glow-language eyes as unfinished. Do **not** claim seva-broadcast chat paint is a signed Sala event. Do **not** change `sala_root.txt` pixel-glass pin in the first typed-append lap. pixel-glass 1A · gold · shared-package · seva-broadcast · UDP hop stay held.
 
-Radiant pass `20260725.112115`
-
 ---
 
 ## What already is

@@ -13,8 +13,6 @@
 
 **dated_guard:** Do **not** claim full boot→harvest GREEN without a host onpath printout. Fleets · pixel-glass · gold · seva-broadcast stay held.
 
-Radiant pass `20260725.112115`
-
 ---
 
 ## What just closed

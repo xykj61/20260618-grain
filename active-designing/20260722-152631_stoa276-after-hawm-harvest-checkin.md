@@ -13,8 +13,6 @@
 
 **dated_guard:** Do **not** reopen inventary as unfinished. Do **not** claim fleets. pixel-glass · gold · seva-broadcast · UDP stay held.
 
-Radiant pass `20260725.112115`
-
 ---
 
 ## What just closed

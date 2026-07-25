@@ -13,8 +13,6 @@
 
 **dated_guard:** Do **not** open triple…nona argv this lap. Do **not** route pair through tagged mint/send. Gold · fleets · seva-broadcast stay held.
 
-Radiant pass `20260725.112115`
-
 ---
 
 ## Survey — argv families (updated)
