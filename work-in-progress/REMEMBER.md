@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260724.202412` (EDT) · voice Quin  
-**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded** · **Seva** · **Mand**  
+**Last refreshed:** `20260724.203813` (EDT) · voice Quin  
+**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded** · **Seva** · **Mand ring-1**  
 **Language nib:** **glow-language–333** · glow mode SLC · digraph twin rung 1a GREEN · list512 GREEN  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–333 · **Mand** seated  
-**Git nib:** `f1c9ae9c1f` · pre-seva-complete (update after send)
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–333 · **Mand ring-1 GREEN**  
+**Git nib:** `7b27758ff3` · pre-mand-ring1 (update after send)
 
 **Chapter:** Framework · EDT · **finishing edge:** newcomer clones · bootstraps · one witness green · one Glow line at `rishi glow` · inside thirty minutes.  
 **APK:** `tools/.cache/tube05/seva-broadcaster.apk` · pkg `org.glow.app.seva_broadcaster`  
@@ -16,14 +16,15 @@
 
 ## Now
 
-**Seva complete · Mand seated** `20260724.202412` — glow_seva_b0 · seva-event desks · package ids · Sala historical · SALA off exclude · Mand confirmed (Mona prior, erratum). STOP: pixel-glass `sala:open…` memos kept (pinned root). Reply [`../counsel/replies/20260724-202412_re-seva-complete-mand-seated.md`](../counsel/replies/20260724-202412_re-seva-complete-mand-seated.md) · claim [`../waymarks/20260724-202412_seva-complete-mand-seated.md`](../waymarks/20260724-202412_seva-complete-mand-seated.md).
+**Mand ring-1 · one-clock seat** `20260724.203617` — pixel-glass `sala:` standing-exempt · host `America/New_York` · `one_clock_witness` advisory GREEN · Mand grant+refuse GREEN. Reply [`../counsel/replies/20260724-203617_re-mand-ring1-one-clock.md`](../counsel/replies/20260724-203617_re-mand-ring1-one-clock.md) · claim [`../waymarks/20260724-203617_mand-ring1-one-clock.md`](../waymarks/20260724-203617_mand-ring1-one-clock.md).
 
 **Witnesses:**
 
 ```bash
 export RYE_ZIG=vendor/zig-toolchain/zig
+rishi/bin/rishi run tools/mand_ring1_witness.rish
+rishi/bin/rishi run tools/one_clock_witness.rish
 rishi/bin/rishi run tools/seva_rename_witness.rish
-rishi/bin/rishi run tools/waymark_derive_witness.rish
 ```
 
 ---
@@ -32,13 +33,13 @@ rishi/bin/rishi run tools/waymark_derive_witness.rish
 
 | Door | Kind |
 |------|------|
-| **Mand ring-1** capability witness | next lap |
+| one-clock mode → blocking | check-in when habit holds |
+| Capability-scoped disclosure | next Mand deepen |
 | vere/old untrack | held · word **siblings seated** or host ritual |
-| pixel-glass memo reseat (`seva:…`) | optional wire lap |
+| pixel-glass memo reseat (`seva:…`) | optional deliberate re-pin |
 | Real mat/rub jam & cue | season |
 | Rung 2 — one Glow lowering arm | season |
 | Hands We Grow succession · redaction · Crockford · pillars | park |
-| cast/face mold→shape | lean C held |
 
 ---
 
