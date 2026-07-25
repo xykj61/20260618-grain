@@ -2,11 +2,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260724.211820` (EDT) · voice Quin  
+**Last refreshed:** `20260724.211904` (EDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded** · **Seva** · **Mand ring-1** · **Crockford aura** · **`$:` @u64 floor**  
 **Language nib:** **glow-language–333** · glow mode SLC · digraph twin rung 1a GREEN · list512 GREEN · **stamp @u64 · Crockford** · **shape aura floor**  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–333 · **Mand ring-1** · **one-clock blocking** · **stranger lap warm REPORT** · **tools/*.py zero**  
-**Git nib:** `125b2c235e` · ground before stranger-lap honesty (pin refreshes after send)
+**Git nib:** `3d9b8f67a3` · stranger lap honesty · warm REPORT (PR #84)
 
 **Chapter:** Framework · EDT · **finishing edge:** stranger lap warm REPORT honest · cold path open.  
 **APK:** `tools/.cache/tube05/seva-broadcaster.apk` · pkg `org.glow.app.seva_broadcaster`  
