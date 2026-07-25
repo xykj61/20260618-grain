@@ -10,7 +10,7 @@
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded** · **Seva** · **Mand ring-1 · ring-2 · ring-3** · **THREATS** · **five pillars** · **accrete tiers** · **redaction stance** · **always-in-it rhythm**  
 **Language nib:** **glow-language–333** · glow mode SLC · digraph twin rung 1a GREEN · list512 GREEN · **stamp @u64 · Crockford** · **shape aura floor** · **Glow text floor GREEN**  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–333 · **Mand home** · **markdown_structure column fix** · **one-clock duty 4 provenance** · **shell harvest verbs** · **one-clock blocking** · **tools/*.py blocking** · **stranger lap warm REPORT** · **OQ #1 · #3 · #5 answered** · **pass ledger** · **campaign STOPPED** · **growth law**  
-**Git nib:** pending — Quin relay PR #131 (restamped)
+**Git nib:** `1d37bae43b` · Quin relay PR #131 (restamped EDT)
 
 **Chapter:** Framework · EDT · **finishing edge:** duty-8 shell migration · vere/old ritual · data-dignity counsel.
 
