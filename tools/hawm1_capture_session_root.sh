@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# hawm1_capture_session_root.sh — pull 64-hex session root from pixel-glass/Sala stdout.
+# hawm1_capture_session_root.sh — pull 64-hex session root from pixel-glass/Seva stdout.
 # Reads stdin; writes tools/.cache/hawm0/hawm1-session-root.txt (no trailing newline).
 set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"

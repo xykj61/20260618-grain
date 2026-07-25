@@ -23,11 +23,11 @@ pixel-glass/pixel-glass exercise real AOSP/Android userland (useful for Glow cod
 | Rung | Claim | Primary witness / guide | State |
 |------|-------|-------------------------|-------|
 | **pixel-glass** | Stock AOSP AVD boots, KVM-accelerated | `tools/hawm0_boot_onpath_host.rish` | GREEN |
-| **pixel-glass** | **seva-broadcast** Seva fold runs inside that AVD (module `sala_b0_fold`); session root matches native | `tools/hawm1_sala_witness.rish` | GREEN |
+| **pixel-glass** | **seva-broadcast** Seva fold runs inside that AVD (module `seva_b0_fold`); session root matches native | `tools/hawm1_seva_witness.rish` | GREEN |
 | **pixel-glass** | Real GrapheneOS build / image | — | horizon (Linux/KVM + full AOSP) |
 | **pixel-glass** | Physical Pixel, GrapheneOS flashed, boot-key hash matched | [`pixel-10a-grapheneos-setup.md`](../manual/guides/pixel-10a-grapheneos-setup.md) · hash `d8f879d1…` | **closed** `20260717.013700` |
 
-On-device Seva via `tools/hawm3_sala_device_witness.rish` (aarch64) needs USB debugging on the phone — host-terminal, same boundary as pixel-glass.
+On-device Seva via `tools/hawm3_seva_device_witness.rish` (aarch64) needs USB debugging on the phone — host-terminal, same boundary as pixel-glass.
 
 ---
 

@@ -40,12 +40,12 @@ Manual index with both hubs: [`../README.md`](../README.md).
 ### Device path (checkable)
 
 1. **Flash GrapheneOS on a Pixel 10a** — follow [`../guides/pixel-10a-grapheneos-setup.md`](../guides/pixel-10a-grapheneos-setup.md). Confirm the yellow boot-screen hash against GrapheneOS's published Pixel 10a value (`d8f879d1…`). Upstream wording lives in [`../../gratitude/grapheneos/`](../../gratitude/grapheneos/).
-2. **Emulation ladder (pixel-glass/pixel-glass)** — on a Linux host with `/dev/kvm`, boot the AVD and prove the **seva-broadcast** Sala fold root inside it (module `sala_b0_fold` — dated name kept): see [`../../docs/pixel-glass.md`](../../docs/pixel-glass.md) · [`../../docs/seva-broadcast.md`](../../docs/seva-broadcast.md). Waymark law: [`../../context/specs/20260716-115927_waymark-ladder-naming-and-g0-collision-fix.md`](../../context/specs/20260716-115927_waymark-ladder-naming-and-g0-collision-fix.md).
+2. **Emulation ladder (pixel-glass/pixel-glass)** — on a Linux host with `/dev/kvm`, boot the AVD and prove the **seva-broadcast** Seva fold root inside it (module `seva_b0_fold` — dated name kept): see [`../../docs/pixel-glass.md`](../../docs/pixel-glass.md) · [`../../docs/seva-broadcast.md`](../../docs/seva-broadcast.md). Waymark law: [`../../context/specs/20260716-115927_waymark-ladder-naming-and-g0-collision-fix.md`](../../context/specs/20260716-115927_waymark-ladder-naming-and-g0-collision-fix.md).
 3. **Pack a Glow NativeActivity APK (glow-publishing.5)** — host-side, no phone required for the pack itself:
 
 ```bash
 rishi/bin/rishi run tools/tube05_apk_pack_witness.rish
-# → tools/.cache/tube05/sala-broadcaster.apk
+# → tools/.cache/tube05/seva-broadcaster.apk
 ```
 
 4. **Install and prove the fold (host terminal)** — pixel-glass GREEN `20260717.122010` · Pixel 10a GREEN `20260717.123226`; same commands:
@@ -55,7 +55,7 @@ rishi/bin/rishi run tools/hawm0_boot_onpath_host.rish   # if no device yet
 rishi/bin/rishi run tools/tube05_install_proof_onpath_host.rish
 ```
 
-The APK uses Android's own `NativeActivity` and a Glow-built `libglowapp.so` — no Kotlin transpile. `ANativeActivity_onCreate` runs the seva-broadcast Sala fold demo (module `sala_b0_fold`) and writes `files/sala_root.txt`; the witness checks that root via `run-as`. Ai-jail has neither KVM nor USB.
+The APK uses Android's own `NativeActivity` and a Glow-built `libglowapp.so` — no Kotlin transpile. `ANativeActivity_onCreate` runs the seva-broadcast Seva fold demo (module `seva_b0_fold`) and writes `files/seva_root.txt`; the witness checks that root via `run-as`. Ai-jail has neither KVM nor USB.
 
 ### Enclosure (checkable)
 
