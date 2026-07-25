@@ -13,6 +13,8 @@
 
 **dated_guard:** Do **not** reopen glow-language as unfinished. Do **not** claim product imports Glow `face_lit`. seva-broadcast and shared-package import stay held until named.
 
+Radiant pass `20260725.112015`
+
 ---
 
 ## What just closed

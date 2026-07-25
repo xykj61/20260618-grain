@@ -13,6 +13,8 @@
 
 **dated_guard:** Do **not** claim Glow source literals rewrite FactFields. Do **not** reopen line/sign/digest authored bodies. Shared-package `face_lit` · seva-broadcast stay held until named.
 
+Radiant pass `20260725.112015`
+
 ---
 
 ## Verdict (one breath)

@@ -13,6 +13,8 @@
 
 **dated_guard:** Do **not** reopen glow-language as unfinished. Do **not** start 2B refuse or fleets without a new word.
 
+Radiant pass `20260725.112015`
+
 ---
 
 ## What just closed
