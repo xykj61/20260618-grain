@@ -10,7 +10,7 @@
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded** · **Seva** · **Mand ring-1 · ring-2** · **THREATS** · **five pillars** · **accrete tiers** · **redaction stance** · **always-in-it rhythm**  
 **Language nib:** **glow-language–333** · glow mode SLC · digraph twin rung 1a GREEN · list512 GREEN · **stamp @u64 · Crockford** · **shape aura floor**  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–333 · **Mand ring-2** · **one-clock blocking** · **tools/*.py blocking** · **stranger lap warm REPORT** · **OQ #1 · #3 · #5 answered** · **pass ledger** · **Wave 10** · **growth law** · **shell harvest**  
-**Git nib:** `f521048887` · shell·fold · Wave 10 (PR #)
+**Git nib:** `f521048887` · shell·fold · Wave 10 (PR #98)
 
 **Chapter:** Framework · EDT · **finishing edge:** shell·fold · Wave 10 · ledger coverage.  
 **APK:** `tools/.cache/tube05/seva-broadcaster.apk` · pkg `org.glow.app.seva_broadcaster`  
