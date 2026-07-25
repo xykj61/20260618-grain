@@ -13,6 +13,8 @@
 
 **dated_guard:** Do **not** collapse tagged `$%` kind/xact/xfer into this path. Gold · fleets · seva-broadcast · deca stay held.
 
+Radiant pass `20260725.112215`
+
 ---
 
 ## Verdict (one breath)
