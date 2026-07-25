@@ -6,11 +6,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260725.160000` (EDT) · voice Quin  
+**Last refreshed:** `20260725.120857` (EDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded** · **Seva** · **Mand ring-1 · ring-2 · ring-3** · **THREATS** · **five pillars** · **accrete tiers** · **redaction stance** · **always-in-it rhythm**  
 **Language nib:** **glow-language–333** · glow mode SLC · digraph twin rung 1a GREEN · list512 GREEN · **stamp @u64 · Crockford** · **shape aura floor** · **Glow text floor GREEN**  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–333 · **Mand home** · **markdown_structure column fix** · **shell harvest verbs** · **one-clock blocking** · **tools/*.py blocking** · **stranger lap warm REPORT** · **OQ #1 · #3 · #5 answered** · **pass ledger** · **campaign STOPPED** · **growth law**  
-**Git nib:** pending — Quin relay PR
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–333 · **Mand home** · **markdown_structure column fix** · **one-clock duty 4 provenance** · **shell harvest verbs** · **one-clock blocking** · **tools/*.py blocking** · **stranger lap warm REPORT** · **OQ #1 · #3 · #5 answered** · **pass ledger** · **campaign STOPPED** · **growth law**  
+**Git nib:** pending — Quin relay PR #131 (restamped)
 
 **Chapter:** Framework · EDT · **finishing edge:** duty-8 shell migration · vere/old ritual · data-dignity counsel.
 
@@ -18,13 +18,14 @@
 
 ## Now
 
-**Quin relay landed** `20260725.160000` — markdown_structure column fix + PASS fixture · Mand `mand/` home · ring-3 test-only · four Rishi harvest verbs · Glow text floor GREEN.
+**Quin relay landed** `20260725.120701` — markdown_structure column fix + PASS fixture · Mand `mand/` home · ring-3 test-only · four Rishi harvest verbs · Glow text floor GREEN.
 
 **Read:**
 
 ```bash
-less counsel/replies/20260725-160000_re-quin-relay-structure-mand-harvest.md
-less waymarks/20260725-160000_mand-home-ring3.md
+less counsel/replies/20260725-120857_re-quin-relay-restamp-provenance.md
+less counsel/replies/20260725-120701_re-quin-relay-structure-mand-harvest.md
+less waymarks/20260725-120701_mand-home-ring3.md
 ```
 
 **Witness block:**
