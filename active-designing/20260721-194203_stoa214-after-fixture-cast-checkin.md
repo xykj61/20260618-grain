@@ -13,6 +13,8 @@
 
 **dated_guard:** Do **not** claim Glow source literals or Glow-rune crypto. Prefer **send** before another language season opens. seva-broadcast opens only on explicit word.
 
+Radiant pass `20260725.111915`
+
 ---
 
 ## What just closed (on the hand)

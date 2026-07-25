@@ -13,6 +13,8 @@
 
 **dated_guard:** Do **not** claim Glow-rune crypto or a Glow-authored replay body. pixel-glass hex still rests on elder sign/format/replay/digest guts. seva-broadcast held.
 
+Radiant pass `20260725.111915`
+
 ---
 
 ## Verdict (one breath)

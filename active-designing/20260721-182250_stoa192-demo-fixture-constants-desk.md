@@ -13,6 +13,8 @@
 
 **dated_guard:** Do **not** claim Glow source literals carry the elder stamp/memo/hex strings yet — emit demos remain face-name cords/hex (glow-language/184). Elder pins live in desk comments and in `sala_b0_fold`. Fold rewrite and seva-broadcast stay held.
 
+Radiant pass `20260725.111915`
+
 ---
 
 ## Verdict (one breath)
