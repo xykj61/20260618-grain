@@ -1,14 +1,18 @@
 # REMEMBER — living operator card
 
+**Language:** EN  
+**Status:** Living pin — operator carry card  
+**Voice:** Quin  
+
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260724.221120` (EDT) · voice Quin  
-**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded** · **Seva** · **Mand ring-1 · ring-2** · **Crockford aura** · **`$:` @u64 floor** · **THREATS** · **five pillars**  
+**Last refreshed:** `20260724.222902` (EDT) · voice Quin  
+**Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded** · **Seva** · **Mand ring-1 · ring-2** · **THREATS** · **five pillars** · **accrete tiers**  
 **Language nib:** **glow-language–333** · glow mode SLC · digraph twin rung 1a GREEN · list512 GREEN · **stamp @u64 · Crockford** · **shape aura floor**  
-**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–333 · **Mand ring-2** · **one-clock blocking** · **tools/*.py blocking** · **stranger lap warm REPORT** · **OQ #3 answered**  
-**Git nib:** `7878bd5f28` · THREATS · five pillars · Mand home analysis (PR #86)
+**Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–333 · **Mand ring-2** · **one-clock blocking** · **tools/*.py blocking** · **stranger lap warm REPORT** · **OQ #3 answered** · **radiant_lint** · **claim_preserve**  
+**Git nib:** `f41298d8bf` · prior send — *this lap re-pins on send*
 
-**Chapter:** Framework · EDT · **finishing edge:** threat model · five pillars · Mand home analysis parked.  
+**Chapter:** Framework · EDT · **finishing edge:** three-tier accrete · radiant instruments · waves.  
 **APK:** `tools/.cache/tube05/seva-broadcaster.apk` · pkg `org.glow.app.seva_broadcaster`  
 **ADB:** `tools/.cache/hawm0/android-sdk/platform-tools/adb` — not on bare PATH  
 
@@ -16,7 +20,7 @@
 
 ## Now
 
-**Threats · pillars · Mand home** `20260724.220625` — descriptive threat model seated; five pillars siloed; Mand module-home analysis only (no move; graduation not yet earned). Glow text floor parked. Reply [`../counsel/replies/20260724-220625_re-threats-pillars-mand-home.md`](../counsel/replies/20260724-220625_re-threats-pillars-mand-home.md) · claim [`../waymarks/20260724-220625_threats-pillars-mand-home.md`](../waymarks/20260724-220625_threats-pillars-mand-home.md).
+**Accrete tiers · radiant instruments** `20260724.222620` — TAME §4 three tiers; `radiant_lint` · `claim_preserve` seated; remote count at [`../context/REMOTE_ROSTER.md`](../context/REMOTE_ROSTER.md). Waves ≤12 files next. Reply [`../counsel/replies/20260724-222620_re-accrete-tiers-radiant-waves.md`](../counsel/replies/20260724-222620_re-accrete-tiers-radiant-waves.md) · claim [`../waymarks/20260724-222620_accrete-tiers-radiant-instruments.md`](../waymarks/20260724-222620_accrete-tiers-radiant-instruments.md).
 
 **Read:**
 
