@@ -7,6 +7,8 @@
 
 > Living name is **glow-language** — [`20260718-202730_stoa-glow-language-waymark.md`](20260718-202730_stoa-glow-language-waymark.md) · [`../docs/glow-language.md`](../docs/glow-language.md). This brief stays as the first-draw record.
 
+Radiant pass `20260725.111615`
+
 ---
 
 ## Why this ladder

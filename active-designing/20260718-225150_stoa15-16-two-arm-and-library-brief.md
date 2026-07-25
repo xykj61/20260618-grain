@@ -6,6 +6,8 @@
 **Voice:** Quin  
 **Waymark:** **glow-language** · compressor [`../docs/glow-language.md`](../docs/glow-language.md) · prior [`20260718-223906_stoa14-cores-thin-battery-brief.md`](20260718-223906_stoa14-cores-thin-battery-brief.md)
 
+Radiant pass `20260725.111615`
+
 ---
 
 ## glow-language — two named arms

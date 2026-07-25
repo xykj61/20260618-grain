@@ -6,6 +6,8 @@
 **Voice:** Quin  
 **Waymark:** **glow-language** · compressor [`../docs/glow-language.md`](../docs/glow-language.md) · prior [`20260718-225150_stoa15-16-two-arm-and-library-brief.md`](20260718-225150_stoa15-16-two-arm-and-library-brief.md)
 
+Radiant pass `20260725.111615`
+
 ---
 
 ## Why now

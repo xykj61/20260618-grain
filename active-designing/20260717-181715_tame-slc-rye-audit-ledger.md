@@ -8,6 +8,8 @@
 **Canon:** [`../context/TAME_GUIDANCE.md`](../context/TAME_GUIDANCE.md) · brief [`20260707-164612_tame-tidy-rules-brief.md`](20260707-164612_tame-tidy-rules-brief.md)
 **Compressor / plan seat:** ROADMAP align `20260717.181715` · [`../docs/glass-keyboard.md`](../docs/glass-keyboard.md) tidy gate before glass-keyboard
 
+Radiant pass `20260725.111615`
+
 ---
 
 ## Diagnosis (seated)

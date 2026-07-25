@@ -9,6 +9,8 @@
 **Compresses into:** [`../docs/usb-hearth.md`](../docs/usb-hearth.md)  
 **Companions:** hearth-display hearth · usb-hearth–5 · compose-not-fuse [`20260718-133455_glass-desk-compose-amber-amphora-revive.md`](20260718-133455_glass-desk-compose-amber-amphora-revive.md)
 
+Radiant pass `20260725.111615`
+
 ---
 
 ## Chapter open (named job)
