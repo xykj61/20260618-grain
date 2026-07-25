@@ -6,11 +6,11 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260724.223233` (EDT) · voice Quin  
+**Last refreshed:** `20260724.223410` (EDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded** · **Seva** · **Mand ring-1 · ring-2** · **THREATS** · **five pillars** · **accrete tiers** · **Radiant waves 1–3**  
 **Language nib:** **glow-language–333** · glow mode SLC · digraph twin rung 1a GREEN · list512 GREEN · **stamp @u64 · Crockford** · **shape aura floor**  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–333 · **Mand ring-2** · **one-clock blocking** · **tools/*.py blocking** · **stranger lap warm REPORT** · **OQ #3 answered** · **radiant_lint** · **claim_preserve**  
-**Git nib:** `40900f2a83` · Wave 2 on main — *Wave 3 send re-pins*
+**Git nib:** `41fbabd16e` · three-tier accrete · Radiant waves 1–3 (PR #87–#90)
 
 **Chapter:** Framework · EDT · **finishing edge:** three-tier accrete · Radiant waves 1–3.  
 **APK:** `tools/.cache/tube05/seva-broadcaster.apk` · pkg `org.glow.app.seva_broadcaster`  
