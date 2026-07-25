@@ -1,6 +1,6 @@
 # glow-language — Glow SLC · nest · product · ≤80 · glow-language–294 · 2026-07-22 · draw → **glow-language**
 
-Living Glow OS desks lead with `shape-*` (shape duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Seva B0 Glow: glow-language–304 · **glow-language** after xact argv (payload tag+amount GREEN). Hoon study twins under `glow/gen/hoon-study/`.
+Living Grain desks lead with `shape-*` (shape duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Seva B0 Glow: glow-language–304 · **glow-language** after xact argv (payload tag+amount GREEN). Hoon study twins under `glow/gen/hoon-study/`.
 
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
@@ -10,7 +10,7 @@ Living Glow OS desks lead with `shape-*` (shape duals glow-language–173; pin p
 | **glow-language–121** | Nest/type · barket tokenize→lower · nesting-nests wire | nest · barket · bartis | **GREEN** `042931`…`182915` |
 | **glow-language–133** | Named allowlist amount→pair · flips · amount/count argv | nest · barket · glow_run | **GREEN** `183259`…`194143` |
 | **glow-language–147** | Triple→nona `$:` ladder · flips · capacity freeze at 9 | nest · barket · bartis | **GREEN** `194437`…`231419` |
-| **glow-language–160** | amount…nona-shape Glow OS aliases | `glow_nest_type_witness` · desks | **GREEN** `234340`…`005327` |
+| **glow-language–160** | amount…nona-shape Grain aliases | `glow_nest_type_witness` · desks | **GREEN** `234340`…`005327` |
 | **glow-language** | inventary · `shape-amount` dual desk | `glow_run` desks | **GREEN** `010211` |
 | **glow-language** | `shape-count` dual desk | `glow_run` desks | **GREEN** `010435` |
 | **glow-language** | `shape-pair` dual desk | `glow_run` | **GREEN** `010610` |
@@ -161,4 +161,6 @@ Living Glow OS desks lead with `shape-*` (shape duals glow-language–173; pin p
 | **glow-language** | after nest_type shape check-in | A send · B rest available · **C** gate-spec shape_name | **GREEN** `20260722.203755` |
 | **glow-language** | gate-spec shape_name | GateSpec/BarketSpec rename | **GREEN** `20260722.204131` |
 | **glow-language** | after gate shape_name check-in | A send · B rest available · **C** cast/face mold→shape | **GREEN** `20260722.204133` |
-Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
+| **glow-language** | Rishi glow mode SLC | sixteen heads at `rishi glow` · quit word | **GREEN** — claim [`../waymarks/stoa-300s/20260724-144740_stoa332-rishi-glow-mode-slc.md`](../waymarks/stoa-300s/20260724-144740_stoa332-rishi-glow-mode-slc.md) |
+| **glow-language** | digraph-table twin (rung 1a) | Glow desk ↔ Rye `match_rune2` byte twin | **GREEN** `20260724.181200` — [`../waymarks/stoa-300s/20260724-181200_stoa333-digraph-table-twin.md`](../waymarks/stoa-300s/20260724-181200_stoa333-digraph-table-twin.md) |
+Smoke: `glow_nest_type_witness` · `glow_barket_parse_witness` · `glow_lower_bartis_witness` · `glow_digraph_twin_witness` · `glow_text_floor_witness` · Sibling: **glass-keyboard** · **hearth-display** · **usb-hearth** · **glow-publishing**.
