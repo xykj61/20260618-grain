@@ -1,3 +1,4 @@
+//! glow-book: runes.md#g-shape
 //! glow/rune_shape.rye — parses Glow's `+$` / `$:` / `$%` shape (glow-language–80).
 //!
 //! glow-language: token→ShapeSpec — tokenize src via tokens.rye, walk token stream

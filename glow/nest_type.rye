@@ -1,3 +1,4 @@
+//! glow-book: runes.md#gd-auras
 //! glow/nest_type.rye — nest/type surface (glow-language–110 · glow-language–130 · glow-language–160 · glow-language).
 //!
 //! Expansion-time checks that a sample nests under a stated shape:

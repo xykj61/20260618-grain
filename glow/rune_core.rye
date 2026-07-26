@@ -1,3 +1,4 @@
+//! glow-book: runes.md#g-core
 //! glow/rune_core.rye — parses Glow's thin `|%` … `++` … `--` core.
 //!
 //! glow-language/15: one or two arms. glow-language: optional bare payload face before arms.
