@@ -734,109 +734,109 @@ The first lap needs no ledger and no currency — only the foundations Rye OS al
 
 **glow-language after embedded desk check-in, `20260722.135324`** — lean A send · lean B as glow-language. Brief [`active-designing/20260722-135324_stoa238-after-embedded-desk-checkin.md`](../../active-designing/yonder/20260722-135324_stoa238-after-embedded-desk-checkin.md).
 
-**glow-language Pixel embedded-desk eyes GREEN, `20260722.135605`** — SDK adb · sala_root pixel-glass · install-proof. Brief [`active-designing/20260722-135605_stoa239-pixel-embedded-desk-eyes.md`](../active-designing/20260722-135605_stoa239-pixel-embedded-desk-eyes.md).
+**glow-language Pixel embedded-desk eyes GREEN, `20260722.135605`** — SDK adb · sala_root pixel-glass · install-proof. Brief [`active-designing/20260722-135605_stoa239-pixel-embedded-desk-eyes.md`](../../active-designing/yonder/20260722-135605_stoa239-pixel-embedded-desk-eyes.md).
 
-**glow-language after Pixel eyes check-in, `20260722.135605`** — lean A send · lean B name next door (`face_lit` / seva-broadcast). Brief [`active-designing/20260722-135605_stoa240-after-pixel-eyes-checkin.md`](../active-designing/20260722-135605_stoa240-after-pixel-eyes-checkin.md). seva-broadcast held.
+**glow-language after Pixel eyes check-in, `20260722.135605`** — lean A send · lean B name next door (`face_lit` / seva-broadcast). Brief [`active-designing/20260722-135605_stoa240-after-pixel-eyes-checkin.md`](../../active-designing/yonder/20260722-135605_stoa240-after-pixel-eyes-checkin.md). seva-broadcast held.
 
-**glow-language face_lit product agree GREEN, `20260722.135948`** — product stand-in ≡ Glow face_lit via seated pins; no `@import`. Brief [`active-designing/20260722-135948_stoa241-face-lit-product-agree.md`](../active-designing/20260722-135948_stoa241-face-lit-product-agree.md).
+**glow-language face_lit product agree GREEN, `20260722.135948`** — product stand-in ≡ Glow face_lit via seated pins; no `@import`. Brief [`active-designing/20260722-135948_stoa241-face-lit-product-agree.md`](../../active-designing/yonder/20260722-135948_stoa241-face-lit-product-agree.md).
 
-**glow-language after face_lit agree check-in, `20260722.140015`** — lean A send · lean B → glow-language authored line body. Brief [`active-designing/20260722-140015_stoa242-after-face-lit-agree-checkin.md`](../active-designing/20260722-140015_stoa242-after-face-lit-agree-checkin.md). seva-broadcast held.
+**glow-language after face_lit agree check-in, `20260722.140015`** — lean A send · lean B → glow-language authored line body. Brief [`active-designing/20260722-140015_stoa242-after-face-lit-agree-checkin.md`](../../active-designing/yonder/20260722-140015_stoa242-after-face-lit-agree-checkin.md). seva-broadcast held.
 
-**glow-language product-authored line body GREEN, `20260722.140957`** — format/parse own body ≡ elder peer; no rc delegate. Brief [`active-designing/20260722-140957_stoa243-product-authored-line-body.md`](../active-designing/20260722-140957_stoa243-product-authored-line-body.md).
+**glow-language product-authored line body GREEN, `20260722.140957`** — format/parse own body ≡ elder peer; no rc delegate. Brief [`active-designing/20260722-140957_stoa243-product-authored-line-body.md`](../../active-designing/yonder/20260722-140957_stoa243-product-authored-line-body.md).
 
-**glow-language after line body check-in, `20260722.141029`** — lean A send · lean B → glow-language sign body. Brief [`active-designing/20260722-141029_stoa244-after-line-body-checkin.md`](../active-designing/20260722-141029_stoa244-after-line-body-checkin.md). seva-broadcast held.
+**glow-language after line body check-in, `20260722.141029`** — lean A send · lean B → glow-language sign body. Brief [`active-designing/20260722-141029_stoa244-after-line-body-checkin.md`](../../active-designing/yonder/20260722-141029_stoa244-after-line-body-checkin.md). seva-broadcast held.
 
-**glow-language product-authored sign body GREEN, `20260722.141141`** — sign/verify own body ≡ elder peer. Brief [`active-designing/20260722-141141_stoa245-product-authored-sign-body.md`](../active-designing/20260722-141141_stoa245-product-authored-sign-body.md).
+**glow-language product-authored sign body GREEN, `20260722.141141`** — sign/verify own body ≡ elder peer. Brief [`active-designing/20260722-141141_stoa245-product-authored-sign-body.md`](../../active-designing/yonder/20260722-141141_stoa245-product-authored-sign-body.md).
 
-**glow-language after sign body check-in, `20260722.141319`** — lean A send · lean B → glow-language digest body. Brief [`active-designing/20260722-141319_stoa246-after-sign-body-checkin.md`](../active-designing/20260722-141319_stoa246-after-sign-body-checkin.md). seva-broadcast held.
+**glow-language after sign body check-in, `20260722.141319`** — lean A send · lean B → glow-language digest body. Brief [`active-designing/20260722-141319_stoa246-after-sign-body-checkin.md`](../../active-designing/yonder/20260722-141319_stoa246-after-sign-body-checkin.md). seva-broadcast held.
 
-**glow-language product-authored digest body GREEN, `20260722.141443`** — Sha3_256 own body ≡ elder peer; pixel-glass. Brief [`active-designing/20260722-141443_stoa247-product-authored-digest-body.md`](../active-designing/20260722-141443_stoa247-product-authored-digest-body.md).
+**glow-language product-authored digest body GREEN, `20260722.141443`** — Sha3_256 own body ≡ elder peer; pixel-glass. Brief [`active-designing/20260722-141443_stoa247-product-authored-digest-body.md`](../../active-designing/yonder/20260722-141443_stoa247-product-authored-digest-body.md).
 
-**glow-language after digest body check-in, `20260722.141514`** — lean A send · lean B → glow-language fields body. Brief [`active-designing/20260722-141514_stoa248-after-digest-body-checkin.md`](../active-designing/20260722-141514_stoa248-after-digest-body-checkin.md). seva-broadcast held.
+**glow-language after digest body check-in, `20260722.141514`** — lean A send · lean B → glow-language fields body. Brief [`active-designing/20260722-141514_stoa248-after-digest-body-checkin.md`](../../active-designing/yonder/20260722-141514_stoa248-after-digest-body-checkin.md). seva-broadcast held.
 
-**glow-language product-authored fields body GREEN, `20260722.141630`** — parse_fact_fields/amount own body ≡ elder peer. Brief [`active-designing/20260722-141630_stoa249-product-authored-fields-body.md`](../active-designing/20260722-141630_stoa249-product-authored-fields-body.md).
+**glow-language product-authored fields body GREEN, `20260722.141630`** — parse_fact_fields/amount own body ≡ elder peer. Brief [`active-designing/20260722-141630_stoa249-product-authored-fields-body.md`](../../active-designing/yonder/20260722-141630_stoa249-product-authored-fields-body.md).
 
-**glow-language after fields body check-in, `20260722.141659`** — lean A send · lean B → glow-language language return. Brief [`active-designing/20260722-141659_stoa250-after-fields-body-checkin.md`](../active-designing/20260722-141659_stoa250-after-fields-body-checkin.md). seva-broadcast held.
+**glow-language after fields body check-in, `20260722.141659`** — lean A send · lean B → glow-language language return. Brief [`active-designing/20260722-141659_stoa250-after-fields-body-checkin.md`](../../active-designing/yonder/20260722-141659_stoa250-after-fields-body-checkin.md). seva-broadcast held.
 
-**glow-language N-field emit generalize inventory, `20260722.141918`** — language return first rung; pair…nona emit map; identity code next. Brief [`active-designing/20260722-141918_stoa251-n-field-emit-generalize-inventory.md`](../active-designing/20260722-141918_stoa251-n-field-emit-generalize-inventory.md).
+**glow-language N-field emit generalize inventory, `20260722.141918`** — language return first rung; pair…nona emit map; identity code next. Brief [`active-designing/20260722-141918_stoa251-n-field-emit-generalize-inventory.md`](../../active-designing/yonder/20260722-141918_stoa251-n-field-emit-generalize-inventory.md).
 
-**glow-language after N-field inventory check-in, `20260722.141940`** — lean A send · lean B → glow-language identity emit. Brief [`active-designing/20260722-141940_stoa252-after-n-field-inventory-checkin.md`](../active-designing/20260722-141940_stoa252-after-n-field-inventory-checkin.md). Gold · shared-package · seva-broadcast held.
+**glow-language after N-field inventory check-in, `20260722.141940`** — lean A send · lean B → glow-language identity emit. Brief [`active-designing/20260722-141940_stoa252-after-n-field-inventory-checkin.md`](../../active-designing/yonder/20260722-141940_stoa252-after-n-field-inventory-checkin.md). Gold · shared-package · seva-broadcast held.
 
-**glow-language bartis N-field identity emit GREEN, `20260722.142142`** — `emit_n_field_identity` · eight wrappers · flip held. Brief [`active-designing/20260722-142142_stoa253-n-field-identity-emit.md`](../active-designing/20260722-142142_stoa253-n-field-identity-emit.md).
+**glow-language bartis N-field identity emit GREEN, `20260722.142142`** — `emit_n_field_identity` · eight wrappers · flip held. Brief [`active-designing/20260722-142142_stoa253-n-field-identity-emit.md`](../../active-designing/yonder/20260722-142142_stoa253-n-field-identity-emit.md).
 
-**glow-language after N-field identity check-in, `20260722.142326`** — lean A send · lean B barket identity twin. Brief [`active-designing/20260722-142326_stoa254-after-n-field-identity-checkin.md`](../active-designing/20260722-142326_stoa254-after-n-field-identity-checkin.md). Flip · gold · seva-broadcast held.
+**glow-language after N-field identity check-in, `20260722.142326`** — lean A send · lean B barket identity twin. Brief [`active-designing/20260722-142326_stoa254-after-n-field-identity-checkin.md`](../../active-designing/yonder/20260722-142326_stoa254-after-n-field-identity-checkin.md). Flip · gold · seva-broadcast held.
 
-**glow-language barket N-field identity emit GREEN, `20260722.142939`** — `emit_n_field_identity` · eight wrappers · flip held; mold_name_slice keeps source spelling. Brief [`active-designing/20260722-142554_stoa255-barket-n-field-identity-emit.md`](../active-designing/20260722-142554_stoa255-barket-n-field-identity-emit.md).
+**glow-language barket N-field identity emit GREEN, `20260722.142939`** — `emit_n_field_identity` · eight wrappers · flip held; mold_name_slice keeps source spelling. Brief [`active-designing/20260722-142554_stoa255-barket-n-field-identity-emit.md`](../../active-designing/yonder/20260722-142554_stoa255-barket-n-field-identity-emit.md).
 
-**glow-language after barket N-field identity check-in, `20260722.143410`** — lean A send · lean B flip call-body collapse. Brief [`active-designing/20260722-143410_stoa256-after-barket-n-field-identity-checkin.md`](../active-designing/20260722-143410_stoa256-after-barket-n-field-identity-checkin.md). Gold · shared-package · seva-broadcast held.
+**glow-language after barket N-field identity check-in, `20260722.143410`** — lean A send · lean B flip call-body collapse. Brief [`active-designing/20260722-143410_stoa256-after-barket-n-field-identity-checkin.md`](../../active-designing/yonder/20260722-143410_stoa256-after-barket-n-field-identity-checkin.md). Gold · shared-package · seva-broadcast held.
 
 **Check-in pixel-glass fleet · shape-only, `20260722.143648`** — recommend living `-shape` only (2A); pixel-glass log-harvest (1A) for autonomy; refuse Glow-as-GrapheneOS-emulator; fleets after harvest. Brief [`active-designing/20260722-143648_checkin-hawm-fleet-and-shape-only.md`](../../active-designing/yonder/20260722-143648_checkin-hawm-fleet-and-shape-only.md).
 
-**glow-language shape-only living GREEN, `20260722.144300`** — living `-shape` speech; study `-mold` alias held. Brief [`active-designing/20260722-143829_stoa257-shape-only-living-surface.md`](../active-designing/20260722-143829_stoa257-shape-only-living-surface.md).
+**glow-language shape-only living GREEN, `20260722.144300`** — living `-shape` speech; study `-mold` alias held. Brief [`active-designing/20260722-143829_stoa257-shape-only-living-surface.md`](../../active-designing/yonder/20260722-143829_stoa257-shape-only-living-surface.md).
 
-**glow-language after shape-only living check-in, `20260722.144300`** — lean A send · lean B flip collapse · lean C pixel-glass 1A held. Brief [`active-designing/20260722-144300_stoa258-after-shape-only-living-checkin.md`](../active-designing/20260722-144300_stoa258-after-shape-only-living-checkin.md).
+**glow-language after shape-only living check-in, `20260722.144300`** — lean A send · lean B flip collapse · lean C pixel-glass 1A held. Brief [`active-designing/20260722-144300_stoa258-after-shape-only-living-checkin.md`](../../active-designing/yonder/20260722-144300_stoa258-after-shape-only-living-checkin.md).
 
-**Check-in humanity · green runes · Glow name, `20260722.144843`** — finishing edge · density without kWh claim · keep Glow (glow-language throwaway ladder). Brief [`active-designing/20260722-144843_checkin-humanity-green-runes-glow-name.md`](../active-designing/20260722-144843_checkin-humanity-green-runes-glow-name.md).
+**Check-in humanity · green runes · Glow name, `20260722.144843`** — finishing edge · density without kWh claim · keep Glow (glow-language throwaway ladder). Brief [`active-designing/20260722-144843_checkin-humanity-green-runes-glow-name.md`](../../active-designing/yonder/20260722-144843_checkin-humanity-green-runes-glow-name.md).
 
-**glow-language bartis N-field flip emit GREEN, `20260722.145110`** — `emit_n_field_flip_call_body` · eight wrappers · tagged `$%` flip held. Brief [`active-designing/20260722-145110_stoa259-n-field-flip-emit.md`](../active-designing/20260722-145110_stoa259-n-field-flip-emit.md).
+**glow-language bartis N-field flip emit GREEN, `20260722.145110`** — `emit_n_field_flip_call_body` · eight wrappers · tagged `$%` flip held. Brief [`active-designing/20260722-145110_stoa259-n-field-flip-emit.md`](../../active-designing/yonder/20260722-145110_stoa259-n-field-flip-emit.md).
 
-**glow-language after N-field flip check-in, `20260722.145236`** — lean A send · lean B barket flip twin. Brief [`active-designing/20260722-145236_stoa260-after-n-field-flip-checkin.md`](../active-designing/20260722-145236_stoa260-after-n-field-flip-checkin.md).
+**glow-language after N-field flip check-in, `20260722.145236`** — lean A send · lean B barket flip twin. Brief [`active-designing/20260722-145236_stoa260-after-n-field-flip-checkin.md`](../../active-designing/yonder/20260722-145236_stoa260-after-n-field-flip-checkin.md).
 
-**glow-language barket N-field flip emit GREEN, `20260722.145715`** — `emit_n_field_flip_call_body` · eight wrappers · tagged `$%` flip held; N-field inventary deepen closed on both gates. Brief [`active-designing/20260722-145412_stoa261-barket-n-field-flip-emit.md`](../active-designing/20260722-145412_stoa261-barket-n-field-flip-emit.md).
+**glow-language barket N-field flip emit GREEN, `20260722.145715`** — `emit_n_field_flip_call_body` · eight wrappers · tagged `$%` flip held; N-field inventary deepen closed on both gates. Brief [`active-designing/20260722-145412_stoa261-barket-n-field-flip-emit.md`](../../active-designing/yonder/20260722-145412_stoa261-barket-n-field-flip-emit.md).
 
 **glow-language after barket N-field flip check-in, `20260722.145840`** — lean A send · lean B finishing edge · lean C pixel-glass 1A held. Brief [`active-designing/20260722-145840_stoa262-after-barket-n-field-flip-checkin.md`](../active-designing/20260722-145840_stoa262-after-barket-n-field-flip-checkin.md).
 
-**glow-language Pixel authored-fold eyes GREEN, `20260722.150432`** — fresh pack + Pixel install after fields; `sala_root` pixel-glass · product root `5`. Brief [`active-designing/20260722-150432_stoa263-pixel-authored-fold-eyes.md`](../active-designing/20260722-150432_stoa263-pixel-authored-fold-eyes.md).
+**glow-language Pixel authored-fold eyes GREEN, `20260722.150432`** — fresh pack + Pixel install after fields; `sala_root` pixel-glass · product root `5`. Brief [`active-designing/20260722-150432_stoa263-pixel-authored-fold-eyes.md`](../../active-designing/yonder/20260722-150432_stoa263-pixel-authored-fold-eyes.md).
 
-**glow-language after authored-fold eyes check-in, `20260722.150432`** — lean A send · lean B Dexter→Sala thin face · lean C pixel-glass 1A held. Brief [`active-designing/20260722-150432_stoa264-after-authored-fold-eyes-checkin.md`](../active-designing/20260722-150432_stoa264-after-authored-fold-eyes-checkin.md).
+**glow-language after authored-fold eyes check-in, `20260722.150432`** — lean A send · lean B Dexter→Sala thin face · lean C pixel-glass 1A held. Brief [`active-designing/20260722-150432_stoa264-after-authored-fold-eyes-checkin.md`](../../active-designing/yonder/20260722-150432_stoa264-after-authored-fold-eyes-checkin.md).
 
-**glow-language Dexter → signed Sala append check-in, `20260722.150806`** — lean A typed memo→`append_event` device-free (recommended) · lean C glass wire later · pixel-glass untouched. Brief [`active-designing/20260722-150806_stoa265-dexter-sala-append-checkin.md`](../active-designing/20260722-150806_stoa265-dexter-sala-append-checkin.md).
+**glow-language Dexter → signed Sala append check-in, `20260722.150806`** — lean A typed memo→`append_event` device-free (recommended) · lean C glass wire later · pixel-glass untouched. Brief [`active-designing/20260722-150806_stoa265-dexter-sala-append-checkin.md`](../../active-designing/yonder/20260722-150806_stoa265-dexter-sala-append-checkin.md).
 
-**glow-language typed memo → Glow append_event GREEN, `20260722.151008`** — `append_typed_memo` · memo `glow` · pixel-glass untouched. Brief [`active-designing/20260722-151008_stoa266-typed-memo-append-event.md`](../active-designing/20260722-151008_stoa266-typed-memo-append-event.md).
+**glow-language typed memo → Glow append_event GREEN, `20260722.151008`** — `append_typed_memo` · memo `glow` · pixel-glass untouched. Brief [`active-designing/20260722-151008_stoa266-typed-memo-append-event.md`](../../active-designing/yonder/20260722-151008_stoa266-typed-memo-append-event.md).
 
-**glow-language after typed memo append check-in, `20260722.151101`** — lean A send · lean B Dexter submit helper · lean C glass wire held. Brief [`active-designing/20260722-151101_stoa267-after-typed-memo-append-checkin.md`](../active-designing/20260722-151101_stoa267-after-typed-memo-append-checkin.md).
+**glow-language after typed memo append check-in, `20260722.151101`** — lean A send · lean B Dexter submit helper · lean C glass wire held. Brief [`active-designing/20260722-151101_stoa267-after-typed-memo-append-checkin.md`](../../active-designing/yonder/20260722-151101_stoa267-after-typed-memo-append-checkin.md).
 
-**glow-language Dexter submit helper GREEN, `20260722.151257`** — `dexter_sala_append` · demo `glow` → `append_typed_memo`; pixel-glass untouched. Brief [`active-designing/20260722-151257_stoa268-dexter-sala-append-helper.md`](../active-designing/20260722-151257_stoa268-dexter-sala-append-helper.md).
+**glow-language Dexter submit helper GREEN, `20260722.151257`** — `dexter_sala_append` · demo `glow` → `append_typed_memo`; pixel-glass untouched. Brief [`active-designing/20260722-151257_stoa268-dexter-sala-append-helper.md`](../../active-designing/yonder/20260722-151257_stoa268-dexter-sala-append-helper.md).
 
-**glow-language after Dexter Sala helper check-in, `20260722.151335`** — lean A send · lean B NativeActivity submit wire · lean C Pixel eyes. Brief [`active-designing/20260722-151335_stoa269-after-dexter-sala-helper-checkin.md`](../active-designing/20260722-151335_stoa269-after-dexter-sala-helper-checkin.md).
+**glow-language after Dexter Sala helper check-in, `20260722.151335`** — lean A send · lean B NativeActivity submit wire · lean C Pixel eyes. Brief [`active-designing/20260722-151335_stoa269-after-dexter-sala-helper-checkin.md`](../../active-designing/yonder/20260722-151335_stoa269-after-dexter-sala-helper-checkin.md).
 
-**glow-language NativeActivity submit → live root GREEN, `20260722.151515`** — `.submit` → helper · `sala_live_root.txt` beside pixel-glass; pack+install GREEN. Brief [`active-designing/20260722-151515_stoa270-native-submit-live-root.md`](../active-designing/20260722-151515_stoa270-native-submit-live-root.md).
+**glow-language NativeActivity submit → live root GREEN, `20260722.151515`** — `.submit` → helper · `sala_live_root.txt` beside pixel-glass; pack+install GREEN. Brief [`active-designing/20260722-151515_stoa270-native-submit-live-root.md`](../../active-designing/yonder/20260722-151515_stoa270-native-submit-live-root.md).
 
-**glow-language after live-root wire check-in, `20260722.151834`** — lean A send · lean B live-root paint · lean C pixel-glass 1A held. Brief [`active-designing/20260722-151834_stoa271-after-live-root-wire-checkin.md`](../active-designing/20260722-151834_stoa271-after-live-root-wire-checkin.md).
+**glow-language after live-root wire check-in, `20260722.151834`** — lean A send · lean B live-root paint · lean C pixel-glass 1A held. Brief [`active-designing/20260722-151834_stoa271-after-live-root-wire-checkin.md`](../../active-designing/yonder/20260722-151834_stoa271-after-live-root-wire-checkin.md).
 
-**glow-language live-root Skate paint GREEN, `20260722.151957`** — `LIVE · N · hex8` on row 5; tip yields; pixel-glass rows 6–7 kept. Brief [`active-designing/20260722-151957_stoa272-live-root-skate-paint.md`](../active-designing/20260722-151957_stoa272-live-root-skate-paint.md).
+**glow-language live-root Skate paint GREEN, `20260722.151957`** — `LIVE · N · hex8` on row 5; tip yields; pixel-glass rows 6–7 kept. Brief [`active-designing/20260722-151957_stoa272-live-root-skate-paint.md`](../../active-designing/yonder/20260722-151957_stoa272-live-root-skate-paint.md).
 
-**glow-language after live paint check-in, `20260722.152217`** — lean A send · lean B pixel-glass 1A when mobile · lean D gold/seva-broadcast held. Brief [`active-designing/20260722-152217_stoa273-after-live-paint-checkin.md`](../active-designing/20260722-152217_stoa273-after-live-paint-checkin.md).
+**glow-language after live paint check-in, `20260722.152217`** — lean A send · lean B pixel-glass 1A when mobile · lean D gold/seva-broadcast held. Brief [`active-designing/20260722-152217_stoa273-after-live-paint-checkin.md`](../../active-designing/yonder/20260722-152217_stoa273-after-live-paint-checkin.md).
 
-**glow-language after Dexter→Sala finish check-in, `20260722.152404`** — season turn; lean A pixel-glass 1A inventary (recommended) · lean B screenshot optional · lean D held. Brief [`active-designing/20260722-152404_stoa274-after-dexter-sala-finish-checkin.md`](../active-designing/20260722-152404_stoa274-after-dexter-sala-finish-checkin.md).
+**glow-language after Dexter→Sala finish check-in, `20260722.152404`** — season turn; lean A pixel-glass 1A inventary (recommended) · lean B screenshot optional · lean D held. Brief [`active-designing/20260722-152404_stoa274-after-dexter-sala-finish-checkin.md`](../../active-designing/yonder/20260722-152404_stoa274-after-dexter-sala-finish-checkin.md).
 
-**glow-language pixel-glass log-harvest inventary GREEN, `20260722.152523`** — `hawm-harvest-v1` Bron; fixture + meta fold. Brief [`active-designing/20260722-152523_stoa275-hawm-log-harvest-inventory.md`](../active-designing/20260722-152523_stoa275-hawm-log-harvest-inventory.md).
+**glow-language pixel-glass log-harvest inventary GREEN, `20260722.152523`** — `hawm-harvest-v1` Bron; fixture + meta fold. Brief [`active-designing/20260722-152523_stoa275-hawm-log-harvest-inventory.md`](../../active-designing/yonder/20260722-152523_stoa275-hawm-log-harvest-inventory.md).
 
-**glow-language after pixel-glass harvest check-in, `20260722.152631`** — lean A send · lean B host boot→harvest chain · lean D fleets held. Brief [`active-designing/20260722-152631_stoa276-after-hawm-harvest-checkin.md`](../active-designing/20260722-152631_stoa276-after-hawm-harvest-checkin.md).
+**glow-language after pixel-glass harvest check-in, `20260722.152631`** — lean A send · lean B host boot→harvest chain · lean D fleets held. Brief [`active-designing/20260722-152631_stoa276-after-hawm-harvest-checkin.md`](../../active-designing/yonder/20260722-152631_stoa276-after-hawm-harvest-checkin.md).
 
-**glow-language pixel-glass boot → harvest chain, `20260722.152801`** — onpath authored; harvest half GREEN; full boot pending host KVM. Brief [`active-designing/20260722-152801_stoa277-hawm-boot-harvest-chain.md`](../active-designing/20260722-152801_stoa277-hawm-boot-harvest-chain.md).
+**glow-language pixel-glass boot → harvest chain, `20260722.152801`** — onpath authored; harvest half GREEN; full boot pending host KVM. Brief [`active-designing/20260722-152801_stoa277-hawm-boot-harvest-chain.md`](../../active-designing/yonder/20260722-152801_stoa277-hawm-boot-harvest-chain.md).
 
-**glow-language after boot→harvest chain check-in, `20260722.152849`** — lean A send · lean B host onpath full GREEN · lean C root-into-harvest. Brief [`active-designing/20260722-152849_stoa278-after-boot-harvest-chain-checkin.md`](../active-designing/20260722-152849_stoa278-after-boot-harvest-chain-checkin.md).
+**glow-language after boot→harvest chain check-in, `20260722.152849`** — lean A send · lean B host onpath full GREEN · lean C root-into-harvest. Brief [`active-designing/20260722-152849_stoa278-after-boot-harvest-chain-checkin.md`](../../active-designing/yonder/20260722-152849_stoa278-after-boot-harvest-chain-checkin.md).
 
-**glow-language pixel-glass emulator serial pin, `20260722.153358`** — pin `emulator-*` beside USB Pixel; device-free GREEN. Brief [`active-designing/20260722-153358_stoa279-hawm-emulator-serial-pin.md`](../active-designing/20260722-153358_stoa279-hawm-emulator-serial-pin.md).
+**glow-language pixel-glass emulator serial pin, `20260722.153358`** — pin `emulator-*` beside USB Pixel; device-free GREEN. Brief [`active-designing/20260722-153358_stoa279-hawm-emulator-serial-pin.md`](../../active-designing/yonder/20260722-153358_stoa279-hawm-emulator-serial-pin.md).
 
-**glow-language after serial pin check-in, `20260722.153358`** — lean A send · lean B host boot→harvest retry. Brief [`active-designing/20260722-153358_stoa280-after-serial-pin-checkin.md`](../active-designing/20260722-153358_stoa280-after-serial-pin-checkin.md).
+**glow-language after serial pin check-in, `20260722.153358`** — lean A send · lean B host boot→harvest retry. Brief [`active-designing/20260722-153358_stoa280-after-serial-pin-checkin.md`](../../active-designing/yonder/20260722-153358_stoa280-after-serial-pin-checkin.md).
 
-**glow-language pixel-glass boot→harvest host GREEN, `20260722.153651`** — host onpath GREEN beside Pixel; harvest `serial` field. Brief [`active-designing/20260722-153651_stoa281-hawm-boot-harvest-host-green.md`](../active-designing/20260722-153651_stoa281-hawm-boot-harvest-host-green.md).
+**glow-language pixel-glass boot→harvest host GREEN, `20260722.153651`** — host onpath GREEN beside Pixel; harvest `serial` field. Brief [`active-designing/20260722-153651_stoa281-hawm-boot-harvest-host-green.md`](../../active-designing/yonder/20260722-153651_stoa281-hawm-boot-harvest-host-green.md).
 
-**glow-language after host boot→harvest check-in, `20260722.153651`** — lean A send · lean B root-into-harvest. Brief [`active-designing/20260722-153651_stoa282-after-host-boot-harvest-checkin.md`](../active-designing/20260722-153651_stoa282-after-host-boot-harvest-checkin.md).
+**glow-language after host boot→harvest check-in, `20260722.153651`** — lean A send · lean B root-into-harvest. Brief [`active-designing/20260722-153651_stoa282-after-host-boot-harvest-checkin.md`](../../active-designing/yonder/20260722-153651_stoa282-after-host-boot-harvest-checkin.md).
 
-**glow-language after host GREEN check-in sized, `20260722.153820`** — lean A pixel-glass→root-into-harvest · lean B pixel-glass only · lean C stop/rest · lean D held. Brief [`active-designing/20260722-153820_stoa283-after-host-green-checkin-sized.md`](../active-designing/20260722-153820_stoa283-after-host-green-checkin-sized.md).
+**glow-language after host GREEN check-in sized, `20260722.153820`** — lean A pixel-glass→root-into-harvest · lean B pixel-glass only · lean C stop/rest · lean D held. Brief [`active-designing/20260722-153820_stoa283-after-host-green-checkin-sized.md`](../../active-designing/yonder/20260722-153820_stoa283-after-host-green-checkin-sized.md).
 
-**glow-language harvest session_root, `20260722.154128`** — pixel-glass GREEN; `session_root` in hawm-harvest-v1. Brief [`active-designing/20260722-154128_stoa284-hawm-harvest-session-root.md`](../active-designing/20260722-154128_stoa284-hawm-harvest-session-root.md).
+**glow-language harvest session_root, `20260722.154128`** — pixel-glass GREEN; `session_root` in hawm-harvest-v1. Brief [`active-designing/20260722-154128_stoa284-hawm-harvest-session-root.md`](../../active-designing/yonder/20260722-154128_stoa284-hawm-harvest-session-root.md).
 
-**glow-language after session_root check-in, `20260722.154128`** — lean A send · lean B stop hawm0/rest. Brief [`active-designing/20260722-154128_stoa285-after-session-root-checkin.md`](../active-designing/20260722-154128_stoa285-after-session-root-checkin.md).
+**glow-language after session_root check-in, `20260722.154128`** — lean A send · lean B stop hawm0/rest. Brief [`active-designing/20260722-154128_stoa285-after-session-root-checkin.md`](../../active-designing/yonder/20260722-154128_stoa285-after-session-root-checkin.md).
 
-**glow-language hawm0 stopped season fold, `20260722.154348`** — stop GREEN; harvest kept; lean B rest. Brief [`active-designing/20260722-154348_stoa286-hawm0-stopped-season-fold.md`](../active-designing/20260722-154348_stoa286-hawm0-stopped-season-fold.md).
+**glow-language hawm0 stopped season fold, `20260722.154348`** — stop GREEN; harvest kept; lean B rest. Brief [`active-designing/20260722-154348_stoa286-hawm0-stopped-season-fold.md`](../../active-designing/yonder/20260722-154348_stoa286-hawm0-stopped-season-fold.md).
 
-**glow-language pixel-glass season rest, `20260722.154515`** — lean B rest chosen; no next kg until reopen. Brief [`active-designing/20260722-154515_stoa287-hawm-season-rest.md`](../active-designing/20260722-154515_stoa287-hawm-season-rest.md).
+**glow-language pixel-glass season rest, `20260722.154515`** — lean B rest chosen; no next kg until reopen. Brief [`active-designing/20260722-154515_stoa287-hawm-season-rest.md`](../../active-designing/yonder/20260722-154515_stoa287-hawm-season-rest.md).
 
-**glow-language after pixel-glass rest resume check-in, `20260722.154654`** — lean A Pixel LIVE eyes · lean B language inventary · lean C reopen pixel-glass · lean D held. Brief [`active-designing/20260722-154654_stoa288-after-hawm-rest-resume-checkin.md`](../active-designing/20260722-154654_stoa288-after-hawm-rest-resume-checkin.md).
+**glow-language after pixel-glass rest resume check-in, `20260722.154654`** — lean A Pixel LIVE eyes · lean B language inventary · lean C reopen pixel-glass · lean D held. Brief [`active-designing/20260722-154654_stoa288-after-hawm-rest-resume-checkin.md`](../../active-designing/yonder/20260722-154654_stoa288-after-hawm-rest-resume-checkin.md).
 
 **glow-language Pixel LIVE eyes after pixel-glass, `20260722.154953`** — pack+install GREEN; pixel-glass + distinct live root. Brief [`active-designing/20260722-154953_stoa289-pixel-live-eyes-after-hawm.md`](../active-designing/20260722-154953_stoa289-pixel-live-eyes-after-hawm.md).
 
