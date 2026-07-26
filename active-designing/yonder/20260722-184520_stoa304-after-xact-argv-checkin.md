@@ -30,7 +30,7 @@ glow-language: payload argv survey · `emit_xact_argv` · `mint <u32>` / `send` 
 | **C** | **Xfer argv survey** — **recommended** | thicker — two mint faces |
 | **D** | **Gold · face_lit · fleets · seva-broadcast** | **held** |
 
-Living note: [`20260722-185058_stoa304-rest-habit-and-xfer-rec.md`](yonder/20260722-185058_stoa304-rest-habit-and-xfer-rec.md).
+Living note: [`20260722-185058_stoa304-rest-habit-and-xfer-rec.md`](20260722-185058_stoa304-rest-habit-and-xfer-rec.md).
 
 ---
 

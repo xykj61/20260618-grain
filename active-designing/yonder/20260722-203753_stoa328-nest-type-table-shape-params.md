@@ -9,7 +9,7 @@
 **Status:** Checkable — collapse GREEN `20260722.203753`  
 **Register:** Checkable (Two Rooms) — nest_type + N-path shape locals; study `-mold` aliases kept  
 
-**Grounds in:** glow-language lean **C** · sameness [`../foundations/20260703-182612_sameness-is-the-macro.md`](../foundations/20260703-182612_sameness-is-the-macro.md) · shape surface [`20260720-223226_glow-os-shape-not-mold.md`](20260720-223226_glow-os-shape-not-mold.md)  
+**Grounds in:** glow-language lean **C** · sameness [`../foundations/20260703-182612_sameness-is-the-macro.md`](../../foundations/20260703-182612_sameness-is-the-macro.md) · shape surface [`20260720-223226_glow-os-shape-not-mold.md`](../20260720-223226_glow-os-shape-not-mold.md)  
 
 **dated_guard:** Study `-mold` strings and `glow/gen/hoon-study/` stay. Do **not** rewrite dated glow-language titles. Gold · fleets · seva-broadcast · deca stay held.
 
