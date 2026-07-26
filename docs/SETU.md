@@ -6,7 +6,7 @@
 **Depth:** guide  
 **Ceiling:** ≤80 lines  
 **Last updated:** 2026-07-20 (live-sent on Pixel `enx*` CDC-NCM)  
-**Compresses:** [`hearth-display.md`](hearth-display.md) · [`../active-designing/20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md`](../active-designing/20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md) · season [`../active-designing/20260718-185147_desk-hearth-hold-season.md`](../active-designing/20260718-185147_desk-hearth-hold-season.md) · usb-hearth.5 [`../active-designing/20260718-201601_setu65-lab-tx-gate.md`](../active-designing/20260718-201601_setu65-lab-tx-gate.md) · compose [`../active-designing/20260718-133455_glass-desk-compose-amber-amphora-revive.md`](../active-designing/20260718-133455_glass-desk-compose-amber-amphora-revive.md)
+**Compresses:** [`hearth-display.md`](hearth-display.md) · [`../active-designing/20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md`](../active-designing/20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md) · season [`../active-designing/20260718-185147_desk-hearth-hold-season.md`](../active-designing/yonder/20260718-185147_desk-hearth-hold-season.md) · usb-hearth.5 [`../active-designing/20260718-201601_setu65-lab-tx-gate.md`](../active-designing/20260718-201601_setu65-lab-tx-gate.md) · compose [`../active-designing/20260718-133455_glass-desk-compose-amber-amphora-revive.md`](../active-designing/20260718-133455_glass-desk-compose-amber-amphora-revive.md)
 
 ---
 
