@@ -4,7 +4,7 @@
 **Depth:** brief  
 **Last updated:** 2026-07-18 (`20260718.211817`)  
 **Voice:** Quin  
-**Waymark:** **glow-language** · compressor [`../docs/glow-language.md`](../docs/glow-language.md)
+**Waymark:** **glow-language** · compressor [`../docs/glow-language.md`](../../docs/glow-language.md)
 
 ---
 
@@ -15,9 +15,9 @@ After usb-hearth.5 + glow-language–9 shipped to the pier (`812e36ff01`), the l
 ## Thin face (glow-language)
 
 - **Shape:** 2–4 bare `=/  <face>  <decimal>` lines (comments and blanks skipped).
-- **Lower:** [`../glow/lower_multi.rye`](../glow/lower_multi.rye) — one program, all binds, conjunctive welcome check.
-- **Desk:** [`../glow/gen/multi-face.glow`](../glow/gen/multi-face.glow)
-- **Witness:** [`../tools/glow_lower_multi_witness.rish`](../tools/glow_lower_multi_witness.rish)
+- **Lower:** [`../glow/lower_multi.rye`](../../glow/lower_multi.rye) — one program, all binds, conjunctive welcome check.
+- **Desk:** [`../glow/gen/multi-face.glow`](../../glow/gen/multi-face.glow)
+- **Witness:** [`../tools/glow_lower_multi_witness.rish`](../../tools/glow_lower_multi_witness.rish)
 - **Single-line desks** keep the existing head dispatch unchanged.
 
 ## Landed next

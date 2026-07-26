@@ -4,7 +4,7 @@
 **Depth:** brief  
 **Last updated:** 2026-07-18 (`20260718.230846`)  
 **Voice:** Quin  
-**Waymark:** **glow-language** · compressor [`../docs/glow-language.md`](../docs/glow-language.md) · prior [`20260718-225931_stoa17-core-payload-brief.md`](yonder/20260718-225931_stoa17-core-payload-brief.md)
+**Waymark:** **glow-language** · compressor [`../docs/glow-language.md`](../../docs/glow-language.md) · prior [`20260718-225931_stoa17-core-payload-brief.md`](20260718-225931_stoa17-core-payload-brief.md)
 
 ---
 

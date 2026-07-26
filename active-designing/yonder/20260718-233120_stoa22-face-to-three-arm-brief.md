@@ -4,7 +4,7 @@
 **Depth:** brief  
 **Last updated:** 2026-07-18 (`20260718.233120`)  
 **Voice:** Quin  
-**Waymark:** **glow-language** · compressor [`../docs/glow-language.md`](../docs/glow-language.md)
+**Waymark:** **glow-language** · compressor [`../docs/glow-language.md`](../../docs/glow-language.md)
 
 ---
 

@@ -9,7 +9,7 @@
 **Status:** Checkable — GREEN `20260721.194941`  
 **Register:** Checkable (Two Rooms) — lex GREEN; parse/lower/desk pin held  
 
-**Grounds in:** sub-lean **C1** in [`20260721-194941_stoa215-glow-source-literals-inventory.md`](20260721-194941_stoa215-glow-source-literals-inventory.md) · glow-language `@t` · glow-language bound 1024
+**Grounds in:** sub-lean **C1** in [`20260721-194941_stoa215-glow-source-literals-inventory.md`](../20260721-194941_stoa215-glow-source-literals-inventory.md) · glow-language `@t` · glow-language bound 1024
 
 **dated_guard:** Do **not** claim desks parse or lower cord literals yet. No escapes this lap. seva-broadcast held.
 

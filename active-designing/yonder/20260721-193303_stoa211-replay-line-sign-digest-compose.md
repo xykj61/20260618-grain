@@ -9,7 +9,7 @@
 **Status:** Checkable — GREEN `20260721.193303`  
 **Register:** Checkable (Two Rooms) — product compose GREEN; FactFields/amount parse still elder  
 
-**Grounds in:** sub-lean **C1** in [`20260721-193220_stoa210-replay-body-inventory.md`](20260721-193220_stoa210-replay-body-inventory.md) · glow-language · glow-language · glow-language
+**Grounds in:** sub-lean **C1** in [`20260721-193220_stoa210-replay-body-inventory.md`](../20260721-193220_stoa210-replay-body-inventory.md) · glow-language · glow-language · glow-language
 
 **dated_guard:** Do **not** claim Glow-rune crypto. FactFields parse: glow-language. seva-broadcast held.
 

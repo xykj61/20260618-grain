@@ -9,7 +9,7 @@
 **Status:** Checkable — A rest · B → glow-language–209 · lean **C** chosen `20260721.193220` as **glow-language**  
 **Register:** Checkable (Two Rooms) — replay-body inventory seated; C1 compose recommended next  
 
-**Grounds in:** [`20260721-190637_stoa204-replay-product-digest-honesty.md`](../20260721-190637_stoa204-replay-product-digest-honesty.md) · [`20260721-185942_stoa200-vane-body-inventory.md`](../20260721-185942_stoa200-vane-body-inventory.md) · Pixel eyes STOA199A
+**Grounds in:** [`20260721-190637_stoa204-replay-product-digest-honesty.md`](20260721-190637_stoa204-replay-product-digest-honesty.md) · [`20260721-185942_stoa200-vane-body-inventory.md`](../20260721-185942_stoa200-vane-body-inventory.md) · Pixel eyes STOA199A
 
 **dated_guard:** Do **not** claim Glow-rune crypto or a Glow-authored replay vane. Prefer a named lean before B3 desk code or any jet season. seva-broadcast opens only on explicit word.
 
