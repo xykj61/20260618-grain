@@ -10,7 +10,7 @@
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded** · **Seva** · **Mand ring-1 · ring-2 · ring-3** · **THREATS** · **five pillars** · **accrete tiers** · **redaction stance** · **always-in-it rhythm** · **Prin / %prin**  
 **Language nib:** **glow-language–333** · glow mode SLC · digraph twin rung 1a GREEN · list1024 · Env512 · **stamp @u64 · Crockford** · **shape aura floor** · **Glow text floor GREEN** · **Glow Book weave GREEN (C2b)** · **baked-sample Acme gloss**  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–333 · **Mand home** · **siblings seated** · **--cursor launch** · **Pond counsel 161616** · **one-clock blocking** · **tools/*.py blocking** · **stranger lap warm+cold REPORT** · **Grain umbrella living** · **OQ #1 · #3 · #4 · #5 answered** · **pass ledger** · **campaign STOPPED** · **growth law** · **wasmtime E GREEN** · **monocypher 4.0.3 GREEN** · **MAP.md** · **breach T3–T4** · **U·V·I** · **C-Ladder C1·C2·C2b landed** · **r18 say/lint twin** · **r21 Verse · O1** · **r22 outside eyes** · **Prin** · **corpus twin part six in flight** · **C3–C5 await homes**  
-**Git nib:** `SEND_NIB` · Grain · counsel asks×5 · C3–C5 parks · autoproject96/grain
+**Git nib:** `cadc3e4650` · Grain · unified send twenty · Siya tip · autoproject96/grain
 
 **Chapter:** Framework · EDT · **Grain** umbrella · pier **`~/grain`** · **finishing edge:** counsel asks×5 (compiler · perf · Mantra/Weave/nib/Brushstroke · Glow·Sui·Move · `.brush`) · part six twin under Prin · C3–C5 homes · doorway · H. Prefer **git nib** (never tip) for HEAD.
 
