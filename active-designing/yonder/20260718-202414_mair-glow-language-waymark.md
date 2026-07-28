@@ -37,4 +37,4 @@ Glass, hearth, and USB wire stay on **glass-keyboard** · **hearth-display** · 
 
 - Living compressor: [`../docs/glow-language.md`](../../docs/glow-language.md) (this draw’s compressor was never sent)
 - Working pin: [`../glow/README.md`](../../glow/README.md)
-- First-code inventory: [`../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md`](../../expanding-prompts/20260717-213242_glow-first-code-beside-glass-and-open-runes.md)
+- First-code inventory: [`../expanding-prompts/yonder/20260717-213242_glow-first-code-beside-glass-and-open-runes.md`](../../expanding-prompts/yonder/20260717-213242_glow-first-code-beside-glass-and-open-runes.md)

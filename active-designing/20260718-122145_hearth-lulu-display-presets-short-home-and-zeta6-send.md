@@ -6,7 +6,7 @@
 **Status:** Mixed — siloed design; glass-keyboard Pixel GREEN · **hearth-display–5 closed** · **usb-hearth–usb-hearth GREEN** `20260718.184537` · usb-hearth check-in · Amber/Amphora fuse declined [`20260718-133455`](20260718-133455_glass-desk-compose-amber-amphora-revive.md)  
 **Voice:** Quin  
 **Research:** [`../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md`](../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md) · compose ER [`../external-research/20260718-133455_glass-desk-amber-amphora-compose-not-fuse.md`](../external-research/20260718-133455_glass-desk-amber-amphora-compose-not-fuse.md)  
-**Prompt:** [`../expanding-prompts/20260718-122145_glow-glass-display-short-home-and-dexter-send.md`](../expanding-prompts/20260718-122145_glow-glass-display-short-home-and-dexter-send.md)  
+**Prompt:** [`../expanding-prompts/yonder/20260718-122145_glow-glass-display-short-home-and-dexter-send.md`](../expanding-prompts/yonder/20260718-122145_glow-glass-display-short-home-and-dexter-send.md)  
 **Compressor:** [`../docs/hearth-display.md`](../docs/hearth-display.md) · [`../docs/usb-hearth.md`](../docs/usb-hearth.md)
 
 ---
