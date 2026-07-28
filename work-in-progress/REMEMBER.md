@@ -6,14 +6,14 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260728.004750` (EDT) · voice Quin  
+**Last refreshed:** `20260728.004954` (EDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded** · **Seva** · **Mand ring-1 · ring-2 · ring-3** · **THREATS** · **five pillars** · **accrete tiers** · **redaction stance** · **always-in-it rhythm** · **Prin / %prin**  
 **Language nib:** **glow-language–333** · glow mode SLC · digraph twin rung 1a GREEN · list1024 · Env512 · **stamp @u64 · Crockford** · **shape aura floor** · **Glow text floor GREEN** · **Glow Book weave GREEN (C2b)** · **baked-sample Acme gloss**  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–333 · **Mand home** · **siblings seated** · **--cursor launch** · **Pond counsel 161616** · **one-clock blocking** · **tools/*.py blocking** · **stranger lap warm+cold REPORT** · **Grain umbrella living** · **OQ #1 · #3 · #4 · #5 answered** · **pass ledger** · **campaign STOPPED** · **growth law** · **wasmtime ABSENT** · **monocypher 4.0.3 GREEN** · **MAP.md** · **breach T3–T4** · **U·V·I** · **C-Ladder C1·C2·C2b landed** · **r18 say/lint twin** · **r21 Verse · O1** · **r22 outside eyes** · **Prin** · **corpus twin fold seated (Sound r11)** · **C3–C5 await homes**  
-**Git nib:** (pin after send) · Grain · Tensegral r11 Unify · autoproject96/grain
-**Bookmark:** [`counsel/20260727-234617_the-tensegral-season.md`](../counsel/20260727-234617_the-tensegral-season.md) · r11 [`counsel/20260728-004750_tensegral-season-r11-unify.md`](../counsel/20260728-004750_tensegral-season-r11-unify.md) · motto **stay tensegral** · **Prin** · Arc II fold `tools/tensegral_arc_ii_witness.rish`
+**Git nib:** (pin after send) · Grain · Tensegral r12 Happy zone · Arc IV exit · autoproject96/grain
+**Bookmark:** [`counsel/20260727-234617_the-tensegral-season.md`](../counsel/20260727-234617_the-tensegral-season.md) · r12 [`counsel/20260728-004954_tensegral-season-r12-happy-zone.md`](../counsel/20260728-004954_tensegral-season-r12-happy-zone.md) · motto **stay tensegral** · Arc II fold · Arc IV habitat `tools/tensegral_arc_iv_witness.rish`
 
-**Chapter:** Framework · EDT · **Grain** umbrella · pier **`~/grain`** · **finishing edge:** Tensegral **r11 Unify GREEN** · next = Arc IV Happy zone · Sound closed/seated. Prefer **git nib** (never tip) for HEAD.
+**Chapter:** Framework · EDT · **Grain** umbrella · pier **`~/grain`** · **finishing edge:** Tensegral **Arc IV exits** · next = Arc V Integrated · Sound closed/seated. Prefer **git nib** (never tip) for HEAD.
 
 ---
 
