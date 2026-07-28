@@ -6,14 +6,14 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260728.032900` (EDT) · voice Quin  
+**Last refreshed:** `20260728.033017` (EDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded** · **Seva** · **Mand ring-1 · ring-2 · ring-3** · **THREATS** · **five pillars** · **accrete tiers** · **redaction stance** · **always-in-it rhythm** · **Prin / %prin**  
 **Language nib:** **glow-language–333** · glow mode SLC · digraph twin rung 1a GREEN · list1024 · Env512 · **stamp @u64 · Crockford** · **shape aura floor** · **Glow text floor GREEN** · **Glow Book weave GREEN (C2b)** · **baked-sample Acme gloss**  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–333 · **Mand home** · **siblings seated** · **--cursor launch** · **Pond counsel 161616** · **one-clock blocking** · **tools/*.py blocking** · **stranger lap warm+cold REPORT** · **Grain umbrella living** · **OQ #1 · #3 · #4 · #5 answered** · **pass ledger** · **campaign STOPPED** · **growth law** · **wasmtime ABSENT** · **monocypher 4.0.3 GREEN** · **MAP.md** · **breach T3–T4** · **U·V·I** · **C-Ladder C1·C2·C2b landed** · **r18 say/lint twin** · **r21 Verse · O1** · **r22 outside eyes** · **Prin** · **corpus twin fold seated (Sound r11)** · **C3–C5 await homes**  
-**Git nib:** *(fill after send)* · Grain · **Keeh** q7 · overwrite AFFIRMED CLOSED · Kia · autoproject96/grain
-**Bookmark:** [`counsel/20260728-032900_keeh-season-q7-affirm.md`](../counsel/20260728-032900_keeh-season-q7-affirm.md) · q8 next · Kia [`gratitude/kia.md`](../gratitude/kia.md)
+**Git nib:** *(fill after send)* · Grain · **Keeh** q8 · spot-check empty · Kia · autoproject96/grain
+**Bookmark:** [`counsel/20260728-033017_keeh-season-q8-spotcheck.md`](../counsel/20260728-033017_keeh-season-q8-spotcheck.md) · q9 next · Kia [`gratitude/kia.md`](../gratitude/kia.md)
 
-**Chapter:** Framework · EDT · **Grain** · **finishing edge:** **quint Keeh** q7 · overwrite AFFIRMED CLOSED · Kia sponsor · Geode PREP · pauses held. Prefer **git nib**. · `prin scope`
+**Chapter:** Framework · EDT · **Grain** · **finishing edge:** **quint Keeh** q8 · residual empty · overwrite CLOSED · Kia · Geode PREP · pauses held. Prefer **git nib**. · `prin scope`
 
 ---
 
