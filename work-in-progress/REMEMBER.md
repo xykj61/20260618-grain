@@ -6,14 +6,14 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260728.014918` (EDT) · voice Quin  
+**Last refreshed:** `20260728.015058` (EDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded** · **Seva** · **Mand ring-1 · ring-2 · ring-3** · **THREATS** · **five pillars** · **accrete tiers** · **redaction stance** · **always-in-it rhythm** · **Prin / %prin**  
 **Language nib:** **glow-language–333** · glow mode SLC · digraph twin rung 1a GREEN · list1024 · Env512 · **stamp @u64 · Crockford** · **shape aura floor** · **Glow text floor GREEN** · **Glow Book weave GREEN (C2b)** · **baked-sample Acme gloss**  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–333 · **Mand home** · **siblings seated** · **--cursor launch** · **Pond counsel 161616** · **one-clock blocking** · **tools/*.py blocking** · **stranger lap warm+cold REPORT** · **Grain umbrella living** · **OQ #1 · #3 · #4 · #5 answered** · **pass ledger** · **campaign STOPPED** · **growth law** · **wasmtime ABSENT** · **monocypher 4.0.3 GREEN** · **MAP.md** · **breach T3–T4** · **U·V·I** · **C-Ladder C1·C2·C2b landed** · **r18 say/lint twin** · **r21 Verse · O1** · **r22 outside eyes** · **Prin** · **corpus twin fold seated (Sound r11)** · **C3–C5 await homes**  
-**Git nib:** (lands with this send) · Grain · Constellation **m7 Twah phonebook** · autoproject96/grain
-**Bookmark:** [`counsel/20260728-014918_constellation-season-m7-twah-phonebook.md`](../counsel/20260728-014918_constellation-season-m7-twah-phonebook.md) · steps 1–5 · Comlink knock
+**Git nib:** (lands with this send) · Grain · Constellation **m8 Twah arc close** · autoproject96/grain
+**Bookmark:** [`counsel/20260728-015058_constellation-season-m8-twah-close.md`](../counsel/20260728-015058_constellation-season-m8-twah-close.md) · refuse-walk · m5–m8 CLOSED
 
-**Chapter:** Framework · EDT · **Grain** umbrella · pier **`~/grain`** · **finishing edge:** Constellation **m7** · next = m8 Twah close · Fascia mid-flight park · Tensegral seated. Prefer **git nib** (never tip) for HEAD.
+**Chapter:** Framework · EDT · **Grain** umbrella · pier **`~/grain`** · **finishing edge:** Constellation **m8** · next = m9 Siya triad close · Fascia mid-flight park · Tensegral seated. Prefer **git nib** (never tip) for HEAD.
 
 ---
 
