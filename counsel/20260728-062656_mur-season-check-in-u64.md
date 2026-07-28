@@ -58,6 +58,8 @@ Re-run the murr+wov choir · refresh `prin scope` · seat dual-accept design whe
 
 **Empty** for WOV-unify design. Timing and next door belong to Keaton.
 
+**Follow-up:** [check-in u65](20260728-063003_mur-season-check-in-u65.md) seated on his `check in`.
+
 ---
 
 *Check-in at u64 · stamp `20260728.062656` · Quin · report only*
