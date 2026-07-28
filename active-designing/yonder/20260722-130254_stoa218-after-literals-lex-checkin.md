@@ -10,7 +10,7 @@
 
 **Register:** Checkable (Two Rooms) — glow-language–217 lex GREEN; parse/lower/desk pin held  
 
-**Grounds in:** [`20260721-194941_stoa215-glow-source-literals-inventory.md`](../20260721-194941_stoa215-glow-source-literals-inventory.md) · glow-language cord · glow-language hex · EDT return `20260722.125845`
+**Grounds in:** [`20260721-194941_stoa215-glow-source-literals-inventory.md`](20260721-194941_stoa215-glow-source-literals-inventory.md) · glow-language cord · glow-language hex · EDT return `20260722.125845`
 
 **dated_guard:** Do **not** claim desks parse or lower literals yet. Do **not** pin elder fixture strings. seva-broadcast opens only on explicit word.
 

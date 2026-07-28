@@ -27,7 +27,7 @@ glow-language–204 on one send (`7d4dcddac4`): sign/verify surface · log-line 
 |---|---|---|
 | **A** | **Rest** — **taken** (Keaton rested) | hold language and product until a later season word; vane wraps earned a pause |
 | **B** | **B3 desk deepen** — **chosen** `20260721.191254` as **glow-language** | fact-line shape desk — brief [`20260721-191254_stoa206-fact-line-shape-desk.md`](20260721-191254_stoa206-fact-line-shape-desk.md) |
-| **C** | **Replay body inventory** — **chosen** `20260721.193220` as **glow-language** | sized brief; C1 compose recommended — [`20260721-193220_stoa210-replay-body-inventory.md`](../20260721-193220_stoa210-replay-body-inventory.md) |
+| **C** | **Replay body inventory** — **chosen** `20260721.193220` as **glow-language** | sized brief; C1 compose recommended — [`20260721-193220_stoa210-replay-body-inventory.md`](20260721-193220_stoa210-replay-body-inventory.md) |
 | **D** | **seva-broadcast** | inference · economics — **held**; opens only on explicit word, never as silent kg |
 
 ---
