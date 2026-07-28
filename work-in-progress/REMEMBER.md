@@ -6,14 +6,14 @@
 
 *One-page carry card for outer terminal · phone · waymarks. Refreshed when Keaton says **remember**.*
 
-**Last refreshed:** `20260728.023941` (EDT) · voice Quin  
+**Last refreshed:** `20260728.024417` (EDT) · voice Quin  
 **Product nib:** glass-keyboard · hearth-display–5 · **usb-hearth.5 · live-sent** · HOLD* · LIVE eyes · **pixel-glass folded** · **Seva** · **Mand ring-1 · ring-2 · ring-3** · **THREATS** · **five pillars** · **accrete tiers** · **redaction stance** · **always-in-it rhythm** · **Prin / %prin**  
 **Language nib:** **glow-language–333** · glow mode SLC · digraph twin rung 1a GREEN · list1024 · Env512 · **stamp @u64 · Crockford** · **shape aura floor** · **Glow text floor GREEN** · **Glow Book weave GREEN (C2b)** · **baked-sample Acme gloss**  
 **Suite nib:** glass-keyboard–6 · hearth-display–5 · usb-hearth–usb-hearth.5 · live-sent · HOLD* · glow-language–333 · **Mand home** · **siblings seated** · **--cursor launch** · **Pond counsel 161616** · **one-clock blocking** · **tools/*.py blocking** · **stranger lap warm+cold REPORT** · **Grain umbrella living** · **OQ #1 · #3 · #4 · #5 answered** · **pass ledger** · **campaign STOPPED** · **growth law** · **wasmtime ABSENT** · **monocypher 4.0.3 GREEN** · **MAP.md** · **breach T3–T4** · **U·V·I** · **C-Ladder C1·C2·C2b landed** · **r18 say/lint twin** · **r21 Verse · O1** · **r22 outside eyes** · **Prin** · **corpus twin fold seated (Sound r11)** · **C3–C5 await homes**  
-**Git nib:** `d8825fae28` · Grain · Inner Scope **i6** · Amphora stack · autoproject96/grain
-**Bookmark:** [`counsel/20260728-023941_inner-scope-i6-amphora-stack.md`](../counsel/20260728-023941_inner-scope-i6-amphora-stack.md) · laps1-3 · fascia≈49 · i7 next
+**Git nib:** `c8fcd96b96` · Grain · **Trya** · Ariana Grande · fascia paused · autoproject96/grain
+**Bookmark:** [`counsel/20260728-024417_inner-scope-checkpoint-trya-ariana.md`](../counsel/20260728-024417_inner-scope-checkpoint-trya-ariana.md) · Virgo 6 · sixth voice
 
-**Chapter:** Framework · EDT · **Grain** umbrella · pier **`~/grain`** · **finishing edge:** Inner Scope · **i6 GREEN** · next = i7 shred-with-parity draft · outer **PAUSED** m8/m9. Prefer **git nib** (never tip) for HEAD. · `prin scope`
+**Chapter:** Framework · EDT · **Grain** umbrella · pier **`~/grain`** · **finishing edge:** Inner Scope · **fascia PAUSED** i6/i7 · **Trya seated** · trya_fund=prep · outer **PAUSED** m8/m9. Prefer **git nib** (never tip) for HEAD. · `prin scope`
 
 ---
 
