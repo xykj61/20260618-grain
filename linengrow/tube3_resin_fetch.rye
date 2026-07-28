@@ -1,6 +1,6 @@
 //! linengrow/tube3_resin_fetch.rye — glow-publishing: fetch a published Manifest resin over Comlink.
 //!
-//! Per expanding-prompts/20260716-142818 rung glow-publishing: the app's bytes (here the
+//! Per expanding-prompts/yonder/20260716-142818 rung glow-publishing: the app's bytes (here the
 //! glow-publishing Manifest resin from glow-publishing) cross as Amphora fetch-by-digest frames
 //! sealed by Comlink; the peer verifies the digest before any glow-publishing admit.
 //! This module proves the sealed fetch + published-set gate; admission stays
