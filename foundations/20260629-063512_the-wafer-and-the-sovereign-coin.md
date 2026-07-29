@@ -5,9 +5,9 @@
 **Stamp:** `20260629.063512`
 **Voice:** Reya 2, with **Kaeden Reyklah** as coauthor
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)
-**Status:** Vision — **far horizon**; generalized and place-neutral; siloed, with the hardware abstracted from current wafer-scale designs
+**Status:** Vision — **far horizon** · **fossil** — living path [`20260728-225239_the-wafer-and-the-sovereign-coin.md`](20260728-225239_the-wafer-and-the-sovereign-coin.md) · Surface p33 thin seat yes `20260728.225239`
 
-*Written together by Kaeden and Reya 2.*
+*Written together by Kaeden and Reya 2. Body held; living stack words live in the mutant.*
 Radiant pass `20260725.035453`
 
 ---
