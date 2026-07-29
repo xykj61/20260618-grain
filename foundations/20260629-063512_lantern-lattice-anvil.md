@@ -6,9 +6,9 @@
 **Voice:** Reya 2, with **Kaeden Reyklah** as coauthor
 **Style:** Radiant (see `../context/RADIANT_STYLE.md`)
 **Lens:** TAME — safety, performance, then the joy of the craft; the silo principle
-**Status:** Vision — **far horizon**; siloed; names only our own modules and RISC-V, with the three names Lantern, Lattice, and Anvil
+**Status:** Vision — **far horizon** · **fossil** — living path [`20260728-221253_lantern-lattice-anvil.md`](20260728-221253_lantern-lattice-anvil.md) · Surface p31 thin seat yes `20260728.221253`
 
-*Written together by Kaeden and Reya 2.*
+*Written together by Kaeden and Reya 2. Body held; living stack words live in the mutant.*
 Radiant pass `20260725.035453`
 
 ---
