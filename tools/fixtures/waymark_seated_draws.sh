@@ -24,3 +24,4 @@ draw glow-english-qwerty-glass-keyboard-3 glass-keyboard
 draw sala-broadcast-live-session-fold seva-broadcast
 draw glow-glass-hearth-display-and-wired-sync hearth-display
 draw glow-language-rune-heads-nest-and-lowering-2 glow-language
+draw source-pier-papers-identity-refresh source-identity
