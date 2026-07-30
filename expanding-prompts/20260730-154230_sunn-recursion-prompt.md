@@ -1,0 +1,66 @@
+# source-identity Recursion Prompt — after source-identity GREEN (expanded fusion)
+
+**Stamp:** `20260730.154230` · **Voice:** Riyo  
+**Replace** `441f333d8e` with living git nib after send.
+
+---
+
+```
+[ [ Riyo — counsel session, source-identity Journey (SOURCE identity breach · 16 doors).
+Outer voice: Riyo (Radiant · TAME). Nested documentary: Trey.
+Model seat: Claude Opus 5 1m Max (roster · from 20260730 · prior Fable).
+Cursor bench: Grok 4.5 300k High Fast · Framework ~/grain · tip 441f333d8e.
+Dual push origin + xykj61 every send.
+Habit: print a fresh fusion recursion prompt after each round for repaste.
+
+NEST ACCURACY:
+  1 outer · 2 inner · 3 three · 4 quad · 5 quint · 6 sext ·
+  7 sept · 8 oct · 9 nona · 10 deca PAUSED · 11 undeca PAUSED · 12 duodeca PAUSED.
+  Glow = code · Brix = data. asks: … / your: <reply that closes the ask>.
+
+source-identity (OPEN): SOURCE identity breach · source-identity–11 GREEN · source-identity next
+  Handback when source-identity returns: return_equinox_e50
+djinn-exec (GREEN · handback CONSUMED): DJINN→Bozo · Keaton→Murr · Linn→Bozo Capricorn 10
+  return_sunn_sunn8 CONSUMED 20260730.152953
+DECA (paused): Equinox Chapter · e49 GREEN TB off-by-one · e50 next · ch4 7/16
+  Nested handback return_surface_p59 (not consumed)
+UNDECA (paused): Voice Chapter · Journey 4 PAUSED · doors 8–15 GREEN
+  Build queue CLOSED · tend three DONE · handback return_equinox_e7 CONSUMED
+DUODECA (paused): Fascia Equinox · f3 complete · exit bar MET 69→90
+  handback return_voice_j4_d10 CONSUMED 20260730.095331 · shred RED
+
+OPERATIONAL (baton fusion · living):
+  source-identity · 16 doors · tip 441f333d8e · source-identity GREEN xykj61 onboarding · source-identity next
+  museum: context/baton-museum/ · 13 halls · census_breach_count=0
+  waymark: source-identity ← source-pier-papers-identity-refresh
+  djinn-exec: Bozo Capricorn 10 · exec DJINN · Murr Aries 1 · exec Keaton Sealy Livermore
+  onboarding clones: xykj61/grain · origin lane autoproject96 kept in REMOTE_ROSTER
+  README/CLAUDE/keys/overview/APPLY: Riyo · Livermore · xykj61 · dated Dunsford kept
+  Quin: fifth OS + Q-vane stay · writing voice Riyo
+  personalize: personalize.template.brix · gitignored PERSONALIZE.brix
+  key-card: FP_SSH_GITHUB · FP_SSH_SECOND · FP_OPENPGP
+  macos/enclosure: ~/grain · Ubuntu 26.04 · Riyo
+  almanac: ch1–ch3 FULL · ch4 7/16 (Equinox paused)
+  meters: sundial 100·green · fascia 86 · shred RED
+  remotes: origin + xykj61 PUSHED · dual law living · Framework home pier
+  parked: season name · myc/star policy · DJINN onboarding hour · Acme · LICENSE copyright
+  handback: return_equinox_e50
+
+BASIS: tip 441f333d8e · source-identity GREEN
+  Witness: tools/gen/chapter/sunn11_xykj61_onboarding_witness.rish
+  Charter: expanding-prompts/20260730-154230_sunn11-xykj61-onboarding-charter.md
+  Leaves: APPLY.md · SOURCE.md · first-season-personalize.md
+
+HARD LINES:
+  no force-push · no shred/deploy · no wallet/gas/keys · edu/: git add -f
+  Quin OS + Q-vane stay · dated Dunsford/Kaeden/Linn testimony stays
+  SAFE rows grow only by Keaton's word
+  PERSONALIZE.brix / first_season_answers.brix / key-card.conf never force-added
+
+NEXT (your pick):
+  A) kg / source-identity — living Quin-voice → Riyo (not OS · not Q-vane)
+  B) check in (Claude) — Step 7–8 Codeberg crawl · jail-key generator
+  C) return_equinox_e50 (Keaton names return)
+  D) other word Keaton names
+] ]
+```

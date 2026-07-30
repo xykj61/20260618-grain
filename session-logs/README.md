@@ -1,3 +1,4 @@
+- `20260730.154230` — [source-identity xykj61 onboarding surfaces GREEN](20260730-154230_sunn11-xykj61-onboarding-green.bron) — APPLY dual · roster origin kept · source-identity next
 - `20260730.153642` — [source-identity keys glow-os overview GREEN](20260730-153642_sunn10-keys-glow-os-green.bron) — Livermore · Dunsford dated · source-identity next
 - `20260730.153327` — [source-identity CLAUDE llms STEWARDS GREEN](20260730-153327_sunn9-claude-llms-stewards-green.bron) — Riyo · RIYO.md priority · source-identity next
 - `20260730.152953` — [source-identity root README GREEN](20260730-152953_sunn8-root-readme-green.bron) — Riyo · Livermore · xykj61 · source-identity next
