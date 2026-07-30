@@ -24,7 +24,7 @@ SOURCE still speaks Quin · Dunsford · Codeberg-as-home · autoproject96 clone.
 | **source-identity** | SOURCE Part One remotes — clone `xykj61/grain` · Codeberg retired note |
 | **source-identity** | SOURCE apps — paid Claude · Claude iOS · Cursor iOS · Android not yet |
 | **source-identity** | SOURCE Step 1–5 forge + Cursor/Claude depth refresh |
-| **source-identity** | `manual/guides/apprentice-welcome.md` leaf |
+| **source-identity** | apprentice-welcome + personalize Brix family (256-round first season) |
 | **source-identity** | `first-day-personal-ops` · key-cards leaves that cite SOURCE |
 | **source-identity** | macOS / enclosure leaves that cite SOURCE |
 | **source-identity** | Root `README.md` · voice/name/onboarding touch |
@@ -52,7 +52,11 @@ SOURCE still speaks Quin · Dunsford · Codeberg-as-home · autoproject96 clone.
 | `expanding-prompts/20260730-143736_sunn-source-identity-breach-charter.md` | this charter |
 | `expanding-prompts/20260730-143736_sunn-census.md` | grep census |
 | `SOURCE.md` | source-identity–3 living breach |
-| `manual/guides/apprentice-welcome.md` | source-identity start |
+| `manual/guides/apprentice-welcome.md` | source-identity welcome leaf |
+| `tools/gen/chapter/personalize.template.brix` | source-identity identity + replace map |
+| `tools/gen/chapter/first_season_journeys.brix` | source-identity equinox A j0–j1 |
+| `tools/gen/chapter/first_season_questions.brix` | source-identity open-question bank |
+| `manual/guides/first-season-personalize.md` | source-identity human walk |
 
 ---
 
