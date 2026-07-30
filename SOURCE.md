@@ -4,7 +4,7 @@
 **Version:** `20260716.110152` (Glow warm-aura date atom — chronological, later-is-larger)
 **Style:** Radiant (see `context/RADIANT_STYLE.md`)
 **By:** Riyo, in the radiant voice, with **Keaton Livermore** as coauthor (Identity Remake `20260729.141658`; standing writing voice restored to Riyo `20260729.205200`)
-**Status:** Living guide — last touched `20260730.145124` (source-identity — first-season personalize Brix pointer)
+**Status:** Living guide — last touched `20260730.145723` (source-identity — key-card template GitHub · Second · OpenPGP)
 **Waymark:** **source-identity** — `source-pier-papers-identity-refresh`
 
 ---
@@ -196,7 +196,7 @@ rishi/bin/rishi run tools/make_key_card.rish
 ./tools/make-key-card.sh
 ```
 
-Your `tools/key-card.conf` holds only **public** information — your name, your forge handle, your email, and the fingerprints from Steps 2 and 3. Even so, it stays out of git (the committed `.example` is the only version tracked). The template still names a historical `FP_SSH_CODEBERG` slot from the dual-forge season; for a GitHub-only pier, fill **`FP_SSH_GITHUB`** and **`FP_OPENPGP`**, and either leave the Codeberg slot as the example placeholder (skip its audit path) or reuse that slot temporarily for a **second GitHub** SSH fingerprint until the template is refreshed. To read your living fingerprints back at any time:
+Your `tools/key-card.conf` holds only **public** information — your name, your forge handle, your email, and the fingerprints from Steps 2 and 3. Even so, it stays out of git (the committed `.example` is the only version tracked). Living slots are **`FP_SSH_GITHUB`**, **`FP_SSH_SECOND`**, and **`FP_OPENPGP`** (source-identity). For a GitHub-only pier, fill GitHub + OpenPGP and leave Second as the example placeholder (skip its audit path), or use Second for a second GitHub key when you keep dual remotes. Generators still accept the legacy name `FP_SSH_CODEBERG` as an alias for Second. To read your living fingerprints back at any time:
 
 ```bash
 ssh-keygen -lf ~/.ssh/id_ed25519_github.pub

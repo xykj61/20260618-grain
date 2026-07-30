@@ -25,7 +25,7 @@ SOURCE still speaks Quin · Dunsford · Codeberg-as-home · autoproject96 clone.
 | **source-identity** | SOURCE apps — paid Claude · Claude iOS · Cursor iOS · Android not yet |
 | **source-identity** | SOURCE Step 1–5 forge + Cursor/Claude depth refresh |
 | **source-identity** | apprentice-welcome + personalize Brix family (256-round first season) |
-| **source-identity** | `first-day-personal-ops` · key-cards leaves that cite SOURCE |
+| **source-identity** | first-day-personal-ops · key-cards · template FP_SSH_SECOND |
 | **source-identity** | macOS / enclosure leaves that cite SOURCE |
 | **source-identity** | Root `README.md` · voice/name/onboarding touch |
 | **source-identity** | `CLAUDE.md` · `llms.txt` · `STEWARDS.md` voice |
