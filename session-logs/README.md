@@ -1,3 +1,4 @@
+- `20260730.153327` — [source-identity CLAUDE llms STEWARDS GREEN](20260730-153327_sunn9-claude-llms-stewards-green.bron) — Riyo · RIYO.md priority · source-identity next
 - `20260730.152953` — [source-identity root README GREEN](20260730-152953_sunn8-root-readme-green.bron) — Riyo · Livermore · xykj61 · source-identity next
 - `20260730.151451` — [Framework Cursor handoff after djinn-exec](20260730-151451_framework-cursor-handoff.bron) — sync origin · return_sunn_sunn8
 - `20260730.150702` — [djinn-exec GREEN · DJINN Bozo · Keaton Murr](20260730-150702_pole-bozo-murr-hats.bron) — Capricorn 10 · source-identity PAUSED · return_sunn_sunn8
