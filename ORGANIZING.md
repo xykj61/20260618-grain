@@ -3,7 +3,7 @@
 *A durable guide to where work lives, how new writing earns its place, and how the tree stays honest over time.*
 
 **Language:** EN
-**Last updated:** 2026-07-30 (`20260730.154600` — source-identity living voice Riyo)
+**Last updated:** 2026-07-30 (`20260730.160405` — source-identity root survey affirm)
 **Style:** Radiant (see `context/RADIANT_STYLE.md`)
 **Voice:** Riyo
 
