@@ -114,17 +114,21 @@ echo "$MONO" | rg -q '^verdict=ok$' || {
   echo "verdict=misread"
   exit 1
 }
-echo "$MONO" | rg -q '^rows=39$' || {
+# Accrete-never-break: pin row 39's presence, not the living ledger total.
+ROWS=$(printf '%s\n' "$MONO" | sed -n 's/^rows=//p' | head -1)
+EXPECT=$(printf '%s\n' "$MONO" | sed -n 's/^expect_next=//p' | head -1)
+if test "${ROWS:-0}" -lt 39; then
   echo "reds_row=failed"
   echo "verdict=misread"
-  echo "detail=want_rows_39"
+  echo "detail=want_rows_at_least_39"
   exit 1
-}
-echo "$MONO" | rg -q '^expect_next=40$' || {
+fi
+if test "${EXPECT:-0}" -lt 40; then
   echo "reds_row=failed"
   echo "verdict=misread"
+  echo "detail=want_expect_next_at_least_40"
   exit 1
-}
+fi
 LEDGER=$(sh tools/fixtures/reds_ledger_scan.sh)
 echo "$LEDGER"
 echo "$LEDGER" | rg -q '^verdict=ok$' || {
@@ -134,6 +138,7 @@ echo "$LEDGER" | rg -q '^verdict=ok$' || {
 }
 echo "reds_row=honored"
 echo "reds_row_n=39"
+echo "reds_rows_living=${ROWS}"
 echo "reds_law=look_for_the_thing_not_the_name"
 
 git ls-files --error-unmatch "$ELDER" >/dev/null 2>&1 || {
