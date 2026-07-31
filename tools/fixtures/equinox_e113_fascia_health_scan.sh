@@ -97,7 +97,8 @@ rg -q '^\| 38 \|' "$REDS" || {
   echo "detail=want_row_38"
   exit 1
 }
-rg -q 'on-disk is not in-the-tree' "$REDS" || {
+# Case-insensitive: ledger taught-column may capitalize the law sentence.
+rg -qi 'on-disk is not in-the-tree' "$REDS" || {
   echo "reds_row=failed"
   echo "verdict=misread"
   echo "detail=want_on_disk_law"
@@ -116,17 +117,21 @@ echo "$MONO" | rg -q '^verdict=ok$' || {
   echo "verdict=misread"
   exit 1
 }
-echo "$MONO" | rg -q '^rows=38$' || {
+# Accrete-never-break: pin row 38's presence, not the living ledger total.
+ROWS=$(printf '%s\n' "$MONO" | sed -n 's/^rows=//p' | head -1)
+EXPECT=$(printf '%s\n' "$MONO" | sed -n 's/^expect_next=//p' | head -1)
+if test "${ROWS:-0}" -lt 38; then
   echo "reds_row=failed"
   echo "verdict=misread"
-  echo "detail=want_rows_38"
+  echo "detail=want_rows_at_least_38"
   exit 1
-}
-echo "$MONO" | rg -q '^expect_next=39$' || {
+fi
+if test "${EXPECT:-0}" -lt 39; then
   echo "reds_row=failed"
   echo "verdict=misread"
+  echo "detail=want_expect_next_at_least_39"
   exit 1
-}
+fi
 LEDGER=$(sh tools/fixtures/reds_ledger_scan.sh)
 echo "$LEDGER"
 echo "$LEDGER" | rg -q '^verdict=ok$' || {
@@ -136,6 +141,7 @@ echo "$LEDGER" | rg -q '^verdict=ok$' || {
 }
 echo "reds_row=honored"
 echo "reds_row_n=38"
+echo "reds_rows_living=${ROWS}"
 echo "reds_law=on_disk_is_not_in_the_tree"
 
 # --- elder e112 still tracked (accrete) ---
