@@ -52,6 +52,7 @@
 //! glow-language: second range-fold verb — `|+  prodto  <face>  <bound>` (empty=1; bound >12 → FoldBoundTooLarge).
 //! glow-language: `|+  sum  <face>` widens across closed `$:` pair…nona; pair path delegates to glow-language emitters.
 //! glow-language: `|+  prod  <face>` — list fold by product over the same closed tuple; reducer chosen at the call.
+//! glow-language: closed cond-body under `@u32` — `?:  (eq <face> <dec>)  <dec>  <dec>` (exact match; a1 unfinished).
 //! glow-language: GateSpec fields — `shape_name` · `shape_name_len` · `shape_name_slice` · `max_shape_len`.
 //! Nesting / gold · open `$:` beyond nona bartis samples held.
 //!
@@ -97,7 +98,8 @@ pub const ParseError = error{
 pub const BodyKind = enum {
     identity,
     call_one,
-    cond_gth, // glow-language: the first body that decides
+    cond_gth, // glow-language: the first body that decides (ceiling)
+    cond_eq, // glow-language: exact match — pedestals gth cannot speak
     fold_sumto, // glow-language: fold naturals 1..n within bound
     fold_sum, // glow-language/335: fold-sum closed tuple fields (pair…nona)
     fold_prodto, // glow-language: product 1..n within bound (verb is a name)
@@ -189,12 +191,15 @@ fn parse_body(src: []const u8, toks: []const tokens.Token, start: u32, face_text
         return i;
     }
     if (toks[@as(usize, @intCast(i))].kind == .rune2 and std.mem.eql(u8, tokens.slice_of(src, toks[@as(usize, @intCast(i))]), "?:")) {
-        // glow-language: `?:  (gth <face> <dec>)  <dec>  <dec>` — closed conditional body.
+        // glow-language/337: `?:  (gth|eq <face> <dec>)  <dec>  <dec>` — ceiling or exact.
         i += 1;
         if (i >= n or toks[@as(usize, @intCast(i))].kind != .lparen) return error.MalformedBody;
         i += 1;
         if (i >= n or toks[@as(usize, @intCast(i))].kind != .ident) return error.MalformedBody;
-        if (!std.mem.eql(u8, tokens.slice_of(src, toks[@as(usize, @intCast(i))]), "gth")) return error.MalformedBody;
+        const cond_op = tokens.slice_of(src, toks[@as(usize, @intCast(i))]);
+        const is_gth = std.mem.eql(u8, cond_op, "gth");
+        const is_eq = std.mem.eql(u8, cond_op, "eq");
+        if (!is_gth and !is_eq) return error.MalformedBody;
         i += 1;
         if (i >= n or toks[@as(usize, @intCast(i))].kind != .ident) return error.MalformedBody;
         const cond_face = tokens.slice_of(src, toks[@as(usize, @intCast(i))]);
@@ -211,7 +216,7 @@ fn parse_body(src: []const u8, toks: []const tokens.Token, start: u32, face_text
         if (i >= n or toks[@as(usize, @intCast(i))].kind != .decimal) return error.MalformedBody;
         spec.cond_else = try parse_decimal_u32(tokens.slice_of(src, toks[@as(usize, @intCast(i))]));
         i += 1;
-        spec.body = .cond_gth;
+        spec.body = if (is_eq) .cond_eq else .cond_gth;
         return i;
     }
     if (toks[@as(usize, @intCast(i))].kind == .rune2 and std.mem.eql(u8, tokens.slice_of(src, toks[@as(usize, @intCast(i))]), "|+")) {
