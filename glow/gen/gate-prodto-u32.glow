@@ -1,0 +1,3 @@
+::  Generator — prodto over @u32 argv sample (glow-language).
+|=  sample=@u32
+%-  prodto  sample
