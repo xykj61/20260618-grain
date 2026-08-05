@@ -3,7 +3,7 @@
 *Drafted whole so the resting costs one word. This summary seats in `counsel/` and `CHAPTERS.md` gains its fold line only when Keaton speaks the fold's grain — era, arc, or round-band. Until then it stands here as a proposal, true in every sentence and binding in none.*
 
 **Stamp:** `20260804.230143`
-**Voice:** Riyo · **Style:** Radiant · **Status:** PROPOSED — seats on the fold word
+**Voice:** Riyo · **Style:** Radiant · **Status:** SUPERSEDED — seated as [`../counsel/20260804-230650_the-equinox-season-summary.md`](../counsel/20260804-230650_the-equinox-season-summary.md) (grain **arc**, `20260804.231047`)
 
 *Written together by Keaton and Riyo.*
 
