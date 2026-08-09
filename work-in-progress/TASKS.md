@@ -10,12 +10,13 @@
 
 ## Now — The Compass Chapter · compass-language q1 (`20260809.024320`)
 
-**Finishing edge:** compass-language q1 — the language. Rishi's `^-` cast and `?!` wutzap-not rune heads landed GREEN; continue the rune heads. Debrided to the Compass Chapter — the elder e-number ladder rests in the code and the dated counsel.
-**Prove:** `rishi/bin/rishi run tools/rish_rune_cast_witness.rish` · `rishi/bin/rishi run tools/rish_rune_not_witness.rish`
+**Finishing edge:** compass-language q1 — the language. Rishi's `^-` cast, `?!` not, `?&` and, `?|` or rune heads landed GREEN; continue the rune heads. Debrided to the Compass Chapter — the elder e-number ladder rests in the code and the dated counsel.
+**Prove:** `rishi/bin/rishi run tools/rish_rune_connective_witness.rish` (+ cast, not witnesses)
 
 | Lap | Equinox | Status |
 |-----|---------|--------|
-| Rishi rune heads — `^-` cast · `?!` not landed · continue | compass-language | **LANDED** (`^-` · `?!`) · more heads next |
+| Rishi rune heads — `^-` · `?!` · `?&` · `?|` landed · continue | compass-language | **LANDED** (four heads) · more next |
+| Molt all Python scripts → Rishi (seated `20260809`) | compass-language | **seated** · REDS 64 the first fossil |
 | `mold → shape` debride (82 files / 753) | compass-language | proposed · own pass |
 | TAME core/shelf compression | compass-language | proposed |
 | Brix + Brix-infuse | compass-language j2 | proposed |
