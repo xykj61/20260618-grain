@@ -16,7 +16,7 @@
 | Lap | Equinox | Status |
 |-----|---------|--------|
 | Rishi rune heads — `^-` · `?!` · `?&` · `?|` landed · continue | compass-language | **LANDED** (four heads) · more next |
-| Molt all Python scripts → Rishi (seated `20260809`) | compass-language | **seated** · REDS 64 the first fossil |
+| Molt Python → Rishi — `dated_classify` ported (mutant GREEN, census byte-identical) · `remember_pin` shredded · `lower` builtin added | compass-language | **porting** · runpy consumers (`shed_census`·`fascia_health`) next lap |
 | `mold → shape` debride (82 files / 753) | compass-language | proposed · own pass |
 | TAME core/shelf compression | compass-language | proposed |
 | Brix + Brix-infuse | compass-language j2 | proposed |
