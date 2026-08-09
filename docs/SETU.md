@@ -12,7 +12,7 @@
 
 ## Thesis — the cable that installs can carry home
 
-The fold crosses USB as files, then as a sealed ping, then as an NCM-shaped frame on a live socket, then as a virtio-sized device payload (`lane_frame.bin`). Desk names that hold in one status line (**HOLD0**). **usb-hearth** seats the device-wire lab harness (payload ready · iface classified). **usb-hearth.5** gates framed TX: stand-in refuses; armed unicasts iface-bound UDP :38503 to the tether gateway. Live **sent** GREEN on Pixel CDC-NCM (`enx*` or `usb0`/`ncm*`).
+The fold crosses USB as files, then as a sealed ping, then as an NCM-shaped frame on a live socket, and finally as a virtio-sized device payload (`lane_frame.bin`). Desk names that hold in one status line (**HOLD0**). **usb-hearth** seats the device-wire lab harness (payload ready · iface classified). **usb-hearth.5** gates framed TX: stand-in refuses; armed unicasts iface-bound UDP :38503 to the tether gateway. Live **sent** GREEN on Pixel CDC-NCM (`enx*` or `usb0`/`ncm*`).
 
 **Waymark:** **usb-hearth**. Sibling **hearth-display** owns the preference mold.
 

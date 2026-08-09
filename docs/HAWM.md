@@ -14,7 +14,7 @@
 
 **pixel-glass** is the waymark for the GrapheneOS/Pixel ladder (SHA3-512 over the flw corpus fixture, seated `20260716.115927`; runtime pin `tools/fixtures/flw-four-letter.txt`). It is a different ladder from the Genode proven-seat **G0/G1** in [`PROVEN_SEAT.md`](PROVEN_SEAT.md) — that collision is why waymarks exist.
 
-pixel-glass/pixel-glass exercise real AOSP/Android userland (useful for Glow code). Only pixel-glass (real GrapheneOS build) or pixel-glass (physical device) touch GrapheneOS's own hardening. Name that boundary honestly; never claim the emulator is GrapheneOS.
+pixel-glass/pixel-glass exercise real AOSP/Android userland (useful for Glow code). GrapheneOS's own hardening comes into play only at pixel-glass (real GrapheneOS build) or pixel-glass (physical device). Name that boundary honestly, and never claim the emulator is GrapheneOS.
 
 ---
 
