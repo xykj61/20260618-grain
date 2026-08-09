@@ -15,8 +15,9 @@
 
 | Lap | Equinox | Status |
 |-----|---------|--------|
-| **Kumara identity template** — point + bind tilaks, signed both ways, Bron facts, example instance | compass-identity | **STARTED** — load-bearing pair landed |
-| Kumara rotation · capability · sponsor tilaks · settlement ledger | compass-identity | next journeys |
+| **Kumara identity template** — all five tilaks (point · bind · turn · cap×3 · sponsor), each signed by its authorizing party, Bron instance, witnessed | compass-identity | **LANDED** — the whole tilak shape |
+| Kumara settlement ledger (Sui or Grain-native) · final scarcity tiering · human-name custody | compass-identity | word-gated — Keaton's call |
+| Comlink routing reads `turn` on handshake · d12/d60 topology | compass-identity | next journeys |
 | Rishi rune heads — `^-` · `?!` · `?&` · `?|` landed | compass-language | **LANDED** (four heads) |
 | Rishi **`matches`** + **`find`** pattern primitives — bounded NFA, `{n,m}` · `\b`, linear-time, 600+ cases vs Python re | compass-language | **LANDED** — boolean-test and extract seams both unlocked |
 | Rishi `sort` · `unique` · `upper` · list `+` · lookbehind | compass-language | **LANDED** |
