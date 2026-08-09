@@ -10,12 +10,12 @@
 
 ## Now — The Compass Chapter · compass-language q1 (`20260809.024320`)
 
-**Finishing edge:** compass-language q1 r1 — the language. Rishi's `^-` cast rune landed GREEN; continue the rune heads. Debrided to the Compass Chapter — the elder e-number ladder rests in the code and the dated counsel.
-**Prove:** `rishi/bin/rishi run tools/rish_rune_cast_witness.rish`
+**Finishing edge:** compass-language q1 — the language. Rishi's `^-` cast and `?!` wutzap-not rune heads landed GREEN; continue the rune heads. Debrided to the Compass Chapter — the elder e-number ladder rests in the code and the dated counsel.
+**Prove:** `rishi/bin/rishi run tools/rish_rune_cast_witness.rish` · `rishi/bin/rishi run tools/rish_rune_not_witness.rish`
 
 | Lap | Equinox | Status |
 |-----|---------|--------|
-| Rishi `^-` cast rune · continue rune heads | compass-language | **LANDED** (`^-`) · heads next |
+| Rishi rune heads — `^-` cast · `?!` not landed · continue | compass-language | **LANDED** (`^-` · `?!`) · more heads next |
 | `mold → shape` debride (82 files / 753) | compass-language | proposed · own pass |
 | TAME core/shelf compression | compass-language | proposed |
 | Brix + Brix-infuse | compass-language j2 | proposed |
