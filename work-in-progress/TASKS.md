@@ -25,8 +25,9 @@
 | **Escape** — a child re-parents to a settled sponsor one tier up, by its own word + the new sponsor's adoption; number never moves; galaxy-root refused, forged request/adoption refused | compass-identity | **LANDED** (`settlement/constellation.rye`) |
 | Reconcile the Point's tier (elder Azimuth 2⁸/2¹⁶/2³²) with the topology's d12·d60 scarcity | compass-identity | Keaton's word |
 | Shrink the shared surface — hold a membership commitment, let point-objects ride the fast path | compass-identity | horizon |
-| **Generalize the constellation to loadable topologies** — odd voting groups (base-3), 5 elements/15 galaxies, fractal management 3·9·15·27, nakshatra roles + social "outfits", Pond-loaded like games | compass-identity/compass-surface | research seated · Keaton's word |
-| **Pool→Pond breach** — retire Pool (past the vane concept), Pond as the full application module (Gall-inspired, sandbox/VM lineage), next-season plan + molt sweep of superseded docs | next season | research seated · Keaton's word |
+| **Generalize the constellation to loadable topologies** — a *sky* (proposed) loaded like a game; odd-quorum fractal 3·9·15·27, 5 elements, modality roles (initiator/sustainer/adapter) + role-dimensions (contend/solve/calling); topology.rye already separates geometry from ledger, so it's nearly free | compass-identity/compass-surface | **studied + siloed** — build after compass-identity |
+| **Pool→Pond breach** — Pond as the full application module (Pool retires into it); Pond loads a sky; breach **after compass-identity**; molt sweep **tight** (Pool paper + kin) | next season | **decided + planned** — opens after compass-identity |
+| — study: `external-research/20260809-232015…` (topologies+Pond) · `…-233940…` (divisional roles D3/D5/D9 + modes) · silo: `active-designing/20260809-234413_…-silo-brief.md` · molt-prep: `SHRED_PREP.md` | — | reference |
 | Rishi rune heads — `^-` · `?!` · `?&` · `?|` landed | compass-language | **LANDED** (four heads) |
 | Rishi **`matches`** + **`find`** pattern primitives — bounded NFA, `{n,m}` · `\b`, linear-time, 600+ cases vs Python re | compass-language | **LANDED** — boolean-test and extract seams both unlocked |
 | Rishi `sort` · `unique` · `upper` · list `+` · lookbehind | compass-language | **LANDED** |
