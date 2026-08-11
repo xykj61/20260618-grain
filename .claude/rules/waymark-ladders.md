@@ -28,6 +28,11 @@ Before the first rung is written as `X0` / `X1` / … in TASKS, ROADMAP, compres
 | **compass-identity** | `kumara-identity-comlink-and-fractal-network` | Compass Chapter Equinox 2 — Identity & Network (Kumara · d12/d60 topology · Comlink · settlement) |
 | **compass-surface** | `realidream-surface-and-quin-inference-and-mcp-2` | Compass Chapter Equinox 3 — Surface & Intelligence (Realidream · Quin voices · MCP-in-Bron) |
 | **compass-world** | `ship-pilot-publishing-grainphone-and-commerce` | Compass Chapter Equinox 4 — The World (Ship-Pilot · publishing · Grainphone · commerce) |
+| **harvest-yield** | `harvest-season-equinox-1-yield` | Harvest Chapter Equinox 1 — Yield (prove built modules on real data) |
+| **harvest-trade** | `harvest-season-equinox-2-trade` | Harvest Chapter Equinox 2 — Trade (fair-trade certification · cash-first) |
+| **harvest-commons** | `harvest-season-equinox-3-commons` | Harvest Chapter Equinox 3 — Commons (Skate social layer · community) |
+| **harvest-rest** | `harvest-season-equinox-4-rest` | Harvest Chapter Equinox 4 — Rest (consolidation · saga close · 3/4 reading) |
+| **cion-molt** | `meta-season-chronological-labeling-molt` | cion-molt Meta-Chapter — molt·debride·sweep count-up IDs → chronological/semantic labels (after Compass) |
 
 **Hand-seated names on the exclude roster** (not waymark draws): **SEVA** (viewer; absent from flw), **MAND** (M vane; in flw), **MONA** (prior name of Mand — one season). **SALA** retired from exclude with the Sala→Seva alias close.
 
