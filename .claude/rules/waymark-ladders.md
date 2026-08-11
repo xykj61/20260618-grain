@@ -33,6 +33,10 @@ Before the first rung is written as `X0` / `X1` / … in TASKS, ROADMAP, compres
 | **harvest-commons** | `harvest-season-equinox-3-commons` | Harvest Chapter Equinox 3 — Commons (Skate social layer · community) |
 | **harvest-rest** | `harvest-season-equinox-4-rest` | Harvest Chapter Equinox 4 — Rest (consolidation · saga close · 3/4 reading) |
 | **cion-molt** | `meta-season-chronological-labeling-molt` | cion-molt Meta-Chapter — molt·debride·sweep count-up IDs → chronological/semantic labels (after Compass) |
+| **cion-survey** | `cion-meta-season-equinox-1-survey` | cion-molt Equinox 1 — Survey (name every living count-up ID: site · gap) |
+| **cion-living-molt** | `cion-meta-season-equinox-2-molt` | cion-molt Equinox 2 — Molt (relabel living now-lines chronological/semantic) |
+| **cion-debride** | `cion-meta-season-equinox-3-debride` | cion-molt Equinox 3 — Debride (word-gated cuts of dead count-up tissue, cairns first) |
+| **cion-seal** | `cion-meta-season-equinox-4-seal` | cion-molt Equinox 4 — Seal (witness the conversion · seat the labeling-law guard) |
 
 **Hand-seated names on the exclude roster** (not waymark draws): **SEVA** (viewer; absent from flw), **MAND** (M vane; in flw), **MONA** (prior name of Mand — one season). **SALA** retired from exclude with the Sala→Seva alias close.
 

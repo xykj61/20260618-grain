@@ -95,6 +95,10 @@ say "corpus sha3-512: ${digest_val}"
 #   harvest-season-equinox-3-commons -> harvest-commons (20260810.222755 · Harvest Eq3 Commons)
 #   harvest-season-equinox-4-rest -> harvest-rest (20260810.222755 · Harvest Eq4 Rest)
 #   meta-season-chronological-labeling-molt -> cion-molt (20260810.222755 · cion-molt meta-season)
+#   cion-meta-season-equinox-1-survey -> cion-survey (20260810.225345 · cion-molt Eq1 Survey)
+#   cion-meta-season-equinox-2-molt -> cion-living-molt (20260810.225345 · cion-molt Eq2 Molt)
+#   cion-meta-season-equinox-3-debride -> cion-debride (20260810.225345 · cion-molt Eq3 Debride)
+#   cion-meta-season-equinox-4-seal -> cion-seal (20260810.225345 · cion-molt Eq4 Seal)
 # usb-hearth is hand-seated (not a corpus draw — usb-hearth is absent from flw); exclude only.
 # SEVA is hand-seated (viewer; absent from flw).
 # MAND is the seated M vane (in flw corpus; exclude so it never draws as a waymark).
@@ -123,7 +127,7 @@ assert (word_val != "") else "empty word at derived index -- corpus or index mat
 # Existing proper names this scheme must never echo (four-letter Lexicon
 # identities + seated waymarks). Seated waymarks also live in
 # .cursor/rules/waymark-ladders.mdc — if the word matches, append -2 and redraw.
-let exclude_check = run ["sh" "-c" "echo '${word_val}' | grep -qxE '(BRIX|BRON|POND|MUR|MALA|SEVA|MAND|MONA|POOL|QUIN|RIYO|REYA|TREY|TERA|TRIZ|OJJO|GLOW|RHYZ|PEAL|pixel-glass|glow-publishing|glass-keyboard|seva-broadcast|hearth-display|usb-hearth|MAIR|glow-language|source-identity|djinn-exec|compass-language|compass-identity|compass-surface|compass-world|harvest-yield|harvest-trade|harvest-commons|harvest-rest|cion-molt|BOZO|LINN)'"]
+let exclude_check = run ["sh" "-c" "echo '${word_val}' | grep -qxE '(BRIX|BRON|POND|MUR|MALA|SEVA|MAND|MONA|POOL|QUIN|RIYO|REYA|TREY|TERA|TRIZ|OJJO|GLOW|RHYZ|PEAL|pixel-glass|glow-publishing|glass-keyboard|seva-broadcast|hearth-display|usb-hearth|MAIR|glow-language|source-identity|djinn-exec|compass-language|compass-identity|compass-surface|compass-world|harvest-yield|harvest-trade|harvest-commons|harvest-rest|cion-molt|cion-survey|cion-living-molt|cion-debride|cion-seal|BOZO|LINN)'"]
 assert (exclude_check.ok == false) else "derived waymark collides with an already-seated name -- append -2 to input_name above and rerun"
 
 say ""
