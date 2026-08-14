@@ -1,6 +1,6 @@
 # The Open Image module — a picture you own, all the way down
 
-**Stamp:** `20260814.000000` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Stamp:** `20260814.020000` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
 **Status:** Living front door — the Open Image journey stands whole and witnessed (open-image–open-image)
 **Chapter:** A — Hardware & Right-to-Repair · **Waymark:** open-image · opening journey **Open Image**
 **Kin:** [`../work-in-progress/REMEMBER.md`](../work-in-progress/REMEMBER.md) · [`../active-designing/20260813-020035_double-seat-expansion-six-seasons.md`](../active-designing/20260813-020035_double-seat-expansion-six-seasons.md) · [`../.claude/rules/waymark-ladders.md`](../.claude/rules/waymark-ladders.md)
@@ -23,7 +23,7 @@ This module is the floor beneath Chapter A's **parts marketplace** and its **Pho
 - **`../brushstroke/image_skate.rye`** — the decoded grid meets **Skate**: `down_map` averages each block to the nearest of a seven-color anchor palette and wears it over a full-block glyph, so a picture paints on the glass surface. Witness: `tools/hunk_skate_witness.rish`.
 - **`photos.rye` — `crop`** — the first Photos verb, pure and bounded: read a rectangle, return a fresh smaller image, source untouched; coordinates checked in `u64` so a rectangle can never wrap. Witness: `tools/hunk_photos_witness.rish`.
 
-### The parts marketplace — McMaster-Carr's one-sheet trick, with honest facts (open-image–open-image · open-image)
+### The parts marketplace — McMaster-Carr's one-sheet trick, with honest facts (open-image–open-image · open-image–open-image)
 
 One decoded sheet serves a whole catalog. `sprite.rye` binds each product name to a bounded **window** into a single decoded image and renders it by reusing `photos.crop` — every window bound-checked in `u64` at **add time**, so a render can never fail on bounds. `../pond/apps/sprite_store.rye` gives the sheet a content-addressed identity; `sprite_catalog.rye` lets the index itself travel as a flat-Bron `format sprite-catalog-v1` record, so `render(parse(render(x)))` is a fixed point. Disjoint windows never leak a neighbor's bytes; the sheet is shared and unmutated across every render.
 
