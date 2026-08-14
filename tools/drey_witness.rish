@@ -69,4 +69,8 @@ let forget = run ["rishi/bin/rishi" "run" "tools/drey_forget_witness.rish"]
 assert forget.ok else "drey: mikrophone forget witness failed"
 assert (forget.out contains "GREEN drey-forget") else "drey: mikrophone forget not GREEN"
 
-say "GREEN drey: the whole Mikrophone firmware journey holds — mikrophone session · mikrophone wire · mikrophone recorder · mikrophone firmware · mikrophone inbox · mikrophone carry · mikrophone archive · mikrophone catalog · mikrophone manifest · mikrophone serve · mikrophone redact · mikrophone sync · mikrophone forget, all thirteen rungs proven pure before metal in one command; no disk, no network, no key, no funds."
+let push = run ["rishi/bin/rishi" "run" "tools/drey_push_witness.rish"]
+assert push.ok else "drey: mikrophone push witness failed"
+assert (push.out contains "GREEN drey-push") else "drey: mikrophone push not GREEN"
+
+say "GREEN drey: the whole Mikrophone firmware journey holds — mikrophone session · mikrophone wire · mikrophone recorder · mikrophone firmware · mikrophone inbox · mikrophone carry · mikrophone archive · mikrophone catalog · mikrophone manifest · mikrophone serve · mikrophone redact · mikrophone sync · mikrophone forget · mikrophone push, all fourteen rungs proven pure before metal in one command; no disk, no network, no key, no funds."
