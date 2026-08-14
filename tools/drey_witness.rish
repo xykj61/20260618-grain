@@ -61,4 +61,8 @@ let redact = run ["rishi/bin/rishi" "run" "tools/drey_redact_witness.rish"]
 assert redact.ok else "drey: mikrophone redact witness failed"
 assert (redact.out contains "GREEN drey-redact") else "drey: mikrophone redact not GREEN"
 
-say "GREEN drey: the whole Mikrophone firmware journey holds — mikrophone session · mikrophone wire · mikrophone recorder · mikrophone firmware · mikrophone inbox · mikrophone carry · mikrophone archive · mikrophone catalog · mikrophone manifest · mikrophone serve · mikrophone redact, all eleven rungs proven pure before metal in one command; no disk, no network, no key, no funds."
+let sync = run ["rishi/bin/rishi" "run" "tools/drey_sync_witness.rish"]
+assert sync.ok else "drey: mikrophone sync witness failed"
+assert (sync.out contains "GREEN drey-sync") else "drey: mikrophone sync not GREEN"
+
+say "GREEN drey: the whole Mikrophone firmware journey holds — mikrophone session · mikrophone wire · mikrophone recorder · mikrophone firmware · mikrophone inbox · mikrophone carry · mikrophone archive · mikrophone catalog · mikrophone manifest · mikrophone serve · mikrophone redact · mikrophone sync, all twelve rungs proven pure before metal in one command; no disk, no network, no key, no funds."
