@@ -65,4 +65,8 @@ let sync = run ["rishi/bin/rishi" "run" "tools/drey_sync_witness.rish"]
 assert sync.ok else "drey: mikrophone sync witness failed"
 assert (sync.out contains "GREEN drey-sync") else "drey: mikrophone sync not GREEN"
 
-say "GREEN drey: the whole Mikrophone firmware journey holds — mikrophone session · mikrophone wire · mikrophone recorder · mikrophone firmware · mikrophone inbox · mikrophone carry · mikrophone archive · mikrophone catalog · mikrophone manifest · mikrophone serve · mikrophone redact · mikrophone sync, all twelve rungs proven pure before metal in one command; no disk, no network, no key, no funds."
+let forget = run ["rishi/bin/rishi" "run" "tools/drey_forget_witness.rish"]
+assert forget.ok else "drey: mikrophone forget witness failed"
+assert (forget.out contains "GREEN drey-forget") else "drey: mikrophone forget not GREEN"
+
+say "GREEN drey: the whole Mikrophone firmware journey holds — mikrophone session · mikrophone wire · mikrophone recorder · mikrophone firmware · mikrophone inbox · mikrophone carry · mikrophone archive · mikrophone catalog · mikrophone manifest · mikrophone serve · mikrophone redact · mikrophone sync · mikrophone forget, all thirteen rungs proven pure before metal in one command; no disk, no network, no key, no funds."
