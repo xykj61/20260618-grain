@@ -73,4 +73,8 @@ let push = run ["rishi/bin/rishi" "run" "tools/drey_push_witness.rish"]
 assert push.ok else "drey: mikrophone push witness failed"
 assert (push.out contains "GREEN drey-push") else "drey: mikrophone push not GREEN"
 
-say "GREEN drey: the whole Mikrophone firmware journey holds — mikrophone session · mikrophone wire · mikrophone recorder · mikrophone firmware · mikrophone inbox · mikrophone carry · mikrophone archive · mikrophone catalog · mikrophone manifest · mikrophone serve · mikrophone redact · mikrophone sync · mikrophone forget · mikrophone push, all fourteen rungs proven pure before metal in one command; no disk, no network, no key, no funds."
+let reconcile = run ["rishi/bin/rishi" "run" "tools/drey_reconcile_witness.rish"]
+assert reconcile.ok else "drey: mikrophone reconcile witness failed"
+assert (reconcile.out contains "GREEN drey-reconcile") else "drey: mikrophone reconcile not GREEN"
+
+say "GREEN drey: the whole Mikrophone firmware journey holds — mikrophone session · mikrophone wire · mikrophone recorder · mikrophone firmware · mikrophone inbox · mikrophone carry · mikrophone archive · mikrophone catalog · mikrophone manifest · mikrophone serve · mikrophone redact · mikrophone sync · mikrophone forget · mikrophone push · mikrophone reconcile, all fifteen rungs proven pure before metal in one command; no disk, no network, no key, no funds."
