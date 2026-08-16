@@ -3,7 +3,7 @@
 **Status:** Checkable — compression shelf routing
 **Depth:** routing
 **Ceiling:** ≤40 lines
-**Last updated:** 2026-07-18 (hearth-display · seva-broadcast · glass-keyboard · COMPASS · pixel-glass · glow-publishing)
+**Last updated:** 2026-08-15 (CRYPTO — Chapter G audit front door)
 **Compresses:** [`20260712-221600`](../active-designing/20260712-221600_docs-compression-layer-design.md) · [`20260717-173848`](../active-designing/20260717-173848_compass-card-and-foundations-compress.md)
 
 ---
@@ -26,6 +26,7 @@
 | [`hearth-display.md`](hearth-display.md) | guide · ≤80 | Hearth display presets · short home · Wired Glass |
 | [`usb-hearth.md`](usb-hearth.md) | guide · ≤80 | USB hearth carry Glass↔Desk — usb-hearth–usb-hearth |
 | [`PROVEN_SEAT.md`](PROVEN_SEAT.md) | guide · ≤300 | Proven-seat ladder — Genode G0 through signed-Kumara (not pixel-glass) |
+| [`CRYPTO.md`](CRYPTO.md) | guide · ≤300 | Chapter G crypto — 20 Rye-native primitives + 3 compositions, each GREEN |
 | [`pixel-glass.md`](pixel-glass.md) | guide · ≤120 | GrapheneOS / Pixel mobile ladder — pixel-glass–pixel-glass |
 | [`glow-publishing.md`](glow-publishing.md) | guide · ≤150 | App-manifest + NativeActivity APK ladder — glow-publishing / glow-publishing.5 |
 | [`JAMCUE.md`](JAMCUE.md) | guide · ≤80 | Glow cell-pack demo vectors — in-tree; outward gift is mat/rub season |
