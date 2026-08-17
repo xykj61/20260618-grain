@@ -104,7 +104,7 @@ say "corpus sha3-512: ${digest_val}"
 #   constel-test-network-fake-pier-local-constellations -> constels-naming (20260814 · Constel fake-pier test-network naming, siloed dev constellations)
 #   season-c-lotus-creative-suite-audio-wire-shape -> lotus-audio (20260814 · Chapter C Lotus creative suite, the basic audio wire shape)
 #   season-a-mikrophone-forgetful-capture -> mikrophone (20260817 - renamed from mikrophone, breach molt debride EXECUTED; mikrophone kept in exclude as historical)
-#   constel-local-test-constellations -> constels-naming (20260817 - constels-naming replacement, same Constel test-network goals; breach-queued, same cairn)
+#   constel-local-test-constellations -> constels-naming (20260817 - renamed from constels-naming, breach molt debride EXECUTED; constels-naming kept in exclude as historical)
 #   bit-design-system-surface-and-dimeroll-entities -> dimeroll-expansion (20260817 - transient: drawn when the module was dimeroll; superseded when Dimeroll renamed to Dimeroll -- kept in exclude as historical)
 #   dimeroll-hr-and-accounting-entities -> dimeroll-expansion (20260817 - the dimeroll-expansion->dimeroll-expansion->dimeroll-expansion season, re-breached from the dimeroll-consistent preimage idx 5141 on Keaton's word; dimeroll-expansion and dimeroll-expansion both stay in exclude as historical)
 #   cion-molt-living-mutants-and-fossils -> cion-living-molt (20260817 - renamed from cion-living-molt, breach molt debride EXECUTED; cion-living-molt kept in exclude as historical)
@@ -115,7 +115,8 @@ say "corpus sha3-512: ${digest_val}"
 # SALA dropped from exclude at alias retirement 20260724.202412 (Sala is historical).
 # Placeholder below is the most recent seat; change it when drawing the next.
 # Most recent seats (breach molt debride replacements 20260817):
-#   EXECUTED: dimeroll-expansion (dimeroll-expansion->dimeroll-expansion->dimeroll-expansion), cion-living-molt (cion-living-molt), mikrophone (mikrophone). QUEUED: constels-naming (constels-naming).
+#   ALL EXECUTED 20260817: dimeroll-expansion (dimeroll-expansion->dimeroll-expansion->dimeroll-expansion), cion-living-molt (cion-living-molt), mikrophone (mikrophone), constels-naming (constels-naming).
+#   Elder marks dimeroll-expansion, dimeroll-expansion, cion-living-molt, mikrophone, constels-naming kept in exclude as historical.
 #   dimeroll-expansion, dimeroll-expansion, cion-living-molt kept in exclude as historical. input_name rests on dimeroll-expansion's below.
 let input_name = "dimeroll-hr-and-accounting-entities"
 
