@@ -1,6 +1,8 @@
 # The Double-Seat Expansion — Six New To-Do Chapters
 
-**Stamp:** `20260813.020035` · **Status:** Living (design capture) · **Voice:** Kyri
+**Stamp:** `20260813.020035` · **Status:** Writing fossil — molted `20260816.205859` · **Voice:** Kyri
+> **Fossil banner.** The living itinerary is [`20260816-205859_double-seat-expansion-eight-seasons.md`](20260816-205859_double-seat-expansion-eight-seasons.md), which accretes these six seasons whole and folds in two more — open media primitives (the colour module, fonts, video) and open-weight intelligence. This file is kept intact per accrete-never-break; the molt opens no cut. Prepped as a Class H fossil in [`../work-in-progress/SHRED_PREP.md`](../work-in-progress/SHRED_PREP.md).
+
 **Register:** Radiant, with discerning **Twilight** where earned (approved `20260813` on Keaton's word)
 **Double-seats beside:** [`20260812-171050_the-1024-round-itinerary.md`](20260812-171050_the-1024-round-itinerary.md) — the fixed four-season, 1,024-round road, untouched.
 **Rule kin:** [`double-seat + crash headroom`](20260811-195353_double-seat-and-crash-headroom.md) · Lexicon **double-seat** · **crux** · [`Lila and the Long Return`](../.claude/rules/lila-and-the-long-return.md)
