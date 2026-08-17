@@ -105,7 +105,7 @@ say "corpus sha3-512: ${digest_val}"
 #   season-c-lotus-creative-suite-audio-wire-shape -> lotus-audio (20260814 · Chapter C Lotus creative suite, the basic audio wire shape)
 #   season-a-mikrophone-forgetful-capture -> mikrophone (20260817 - mikrophone replacement, same Mikrophone-firmware goals; breach-queued, crux/CAIRNS.md 20260817.173615)
 #   constel-local-test-constellations -> constels-naming (20260817 - constels-naming replacement, same Constel test-network goals; breach-queued, same cairn)
-#   bit-design-system-surface-and-dimeroll-entities -> dimeroll-expansion (20260817 - dimeroll-expansion replacement, same Bit-Design-surface goals; breach-queued, same cairn)
+#   bit-design-system-surface-and-dimeroll-entities -> dimeroll-expansion (20260817 - renamed from dimeroll-expansion, breach molt debride EXECUTED; dimeroll-expansion kept in exclude as historical)
 #   cion-molt-living-mutants-and-fossils -> cion-living-molt (20260817 - cion-living-molt replacement, same cion-molt-Eq2 Molt goals; breach-queued, same cairn)
 # usb-hearth is hand-seated (not a corpus draw — usb-hearth is absent from flw); exclude only.
 # SEVA is hand-seated (viewer; absent from flw).
