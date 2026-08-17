@@ -105,7 +105,8 @@ say "corpus sha3-512: ${digest_val}"
 #   season-c-lotus-creative-suite-audio-wire-shape -> lotus-audio (20260814 · Chapter C Lotus creative suite, the basic audio wire shape)
 #   season-a-mikrophone-forgetful-capture -> mikrophone (20260817 - mikrophone replacement, same Mikrophone-firmware goals; breach-queued, crux/CAIRNS.md 20260817.173615)
 #   constel-local-test-constellations -> constels-naming (20260817 - constels-naming replacement, same Constel test-network goals; breach-queued, same cairn)
-#   bit-design-system-surface-and-dimeroll-entities -> dimeroll-expansion (20260817 - renamed from dimeroll-expansion, breach molt debride EXECUTED; dimeroll-expansion kept in exclude as historical)
+#   bit-design-system-surface-and-dimeroll-entities -> dimeroll-expansion (20260817 - transient: drawn when the module was dimeroll; superseded when Dimeroll renamed to Dimeroll -- kept in exclude as historical)
+#   dimeroll-hr-and-accounting-entities -> dimeroll-expansion (20260817 - the dimeroll-expansion->dimeroll-expansion->dimeroll-expansion season, re-breached from the dimeroll-consistent preimage idx 5141 on Keaton's word; dimeroll-expansion and dimeroll-expansion both stay in exclude as historical)
 #   cion-molt-living-mutants-and-fossils -> cion-living-molt (20260817 - cion-living-molt replacement, same cion-molt-Eq2 Molt goals; breach-queued, same cairn)
 # usb-hearth is hand-seated (not a corpus draw — usb-hearth is absent from flw); exclude only.
 # SEVA is hand-seated (viewer; absent from flw).
@@ -144,7 +145,7 @@ assert shape_check.ok else "derived waymark '${word_val}' is not exactly four up
 # Existing proper names this scheme must never echo (four-letter Lexicon
 # identities + seated waymarks). Seated waymarks also live in
 # .cursor/rules/waymark-ladders.mdc — if the word matches, append -2 and redraw.
-let exclude_check = run ["sh" "-c" "echo '${word_val}' | grep -qxE '(BRIX|BRON|POND|MURR|MALA|SEVA|MAND|MONA|POOL|QUIN|RIYO|REYA|TREY|TERA|TRIZ|OJJO|GLOW|RHYZ|PEAL|pixel-glass|glow-publishing|glass-keyboard|seva-broadcast|hearth-display|usb-hearth|MAIR|glow-language|source-identity|djinn-exec|compass-language|compass-identity|compass-surface|compass-world|harvest-yield|harvest-trade|harvest-commons|harvest-rest|cion-molt|cion-survey|cion-living-molt|cion-debride|cion-seal|BOZO|LINN|AHOY|dimeroll-expansion|open-image|mikrophone|constels-naming|lotus-audio|mikrophone|constels-naming|dimeroll-expansion|cion-living-molt)'"]
+let exclude_check = run ["sh" "-c" "echo '${word_val}' | grep -qxE '(BRIX|BRON|POND|MURR|MALA|SEVA|MAND|MONA|POOL|QUIN|RIYO|REYA|TREY|TERA|TRIZ|OJJO|GLOW|RHYZ|PEAL|pixel-glass|glow-publishing|glass-keyboard|seva-broadcast|hearth-display|usb-hearth|MAIR|glow-language|source-identity|djinn-exec|compass-language|compass-identity|compass-surface|compass-world|harvest-yield|harvest-trade|harvest-commons|harvest-rest|cion-molt|cion-survey|cion-living-molt|cion-debride|cion-seal|BOZO|LINN|AHOY|dimeroll-expansion|open-image|mikrophone|constels-naming|lotus-audio|mikrophone|constels-naming|dimeroll-expansion|cion-living-molt|dimeroll-expansion)'"]
 assert (exclude_check.ok == false) else "derived waymark collides with an already-seated name -- append -2 to input_name above and rerun"
 
 say ""
