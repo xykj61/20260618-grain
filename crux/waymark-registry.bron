@@ -1,0 +1,50 @@
+format waymark-registry-v1
+stamp 20260817.221616
+voice Kyri
+corpus_digest 615dbeb79c631115505ba71713aabdae243dcf4c1ae77109f325583a2c0e282cf6fc009d54802a268f04e3c170f705f4bd7203e018f00f5c443ae5e79808d8cc
+corpus_size 5526
+seal d110f6f1cc23ba19d91ff8e69660bbde8dc7da90b4bd73da6fb4efa98d80629e6f632a9bb4b775c16786bcc733e690e4392f5ddd727eaa3612a72d7a5872c82f
+# The immutable, self-verifying registry of every waymark ever drawn (living, retired, abandoned, transient, hand-seated).
+# Each corpus-drawn row is proven on metal: SHA3-512(input)[:8] as hex, mod corpus_size, +1 = index; corpus[index] = mark.
+# The seal is the SHA3-512 of the sealed body below (from the marker line, exclusive). Any edit breaks the seal.
+# Witness: tools/waymark_registry_witness.rish -- verifies the seal AND re-derives every corpus mark. Corpus pin: tools/fixtures/flw-four-letter.txt.
+# ---- sealed body ----
+mark lotus-audio | input season-c-lotus-creative-suite-audio-wire-shape | index 101 | status living | note seated
+mark AMBO | input bit-design-system-surface-and-greencandy-entities | index 127 | status transient | note greencandy-era draw for MIHI's season, re-breached to dimeroll-expansion
+mark AMUS | input constel-test-network-fake-pier-local-constellations | index 140 | status retired | note superseded by constels-naming (breach 20260817)
+mark harvest-trade | input harvest-season-equinox-2-trade | index 266 | status living | note seated
+mark compass-surface | input realidream-surface-and-quin-inference-and-mcp-2 | index 572 | status living | note seated
+mark CAUM | input season-a-mikrophone-firmware-forgetful-session-capture | index 677 | status retired | note superseded by mikrophone (breach 20260817)
+mark cion-molt | input meta-season-chronological-labeling-molt | index 748 | status living | note seated
+mark COIF | input source-identity-breach-onboarding-refresh-2 | index 798 | status abandoned | note redraw, never seated; Keaton chose source-identity
+mark harvest-commons | input harvest-season-equinox-3-commons | index 940 | status living | note seated
+mark DOCS | input realidream-surface-and-quin-inference-and-mcp | index 1103 | status abandoned | note compass-surface first draw, redrawn -2 to compass-surface
+mark mikrophone | input season-a-mikrophone-forgetful-capture | index 1189 | status living | note Chapter A Mikrophone firmware (renamed from CAUM)
+mark constels-naming | input constel-local-test-constellations | index 1594 | status living | note Constel test-network naming (renamed from AMUS)
+mark FUSS | input cion-meta-season-equinox-2-molt | index 1654 | status retired | note superseded by cion-living-molt (breach 20260817)
+mark harvest-yield | input harvest-season-equinox-1-yield | index 1784 | status living | note seated
+mark cion-seal | input cion-meta-season-equinox-4-seal | index 1870 | status living | note seated
+mark pixel-glass | input grapheneos-pixel-mobile-emulation | index 2003 | status living | note seated
+mark open-image | input season-a-open-image-decode-and-photos-surface | index 2172 | status living | note seated
+mark seva-broadcast | input sala-broadcast-live-session-fold | index 2267 | status living | note seated
+mark compass-identity | input kumara-identity-comlink-and-fractal-network | index 2284 | status living | note seated
+mark harvest-rest | input harvest-season-equinox-4-rest | index 2539 | status living | note seated
+mark cion-living-molt | input cion-molt-living-mutants-and-fossils | index 2813 | status living | note cion-molt Eq2 Molt (renamed from FUSS)
+mark hearth-display | input glow-glass-hearth-display-and-wired-sync | index 2833 | status living | note seated
+mark MAIR | input glow-language-rune-heads-nest-and-lowering | index 2885 | status abandoned | note superseded same-day by glow-language
+mark MIHI | input bit-design-system-surface-takeover-and-greencandy-entities | index 3010 | status retired | note superseded by AMBO then dimeroll-expansion (breach 20260817)
+mark cion-debride | input cion-meta-season-equinox-3-debride | index 3372 | status living | note seated
+mark djinn-exec | input djinn-bozo-exec-keaton-murr-hats | index 3700 | status living | note seated
+mark QUIZ | input source-identity-breach-onboarding-refresh | index 3856 | status abandoned | note redraw, never seated; Keaton chose source-identity
+mark compass-language | input glow-language-runes-stdlib-and-pipeline | index 4452 | status living | note seated
+mark glow-language | input glow-language-rune-heads-nest-and-lowering-2 | index 4532 | status living | note seated
+mark source-identity | input source-pier-papers-identity-refresh | index 4568 | status living | note seated
+mark compass-world | input ship-pilot-publishing-grainphone-and-commerce | index 4616 | status living | note seated
+mark glow-publishing | input glow-application-framework-and-publishing | index 4904 | status living | note seated
+mark cion-survey | input cion-meta-season-equinox-1-survey | index 5123 | status living | note seated
+mark dimeroll-expansion | input dimeroll-hr-and-accounting-entities | index 5141 | status living | note Bit-Design/Dimeroll season (MIHI->AMBO->dimeroll-expansion)
+mark glass-keyboard | input glow-english-qwerty-glass-keyboard-3 | index 5490 | status living | note seated
+mark usb-hearth | input (hand-seated) | index 0 | status hand-seated | note USB hearth carry Glass<->Desk; absent from flw
+mark SEVA | input (hand-seated) | index 0 | status hand-seated | note viewer; absent from flw
+mark MAND | input (hand-seated) | index 0 | status hand-seated | note the M vane; in flw, excluded from draws
+mark MONA | input (hand-seated) | index 0 | status hand-seated | note prior name of MAND, one season
