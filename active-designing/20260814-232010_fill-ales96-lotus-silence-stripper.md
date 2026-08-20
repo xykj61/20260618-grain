@@ -1,7 +1,7 @@
 # Fill lotus-audio — the Lotus silence stripper (segment, then cut the silent runs)
 
 **Stamp:** `20260814.232010` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (autonomous loop) · **Chapter C** thread (Lotus · the creative suite) · **waymark lotus-audio** · **rung lotus-audio**
+**Status:** Vision -- Self-approved design round (autonomous loop) · **Chapter C** thread (Lotus · the creative suite) · **waymark lotus-audio** · **rung lotus-audio**
 **Kin:** [`the six-season double-seat`](20260813-020035_double-seat-expansion-six-seasons.md) · [`Lila and the Long Return`](../.claude/rules/lila-and-the-long-return.md) · [`fill lotus-audio`](20260814-231217_fill-ales95-lotus-voice-activity-segmenter.md)
 **Stands on:** `lotus/segment.rye` (lotus-audio — the voice-activity segmenter) · `lotus/timeline.rye` (lotus-audio — the Clip and `cut`) · `lotus/voiced.rye` (lotus-audio — the `.silent` verdict) · `lotus/schmitt.rye` (lotus-audio — the band-and-span precheck)
 

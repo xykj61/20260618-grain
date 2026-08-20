@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's Schmitt trigger: the hysteresis comparator that gives the square a memory against chatter
 
 **Stamp:** `20260814.224452` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the rung is a bounded, in-process two-threshold comparator carrying one bit of state over one local i16 clip, and the lotus-audio infinite-clipper doc named this rung in as many words — *a hysteresis comparator that gives lotus-audio's square a memory against chatter*)
+**Status:** Vision -- Design read — self-approved round (no custody gate; the rung is a bounded, in-process two-threshold comparator carrying one bit of state over one local i16 clip, and the lotus-audio infinite-clipper doc named this rung in as many words — *a hysteresis comparator that gives lotus-audio's square a memory against chatter*)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/infinite_clip.rye`](../lotus/infinite_clip.rye) (lotus-audio — the memoryless comparator this rung gives a memory) · [`../lotus/dc_block.rye`](../lotus/dc_block.rye) (lotus-audio — the carried-state idiom this rung reuses, one bit where the blocker carries two i64 states) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip, `sample_min`/`max`)
 

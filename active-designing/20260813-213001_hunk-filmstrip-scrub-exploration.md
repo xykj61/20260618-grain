@@ -1,6 +1,7 @@
 # open-image — drag-to-scrub the filmstrip: the finger sweeps, the cursor follows band by band
 
 **Stamp:** `20260813.213001` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Vision -- a design round that proposes; no witness binds its claims yet.
 **Chapter A** (Hardware & Right-to-Repair) · **waymark open-image** · **Photos-app journey** · **rung open-image**
 **Kin:** [`../brushstroke/edit_filmstrip_jump.rye`](../brushstroke/edit_filmstrip_jump.rye) (open-image) · [`../image/edit_cursor.rye`](../image/edit_cursor.rye) (open-image · `seek`) · [`../image/edit_touch_input.rye`](../image/edit_touch_input.rye) (open-image · the finger arming discipline)
 **Teacher, thanked clean-room:** the history scrubber of a photo app (iCloud Photos / Google Photos) — a keeper presses the edit-history strip and *drags*, and the picture scrubs continuously through every step under the finger (concept only, siloed).

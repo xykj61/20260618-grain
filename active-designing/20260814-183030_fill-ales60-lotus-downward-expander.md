@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's downward expander: the compressor mirrored under the threshold
 
 **Stamp:** `20260814.183030` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; a fresh dynamics gesture on the proven idiom)
+**Status:** Mixed -- Design read — self-approved round (no custody gate; a fresh dynamics gesture on the proven idiom)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/compress.rye`](../lotus/compress.rye) (lotus-audio — the excess-above-threshold law this mirrors) · [`../lotus/gate.rye`](../lotus/gate.rye) (lotus-audio — the below-threshold floor, the expander's infinite-ratio limit) · [`../lotus/README.md`](../lotus/README.md)
 

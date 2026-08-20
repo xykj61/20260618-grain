@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's gliding delay: a fractional delay read by linear interpolation
 
 **Stamp:** `20260814.194031` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the genuinely new primitive — a delay at a *fractional* position, read by linear interpolation — that the periodic chorus, flanger, and vibrato will stand on)
+**Status:** Vision -- Design read — self-approved round (no custody gate; the genuinely new primitive — a delay at a *fractional* position, read by linear interpolation — that the periodic chorus, flanger, and vibrato will stand on)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/taps.rye`](../lotus/taps.rye) (lotus-audio — the multi-tap whose fixed integer taps this generalizes to a moving fractional one) · [`../lotus/echo.rye`](../lotus/echo.rye) (lotus-audio — the feedback delay) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip and the one true saturate)
 

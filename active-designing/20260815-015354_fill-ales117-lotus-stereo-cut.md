@@ -1,6 +1,7 @@
 # Fill lotus-audio — Lotus's `stereo_cut`, the foundational span-remove carried into stereo
 
 **Stamp:** `20260815.015354` · **Voice:** Kyri · **Style:** Radiant
+**Status:** Vision -- a design round that proposes; no witness binds its claims yet.
 **Chapter:** Six-Chapter double-seat, Chapter C (Lotus · the creative suite) · **waymark** lotus-audio · **rung** lotus-audio
 **Stands on:** [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the `Clip`, `cut`, and `EditError`) · [`../lotus/pan.rye`](../lotus/pan.rye) (lotus-audio — the `StereoClip` and its balance invariant) · [`../lotus/stereo_replace.rye`](../lotus/stereo_replace.rye) (lotus-audio — the validate-both-before-either twin pattern)
 

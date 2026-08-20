@@ -1,7 +1,7 @@
 # mikrophone — the desk push loop: give the far hand its lack (the pull's mirror)
 
 **Stamp:** `20260814.072200` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Landed — witness `tools/drey_push_witness.rish` GREEN
+**Status:** Mixed -- Landed — witness `tools/drey_push_witness.rish` GREEN
 **Chapter A** (Hardware & Right-to-Repair) · **waymark mikrophone** · Mikrophone firmware journey · **rung mikrophone**
 **Kin:** [`../mikrophone/sync.rye`](../mikrophone/sync.rye) (mikrophone, the pull) · [`../mikrophone/serve.rye`](../mikrophone/serve.rye) (mikrophone) · [`../mikrophone/manifest.rye`](../mikrophone/manifest.rye) (mikrophone) · [`../mikrophone/catalog.rye`](../mikrophone/catalog.rye) (mikrophone)
 

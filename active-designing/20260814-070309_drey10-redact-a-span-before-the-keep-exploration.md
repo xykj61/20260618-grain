@@ -1,7 +1,7 @@
 # mikrophone — redact a span before the keep: the memory forgets on purpose
 
 **Stamp:** `20260814.070309` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (Chapter A · waymark **mikrophone** · Mikrophone firmware journey · rung mikrophone)
+**Status:** Vision -- Self-approved design round (Chapter A · waymark **mikrophone** · Mikrophone firmware journey · rung mikrophone)
 **Kin:** [`20260814-020500_drey-mikrophone-firmware-memory-that-forgets-exploration.md`](20260814-020500_drey-mikrophone-firmware-memory-that-forgets-exploration.md) · [`../foundations/20260801-005853_mantrapod-venture-pitch.md`](../foundations/20260801-005853_mantrapod-venture-pitch.md) · [`../mikrophone/session.rye`](../mikrophone/session.rye)
 
 ---

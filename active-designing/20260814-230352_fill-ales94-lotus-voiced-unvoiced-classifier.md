@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's voiced/unvoiced/silent classifier: the first rung to fuse two analysis readers
 
 **Stamp:** `20260814.230352` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the rung is a bounded, in-process, **read-only** classifier over one local i16 clip that composes lotus-audio's crossing count and lotus-audio's RMS, and the lotus-audio doc named this rung in as many words — *a voiced/unvoiced classifier that reads this count against an energy floor (the meter's RMS)*)
+**Status:** Vision -- Design read — self-approved round (no custody gate; the rung is a bounded, in-process, **read-only** classifier over one local i16 clip that composes lotus-audio's crossing count and lotus-audio's RMS, and the lotus-audio doc named this rung in as many words — *a voiced/unvoiced classifier that reads this count against an energy floor (the meter's RMS)*)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/zero_cross.rye`](../lotus/zero_cross.rye) (lotus-audio — the crossing count, one of the two features) · [`../lotus/meter.rye`](../lotus/meter.rye) (lotus-audio — the RMS energy, the other feature) · [`../lotus/schmitt.rye`](../lotus/schmitt.rye) (lotus-audio — the band the crossing count reads through)
 

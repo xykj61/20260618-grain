@@ -1,7 +1,7 @@
 # Fill lotus-audio — the Lotus padded top-and-tail (trim the ends, yet keep a chosen margin of silence)
 
 **Stamp:** `20260814.234744` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (autonomous loop) · **Chapter C** thread (Lotus · the creative suite) · **waymark lotus-audio** · **rung lotus-audio**
+**Status:** Vision -- Self-approved design round (autonomous loop) · **Chapter C** thread (Lotus · the creative suite) · **waymark lotus-audio** · **rung lotus-audio**
 **Kin:** [`the six-season double-seat`](20260813-020035_double-seat-expansion-six-seasons.md) · [`the 1,024-round itinerary`](20260812-171050_the-1024-round-itinerary.md) · [`Lila and the Long Return`](../.claude/rules/lila-and-the-long-return.md) · [`fill lotus-audio`](20260814-234106_fill-ales98-lotus-top-tail-trimmer.md)
 **Stands on:** `lotus/top_tail.rye` (lotus-audio — the top-and-tail trimmer, the pad-zero twin) · `lotus/segment.rye` (lotus-audio — the voice-activity segmenter, reused by name) · `lotus/timeline.rye` (lotus-audio — the Clip and `cut`) · `lotus/voiced.rye` (lotus-audio — the `.silent` verdict)
 

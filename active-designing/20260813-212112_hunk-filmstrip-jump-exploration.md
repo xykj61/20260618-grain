@@ -1,6 +1,7 @@
 # open-image — tap-to-jump on the filmstrip: a thumbnail is tapped, the cursor lands there
 
 **Stamp:** `20260813.212112` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Mixed -- proposes a shape and cites the witnesses that bind what already landed.
 **Chapter A** (Hardware & Right-to-Repair) · **waymark open-image** · **Photos-app journey** · **rung open-image**
 **Kin:** [`../brushstroke/edit_filmstrip.rye`](../brushstroke/edit_filmstrip.rye) (open-image) · [`../brushstroke/edit_touch_input.rye`](../brushstroke/edit_touch_input.rye) (open-image) · [`../image/edit_cursor.rye`](../image/edit_cursor.rye) (open-image)
 **Teacher, thanked clean-room:** the edit-history filmstrip of a photo app (iCloud Photos / Google Photos) — a keeper taps a thumbnail in the history strip and the picture jumps to that step (concept only, siloed).

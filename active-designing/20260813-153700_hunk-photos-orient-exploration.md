@@ -1,7 +1,7 @@
 # open-image — Photos gestures past crop: orient (rotate · flip)
 
 **Stamp:** `20260813.153700` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round — a fresh open-image quest opens past the sprite-marketplace close
+**Status:** Mixed -- Self-approved design round — a fresh open-image quest opens past the sprite-marketplace close
 **Chapter:** A (Hardware & Right-to-Repair) · **Waymark:** open-image · **Journey:** Photos app, past the crop
 **Kin:** [`../image/photos.rye`](../image/photos.rye) (open-image crop) · [`../image/qoi.rye`](../image/qoi.rye) (open-image codec) · [`20260813-144218_hunk-season-a-open-image-exploration.md`](20260813-144218_hunk-season-a-open-image-exploration.md)
 

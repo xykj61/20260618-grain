@@ -1,7 +1,7 @@
 # Fill lotus-audio — the Lotus peak normalize (measure the loudest sample, then scale the clip so it lands on the target)
 
 **Stamp:** `20260815.001849` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (autonomous loop) · **Chapter C** thread (Lotus · the creative suite) · **waymark lotus-audio** · **rung lotus-audio**
+**Status:** Vision -- Self-approved design round (autonomous loop) · **Chapter C** thread (Lotus · the creative suite) · **waymark lotus-audio** · **rung lotus-audio**
 **Kin:** [`the six-season double-seat`](20260813-020035_double-seat-expansion-six-seasons.md) · [`Lila and the Long Return`](../.claude/rules/lila-and-the-long-return.md) · [`fill lotus-audio`](20260815-001200_fill-ales102-lotus-smoothed-silence-trim.md)
 **Stands on:** `lotus/meter.rye` (lotus-audio — the peak/RMS meter, its `measure` and `peak`) · `lotus/timeline.rye` (lotus-audio — the Clip and the saturating `gain`) · `lotus/power.rye` (lotus-audio — the isqrt the meter is built on, reached only through lotus-audio)
 

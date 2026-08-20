@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's tremolo: the triangle LFO turned on amplitude
 
 **Stamp:** `20260814.201204` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the modulation family's first rung on a NEW target — amplitude, not delay)
+**Status:** Vision -- Design read — self-approved round (no custody gate; the modulation family's first rung on a NEW target — amplitude, not delay)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/chorus.rye`](../lotus/chorus.rye) (lotus-audio — the triangle-LFO driver `triangle_delay_at` this reuses, now read as a gain) · [`../lotus/glide.rye`](../lotus/glide.rye) (lotus-audio — `glide_scale`, the fixed-point unit both stand on) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip and the one true saturate)
 

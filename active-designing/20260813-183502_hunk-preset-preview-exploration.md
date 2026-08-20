@@ -1,7 +1,7 @@
 # open-image — the Skate preview of a named filter, seen before it is committed
 
 **Stamp:** `20260813.183502` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** self-approved design round · **Chapter A** (Hardware & Right-to-Repair) · **waymark open-image** · Photos-app journey · rung **open-image**
+**Status:** Vision -- self-approved design round · **Chapter A** (Hardware & Right-to-Repair) · **waymark open-image** · Photos-app journey · rung **open-image**
 **Kin:** [`../image/filter_preset.rye`](../image/filter_preset.rye) (open-image) · [`../brushstroke/edit_preview.rye`](../brushstroke/edit_preview.rye) (open-image) · [`../brushstroke/image_skate.rye`](../brushstroke/image_skate.rye) (open-image)
 
 ## Where the road stands

@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's gated reverb (the gate across the reverberant tail)
 
 **Stamp:** `20260815.105453` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable · purely local DSP · no custody gate)
+**Status:** Vision -- Self-approved design round (agent-doable · purely local DSP · no custody gate)
 **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`20260815-104900_fill-ales199-lotus-stereo-reverb-tone.md`](20260815-104900_fill-ales199-lotus-stereo-reverb-tone.md) · [`20260815-104206_fill-ales198-lotus-reverb-tone.md`](20260815-104206_fill-ales198-lotus-reverb-tone.md) · [`../.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)
 

@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's inverted half-wave rectifier: keep the negative half, zero the positive, the two halves that partition the wave
 
 **Stamp:** `20260814.214941` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; lotus-audio's own doc names the inverted half-wave rectifier as its plain sibling, the rung that completes the rectifier family)
+**Status:** Mixed -- Design read — self-approved round (no custody gate; lotus-audio's own doc names the inverted half-wave rectifier as its plain sibling, the rung that completes the rectifier family)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/halve.rye`](../lotus/halve.rye) (lotus-audio — the positive half-wave rectifier keeps `max(x, 0)`; this rung keeps `min(x, 0)`, and the two sum back to the dry wave) · [`../lotus/rectify.rye`](../lotus/rectify.rye) (lotus-audio — the full-wave rectifier `|x|`; `max(x, 0) − min(x, 0) = |x|`) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip, sample_min/max)
 

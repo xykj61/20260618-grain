@@ -1,6 +1,6 @@
 # Fill lotus-audio — Lotus album_diff: what changed between two record versions
 
-**Stamp:** `20260815.144541` · **Voice:** Kyri · **Style:** Radiant · **Status:** Self-approved design round
+**Stamp:** `20260815.144541` · **Voice:** Kyri · **Style:** Radiant · **Status:** Vision -- Self-approved design round
 **Chapter:** Six-Chapter double-seat, Chapter C (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/album_manifest.rye`](../lotus/album_manifest.rye) (lotus-audio — the two opened `AlbumManifest` values this compares) · [`../lotus/album_find.rye`](../lotus/album_find.rye) (lotus-audio — the resolve this composes on) · [`../lotus/library_diff.rye`](../lotus/library_diff.rye) (lotus-audio — the classification this mirrors one level down) · [`20260815-144122_fill-ales231-lotus-album-find.md`](20260815-144122_fill-ales231-lotus-album-find.md)
 

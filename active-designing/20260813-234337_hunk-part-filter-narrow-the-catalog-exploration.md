@@ -1,7 +1,7 @@
 # open-image — narrow the catalog: filter a marketplace to the parts that match
 
 **Stamp:** `20260813.234337` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable, no gate)
+**Status:** Vision -- Self-approved design round (agent-doable, no gate)
 **Chapter:** A (Hardware & Right-to-Repair) · **waymark:** open-image · **journey:** parts-marketplace · **rung:** open-image
 **Kin:** [`../image/part_catalog.rye`](../image/part_catalog.rye) (open-image facts) · [`../pond/apps/part_store.rye`](../pond/apps/part_store.rye) (open-image content-addressed) · [`../brushstroke/part_row.rye`](../brushstroke/part_row.rye) (open-image shelf · open-image paging) · [`double-seat-expansion`](20260813-020035_double-seat-expansion-six-seasons.md)
 

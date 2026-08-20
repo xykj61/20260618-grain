@@ -1,6 +1,7 @@
 # constels-naming — Constel flexible quorums: the truth beneath the majority lemma
 
 **Stamp:** `20260814.075309` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Vision -- a design round that proposes; no witness binds its claims yet.
 **Chapter:** Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — the tree's own consensus) · **waymark** constels-naming · **rung** constels-naming
 **Kin:** [`../constel/quorum.rye`](../constel/quorum.rye) (constels-naming) · [`../constel/elect.rye`](../constel/elect.rye) (constels-naming) · [`../constel/commit.rye`](../constel/commit.rye) (constels-naming) · [`../constel/roster.rye`](../constel/roster.rye) (constels-naming)
 

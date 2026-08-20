@@ -1,6 +1,7 @@
 # open-image — a tracking window that follows the cursor
 
 **Stamp:** `20260813.215013` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Mixed -- proposes a shape and cites the witnesses that bind what already landed.
 **Chapter A (Hardware & Right-to-Repair) · waymark open-image · Photos-app journey · rung open-image**
 **Kin:** [`edit_filmstrip.rye`](../brushstroke/edit_filmstrip.rye) (open-image/57) · [`edit_filmstrip_scrub.rye`](../brushstroke/edit_filmstrip_scrub.rye) (open-image) · [`edit_filmstrip_jump.rye`](../brushstroke/edit_filmstrip_jump.rye) (open-image)
 

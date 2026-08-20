@@ -1,7 +1,7 @@
 # constels-naming — Constel terms: leadership made safe across re-election (an old leader can't commit)
 
 **Stamp:** `20260814.083300` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design read for the rung (the Long Return Lila, agent-doable, purely local)
+**Status:** Vision -- Self-approved design read for the rung (the Long Return Lila, agent-doable, purely local)
 **Waymark:** constels-naming · rung constels-naming · **Chapter:** the Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — the tree's own consensus)
 **Kin:** [`../constel/elect.rye`](../constel/elect.rye) (constels-naming) · [`../constel/decree.rye`](../constel/decree.rye) (constels-naming) · [`../constel/quorum.rye`](../constel/quorum.rye) (constels-naming) · [`../constel/README.md`](../constel/README.md)
 

@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's wavefolder: the excess past the ceiling reflects back, a mirror not a wall
 
 **Stamp:** `20260814.210615` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; lotus-audio's hard-clip drive and lotus-audio's overdrive each named the wavefolder as a next member of the DRIVE family)
+**Status:** Mixed -- Design read — self-approved round (no custody gate; lotus-audio's hard-clip drive and lotus-audio's overdrive each named the wavefolder as a next member of the DRIVE family)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/drive.rye`](../lotus/drive.rye) (lotus-audio — the pre-gain, reused verbatim, and the ceiling that the fold reflects at rather than pins to) · [`../lotus/soft_drive.rye`](../lotus/soft_drive.rye) (lotus-audio — the sibling waveshaper, its shoulder rounded where this one folds) · [`../lotus/fader.rye`](../lotus/fader.rye) (lotus-audio — the num/den gain in i64) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip, sample_min/max, the one true saturate)
 

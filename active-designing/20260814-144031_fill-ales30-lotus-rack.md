@@ -1,7 +1,7 @@
 # lotus-audio — Lotus's multi-slot clipboard, a named rack of held spans
 
 **Stamp:** `20260814.144031` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Living design capture — the self-approved round after lotus-audio
+**Status:** Mixed -- Living design capture — the self-approved round after lotus-audio
 **Waymark:** lotus-audio · rung lotus-audio
 **Kin:** [`lotus-audio — the clipboard`](20260814-fill-ales25-lotus-clipboard.md) · [`lotus-audio — the selection`](20260814-fill-ales23-lotus-selection.md) · [`lotus/rack.rye`](../lotus/rack.rye) · [`lotus/clipboard.rye`](../lotus/clipboard.rye) (lotus-audio, `copy_to` / `cut_to` / `paste` reused whole) · [`lotus/pan.rye`](../lotus/pan.rye) (lotus-audio, the `StereoClip` whose channels share one length)
 

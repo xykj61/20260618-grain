@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's de-esser: the first sidechain composition
 
 **Stamp:** `20260814.185604` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; lotus-audio's band-pass and lotus-audio's sidechain composed over their public APIs)
+**Status:** Vision -- Design read — self-approved round (no custody gate; lotus-audio's band-pass and lotus-audio's sidechain composed over their public APIs)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/sidechain.rye`](../lotus/sidechain.rye) (lotus-audio — the keyed compressor) · [`../lotus/band.rye`](../lotus/band.rye) (lotus-audio — the band-pass that isolates the sibilant band) · [`../lotus/compress_env_hold.rye`](../lotus/compress_env_hold.rye) (lotus-audio — the attack/hold/release compressor beneath the key)
 

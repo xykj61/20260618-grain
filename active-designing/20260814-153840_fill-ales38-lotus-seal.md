@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's seal, made general: one verify-before-trust law both sheets call
 
 **Stamp:** `20260814.153840` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design read — the next agent-doable Lotus rung, purely local
+**Status:** Mixed -- Self-approved design read — the next agent-doable Lotus rung, purely local
 **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Stands on:** [`../lotus/rack_seal.rye`](../lotus/rack_seal.rye) (lotus-audio) · [`../lotus/cue_seal.rye`](../lotus/cue_seal.rye) (lotus-audio) · [`../lotus/wire.rye`](../lotus/wire.rye) (lotus-audio)
 

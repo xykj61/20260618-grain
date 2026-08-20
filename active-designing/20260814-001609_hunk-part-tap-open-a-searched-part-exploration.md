@@ -1,7 +1,7 @@
 # open-image — tap a searched part to open its detail: the marketplace loop closes
 
 **Stamp:** `20260814.001609` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable, no gate)
+**Status:** Vision -- Self-approved design round (agent-doable, no gate)
 **Chapter:** A (Hardware & Right-to-Repair) · **waymark:** open-image · **journey:** parts-marketplace · **rung:** open-image
 **Kin:** [`../brushstroke/part_and_search.rye`](../brushstroke/part_and_search.rye) (open-image faceted shelf on glass) · [`../brushstroke/part_row.rye`](../brushstroke/part_row.rye) (open-image shelf · open-image paging) · [`../brushstroke/library_tap.rye`](../brushstroke/library_tap.rye) (open-image the same gesture for Photos)
 

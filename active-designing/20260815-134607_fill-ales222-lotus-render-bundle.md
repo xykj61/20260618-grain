@@ -1,6 +1,6 @@
 # Fill lotus-audio — Lotus render_bundle: manifest and .wav as one saveable artifact
 
-**Stamp:** `20260815.134607` · **Voice:** Kyri · **Style:** Radiant · **Status:** Self-approved design round
+**Stamp:** `20260815.134607` · **Voice:** Kyri · **Style:** Radiant · **Status:** Vision -- Self-approved design round
 **Chapter:** Six-Chapter double-seat, Chapter C (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/render_manifest.rye`](../lotus/render_manifest.rye) (lotus-audio — the sealed, content-addressed manifest) · [`../lotus/wav.rye`](../lotus/wav.rye) (lotus-audio — the .wav the bundle carries) · [`20260815-133848_fill-ales221-lotus-render-manifest.md`](20260815-133848_fill-ales221-lotus-render-manifest.md)
 

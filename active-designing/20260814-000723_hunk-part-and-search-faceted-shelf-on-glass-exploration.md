@@ -1,7 +1,7 @@
 # open-image — the faceted search box on glass: a multi-clause line draws a narrowed, paged shelf
 
 **Stamp:** `20260814.000723` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable, no gate)
+**Status:** Vision -- Self-approved design round (agent-doable, no gate)
 **Chapter:** A (Hardware & Right-to-Repair) · **waymark:** open-image · **journey:** parts-marketplace · **rung:** open-image
 **Kin:** [`../image/part_and.rye`](../image/part_and.rye) (open-image conjunction) · [`../brushstroke/part_search.rye`](../brushstroke/part_search.rye) (open-image single-clause search on glass) · [`../brushstroke/part_row.rye`](../brushstroke/part_row.rye) (open-image shelf · open-image paging)
 

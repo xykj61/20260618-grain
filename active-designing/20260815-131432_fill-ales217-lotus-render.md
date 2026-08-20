@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's render rung (an effect chain becomes a .wav)
 
 **Stamp:** `20260815.131432` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable · purely local byte work · no custody gate)
+**Status:** Vision -- Self-approved design round (agent-doable · purely local byte work · no custody gate)
 **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`20260815-130649_fill-ales216-lotus-stereo-wav.md`](20260815-130649_fill-ales216-lotus-stereo-wav.md) · [`../lotus/wav.rye`](../lotus/wav.rye) · [`../lotus/timeline.rye`](../lotus/timeline.rye) · [`../.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)
 

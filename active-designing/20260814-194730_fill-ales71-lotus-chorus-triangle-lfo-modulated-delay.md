@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's chorus: a triangle-LFO modulated delay round a centre
 
 **Stamp:** `20260814.194730` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the first *periodic* modulated delay, the thin rung that stands on lotus-audio's fractional interpolation and yields the chorus)
+**Status:** Vision -- Design read — self-approved round (no custody gate; the first *periodic* modulated delay, the thin rung that stands on lotus-audio's fractional interpolation and yields the chorus)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/glide.rye`](../lotus/glide.rye) (lotus-audio — the fractional interpolation this drives with a periodic LFO instead of a one-way ramp) · [`../lotus/taps.rye`](../lotus/taps.rye) (lotus-audio — the fixed integer tap a zero-depth chorus reduces to) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip and the one true saturate)
 

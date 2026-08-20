@@ -1,7 +1,7 @@
 # constels-naming — Constel quorum: from a census, decide if a majority can act
 
 **Stamp:** `20260814.052238` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round — agent-doable, purely local, no custody gate crossed
+**Status:** Vision -- Self-approved design round — agent-doable, purely local, no custody gate crossed
 **Chapter:** the Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — *the tree's own consensus*) · **Waymark:** constels-naming · **Rung:** constels-naming
 **Kin:** [`../constel/README.md`](../constel/README.md) · [`../constel/census.rye`](../constel/census.rye) · [`../.claude/rules/placeholder-ship-names.md`](../.claude/rules/placeholder-ship-names.md) · [`../.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)
 

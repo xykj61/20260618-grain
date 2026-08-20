@@ -1,7 +1,7 @@
 # open-image — the OR to glass: a widening line draws the union as one paged shelf
 
 **Stamp:** `20260814.004821` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable, no gate)
+**Status:** Vision -- Self-approved design round (agent-doable, no gate)
 **Chapter:** A (Hardware & Right-to-Repair) · **waymark:** open-image · **journey:** parts-marketplace · **rung:** open-image
 **Kin:** [`../image/part_or.rye`](../image/part_or.rye) (open-image the disjunction this rung draws) · [`../brushstroke/part_and_search.rye`](../brushstroke/part_and_search.rye) (open-image the AND on glass this rung duals) · [`../brushstroke/part_search.rye`](../brushstroke/part_search.rye) (open-image single-clause search)
 

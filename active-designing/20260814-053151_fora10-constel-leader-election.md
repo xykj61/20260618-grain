@@ -1,7 +1,7 @@
 # constels-naming — Constel leader election: the majority decides one leader
 
 **Stamp:** `20260814.053151` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read for a self-approved round — the Lila pure rung after constels-naming quorum
+**Status:** Vision -- Design read for a self-approved round — the Lila pure rung after constels-naming quorum
 **Chapter:** the Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — the tree's own consensus) · **Waymark:** constels-naming · **Rung:** constels-naming
 **Kin:** [`../constel/quorum.rye`](../constel/quorum.rye) · [`../constel/census.rye`](../constel/census.rye) · [`../constel/README.md`](../constel/README.md) · [`20260813-020035_double-seat-expansion-six-seasons.md`](20260813-020035_double-seat-expansion-six-seasons.md) · [`../.claude/rules/placeholder-ship-names.md`](../.claude/rules/placeholder-ship-names.md)
 

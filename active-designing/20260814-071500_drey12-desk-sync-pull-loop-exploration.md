@@ -1,7 +1,7 @@
 # mikrophone — the desk sync pull loop: the git-fetch as one bounded primitive
 
 **Stamp:** `20260814.071500` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Explored and self-approved — Chapter A · waymark **mikrophone** · Mikrophone firmware journey · rung **mikrophone**
+**Status:** Mixed -- Explored and self-approved — Chapter A · waymark **mikrophone** · Mikrophone firmware journey · rung **mikrophone**
 **Kin:** [`../mikrophone/README.md`](../mikrophone/README.md) · [`../mikrophone/serve.rye`](../mikrophone/serve.rye) · [`../mikrophone/manifest.rye`](../mikrophone/manifest.rye) · [`../mikrophone/catalog.rye`](../mikrophone/catalog.rye) · [`20260814-065650_drey9-desk-serves-a-wanted-recording-exploration.md`](20260814-065650_drey9-desk-serves-a-wanted-recording-exploration.md)
 
 ---

@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's sidechain compressor: the gain that follows another signal
 
 **Stamp:** `20260814.184728` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; lotus-audio's held follower and lotus-audio's compressor spent for a keyed detector)
+**Status:** Vision -- Design read — self-approved round (no custody gate; lotus-audio's held follower and lotus-audio's compressor spent for a keyed detector)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/compress_env_hold.rye`](../lotus/compress_env_hold.rye) (lotus-audio — the attack/hold/release compressor this keys) · [`../lotus/hold_env.rye`](../lotus/hold_env.rye) (lotus-audio — the held time base) · [`../lotus/compress.rye`](../lotus/compress.rye) (lotus-audio — the softened ceiling)
 

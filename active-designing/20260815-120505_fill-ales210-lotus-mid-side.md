@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's mid/side primitive (the stereo master as its sum and its difference)
 
 **Stamp:** `20260815.120505` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable · purely local DSP · no custody gate)
+**Status:** Vision -- Self-approved design round (agent-doable · purely local DSP · no custody gate)
 **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`20260815-115900_fill-ales209-lotus-stereo-reverb-freeze.md`](20260815-115900_fill-ales209-lotus-stereo-reverb-freeze.md) · [`../.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)
 

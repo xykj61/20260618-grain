@@ -1,7 +1,7 @@
 # open-image — the search box on glass: a typed line draws a narrowed, paged shelf
 
 **Stamp:** `20260813.235517` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable, no gate)
+**Status:** Vision -- Self-approved design round (agent-doable, no gate)
 **Chapter:** A (Hardware & Right-to-Repair) · **waymark:** open-image · **journey:** parts-marketplace · **rung:** open-image
 **Kin:** [`../image/part_query.rye`](../image/part_query.rye) (open-image parse) · [`../image/part_filter.rye`](../image/part_filter.rye) (open-image filter) · [`../brushstroke/part_row.rye`](../brushstroke/part_row.rye) (open-image shelf · open-image paging) · [`hunk-part-query`](20260813-234932_hunk-part-query-typed-search-box-exploration.md)
 

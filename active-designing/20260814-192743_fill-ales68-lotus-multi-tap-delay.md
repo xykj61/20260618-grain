@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's multi-tap delay: several fixed taps of the dry signal
 
 **Stamp:** `20260814.192743` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the second delay-line reading, contrasting lotus-audio's feedback with a snapshotted-dry multi-tap, reusing the graft/clipboard snapshot idiom and the one true saturate)
+**Status:** Vision -- Design read — self-approved round (no custody gate; the second delay-line reading, contrasting lotus-audio's feedback with a snapshotted-dry multi-tap, reusing the graft/clipboard snapshot idiom and the one true saturate)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/echo.rye`](../lotus/echo.rye) (lotus-audio — the feedback delay this contrasts) · [`../lotus/graft.rye`](../lotus/graft.rye) (lotus-audio — the dry-span snapshot idiom this reuses) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip and the one true saturate)
 

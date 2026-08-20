@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's three-band tone stack: bass, mid, and treble from two splits
 
 **Stamp:** `20260814.162200` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design read — the next agent-doable Lotus rung, purely local
+**Status:** Mixed -- Self-approved design read — the next agent-doable Lotus rung, purely local
 **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Stands on:** [`../lotus/shelf.rye`](../lotus/shelf.rye) (lotus-audio — the two-band scale-and-clamp it widens) · [`../lotus/tone.rye`](../lotus/tone.rye) (lotus-audio — the one-pole low-pass/high-pass split) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip and `saturate`)
 

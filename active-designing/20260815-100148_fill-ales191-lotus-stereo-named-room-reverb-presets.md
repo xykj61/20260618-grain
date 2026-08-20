@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's stereo named-room reverb presets
 
 **Stamp:** `20260815.100148` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable · purely local DSP · no custody gate)
+**Status:** Vision -- Self-approved design round (agent-doable · purely local DSP · no custody gate)
 **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`20260815-095435_fill-ales190-lotus-named-room-reverb-presets.md`](20260815-095435_fill-ales190-lotus-named-room-reverb-presets.md) · [`../.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)
 

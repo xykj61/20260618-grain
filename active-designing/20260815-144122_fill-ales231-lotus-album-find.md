@@ -1,6 +1,6 @@
 # Fill lotus-audio — Lotus album_find: resolve a track by name in a record
 
-**Stamp:** `20260815.144122` · **Voice:** Kyri · **Style:** Radiant · **Status:** Self-approved design round
+**Stamp:** `20260815.144122` · **Voice:** Kyri · **Style:** Radiant · **Status:** Vision -- Self-approved design round
 **Chapter:** Six-Chapter double-seat, Chapter C (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/album_manifest.rye`](../lotus/album_manifest.rye) (lotus-audio — the opened `AlbumManifest` this reads) · [`../lotus/library_find.rye`](../lotus/library_find.rye) (lotus-audio — the resolve idiom this mirrors one level down) · [`20260815-142750_fill-ales228-lotus-library-find.md`](20260815-142750_fill-ales228-lotus-library-find.md)
 

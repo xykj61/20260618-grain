@@ -1,7 +1,7 @@
 # open-image — Photos resize: scale on the open grid
 
 **Stamp:** `20260813.154324` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round — the Photos-app quest continues past orient
+**Status:** Mixed -- Self-approved design round — the Photos-app quest continues past orient
 **Chapter:** A (Hardware & Right-to-Repair) · **Waymark:** open-image · **Journey:** Photos app · **Rung:** open-image
 **Kin:** [`../image/photos.rye`](../image/photos.rye) (open-image crop · open-image orient) · [`../image/qoi.rye`](../image/qoi.rye) (open-image codec) · [`20260813-153700_hunk-photos-orient-exploration.md`](20260813-153700_hunk-photos-orient-exploration.md)
 

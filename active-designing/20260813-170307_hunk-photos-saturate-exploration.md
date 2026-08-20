@@ -1,7 +1,7 @@
 # open-image — the Photos app tunes saturation
 
 **Stamp:** `20260813.170307` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Landed (self-approved design round) · **Chapter A** · waymark **open-image** · journey **Photos app** · rung **open-image**
+**Status:** Mixed -- Landed (self-approved design round) · **Chapter A** · waymark **open-image** · journey **Photos app** · rung **open-image**
 **Kin:** [`../image/photos.rye`](../image/photos.rye) · [`20260813-154324_hunk-photos-scale-exploration.md`](20260813-154324_hunk-photos-scale-exploration.md) · [`../.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)
 
 ---

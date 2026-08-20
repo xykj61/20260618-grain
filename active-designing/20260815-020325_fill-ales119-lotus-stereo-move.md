@@ -1,6 +1,7 @@
 # Fill lotus-audio — Lotus's `stereo_move`, the drag gesture carried into stereo
 
 **Stamp:** `20260815.020325` · **Voice:** Kyri · **Style:** Radiant
+**Status:** Vision -- a design round that proposes; no witness binds its claims yet.
 **Chapter:** Six-Chapter double-seat, Chapter C (Lotus · the creative suite) · **waymark** lotus-audio · **rung** lotus-audio
 **Stands on:** [`../lotus/move.rye`](../lotus/move.rye) (lotus-audio — mono `move`) · [`../lotus/pan.rye`](../lotus/pan.rye) (lotus-audio — the `StereoClip`) · [`../lotus/stereo_cut.rye`](../lotus/stereo_cut.rye) (lotus-audio) · [`../lotus/stereo_crop.rye`](../lotus/stereo_crop.rye) (lotus-audio) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — `EditError`)
 

@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's replace, the general span-edit (cut and splice, composed)
 
 **Stamp:** `20260815.014021` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design read — one Lotus rung, one keystone, one send
+**Status:** Mixed -- Self-approved design read — one Lotus rung, one keystone, one send
 **Waymark:** lotus-audio · rung **lotus-audio** · Chapter C thread (Lotus · the creative suite) of the Six-Chapter double-seat
 **Kin:** [`timeline.rye`](../lotus/timeline.rye) (lotus-audio — `cut`, `splice`, `EditError`) · [`paste_over.rye`](../lotus/paste_over.rye) (lotus-audio) · [`move.rye`](../lotus/move.rye) (lotus-audio) · [`meter.rye`](../lotus/meter.rye) (lotus-audio)
 

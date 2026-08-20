@@ -1,6 +1,7 @@
 # open-image — the filter picker tool
 
 **Stamp:** `20260813.222956` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Vision -- a design round that proposes; no witness binds its claims yet.
 **Chapter A (Hardware & Right-to-Repair) · waymark open-image · Photos-app journey · rung open-image**
 **Kin:** [`filter_preset.rye`](../image/filter_preset.rye) (open-image `PresetBook` · `stock_book`) · [`preset_preview.rye`](../brushstroke/preset_preview.rye) (open-image preview) · [`edit_cursor.rye`](../image/edit_cursor.rye) (open-image history) · [`crop_editor.rye`](../brushstroke/crop_editor.rye) (open-image — the tool pattern this parallels)
 

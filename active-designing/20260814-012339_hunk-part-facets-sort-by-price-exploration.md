@@ -1,7 +1,7 @@
 # open-image — the faceted result, sorted cheapest-first
 
 **Stamp:** `20260814.012339` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (Chapter A · waymark open-image · parts-marketplace journey · rung open-image)
+**Status:** Vision -- Self-approved design round (Chapter A · waymark open-image · parts-marketplace journey · rung open-image)
 **Kin:** [`part_facets_search.rye`](../brushstroke/part_facets_search.rye) (open-image) · [`part_facets_paged.rye`](../brushstroke/part_facets_paged.rye) (open-image) · [`part_catalog.rye`](../brushstroke/part_catalog.rye) (open-image) · [`part_row.rye`](../brushstroke/part_row.rye)
 
 ---

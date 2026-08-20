@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's sample-rate decimator: hold each sample across a run, crushing time rather than amplitude
 
 **Stamp:** `20260814.213107` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; lotus-audio and lotus-audio each named the sample-rate decimator as the DRIVE family's remaining rung — the bit-crush's twin on the other axis)
+**Status:** Mixed -- Design read — self-approved round (no custody gate; lotus-audio and lotus-audio each named the sample-rate decimator as the DRIVE family's remaining rung — the bit-crush's twin on the other axis)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/crush.rye`](../lotus/crush.rye) (lotus-audio — the bit-crush this rung mirrors: crush lowers a sample's *resolution* on the value axis, decimate lowers its *rate* on the time axis) · [`../lotus/tube.rye`](../lotus/tube.rye) (lotus-audio — the DRIVE family's most recent rung, which named the decimator as the next) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip, sample_min/max, max_clip)
 

@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's attack/hold/release downward expander: the held quartet made whole
 
 **Stamp:** `20260814.184011` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; lotus-audio's held follower spent for the expander)
+**Status:** Vision -- Design read — self-approved round (no custody gate; lotus-audio's held follower spent for the expander)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/expand.rye`](../lotus/expand.rye) (lotus-audio) · [`../lotus/hold_env.rye`](../lotus/hold_env.rye) (lotus-audio — the held time base) · [`../lotus/expand_env.rye`](../lotus/expand_env.rye) (lotus-audio — the zero-hold limit) · [`../lotus/gate_env_hold.rye`](../lotus/gate_env_hold.rye) (lotus-audio — the sibling this mirrors)
 

@@ -1,6 +1,7 @@
 # open-image — the drag seam: a touch drag in pixels becomes line deltas over the cell height
 
 **Stamp:** `20260813.195829` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Vision -- a design round that proposes; no witness binds its claims yet.
 **Chapter:** A (Hardware & Right-to-Repair) · **Waymark:** open-image · rung **open-image**
 **Kin:** [`preset_scroll.rye`](../pond/apps/preset_scroll.rye) (open-image cursor) · [`preset_scroll_input.rye`](../pond/apps/preset_scroll_input.rye) (open-image input seam) · [`../.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)
 

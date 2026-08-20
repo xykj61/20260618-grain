@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's reverb pre-delay
 
 **Stamp:** `20260815.102052` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable · purely local DSP · no custody gate)
+**Status:** Vision -- Self-approved design round (agent-doable · purely local DSP · no custody gate)
 **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`20260815-101449_fill-ales193-lotus-stereo-reverb-wet-dry-mix.md`](20260815-101449_fill-ales193-lotus-stereo-reverb-wet-dry-mix.md) · [`../.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)
 

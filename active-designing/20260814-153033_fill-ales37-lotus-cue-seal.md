@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's cue sheet, sealed: the arrangement map verifies before it is trusted
 
 **Stamp:** `20260814.153033` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design read — the next agent-doable Lotus rung, purely local
+**Status:** Mixed -- Self-approved design read — the next agent-doable Lotus rung, purely local
 **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Stands on:** [`../lotus/cue_sheet.rye`](../lotus/cue_sheet.rye) (lotus-audio) · [`../lotus/rack_seal.rye`](../lotus/rack_seal.rye) (lotus-audio) · [`../lotus/markers.rye`](../lotus/markers.rye) (lotus-audio) · [`../lotus/wire.rye`](../lotus/wire.rye) (lotus-audio)
 

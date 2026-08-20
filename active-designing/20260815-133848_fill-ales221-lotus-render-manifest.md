@@ -1,6 +1,6 @@
 # Fill lotus-audio — Lotus render_manifest: a render describes itself, sealed
 
-**Stamp:** `20260815.133848` · **Voice:** Kyri · **Style:** Radiant · **Status:** Self-approved design round
+**Stamp:** `20260815.133848` · **Voice:** Kyri · **Style:** Radiant · **Status:** Vision -- Self-approved design round
 **Chapter:** Six-Chapter double-seat, Chapter C (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/render.rye`](../lotus/render.rye) (lotus-audio — the mono render) · [`../lotus/stereo_render.rye`](../lotus/stereo_render.rye) (lotus-audio — the balanced render) · [`../lotus/seal.rye`](../lotus/seal.rye) (lotus-audio — the general verify-before-trust frame) · [`20260815-133213_fill-ales220-lotus-stereo-preset.md`](20260815-133213_fill-ales220-lotus-stereo-preset.md)
 

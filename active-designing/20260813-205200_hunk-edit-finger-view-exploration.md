@@ -1,6 +1,6 @@
 # open-image — the finger-driven Photos editor: a finger edits the picture, the glass repaints, from one cursor
 
-**Stamp:** `20260813.205200` · **Status:** Living (self-approved design round) · **Voice:** Kyri · **Style:** Radiant
+**Stamp:** `20260813.205200` · **Status:** Mixed -- Living (self-approved design round) · **Voice:** Kyri · **Style:** Radiant
 **Waymark:** **open-image** (Chapter A, Photos-app journey; seated in [`../.claude/rules/waymark-ladders.md`](../.claude/rules/waymark-ladders.md))
 **Road:** [`20260813-020035_double-seat-expansion-six-seasons.md`](20260813-020035_double-seat-expansion-six-seasons.md) — **Chapter A, Hardware & Right-to-Repair**
 **Builds on:** [`20260813-204548_hunk-edit-touch-input-exploration.md`](20260813-204548_hunk-edit-touch-input-exploration.md) — open-image's finger classifier · [`20260813-203500_hunk-edit-touch-view-exploration.md`](20260813-203500_hunk-edit-touch-view-exploration.md) — open-image's painted view

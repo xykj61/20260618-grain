@@ -1,6 +1,7 @@
 # open-image — a windowed filmstrip: a history longer than the strip is wide, read a window at a time
 
 **Stamp:** `20260813.213640` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Mixed -- proposes a shape and cites the witnesses that bind what already landed.
 **Chapter A** (Hardware & Right-to-Repair) · **waymark open-image** · **Photos-app journey** · **rung open-image**
 **Kin:** [`../brushstroke/edit_filmstrip.rye`](../brushstroke/edit_filmstrip.rye) (open-image, extended additively) · [`../brushstroke/edit_filmstrip_scrub.rye`](../brushstroke/edit_filmstrip_scrub.rye) (open-image) · [`../image/edit_cursor.rye`](../image/edit_cursor.rye) (open-image)
 **Teacher, thanked clean-room:** the scrollable edit-history strip of a photo app (iCloud Photos / Google Photos) — the strip shows a handful of thumbnails at a time, never the whole history at once (concept only, siloed).

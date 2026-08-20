@@ -1,6 +1,7 @@
 # constels-naming — a linearizable read without a log append (the read-index)
 
 **Stamp:** `20260814.084100` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Mixed -- proposes a shape and cites the witnesses that bind what already landed.
 **Chapter:** Six-Chapter double-seat, Chapter D (Kresfa & Mycelium — the tree's own consensus) · **Waymark:** constels-naming · **Rung:** constels-naming
 **Stands on:** [`constel/apply.rye`](../constel/apply.rye) (constels-naming — the state machine a read observes) · [`constel/commit.rye`](../constel/commit.rye) (constels-naming — the commit index a read captures) · [`constel/term.rye`](../constel/term.rye) (constels-naming — the term a leader confirms)
 **Kin:** [`the double-seat expansion`](20260813-020035_double-seat-expansion-six-seasons.md) · [`.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)

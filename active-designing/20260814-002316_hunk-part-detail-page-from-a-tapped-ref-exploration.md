@@ -1,7 +1,7 @@
 # open-image — the part detail page: a tapped ref paints the picture above its full facts
 
 **Stamp:** `20260814.002316` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable, no gate)
+**Status:** Vision -- Self-approved design round (agent-doable, no gate)
 **Chapter:** A (Hardware & Right-to-Repair) · **waymark:** open-image · **journey:** parts-marketplace · **rung:** open-image
 **Kin:** [`../brushstroke/part_tap.rye`](../brushstroke/part_tap.rye) (open-image the tap that returns a `PartRef`) · [`../brushstroke/part_row.rye`](../brushstroke/part_row.rye) (open-image fact-line + swatch helpers) · [`../brushstroke/image_skate.rye`](../brushstroke/image_skate.rye) (down-map)
 

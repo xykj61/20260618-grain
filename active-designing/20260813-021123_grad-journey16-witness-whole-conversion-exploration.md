@@ -1,6 +1,7 @@
 # cion-seal Journey 16 — witness the whole conversion (self-approved design read)
 
 **Stamp:** `20260813.021123` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Mixed -- proposes a shape and cites the witnesses that bind what already landed.
 **Waymark:** cion-seal (cion-molt Equinox 4 — Seal) · **Round:** cion-seal-J16r2
 **Kin:** [`grad_seal_witness.rish`](../tools/gen/chapter/grad_seal_witness.rish) · [`vols_survey_true_witness.rish`](../tools/gen/chapter/vols_survey_true_witness.rish) · [the 1,024-round itinerary](20260812-171050_the-1024-round-itinerary.md) · [the cion-molt labeling law](../context/specs/20260810-222755_chronological-semantic-labeling-and-the-cion-meta-season.md)
 

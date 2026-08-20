@@ -1,7 +1,7 @@
 # open-image — the sort names which way it turns: a directional header over the matching page
 
 **Stamp:** `20260814.014131` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (Chapter A · waymark open-image · parts-marketplace journey · rung open-image)
+**Status:** Vision -- Self-approved design round (Chapter A · waymark open-image · parts-marketplace journey · rung open-image)
 **Kin:** [`part_facets_sorted_screen.rye`](../brushstroke/part_facets_sorted_screen.rye) (open-image) · [`part_facets_sort_desc.rye`](../brushstroke/part_facets_sort_desc.rye) (open-image)
 
 ---

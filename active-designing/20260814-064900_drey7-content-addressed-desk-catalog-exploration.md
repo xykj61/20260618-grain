@@ -1,7 +1,7 @@
 # mikrophone — the content-addressed desk catalog *(exploration)*
 
 **Stamp:** `20260814.064900` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design capture — self-approved round, agent-doable crux
+**Status:** Vision -- Design capture — self-approved round, agent-doable crux
 **Waymark:** mikrophone · Chapter A (Hardware & Right-to-Repair) · Mikrophone firmware journey · rung **mikrophone**
 **Kin:** [`../mikrophone/archive.rye`](../mikrophone/archive.rye) (mikrophone) · [`../mikrophone/wire.rye`](../mikrophone/wire.rye) (mikrophone) · [`../.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md) · [`20260813-020035_double-seat-expansion-six-seasons.md`](20260813-020035_double-seat-expansion-six-seasons.md) (Chapter A · Tablecloth content-addressing)
 

@@ -1,7 +1,7 @@
 # mikrophone — the desk reconcile: two hands meet on the union
 
 **Stamp:** `20260814.072800` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Landed — witness `tools/drey_reconcile_witness.rish` GREEN
+**Status:** Mixed -- Landed — witness `tools/drey_reconcile_witness.rish` GREEN
 **Chapter A** (Hardware & Right-to-Repair) · **waymark mikrophone** · Mikrophone firmware journey · **rung mikrophone**
 **Kin:** [`../mikrophone/sync.rye`](../mikrophone/sync.rye) (mikrophone, pull) · [`../mikrophone/push.rye`](../mikrophone/push.rye) (mikrophone, push)
 

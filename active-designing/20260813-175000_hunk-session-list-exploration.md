@@ -1,7 +1,7 @@
 # open-image — a keeper lists their saved editing sessions (an honest index)
 
 **Stamp:** `20260813.175000` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round — Chapter A (Hardware & Right-to-Repair) · waymark **open-image** · Photos-app journey · rung **open-image**
+**Status:** Vision -- Self-approved design round — Chapter A (Hardware & Right-to-Repair) · waymark **open-image** · Photos-app journey · rung **open-image**
 **Kin:** [`session_store.rye` (open-image)](../pond/apps/session_store.rye) · [`tablecloth.rye`](../pond/apps/tablecloth.rye) · [`mcp_resource_list.rye`](../pond/apps/mcp_resource_list.rye)
 
 ---

@@ -1,6 +1,7 @@
 # Fill lotus-audio — `lotus/stereo_drive.rye`, the hard-clip drive carried into stereo, one shared map, opening the stereo nonlinear class
 
 **Stamp:** `20260815.032122` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Mixed -- proposes a shape and cites the witnesses that bind what already landed.
 **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`20260815-031427_fill-ales131-lotus-stereo-crossfade.md`](20260815-031427_fill-ales131-lotus-stereo-crossfade.md) · [`20260814-204949_fill-ales78-lotus-hard-clip-drive.md`](20260814-204949_fill-ales78-lotus-hard-clip-drive.md)
 

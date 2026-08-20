@@ -1,7 +1,7 @@
 # lotus-audio — Lotus's slot sheet, sealed (verify before trust)
 
 **Stamp:** `20260814.151050` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Living design capture — the self-approved round after lotus-audio
+**Status:** Mixed -- Living design capture — the self-approved round after lotus-audio
 **Waymark:** lotus-audio · rung lotus-audio
 **Kin:** [`lotus-audio — the rack travels as text`](20260814-150213_fill-ales33-lotus-rack-sheet.md) (render_rack / parse_rack reused whole) · [`lotus-audio — the audio wire`](20260814-fill-ales0-lotus-audio-wire-shape.md) (the Sha256 verify-before-trust idiom) · [`lotus/rack_seal.rye`](../lotus/rack_seal.rye) · [`lotus/rack_sheet.rye`](../lotus/rack_sheet.rye) · [`lotus/wire.rye`](../lotus/wire.rye)
 

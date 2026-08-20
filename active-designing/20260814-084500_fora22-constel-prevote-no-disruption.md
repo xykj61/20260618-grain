@@ -1,6 +1,7 @@
 # constels-naming — a partitioned pier cannot disrupt a stable sky (pre-vote)
 
 **Stamp:** `20260814.084500` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Mixed -- proposes a shape and cites the witnesses that bind what already landed.
 **Chapter:** Six-Chapter double-seat, Chapter D (Kresfa & Mycelium — the tree's own consensus) · **Waymark:** constels-naming · **Rung:** constels-naming
 **Stands on:** [`constel/vote.rye`](../constel/vote.rye) (constels-naming — `at_least_as_current`, the up-to-date check a pre-vote reuses) · [`constel/term.rye`](../constel/term.rye) (constels-naming — the term a pre-vote refuses to bump prematurely) · [`constel/quorum.rye`](../constel/quorum.rye) (constels-naming — the majority threshold)
 **Kin:** [`.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)

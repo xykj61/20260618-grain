@@ -1,7 +1,7 @@
 # constels-naming — Constel log repair: the leader heals a follower's divergent suffix
 
 **Stamp:** `20260814.083500` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (the itinerary filling law — a quest names its own rounds, then climbs them)
+**Status:** Mixed -- Self-approved design round (the itinerary filling law — a quest names its own rounds, then climbs them)
 **Chapter:** the Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — the tree's own consensus) · **Waymark:** constels-naming · **Rung:** constels-naming
 **Kin:** [`../constel/README.md`](../constel/README.md) · [`../constel/term.rye`](../constel/term.rye) (constels-naming) · [`../constel/log.rye`](../constel/log.rye) (constels-naming) · [`../constel/catchup.rye`](../constel/catchup.rye) (constels-naming) · [`../.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)
 

@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's multi-tap delay in real time: taps named in milliseconds
 
 **Stamp:** `20260814.193359` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the lotus-audio multi-tap given the lotus-audio clock's units, exactly as `echo_ms` gave the feedback echo real time)
+**Status:** Vision -- Design read — self-approved round (no custody gate; the lotus-audio multi-tap given the lotus-audio clock's units, exactly as `echo_ms` gave the feedback echo real time)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/taps.rye`](../lotus/taps.rye) (lotus-audio — the multi-tap delay this speaks in real time) · [`../lotus/echo_time.rye`](../lotus/echo_time.rye) (lotus-audio — the timed twin this mirrors) · [`../lotus/clock.rye`](../lotus/clock.rye) (lotus-audio — the sample clock)
 

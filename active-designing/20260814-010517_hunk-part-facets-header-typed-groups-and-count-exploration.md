@@ -1,7 +1,7 @@
 # open-image — the faceted query header: the typed groups and their result count, above the narrowed-and-widened shelf
 
 **Stamp:** `20260814.010517` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable, no gate)
+**Status:** Mixed -- Self-approved design round (agent-doable, no gate)
 **Chapter:** A (Hardware & Right-to-Repair) · **waymark:** open-image · **journey:** parts-marketplace · **rung:** open-image
 **Kin:** [`../brushstroke/part_search_header.rye`](../brushstroke/part_search_header.rye) (open-image the AND header this rung generalizes) · [`../brushstroke/part_facets_search.rye`](../brushstroke/part_facets_search.rye) (open-image the faceted shelf it crowns) · [`../image/part_facets.rye`](../image/part_facets.rye) (open-image the faceted query it echoes)
 

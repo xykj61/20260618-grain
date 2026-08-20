@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's console pre-delay (the dry-composed pre-delay, end to end)
 
 **Stamp:** `20260815.103104` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable · purely local DSP · no custody gate)
+**Status:** Vision -- Self-approved design round (agent-doable · purely local DSP · no custody gate)
 **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`20260815-102559_fill-ales195-lotus-stereo-reverb-predelay.md`](20260815-102559_fill-ales195-lotus-stereo-reverb-predelay.md) · [`../.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)
 

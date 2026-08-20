@@ -1,6 +1,6 @@
 # Fill lotus-audio — Lotus stereo_preset: a named preset carried over both channels
 
-**Stamp:** `20260815.133213` · **Voice:** Kyri · **Style:** Radiant · **Status:** Self-approved design round
+**Stamp:** `20260815.133213` · **Voice:** Kyri · **Style:** Radiant · **Status:** Vision -- Self-approved design round
 **Chapter:** Six-Chapter double-seat, Chapter C (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/preset.rye`](../lotus/preset.rye) (lotus-audio — from_name and build) · [`../lotus/stereo_render.rye`](../lotus/stereo_render.rye) (lotus-audio — the balanced render) · [`20260815-132711_fill-ales219-lotus-preset.md`](20260815-132711_fill-ales219-lotus-preset.md)
 

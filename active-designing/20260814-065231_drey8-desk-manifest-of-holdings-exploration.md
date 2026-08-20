@@ -1,7 +1,7 @@
 # mikrophone — the desk manifest of holdings *(exploration)*
 
 **Stamp:** `20260814.065231` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design capture — self-approved round, agent-doable crux
+**Status:** Vision -- Design capture — self-approved round, agent-doable crux
 **Waymark:** mikrophone · Chapter A (Hardware & Right-to-Repair) · Mikrophone firmware journey · rung **mikrophone**
 **Kin:** [`../mikrophone/catalog.rye`](../mikrophone/catalog.rye) (mikrophone) · [`../mikrophone/wire.rye`](../mikrophone/wire.rye) (mikrophone) · [`20260814-064900_drey7-content-addressed-desk-catalog-exploration.md`](20260814-064900_drey7-content-addressed-desk-catalog-exploration.md)
 

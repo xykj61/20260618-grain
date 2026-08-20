@@ -1,7 +1,7 @@
 # open-image — the Skate view of a pending edit, seen before it is committed
 
 **Stamp:** `20260813.160955` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Living (design read) · self-approved design round for the next open-image rung
+**Status:** Vision -- Living (design read) · self-approved design round for the next open-image rung
 **Chapter A** (Hardware & Right-to-Repair) · **waymark open-image** · Photos-app journey · rung **open-image**
 **Kin:** [`../image/photo_edits.rye`](../image/photo_edits.rye) (open-image) · [`../pond/apps/edit_store.rye`](../pond/apps/edit_store.rye) (open-image) · [`../brushstroke/image_skate.rye`](../brushstroke/image_skate.rye) (open-image) · [`20260813-155719_hunk-photo-edits-non-destructive-exploration.md`](20260813-155719_hunk-photo-edits-non-destructive-exploration.md) (names open-image)
 

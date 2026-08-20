@@ -1,7 +1,7 @@
 # open-image — named filter presets: a book of recipes applied by name
 
 **Stamp:** `20260813.181925` · **Waymark:** open-image · **Chapter A** (Hardware & Right-to-Repair) · **Journey:** Photos app
-**Status:** self-approved design round · **Kin:** [`photo_edits.rye`](../image/photo_edits.rye) (open-image) · [`edit_store.rye`](../pond/apps/edit_store.rye) (open-image)
+**Status:** Vision -- self-approved design round · **Kin:** [`photo_edits.rye`](../image/photo_edits.rye) (open-image) · [`edit_store.rye`](../pond/apps/edit_store.rye) (open-image)
 
 ## Where the road stands
 

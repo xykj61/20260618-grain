@@ -1,6 +1,7 @@
 # open-image — the interactive crop gesture
 
 **Stamp:** `20260813.222800` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Mixed -- proposes a shape and cites the witnesses that bind what already landed.
 **Chapter A (Hardware & Right-to-Repair) · waymark open-image · Photos-app journey · rung open-image**
 **Kin:** [`photos.rye`](../image/photos.rye) (open-image `crop`) · [`photo_edits.rye`](../image/photo_edits.rye) (open-image vocabulary) · [`edit_touch_input.rye`](../image/edit_touch_input.rye) (open-image down/move/up law)
 

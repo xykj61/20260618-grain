@@ -1,6 +1,6 @@
 # compass-surface Journey 11 — the MCP `prompts` surface, named templates a server offers (exploration)
 
-**Stamp:** `20260812.153255` · **Waymark:** compass-surface (Compass Chapter · Equinox 3 — Surface & Intelligence) · **Status:** exploration, self-approved design round · **Voice:** Kyri
+**Stamp:** `20260812.153255` · **Waymark:** compass-surface (Compass Chapter · Equinox 3 — Surface & Intelligence) · **Status:** Vision -- exploration, self-approved design round · **Voice:** Kyri
 
 ## The blind spot
 

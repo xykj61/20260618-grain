@@ -1,6 +1,7 @@
 # Fill lotus-audio — `lotus/stereo_crush.rye`, the bit-crusher carried into stereo, one shared grid
 
 **Stamp:** `20260815.034830` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Mixed -- proposes a shape and cites the witnesses that bind what already landed.
 **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`20260815-034120_fill-ales135-lotus-stereo-tube.md`](20260815-034120_fill-ales135-lotus-stereo-tube.md) · [`20260814-211634_fill-ales81-lotus-bit-crush.md`](20260814-211634_fill-ales81-lotus-bit-crush.md)
 

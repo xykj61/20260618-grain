@@ -1,7 +1,7 @@
 # open-image — the sort a keeper can reverse: dearest-first as well as cheapest-first
 
 **Stamp:** `20260814.013432` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (Chapter A · waymark open-image · parts-marketplace journey · rung open-image)
+**Status:** Mixed -- Self-approved design round (Chapter A · waymark open-image · parts-marketplace journey · rung open-image)
 **Kin:** [`part_facets_sort.rye`](../brushstroke/part_facets_sort.rye) (open-image) · [`part_facets_sorted_screen.rye`](../brushstroke/part_facets_sorted_screen.rye) (open-image)
 
 ---

@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's zero-crossing counter: reading lotus-audio's flips as a count, the first analysis rung on the comparator
 
 **Stamp:** `20260814.225557` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the rung is a bounded, in-process, **read-only** counter over one local i16 clip that composes lotus-audio's public one-sample comparator, and the lotus-audio doc named this rung in as many words — *a zero-crossing counter that reads this trigger's flips as a pitch estimate*)
+**Status:** Vision -- Design read — self-approved round (no custody gate; the rung is a bounded, in-process, **read-only** counter over one local i16 clip that composes lotus-audio's public one-sample comparator, and the lotus-audio doc named this rung in as many words — *a zero-crossing counter that reads this trigger's flips as a pitch estimate*)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/schmitt.rye`](../lotus/schmitt.rye) (lotus-audio — the hysteresis comparator whose flips this rung counts, over its public `schmitt_step`) · [`../lotus/meter.rye`](../lotus/meter.rye) (the read-only analysis shape — a struct that accumulates, accessors that report) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip, `sample_min`/`max`)
 

@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's soft center clipper: silence the quiet middle and subtract the threshold, the continuous dead-zone that completes the bracket
 
 **Stamp:** `20260814.220520` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; lotus-audio's own doc names the soft dead-zone as its plain sibling, and the DRIVE family already carries a hard/soft pair on the ceiling side)
+**Status:** Mixed -- Design read — self-approved round (no custody gate; lotus-audio's own doc names the soft dead-zone as its plain sibling, and the DRIVE family already carries a hard/soft pair on the ceiling side)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/center_clip.rye`](../lotus/center_clip.rye) (lotus-audio — the hard center clipper silences the quiet middle and passes the loud *unchanged*, a jump at the boundary; this rung subtracts the threshold so the survivor rises *continuously* from zero) · [`../lotus/soft_drive.rye`](../lotus/soft_drive.rye) (lotus-audio — the soft-clip overdrive, the rounded sibling of lotus-audio's hard clip; the ceiling-side pair this rung mirrors on the floor side) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip, sample_min/max)
 

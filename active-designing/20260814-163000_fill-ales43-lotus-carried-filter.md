@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's carried-state filter: a low-pass that spans a re-berthed region without a fresh transient
 
 **Stamp:** `20260814.163000` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design read — the next agent-doable Lotus rung, purely local
+**Status:** Mixed -- Self-approved design read — the next agent-doable Lotus rung, purely local
 **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Stands on:** [`../lotus/tone.rye`](../lotus/tone.rye) (lotus-audio — the one-pole low-pass, now exposing `low_pass_carry`) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip)
 

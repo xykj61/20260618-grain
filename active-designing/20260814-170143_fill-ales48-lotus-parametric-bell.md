@@ -1,7 +1,7 @@
 # Fill lotus-audio — the parametric bell, the middle turned
 
 **Stamp:** `20260814.170143` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round — one keystone, one send
+**Status:** Mixed -- Self-approved design round — one keystone, one send
 **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`20260814-165728_fill-ales47-lotus-band-reject.md`](20260814-165728_fill-ales47-lotus-band-reject.md) · [`20260814-162200_fill-ales42-lotus-tone-stack.md`](20260814-162200_fill-ales42-lotus-tone-stack.md)
 

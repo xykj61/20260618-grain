@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's DC-offset remover: the pure translation that undoes the offset the even-harmonic family introduces
 
 **Stamp:** `20260814.222356` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the rung is a bounded, memoryless block operation over one local i16 clip, and the lotus-audio doc already *booked* the DC remover as the next Lotus crux)
+**Status:** Vision -- Design read — self-approved round (no custody gate; the rung is a bounded, memoryless block operation over one local i16 clip, and the lotus-audio doc already *booked* the DC remover as the next Lotus crux)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/rectify.rye`](../lotus/rectify.rye) (lotus-audio — the full-wave rectifier, `y = |x|`, the plainest DC generator this rung answers) · [`../lotus/crush.rye`](../lotus/crush.rye) (lotus-audio — the 1-bit crush, a floored `0`/`sample_min` map, DC-heavy by construction) · [`../lotus/drive.rye`](../lotus/drive.rye) (lotus-audio — the asymmetric tube drive, a different rail per sign, so its mean drifts off zero) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip, `sample_min`/`max`, and the one true `saturate`)
 

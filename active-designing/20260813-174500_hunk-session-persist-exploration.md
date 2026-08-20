@@ -1,7 +1,7 @@
 # open-image — the editing session survives a cold restart (undo *and redo* intact)
 
 **Stamp:** `20260813.174500` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round — Chapter A (Hardware & Right-to-Repair) · waymark **open-image** · Photos-app journey · rung **open-image**
+**Status:** Vision -- Self-approved design round — Chapter A (Hardware & Right-to-Repair) · waymark **open-image** · Photos-app journey · rung **open-image**
 **Kin:** [`edit_cursor.rye` (open-image)](../image/edit_cursor.rye) · [`edit_store.rye` (open-image)](../pond/apps/edit_store.rye) · [`../.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)
 
 ---

@@ -1,6 +1,6 @@
 # Fill lotus-audio — Lotus album_manifest: a whole record's own content address, sealed
 
-**Stamp:** `20260815.140211` · **Voice:** Kyri · **Style:** Radiant · **Status:** Self-approved design round
+**Stamp:** `20260815.140211` · **Voice:** Kyri · **Style:** Radiant · **Status:** Vision -- Self-approved design round
 **Chapter:** Six-Chapter double-seat, Chapter C (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/render_album.rye`](../lotus/render_album.rye) (lotus-audio — the catalog this manifest names) · [`../lotus/render_manifest.rye`](../lotus/render_manifest.rye) (lotus-audio — the per-render manifest this is one level up from) · [`../lotus/seal.rye`](../lotus/seal.rye) (lotus-audio — the verify-before-trust frame reused whole)
 

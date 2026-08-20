@@ -1,7 +1,7 @@
 # constels-naming — Constel joint-consensus reconfiguration: change the sky without a fork
 
 **Stamp:** `20260814.055235` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read for the constels-naming rung — self-approved under the itinerary's filling law
+**Status:** Vision -- Design read for the constels-naming rung — self-approved under the itinerary's filling law
 **Chapter:** the Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — the tree's own consensus) · **Waymark:** constels-naming · rung **constels-naming**
 **Kin:** [`../constel/quorum.rye`](../constel/quorum.rye) (constels-naming — the intersection lemma) · [`../constel/decree.rye`](../constel/decree.rye) (constels-naming) · [`../constel/log.rye`](../constel/log.rye) (constels-naming) · [`../constel/README.md`](../constel/README.md) · [`../.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)
 

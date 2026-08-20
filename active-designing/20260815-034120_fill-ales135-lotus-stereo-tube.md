@@ -1,6 +1,7 @@
 # Fill lotus-audio — `lotus/stereo_tube.rye`, the asymmetric tube drive carried into stereo, one shared uneven rail
 
 **Stamp:** `20260815.034120` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Mixed -- proposes a shape and cites the witnesses that bind what already landed.
 **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`20260815-033358_fill-ales134-lotus-stereo-fold.md`](20260815-033358_fill-ales134-lotus-stereo-fold.md) · [`20260814-212318_fill-ales82-lotus-tube-drive.md`](20260814-212318_fill-ales82-lotus-tube-drive.md)
 

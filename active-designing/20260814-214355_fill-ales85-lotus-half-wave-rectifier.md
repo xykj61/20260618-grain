@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's half-wave rectifier: keep the positive half, zero the negative, exact everywhere
 
 **Stamp:** `20260814.214355` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; lotus-audio's own doc names the half-wave rectifier as the full-wave's plain sibling, the next rung of the even family)
+**Status:** Mixed -- Design read — self-approved round (no custody gate; lotus-audio's own doc names the half-wave rectifier as the full-wave's plain sibling, the next rung of the even family)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/rectify.rye`](../lotus/rectify.rye) (lotus-audio — the full-wave rectifier folds the negative half *up*, `y = |x|`; the half-wave rectifier folds it *away*, `y = max(x, 0)`) · [`../lotus/gate.rye`](../lotus/gate.rye) (lotus-audio — a threshold silences below a floor; the half-wave rectifier is the threshold set exactly at zero, one-sided) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip, sample_min/max, the one true saturate)
 

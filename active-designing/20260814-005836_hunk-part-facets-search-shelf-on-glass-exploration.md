@@ -1,7 +1,7 @@
 # open-image — the faceted grammar to glass: OR-within, AND-across draws one paged shelf
 
 **Stamp:** `20260814.005836` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable, no gate)
+**Status:** Vision -- Self-approved design round (agent-doable, no gate)
 **Chapter:** A (Hardware & Right-to-Repair) · **waymark:** open-image · **journey:** parts-marketplace · **rung:** open-image
 **Kin:** [`../image/part_facets.rye`](../image/part_facets.rye) (open-image the faceted query this rung draws) · [`../brushstroke/part_and_search.rye`](../brushstroke/part_and_search.rye) (open-image) · [`../brushstroke/part_or_search.rye`](../brushstroke/part_or_search.rye) (open-image)
 

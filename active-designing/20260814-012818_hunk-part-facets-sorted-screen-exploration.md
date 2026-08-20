@@ -1,7 +1,7 @@
 # open-image — the sorted screen: a header names the sort above the cheapest-first parts
 
 **Stamp:** `20260814.012818` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (Chapter A · waymark open-image · parts-marketplace journey · rung open-image)
+**Status:** Vision -- Self-approved design round (Chapter A · waymark open-image · parts-marketplace journey · rung open-image)
 **Kin:** [`part_facets_paged.rye`](../brushstroke/part_facets_paged.rye) (open-image) · [`part_facets_sort.rye`](../brushstroke/part_facets_sort.rye) (open-image)
 
 ---

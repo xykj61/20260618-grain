@@ -1,6 +1,7 @@
 # constels-naming — Constel learner: a new member joins non-voting, catches up, then earns the vote
 
 **Stamp:** `20260814.073705` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Vision -- a design round that proposes; no witness binds its claims yet.
 **Chapter:** Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — the tree's own consensus) · **waymark** constels-naming · **rung** constels-naming
 **Kin:** [`../constel/reconfig.rye`](../constel/reconfig.rye) (constels-naming) · [`../constel/catchup.rye`](../constel/catchup.rye) (constels-naming) · [`../constel/quorum.rye`](../constel/quorum.rye) (constels-naming) · [`../constel/roster.rye`](../constel/roster.rye) (constels-naming)
 

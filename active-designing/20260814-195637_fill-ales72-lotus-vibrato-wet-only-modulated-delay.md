@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's vibrato: the modulated delay heard wet-only
 
 **Stamp:** `20260814.195637` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the wet-only sibling of the chorus, the thinnest rung on lotus-audio's triangle-LFO modulated delay)
+**Status:** Vision -- Design read — self-approved round (no custody gate; the wet-only sibling of the chorus, the thinnest rung on lotus-audio's triangle-LFO modulated delay)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/chorus.rye`](../lotus/chorus.rye) (lotus-audio — the triangle-LFO modulated delay whose driver and read this reuses verbatim, only dropping the dry) · [`../lotus/glide.rye`](../lotus/glide.rye) (lotus-audio — the fractional interpolation both stand on) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip and the one true saturate)
 

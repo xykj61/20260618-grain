@@ -1,6 +1,6 @@
 # Fill lotus-audio — Lotus library_diff: what changed between two catalog versions
 
-**Stamp:** `20260815.143152` · **Voice:** Kyri · **Style:** Radiant · **Status:** Self-approved design round
+**Stamp:** `20260815.143152` · **Voice:** Kyri · **Style:** Radiant · **Status:** Vision -- Self-approved design round
 **Chapter:** Six-Chapter double-seat, Chapter C (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/library_find.rye`](../lotus/library_find.rye) (lotus-audio — the `find` resolve this composes on) · [`../lotus/library_manifest.rye`](../lotus/library_manifest.rye) (lotus-audio — the two opened catalogs this compares) · [`20260815-142750_fill-ales228-lotus-library-find.md`](20260815-142750_fill-ales228-lotus-library-find.md)
 

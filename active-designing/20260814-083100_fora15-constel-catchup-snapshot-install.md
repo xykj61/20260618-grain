@@ -1,7 +1,7 @@
 # constels-naming — Constel catch-up: a lagging pier brought current from a leader's snapshot + tail
 
 **Stamp:** `20260814.083100` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design read for the rung (the Long Return Lila, agent-doable, purely local)
+**Status:** Vision -- Self-approved design read for the rung (the Long Return Lila, agent-doable, purely local)
 **Waymark:** constels-naming · rung constels-naming · **Chapter:** the Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — the tree's own consensus)
 **Kin:** [`../constel/snapshot.rye`](../constel/snapshot.rye) (constels-naming) · [`../constel/log.rye`](../constel/log.rye) (constels-naming) · [`../constel/README.md`](../constel/README.md) · [`20260814-060326_fora14-constel-snapshot-log-compaction.md`](20260814-060326_fora14-constel-snapshot-log-compaction.md)
 

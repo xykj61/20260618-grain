@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's attack/release downward expander: the expander given a sense of time
 
 **Stamp:** `20260814.183555` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the expander driven from the proven lotus-audio follower)
+**Status:** Vision -- Design read — self-approved round (no custody gate; the expander driven from the proven lotus-audio follower)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/expand.rye`](../lotus/expand.rye) (lotus-audio — the deepened floor this drives over time) · [`../lotus/envelope.rye`](../lotus/envelope.rye) (lotus-audio — the proven time base) · [`../lotus/gate_env.rye`](../lotus/gate_env.rye) (lotus-audio — the sibling attack/release tool this mirrors)
 

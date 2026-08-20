@@ -1,6 +1,6 @@
 # Fill lotus-audio — Lotus album_diff_sheet: what changed in a record, as a readable page
 
-**Stamp:** `20260815.144829` · **Voice:** Kyri · **Style:** Radiant · **Status:** Self-approved design round
+**Stamp:** `20260815.144829` · **Voice:** Kyri · **Style:** Radiant · **Status:** Vision -- Self-approved design round
 **Chapter:** Six-Chapter double-seat, Chapter C (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/album_diff.rye`](../lotus/album_diff.rye) (lotus-audio — the classified `Diff` this draws) · [`../lotus/library_diff_sheet.rye`](../lotus/library_diff_sheet.rye) (lotus-audio — the readable-projection idiom this mirrors) · [`20260815-144541_fill-ales232-lotus-album-diff.md`](20260815-144541_fill-ales232-lotus-album-diff.md)
 

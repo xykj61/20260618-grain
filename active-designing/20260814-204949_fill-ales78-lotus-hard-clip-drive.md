@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's hard-clip drive: a pre-gain into lotus-audio's ceiling
 
 **Stamp:** `20260814.204949` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the modulation family closed at lotus-audio, and this opens the next durable family — DRIVE — with its simplest provable member, the hard clip)
+**Status:** Mixed -- Design read — self-approved round (no custody gate; the modulation family closed at lotus-audio, and this opens the next durable family — DRIVE — with its simplest provable member, the hard clip)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/limit.rye`](../lotus/limit.rye) (lotus-audio — the ceiling law `pin to sign(x)·ceil`, reused here over the BOOSTED sample) · [`../lotus/fader.rye`](../lotus/fader.rye) (lotus-audio/lotus-audio — the num/den gain in the i64 accumulator, the drive's pre-gain) · [`../lotus/tremolo.rye`](../lotus/tremolo.rye) (lotus-audio — the amplitude kin whose unity boundary this rung reads in reverse) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip, sample_min/max, the one true saturate)
 

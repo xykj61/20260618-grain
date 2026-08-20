@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's two-band tone shelf: bass and treble from the one-pole split
 
 **Stamp:** `20260814.161231` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design read — the next agent-doable Lotus rung, purely local
+**Status:** Mixed -- Self-approved design read — the next agent-doable Lotus rung, purely local
 **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Stands on:** [`../lotus/tone.rye`](../lotus/tone.rye) (lotus-audio — the low-pass/high-pass split it scales) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip and `saturate`)
 

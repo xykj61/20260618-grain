@@ -1,6 +1,7 @@
 # open-image — the touchable painted surface: the page scrolls under the finger, on glass
 
 **Stamp:** `20260813.201754` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Vision -- a design round that proposes; no witness binds its claims yet.
 **Chapter:** A (Hardware & Right-to-Repair) · **Waymark:** open-image · rung **open-image**
 **Kin:** [`preset_scroll_view.rye`](../pond/apps/preset_scroll_view.rye) (open-image painted view) · [`preset_touch_scroll.rye`](../pond/apps/preset_touch_scroll.rye) (open-image touch session) · [`../.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)
 

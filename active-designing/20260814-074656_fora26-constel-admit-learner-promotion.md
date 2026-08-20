@@ -1,6 +1,7 @@
 # constels-naming — Constel admit: the whole add-a-member lifecycle, closed
 
 **Stamp:** `20260814.074656` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Vision -- a design round that proposes; no witness binds its claims yet.
 **Chapter:** Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — the tree's own consensus) · **waymark** constels-naming · **rung** constels-naming
 **Kin:** [`../constel/learner.rye`](../constel/learner.rye) (constels-naming) · [`../constel/reconfig.rye`](../constel/reconfig.rye) (constels-naming) · [`../constel/quorum.rye`](../constel/quorum.rye) (constels-naming) · [`../constel/roster.rye`](../constel/roster.rye) (constels-naming)
 

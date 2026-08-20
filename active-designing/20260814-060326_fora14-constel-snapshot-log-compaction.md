@@ -1,7 +1,7 @@
 # constels-naming — Constel snapshot: compact the log so it can serve forever
 
 **Stamp:** `20260814.060326` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read for a self-approved round — the Lila pure rung after constels-naming reconfig
+**Status:** Vision -- Design read for a self-approved round — the Lila pure rung after constels-naming reconfig
 **Chapter:** the Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — the tree's own consensus) · **Waymark:** constels-naming · **Rung:** constels-naming
 **Kin:** [`../constel/log.rye`](../constel/log.rye) · [`../constel/reconfig.rye`](../constel/reconfig.rye) · [`../constel/decree.rye`](../constel/decree.rye) · [`../constel/README.md`](../constel/README.md) · [`20260814-054414_fora12-constel-replicated-log.md`](20260814-054414_fora12-constel-replicated-log.md)
 

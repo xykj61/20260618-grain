@@ -1,7 +1,7 @@
 # open-image — the OR of clauses: widen the marketplace to the parts matching any facet
 
 **Stamp:** `20260814.004500` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable, no gate)
+**Status:** Vision -- Self-approved design round (agent-doable, no gate)
 **Chapter:** A (Hardware & Right-to-Repair) · **waymark:** open-image · **journey:** parts-marketplace · **rung:** open-image
 **Kin:** [`../image/part_and.rye`](../image/part_and.rye) (open-image the conjunction this rung duals) · [`../image/part_filter.rye`](../image/part_filter.rye) (open-image `matches` / `filter_catalog`) · [`../image/part_query.rye`](../image/part_query.rye) (open-image `parse_query`)
 

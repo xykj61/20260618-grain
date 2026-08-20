@@ -1,7 +1,7 @@
 # open-image — a keeper pages through a library larger than one screen
 
 **Stamp:** `20260813.190003` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** self-approved design round · **Chapter A** (Hardware & Right-to-Repair) · **waymark open-image** · Photos-app journey · rung **open-image**
+**Status:** Vision -- self-approved design round · **Chapter A** (Hardware & Right-to-Repair) · **waymark open-image** · Photos-app journey · rung **open-image**
 **Kin:** [`../pond/apps/preset_shelf.rye`](../pond/apps/preset_shelf.rye) (open-image) · [`../pond/apps/preset_detail.rye`](../pond/apps/preset_detail.rye) (open-image)
 
 ## Where the road stands

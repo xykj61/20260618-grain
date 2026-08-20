@@ -1,7 +1,7 @@
 # constels-naming — Constel `depart`: the remove-a-member lifecycle, closed
 
 **Stamp:** `20260814.080327` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design capture for a self-approved round · waymark **constels-naming** · rung **constels-naming**
+**Status:** Vision -- Design capture for a self-approved round · waymark **constels-naming** · rung **constels-naming**
 **Kin:** [`../constel/admit.rye`](../constel/admit.rye) (constels-naming — the add side) · [`../constel/reconfig.rye`](../constel/reconfig.rye) (constels-naming — the no-fork joint switch) · [`../constel/tenure.rye`](../constel/tenure.rye) (constels-naming — CheckQuorum step-down) · [`../constel/README.md`](../constel/README.md)
 
 ---

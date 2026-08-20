@@ -1,7 +1,7 @@
 # constels-naming — a bounded byte channel, one frame read at a time
 
 **Stamp:** `20260814.044915` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design round (self-approved) — the next constels-naming rung, agent-doable, purely local
+**Status:** Vision -- Design round (self-approved) — the next constels-naming rung, agent-doable, purely local
 **Chapter:** the Six-Chapter double-seat, Chapter D/F thread · **Waymark:** constels-naming · rung **constels-naming**
 **Kin:** [`../constel/exchange.rye`](../constel/exchange.rye) · [`../constel/wire.rye`](../constel/wire.rye) · [`../constel/README.md`](../constel/README.md) · [`20260814-044312_fora4-constel-exchange-over-frames.md`](20260814-044312_fora4-constel-exchange-over-frames.md)
 

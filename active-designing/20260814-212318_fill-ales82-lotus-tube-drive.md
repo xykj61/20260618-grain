@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's asymmetric tube drive: a different ceiling per sign, the first clip that is not odd
 
 **Stamp:** `20260814.212318` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; lotus-audio, lotus-audio, lotus-audio, and lotus-audio each named the asymmetric / tube drive as the next member of the DRIVE family)
+**Status:** Mixed -- Design read — self-approved round (no custody gate; lotus-audio, lotus-audio, lotus-audio, and lotus-audio each named the asymmetric / tube drive as the next member of the DRIVE family)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/drive.rye`](../lotus/drive.rye) (lotus-audio — the hard clip this rung generalizes: one ceiling both signs becomes one ceiling per sign) · [`../lotus/soft_drive.rye`](../lotus/soft_drive.rye) (lotus-audio — the sibling that rounds the corner while staying odd) · [`../lotus/crush.rye`](../lotus/crush.rye) (lotus-audio — the family's other not-odd map, whose asymmetry is a downward floor where this one's is an uneven rail) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip, sample_min/max, the one true saturate)
 

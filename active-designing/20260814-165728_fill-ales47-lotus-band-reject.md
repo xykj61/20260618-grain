@@ -1,7 +1,7 @@
 # Fill lotus-audio — the band-reject, the middle let go
 
 **Stamp:** `20260814.165728` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round — one keystone, one send
+**Status:** Mixed -- Self-approved design round — one keystone, one send
 **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`20260814-165106_fill-ales46-lotus-band-pass.md`](20260814-165106_fill-ales46-lotus-band-pass.md) · [`20260814-161231_fill-ales41-lotus-tone-shelf.md`](20260814-161231_fill-ales41-lotus-tone-shelf.md)
 

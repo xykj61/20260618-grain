@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's soft-clip overdrive: lotus-audio's hard clip with its corner rounded
 
 **Stamp:** `20260814.205812` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; lotus-audio's hard-clip drive named this rung as its successor — the soft knee it is the floor of)
+**Status:** Mixed -- Design read — self-approved round (no custody gate; lotus-audio's hard-clip drive named this rung as its successor — the soft knee it is the floor of)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/drive.rye`](../lotus/drive.rye) (lotus-audio — the pre-gain and the ceiling pin, reused with a knee opened below the ceiling) · [`../lotus/fader.rye`](../lotus/fader.rye) (lotus-audio — the num/den gain in i64) · [`../lotus/limit.rye`](../lotus/limit.rye) (lotus-audio — the ceiling law the shoulder's top reuses) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip, sample_min/max, the one true saturate)
 

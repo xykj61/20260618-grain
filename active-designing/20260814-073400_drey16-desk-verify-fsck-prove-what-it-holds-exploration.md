@@ -1,7 +1,7 @@
 # mikrophone — the desk verify: the fsck that proves what it holds
 
 **Stamp:** `20260814.073400` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Landed — witness `tools/drey_verify_witness.rish` GREEN
+**Status:** Mixed -- Landed — witness `tools/drey_verify_witness.rish` GREEN
 **Chapter A** (Hardware & Right-to-Repair) · **waymark mikrophone** · Mikrophone firmware journey · **rung mikrophone**
 **Kin:** [`../mikrophone/catalog.rye`](../mikrophone/catalog.rye) (mikrophone, the content-addressed store)
 

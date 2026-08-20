@@ -1,7 +1,7 @@
 # constels-naming — the handshake, carried end to end across frames
 
 **Stamp:** `20260814.044312` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design round (self-approved) — the next constels-naming rung, agent-doable, purely local
+**Status:** Vision -- Design round (self-approved) — the next constels-naming rung, agent-doable, purely local
 **Chapter:** the Six-Chapter double-seat, Chapter D/F thread · **Waymark:** constels-naming · rung **constels-naming**
 **Kin:** [`../constel/wire.rye`](../constel/wire.rye) · [`../constel/handshake.rye`](../constel/handshake.rye) · [`../constel/README.md`](../constel/README.md) · [`20260814-043551_fora3-constel-local-wire-frame.md`](20260814-043551_fora3-constel-local-wire-frame.md)
 

@@ -1,7 +1,7 @@
 # open-image — a keeper reads what is *inside* each installed book, not only how many
 
 **Stamp:** `20260813.184630` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** self-approved design round · **Chapter A** (Hardware & Right-to-Repair) · **waymark open-image** · Photos-app journey · rung **open-image**
+**Status:** Vision -- self-approved design round · **Chapter A** (Hardware & Right-to-Repair) · **waymark open-image** · Photos-app journey · rung **open-image**
 **Kin:** [`../pond/apps/preset_list.rye`](../pond/apps/preset_list.rye) (open-image) · [`../pond/apps/preset_store.rye`](../pond/apps/preset_store.rye) (open-image) · [`../image/filter_preset.rye`](../image/filter_preset.rye) (open-image)
 
 ## Where the road stands

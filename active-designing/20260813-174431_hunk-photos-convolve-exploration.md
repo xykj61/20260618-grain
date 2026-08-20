@@ -1,7 +1,7 @@
 # open-image — the convolution primitive, and the filter family it opens
 
 **Stamp:** `20260813.174431` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (autonomous loop) · **Chapter A** (Hardware & Right-to-Repair) · waymark **open-image** · journey **Open Image**
+**Status:** Vision -- Self-approved design round (autonomous loop) · **Chapter A** (Hardware & Right-to-Repair) · waymark **open-image** · journey **Open Image**
 **Kin:** [`20260813-173146_hunk-photos-bilinear-exploration.md`](20260813-173146_hunk-photos-bilinear-exploration.md) · [`20260812-171050_the-1024-round-itinerary.md`](20260812-171050_the-1024-round-itinerary.md) · [`../image/photos.rye`](../image/photos.rye)
 
 ---

@@ -1,7 +1,7 @@
 # lotus-audio — Lotus's paste that joins rather than butts
 
 **Stamp:** `20260814.144834` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Living design capture — the self-approved round after lotus-audio
+**Status:** Mixed -- Living design capture — the self-approved round after lotus-audio
 **Waymark:** lotus-audio · rung lotus-audio
 **Kin:** [`lotus-audio — the clipboard`](20260814-fill-ales25-lotus-clipboard.md) · [`lotus-audio — the stereo two-sided insert-join`](20260814-fill-ales29-lotus-stereo-two-sided-insert-join.md) · [`lotus-audio — the crossfade join`](20260814-fill-ales26-lotus-crossfade-join.md) · [`lotus/paste_join.rye`](../lotus/paste_join.rye) · [`lotus/stereo_insert_join.rye`](../lotus/stereo_insert_join.rye) (lotus-audio, `insert_join_stereo` reused whole) · [`lotus/clipboard.rye`](../lotus/clipboard.rye) (lotus-audio, the held span)
 

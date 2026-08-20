@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's bit-crusher: drop the low bits, the first DRIVE map that is not odd
 
 **Stamp:** `20260814.211634` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; lotus-audio's hard-clip drive and lotus-audio's wavefolder each named the bit-crush / decimator as a next member of the DRIVE family)
+**Status:** Mixed -- Design read — self-approved round (no custody gate; lotus-audio's hard-clip drive and lotus-audio's wavefolder each named the bit-crush / decimator as a next member of the DRIVE family)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/fold.rye`](../lotus/fold.rye) (lotus-audio — the sibling waveshaper, its magnitude folded where this one's low bits fall away) · [`../lotus/drive.rye`](../lotus/drive.rye) (lotus-audio — the DRIVE family's open, whose pre-gain this rung composes with rather than embeds) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip, sample_min/max, the one true saturate)
 

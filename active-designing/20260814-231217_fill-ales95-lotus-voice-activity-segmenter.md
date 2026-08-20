@@ -1,7 +1,7 @@
 # Fill lotus-audio — the Lotus voice-activity segmenter (classify across frames)
 
 **Stamp:** `20260814.231217` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (autonomous loop) · **Chapter C** thread (Lotus · the creative suite) · **waymark lotus-audio** · **rung lotus-audio**
+**Status:** Vision -- Self-approved design round (autonomous loop) · **Chapter C** thread (Lotus · the creative suite) · **waymark lotus-audio** · **rung lotus-audio**
 **Kin:** [`the six-season double-seat`](20260813-020035_double-seat-expansion-six-seasons.md) · [`Lila and the Long Return`](../.claude/rules/lila-and-the-long-return.md) · [`waymark ladders`](../.claude/rules/waymark-ladders.md)
 **Stands on:** `lotus/voiced.rye` (lotus-audio — the voiced/unvoiced/silent classifier over one span) · `lotus/timeline.rye` (lotus-audio — the Clip) · `lotus/schmitt.rye` (lotus-audio — the band-and-span precheck) · `lotus/meter.rye` (lotus-audio — the RMS energy)
 

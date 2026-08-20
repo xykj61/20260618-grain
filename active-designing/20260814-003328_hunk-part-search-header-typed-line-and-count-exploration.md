@@ -1,7 +1,7 @@
 # open-image — the query header: the typed clauses and their result count, above the narrowed shelf
 
 **Stamp:** `20260814.003328` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable, no gate)
+**Status:** Vision -- Self-approved design round (agent-doable, no gate)
 **Chapter:** A (Hardware & Right-to-Repair) · **waymark:** open-image · **journey:** parts-marketplace · **rung:** open-image
 **Kin:** [`../brushstroke/part_and_search.rye`](../brushstroke/part_and_search.rye) (open-image the narrowed shelf on glass) · [`../image/part_and.rye`](../image/part_and.rye) (open-image the `AndQuery` conjunction) · [`../brushstroke/edit_screen_view.rye`](../brushstroke/edit_screen_view.rye) (open-image the stack-into-one-grid idiom) · [`../brushstroke/part_row.rye`](../brushstroke/part_row.rye) (open-image fact-line helpers)
 

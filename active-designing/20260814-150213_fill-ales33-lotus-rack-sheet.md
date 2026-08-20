@@ -1,7 +1,7 @@
 # lotus-audio — Lotus's rack travels as text (the slot sheet)
 
 **Stamp:** `20260814.150213` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Living design capture — the self-approved round after lotus-audio
+**Status:** Mixed -- Living design capture — the self-approved round after lotus-audio
 **Waymark:** lotus-audio · rung lotus-audio
 **Kin:** [`lotus-audio — the cue sheet`](20260814-fill-ales22-lotus-cue-sheet.md) (the "travels as text" idiom) · [`lotus-audio — the multi-slot rack`](20260814-144031_fill-ales30-lotus-rack.md) · [`lotus/rack_sheet.rye`](../lotus/rack_sheet.rye) · [`lotus/rack.rye`](../lotus/rack.rye) (lotus-audio, `copy_to` / `name_of` reused whole) · [`lotus/selection.rye`](../lotus/selection.rye) · [`tally/parse_int.rye`](../tally/parse_int.rye)
 

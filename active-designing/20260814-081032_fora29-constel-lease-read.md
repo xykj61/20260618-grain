@@ -1,7 +1,7 @@
 # constels-naming — Constel `lease`: a lease read, safe under a bounded clock
 
 **Stamp:** `20260814.081032` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design capture for a self-approved round · waymark **constels-naming** · rung **constels-naming**
+**Status:** Vision -- Design capture for a self-approved round · waymark **constels-naming** · rung **constels-naming**
 **Kin:** [`../constel/read.rye`](../constel/read.rye) (constels-naming — the read-index) · [`../constel/tenure.rye`](../constel/tenure.rye) (constels-naming — CheckQuorum backing) · [`../constel/README.md`](../constel/README.md)
 
 ---

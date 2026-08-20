@@ -1,7 +1,7 @@
 # mikrophone — the inbox: the far side keeps a carried frame only once it is proven whole
 
 **Stamp:** `20260814.022831` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (Chapter A · waymark **mikrophone** · Mikrophone firmware journey · rung mikrophone)
+**Status:** Vision -- Self-approved design round (Chapter A · waymark **mikrophone** · Mikrophone firmware journey · rung mikrophone)
 **Kin:** [`20260814-021218_drey1-wire-frame-carry-only-committed-exploration.md`](20260814-021218_drey1-wire-frame-carry-only-committed-exploration.md) · [`20260814-022312_drey3-firmware-loop-carry-committed-run-to-the-wire-exploration.md`](20260814-022312_drey3-firmware-loop-carry-committed-run-to-the-wire-exploration.md) · [`../mikrophone/wire.rye`](../mikrophone/wire.rye) · [`../mikrophone/firmware.rye`](../mikrophone/firmware.rye)
 
 ---

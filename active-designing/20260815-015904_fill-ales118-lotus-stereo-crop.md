@@ -1,6 +1,7 @@
 # Fill lotus-audio — Lotus's `stereo_crop`, Trim to Selection carried into stereo
 
 **Stamp:** `20260815.015904` · **Voice:** Kyri · **Style:** Radiant
+**Status:** Vision -- a design round that proposes; no witness binds its claims yet.
 **Chapter:** Six-Chapter double-seat, Chapter C (Lotus · the creative suite) · **waymark** lotus-audio · **rung** lotus-audio
 **Stands on:** [`../lotus/crop.rye`](../lotus/crop.rye) (lotus-audio — mono `crop`) · [`../lotus/pan.rye`](../lotus/pan.rye) (lotus-audio — the `StereoClip`) · [`../lotus/stereo_cut.rye`](../lotus/stereo_cut.rye) (lotus-audio — the stereo remove it complements) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — `cut`/`splice`/`EditError`)
 

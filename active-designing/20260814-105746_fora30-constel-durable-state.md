@@ -1,7 +1,7 @@
 # constels-naming — Constel durable state: a pier survives a restart without forgetting its vote
 
 **Stamp:** `20260814.105746` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Living design — self-approved recursion round, purely local (no socket, no real fd)
+**Status:** Vision -- Living design — self-approved recursion round, purely local (no socket, no real fd)
 **Chapter:** the Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — the tree's own consensus) · **Waymark:** constels-naming · rung constels-naming
 **Kin:** [`../.claude/rules/waymark-ladders.md`](../.claude/rules/waymark-ladders.md) · [`20260812-171050_the-1024-round-itinerary.md`](20260812-171050_the-1024-round-itinerary.md) · [`20260814-083500_fora17-constel-log-repair-matching.md`](20260814-083500_fora17-constel-log-repair-matching.md)
 **Stands on:** `constel/repair.rye` (constels-naming — the `TermedLog` it persists) · `constel/wire.rye` (constels-naming — the verify-before-trust digest discipline) · `constel/roster.rye` (constels-naming — `max_piers`, the slot bound)

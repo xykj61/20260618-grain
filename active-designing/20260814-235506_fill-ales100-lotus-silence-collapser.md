@@ -1,7 +1,7 @@
 # Fill lotus-audio — the Lotus silence collapser (cap every silent run to a maximum; keep the pauses, shorten them)
 
 **Stamp:** `20260814.235506` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (autonomous loop) · **Chapter C** thread (Lotus · the creative suite) · **waymark lotus-audio** · **rung lotus-audio**
+**Status:** Vision -- Self-approved design round (autonomous loop) · **Chapter C** thread (Lotus · the creative suite) · **waymark lotus-audio** · **rung lotus-audio**
 **Kin:** [`the six-season double-seat`](20260813-020035_double-seat-expansion-six-seasons.md) · [`the 1,024-round itinerary`](20260812-171050_the-1024-round-itinerary.md) · [`Lila and the Long Return`](../.claude/rules/lila-and-the-long-return.md) · [`fill lotus-audio`](20260814-234744_fill-ales99-lotus-padded-top-tail.md)
 **Stands on:** `lotus/trim_silence.rye` (lotus-audio — the silence stripper, the zero-cap twin) · `lotus/segment.rye` (lotus-audio — the voice-activity segmenter, reused by name) · `lotus/timeline.rye` (lotus-audio — the Clip and `cut`) · `lotus/voiced.rye` (lotus-audio — the `.silent` verdict)
 

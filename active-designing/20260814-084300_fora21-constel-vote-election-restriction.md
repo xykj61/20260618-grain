@@ -1,6 +1,7 @@
 # constels-naming — a vote goes only to an up-to-date log (the election restriction)
 
 **Stamp:** `20260814.084300` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Mixed -- proposes a shape and cites the witnesses that bind what already landed.
 **Chapter:** Six-Chapter double-seat, Chapter D (Kresfa & Mycelium — the tree's own consensus) · **Waymark:** constels-naming · **Rung:** constels-naming
 **Stands on:** [`constel/repair.rye`](../constel/repair.rye) (constels-naming — the `TermedLog`, its `last_term` and length) · [`constel/quorum.rye`](../constel/quorum.rye) (constels-naming — `majority_of`, the intersection lemma) · [`constel/commit.rye`](../constel/commit.rye) (constels-naming — the committed prefix whose completeness this guarantees)
 **Kin:** [`.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)

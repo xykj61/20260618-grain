@@ -1,7 +1,7 @@
 # mikrophone — the desk archive: a bounded log that keeps a sequence of proven recordings in order
 
 **Stamp:** `20260814.064021` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (Chapter A · waymark **mikrophone** · Mikrophone firmware journey · rung mikrophone)
+**Status:** Vision -- Self-approved design round (Chapter A · waymark **mikrophone** · Mikrophone firmware journey · rung mikrophone)
 **Kin:** [`20260814-022831_drey4-inbox-far-side-accepts-verify-before-keep-exploration.md`](20260814-022831_drey4-inbox-far-side-accepts-verify-before-keep-exploration.md) · [`20260814-063000_drey5-carry-meets-device-loop-to-desk-inbox-exploration.md`](20260814-063000_drey5-carry-meets-device-loop-to-desk-inbox-exploration.md)
 
 ---

@@ -1,7 +1,7 @@
 # open-image — an AND of clauses: narrow on several facets at once
 
 **Stamp:** `20260814.000136` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable, no gate)
+**Status:** Vision -- Self-approved design round (agent-doable, no gate)
 **Chapter:** A (Hardware & Right-to-Repair) · **waymark:** open-image · **journey:** parts-marketplace · **rung:** open-image
 **Kin:** [`../image/part_filter.rye`](../image/part_filter.rye) (open-image filter) · [`../image/part_query.rye`](../image/part_query.rye) (open-image parse one clause) · [`../brushstroke/part_search.rye`](../brushstroke/part_search.rye) (open-image search on glass)
 

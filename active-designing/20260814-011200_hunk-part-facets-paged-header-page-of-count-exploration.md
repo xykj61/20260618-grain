@@ -1,7 +1,7 @@
 # open-image — the paged faceted header: the page a keeper reads, named above its own parts
 
 **Stamp:** `20260814.011200` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable, no gate)
+**Status:** Mixed -- Self-approved design round (agent-doable, no gate)
 **Chapter:** A (Hardware & Right-to-Repair) · **waymark:** open-image · **journey:** parts-marketplace · **rung:** open-image
 **Kin:** [`../brushstroke/part_facets_header.rye`](../brushstroke/part_facets_header.rye) (open-image the faceted header this rung pages) · [`../brushstroke/part_facets_search.rye`](../brushstroke/part_facets_search.rye) (open-image the shelf and its page count) · [`../brushstroke/part_row.rye`](../brushstroke/part_row.rye) (the paging law it reads)
 

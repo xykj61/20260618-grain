@@ -1,7 +1,7 @@
 # mikrophone — the recorder controls: samples land only while recording
 
 **Stamp:** `20260814.021722` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (Chapter A · waymark **mikrophone** · Mikrophone firmware journey · rung mikrophone)
+**Status:** Vision -- Self-approved design round (Chapter A · waymark **mikrophone** · Mikrophone firmware journey · rung mikrophone)
 **Kin:** [`20260814-020500_drey-mikrophone-firmware-memory-that-forgets-exploration.md`](20260814-020500_drey-mikrophone-firmware-memory-that-forgets-exploration.md) · [`20260814-021218_drey1-wire-frame-carry-only-committed-exploration.md`](20260814-021218_drey1-wire-frame-carry-only-committed-exploration.md) · [`../mikrophone/session.rye`](../mikrophone/session.rye)
 
 ---

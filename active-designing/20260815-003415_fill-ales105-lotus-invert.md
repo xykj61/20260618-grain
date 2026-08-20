@@ -1,7 +1,7 @@
 # Fill lotus-audio — the Lotus invert (flip every sample's sign, the exact value-mirror of reverse)
 
 **Stamp:** `20260815.003415` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (autonomous loop) · **Chapter C** thread (Lotus · the creative suite) · **waymark lotus-audio** · **rung lotus-audio**
+**Status:** Vision -- Self-approved design round (autonomous loop) · **Chapter C** thread (Lotus · the creative suite) · **waymark lotus-audio** · **rung lotus-audio**
 **Kin:** [`the six-season double-seat`](20260813-020035_double-seat-expansion-six-seasons.md) · [`Lila and the Long Return`](../.claude/rules/lila-and-the-long-return.md) · [`fill lotus-audio`](20260815-002711_fill-ales104-lotus-reverse.md)
 **Stands on:** `lotus/timeline.rye` (lotus-audio — the Clip, its `buf`/`len`/`samples`, and `saturate`) · `lotus/meter.rye` (lotus-audio — the peak/RMS meter, to witness that a sign flip off the rail moves no loudness)
 

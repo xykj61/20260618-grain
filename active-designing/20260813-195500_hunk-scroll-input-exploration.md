@@ -1,7 +1,7 @@
 # open-image — the input seam: a keeper's raw gesture drives the cursor
 
 **Stamp:** `20260813.195500` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read (self-approved round) · **Chapter A** · waymark **open-image** · rung **open-image**
+**Status:** Vision -- Design read (self-approved round) · **Chapter A** · waymark **open-image** · rung **open-image**
 **Kin:** [`pond/apps/preset_scroll.rye`](../pond/apps/preset_scroll.rye) (open-image cursor) · [`pond/apps/preset_scroll_view.rye`](../pond/apps/preset_scroll_view.rye) (open-image surface)
 
 ---

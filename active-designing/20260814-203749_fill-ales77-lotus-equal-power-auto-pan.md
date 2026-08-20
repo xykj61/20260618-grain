@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's equal-power auto-pan: lotus-audio's quarter-circle split swept across the field
 
 **Stamp:** `20260814.203749` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the modulation family's rung the auto-pan itself named as next — the equal-power curve against lotus-audio's linear centre)
+**Status:** Vision -- Design read — self-approved round (no custody gate; the modulation family's rung the auto-pan itself named as next — the equal-power curve against lotus-audio's linear centre)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/power.rye`](../lotus/power.rye) (lotus-audio — the equal-power split `split(pos, den)` swept here in time) · [`../lotus/auto_pan.rye`](../lotus/auto_pan.rye) (lotus-audio — the same triangle-swept position, only the linear split swapped for the equal-power one) · [`../lotus/chorus.rye`](../lotus/chorus.rye) (lotus-audio — the triangle-LFO driver `triangle_delay_at`, now the pan position) · [`../lotus/pan.rye`](../lotus/pan.rye) (lotus-audio — the StereoClip) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip, sample_min/max, the one true saturate)
 

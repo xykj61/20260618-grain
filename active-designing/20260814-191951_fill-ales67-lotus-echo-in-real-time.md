@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's echo in real time: a delay named in milliseconds
 
 **Stamp:** `20260814.191951` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the lotus-audio echo given the lotus-audio clock's units, exactly as `fade_ms` gave the fade real time)
+**Status:** Vision -- Design read — self-approved round (no custody gate; the lotus-audio echo given the lotus-audio clock's units, exactly as `fade_ms` gave the fade real time)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/echo.rye`](../lotus/echo.rye) (lotus-audio — the feedback delay this speaks in real time) · [`../lotus/clock.rye`](../lotus/clock.rye) (lotus-audio — the sample clock, its `fade_ms` / `place_at` the payoff pattern) · [`../lotus/marker_time.rye`](../lotus/marker_time.rye) (lotus-audio — the timed twin of a base rung, the module shape this follows)
 

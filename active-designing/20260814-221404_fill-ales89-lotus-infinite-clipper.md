@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's infinite clipper: pin the survivor to the rail, the infinite-gain limit that completes the dead-zone trilogy
 
 **Stamp:** `20260814.221404` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the center-clip pair already names the survivor's fate as its axis, and this rung reads the third and last reading of that axis)
+**Status:** Vision -- Design read — self-approved round (no custody gate; the center-clip pair already names the survivor's fate as its axis, and this rung reads the third and last reading of that axis)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/center_clip.rye`](../lotus/center_clip.rye) (lotus-audio — the hard center clip; the survivor *passes* at its own value) · [`../lotus/soft_center_clip.rye`](../lotus/soft_center_clip.rye) (lotus-audio — the soft center clip; the survivor is *shifted* toward zero by the threshold) · [`../lotus/drive.rye`](../lotus/drive.rye) (lotus-audio — the hard clip whose ceiling this rung pushes to its limit) · [`../lotus/crush.rye`](../lotus/crush.rye) (lotus-audio — the 1-bit crush, a *floored* two-level map, so its two levels are `0` / `sample_min`, not the rail-symmetric pair this rung yields) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip, sample_min/max)
 

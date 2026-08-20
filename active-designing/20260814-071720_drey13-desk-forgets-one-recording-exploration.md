@@ -1,7 +1,7 @@
 # mikrophone — the desk forgets one recording on purpose
 
 **Stamp:** `20260814.071720` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Exploration — self-approved design round for the next Mikrophone rung
+**Status:** Vision -- Exploration — self-approved design round for the next Mikrophone rung
 **Chapter A** (Hardware & Right-to-Repair) · **waymark mikrophone** · Mikrophone firmware journey · rung **mikrophone**
 **Kin:** [`../mikrophone/README.md`](../mikrophone/README.md) · [`20260814-070309_drey10-redact-a-span-before-the-keep-exploration.md`](20260814-070309_drey10-redact-a-span-before-the-keep-exploration.md) · [`20260814-064900_drey7-content-addressed-desk-catalog-exploration.md`](20260814-064900_drey7-content-addressed-desk-catalog-exploration.md)
 

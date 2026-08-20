@@ -1,7 +1,7 @@
 # Fill lotus-audio — the Lotus Nyquist flip (alternate-sign, the value family's other exact mirror)
 
 **Stamp:** `20260815.004633` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (autonomous loop) · **Chapter C** thread (Lotus · the creative suite) · **waymark lotus-audio** · **rung lotus-audio**
+**Status:** Vision -- Self-approved design round (autonomous loop) · **Chapter C** thread (Lotus · the creative suite) · **waymark lotus-audio** · **rung lotus-audio**
 **Kin:** [`the six-season double-seat`](20260813-020035_double-seat-expansion-six-seasons.md) · [`Lila and the Long Return`](../.claude/rules/lila-and-the-long-return.md) · [`fill lotus-audio`](20260815-003415_fill-ales105-lotus-invert.md) · [`fill lotus-audio`](20260815-003935_fill-ales106-lotus-rotate.md)
 **Stands on:** `lotus/timeline.rye` (lotus-audio — the Clip, its `buf`/`len`/`samples`, and `saturate`, the one true clamp reused so the rail lives in one place) · `lotus/meter.rye` (lotus-audio — the peak/RMS meter, to witness that a sign pattern moves no loudness)
 

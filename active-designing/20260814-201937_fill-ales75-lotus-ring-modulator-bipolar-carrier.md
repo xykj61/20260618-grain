@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's ring modulator: the tremolo's carrier let cross zero
 
 **Stamp:** `20260814.201937` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the tremolo's named sibling — the same triangle carrier, allowed to go bipolar)
+**Status:** Vision -- Design read — self-approved round (no custody gate; the tremolo's named sibling — the same triangle carrier, allowed to go bipolar)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/tremolo.rye`](../lotus/tremolo.rye) (lotus-audio — the amplitude write this generalizes by removing the floor) · [`../lotus/chorus.rye`](../lotus/chorus.rye) (lotus-audio — the triangle-LFO driver `triangle_delay_at`, now the carrier) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip and the one true saturate)
 

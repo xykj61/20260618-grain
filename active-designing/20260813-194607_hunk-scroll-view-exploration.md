@@ -1,7 +1,7 @@
 # open-image — the scrollable surface: page beside a live scroll bar
 
 **Stamp:** `20260813.194607` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read (self-approved round) · **Chapter A** (Hardware & Right-to-Repair) · waymark **open-image** · rung **open-image**
+**Status:** Vision -- Design read (self-approved round) · **Chapter A** (Hardware & Right-to-Repair) · waymark **open-image** · rung **open-image**
 **Kin:** [`pond/apps/preset_scroll.rye`](../pond/apps/preset_scroll.rye) (open-image cursor · open-image scroll bar) · [`pond/apps/preset_shelf.rye`](../pond/apps/preset_shelf.rye) (open-image pager) · [`brushstroke/skate_grid.rye`](../brushstroke/skate_grid.rye)
 
 ---

@@ -1,7 +1,7 @@
 # open-image — the Photos app resamples smoothly (bilinear)
 
 **Stamp:** `20260813.173146` · **Waymark:** open-image (Chapter A · Open Image journey) · **Voice:** Kyri
-**Status:** Design in motion — self-approved round · **Kin:** open-image `scale` (nearest) · open-image `scale_area` (area)
+**Status:** Vision -- Design in motion — self-approved round · **Kin:** open-image `scale` (nearest) · open-image `scale_area` (area)
 
 ## The crux
 

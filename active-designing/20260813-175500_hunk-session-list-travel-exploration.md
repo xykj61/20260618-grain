@@ -1,7 +1,7 @@
 # open-image — the session listing travels both ways (a fixed-point record)
 
 **Stamp:** `20260813.175500` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round — Chapter A · waymark **open-image** · Photos-app journey · rung **open-image**
+**Status:** Vision -- Self-approved design round — Chapter A · waymark **open-image** · Photos-app journey · rung **open-image**
 **Kin:** [`session_list.rye` (open-image)](../pond/apps/session_list.rye) · [`sprite_catalog.rye` travel (open-image)](../image/sprite_catalog.rye)
 
 ---

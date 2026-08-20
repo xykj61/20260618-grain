@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's silence-span, the third way a span meets silence
 
 **Stamp:** `20260815.010618` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design read — one Lotus rung, one keystone, one send
+**Status:** Mixed -- Self-approved design read — one Lotus rung, one keystone, one send
 **Waymark:** lotus-audio · rung **lotus-audio** · Chapter C thread (Lotus · the creative suite) of the Six-Chapter double-seat
 **Kin:** [`insert_silence.rye`](../lotus/insert_silence.rye) (lotus-audio) · [`timeline.rye`](../lotus/timeline.rye) (lotus-audio) · [`meter.rye`](../lotus/meter.rye) (lotus-audio)
 

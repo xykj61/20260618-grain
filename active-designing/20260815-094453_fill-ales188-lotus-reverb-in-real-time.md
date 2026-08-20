@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's reverb in real time (`reverb_ms`)
 
 **Stamp:** `20260815.094453` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round — a thin real-time twin over a proven tool, no new arithmetic on the audio path, no custody gate reached
+**Status:** Vision -- Self-approved design round — a thin real-time twin over a proven tool, no new arithmetic on the audio path, no custody gate reached
 **Waymark:** lotus-audio · **Rung:** lotus-audio · **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite)
 **Kin:** [`../lotus/reverb.rye`](../lotus/reverb.rye) (lotus-audio) · [`../lotus/clock.rye`](../lotus/clock.rye) (lotus-audio) · [`../lotus/multitap_time.rye`](../lotus/multitap_time.rye) (lotus-audio) · [`../lotus/echo_time.rye`](../lotus/echo_time.rye) (lotus-audio)
 

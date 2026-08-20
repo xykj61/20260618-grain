@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's keyed gate: the door opened by another signal
 
 **Stamp:** `20260814.190149` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; lotus-audio's floor and lotus-audio's held follower keyed like lotus-audio)
+**Status:** Vision -- Design read — self-approved round (no custody gate; lotus-audio's floor and lotus-audio's held follower keyed like lotus-audio)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/sidechain.rye`](../lotus/sidechain.rye) (lotus-audio — the keyed compressor this mirrors) · [`../lotus/gate_env_hold.rye`](../lotus/gate_env_hold.rye) (lotus-audio — the attack/hold/release gate this keys) · [`../lotus/gate.rye`](../lotus/gate.rye) (lotus-audio — the silenced floor) · [`../lotus/hold_env.rye`](../lotus/hold_env.rye) (lotus-audio — the held time base)
 

@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's WAV container (the open door every effect leaves through)
 
 **Stamp:** `20260815.130110` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Self-approved design round (agent-doable · purely local byte work · no custody gate)
+**Status:** Vision -- Self-approved design round (agent-doable · purely local byte work · no custody gate)
 **Chapter:** the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`20260815-125233_fill-ales214-lotus-reverb-place.md`](20260815-125233_fill-ales214-lotus-reverb-place.md) · [`../lotus/wire.rye`](../lotus/wire.rye) (lotus-audio) · [`../.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)
 

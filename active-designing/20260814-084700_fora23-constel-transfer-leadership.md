@@ -1,6 +1,7 @@
 # constels-naming — Constel leadership transfer: a handoff only to a caught-up successor
 
 **Stamp:** `20260814.084700` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Mixed -- proposes a shape and cites the witnesses that bind what already landed.
 **Chapter:** Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — the tree's own consensus) · **waymark** constels-naming · **rung** constels-naming
 **Kin:** [`../constel/vote.rye`](../constel/vote.rye) (constels-naming) · [`../constel/prevote.rye`](../constel/prevote.rye) (constels-naming) · [`../constel/repair.rye`](../constel/repair.rye) (constels-naming) · [`../constel/quorum.rye`](../constel/quorum.rye) (constels-naming)
 

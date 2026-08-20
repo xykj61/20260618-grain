@@ -1,7 +1,7 @@
 # open-image — a keeper reads their installed library as a shelf on glass
 
 **Stamp:** `20260813.185517` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** self-approved design round · **Chapter A** (Hardware & Right-to-Repair) · **waymark open-image** · Photos-app journey · rung **open-image**
+**Status:** Vision -- self-approved design round · **Chapter A** (Hardware & Right-to-Repair) · **waymark open-image** · Photos-app journey · rung **open-image**
 **Kin:** [`../pond/apps/preset_detail.rye`](../pond/apps/preset_detail.rye) (open-image) · [`../brushstroke/skate_grid.rye`](../brushstroke/skate_grid.rye) · [`../brushstroke/preset_preview.rye`](../brushstroke/preset_preview.rye) (open-image)
 
 ## Where the road stands

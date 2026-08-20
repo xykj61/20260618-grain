@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's auto-pan: the same LFO swept across the stereo field
 
 **Stamp:** `20260814.202856` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the modulation family's rung on the stereo field, the one both lotus-audio and lotus-audio named as next)
+**Status:** Vision -- Design read — self-approved round (no custody gate; the modulation family's rung on the stereo field, the one both lotus-audio and lotus-audio named as next)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/pan.rye`](../lotus/pan.rye) (lotus-audio — the linear pan and the `StereoClip` this sweeps in time) · [`../lotus/tremolo.rye`](../lotus/tremolo.rye) (lotus-audio — the triangle LFO read as an attenuation, the same discipline here) · [`../lotus/chorus.rye`](../lotus/chorus.rye) (lotus-audio — the triangle-LFO driver `triangle_delay_at`, now the pan position) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip, sample_min/max, the one true saturate)
 

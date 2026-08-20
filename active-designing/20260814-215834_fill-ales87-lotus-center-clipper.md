@@ -1,7 +1,7 @@
 # Fill lotus-audio — Lotus's center clipper: silence the quiet middle, pass the loud, the static-curve sibling of the noise gate
 
 **Stamp:** `20260814.215834` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
-**Status:** Design read — self-approved round (no custody gate; the DRIVE family's opener names its static-curve complement, and the rectifier family just closed leaves the dead-zone as the plainest waveshaper still unbuilt)
+**Status:** Mixed -- Design read — self-approved round (no custody gate; the DRIVE family's opener names its static-curve complement, and the rectifier family just closed leaves the dead-zone as the plainest waveshaper still unbuilt)
 **Chapter:** Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark **lotus-audio** · rung **lotus-audio**
 **Kin:** [`../lotus/drive.rye`](../lotus/drive.rye) (lotus-audio — the hard-clip drive caps the loud at a ceiling `pin(x, ±ceil)`; this rung is its mirror, silencing the quiet below a floor) · [`../lotus/gate.rye`](../lotus/gate.rye) (lotus-audio — the noise gate silences the wave when its *level* falls below a threshold; the center clipper is that decision made *static and per-sample*) · [`../lotus/rectify.rye`](../lotus/rectify.rye) (lotus-audio — the full-wave rectifier, the memoryless-and-exact aesthetic this rung keeps) · [`../lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio — the Clip, sample_min/max)
 

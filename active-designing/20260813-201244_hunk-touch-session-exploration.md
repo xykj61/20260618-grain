@@ -1,6 +1,7 @@
 # open-image — the touch session: finger down · move · up become a live cursor
 
 **Stamp:** `20260813.201244` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
+**Status:** Vision -- a design round that proposes; no witness binds its claims yet.
 **Chapter:** A (Hardware & Right-to-Repair) · **Waymark:** open-image · rung **open-image**
 **Kin:** [`preset_scroll_input.rye`](../pond/apps/preset_scroll_input.rye) (open-image) · [`preset_scroll_drag.rye`](../pond/apps/preset_scroll_drag.rye) (open-image) · [`preset_scroll_fling.rye`](../pond/apps/preset_scroll_fling.rye) (open-image) · [`../.claude/rules/lila-and-the-long-return.md`](../.claude/rules/lila-and-the-long-return.md)
 
