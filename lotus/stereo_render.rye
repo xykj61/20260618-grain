@@ -6,7 +6,7 @@
 //! it only widens the render to the second channel, exactly as the reverb, width, and pan families widened their axes whole.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-132120_fill-ales218-lotus-stereo-render.md
+//! Design read: active-designing/date/20260815/20260815-132120_fill-ales218-lotus-stereo-render.md
 //! Stands on: lotus/render.rye (lotus-audio) — the Step chain and its per-Clip check/apply, reused per channel; lotus/pan.rye
 //! (lotus-audio) — the StereoClip (left/right Clips, the equal-length invariant); lotus/stereo_wav.rye (lotus-audio) — the interleaved
 //! stereo RIFF/WAVE container the two rendered channels encode into.

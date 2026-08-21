@@ -15,7 +15,7 @@
 //! sample is the honest weighted average. The early bank and the late preset are the SAME named room, so one word chooses both.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-113645_fill-ales206-lotus-reverb-early-late.md
+//! Design read: active-designing/date/20260815/20260815-113645_fill-ales206-lotus-reverb-early-late.md
 //! Stands on: lotus/multitap_time.rye (lotus-audio) — the timed multi-tap voicing the early reflections, run over a copy of the dry, its
 //! MultitapTimeError forwarded whole; lotus/reverb_preset.rye (lotus-audio) — the named-room late wash, run over the span unchanged, its
 //! ReverbPresetError forwarded whole; lotus/taps.rye (lotus-audio) — the max_taps bound each early bank stays within; lotus/clock.rye (lotus-audio) — the

@@ -1,7 +1,7 @@
 # tools/ales_duplicate_witness.rish — duplicate: repeat a span in place, growing the clip, the growth-twin of lotus-audio's crop (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-011901_fill-ales112-lotus-duplicate.md
+# Design read: active-designing/date/20260815/20260815-011901_fill-ales112-lotus-duplicate.md
 # Stands on: lotus/timeline.rye (lotus-audio — the Clip, its buf/len/samples, the EditError reused whole, and the cut imported by the selftest to prove the inverse law),
 # lotus/insert_silence.rye (lotus-audio — opens the count-sample gap at the span's end without a caller slice), lotus/meter.rye (lotus-audio — the peak/RMS meter, used only to prove that
 # copying existing samples never moves the peak). lotus-audio's crop KEEPS a span and drops the rest (the clip SHRINKS to the selection); duplicate REPEATS one span in place (the

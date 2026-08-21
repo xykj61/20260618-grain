@@ -21,7 +21,7 @@
 //! THE ATOMICITY / DEGENERATE LAW: any refusal (BadHold, BadRange) leaves BOTH channels byte for byte untouched and still balanced; hold = 1 the identity on both, count = 0 the identity on both.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-035333_fill-ales137-lotus-stereo-decimate.md
+//! Design read: active-designing/date/20260815/20260815-035333_fill-ales137-lotus-stereo-decimate.md
 //! Stands on: lotus/decimate.rye (lotus-audio) — the mono zero-order hold run once per channel; lotus/stereo_crush.rye (lotus-audio) — the resolution-axis twin whose image-breaking this rung reverses; lotus/pan.rye
 //! (lotus-audio) — the StereoClip (two mono Clips, left/right) and its balance invariant; lotus/timeline.rye (lotus-audio) — the Clip, its buf/len/samples, sample_min/max, max_clip.
 //!

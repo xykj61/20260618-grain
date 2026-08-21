@@ -1,7 +1,7 @@
 # tools/hunk_photo_edits_witness.rish — the Photos app edits non-destructively on metal (open-image).
 #
 # Chapter A (Hardware & Right-to-Repair) · waymark open-image · journey Photos app · rung open-image.
-# Design read: active-designing/20260813-155719_hunk-photo-edits-non-destructive-exploration.md
+# Design read: active-designing/date/20260813/20260813-155719_hunk-photo-edits-non-destructive-exploration.md
 # Teacher, thanked clean-room: the non-destructive edit history of iCloud Photos / Google Photos (concept only, siloed).
 #
 # open-image–open-image gave the Photos app six pure verbs; this rung records those verbs as data. `image/photo_edits.rye`

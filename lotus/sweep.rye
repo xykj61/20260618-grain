@@ -9,7 +9,7 @@
 //! endpoints is genuinely time-varying and its block boundaries carry no re-transient (lotus-audio's whole reason for existing).
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260814-163647_fill-ales44-lotus-filter-sweep.md
+//! Design read: active-designing/date/20260814/20260814-163647_fill-ales44-lotus-filter-sweep.md
 //! Stands on: lotus/tone_carry.rye (lotus-audio) and lotus/tone.rye (lotus-audio) — the carried-state low-pass reached through
 //! low_pass_carry, its state threaded across every block; lotus/timeline.rye (lotus-audio) — the Clip it filters.
 //!

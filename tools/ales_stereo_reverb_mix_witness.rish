@@ -1,7 +1,7 @@
 # tools/ales_stereo_reverb_mix_witness.rish — the stereo wet/dry mix: the reverb's most-reached-for knob, HOW MUCH reverb, across a stereo master (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-101449_fill-ales193-lotus-stereo-reverb-wet-dry-mix.md
+# Design read: active-designing/date/20260815/20260815-101449_fill-ales193-lotus-stereo-reverb-wet-dry-mix.md
 # Stands on: lotus/stereo_reverb_preset.rye (lotus-audio — the named-room stereo wet, run over the master unchanged); lotus/reverb_mix.rye (lotus-audio —
 # the mono blend this mirrors per ear); lotus/clock.rye (lotus-audio — the sample clock); lotus/timeline.rye (lotus-audio — the Clip, its max_clip bounding
 # each dry snapshot and its saturate clamping the blend).

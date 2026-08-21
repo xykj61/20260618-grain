@@ -6,7 +6,7 @@
 //! a carried span into the middle of a mix and both new boundaries flow through power rather than stepping.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260814-144834_fill-ales31-lotus-paste-join.md
+//! Design read: active-designing/date/20260814/20260814-144834_fill-ales31-lotus-paste-join.md
 //! Stands on: lotus/clipboard.rye (lotus-audio) — the held stereo span (its own bounded left/right buffers, `held()` the length), read
 //! whole as the span to insert; lotus/stereo_insert_join.rye (lotus-audio) — `insert_join_stereo`, the two-sided stereo insert-join run
 //! whole so both seams of both channels cross equal-power with proven scratch-clip atomicity; lotus/pan.rye (lotus-audio) — the StereoClip.

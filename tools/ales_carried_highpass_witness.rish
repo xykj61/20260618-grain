@@ -1,7 +1,7 @@
 # tools/ales_carried_highpass_witness.rish — a carried-state high-pass: the complement gains a memory too (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260814-164244_fill-ales45-lotus-carried-highpass.md
+# Design read: active-designing/date/20260814/20260814-164244_fill-ales45-lotus-carried-highpass.md
 # Stands on: lotus/tone.rye (lotus-audio, accreted with high_pass_carry) · lotus/tone_carry.rye (lotus-audio Lowpass, accreted with
 # Highpass) · lotus/timeline.rye (lotus-audio — the Clip).
 #

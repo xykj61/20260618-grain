@@ -5,7 +5,7 @@
 //! program plays. Bytes → edited samples → a real .wav. This is where the suite becomes a pipeline.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-131432_fill-ales217-lotus-render.md
+//! Design read: active-designing/date/20260815/20260815-131432_fill-ales217-lotus-render.md
 //! Stands on: lotus/timeline.rye (lotus-audio) — the Clip and `gain`; lotus/fade.rye (lotus-audio-family) — the linear `fade`; lotus/
 //! invert.rye (lotus-audio) — the whole-clip phase `invert`; lotus/wav.rye (lotus-audio) — the canonical mono RIFF/WAVE container the
 //! rendered samples encode into. Every effect is reused verbatim, never re-derived; render adds only the composition and one new

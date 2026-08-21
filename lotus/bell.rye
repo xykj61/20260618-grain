@@ -8,7 +8,7 @@
 //! audio path, only a scale on the band the notch already rejects.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260814-170143_fill-ales48-lotus-parametric-bell.md
+//! Design read: active-designing/date/20260814/20260814-170143_fill-ales48-lotus-parametric-bell.md
 //! Stands on: lotus/tone.rye (lotus-audio) — the low-pass/high-pass edges and precheck; lotus/notch.rye (lotus-audio) — the zero-gain
 //! equality target; lotus/timeline.rye (lotus-audio) — the Clip and the one true saturation; the residual shape follows lotus/stack.rye
 //! (lotus-audio).

@@ -1,7 +1,7 @@
 # tools/ales_stereo_smooth_runs_witness.rish — stereo_smooth_runs: the run-length smoother carried into stereo, two independent hysteresis holds, the smoothing lotus-audio named as a later rung read across both speakers (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-055925_fill-ales153-lotus-stereo-smooth-runs.md
+# Design read: active-designing/date/20260815/20260815-055925_fill-ales153-lotus-stereo-smooth-runs.md
 # Stands on: lotus/smooth_runs.rye (lotus-audio — the mono run-length smoother, run once per channel, its smooth_runs and SmoothError reused whole), lotus/stereo_segment.rye (lotus-audio — the stereo voice-activity segmenter, whose
 # StereoSegments{left, right} this reads and rewrites, the two channels' runs kept apart), lotus/segment.rye (lotus-audio — the mono Segments and max_segments), lotus/voiced.rye (lotus-audio — the Verdict the runs carry). Unlike the
 # silence edits (lotus-audio–152) this meets no desync wall: smooth_runs is read-only over the labels, rewriting a run-length sequence and touching no PCM, so its honest stereo shape is the analysis-corner one lotus-audio/147 took —

@@ -1,7 +1,7 @@
 # tools/ales_reverb_time_witness.rish — the reverb in real time: a Schroeder network named in milliseconds (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-094453_fill-ales188-lotus-reverb-in-real-time.md
+# Design read: active-designing/date/20260815/20260815-094453_fill-ales188-lotus-reverb-in-real-time.md
 # Stands on: lotus/reverb.rye (lotus-audio — the Schroeder network this speaks in real time, delegated unchanged); lotus/clock.rye (lotus-audio —
 # the sample clock, its samples_for converting ms to a bounded sample count); lotus/multitap_time.rye (lotus-audio — the bank-converting twin
 # this mirrors exactly).

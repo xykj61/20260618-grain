@@ -1,7 +1,7 @@
 # tools/ales_zero_cross_witness.rish — the zero-crossing counter: the suite's first analysis rung, reading lotus-audio's flips as a count (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260814-225557_fill-ales93-lotus-zero-crossing-counter.md
+# Design read: active-designing/date/20260814/20260814-225557_fill-ales93-lotus-zero-crossing-counter.md
 # Stands on: lotus/schmitt.rye (lotus-audio — the hysteresis comparator whose flips this counts, composed over its public schmitt_step and precheck) and
 # lotus/timeline.rye (lotus-audio — the Clip, sample_min/max). The read-only analysis shape is meter's (lotus/meter.rye): a struct that accumulates, accessors that
 # report. Every Lotus rung before this one WRITES a clip in place; this one READS a clip and returns a number, changing not one sample.

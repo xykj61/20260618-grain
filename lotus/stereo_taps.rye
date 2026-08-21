@@ -20,7 +20,7 @@
 //! taps to silence on both; left.len == right.len after; a bad tap count, a bad delay, a bad level, and an out-of-range span each refuse by name with BOTH channels byte for byte untouched and still balanced; count = 0 the identity on both.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-090818_fill-ales183-lotus-stereo-multi-tap.md
+//! Design read: active-designing/date/20260815/20260815-090818_fill-ales183-lotus-stereo-multi-tap.md
 //! Stands on: lotus/taps.rye (lotus-audio) — the mono multi-tap run once per channel, its TapError reused whole and its `precheck` (newly factored out) reused for the up-front atomic validation; lotus/pan.rye (lotus-audio) — the StereoClip and its
 //! balance invariant; lotus/timeline.rye (lotus-audio) — the Clip and the one true saturate the mono multi-tap reuses.
 //!

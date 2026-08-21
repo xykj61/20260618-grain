@@ -1,7 +1,7 @@
 # tools/drey_firmware_witness.rish — the whole firmware loop: a committed run carries out to the wire (mikrophone).
 #
 # Chapter A (Hardware & Right-to-Repair) · waymark mikrophone · Mikrophone firmware journey · rung mikrophone.
-# Design read: active-designing/20260814-022312_drey3-firmware-loop-carry-committed-run-to-the-wire-exploration.md
+# Design read: active-designing/date/20260814/20260814-022312_drey3-firmware-loop-carry-committed-run-to-the-wire-exploration.md
 # Stands on: mikrophone/session.rye (mikrophone), mikrophone/wire.rye (mikrophone), mikrophone/recorder.rye (mikrophone).
 #
 # mikrophone/firmware.rye composes the three proven rungs into one loop: press record, keep on purpose, set the device

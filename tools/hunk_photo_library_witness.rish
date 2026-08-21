@@ -1,7 +1,7 @@
 # tools/hunk_photo_library_witness.rish — the Photos library, the app's home screen over the store, on metal (open-image).
 #
 # Chapter A (Hardware & Right-to-Repair) · waymark open-image · journey Photos app · rung open-image.
-# Design read: active-designing/20260813-222956_hunk-filter-picker-exploration.md ("The road on from here").
+# Design read: active-designing/date/20260813/20260813-222956_hunk-filter-picker-exploration.md ("The road on from here").
 # Teacher, thanked clean-room: the photo-library grid of iCloud Photos / Google Photos — a wall of thumbnails you
 # scroll and tap to open (concept only, siloed).
 #

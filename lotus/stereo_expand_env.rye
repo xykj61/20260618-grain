@@ -22,7 +22,7 @@
 //! each of the four refusals leaving both channels untouched and balanced, count = 0 the identity on both.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-070944_fill-ales164-lotus-stereo-expand-env.md
+//! Design read: active-designing/date/20260815/20260815-070944_fill-ales164-lotus-stereo-expand-env.md
 //! Stands on: lotus/stereo_envelope.rye (lotus-audio) — the LINKED envelope, its stereo_env_step advancing the one shared detector toward the linked peak, reused whole; lotus/stereo_expand.rye (lotus-audio) — the LINKED widening this
 //! drives over time, its instantaneous form the unit-coefficient limit re-proven beside it; lotus/expand_env.rye (lotus-audio) — the mono attack/release expander, its ExpandEnvError reused whole and its output the left-always-peak
 //! comparison; lotus/expand.rye (lotus-audio) — the deepened floor exp = max(0, threshold − deficit·num/den); lotus/pan.rye (lotus-audio) — the StereoClip; lotus/timeline.rye (lotus-audio) — the Clip, sample_max.

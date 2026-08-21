@@ -2,7 +2,7 @@
 # atomically, verify-before-trust (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-131432_fill-ales217-lotus-render.md
+# Design read: active-designing/date/20260815/20260815-131432_fill-ales217-lotus-render.md
 # Idiom kin: lotus/timeline.rye (lotus-audio, the Clip and gain) · lotus/fade.rye · lotus/invert.rye (lotus-audio) · lotus/wav.rye
 # (lotus-audio, the container). This rung joins the edit half and the container half into one pipeline endpoint: bytes → an
 # ordered chain of the tree's own proven effects → the open .wav another program plays.

@@ -1,7 +1,7 @@
 # tools/ales_stereo_drive_witness.rish — stereo_drive: the hard-clip drive carried into stereo with ONE SHARED MAP, both channels in lockstep, opening the stereo NONLINEAR class (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-032122_fill-ales132-lotus-stereo-drive.md
+# Design read: active-designing/date/20260815/20260815-032122_fill-ales132-lotus-stereo-drive.md
 # Stands on: lotus/drive.rye (lotus-audio — the mono hard-clip drive run once per channel, itself lotus-audio's i64 gain into lotus-audio's ceiling law), lotus/pan.rye (lotus-audio — the StereoClip, two mono Clips left/right,
 # and its balance invariant), lotus/timeline.rye (lotus-audio — the Clip, its buf/len/samples, sample_min/max). A Lotus master is a StereoClip whose defining invariant is that left and right hold the same
 # length. This rung opens the stereo nonlinear class on lotus-audio's hard-clip drive — the DRIVE family's root, a pre-gain into a ceiling where the clipped flat top is the harmonic voice. It states the

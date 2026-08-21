@@ -1,7 +1,7 @@
 //! pond/apps/sprite_store.rye — open-image: the marketplace sprite sheet is a content-addressed Tablecloth artifact.
 //!
 //! Chapter A (Hardware & Right-to-Repair) · waymark open-image · Open Image journey · rung open-image (sprite quest).
-//! Design read: active-designing/20260813-201500_hunk-sprite-marketplace-index-exploration.md
+//! Design read: active-designing/date/20260813/20260813-201500_hunk-sprite-marketplace-index-exploration.md
 //! Teacher, thanked clean-room: McMaster-Carr's one-sprite-sheet render trick (concept only, siloed).
 //!
 //! open-image made each product a bounded window into one decoded sheet; open-image painted a product's window as a

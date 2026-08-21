@@ -2,7 +2,7 @@
 # (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260814-222356_fill-ales90-lotus-dc-offset-remover.md
+# Design read: active-designing/date/20260814/20260814-222356_fill-ales90-lotus-dc-offset-remover.md
 # Stands on: lotus/timeline.rye (lotus-audio — the Clip, sample_min/max, the one true saturate) and lotus/rectify.rye (lotus-audio — the full-wave rectifier whose
 # introduced DC offset this rung undoes, the composition proof). The DRIVE family's even-harmonic generators (the rectifiers lotus-audio/85/86, the asymmetric
 # tube drive lotus-audio, the 1-bit crush lotus-audio) each shift the signal's mean off zero; nothing yet took that offset back out — this rung does.

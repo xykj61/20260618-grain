@@ -1,7 +1,7 @@
 # tools/ales_stereo_bell_witness.rish — stereo_bell: the parametric bell (peaking EQ) carried into stereo, the same two cutoffs and one gain on both channels — the fifth rung of the stereo EQ / filter class (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-080752_fill-ales174-lotus-stereo-bell.md
+# Design read: active-designing/date/20260815/20260815-080752_fill-ales174-lotus-stereo-bell.md
 # Stands on: lotus/bell.rye (lotus-audio — the mono parametric bell run once per channel, its BellError reused whole), lotus/notch.rye (lotus-audio — the zero-gain equality target, carried into stereo at lotus-audio), lotus/tone.rye (lotus-audio —
 # the low-pass/high-pass edges and the precheck sharing one validation), lotus/pan.rye (lotus-audio — the StereoClip), lotus/timeline.rye (lotus-audio — the Clip and the one true saturate the bell's sum reuses).
 #

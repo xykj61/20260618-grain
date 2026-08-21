@@ -1,7 +1,7 @@
 # tools/ales_drive_witness.rish — the hard-clip drive: a pre-gain into lotus-audio's ceiling, opening the DRIVE family (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260814-204949_fill-ales78-lotus-hard-clip-drive.md
+# Design read: active-designing/date/20260814/20260814-204949_fill-ales78-lotus-hard-clip-drive.md
 # Stands on: lotus/limit.rye (lotus-audio — the ceiling law `pin to sign(x)·ceil`, reused over the BOOSTED sample rather than the dry one);
 # lotus/fader.rye (lotus-audio/lotus-audio — the num/den gain in the i64 accumulator, the drive's pre-gain); lotus/tremolo.rye (lotus-audio — the amplitude kin
 # whose unity boundary this rung reads in reverse); lotus/timeline.rye (lotus-audio — the Clip, sample_min/max, the one true saturate).

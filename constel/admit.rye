@@ -15,7 +15,7 @@
 //! learner, and the joint ballot's own two-majority rule carries the constels-naming intersection lemma across the switch unchanged.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — the tree's own consensus) · waymark constels-naming · rung
-//! constels-naming. Design read: active-designing/20260814-074656_fora26-constel-admit-learner-promotion.md
+//! constels-naming. Design read: active-designing/date/20260814/20260814-074656_fora26-constel-admit-learner-promotion.md
 //! Stands on: constel/learner.rye (constels-naming) — require_caught_up, the bounded-lag gate; constel/reconfig.rye (constels-naming) — config_of,
 //! JointConfig, JointBallot, require_joint, the no-fork joint switch; constel/roster.rye (constels-naming) — max_piers, the membership bound.
 //!

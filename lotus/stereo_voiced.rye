@@ -28,7 +28,7 @@
 //! span reads voiced).
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-045940_fill-ales146-lotus-stereo-voiced.md
+//! Design read: active-designing/date/20260815/20260815-045940_fill-ales146-lotus-stereo-voiced.md
 //! Stands on: lotus/voiced.rye (lotus-audio) — the mono voiced/unvoiced/silent classifier run once per channel, its `classify`, its `Verdict`, and its `ClassifyError`, all reused whole; lotus/schmitt.rye (lotus-audio) — the band's
 //! own `precheck` (so the band-and-span law and named errors are the classifier's own); lotus/meter.rye (lotus-audio) — `sample_peak_max`, the floor ceiling; lotus/stereo_zero_cross.rye (lotus-audio) — the stereo analysis shape this
 //! mirrors (one shared setting, per-channel independence); lotus/pan.rye (lotus-audio) — the StereoClip (two mono Clips, left/right) and its balance invariant; lotus/timeline.rye (lotus-audio) — the Clip, its buf/len/samples.

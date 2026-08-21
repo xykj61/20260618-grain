@@ -1,7 +1,7 @@
 # tools/ales_stereo_replace_witness.rish — stereo_replace: the general span-edit carried into stereo, both channels in lockstep, validate-both-before-either (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-014739_fill-ales116-lotus-stereo-replace.md
+# Design read: active-designing/date/20260815/20260815-014739_fill-ales116-lotus-stereo-replace.md
 # Stands on: lotus/replace.rye (lotus-audio — the mono general span-edit run once per channel), lotus/pan.rye (lotus-audio — the StereoClip, two mono Clips left/right, and its balance
 # invariant), lotus/timeline.rye (lotus-audio — the Clip and the EditError reused whole), lotus/meter.rye (lotus-audio — the peak/RMS meter). A Lotus master is a StereoClip whose defining
 # invariant is that left and right hold the same length so the channels stay aligned in time; a keeper who pastes a corrected take over a selection pastes it into both channels at

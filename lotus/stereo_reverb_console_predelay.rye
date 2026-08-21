@@ -15,7 +15,7 @@
 //! image the preset held is held through the blend as well.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-103451_fill-ales197-lotus-stereo-console-predelay.md
+//! Design read: active-designing/date/20260815/20260815-103451_fill-ales197-lotus-stereo-console-predelay.md
 //! Stands on: lotus/stereo_reverb_predelay.rye (lotus-audio) — the wet-domain stereo pre-delay whose StereoReverbPredelayError this forwards whole and
 //! whose full-wet edge this equals; lotus/stereo_reverb_mix.rye (lotus-audio) — the per-channel wet/dry blend this reuses and whose no-gap edge this
 //! equals; lotus/stereo_reverb_preset.rye (lotus-audio) — the named-room stereo wet, run over the master unchanged; lotus/pan.rye (lotus-audio) — the

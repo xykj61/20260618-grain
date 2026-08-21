@@ -1,7 +1,7 @@
 # tools/ales_reverb_gate_witness.rish — the gate: the reverb's GATED TAIL, the classic gated-reverb sound (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-105453_fill-ales200-lotus-reverb-gate.md
+# Design read: active-designing/date/20260815/20260815-105453_fill-ales200-lotus-reverb-gate.md
 # Stands on: lotus/reverb_preset.rye (lotus-audio — the named-room wet, run over the span unchanged); lotus/gate.rye (lotus-audio — the downward gate and its
 # guards, the gating applied to the wet span); lotus/clock.rye (lotus-audio — the sample clock, converting the span); lotus/timeline.rye (lotus-audio — the Clip,
 # its max_clip bounding the span and its sample_max the gate's rail).

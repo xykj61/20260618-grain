@@ -1,7 +1,7 @@
 # tools/ales_stereo_gate_witness.rish — stereo_gate: the noise gate carried into stereo, one LINKED DETECTOR, the image the gate refuses to tear (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-061957_fill-ales156-lotus-stereo-gate.md
+# Design read: active-designing/date/20260815/20260815-061957_fill-ales156-lotus-stereo-gate.md
 # Stands on: lotus/gate.rye (lotus-audio — the mono noise gate, its gate and GateError reused whole for the below-both proof and the fault set), lotus/pan.rye (lotus-audio — the StereoClip and its balance invariant),
 # lotus/normalize.rye (lotus-audio) / lotus/stereo_normalize.rye (lotus-audio — the amplitude-class linked lift this rung answers for the dynamics class), lotus/timeline.rye (lotus-audio — the Clip, sample_max, and the range-law shape).
 #

@@ -1,7 +1,7 @@
 # tools/ales_stereo_allpass_witness.rish — the allpass filter carried into stereo: Schroeder's diffusion stage on both channels (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-091646_fill-ales184-lotus-allpass.md (lotus-audio's read; this is its stereo carry).
+# Design read: active-designing/date/20260815/20260815-091646_fill-ales184-lotus-allpass.md (lotus-audio's read; this is its stereo carry).
 # Stands on: lotus/allpass.rye (lotus-audio — the mono allpass run once per channel, its AllpassError and precheck reused); lotus/pan.rye
 # (lotus-audio — the StereoClip and its balance invariant); lotus/timeline.rye (lotus-audio — the Clip and the one true saturate the mono allpass reuses).
 #

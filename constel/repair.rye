@@ -20,7 +20,7 @@
 //! (append-only holds for it); only the divergent tail — which by constels-naming could never have committed — is discarded.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — the tree's own consensus) · waymark constels-naming · rung
-//! constels-naming. Design read: active-designing/20260814-083500_fora17-constel-log-repair-matching.md
+//! constels-naming. Design read: active-designing/date/20260814/20260814-083500_fora17-constel-log-repair-matching.md
 //! Stands on: constel/term.rye (constels-naming) — terms, and run_termed_decree for the real-sky leader; constel/log.rye (constels-naming) — the
 //! append-only order and max_entries bound; constel/switchboard.rye (constels-naming) — the medium the real-sky scenario uses.
 //!

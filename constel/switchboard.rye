@@ -6,7 +6,7 @@
 //! exactly one of them, and a stranger's name refuses before a byte moves.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter D/F thread · waymark constels-naming · Constel test-network naming · rung constels-naming.
-//! Design read: active-designing/20260814-045802_fora6-constel-switchboard-multi-pier.md
+//! Design read: active-designing/date/20260814/20260814-045802_fora6-constel-switchboard-multi-pier.md
 //! Stands on: constel/roster.rye (constels-naming) — membership; constel/channel.rye (constels-naming) — each pier's mailbox; constel/exchange.rye
 //! (constels-naming) — the handshake the switchboard carries.
 //!

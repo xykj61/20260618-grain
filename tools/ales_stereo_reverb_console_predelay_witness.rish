@@ -1,7 +1,7 @@
 # tools/ales_stereo_reverb_console_predelay_witness.rish — the stereo console pre-delay: the dry-composed pre-delay against the dry, across a stereo master (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-103451_fill-ales197-lotus-stereo-console-predelay.md
+# Design read: active-designing/date/20260815/20260815-103451_fill-ales197-lotus-stereo-console-predelay.md
 # Stands on: lotus/stereo_reverb_predelay.rye (lotus-audio — the wet-domain stereo pre-delay whose faults this forwards and whose full-wet edge this
 # equals); lotus/stereo_reverb_mix.rye (lotus-audio — the per-channel wet/dry blend this reuses and whose no-gap edge this equals);
 # lotus/stereo_reverb_preset.rye (lotus-audio — the named-room stereo wet); lotus/clock.rye (lotus-audio — the sample clock); lotus/timeline.rye (lotus-audio — the

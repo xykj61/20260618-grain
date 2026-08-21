@@ -20,7 +20,7 @@
 //! not the dry identity — the allpass with no diffusion is a delay line, the honest thing it becomes.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-091646_fill-ales184-lotus-allpass.md
+//! Design read: active-designing/date/20260815/20260815-091646_fill-ales184-lotus-allpass.md
 //! Stands on: lotus/echo.rye (lotus-audio) — the delayed-OUTPUT in-place read reused; lotus/taps.rye (lotus-audio) — the delayed-INPUT dry-snapshot
 //! read reused; lotus/timeline.rye (lotus-audio) — the Clip, sample_max, max_clip, and the one true saturate; lotus/mix.rye (lotus-audio) — the same
 //! saturate for a constructive sum.

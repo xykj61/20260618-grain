@@ -18,7 +18,7 @@
 //! step needs.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260814-205812_fill-ales79-lotus-soft-clip-overdrive.md
+//! Design read: active-designing/date/20260814/20260814-205812_fill-ales79-lotus-soft-clip-overdrive.md
 //! Stands on: lotus/drive.rye (lotus-audio) — the pre-gain and the ceiling pin, reused with a knee opened below the ceiling; lotus/fader.rye (lotus-audio)
 //! — the num/den gain in i64; lotus/limit.rye (lotus-audio) — the ceiling law the shoulder's top reuses; lotus/timeline.rye (lotus-audio) — the Clip,
 //! sample_min/max, the one true saturate.

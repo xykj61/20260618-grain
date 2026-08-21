@@ -22,7 +22,7 @@
 //! with feedback, and it wants a carried-state design and a stability bound of its own (the lotus-audio shape) — a later, named rung.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260814-222356_fill-ales90-lotus-dc-offset-remover.md
+//! Design read: active-designing/date/20260814/20260814-222356_fill-ales90-lotus-dc-offset-remover.md
 //! Stands on: lotus/timeline.rye (lotus-audio) — the Clip, sample_min/max, and the one true saturate; lotus/rectify.rye (lotus-audio) — the full-wave rectifier whose
 //! introduced DC offset this rung undoes (the composition proof).
 //!

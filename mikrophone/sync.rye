@@ -6,7 +6,7 @@
 //! pull, proven pure before a single wire is strung.
 //!
 //! Chapter A (Hardware & Right-to-Repair) · waymark mikrophone · Mikrophone firmware journey · rung mikrophone.
-//! Design read: active-designing/20260814-071500_drey12-desk-sync-pull-loop-exploration.md
+//! Design read: active-designing/date/20260814/20260814-071500_drey12-desk-sync-pull-loop-exploration.md
 //! Stands on: mikrophone/manifest.rye (mikrophone) — the have-advertisement and the have/want primitive; mikrophone/serve.rye
 //! (mikrophone) — the want-response; mikrophone/catalog.rye (mikrophone) — the content-addressed desk deposit and holds.
 //!

@@ -23,7 +23,7 @@
 //! the identity on both.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-072211_fill-ales166-lotus-stereo-compress-env-hold.md
+//! Design read: active-designing/date/20260815/20260815-072211_fill-ales166-lotus-stereo-compress-env-hold.md
 //! Stands on: lotus/stereo_hold_env.rye (lotus-audio) — the LINKED HELD follower, its stereo_env_step_hold advancing the one shared envelope with the one shared hold countdown toward the linked peak, reused whole;
 //! lotus/stereo_compress_env.rye (lotus-audio) — the un-held linked breathing compressor this reduces to at a hold of zero, re-proven beside it as the zero-hold limit; lotus/compress_env_hold.rye (lotus-audio) — the mono
 //! attack/hold/release compressor, its CompressEnvHoldError reused whole and its output the left-always-peak comparison; lotus/compress.rye (lotus-audio) — the softened ceiling comp = threshold + excess·den/num; lotus/pan.rye

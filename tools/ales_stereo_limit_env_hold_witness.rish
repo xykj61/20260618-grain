@@ -1,7 +1,7 @@
 # tools/ales_stereo_limit_env_hold_witness.rish — stereo_limit_env_hold: the attack/hold/release brickwall limiter carried into stereo, the linked held envelope driving one linked ceiling over time (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-073957_fill-ales169-lotus-stereo-limit-env-hold.md
+# Design read: active-designing/date/20260815/20260815-073957_fill-ales169-lotus-stereo-limit-env-hold.md
 # Stands on: lotus/stereo_hold_env.rye (lotus-audio — the linked held follower, its stereo_env_step_hold reused whole), lotus/stereo_limit_env.rye (lotus-audio — the un-held linked limiter this reduces to at a hold of zero),
 # lotus/limit_env_hold.rye (lotus-audio — the mono attack/hold/release limiter, its LimitEnvHoldError reused whole and its output the left-always-peak comparison), lotus/limit.rye (lotus-audio — the ceiling), lotus/pan.rye
 # (lotus-audio — the StereoClip), lotus/timeline.rye (lotus-audio — the Clip, sample_max, max_clip).

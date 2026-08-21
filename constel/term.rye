@@ -15,7 +15,7 @@
 //! threshold — so it can never commit. The old leader is not forbidden by fiat; it is OUT-VOTED by construction.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — the tree's own consensus) · waymark constels-naming · rung
-//! constels-naming. Design read: active-designing/20260814-083300_fora16-constel-terms-stale-leader.md
+//! constels-naming. Design read: active-designing/date/20260814/20260814-083300_fora16-constel-terms-stale-leader.md
 //! Stands on: constel/decree.rye (constels-naming) — the Decree a term guards; constel/quorum.rye (constels-naming) — majority_of, the intersection
 //! lemma the safety spends; constel/census.rye (constels-naming) — announce/respond/hear collect accepts at the border; constel/
 //! switchboard.rye (constels-naming) — the medium; constel/roster.rye (constels-naming) — the bound.

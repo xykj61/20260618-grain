@@ -1,7 +1,7 @@
 # tools/ales_split_silence_witness.rish — the silence splitter: segment the clip through lotus-audio, then cut AT the silence, keeping each non-silent region as its own take (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260814-232954_fill-ales97-lotus-silence-splitter.md
+# Design read: active-designing/date/20260814/20260814-232954_fill-ales97-lotus-silence-splitter.md
 # Stands on: lotus/segment.rye (lotus-audio — the voice-activity segmenter), lotus/trim_silence.rye (lotus-audio — the silence stripper, the join-law twin), lotus/timeline.rye
 # (lotus-audio — the Clip and splice), lotus/voiced.rye (lotus-audio — the .silent verdict). lotus-audio's own scope note named three tools its loop enables — every voice-activity
 # gate, every silence trimmer, every AUTO-SPLITTER. lotus-audio built the trimmer; this is the auto-splitter, the twin gesture in every recorder, sampler, and podcast tool.

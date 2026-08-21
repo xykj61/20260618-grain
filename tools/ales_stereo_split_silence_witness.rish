@@ -1,7 +1,7 @@
 # tools/ales_stereo_split_silence_witness.rish — stereo_split_silence: the auto-splitter carried into stereo, one cut line for both channels, the stereo twin of the silence stripper (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-052853_fill-ales149-lotus-stereo-split-silence.md
+# Design read: active-designing/date/20260815/20260815-052853_fill-ales149-lotus-stereo-split-silence.md
 # Stands on: lotus/stereo_segment.rye (lotus-audio — the stereo voice-activity segmenter, run once to read BOTH channels' silences over one shared frame grid, its segment_stereo, its StereoSegments, its StereoSegmentError, reused
 # whole), lotus/segment.rye (lotus-audio — the mono segmenter and max_segments, through lotus-audio), lotus/stereo_trim_silence.rye (lotus-audio — the stereo silence stripper, the join-law twin, imported by the selftest), lotus/split_silence.rye
 # (lotus-audio — the mono auto-splitter, the shape carried up), lotus/pan.rye (lotus-audio — the StereoClip, two mono Clips left/right, its balance invariant), lotus/timeline.rye (lotus-audio — the Clip, its splice, its max_clip, the EditError reused

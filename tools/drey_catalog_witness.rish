@@ -1,7 +1,7 @@
 # tools/drey_catalog_witness.rish — the content-addressed desk catalog: recordings keyed by content (mikrophone).
 #
 # Chapter A (Hardware & Right-to-Repair) · waymark mikrophone · Mikrophone firmware journey · rung mikrophone.
-# Design read: active-designing/20260814-064900_drey7-content-addressed-desk-catalog-exploration.md
+# Design read: active-designing/date/20260814/20260814-064900_drey7-content-addressed-desk-catalog-exploration.md
 # Stands on: mikrophone/wire.rye (mikrophone) — deframe proves a payload whole before a byte is yielded; the wire's own
 # Sha256 is the content address this catalog keys by.
 #

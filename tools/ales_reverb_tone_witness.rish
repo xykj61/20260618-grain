@@ -1,7 +1,7 @@
 # tools/ales_reverb_tone_witness.rish — the tone: the reverb's DARKNESS knob, the high-cut on the reverberant tail (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-104206_fill-ales198-lotus-reverb-tone.md
+# Design read: active-designing/date/20260815/20260815-104206_fill-ales198-lotus-reverb-tone.md
 # Stands on: lotus/reverb_preset.rye (lotus-audio — the named-room wet, run over the span unchanged); lotus/tone.rye (lotus-audio — the one-pole low-pass and
 # its precheck, the darkening applied to the wet span); lotus/clock.rye (lotus-audio — the sample clock, converting the span); lotus/timeline.rye (lotus-audio —
 # the Clip, its max_clip bounding the span).

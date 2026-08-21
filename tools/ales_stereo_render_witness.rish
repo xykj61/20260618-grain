@@ -2,7 +2,7 @@
 # canonical interleaved stereo RIFF/WAVE .wav, atomically, verify-before-trust (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-132120_fill-ales218-lotus-stereo-render.md
+# Design read: active-designing/date/20260815/20260815-132120_fill-ales218-lotus-stereo-render.md
 # Idiom kin: lotus/render.rye (lotus-audio, the Step chain and its per-Clip check/apply, reused per channel) · lotus/pan.rye
 # (lotus-audio, the StereoClip) · lotus/stereo_wav.rye (lotus-audio, the interleaved container). The mono→stereo twin of lotus-audio: it
 # invents no new effect and no new check, it only widens the render to the second channel.

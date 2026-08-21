@@ -1,7 +1,7 @@
 //! brushstroke/filter_strip_tap.rye — open-image: tap the filter strip — a finger lands on a thumbnail, that filter is chosen.
 //!
 //! Chapter A (Hardware & Right-to-Repair) · waymark open-image · Photos-app journey · rung open-image.
-//! Design read: active-designing/20260813-222956_hunk-filter-picker-exploration.md ("The road on from here")
+//! Design read: active-designing/date/20260813/20260813-222956_hunk-filter-picker-exploration.md ("The road on from here")
 //! Teacher, thanked clean-room: the tappable filter row of a photo app (iCloud Photos / Instagram / VSCO) — a keeper
 //! taps the thumbnail they want and the app selects that filter (concept only, siloed).
 //!

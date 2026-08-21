@@ -14,7 +14,7 @@
 //! never drift from lotus-audio and lotus-audio from the two readers it fuses. The tower of readers now ACTS on the clip while staying provably its predecessor read a new way.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260814-232010_fill-ales96-lotus-silence-stripper.md
+//! Design read: active-designing/date/20260814/20260814-232010_fill-ales96-lotus-silence-stripper.md
 //! Stands on: lotus/segment.rye (lotus-audio) — the voice-activity segmenter, reused by name so the trimmer removes exactly the runs the segmenter named; lotus/
 //! timeline.rye (lotus-audio) — the Clip and cut; lotus/voiced.rye (lotus-audio) — the .silent verdict; lotus/schmitt.rye (lotus-audio) — the band-and-span precheck through lotus-audio.
 //!

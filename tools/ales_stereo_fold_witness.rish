@@ -1,7 +1,7 @@
 # tools/ales_stereo_fold_witness.rish — stereo_fold: the wavefolder carried into stereo with ONE SHARED TRIANGLE, both channels in lockstep, the reflecting corner of the stereo NONLINEAR class (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-033358_fill-ales134-lotus-stereo-fold.md
+# Design read: active-designing/date/20260815/20260815-033358_fill-ales134-lotus-stereo-fold.md
 # Stands on: lotus/fold.rye (lotus-audio — the mono wavefolder run once per channel, itself lotus-audio's pre-gain reflected off lotus-audio's ceiling), lotus/stereo_drive.rye (lotus-audio — the hard-drive sibling this
 # mirrors), lotus/pan.rye (lotus-audio — the StereoClip, two mono Clips left/right, and its balance invariant), lotus/timeline.rye (lotus-audio — the Clip, its buf/len/samples, sample_min/max). A Lotus master is a
 # StereoClip whose defining invariant is that left and right hold the same length. This rung carries lotus-audio's fold into stereo — a boosted sample below the ceiling passes clean, the excess above reflects

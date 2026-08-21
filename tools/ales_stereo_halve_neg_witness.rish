@@ -2,7 +2,7 @@
 # stereo (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-041250_fill-ales140-lotus-stereo-inverted-half-wave.md
+# Design read: active-designing/date/20260815/20260815-041250_fill-ales140-lotus-stereo-inverted-half-wave.md
 # Stands on: lotus/halve_neg.rye (lotus-audio — the mono inverted half-wave rectifier run once per channel, min(x, 0) with no rail edge), lotus/stereo_halve.rye (lotus-audio — the positive half-wave sibling this rung mirrors,
 # the two summing to the dry master), lotus/pan.rye (lotus-audio — the StereoClip, two mono Clips left/right, and its balance invariant), lotus/timeline.rye (lotus-audio — the Clip, its buf/len/samples, sample_min/max). A Lotus
 # master is a StereoClip whose defining invariant is that left and right hold the same length. This rung carries lotus-audio's inverted half-wave rectifier into stereo — keeping the negative half of the wave whole and

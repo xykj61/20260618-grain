@@ -14,7 +14,7 @@
 //! ear darkens right with the same coefficient, so the stereo image the preset held is held through the darkening.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-104900_fill-ales199-lotus-stereo-reverb-tone.md
+//! Design read: active-designing/date/20260815/20260815-104900_fill-ales199-lotus-stereo-reverb-tone.md
 //! Stands on: lotus/stereo_reverb_preset.rye (lotus-audio) — the named-room stereo wet, run over the master unchanged, its StereoReverbPresetError
 //! forwarded whole; lotus/tone.rye (lotus-audio) — the one-pole low-pass and its precheck, run per channel (its BadCoeff renamed BadTone); lotus/pan.rye
 //! (lotus-audio) — the StereoClip, its two balanced channels; lotus/clock.rye (lotus-audio) — the sample clock, its samples_for converting the span (the SAME

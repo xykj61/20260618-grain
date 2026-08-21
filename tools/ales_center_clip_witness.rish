@@ -1,7 +1,7 @@
 # tools/ales_center_clip_witness.rish — the center clipper: silence the quiet middle, pass the loud, y = if |x| ≤ t then 0 else x (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260814-215834_fill-ales87-lotus-center-clipper.md
+# Design read: active-designing/date/20260814/20260814-215834_fill-ales87-lotus-center-clipper.md
 # Stands on: lotus/timeline.rye (lotus-audio — the Clip, sample_min/max). The hard-clip drive (lotus-audio) caps the LOUD extremes at a ceiling; this rung is its
 # mirror — it silences the QUIET middle below a floor. One caps the top, the other hollows the middle; run together they keep only the band t < |x| ≤ ceil.
 # A keeper who wants only the band between the noise floor and the ceiling runs this center_clip and lotus-audio's drive over the same span.

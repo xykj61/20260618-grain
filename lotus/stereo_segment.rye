@@ -27,7 +27,7 @@
 //! both run lists left as they were and the clip untouched; a uniform channel is one run on both.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-050741_fill-ales147-lotus-stereo-segment.md
+//! Design read: active-designing/date/20260815/20260815-050741_fill-ales147-lotus-stereo-segment.md
 //! Stands on: lotus/segment.rye (lotus-audio) — the mono voice-activity segmenter run once per channel, its `segment`, its `Segments` run list, its `Segment` run, and its `SegmentError`, all reused whole; lotus/voiced.rye (lotus-audio)
 //! — the per-frame classifier the segmenter sequences (through lotus-audio); lotus/schmitt.rye (lotus-audio) — the band's own `precheck`; lotus/meter.rye (lotus-audio) — `sample_peak_max`, the floor ceiling; lotus/stereo_voiced.rye (lotus-audio)
 //! — the stereo analysis shape this mirrors (one shared setting, per-channel independence); lotus/pan.rye (lotus-audio) — the StereoClip (two mono Clips, left/right) and its balance invariant; lotus/timeline.rye (lotus-audio) — the Clip.

@@ -18,7 +18,7 @@
 //! and balanced, count = 0 the identity on both.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-063222_fill-ales158-lotus-stereo-limit.md
+//! Design read: active-designing/date/20260815/20260815-063222_fill-ales158-lotus-stereo-limit.md
 //! Stands on: lotus/limit.rye (lotus-audio) — the mono brickwall limiter, its `limit` and `LimitError` reused whole (the peak-channel proof and the fault set); lotus/stereo_compress.rye (lotus-audio) — the linked-gain sibling
 //! whose ratio→∞ corner this rung is; lotus/stereo_gate.rye (lotus-audio) — the rung that opened the stereo dynamics family with the linked detector; lotus/pan.rye (lotus-audio) — the StereoClip and its balance invariant;
 //! lotus/timeline.rye (lotus-audio) — the Clip, its buf/len/samples, and sample_max.

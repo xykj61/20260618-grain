@@ -1,7 +1,7 @@
 # tools/ales_stereo_zero_cross_witness.rish — stereo_zero_cross: the zero-crossing counter carried into stereo with ONE SHARED BAND and TWO INDEPENDENT COUNTERS, the suite's first stereo analysis rung over the hysteresis comparator (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-044940_fill-ales145-lotus-stereo-zero-cross.md
+# Design read: active-designing/date/20260815/20260815-044940_fill-ales145-lotus-stereo-zero-cross.md
 # Stands on: lotus/zero_cross.rye (lotus-audio — the mono zero-crossing counter run once per channel, its from-silence count_crossings, its carried ZeroCounter, its ZeroCrossError, all reused whole), lotus/schmitt.rye (lotus-audio —
 # the hysteresis comparator whose flips these count through lotus-audio, and its precheck band-and-span law), lotus/stereo_meter.rye (lotus-audio — the stereo analysis shape this mirrors, two mono readers with per-channel accessors),
 # lotus/pan.rye (lotus-audio — the StereoClip, two mono Clips left/right, and its balance invariant), lotus/timeline.rye (lotus-audio — the Clip, its buf/len/samples). A Lotus master is a StereoClip whose defining invariant is that

@@ -1,7 +1,7 @@
 # tools/ales_stereo_paste_over_witness.rish — stereo_paste_over: the overwrite paste carried into stereo, both channels in lockstep, validate-both-before-either (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-021504_fill-ales121-lotus-stereo-paste-over.md
+# Design read: active-designing/date/20260815/20260815-021504_fill-ales121-lotus-stereo-paste-over.md
 # Stands on: lotus/paste_over.rye (lotus-audio — the mono overwrite paste run once per channel), lotus/pan.rye (lotus-audio — the StereoClip, two mono Clips left/right, and its balance invariant),
 # lotus/stereo_replace.rye (lotus-audio — the insert-mode stereo paste used to prove the insert-contrast law), lotus/timeline.rye (lotus-audio — the Clip, its max_clip bound, and the EditError
 # reused whole), lotus/meter.rye (lotus-audio — the peak/RMS meter). A Lotus master is a StereoClip whose defining invariant is that left and right hold the same length so the channels stay

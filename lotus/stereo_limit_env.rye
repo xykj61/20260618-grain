@@ -21,7 +21,7 @@
 //! balanced, count = 0 the identity on both.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-070439_fill-ales163-lotus-stereo-limit-env.md
+//! Design read: active-designing/date/20260815/20260815-070439_fill-ales163-lotus-stereo-limit-env.md
 //! Stands on: lotus/stereo_envelope.rye (lotus-audio) — the LINKED envelope, its stereo_env_step advancing the one shared detector toward the linked peak, reused whole; lotus/stereo_limit.rye (lotus-audio) — the LINKED ceiling this
 //! drives over time, its instantaneous form the unit-coefficient limit re-proven beside it; lotus/limit_env.rye (lotus-audio) — the mono attack/release limiter, its LimitEnvError reused whole and its output the left-always-peak
 //! comparison; lotus/limit.rye (lotus-audio) — the hard ceiling; lotus/pan.rye (lotus-audio) — the StereoClip; lotus/timeline.rye (lotus-audio) — the Clip, sample_max.

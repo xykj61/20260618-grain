@@ -1,7 +1,7 @@
 # tools/ales_stereo_crossfade_witness.rish — stereo_crossfade: the equal-power crossfade carried into stereo with ONE SHARED LAW, both channels in lockstep, validated once before either mutates (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-031427_fill-ales131-lotus-stereo-crossfade.md
+# Design read: active-designing/date/20260815/20260815-031427_fill-ales131-lotus-stereo-crossfade.md
 # Stands on: lotus/crossfade.rye (lotus-audio — the mono equal-power crossfade run once per channel, itself reusing lotus-audio's split and lotus-audio's one true saturate), lotus/pan.rye (lotus-audio — the StereoClip, two
 # mono Clips left/right, and its balance invariant), lotus/timeline.rye (lotus-audio — the Clip, its buf/len/samples, and the EditError reused whole). A Lotus master is a StereoClip whose defining invariant
 # is that left and right hold the same length. lotus-audio's fade closed on the recognition that a stereo fade-out laid under a stereo fade-in IS a stereo crossfade; this rung makes that gesture its own

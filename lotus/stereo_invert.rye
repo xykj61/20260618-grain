@@ -17,7 +17,7 @@
 //! point of negation, so an all-zero pair and an empty pair are each their own invert.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-024705_fill-ales127-lotus-stereo-invert.md
+//! Design read: active-designing/date/20260815/20260815-024705_fill-ales127-lotus-stereo-invert.md
 //! Stands on: lotus/invert.rye (lotus-audio) — the mono sign flip run once per channel, itself reusing lotus-audio's one true `saturate`; lotus/pan.rye (lotus-audio) — the StereoClip (two mono Clips,
 //! left/right) and its balance invariant; lotus/timeline.rye (lotus-audio) — the Clip and its buf/len/samples; lotus/meter.rye (lotus-audio) — the peak/RMS meter, used by the witness to prove a sign flip
 //! off the rail moves no loudness in either channel.

@@ -1,7 +1,7 @@
 # tools/ales_notch_witness.rish — a band-reject (notch): keep the edges, drop the middle — the complement of lotus-audio's band-pass (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260814-165728_fill-ales47-lotus-band-reject.md
+# Design read: active-designing/date/20260814/20260814-165728_fill-ales47-lotus-band-reject.md
 # Stands on: lotus/tone.rye (lotus-audio — low_pass, high_pass, precheck) and lotus/timeline.rye (lotus-audio — the Clip and saturate); shape from lotus/shelf.rye (lotus-audio).
 #
 # lotus/notch.rye sums a low-pass (keeps the lows) and a high-pass (keeps the highs) in parallel, clamped once, so what neither

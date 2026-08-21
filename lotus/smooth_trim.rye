@@ -17,7 +17,7 @@
 //! min_run removes more clicks yet keeps more gaps, so the length can rise or fall; the declick and keep-gap laws are the two sides of that.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-001200_fill-ales102-lotus-smoothed-silence-trim.md
+//! Design read: active-designing/date/20260815/20260815-001200_fill-ales102-lotus-smoothed-silence-trim.md
 //! Stands on: lotus/trim_silence.rye (lotus-audio) — the silence stripper, the min-zero twin; lotus/smooth_runs.rye (lotus-audio) — the run-length smoother; lotus/segment.rye
 //! (lotus-audio) — the segmenter; lotus/timeline.rye (lotus-audio) — the Clip and cut; lotus/voiced.rye (lotus-audio) — the .silent verdict.
 //!

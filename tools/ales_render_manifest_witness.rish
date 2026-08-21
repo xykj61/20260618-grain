@@ -2,7 +2,7 @@
 # .wav bytes by Sha256, verify-before-trust (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-133848_fill-ales221-lotus-render-manifest.md
+# Design read: active-designing/date/20260815/20260815-133848_fill-ales221-lotus-render-manifest.md
 # Idiom kin: lotus/seal.rye (lotus-audio, begin/finish/open — the general verify-before-trust frame reused whole) · lotus/render.rye
 # (lotus-audio) and lotus/stereo_render.rye (lotus-audio, the renders whose output .wav this manifest describes). Content-addressing,
 # never a signature — it proves the render arrived whole, not who made it.

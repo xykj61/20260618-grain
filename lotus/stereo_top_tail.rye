@@ -18,7 +18,7 @@
 //! where this brackets once for both and keeps them balanced. The tail is cut FIRST so the leading index stays valid, exactly as the mono trimmer taught.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-053823_fill-ales150-lotus-stereo-top-tail.md
+//! Design read: active-designing/date/20260815/20260815-053823_fill-ales150-lotus-stereo-top-tail.md
 //! Stands on: lotus/stereo_segment.rye (lotus-audio) — the stereo voice-activity segmenter, run once to read BOTH channels' silences over one shared frame grid, its
 //! `segment_stereo`, its `StereoSegments`, and its `StereoSegmentError` reused whole; lotus/segment.rye (lotus-audio) — the mono segmenter (the frame grid and `.silent`
 //! verdict, through lotus-audio) and `max_segments`; lotus/trim_silence.rye (lotus-audio) — the mono silence stripper, through the stereo trimmer below the length bracket;

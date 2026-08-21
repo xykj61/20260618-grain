@@ -15,7 +15,7 @@
 //! and the pre-delayed wet.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-103104_fill-ales196-lotus-console-predelay.md
+//! Design read: active-designing/date/20260815/20260815-103104_fill-ales196-lotus-console-predelay.md
 //! Stands on: lotus/reverb_predelay.rye (lotus-audio) — the wet-domain pre-delay whose ReverbPredelayError (ReverbPresetError || BadPredelay) this
 //! forwards whole, and whose full-wet edge this equals; lotus/reverb_mix.rye (lotus-audio) — the linear wet/dry blend this reuses per sample, and whose
 //! no-gap edge this equals; lotus/reverb_preset.rye (lotus-audio) — the named-room wet, run over the span unchanged; lotus/clock.rye (lotus-audio) — the

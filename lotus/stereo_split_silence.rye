@@ -17,7 +17,7 @@
 //! keeps them apart, and re-joining the splitter's pieces returns exactly the trimmer's clip. This binds lotus-audio to lotus-audio the way lotus-audio is bound to lotus-audio.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-052853_fill-ales149-lotus-stereo-split-silence.md
+//! Design read: active-designing/date/20260815/20260815-052853_fill-ales149-lotus-stereo-split-silence.md
 //! Stands on: lotus/stereo_segment.rye (lotus-audio) — the stereo voice-activity segmenter, run once to read BOTH channels' silences over one shared frame grid, its
 //! `segment_stereo`, its `StereoSegments`, and its `StereoSegmentError` reused whole; lotus/segment.rye (lotus-audio) — the mono segmenter (the frame grid and `.silent`
 //! verdict, through lotus-audio) and `max_segments`; lotus/stereo_trim_silence.rye (lotus-audio) — the stereo silence stripper, the JOIN-law twin, imported by the selftest;

@@ -9,7 +9,7 @@
 //! (it is lotus-audio's held env_step); this rung is exactly their composition over public APIs, adding only the hold knob.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260814-180706_fill-ales57-lotus-attack-hold-release-gate.md
+//! Design read: active-designing/date/20260814/20260814-180706_fill-ales57-lotus-attack-hold-release-gate.md
 //! Stands on: lotus/timeline.rye (lotus-audio) — the Clip, sample_min/sample_max, max_clip, the range law shape; lotus/gate.rye (lotus-audio) —
 //! the silenced floor this drives over time, re-proven beside it; lotus/hold_env.rye (lotus-audio) — the HELD time base, its env_step_hold
 //! advancing the same follower one sample at a time with the hold pinning the peak; lotus/gate_env.rye (lotus-audio) — the un-held

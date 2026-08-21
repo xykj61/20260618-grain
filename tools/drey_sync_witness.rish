@@ -1,7 +1,7 @@
 # tools/drey_sync_witness.rish — the desk pull loop: fetch the whole of what a far hand holds in one bounded op (mikrophone).
 #
 # Chapter A (Hardware & Right-to-Repair) · waymark mikrophone · Mikrophone firmware journey · rung mikrophone.
-# Design read: active-designing/20260814-071500_drey12-desk-sync-pull-loop-exploration.md
+# Design read: active-designing/date/20260814/20260814-071500_drey12-desk-sync-pull-loop-exploration.md
 # Stands on: mikrophone/manifest.rye (mikrophone), mikrophone/serve.rye (mikrophone), mikrophone/catalog.rye (mikrophone).
 #
 # mikrophone/sync.rye lifts mikrophone's inline convergence into one named, reusable, bounded operation: pull reads a remote

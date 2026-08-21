@@ -22,7 +22,7 @@
 //! The postcondition of every non-refusing catch_up is follower.equivalent(leader) — asserted, not hoped.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — the tree's own consensus) · waymark constels-naming · rung
-//! constels-naming. Design read: active-designing/20260814-083100_fora15-constel-catchup-snapshot-install.md
+//! constels-naming. Design read: active-designing/date/20260814/20260814-083100_fora15-constel-catchup-snapshot-install.md
 //! Stands on: constel/snapshot.rye (constels-naming) — the CompactLog, its snapshot, and the order-sensitive fold; constel/log.rye
 //! (constels-naming) — the append-only order both piers replicate; constel/switchboard.rye (constels-naming) — the medium the real-sky scenario uses.
 //!

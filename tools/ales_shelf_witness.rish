@@ -1,7 +1,7 @@
 # tools/ales_shelf_witness.rish — a two-band tone shelf: bass and treble from the one-pole split (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260814-161231_fill-ales41-lotus-tone-shelf.md
+# Design read: active-designing/date/20260814/20260814-161231_fill-ales41-lotus-tone-shelf.md
 # Stands on: lotus/tone.rye (lotus-audio — the low-pass/high-pass split) and lotus/timeline.rye (lotus-audio — the Clip and saturate).
 #
 # lotus/shelf.rye scales lotus-audio's low band and high band independently and sums them — the everyday bass/treble equalizer.

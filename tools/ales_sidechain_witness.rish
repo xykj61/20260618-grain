@@ -1,7 +1,7 @@
 # tools/ales_sidechain_witness.rish — the sidechain compressor: the gain that follows another signal (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260814-184728_fill-ales63-lotus-sidechain-compressor.md
+# Design read: active-designing/date/20260814/20260814-184728_fill-ales63-lotus-sidechain-compressor.md
 # Stands on: lotus/timeline.rye (lotus-audio — the Clip, sample_min/sample_max, max_clip, the range law shape); lotus/compress.rye (lotus-audio —
 # the softened ceiling this drives); lotus/hold_env.rye (lotus-audio — the HELD time base, re-proven below); lotus/compress_env_hold.rye
 # (lotus-audio — the attack/hold/release compressor this keys, re-proven below, and equalled byte-for-byte by a self-key).

@@ -1,7 +1,7 @@
 # tools/ales_stereo_reverb_freeze_witness.rish — the stereo frozen reverb: the held tail carried across a stereo master (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-115900_fill-ales209-lotus-stereo-reverb-freeze.md
+# Design read: active-designing/date/20260815/20260815-115900_fill-ales209-lotus-stereo-reverb-freeze.md
 # Stands on: lotus/stereo_reverb_preset.rye (lotus-audio — the named-room stereo wet, run over the master unchanged and composed with itself);
 # lotus/reverb_freeze.rye (lotus-audio — the mono freeze this carries across, the same iterated reverberation and max_passes bound); lotus/pan.rye
 # (the StereoClip); lotus/clock.rye (lotus-audio — the sample clock); lotus/timeline.rye (lotus-audio — the Clip each channel is, its saturate the rail).

@@ -6,7 +6,7 @@
 //! channel, exactly as stereo_render widened the raw chain.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-133213_fill-ales220-lotus-stereo-preset.md
+//! Design read: active-designing/date/20260815/20260815-133213_fill-ales220-lotus-stereo-preset.md
 //! Stands on: lotus/preset.rye (lotus-audio) — from_name and build, reused verbatim; lotus/stereo_render.rye (lotus-audio) — the balanced
 //! render over both channels; lotus/pan.rye (lotus-audio) — the StereoClip and its equal-length invariant.
 //!

@@ -1,7 +1,7 @@
 # tools/ales_cue_seal_witness.rish — the cue sheet, sealed (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260814-153033_fill-ales37-lotus-cue-seal.md
+# Design read: active-designing/date/20260814/20260814-153033_fill-ales37-lotus-cue-seal.md
 # Stands on: lotus/cue_sheet.rye (lotus-audio) — render_sheet / parse_sheet reused whole as the sealed body; lotus/markers.rye (lotus-audio) —
 # the Markers track sealed and rebuilt. Mirrors lotus/rack_seal.rye (lotus-audio) and the Sha256 verify-before-trust of lotus/wire.rye (lotus-audio).
 #

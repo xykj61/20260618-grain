@@ -4,7 +4,7 @@
 //! wrong byte handed onward.
 //!
 //! Chapter A (Hardware & Right-to-Repair) · waymark mikrophone · Mikrophone firmware journey · rung mikrophone.
-//! Design read: active-designing/20260814-021218_drey1-wire-frame-carry-only-committed-exploration.md
+//! Design read: active-designing/date/20260814/20260814-021218_drey1-wire-frame-carry-only-committed-exploration.md
 //! Stands on: mikrophone/session.rye (mikrophone) — the memory that forgets. `carry()` hands back the one committed payload.
 //!
 //! The Mantrapod's forgetting promise reaches all the way to the wire: `frame` reads `carry()`, so a session powered

@@ -3,7 +3,7 @@
 //! transition refuses by name — no byte enters the buffer outside a live record run.
 //!
 //! Chapter A (Hardware & Right-to-Repair) · waymark mikrophone · Mikrophone firmware journey · rung mikrophone.
-//! Design read: active-designing/20260814-021722_drey2-recorder-control-state-machine-exploration.md
+//! Design read: active-designing/date/20260814/20260814-021722_drey2-recorder-control-state-machine-exploration.md
 //! Stands on: mikrophone/session.rye (mikrophone) — the memory that forgets. The recorder gates its `capture`.
 //!
 //! A field recorder is not a raw buffer a keeper writes into byte by byte — it is a device with a record button, a

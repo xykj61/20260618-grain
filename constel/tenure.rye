@@ -16,7 +16,7 @@
 //! disrupts a good leader nor clings to a stranded one.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — the tree's own consensus) · waymark constels-naming · rung
-//! constels-naming. Design read: active-designing/20260814-084900_fora24-constel-tenure-checkquorum.md
+//! constels-naming. Design read: active-designing/date/20260814/20260814-084900_fora24-constel-tenure-checkquorum.md
 //! Stands on: constel/quorum.rye (constels-naming) — majority_of, the same strict-majority threshold every Constel decision uses;
 //! constel/roster.rye (constels-naming) — max_piers, the bound the heartbeat poll runs within.
 //!

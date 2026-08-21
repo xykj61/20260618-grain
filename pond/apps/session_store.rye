@@ -1,7 +1,7 @@
 //! pond/apps/session_store.rye — open-image: an editing session is a content-addressed Tablecloth artifact.
 //!
 //! Chapter A (Hardware & Right-to-Repair) · waymark open-image · Photos-app journey · rung open-image.
-//! Design read: active-designing/20260813-174500_hunk-session-persist-exploration.md (names open-image).
+//! Design read: active-designing/date/20260813/20260813-174500_hunk-session-persist-exploration.md (names open-image).
 //! Teacher, thanked clean-room: the persistent editing session of iCloud Photos / Google Photos — an edit stays
 //! open across a close-and-reopen, undo and redo intact (concept only, siloed).
 //!

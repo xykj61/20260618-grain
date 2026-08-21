@@ -13,7 +13,7 @@
 //! effective log grows past the tail bound in bounded memory, and can never fork.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium — the tree's own consensus) · waymark constels-naming · rung
-//! constels-naming. Design read: active-designing/20260814-060326_fora14-constel-snapshot-log-compaction.md
+//! constels-naming. Design read: active-designing/date/20260814/20260814-060326_fora14-constel-snapshot-log-compaction.md
 //! Stands on: constel/log.rye (constels-naming) — the append-only order the snapshot preserves; constel/decree.rye (constels-naming) — each entry
 //! is one committed decree; constel/switchboard.rye (constels-naming) — the medium; constel/roster.rye (constels-naming) — the bound.
 //!

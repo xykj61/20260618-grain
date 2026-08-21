@@ -14,7 +14,7 @@
 //! longest silent run leaves the clip unchanged (the identity cap keeps every pause whole); monotone in max_silence — a larger cap keeps a clip at least as long.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260814-235506_fill-ales100-lotus-silence-collapser.md
+//! Design read: active-designing/date/20260814/20260814-235506_fill-ales100-lotus-silence-collapser.md
 //! Stands on: lotus/trim_silence.rye (lotus-audio) — the silence stripper, the zero-cap twin; lotus/segment.rye (lotus-audio) — the voice-activity segmenter, reused by name;
 //! lotus/timeline.rye (lotus-audio) — the Clip and cut; lotus/voiced.rye (lotus-audio) — the .silent verdict.
 //!

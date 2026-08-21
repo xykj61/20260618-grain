@@ -1,7 +1,7 @@
 # tools/ales_voiced_witness.rish — the voiced/unvoiced/silent classifier: the first Lotus rung to fuse two analysis readers (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260814-230352_fill-ales94-lotus-voiced-unvoiced-classifier.md
+# Design read: active-designing/date/20260814/20260814-230352_fill-ales94-lotus-voiced-unvoiced-classifier.md
 # Stands on: lotus/zero_cross.rye (lotus-audio — the crossing count, one feature) and lotus/meter.rye (lotus-audio — the RMS energy, the other feature), the band read
 # through lotus/schmitt.rye's precheck (lotus-audio), over lotus/timeline.rye's Clip (lotus-audio). lotus-audio gave the suite its first analysis reader; lotus-audio already carried
 # the other; this rung is the first to FUSE two readers into one verdict — the oldest decision in speech processing, is this frame voiced, unvoiced, or silent?

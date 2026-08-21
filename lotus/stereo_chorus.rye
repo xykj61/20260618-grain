@@ -22,7 +22,7 @@
 //! channels byte for byte untouched and still balanced; count = 0 the identity on both.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-083932_fill-ales179-lotus-stereo-chorus.md
+//! Design read: active-designing/date/20260815/20260815-083932_fill-ales179-lotus-stereo-chorus.md
 //! Stands on: lotus/chorus.rye (lotus-audio) — the mono chorus run once per channel, its ChorusError reused whole and its `precheck` (newly factored out) reused for the up-front atomic validation; lotus/vibrato.rye (lotus-audio) — the wet-only
 //! child, carried into stereo at lotus-audio, the vibrato-family equality target; lotus/glide.rye (lotus-audio) — glide_scale, the fixed-point unit (256 = unity); lotus/pan.rye (lotus-audio) — the StereoClip and its balance invariant; lotus/stereo_vibrato.rye
 //! (lotus-audio) — the stereo wet-only voice this parent adds under the dry; lotus/timeline.rye (lotus-audio) — the Clip and the one true saturate.

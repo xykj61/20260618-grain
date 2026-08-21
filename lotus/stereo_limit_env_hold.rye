@@ -23,7 +23,7 @@
 //! held envelope never crosses the ceiling passing byte for byte, silence staying silence, left.len == right.len after, each of the four refusals leaving both channels untouched and balanced, count = 0 the identity on both.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-073957_fill-ales169-lotus-stereo-limit-env-hold.md
+//! Design read: active-designing/date/20260815/20260815-073957_fill-ales169-lotus-stereo-limit-env-hold.md
 //! Stands on: lotus/stereo_hold_env.rye (lotus-audio) — the LINKED HELD follower, its stereo_env_step_hold advancing the one shared envelope with the one shared hold countdown toward the linked peak, reused whole;
 //! lotus/stereo_limit_env.rye (lotus-audio) — the un-held linked breathing limiter this reduces to at a hold of zero, re-proven beside it as the zero-hold limit; lotus/limit_env_hold.rye (lotus-audio) — the mono attack/hold/release
 //! limiter, its LimitEnvHoldError reused whole and its output the left-always-peak comparison; lotus/limit.rye (lotus-audio) — the ceiling; lotus/pan.rye (lotus-audio) — the StereoClip; lotus/timeline.rye (lotus-audio) — the Clip, sample_max,

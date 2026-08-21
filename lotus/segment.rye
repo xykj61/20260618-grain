@@ -15,7 +15,7 @@
 //! classified short, so every frame carries the same weight and the segments tile the span exactly. Stated plainly so the refusal is deliberate.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260814-231217_fill-ales95-lotus-voice-activity-segmenter.md
+//! Design read: active-designing/date/20260814/20260814-231217_fill-ales95-lotus-voice-activity-segmenter.md
 //! Stands on: lotus/voiced.rye (lotus-audio) — the per-frame classifier, reused by name so the segmenter can never classify differently than the reader it sequences;
 //! lotus/timeline.rye (lotus-audio) — the Clip, max_clip; lotus/schmitt.rye (lotus-audio) — the band-and-span precheck; lotus/meter.rye (lotus-audio) — the floor's peak ceiling.
 //!

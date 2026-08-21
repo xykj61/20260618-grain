@@ -5,7 +5,7 @@
 //! opened verify-before-trust.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-135313_fill-ales223-lotus-render-album.md
+//! Design read: active-designing/date/20260815/20260815-135313_fill-ales223-lotus-render-album.md
 //! Stands on: lotus/render_bundle.rye (lotus-audio) — pack/unpack and the whole verify-before-trust the album inherits per track;
 //! through it, lotus/render_manifest.rye (lotus-audio) — the seal each bundle carries. No new hash, no new grammar — only a catalog
 //! frame over frames.

@@ -28,7 +28,7 @@
 //! balanced; count = 0 the identity on both.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-093859_fill-ales187-lotus-stereo-reverb.md
+//! Design read: active-designing/date/20260815/20260815-093859_fill-ales187-lotus-stereo-reverb.md
 //! Stands on: lotus/reverb.rye (lotus-audio) — the mono reverb run once per channel, its ReverbError reused whole and its `precheck` reused for
 //! the up-front atomic validation; lotus/pan.rye (lotus-audio) — the StereoClip and its balance invariant; lotus/timeline.rye (lotus-audio) — the Clip
 //! the mono reverb composes over.

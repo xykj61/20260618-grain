@@ -1,7 +1,7 @@
 # tools/ales_tone_carry_witness.rish — a carried-state low-pass: a filter that spans a re-berthed region seamlessly (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260814-163000_fill-ales43-lotus-carried-filter.md
+# Design read: active-designing/date/20260814/20260814-163000_fill-ales43-lotus-carried-filter.md
 # Stands on: lotus/tone.rye (lotus-audio, accreted with low_pass_carry) and lotus/timeline.rye (lotus-audio — the Clip).
 #
 # lotus/tone_carry.rye gives lotus-audio's one-pole low-pass a carried state, so a span filtered piece by piece has no fresh

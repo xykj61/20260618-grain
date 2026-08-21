@@ -1,7 +1,7 @@
 # tools/hunk_photos_scale_witness.rish — the Photos app resizes the open grid on metal (open-image).
 #
 # Chapter A (Hardware & Right-to-Repair) · waymark open-image · journey Photos app · rung open-image.
-# Design read: active-designing/20260813-154324_hunk-photos-scale-exploration.md
+# Design read: active-designing/date/20260813/20260813-154324_hunk-photos-scale-exploration.md
 # Teacher, thanked clean-room: the everyday iCloud Photos / Google Photos resize gesture (concept only, siloed).
 #
 # open-image cropped, open-image turned and mirrored; this rung gives the Photos app its resize. `image/photos.rye`

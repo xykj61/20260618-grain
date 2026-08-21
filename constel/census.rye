@@ -5,7 +5,7 @@
 //! concern — the collect-and-tally half of a gossip round — and nothing more.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter D/F thread · waymark constels-naming · Constel test-network naming · rung constels-naming.
-//! Design read: active-designing/20260814-051119_fora8-constel-census-liveness-round.md
+//! Design read: active-designing/date/20260814/20260814-051119_fora8-constel-census-liveness-round.md
 //! Stands on: constel/gossip.rye (constels-naming) — the announce; constel/switchboard.rye (constels-naming) — the medium; constel/exchange.rye
 //! (constels-naming) — a member's own greeting, reused as its "present" token (no new frame kind).
 //!

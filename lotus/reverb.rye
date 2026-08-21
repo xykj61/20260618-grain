@@ -18,7 +18,7 @@
 //! — the reverb over a single comb with no diffusion IS the echo.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260815-093042_fill-ales186-lotus-reverb.md
+//! Design read: active-designing/date/20260815/20260815-093042_fill-ales186-lotus-reverb.md
 //! Stands on: lotus/echo.rye (lotus-audio) — the COMB stage and its precheck, run once per comb on a dry copy; lotus/allpass.rye (lotus-audio) —
 //! the ALLPASS diffusion stage and its precheck, run in series on the comb-bank sum; lotus/timeline.rye (lotus-audio) — the Clip, max_clip, and
 //! the one true saturate reused for the parallel sum; lotus/mix.rye (lotus-audio) — the same saturate, the summing lesson.

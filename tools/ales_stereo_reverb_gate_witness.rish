@@ -1,7 +1,7 @@
 # tools/ales_stereo_reverb_gate_witness.rish — the stereo gate: the reverb's GATED TAIL carried across a stereo master (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-110035_fill-ales201-lotus-stereo-reverb-gate.md
+# Design read: active-designing/date/20260815/20260815-110035_fill-ales201-lotus-stereo-reverb-gate.md
 # Stands on: lotus/stereo_reverb_preset.rye (lotus-audio — the named-room stereo wet, run over the master unchanged); lotus/gate.rye (lotus-audio — the
 # downward gate and its guards, run per channel); lotus/pan.rye (the StereoClip); lotus/clock.rye (lotus-audio — the sample clock, converting the span);
 # lotus/timeline.rye (lotus-audio — the Clip each channel holds, its sample_max the gate's rail); lotus/reverb_gate.rye (lotus-audio — the mono gate mirrored).

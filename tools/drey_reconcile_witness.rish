@@ -1,7 +1,7 @@
 # tools/drey_reconcile_witness.rish — the desk reconcile: two hands meet on the union, pull then push composed (mikrophone).
 #
 # Chapter A (Hardware & Right-to-Repair) · waymark mikrophone · Mikrophone firmware journey · rung mikrophone.
-# Design read: active-designing/20260814-072800_drey15-desk-reconcile-two-hands-meet-on-the-union-exploration.md
+# Design read: active-designing/date/20260814/20260814-072800_drey15-desk-reconcile-two-hands-meet-on-the-union-exploration.md
 # Stands on: mikrophone/sync.rye (mikrophone, pull), mikrophone/push.rye (mikrophone, push).
 #
 # mikrophone/reconcile.rye composes the pull and the push into one bounded operation: reconcile(a, b) first pulls b's lack

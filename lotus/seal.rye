@@ -5,7 +5,7 @@
 //! parser consumed the verified body. This rung lifts the whole frame into one primitive both wrappers call, so neither can drift.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-//! Design read: active-designing/20260814-153840_fill-ales38-lotus-seal.md
+//! Design read: active-designing/date/20260814/20260814-153840_fill-ales38-lotus-seal.md
 //! Stands on: lotus/rack_seal.rye (lotus-audio) and lotus/cue_seal.rye (lotus-audio) — the two seals whose shared law this module owns; mirrors
 //! the Sha256 verify-before-trust of lotus/wire.rye (lotus-audio). A pure primitive over std.crypto only — no audio imports.
 //!

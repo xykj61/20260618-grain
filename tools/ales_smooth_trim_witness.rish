@@ -1,7 +1,7 @@
 # tools/ales_smooth_trim_witness.rish — the smoothed silence trim: smooth the runs through lotus-audio before stripping the silence (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260815-001200_fill-ales102-lotus-smoothed-silence-trim.md
+# Design read: active-designing/date/20260815/20260815-001200_fill-ales102-lotus-smoothed-silence-trim.md
 # Stands on: lotus/trim_silence.rye (lotus-audio — the silence stripper, the min-zero twin), lotus/smooth_runs.rye (lotus-audio — the run-length smoother), lotus/segment.rye
 # (lotus-audio — the segmenter), lotus/timeline.rye (lotus-audio — the Clip and cut), lotus/voiced.rye (lotus-audio — the .silent verdict). lotus-audio strips the RAW segmentation, which
 # flickers — a loud tick in a pause reads voiced and is KEPT, a quiet frame between words reads silent and is CUT; smoothing first relabels the short tick silent

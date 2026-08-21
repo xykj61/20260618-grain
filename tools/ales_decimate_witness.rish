@@ -1,7 +1,7 @@
 # tools/ales_decimate_witness.rish — the sample-rate decimator: hold each sample across a run, crushing time rather than amplitude (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260814-213107_fill-ales83-lotus-sample-rate-decimator.md
+# Design read: active-designing/date/20260814/20260814-213107_fill-ales83-lotus-sample-rate-decimator.md
 # Stands on: lotus/crush.rye (lotus-audio — the bit-crush this rung mirrors: crush lowers RESOLUTION on the value axis, decimate lowers RATE on the time
 # axis); lotus/timeline.rye (lotus-audio — the Clip, sample_min/max, max_clip). A keeper who wants a boosted, clipped, or bit-crushed decimation composes
 # this with lotus-audio's drive, lotus-audio's tube, or lotus-audio's crush over the same span — all in-place span maps that compose.

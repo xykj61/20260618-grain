@@ -1,7 +1,7 @@
 # tools/ales_compress_env_hold_witness.rish — an attack/HOLD/release compressor: the breathing compressor given the stage between its knobs (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
-# Design read: active-designing/20260814-181719_fill-ales58-lotus-attack-hold-release-compressor.md
+# Design read: active-designing/date/20260814/20260814-181719_fill-ales58-lotus-attack-hold-release-compressor.md
 # Stands on: lotus/timeline.rye (lotus-audio — the Clip, sample_min/sample_max, max_clip, the range law shape); lotus/compress.rye (lotus-audio —
 # the softened ceiling this drives over time, re-proven below); lotus/hold_env.rye (lotus-audio — the HELD time base, re-proven below); lotus/
 # compress_env.rye (lotus-audio — the un-held attack/release compressor this reduces to at a hold of zero, re-proven below).
