@@ -42,7 +42,7 @@ Before the first rung is written as `X0` / `X1` / … in TASKS, ROADMAP, compres
 | **cion-molt** | `meta-season-chronological-labeling-molt` | cion-molt Meta-Chapter — molt·debride·sweep count-up IDs → chronological/semantic labels (after Compass) |
 | **cion-survey** | `cion-meta-season-equinox-1-survey` | cion-molt Equinox 1 — Survey (name every living count-up ID: site · gap) |
 | **cion-living-molt** | `cion-molt-living-mutants-and-fossils` | cion-molt Equinox 2 — Molt (relabel living now-lines chronological/semantic). |
-| **cion-debride** | `cion-meta-season-equinox-3-debride` | cion-molt Equinox 3 — Debride (word-gated cuts of dead count-up tissue, cairns first) |
+| **cion-debride** | `cion-meta-season-equinox-3-debride` | cion-molt Equinox 3 — Debride (word-gated cuts of dead count-up tissue, checkpoints first) |
 | **cion-seal** | `cion-meta-season-equinox-4-seal` | cion-molt Equinox 4 — Seal (witness the conversion · seat the labeling-law guard) |
 | **AHOY** | `root-readme-lindy-foundation-weave-and-seed-legitimacy` | Front-door season — root README rewrite (Lindy-durable, favorite words) · Lindy foundation silo · fascia crosslink weave · seed legitimacy + final depersonalized push |
 | **dimeroll-expansion** | `dimeroll-hr-and-accounting-entities` | Double-seated beside AHOY — DJINN's Bit Design System over the Skate·Realidream·Brushstroke surface (DVUI/Zig 0.16 in a Swift macOS Dock shell, Glow·Rishi·Rye·.brush impl) · Pond onboarding · Vultr SEA IaC · Dimeroll expansion for Siya Fund + Linengrow PBC HR & accounting. |
