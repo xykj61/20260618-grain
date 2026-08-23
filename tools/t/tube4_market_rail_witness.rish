@@ -1,0 +1,23 @@
+# tube4_market_rail_witness.rish — glow-publishing: market acquire of a published app.
+#
+# glow-publishing publish → Exchange list → Neth pay → weave settle → glow-publishing fetch.
+# See linengrow/tube4_market_rail.rye.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run tools/t/tube4_market_rail_witness.rish
+
+let zig = "vendor/zig-toolchain/zig"
+let bin = "linengrow/bin/tube4_market_rail_witness"
+
+let build = run ["sh" "-c" "mkdir -p linengrow/bin && env RYE_ZIG=${zig} rye/bin/rye build linengrow/tube4_market_rail_witness.rye -femit-bin=${bin}"]
+assert build.ok else "glow-publishing market-rail witness build failed"
+
+let selftest = run ["sh" "-c" "${bin} 2>&1"]
+assert selftest.ok else "glow-publishing market-rail witness exited non-zero"
+assert selftest.out contains "GREEN" else "glow-publishing market-rail witness not GREEN"
+assert selftest.out contains "welcome acquire" else "glow-publishing missing the welcome acquire path"
+assert selftest.out contains "zero price" else "glow-publishing missing the zero-price refusal"
+assert selftest.out contains "digest mismatch" else "glow-publishing missing the digest-mismatch refusal"
+assert selftest.out contains "double settle" else "glow-publishing missing the double-settle refusal"
+
+say "GREEN: glow-publishing market-rail witness passed."

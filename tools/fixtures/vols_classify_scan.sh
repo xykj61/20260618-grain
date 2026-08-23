@@ -10,7 +10,7 @@
 #                    cion-living-molt relabels these to semantic label + stamp.
 #           handle : a kept witness-handle FILE (basename matches *_lap<N>*), a stable
 #                    identifier the labeling law deliberately keeps (Keaton's prose-only
-#                    ruling — tools/granary_lap1.rish and kin). Named, never relabeled.
+#                    ruling — tools/g/granary_lap1.rish and kin). Named, never relabeled.
 #   guard — guarded: the site's file is in <guardlist> (the cion-molt guard already scans it).
 #           gap    : no guard watches it yet — the set cion-living-molt must grow the guard to cover.
 #

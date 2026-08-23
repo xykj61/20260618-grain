@@ -14,13 +14,13 @@
 
 **glass-keyboard** is Glow’s own English QWERTY on Skate: layout tables → paint → tap → Dexter `Action` — Glow paints the hand itself, rather than leaning on the Graphene/AOSP soft IME, which bare NativeActivity does not attach reliably. iOS-inspired modes from public notes; clean-room.
 
-**Waymark draw:** input `glow-english-qwerty-glass-keyboard-3` · SHA3-512 · flw.txt → **glass-keyboard** (`tools/waymark_derive.rish`, `20260717.180025`).
+**Waymark draw:** input `glow-english-qwerty-glass-keyboard-3` · SHA3-512 · flw.txt → **glass-keyboard** (`tools/w/waymark_derive.rish`, `20260717.180025`).
 
 ## Rung table
 
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
-| **glass-keyboard** | Letters · numbers · symbols layout tables | `tools/dexter_glass_keyboard_witness.rish` | **GREEN** `20260717.180025` |
+| **glass-keyboard** | Letters · numbers · symbols layout tables | `tools/d/dexter_glass_keyboard_witness.rish` | **GREEN** `20260717.180025` |
 | **glass-keyboard** | Paint letters mode on Skate; hit boxes | same witness · pack | **GREEN** `20260717.180558` · Pixel look `20260717.180933` |
 | **glass-keyboard** | Tap → Dexter Action → live line | same witness · pack | **GREEN** `20260717.180933` · Pixel typing look `20260717.183345` |
 | **glass-keyboard** | Blinking caret on Dexter line | `dexter_glass_witness` · pack · timerfd | **GREEN** `20260717.182826` · Pixel blink look `20260717.183345` |
@@ -32,8 +32,8 @@
 ## Hands-on
 
 ```bash
-rishi/bin/rishi run tools/waymark_derive.rish   # input_name = …-keyboard-3
-rishi/bin/rishi run tools/dexter_glass_keyboard_witness.rish
+rishi/bin/rishi run tools/w/waymark_derive.rish   # input_name = …-keyboard-3
+rishi/bin/rishi run tools/d/dexter_glass_keyboard_witness.rish
 ```
 
 Layout: [`linengrow/dexter_glass_keyboard_layout.rye`](../linengrow/dexter_glass_keyboard_layout.rye).

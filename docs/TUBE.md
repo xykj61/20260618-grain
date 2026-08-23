@@ -22,13 +22,13 @@ Language path and device path meet here: Glow's fold (language) becomes an insta
 
 | Rung | Claim | Primary witness | State |
 |------|-------|-----------------|-------|
-| **glow-publishing** | App-manifest mold validates at the boundary | `tools/tube0_manifest_witness.rish` | GREEN |
-| **glow-publishing.5** | Permissions emit; NativeActivity envelope; signed APK with **seva-broadcast** Seva fold (module `seva_b0_fold`); install + `seva_root.txt` on pixel-glass and Pixel 10a | `tools/tube0_5_android_permission_witness.rish` · `tools/tube05_envelope_witness.rish` · `tools/tube05_apk_pack_witness.rish` · `tools/tube05_install_proof_onpath_host.rish` | **GREEN** pack · Seva wire · pixel-glass `20260717.122010` · **Pixel `20260717.123226`** |
-| **glow-publishing** | Pool admits an agent iff manifest caps match a grant | `tools/tube1_admission_witness.rish` · glass gate `tube1_glass_gate.rye` | **GREEN** device-free `20260717.131000` · glass + Pixel `20260717.131404` |
-| **glow-publishing** | Maker signs app+manifest into Granary; consumer verifies before install | `tools/tube2_publish_witness.rish` · glass `tube2_glass_pub.rye` | **GREEN** device-free `20260717.131500`; glass + Pixel `20260717.144536` |
-| **glow-publishing** | Manifest resin fetched by digest under Comlink seal; verified before admit | `tools/tube3_resin_fetch_witness.rish` · glass `tube3_glass_fetch.rye` | **GREEN** device-free `20260717.133900`; glass + Pixel `20260717.145328` |
-| **glow-publishing** | Price on Exchange, settle via Neth, unlock sealed fetch | `tools/tube4_market_rail_witness.rish` · glass `tube4_glass_market.rye` | **GREEN** device-free `20260717.134300`; glass + Pixel `20260717.145547` |
-| **glow-publishing** | Update as a Mantra revision; rollback selects prior rev | `tools/tube5_mantra_revision_witness.rish` · glass Mantra-rev paint `tube5_glass_tip.rye` | **GREEN** device-free `20260717.135200`; glass pack + Pixel look `20260717.140600` |
+| **glow-publishing** | App-manifest mold validates at the boundary | `tools/t/tube0_manifest_witness.rish` | GREEN |
+| **glow-publishing.5** | Permissions emit; NativeActivity envelope; signed APK with **seva-broadcast** Seva fold (module `seva_b0_fold`); install + `seva_root.txt` on pixel-glass and Pixel 10a | `tools/t/tube0_5_android_permission_witness.rish` · `tools/t/tube05_envelope_witness.rish` · `tools/t/tube05_apk_pack_witness.rish` · `tools/t/tube05_install_proof_onpath_host.rish` | **GREEN** pack · Seva wire · pixel-glass `20260717.122010` · **Pixel `20260717.123226`** |
+| **glow-publishing** | Pool admits an agent iff manifest caps match a grant | `tools/t/tube1_admission_witness.rish` · glass gate `tube1_glass_gate.rye` | **GREEN** device-free `20260717.131000` · glass + Pixel `20260717.131404` |
+| **glow-publishing** | Maker signs app+manifest into Granary; consumer verifies before install | `tools/t/tube2_publish_witness.rish` · glass `tube2_glass_pub.rye` | **GREEN** device-free `20260717.131500`; glass + Pixel `20260717.144536` |
+| **glow-publishing** | Manifest resin fetched by digest under Comlink seal; verified before admit | `tools/t/tube3_resin_fetch_witness.rish` · glass `tube3_glass_fetch.rye` | **GREEN** device-free `20260717.133900`; glass + Pixel `20260717.145328` |
+| **glow-publishing** | Price on Exchange, settle via Neth, unlock sealed fetch | `tools/t/tube4_market_rail_witness.rish` · glass `tube4_glass_market.rye` | **GREEN** device-free `20260717.134300`; glass + Pixel `20260717.145547` |
+| **glow-publishing** | Update as a Mantra revision; rollback selects prior rev | `tools/t/tube5_mantra_revision_witness.rish` · glass Mantra-rev paint `tube5_glass_tip.rye` | **GREEN** device-free `20260717.135200`; glass pack + Pixel look `20260717.140600` |
 | **glow-publishing** | Whole stack on real GrapheneOS build | — | horizon — needs pixel-glass |
 | **glow-publishing** | Packaging + admit + rail present on physical Pixel | glow-publishing.5 install · glow-publishing–5 glass | **GREEN** `20260717.145547` — Pixel look for 0.5+T1–T5; pixel-glass already closed |
 
@@ -37,7 +37,7 @@ Language path and device path meet here: Glow's fold (language) becomes an insta
 ## What glow-publishing.5 packs today
 
 ```bash
-rishi/bin/rishi run tools/tube05_apk_pack_witness.rish
+rishi/bin/rishi run tools/t/tube05_apk_pack_witness.rish
 # → tools/.cache/tube05/seva-broadcaster.apk
 #    package org.glow.app.seva_broadcaster
 #    NativeActivity + lib/{arm64-v8a,x86_64}/libglowapp.so (NDK-linked, DT_NEEDED libc)
@@ -51,15 +51,15 @@ rishi/bin/rishi run tools/tube05_apk_pack_witness.rish
 | Full AndroidManifest.xml | `linengrow/tube_android_manifest.rye` |
 | seva-broadcast Seva fold (module `seva_b0_fold`, same root as pixel-glass) | `linengrow/seva_b0_fold.rye` |
 | Native entry (`ANativeActivity_onCreate`) | `linengrow/glow_native_activity.rye` |
-| Pack worker | `tools/tube05_apk_pack_worker.sh` |
+| Pack worker | `tools/t/tube05_apk_pack_worker.sh` |
 
 **Install GREEN** — pixel-glass `20260717.122010` · physical Pixel 10a `20260717.123226` (`seva_root.txt` = pixel-glass demo root both times). Re-run anytime:
 
 ```bash
 # Host terminal (not ai-jail):
-rishi/bin/rishi run tools/hawm0_boot_onpath_host.rish   # emulator path
+rishi/bin/rishi run tools/h/hawm0_boot_onpath_host.rish   # emulator path
 # or: Pixel USB debugging authorized, then:
-rishi/bin/rishi run tools/tube05_install_proof_onpath_host.rish
+rishi/bin/rishi run tools/t/tube05_install_proof_onpath_host.rish
 # → 99b3ae967c5a230acfc598a7e949b3c2c638ce996be47a51a7c9f8cb12e4c5fe
 ```
 
@@ -79,7 +79,7 @@ rishi/bin/rishi run tools/tube05_install_proof_onpath_host.rish
 
 **glow-publishing market on glass GREEN `20260717.145547`:** `tube4_glass_market.rye` runs demo Exchange+Neth acquire and paints `glow-publishing market · acquired` on row 10. Install proof GREEN; Keaton confirmed on Pixel. Debug keystore under `tools/.cache/tube05/` is host-local, never for publish.
 
-**seva-broadcast welcome carriage on glass GREEN `20260717.170315` · Pixel `20260717.171015`:** device-free seva-broadcast (`seva_broadcast_delivery.rye`) already GREEN; glass presents the in-process welcome path (`seva_b1_carriage_core.rye` · `seva_b1_glass_carriage.rye`) as `SEVA B1 carriage · 3 ev` on row 11 (dated paint string). Witness `tools/seva_b1_glass_carriage_witness.rish` GREEN; pack GREEN; install proof GREEN. Keaton confirmed title `SEVA B0+B1+R2+T1 GREEN` and the seva-broadcast line on Pixel. UDP hop stays out of the APK.
+**seva-broadcast welcome carriage on glass GREEN `20260717.170315` · Pixel `20260717.171015`:** device-free seva-broadcast (`seva_broadcast_delivery.rye`) already GREEN; glass presents the in-process welcome path (`seva_b1_carriage_core.rye` · `seva_b1_glass_carriage.rye`) as `SEVA B1 carriage · 3 ev` on row 11 (dated paint string). Witness `tools/s/seva_b1_glass_carriage_witness.rish` GREEN; pack GREEN; install proof GREEN. Keaton confirmed title `SEVA B0+B1+R2+T1 GREEN` and the seva-broadcast line on Pixel. UDP hop stays out of the APK.
 
 **Dexter + glass-keyboard on glass:** D0–D3 GREEN; Pixel look for Dexter line GREEN. **glass-keyboard+glass-keyboard** `20260717.180558` — English QWERTY letters painted on Skate rows 14–17 with hit boxes ([`docs/glass-keyboard.md`](glass-keyboard.md)). System IME still unused; caret blink is glass-keyboard; tap→Action is glass-keyboard.
 

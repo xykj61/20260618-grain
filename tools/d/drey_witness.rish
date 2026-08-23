@@ -1,0 +1,84 @@
+# tools/d/drey_witness.rish — the whole Mikrophone firmware journey, proven in one command (mikrophone–mikrophone).
+#
+# Chapter A (Hardware & Right-to-Repair) · waymark mikrophone · Mikrophone firmware journey · aggregate witness.
+# Front door: mikrophone/README.md.
+#
+# The Mikrophone firmware journey grew from one crux — a session that forgets — to eleven proven rungs: the memory that
+# forgets, the wire that carries only the committed, the record button, the whole loop, the far side's verify-before-keep
+# discipline, the carry meeting, the bounded archive, the content-addressed catalog, the manifest of holdings, the
+# want-response that closes a local content-addressed sync, and the redaction that lets a keeper forget one span on
+# purpose. Each rung has its own witness; this one runs all eleven in rung order and asserts each GREEN, so the whole
+# journey proves from cold in a single command — the reference weave the front door names.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run tools/d/drey_witness.rish
+
+say "drey: Language EN — the whole Mikrophone firmware journey (mikrophone–mikrophone), each rung's witness run in order and asserted GREEN in one command."
+say "drey: Style Radiant — a device that forgets on purpose, proven whole: a capture held only while powered, kept only on a deliberate commit, redacted where a keeper strikes it, carried only when committed, and received only once proven — no byte crossing that a keeper did not need, none kept that cannot be proven."
+say "drey: Lens TAME — every rung is pure Rye on the bench, bounded, invariant-asserted, refusing by name; no disk, no network, no key, no funds. Serving over a real transport stays the Comlink-served gate; real hardware stays custody gate %2."
+
+let session = run ["rishi/bin/rishi" "run" "tools/d/drey_session_witness.rish"]
+assert session.ok else "drey: mikrophone session witness failed"
+assert (session.out contains "GREEN drey-session") else "drey: mikrophone session not GREEN"
+
+let wire = run ["rishi/bin/rishi" "run" "tools/d/drey_wire_witness.rish"]
+assert wire.ok else "drey: mikrophone wire witness failed"
+assert (wire.out contains "GREEN drey-wire") else "drey: mikrophone wire not GREEN"
+
+let recorder = run ["rishi/bin/rishi" "run" "tools/d/drey_recorder_witness.rish"]
+assert recorder.ok else "drey: mikrophone recorder witness failed"
+assert (recorder.out contains "GREEN drey-recorder") else "drey: mikrophone recorder not GREEN"
+
+let firmware = run ["rishi/bin/rishi" "run" "tools/d/drey_firmware_witness.rish"]
+assert firmware.ok else "drey: mikrophone firmware witness failed"
+assert (firmware.out contains "GREEN drey-firmware") else "drey: mikrophone firmware not GREEN"
+
+let inbox = run ["rishi/bin/rishi" "run" "tools/d/drey_inbox_witness.rish"]
+assert inbox.ok else "drey: mikrophone inbox witness failed"
+assert (inbox.out contains "GREEN drey-inbox") else "drey: mikrophone inbox not GREEN"
+
+let carry = run ["rishi/bin/rishi" "run" "tools/d/drey_carry_witness.rish"]
+assert carry.ok else "drey: mikrophone carry witness failed"
+assert (carry.out contains "GREEN drey-carry") else "drey: mikrophone carry not GREEN"
+
+let archive = run ["rishi/bin/rishi" "run" "tools/d/drey_archive_witness.rish"]
+assert archive.ok else "drey: mikrophone archive witness failed"
+assert (archive.out contains "GREEN drey-archive") else "drey: mikrophone archive not GREEN"
+
+let catalog = run ["rishi/bin/rishi" "run" "tools/d/drey_catalog_witness.rish"]
+assert catalog.ok else "drey: mikrophone catalog witness failed"
+assert (catalog.out contains "GREEN drey-catalog") else "drey: mikrophone catalog not GREEN"
+
+let manifest = run ["rishi/bin/rishi" "run" "tools/d/drey_manifest_witness.rish"]
+assert manifest.ok else "drey: mikrophone manifest witness failed"
+assert (manifest.out contains "GREEN drey-manifest") else "drey: mikrophone manifest not GREEN"
+
+let serve = run ["rishi/bin/rishi" "run" "tools/d/drey_serve_witness.rish"]
+assert serve.ok else "drey: mikrophone serve witness failed"
+assert (serve.out contains "GREEN drey-serve") else "drey: mikrophone serve not GREEN"
+
+let redact = run ["rishi/bin/rishi" "run" "tools/d/drey_redact_witness.rish"]
+assert redact.ok else "drey: mikrophone redact witness failed"
+assert (redact.out contains "GREEN drey-redact") else "drey: mikrophone redact not GREEN"
+
+let sync = run ["rishi/bin/rishi" "run" "tools/d/drey_sync_witness.rish"]
+assert sync.ok else "drey: mikrophone sync witness failed"
+assert (sync.out contains "GREEN drey-sync") else "drey: mikrophone sync not GREEN"
+
+let forget = run ["rishi/bin/rishi" "run" "tools/d/drey_forget_witness.rish"]
+assert forget.ok else "drey: mikrophone forget witness failed"
+assert (forget.out contains "GREEN drey-forget") else "drey: mikrophone forget not GREEN"
+
+let push = run ["rishi/bin/rishi" "run" "tools/d/drey_push_witness.rish"]
+assert push.ok else "drey: mikrophone push witness failed"
+assert (push.out contains "GREEN drey-push") else "drey: mikrophone push not GREEN"
+
+let reconcile = run ["rishi/bin/rishi" "run" "tools/d/drey_reconcile_witness.rish"]
+assert reconcile.ok else "drey: mikrophone reconcile witness failed"
+assert (reconcile.out contains "GREEN drey-reconcile") else "drey: mikrophone reconcile not GREEN"
+
+let verify = run ["rishi/bin/rishi" "run" "tools/d/drey_verify_witness.rish"]
+assert verify.ok else "drey: mikrophone verify witness failed"
+assert (verify.out contains "GREEN drey-verify") else "drey: mikrophone verify not GREEN"
+
+say "GREEN drey: the whole Mikrophone firmware journey holds — mikrophone session · mikrophone wire · mikrophone recorder · mikrophone firmware · mikrophone inbox · mikrophone carry · mikrophone archive · mikrophone catalog · mikrophone manifest · mikrophone serve · mikrophone redact · mikrophone sync · mikrophone forget · mikrophone push · mikrophone reconcile · mikrophone verify, all sixteen rungs proven pure before metal in one command; no disk, no network, no key, no funds."

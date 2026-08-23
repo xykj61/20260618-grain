@@ -1,0 +1,23 @@
+# tube5_mantra_revision_witness.rish — glow-publishing: Mantra app revision history.
+#
+# Append Manifest revisions; prior rev stays; rollback is recall of prior.
+# See linengrow/tube5_mantra_revision.rye.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run tools/t/tube5_mantra_revision_witness.rish
+
+let zig = "vendor/zig-toolchain/zig"
+let bin = "linengrow/bin/tube5_mantra_revision_witness"
+
+let build = run ["sh" "-c" "mkdir -p linengrow/bin && env RYE_ZIG=${zig} rye/bin/rye build linengrow/tube5_mantra_revision_witness.rye -femit-bin=${bin}"]
+assert build.ok else "glow-publishing Mantra-revision witness build failed"
+
+let selftest = run ["sh" "-c" "${bin} 2>&1"]
+assert selftest.ok else "glow-publishing Mantra-revision witness exited non-zero"
+assert selftest.out contains "GREEN" else "glow-publishing Mantra-revision witness not GREEN"
+assert selftest.out contains "welcome update" else "glow-publishing missing the welcome update path"
+assert selftest.out contains "rollback by selection" else "glow-publishing missing the rollback path"
+assert selftest.out contains "RevisionImmutable" else "glow-publishing missing the rewrite refusal"
+assert selftest.out contains "RevisionOutOfOrder" else "glow-publishing missing the skip refusal"
+
+say "GREEN: glow-publishing Mantra-revision witness passed."

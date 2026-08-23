@@ -7,7 +7,7 @@
 //! Skips `::` comments and blanks. One rune line uses the head dispatch;
 //! two to four bare `=/` literals share one multi-line lower (glow-language).
 //! Named-cast dispatch peeks the shared token stream (glow-language same-desk ·
-//! glow-language cross-desk). Build/run stay in tools/glow_run.rish.
+//! glow-language cross-desk). Build/run stay in tools/g/glow_run.rish.
 
 
 const std = @import("std");
