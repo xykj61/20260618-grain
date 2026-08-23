@@ -3,7 +3,7 @@
 **Stamp:** `20260814.111419` · **Language:** EN · **Voice:** Kyri · **Style:** Radiant
 **Status:** Living design capture — the self-approved round that opens Chapter C (Lotus)
 **Waymark:** lotus-audio (`season-c-lotus-creative-suite-audio-wire-shape` → lotus-audio, drawn `20260814`, seated in [`../.claude/rules/waymark-ladders.md`](../.claude/rules/waymark-ladders.md))
-**Kin:** [`the Six-Chapter double-seat`](20260813-020035_double-seat-expansion-six-seasons.md) — Chapter C · [`Lotus, the DAW`](yonder/20260630-014012_lotus-the-daw.md) · idiom twins [`constel/wire.rye`](../constel/wire.rye) (constels-naming) · [`mikrophone/wire.rye`](../mikrophone/wire.rye) (mikrophone)
+**Kin:** [`the Six-Chapter double-seat`](date/20260813/20260813-020035_double-seat-expansion-six-seasons.md) — Chapter C · [`Lotus, the DAW`](yonder/20260630-014012_lotus-the-daw.md) · idiom twins [`constel/wire.rye`](../constel/wire.rye) (constels-naming) · [`mikrophone/wire.rye`](../mikrophone/wire.rye) (mikrophone)
 
 ---
 
