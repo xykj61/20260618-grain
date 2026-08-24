@@ -1,15 +1,15 @@
-# glow-language — Product face_lit Stand-In Agrees Glow face_lit
+# glow-language -- Product face_lit Stand-In Agrees Glow face_lit
 
-*An Acme Corporation employee reading this gets the thin door after Pixel eyes closed the lit-desk arc: the product names `extract_face_lit_cord` as its face=lit extract, and a dual witness proves that extract matches Glow `face_lit` on the fact-line desk through the same seated pins — without crossing the module-path import seam.*
+*An Acme Corporation employee reading this gets the thin door after Pixel eyes closed the lit-desk arc: the product names `extract_face_lit_cord` as its face=lit extract, and a dual witness proves that extract matches Glow `face_lit` on the fact-line desk through the same seated pins -- without crossing the module-path import seam.*
 
 **Language:** EN  
-**Version:** `20260722.135948` (EDT · Framework host)  
-**Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
+**Version:** `20260722.135948` (EDT - Framework host)  
+**Style:** Gauge (see `../../context/GAUGE_STYLE.md`)
 **Voice:** Quin  
-**Status:** Checkable — GREEN `20260722.135948`  
-**Register:** Checkable (Two Rooms) — product extract ≡ pins · Glow face_lit ≡ pins · no `@import` of glow/face_lit from linengrow  
+**Status:** Checkable -- GREEN `20260722.135948`  
+**Register:** Checkable (Two Rooms) -- product extract == pins - Glow face_lit == pins - no `@import` of glow/face_lit from linengrow  
 
-**Grounds in:** glow-language lean **B** (name next door → face_lit) · glow-language desk emit · glow-language Glow face_lit · glow-language/231 desk pins
+**Grounds in:** glow-language lean **B** (name next door -> face_lit) - glow-language desk emit - glow-language Glow face_lit - glow-language/231 desk pins
 
 **dated_guard:** Do **not** claim linengrow `@import`s `glow/face_lit`. Do **not** reopen pin/desk/embed/Pixel as unfinished. True shared-package import stays held. seva-broadcast held.
 
@@ -17,7 +17,7 @@
 
 ## Verdict (one breath)
 
-**FACE_LIT_AGREE.** `extract_face_lit_cord` · `face_lit_product_agrees_pins` · Glow sample lits glow-language · transitive pin agree across the seam.
+**FACE_LIT_AGREE.** `extract_face_lit_cord` - `face_lit_product_agrees_pins` - Glow sample lits glow-language - transitive pin agree across the seam.
 
 ---
 

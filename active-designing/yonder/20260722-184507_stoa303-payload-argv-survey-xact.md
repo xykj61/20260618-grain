@@ -1,40 +1,40 @@
-# glow-language — Payload Argv Survey · Xact Tag+Amount Reader
+# glow-language -- Payload Argv Survey - Xact Tag+Amount Reader
 
 *An Acme Corporation employee reading this gets the Survey deepen after kind unit-tag argv: xact payload `$%` earns a reader that takes `mint <u32>` or `send`, while xfer and pair argv stay refused. Three argv families now sit beside each other without forcing one parse.*
 
 **Language:** EN  
-**Version:** `20260722.184507` (EDT · Framework host)  
-**Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
+**Version:** `20260722.184507` (EDT - Framework host)  
+**Style:** Gauge (see `../../context/GAUGE_STYLE.md`)
 **Voice:** Quin  
-**Status:** Checkable — survey seated · xact argv GREEN `20260722.184804`  
-**Register:** Checkable (Two Rooms) — emit + desks + witnesses; xfer/pair Intent  
+**Status:** Checkable -- survey seated - xact argv GREEN `20260722.184804`  
+**Register:** Checkable (Two Rooms) -- emit + desks + witnesses; xfer/pair Intent  
 
-**Grounds in:** glow-language lean **A** · glow-language kind argv · glow-language payload flip family  
+**Grounds in:** glow-language lean **A** - glow-language kind argv - glow-language payload flip family  
 
-**dated_guard:** Do **not** open xfer/pair argv this lap. Do **not** force xact through bare `parseInt` on argv[1]. Gold · fleets · seva-broadcast stay held.
+**dated_guard:** Do **not** open xfer/pair argv this lap. Do **not** force xact through bare `parseInt` on argv[1]. Gold - fleets - seva-broadcast stay held.
 
 ---
 
-## Survey — argv families (updated)
+## Survey -- argv families (updated)
 
 | Sample mold | Argv | Reader |
 |---|---|---|
-| `@u32` · amount · count | GREEN | `parseInt(u32, argv[1])` |
+| `@u32` - amount - count | GREEN | `parseInt(u32, argv[1])` |
 | kind (unit `$%`) | GREEN glow-language | tag `mint`/`send` |
 | **xact** (payload `$%`) | **GREEN** glow-language | tag + amount: `mint <u32>` / `send` |
-| xfer · pair…nona | refuse | held |
+| xfer - pair...nona | refuse | held |
 
 ---
 
 ## First code lap (this GREEN)
 
-`emit_xact_argv` on **bartis + barket** · desks `gate-xact-tag.glow` · `gate-barket-xact-tag.glow` · worker two-arg mint path · both lower witnesses GREEN · xfer refuse pinned.
+`emit_xact_argv` on **bartis + barket** - desks `gate-xact-tag.glow` - `gate-barket-xact-tag.glow` - worker two-arg mint path - both lower witnesses GREEN - xfer refuse pinned.
 
 | Later | Claim |
 |---|---|
-| Xfer argv | two mint faces — thicker |
-| Pair…nona argv | multi-field `$:` |
-| Held | gold · face_lit · fleets · seva-broadcast |
+| Xfer argv | two mint faces -- thicker |
+| Pair...nona argv | multi-field `$:` |
+| Held | gold - face_lit - fleets - seva-broadcast |
 
 ---
 

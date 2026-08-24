@@ -1,23 +1,23 @@
-# glow-language — After Xfer Argv · Check-In
+# glow-language -- After Xfer Argv - Check-In
 
-*An Acme Corporation employee reading this gets the fork after xfer payload argv landed on both gates: the tagged argv survey’s third payload family is GREEN, and the next door is pair argv or a held thicker season.*
+*An Acme Corporation employee reading this gets the fork after xfer payload argv landed on both gates: the tagged argv survey's third payload family is GREEN, and the next door is pair argv or a held thicker season.*
 
 **Language:** EN  
-**Version:** `20260722.190015` (EDT · Framework host)  
-**Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
+**Version:** `20260722.190015` (EDT - Framework host)  
+**Style:** Gauge (see `../../context/GAUGE_STYLE.md`)
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send with round-close · lean **C** pair argv **chosen** (implement glow-language)  
-**Register:** Checkable (Two Rooms) — glow-language GREEN; pair argv Intent  
+**Status:** Checkable -- lean **A** send with round-close - lean **C** pair argv **chosen** (implement glow-language)  
+**Register:** Checkable (Two Rooms) -- glow-language GREEN; pair argv Intent  
 
-**Grounds in:** glow-language · glow-language lean C · rest habit `20260722.185058`  
+**Grounds in:** glow-language - glow-language lean C - rest habit `20260722.185058`  
 
-**dated_guard:** Pair…nona argv · gold · face_lit · fleets · seva-broadcast stay held unless chosen. Do not recommend rest unprompted.
+**dated_guard:** Pair...nona argv - gold - face_lit - fleets - seva-broadcast stay held unless chosen. Do not recommend rest unprompted.
 
 ---
 
 ## What just closed
 
-glow-language: payload argv survey · `emit_xfer_argv` · `mint <from> <amount>` / `send` · both gates GREEN · pair refuse pinned.
+glow-language: payload argv survey - `emit_xfer_argv` - `mint <from> <amount>` / `send` - both gates GREEN - pair refuse pinned.
 
 ---
 
@@ -25,10 +25,10 @@ glow-language: payload argv survey · `emit_xfer_argv` · `mint <from> <amount>`
 
 | | Lean | What it opens |
 |---|---|---|
-| **A** | **Send glow-language** — **chosen** with round-close | pier carries xfer argv |
-| **B** | **Rest** — available; Keaton’s word | pause when he asks |
-| **C** | **Pair argv survey** — **recommended** | multi-field `$:` reader |
-| **D** | **Gold · face_lit · fleets · seva-broadcast** | **held** |
+| **A** | **Send glow-language** -- **chosen** with round-close | pier carries xfer argv |
+| **B** | **Rest** -- available; Keaton's word | pause when he asks |
+| **C** | **Pair argv survey** -- **recommended** | multi-field `$:` reader |
+| **D** | **Gold - face_lit - fleets - seva-broadcast** | **held** |
 
 ---
 

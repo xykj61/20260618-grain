@@ -1,35 +1,35 @@
-# glow-language — N-Field Argv Survey · Triple From+Amount+Fee Reader
+# glow-language -- N-Field Argv Survey - Triple From+Amount+Fee Reader
 
-*An Acme Corporation employee reading this gets the Survey deepen after pair `$:` argv: closed triple earns a reader that takes three decimals `<from> <amount> <fee>`, while quad…nona argv stay refused.*
+*An Acme Corporation employee reading this gets the Survey deepen after pair `$:` argv: closed triple earns a reader that takes three decimals `<from> <amount> <fee>`, while quad...nona argv stay refused.*
 
 **Language:** EN  
-**Version:** `20260722.190839` (EDT · Framework host)  
-**Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
+**Version:** `20260722.190839` (EDT - Framework host)  
+**Style:** Gauge (see `../../context/GAUGE_STYLE.md`)
 **Voice:** Quin  
-**Status:** Checkable — survey seated · triple argv GREEN `20260722.190839`  
-**Register:** Checkable (Two Rooms) — emit + desks + witnesses; quad…nona Intent  
+**Status:** Checkable -- survey seated - triple argv GREEN `20260722.190839`  
+**Register:** Checkable (Two Rooms) -- emit + desks + witnesses; quad...nona Intent  
 
-**Grounds in:** glow-language lean **C** · glow-language pair argv · glow-language N-field identity  
+**Grounds in:** glow-language lean **C** - glow-language pair argv - glow-language N-field identity  
 
-**dated_guard:** Do **not** open quad…nona argv this lap. Gold · fleets · seva-broadcast stay held.
+**dated_guard:** Do **not** open quad...nona argv this lap. Gold - fleets - seva-broadcast stay held.
 
 ---
 
-## Survey — argv families (updated)
+## Survey -- argv families (updated)
 
 | Sample mold | Argv | Reader |
 |---|---|---|
-| `@u32` · amount · count | GREEN | single decimal |
-| kind · xact · xfer | GREEN | tagged `$%` readers |
+| `@u32` - amount - count | GREEN | single decimal |
+| kind - xact - xfer | GREEN | tagged `$%` readers |
 | pair (`$:` 2) | GREEN glow-language | `<from> <amount>` |
 | **triple** (`$:` 3) | **GREEN** glow-language | `<from> <amount> <fee>` |
-| quad…nona | refuse | held |
+| quad...nona | refuse | held |
 
 ---
 
 ## First code lap (this GREEN)
 
-`emit_triple_argv` → `emit_n_field_argv(N=3)` on **bartis + barket** · desks `gate-triple-fields.glow` · `gate-barket-triple-fields.glow` · worker three-decimal path · both lower witnesses GREEN · quad refuse pinned.
+`emit_triple_argv` -> `emit_n_field_argv(N=3)` on **bartis + barket** - desks `gate-triple-fields.glow` - `gate-barket-triple-fields.glow` - worker three-decimal path - both lower witnesses GREEN - quad refuse pinned.
 
 ---
 

@@ -1,23 +1,23 @@
-# glow-language — After Barket N-Field Identity Emit · Check-In
+# glow-language -- After Barket N-Field Identity Emit - Check-In
 
-*An Acme Corporation employee reading this gets the fork after barket identity emit collapsed: the language-return identity pair (bartis · barket) is GREEN, and the next door is flip call-body collapse through the same table — not gold, not shared-package.*
+*An Acme Corporation employee reading this gets the fork after barket identity emit collapsed: the language-return identity pair (bartis - barket) is GREEN, and the next door is flip call-body collapse through the same table -- not gold, not shared-package.*
 
 **Language:** EN  
-**Version:** `20260722.143410` (EDT · Framework host)  
-**Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
+**Version:** `20260722.143410` (EDT - Framework host)  
+**Style:** Gauge (see `../../context/GAUGE_STYLE.md`)
 **Voice:** Quin  
-**Status:** Checkable — lean **A** send chosen with round-close · lean **B** flip call-body collapse  
-**Register:** Checkable (Two Rooms) — glow-language GREEN with this send; flip still per-N  
+**Status:** Checkable -- lean **A** send chosen with round-close - lean **B** flip call-body collapse  
+**Register:** Checkable (Two Rooms) -- glow-language GREEN with this send; flip still per-N  
 
-**Grounds in:** glow-language barket N-field identity · glow-language bartis twin · glow-language inventary  
+**Grounds in:** glow-language barket N-field identity - glow-language bartis twin - glow-language inventary  
 
-**dated_guard:** Do **not** reopen glow-language as unfinished. Ambient gold · shared-package · seva-broadcast stay held until named.
+**dated_guard:** Do **not** reopen glow-language as unfinished. Ambient gold - shared-package - seva-broadcast stay held until named.
 
 ---
 
 ## What just closed
 
-glow-language: `emit_n_field_identity` on barket · eight wrappers · pair…nona identity GREEN · mold_name_slice keeps source spelling · TAME bans scan rides shell greps past the 256-list ceiling · flip emitters kept.
+glow-language: `emit_n_field_identity` on barket - eight wrappers - pair...nona identity GREEN - mold_name_slice keeps source spelling - TAME bans scan rides shell greps past the 256-list ceiling - flip emitters kept.
 
 ---
 
@@ -25,9 +25,9 @@ glow-language: `emit_n_field_identity` on barket · eight wrappers · pair…non
 
 | | Lean | What it opens |
 |---|---|---|
-| **A** | **Send glow-language** — **chosen** with round-close | pier carries barket identity emit |
-| **B** | **Flip call-body collapse** — **recommended** | same table, second deepen · bartis then barket or both in one helper shape |
-| **C** | **Ambient gold / shared-package / seva-broadcast** | thicker — **held**; explicit word only |
+| **A** | **Send glow-language** -- **chosen** with round-close | pier carries barket identity emit |
+| **B** | **Flip call-body collapse** -- **recommended** | same table, second deepen - bartis then barket or both in one helper shape |
+| **C** | **Ambient gold / shared-package / seva-broadcast** | thicker -- **held**; explicit word only |
 
 ---
 

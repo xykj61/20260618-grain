@@ -1,15 +1,15 @@
-# glow-language — Rest Habit · Xfer Argv Recommended
+# glow-language -- Rest Habit - Xfer Argv Recommended
 
-*An Acme Corporation employee reading this gets the fork after Keaton asked that check-ins stop recommending rest: he rests when he needs to. glow-language’s recommended lean moves to the next language door — xfer argv survey — while rest stays available if he names it.*
+*An Acme Corporation employee reading this gets the fork after Keaton asked that check-ins stop recommending rest: he rests when he needs to. glow-language's recommended lean moves to the next language door -- xfer argv survey -- while rest stays available if he names it.*
 
 **Language:** EN  
-**Version:** `20260722.185058` (EDT · Framework host)  
-**Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
+**Version:** `20260722.185058` (EDT - Framework host)  
+**Style:** Gauge (see `../../context/GAUGE_STYLE.md`)
 **Voice:** Quin  
-**Status:** Checkable — preference seated · lean **C** xfer argv recommended  
-**Register:** Checkable (Two Rooms) — rule + living pins; xfer argv Intent  
+**Status:** Checkable -- preference seated - lean **C** xfer argv recommended  
+**Register:** Checkable (Two Rooms) -- rule + living pins; xfer argv Intent  
 
-**Grounds in:** glow-language · “can we stop recommending rest? I will rest when I need”  
+**Grounds in:** glow-language - "can we stop recommending rest? I will rest when I need"  
 
 **dated_guard:** Do not treat rest as the recommended lean going forward unless Keaton asks for rest.
 
@@ -19,7 +19,7 @@
 
 **Keaton owns rest.** Check-ins may list rest as an option; they recommend the next constructive kg / survey / held door instead.
 
-Rule twins: `.cursor/rules/round-close-send-checkin.mdc` · `.claude/rules/round-close-send-checkin.md`.
+Rule twins: `.cursor/rules/round-close-send-checkin.mdc` - `.claude/rules/round-close-send-checkin.md`.
 
 ---
 
@@ -27,10 +27,10 @@ Rule twins: `.cursor/rules/round-close-send-checkin.mdc` · `.claude/rules/round
 
 | | Lean | What it opens |
 |---|---|---|
-| **A** | **Send glow-language** — chosen | pier already carries xact argv |
-| **B** | **Rest** — available; not recommended | Keaton’s word only |
-| **C** | **Xfer argv survey** — **chosen** → glow-language | two mint faces · thicker payload reader |
-| **D** | **Gold · face_lit · fleets · seva-broadcast** | **held** |
+| **A** | **Send glow-language** -- chosen | pier already carries xact argv |
+| **B** | **Rest** -- available; not recommended | Keaton's word only |
+| **C** | **Xfer argv survey** -- **chosen** -> glow-language | two mint faces - thicker payload reader |
+| **D** | **Gold - face_lit - fleets - seva-broadcast** | **held** |
 
 ---
 

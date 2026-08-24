@@ -1,15 +1,15 @@
-# glow-language — Dexter Submit Helper → Typed Sala Append
+# glow-language -- Dexter Submit Helper -> Typed Sala Append
 
-*An Acme Corporation employee reading this gets the named seam between Dexter and Glow Sala: the demo LineEditor submits `glow`, and `dexter_sala_append` feeds that line through `append_typed_memo`. NativeActivity submit wire stays the next lean — this lap is device-free and leaves pixel-glass alone.*
+*An Acme Corporation employee reading this gets the named seam between Dexter and Glow Sala: the demo LineEditor submits `glow`, and `dexter_sala_append` feeds that line through `append_typed_memo`. NativeActivity submit wire stays the next lean -- this lap is device-free and leaves pixel-glass alone.*
 
 **Language:** EN  
-**Version:** `20260722.151257` (EDT · Framework host)  
-**Style:** Radiant (see `../context/RADIANT_STYLE.md`)  
+**Version:** `20260722.151257` (EDT - Framework host)  
+**Style:** Gauge (see `../../context/GAUGE_STYLE.md`)
 **Voice:** Quin  
-**Status:** Checkable — GREEN `20260722.151257`  
-**Register:** Checkable (Two Rooms) — helper module + witness GREEN; glass wire Intent  
+**Status:** Checkable -- GREEN `20260722.151257`  
+**Register:** Checkable (Two Rooms) -- helper module + witness GREEN; glass wire Intent  
 
-**Grounds in:** glow-language lean **B** · glow-language typed memo append · Dexter glass demo · glow-language lean table  
+**Grounds in:** glow-language lean **B** - glow-language typed memo append - Dexter glass demo - glow-language lean table  
 
 **dated_guard:** Do **not** claim NativeActivity `.submit` appends. Do **not** change `sala_root.txt` pixel-glass. Lean C stays glass wire.
 
@@ -17,7 +17,7 @@
 
 ## Verdict (one breath)
 
-**DEXTER_SALA_HELPER.** `append_demo_submit` · `append_submitted_line` · memo `glow` · sign+line+fields GREEN · pixel-glass untouched.
+**DEXTER_SALA_HELPER.** `append_demo_submit` - `append_submitted_line` - memo `glow` - sign+line+fields GREEN - pixel-glass untouched.
 
 ---
 
@@ -32,4 +32,4 @@ rishi/bin/rishi run tools/dexter_sala_append_witness.rish
 
 ## Hold
 
-NativeActivity submit → append + live-root (lean C) · pixel-glass 1A · gold · seva-broadcast · UDP.
+NativeActivity submit -> append + live-root (lean C) - pixel-glass 1A - gold - seva-broadcast - UDP.
