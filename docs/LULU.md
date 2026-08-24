@@ -4,7 +4,7 @@
 
 **Status:** Checkable — operator compressor (preference ladder closed · usb-hearth–usb-hearth GREEN)  
 **Depth:** guide  
-**Ceiling:** ≤80 lines  
+**Ceiling:** <=80 lines  
 **Last updated:** 2026-07-18 (usb-hearth device payload GREEN)  
 **Compresses:** [`../active-designing/date/20260718/20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md`](../active-designing/date/20260718/20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md) · ER [`../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md`](../external-research/20260718-122145_pixel10a-resolution-mantrapod-floor-and-wired-glass-slc.md) · Setu [`usb-hearth.md`](usb-hearth.md) · compose [`../active-designing/date/20260718/20260718-133455_glass-desk-compose-amber-amphora-revive.md`](../active-designing/date/20260718/20260718-133455_glass-desk-compose-amber-amphora-revive.md)
 

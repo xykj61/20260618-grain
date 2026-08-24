@@ -4,7 +4,7 @@
 
 **Status:** Checkable — operator compressor (glow-publishing / glow-publishing.5 / glow-publishing–5 / glow-publishing GREEN; Resource Scope · Network · Sensors Grants GREEN; glow-publishing horizon)
 **Depth:** guide
-**Ceiling:** ≤150 lines
+**Ceiling:** <=150 lines
 **Last updated:** 2026-07-18 (seva-broadcast living names · Mantra-rev tip wording)
 **Compresses:** [`20260716-142818_glow-application-framework-and-publishing.md`](../expanding-prompts/yonder/20260716-142818_glow-application-framework-and-publishing.md) · [`20260717-014522_native-activity-shim-and-slc-packaging.md`](../active-designing/date/20260717/20260717-014522_native-activity-shim-and-slc-packaging.md) · [`seva-broadcast.md`](seva-broadcast.md)
 
