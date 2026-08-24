@@ -1,5 +1,7 @@
 # The Spellbook — Grain's Operator Words
 
+> **Mirrored at `spellbook/README.md`**, declared in [`../context/document-mirrors.brix`](../context/document-mirrors.brix) and proven byte-identical. Every link here is written `../<room>/<file>` so it resolves from both homes (REDS %176).
+
 **Language:** EN
 **Seated:** `20260810.145033` on Keaton's word · **Style:** Radiant · **Voice:** Kyri
 **Purpose:** Gather the one-word gestures that steer this workspace, so a hand on any client — phone, terminal, fresh agent — can read the whole vocabulary in one place.
@@ -22,6 +24,7 @@ A spell is a single word that names a whole, repeatable gesture. Where ordinary 
 | **align** | reconcile the plan with what is actually true, then fix the plan | `.claude/rules/align.md` |
 | **molt** | prep a dated writing's fossil onto the shred list — opens no cut | `.claude/rules/molt.md` |
 | **shred** / **shed** | the authorized cut of a fossil that has a living mutant | `.claude/rules/molt.md` · SHRED_PREP |
+| **add to molt queue** | note a document into `construction/SHRED_PREP.md` with its measurement -- prep only, the file itself untouched | `context/CHEMICAL_FORMULAS.md` |
 | **mitra shed prep** | a fossil seen off like a friend -- mutant seated, living citers repointed, banner on its face, row written -- and the cut still RED | `construction/SHRED_PREP.md` Class M |
 | **debride** | the sanctioned break of accrete-never-break — remove named dead history | `.claude/rules/debride.md` |
 | **checkpoint** | mark the way back before a debride rewrites a living card | `.claude/rules/checkpoint.md` |
