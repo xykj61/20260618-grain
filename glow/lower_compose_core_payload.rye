@@ -1,4 +1,4 @@
-//! glow/lower_compose_core_payload.rye — outer face → payload `|%` core.
+//! glow/lower_compose_core_payload.rye -- outer face -> payload `|%` core.
 //!
 //! Thin glow-language face (exactly five lines):
 //!   =/  note  7
@@ -7,35 +7,35 @@
 //!   ++  double
 //!   --
 //!
-//! glow-language — same shape with an open/nest arm:
+//! glow-language -- same shape with an open/nest arm:
 //!   =/  note  7
 //!   |%
 //!   =/  amount  5
 //!   ++  pack  (jam amount amount)
 //!   --
 //!
-//! glow-language — same shape with cue-of-jam arm:
+//! glow-language -- same shape with cue-of-jam arm:
 //!   =/  note  7
 //!   |%
 //!   =/  amount  5
 //!   ++  unpack  (cue (jam amount amount))
 //!   --
 //!
-//! glow-language — nest-left cue-of-jam under payload:
+//! glow-language -- nest-left cue-of-jam under payload:
 //!   =/  note  7
 //!   |%
 //!   =/  amount  5
 //!   ++  unpack  (cue (jam (mix amount amount) amount))
 //!   --
 //!
-//! glow-language — nest-right cue-of-jam under payload:
+//! glow-language -- nest-right cue-of-jam under payload:
 //!   =/  note  7
 //!   |%
 //!   =/  amount  5
 //!   ++  unpack  (cue (jam amount (mix amount amount)))
 //!   --
 //!
-//! glow-language — nest-both cue-of-jam under payload:
+//! glow-language -- nest-both cue-of-jam under payload:
 //!   =/  note  7
 //!   |%
 //!   =/  amount  5

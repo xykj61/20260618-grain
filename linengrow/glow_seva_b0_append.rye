@@ -1,14 +1,14 @@
-//! linengrow/glow_seva_b0_append.rye — Glow product append surface for Seva B0 demo log.
+//! linengrow/glow_seva_b0_append.rye -- Glow product append surface for Seva B0 demo log.
 //!
 //! glow-language: owned three-event demo log build via elder `append_event`.
 //! glow-language: `append_event` builds through glow_seva_b0_sign + glow_seva_b0_line
 //! (elder sign/format bodies underneath those wraps). Replay still elder.
 //! Digests through glow_seva_b0_digest.
 //! glow-language: `append_demo_log` first event from `format_demo_line_from_pins`
-//! (glow-language); events 2–3 stay sign+line. pixel-glass root unchanged.
-//! glow-language: all three events from seated pin emit (event 1–3 hex pins).
+//! (glow-language); events 2-3 stay sign+line. pixel-glass root unchanged.
+//! glow-language: all three events from seated pin emit (event 1-3 hex pins).
 //! glow-language: `append_demo_log_from_desk` builds the same log from runtime
-//! desk text (face='…' extract). Pin path remains. pixel-glass root unchanged.
+//! desk text (face='...' extract). Pin path remains. pixel-glass root unchanged.
 //! glow-language: `append_typed_memo` feeds a Dexter-shaped live memo through
 //! `append_event`. pixel-glass three-event pin path stays untouched.
 //!

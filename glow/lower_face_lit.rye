@@ -1,6 +1,6 @@
-//! glow/lower_face_lit.rye — emit Zig bytes from face=lit samples (glow-language).
+//! glow/lower_face_lit.rye -- emit Zig bytes from face=lit samples (glow-language).
 //!
-//! glow-language (C4): parsed `FaceLitSpec` → Zig expressions carrying the lit
+//! glow-language (C4): parsed `FaceLitSpec` -> Zig expressions carrying the lit
 //! bytes themselves. Face-name demos (`glow_demo_cord` / `glow_demo_hex`) stay
 //! on mold lower until a later wire. Desk pin held (C5).
 //!

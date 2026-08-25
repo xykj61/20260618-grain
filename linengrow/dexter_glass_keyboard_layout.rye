@@ -1,7 +1,7 @@
-//! linengrow/dexter_glass_keyboard_layout.rye — glass-keyboard/glass-keyboard English layout tables.
+//! linengrow/dexter_glass_keyboard_layout.rye -- glass-keyboard/glass-keyboard English layout tables.
 //!
 //! Glow-owned QWERTY pages for the glass keyboard (waymark glass-keyboard). Device-free
-//! data only — paint and tap hit-testing are glass-keyboard+. iOS-inspired mode family
+//! data only -- paint and tap hit-testing are glass-keyboard+. iOS-inspired mode family
 //! from public notes; clean-room (no Apple assets). glass-keyboard adds emoji pages.
 //! glass-keyboard: `ret` = newline; `send` (`^`) = submit.
 
@@ -27,7 +27,7 @@ pub const Key = union(enum) {
     delete,
     space,
     @"return",
-    /// glass-keyboard upward send — Dexter `.submit` (label `^`).
+    /// glass-keyboard upward send -- Dexter `.submit` (label `^`).
     send,
     to_numbers,
     to_letters,

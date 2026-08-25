@@ -1,12 +1,12 @@
 //! glow-book: runes.md#g-core
-//! glow/rune_core.rye — parses Glow's thin `|%` … `++` … `--` core.
+//! glow/rune_core.rye -- parses Glow's thin `|%` ... `++` ... `--` core.
 //!
 //! glow-language/15: one or two arms. glow-language: optional bare payload face before arms.
-//! glow-language: up to three arms (`double` · `inc` · `dec`).
+//! glow-language: up to three arms (`double` - `inc` - `dec`).
 //! glow-language: optional typed payload `=/  face=@u32  <decimal>`.
-//! glow-language: optional open arm body after the name — nest expr (`sample` /
-//! payload face · literal). glow-language: nest bodies `(mix …)` · `(jam …)` ·
-//! `(lent …)` · `^-` cast. Closed arms keep an empty body.
+//! glow-language: optional open arm body after the name -- nest expr (`sample` /
+//! payload face - literal). glow-language: nest bodies `(mix ...)` - `(jam ...)` -
+//! `(lent ...)` - `^-` cast. Closed arms keep an empty body.
 //!
 //! Other auras and variance stay later.
 

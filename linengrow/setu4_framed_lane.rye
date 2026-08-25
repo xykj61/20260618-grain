@@ -1,4 +1,4 @@
-//! linengrow/setu4_framed_lane.rye — usb-hearth: NCM-framed ping over live UDP.
+//! linengrow/setu4_framed_lane.rye -- usb-hearth: NCM-framed ping over live UDP.
 //!
 //! Affirmed thin face: the usb-hearth NCM-shaped frame carries a usb-hearth lane ping
 //! across a real localhost UDP socket (live wire stand-in). Host path may

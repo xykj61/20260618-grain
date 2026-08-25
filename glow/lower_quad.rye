@@ -1,4 +1,4 @@
-//! glow/lower_quad.rye — lower a parsed `:^` quad cell to runnable `.rye`.
+//! glow/lower_quad.rye -- lower a parsed `:^` quad cell to runnable `.rye`.
 //!
 //! Thin glow-language face: four demo atoms into a Zig quad struct.
 

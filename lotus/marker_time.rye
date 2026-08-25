@@ -1,23 +1,23 @@
-//! lotus/marker_time.rye — lotus-audio: markers in real time — a named place set and read in SECONDS. lotus-audio gave a keeper named
-//! places, yet every place is set and read by RAW SAMPLE INDEX. A musician marks the downbeat by TIME — "the chorus at forty-two
-//! seconds" — not by counting samples. lotus-audio's loop already learned this move (mark_ms sets loop points in seconds through the
+//! lotus/marker_time.rye -- lotus-audio: markers in real time -- a named place set and read in SECONDS. lotus-audio gave a keeper named
+//! places, yet every place is set and read by RAW SAMPLE INDEX. A musician marks the downbeat by TIME -- "the chorus at forty-two
+//! seconds" -- not by counting samples. lotus-audio's loop already learned this move (mark_ms sets loop points in seconds through the
 //! lotus-audio clock); this rung gives markers the same twin, so a keeper drops a named place in seconds and reads it back in seconds.
 //!
-//! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
+//! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
 //! Design read: active-designing/20260814-fill-ales21-lotus-marker-time.md
-//! Stands on: lotus/markers.rye (lotus-audio) — the sorted, unique named track and its add reused whole (the sample-index face stays
-//! pure; this rung only adds a time face over it); lotus/clock.rye (lotus-audio) — samples_for and ms_for, the one proven seconds ↔
-//! samples conversion, exactly as loop.mark_ms uses it; lotus/pan.rye (lotus-audio) — the StereoClip whose two channels share a length.
+//! Stands on: lotus/markers.rye (lotus-audio) -- the sorted, unique named track and its add reused whole (the sample-index face stays
+//! pure; this rung only adds a time face over it); lotus/clock.rye (lotus-audio) -- samples_for and ms_for, the one proven seconds <->
+//! samples conversion, exactly as loop.mark_ms uses it; lotus/pan.rye (lotus-audio) -- the StereoClip whose two channels share a length.
 //!
-//! THE CRUX: a named place set in seconds lands at EXACTLY samples_for(ms) and reads back the honestly-lossy same time — and the
+//! THE CRUX: a named place set in seconds lands at EXACTLY samples_for(ms) and reads back the honestly-lossy same time -- and the
 //! track it lands in stays SORTED and UNIQUE by lotus-audio's own add invariant. Two facts make this exact. The conversion is lotus-audio's,
-//! proven — mark_ms converts ms → samples through the same clock.samples_for the loop's mark_ms uses (bounded, refusing
+//! proven -- mark_ms converts ms -> samples through the same clock.samples_for the loop's mark_ms uses (bounded, refusing
 //! DurationTooLong past the clip), then hands the sample position to lotus-audio's add, so the marker lands sorted, unique, and within
-//! the master with no new bound of its own. And reading back is the clock's own round-trip — pos_ms reports through clock.ms_for,
+//! the master with no new bound of its own. And reading back is the clock's own round-trip -- pos_ms reports through clock.ms_for,
 //! honestly lossy exactly as lotus-audio defines (at one sample per ms the round-trip is exact; at any rate it is the clock's own
 //! documented truncation, not a new loss).
 //!
-//! HONEST SCOPE — software only, purely LOCAL. A time face over lotus-audio's in-process named track, siloed to lotus/. A marker is a
+//! HONEST SCOPE -- software only, purely LOCAL. A time face over lotus-audio's in-process named track, siloed to lotus/. A marker is a
 //! label on an index, and a time is that index read through the clock. No socket, no network, no keys, no funds, no real device,
 //! no real meter, no real speaker.
 //!
@@ -40,8 +40,8 @@ pub const marker_time_version = "20260814.133633";
 /// fault refuses by name before a marker is placed.
 pub const MarkerTimeError = markers.MarkerError || clock.ClockError;
 
-/// Set a named place at a real moment `ms`: convert ms → samples through lotus-audio's clock.samples_for (bounded, refusing
-/// DurationTooLong past the clip), then add through lotus-audio's markers.add — so the marker lands sorted, unique, and within the
+/// Set a named place at a real moment `ms`: convert ms -> samples through lotus-audio's clock.samples_for (bounded, refusing
+/// DurationTooLong past the clip), then add through lotus-audio's markers.add -- so the marker lands sorted, unique, and within the
 /// master with no new bound of its own. Forwards every lotus-audio edge (BadName, PastEnd, Duplicate, MarkersFull) and lotus-audio's
 /// DurationTooLong. So a keeper drops a named place in seconds.
 pub fn mark_ms(m: *markers.Markers, master: *const pan.StereoClip, clk: clock.Clock, ms: u32, name: []const u8) MarkerTimeError!void {
@@ -75,7 +75,7 @@ fn run_selftest() !u8 {
     try timeline.splice(&master.left, 0, &buf);
     try timeline.splice(&master.right, 0, &buf);
 
-    // 1. THE CRUX — places set in SECONDS out of order land at their sample positions, stay sorted and unique, and read back the
+    // 1. THE CRUX -- places set in SECONDS out of order land at their sample positions, stay sorted and unique, and read back the
     //    same time. Set 300ms, 100ms, 250ms, 0ms; the track reads ascending samples 0, 100, 250, 300, each reading its ms back.
     {
         var m = markers.Markers{};
@@ -95,13 +95,13 @@ fn run_selftest() !u8 {
         }
     }
 
-    // 2. the edges refuse by name — a place past the master refuses PastEnd (500ms is sample 500, the end, allowed; 501ms is past),
+    // 2. the edges refuse by name -- a place past the master refuses PastEnd (500ms is sample 500, the end, allowed; 501ms is past),
     //    a duration past the clip refuses DurationTooLong, and two places at the same time refuse Duplicate.
     {
         var m = markers.Markers{};
         try mark_ms(&m, &master, c, 500, "end"); // exactly the end is allowed (a boundary marker)
         if (mark_ms(&m, &master, c, 501, "over")) |_| return error.PastEndSlipped else |e| if (e != error.PastEnd) return error.WrongPastEnd;
-        // a duration past the clip bound refuses the clock's own DurationTooLong before any add — at 1 sample/ms, max_clip + 1 ms
+        // a duration past the clip bound refuses the clock's own DurationTooLong before any add -- at 1 sample/ms, max_clip + 1 ms
         // converts to max_clip + 1 samples, one past the clip bound, so samples_for throws before markers.add is ever reached.
         const huge_ms: u32 = timeline.max_clip + 1;
         if (mark_ms(&m, &master, c, huge_ms, "far")) |_| return error.DurationSlipped else |e| if (e != error.DurationTooLong) return error.WrongDuration;
@@ -110,7 +110,7 @@ fn run_selftest() !u8 {
         if (mark_ms(&m, &master, c, 200, "b")) |_| return error.DupSlipped else |e| if (e != error.Duplicate) return error.WrongDup;
     }
 
-    // 3. a marker set in SECONDS drives a real lotus-audio region_between and scrub snap — set two timed places, loop between them, and
+    // 3. a marker set in SECONDS drives a real lotus-audio region_between and scrub snap -- set two timed places, loop between them, and
     //    snap a scrub onto the nearest. The time face composes cleanly with lotus-audio's sample-index gestures.
     {
         var m = markers.Markers{};

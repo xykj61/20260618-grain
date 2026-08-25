@@ -1,4 +1,4 @@
-//! linengrow/tube4_market_rail.rye — glow-publishing: acquire a published app over the market rail.
+//! linengrow/tube4_market_rail.rye -- glow-publishing: acquire a published app over the market rail.
 //!
 //! Per expanding-prompts/yonder/20260716-142818 rung glow-publishing: price the glow-publishing Manifest
 //! resin in MALA on Granary Exchange, settle the send through Neth's

@@ -1,4 +1,4 @@
-//! linengrow/tube2_publish.rye — glow-publishing: sign an app+manifest into Granary.
+//! linengrow/tube2_publish.rye -- glow-publishing: sign an app+manifest into Granary.
 //!
 //! Per expanding-prompts/yonder/20260716-142818 rung glow-publishing: a maker publishes a
 //! glow-publishing Manifest as a content-addressed resin under a signed person/weave

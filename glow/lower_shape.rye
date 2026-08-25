@@ -1,20 +1,20 @@
-//! glow/lower_shape.rye — lower a `+$` / `$:` / `$%` shape to runnable `.rye`.
+//! glow/lower_shape.rye -- lower a `+$` / `$:` / `$%` shape to runnable `.rye`.
 //!
-//! glow-language–75: `$:` `@u32` fields → Zig struct + demo main.
-//! glow-language: `$%` cold-atom tags with unit payload → Zig enum + demo main.
-//! glow-language: `$%` arms with one-face `@u32` payload → Zig union(enum).
-//! glow-language: `$%` arms with multi-face `@u32` payload → same union shape.
+//! glow-language-75: `$:` `@u32` fields -> Zig struct + demo main.
+//! glow-language: `$%` cold-atom tags with unit payload -> Zig enum + demo main.
+//! glow-language: `$%` arms with one-face `@u32` payload -> Zig union(enum).
+//! glow-language: `$%` arms with multi-face `@u32` payload -> same union shape.
 //! Named-cast resolve: `lower_named_cast.rye` (glow-language).
 //! Library emit (no main) is glow-language for `/+` shape import.
 //! glow-language: shape-only dispatch peek delegates to `tokens.looks_like_shape_only`.
-//! glow-language: TAME tidy — assert · u32 · append_print · split emitters.
+//! glow-language: TAME tidy -- assert - u32 - append_print - split emitters.
 //! glow-language: `$:` `@t` faces parse.
 //! glow-language: `$:` `@t` lowers to bounded `[aura_t_max_bytes]u8` + demo main.
 //! glow-language: `$:` `@ux` faces parse.
 //! glow-language: `$:` `@ux` lowers to bounded `[aura_ux_max_bytes]u8` + demo main.
 //! glow-language: `$%` payload `@t`/`@ux` parse.
 //! glow-language: `$%` payload `@t`/`@ux` lowers to bounded bytes + demo main.
-//! glow-language: API rename from lower_mold / MoldSpec → lower_shape / ShapeSpec.
+//! glow-language: API rename from lower_mold / MoldSpec -> lower_shape / ShapeSpec.
 //! `20260724.205719`: `$:` / `$%` `@u64` lowers to Zig `u64` (admitted-aura table).
 
 const std = @import("std");
@@ -24,7 +24,7 @@ const tokens = @import("tokens.rye");
 const nest_type = @import("nest_type.rye");
 const tally_copy = @import("tally_copy.rye");
 
-/// True when a multi-line desk is shape-only `+$` … `==` (no trailing `^-`).
+/// True when a multi-line desk is shape-only `+$` ... `==` (no trailing `^-`).
 pub fn looks_like_shape_only(src: []const u8) bool {
     return tokens.looks_like_shape_only(src);
 }
@@ -114,7 +114,7 @@ fn emit_bytes_demo_helper(out: []u8, used: *u32, comptime fn_name: []const u8, b
     // invariant: the cursor addresses the remaining buffer below, so a cursor past the end
     // would hand the print a negative span
     assert(used.* <= out.len);
-    // Bound-copy loop in emit (no memcpy token in this file — TAME scan).
+    // Bound-copy loop in emit (no memcpy token in this file -- TAME scan).
     try append_print(out, used,
         \\fn {s}(comptime s: []const u8) [{d}]u8 {{
         \\    var buf = [_]u8{{0}} ** {d};
@@ -493,7 +493,7 @@ pub fn lower_source_welcome(src: []const u8, out: []u8) LowerError!u32 {
     };
 }
 
-/// Importable mold — type only, no `main` (glow-language `$:` · glow-language–82 `$%`).
+/// Importable mold -- type only, no `main` (glow-language `$:` - glow-language-82 `$%`).
 pub fn lower_source_library(src: []const u8, out: []u8) LowerError!u32 {
     // invariant: the emitter writes its opening bytes without checking, so an empty buffer
     // would be written past rather than refused

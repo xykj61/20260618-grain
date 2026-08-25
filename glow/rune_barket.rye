@@ -1,26 +1,26 @@
 //! glow-book: runes.md#g-barket
-//! glow/rune_barket.rye — parses Glow's `|^` barket (glow-language–120).
+//! glow/rune_barket.rye -- parses Glow's `|^` barket (glow-language-120).
 //!
 //! Stated-sample demo: `|^  sample=@u32` or `|^  sample=amount-shape` header, then either:
 //!   - header-only (glow-language)
 //!   - identity body face (glow-language)
-//!   - call body: `%-  <gate>  <sample-face>` (glow-language–116)
-//! Closed demo gates: `double` · `inc` · `dec` (`@u32`) · `flip` (kind · xact · xfer · pair · triple · quad · penta · hexa · hepta · octa · nona · glow-language–131/136–139/141/143/145/147).
-//! glow-language: TAME tidy — copy_disjoint · parse_body split.
+//!   - call body: `%-  <gate>  <sample-face>` (glow-language-116)
+//! Closed demo gates: `double` - `inc` - `dec` (`@u32`) - `flip` (kind - xact - xfer - pair - triple - quad - penta - hexa - hepta - octa - nona - glow-language-131/136-139/141/143/145/147).
+//! glow-language: TAME tidy -- copy_disjoint - parse_body split.
 //! glow-language: closed named mold `amount-mold` (one-field `$:` ≡ `@u32` lower).
 //! glow-language: closed allowlist alias `amount-shape` ≡ `amount-mold` (Glow OS shape word).
 //! glow-language: closed allowlist alias `count-shape` ≡ `count-mold` (Glow OS shape word).
-//! glow-language: closed allowlist alias `pair-shape` ≡ `pair-mold` (Glow OS shape word · PairShape).
-//! glow-language: closed allowlist alias `kind-shape` ≡ `kind-mold` (Glow OS shape word · KindShape).
-//! glow-language: closed allowlist alias `xact-shape` ≡ `xact-mold` (Glow OS shape word · XactShape).
-//! glow-language: closed allowlist alias `xfer-shape` ≡ `xfer-mold` (Glow OS shape word · XferShape).
-//! glow-language: closed allowlist alias `triple-shape` ≡ `triple-mold` (Glow OS shape word · TripleShape).
-//! glow-language: closed allowlist alias `quad-shape` ≡ `quad-mold` (Glow OS shape word · QuadShape).
-//! glow-language: closed allowlist alias `penta-shape` ≡ `penta-mold` (Glow OS shape word · PentaShape).
-//! glow-language: closed allowlist alias `hexa-shape` ≡ `hexa-mold` (Glow OS shape word · HexaShape).
-//! glow-language: closed allowlist alias `hepta-shape` ≡ `hepta-mold` (Glow OS shape word · HeptaShape).
-//! glow-language: closed allowlist alias `octa-shape` ≡ `octa-mold` (Glow OS shape word · OctaShape).
-//! glow-language: closed allowlist alias `nona-shape` ≡ `nona-mold` (Glow OS shape word · NonaShape).
+//! glow-language: closed allowlist alias `pair-shape` ≡ `pair-mold` (Glow OS shape word - PairShape).
+//! glow-language: closed allowlist alias `kind-shape` ≡ `kind-mold` (Glow OS shape word - KindShape).
+//! glow-language: closed allowlist alias `xact-shape` ≡ `xact-mold` (Glow OS shape word - XactShape).
+//! glow-language: closed allowlist alias `xfer-shape` ≡ `xfer-mold` (Glow OS shape word - XferShape).
+//! glow-language: closed allowlist alias `triple-shape` ≡ `triple-mold` (Glow OS shape word - TripleShape).
+//! glow-language: closed allowlist alias `quad-shape` ≡ `quad-mold` (Glow OS shape word - QuadShape).
+//! glow-language: closed allowlist alias `penta-shape` ≡ `penta-mold` (Glow OS shape word - PentaShape).
+//! glow-language: closed allowlist alias `hexa-shape` ≡ `hexa-mold` (Glow OS shape word - HexaShape).
+//! glow-language: closed allowlist alias `hepta-shape` ≡ `hepta-mold` (Glow OS shape word - HeptaShape).
+//! glow-language: closed allowlist alias `octa-shape` ≡ `octa-mold` (Glow OS shape word - OctaShape).
+//! glow-language: closed allowlist alias `nona-shape` ≡ `nona-mold` (Glow OS shape word - NonaShape).
 //! glow-language: expansion calls `assert_sample_nesting_nests` at the mold seam.
 //! glow-language / glow-language: barket passes `is_nesting=true` through nesting-nests under stated molds.
 //! glow-language: closed allowlist adds `count-mold` beside `amount-mold`.
@@ -28,25 +28,25 @@
 //! glow-language: closed allowlist adds payload `$%` `xact-mold` (identity lower).
 //! glow-language: closed allowlist adds multi-face payload `$%` `xfer-mold` (identity lower).
 //! glow-language: closed allowlist adds multi-field `$:` `pair-mold` (identity lower).
-//! glow-language: closed call-body under kind-mold — `flip` (mint↔send).
-//! glow-language: closed call-body under xact-mold — `flip` (mint↔send).
-//! glow-language: closed call-body under xfer-mold — `flip` (mint↔send).
-//! glow-language: closed call-body under pair-mold — `flip` (from↔amount).
+//! glow-language: closed call-body under kind-mold -- `flip` (mint<->send).
+//! glow-language: closed call-body under xact-mold -- `flip` (mint<->send).
+//! glow-language: closed call-body under xfer-mold -- `flip` (mint<->send).
+//! glow-language: closed call-body under pair-mold -- `flip` (from<->amount).
 //! glow-language: closed allowlist adds three-field `$:` `triple-mold` (identity lower).
 //! glow-language: closed allowlist adds four-field `$:` `quad-mold` (identity lower).
-//! glow-language: closed call-body under triple-mold — `flip` (from↔amount · fee stays).
-//! glow-language: closed call-body under quad-mold — `flip` (from↔amount · fee/nonce stay).
+//! glow-language: closed call-body under triple-mold -- `flip` (from<->amount - fee stays).
+//! glow-language: closed call-body under quad-mold -- `flip` (from<->amount - fee/nonce stay).
 //! glow-language: closed allowlist adds five-field `$:` `penta-mold` (identity lower).
-//! glow-language: closed call-body under penta-mold — `flip` (from↔amount · fee/nonce/memo stay).
+//! glow-language: closed call-body under penta-mold -- `flip` (from<->amount - fee/nonce/memo stay).
 //! glow-language: closed allowlist adds six-field `$:` `hexa-mold` (identity lower).
-//! glow-language: closed call-body under hexa-mold — `flip` (from↔amount · fee/nonce/memo/tag stay).
+//! glow-language: closed call-body under hexa-mold -- `flip` (from<->amount - fee/nonce/memo/tag stay).
 //! glow-language: closed allowlist adds seven-field `$:` `hepta-mold` (identity lower).
-//! glow-language: closed call-body under hepta-mold — `flip` (from↔amount · fee/nonce/memo/tag/to stay).
+//! glow-language: closed call-body under hepta-mold -- `flip` (from<->amount - fee/nonce/memo/tag/to stay).
 //! glow-language: closed allowlist adds eight-field `$:` `octa-mold` (identity lower).
-//! glow-language: closed call-body under octa-mold — `flip` (from↔amount · fee/nonce/memo/tag/to/via stay).
+//! glow-language: closed call-body under octa-mold -- `flip` (from<->amount - fee/nonce/memo/tag/to/via stay).
 //! glow-language: closed allowlist adds nine-field `$:` `nona-mold` (identity lower).
-//! glow-language: closed call-body under nona-mold — `flip` (from↔amount · fee/nonce/memo/tag/to/via/ref stay).
-//! glow-language: BarketSpec fields — `shape_name` · `shape_name_len` · `shape_name_slice` · `max_shape_len`.
+//! glow-language: closed call-body under nona-mold -- `flip` (from<->amount - fee/nonce/memo/tag/to/via/ref stay).
+//! glow-language: BarketSpec fields -- `shape_name` - `shape_name_len` - `shape_name_slice` - `max_shape_len`.
 //! Sample nests under `@u32` / named allowlist via nest_type; ambient gold held.
 //! Token-driven via tokens.rye. Open `$:` beyond nona barket samples held.
 
@@ -135,7 +135,7 @@ pub fn is_xfer_call_gate(gate: []const u8) bool {
     return std.mem.eql(u8, gate, "flip");
 }
 
-/// glow-language: closed call-body gate under pair…nona `$:` — `flip` only today.
+/// glow-language: closed call-body gate under pair...nona `$:` -- `flip` only today.
 pub fn is_n_field_call_gate(gate: []const u8) bool {
     return std.mem.eql(u8, gate, "flip");
 }
@@ -159,7 +159,7 @@ fn parse_body(src: []const u8, toks: []const tokens.Token, start: u32, face_text
         if (i >= n or toks[@as(usize, @intCast(i))].kind != .ident) return error.MalformedBody;
         const gate_text = tokens.slice_of(src, toks[@as(usize, @intCast(i))]);
         if (gate_text.len == 0 or gate_text.len > max_gate_len) return error.MalformedBody;
-        // Closed demo gates — double (glow-language) · inc · dec (glow-language).
+        // Closed demo gates -- double (glow-language) - inc - dec (glow-language).
         if (!is_closed_call_gate(gate_text)) return error.BodyGateNotYetLowered;
         i += 1;
         if (i >= n or toks[@as(usize, @intCast(i))].kind != .ident) return error.MalformedBody;
@@ -205,7 +205,7 @@ pub fn parse_source(src: []const u8) ParseError!BarketSpec {
     if (i >= n or toks[@as(usize, @intCast(i))].kind != .equals) return error.MissingEquals;
     i += 1;
 
-    // Sample shape — aura `@u32` or closed named living `-shape` / study `-mold`.
+    // Sample shape -- aura `@u32` or closed named living `-shape` / study `-mold`.
     if (i >= n) return error.MissingAura;
     const shape_tok = toks[@as(usize, @intCast(i))];
     var named_shape: ?[]const u8 = null;

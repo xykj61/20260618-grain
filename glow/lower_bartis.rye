@@ -1,50 +1,50 @@
-//! glow/lower_bartis.rye — lower a thin `|=` bartis gate to runnable `.rye` (glow-language–107).
+//! glow/lower_bartis.rye -- lower a thin `|=` bartis gate to runnable `.rye` (glow-language-107).
 //!
-//! Identity gate: `|=  sample=@u32` / `sample` — takes u32 and returns it.
-//! Call body: `|=  sample=@u32` / `%-  <gate>  sample` — closed demos:
-//!   double → *% 2 (glow-language) · inc → +% 1 · dec → -% 1 (glow-language).
+//! Identity gate: `|=  sample=@u32` / `sample` -- takes u32 and returns it.
+//! Call body: `|=  sample=@u32` / `%-  <gate>  sample` -- closed demos:
+//!   double -> *% 2 (glow-language) - inc -> +% 1 - dec -> -% 1 (glow-language).
 //! glow-language: baked demo sample 5; identity exits 0 when bartis_gate(5) == 5.
-//! glow-language: argv sample path — main reads one decimal `@u32` and checks the body result.
-//! glow-language: TAME tidy — assert · u32 · append_print · split emitters.
-//! glow-language: nest/type surface — non-`@u32` sample refuses `SampleDoesNotNest`.
-//! glow-language / glow-language: named molds `amount-mold` · `count-mold` lower as `@u32`.
-//! glow-language: `kind-mold` identity lowers as `KindShape` enum · baked `.mint`.
-//! glow-language: `xact-mold` identity lowers as `XactShape` union · baked `.mint` amount 5.
-//! glow-language: `xfer-mold` identity lowers as `XferShape` union · baked `.mint` from 5 amount 3.
-//! glow-language: `pair-mold` identity lowers as `PairShape` struct · baked from 5 amount 3.
-//! glow-language: `triple-mold` identity lowers as `TripleShape` struct · baked from 5 amount 3 fee 1.
-//! glow-language: `quad-mold` identity lowers as `QuadShape` struct · baked from 5 amount 3 fee 1 nonce 2.
-//! glow-language: `triple-mold` call body `%-  flip` → TripleShape swap · baked 5/3/1 → 3/5/1.
-//! glow-language: `quad-mold` call body `%-  flip` → QuadShape swap · baked 5/3/1/2 → 3/5/1/2.
-//! glow-language: `penta-mold` identity lowers as `PentaShape` struct · baked from 5 amount 3 fee 1 nonce 2 memo 7.
-//! glow-language: `penta-mold` call body `%-  flip` → PentaShape swap · baked 5/3/1/2/7 → 3/5/1/2/7.
-//! glow-language: `hexa-mold` identity lowers as `HexaShape` struct · baked from 5 amount 3 fee 1 nonce 2 memo 7 tag 4.
-//! glow-language: `hexa-mold` call body `%-  flip` → HexaShape swap · baked 5/3/1/2/7/4 → 3/5/1/2/7/4.
-//! glow-language: `hepta-mold` identity lowers as `HeptaShape` struct · baked from 5 amount 3 fee 1 nonce 2 memo 7 tag 4 to 6.
-//! glow-language: `hepta-mold` call body `%-  flip` → HeptaShape swap · baked 5/3/1/2/7/4/6 → 3/5/1/2/7/4/6.
-//! glow-language: `octa-mold` identity lowers as `OctaShape` struct · baked from 5 amount 3 fee 1 nonce 2 memo 7 tag 4 to 6 via 8.
-//! glow-language: `octa-mold` call body `%-  flip` → OctaShape swap · baked 5/3/1/2/7/4/6/8 → 3/5/1/2/7/4/6/8.
-//! glow-language: `nona-mold` identity lowers as `NonaShape` struct · baked from 5 amount 3 fee 1 nonce 2 memo 7 tag 4 to 6 via 8 ref 9.
-//! glow-language: `nona-mold` call body `%-  flip` → NonaShape swap · baked 5/3/1/2/7/4/6/8/9 → 3/5/1/2/7/4/6/8/9.
-//! glow-language: pair…nona identity emit collapses through `emit_n_field_identity`
-//! (faces · demos shared).
-//! glow-language: pair…nona flip call-body collapses through `emit_n_field_flip_call_body`
-//! (same faces · demos; from↔amount swap).
-//! glow-language: `kind-mold` call body `%-  flip` → KindShape switch · baked `.mint` → `.send`.
-//! glow-language: `xact-mold` call body `%-  flip` → XactShape switch · baked mint/5 → `.send`.
-//! glow-language: `xfer-mold` call body `%-  flip` → XferShape switch · baked mint/5/3 → `.send`.
+//! glow-language: argv sample path -- main reads one decimal `@u32` and checks the body result.
+//! glow-language: TAME tidy -- assert - u32 - append_print - split emitters.
+//! glow-language: nest/type surface -- non-`@u32` sample refuses `SampleDoesNotNest`.
+//! glow-language / glow-language: named molds `amount-mold` - `count-mold` lower as `@u32`.
+//! glow-language: `kind-mold` identity lowers as `KindShape` enum - baked `.mint`.
+//! glow-language: `xact-mold` identity lowers as `XactShape` union - baked `.mint` amount 5.
+//! glow-language: `xfer-mold` identity lowers as `XferShape` union - baked `.mint` from 5 amount 3.
+//! glow-language: `pair-mold` identity lowers as `PairShape` struct - baked from 5 amount 3.
+//! glow-language: `triple-mold` identity lowers as `TripleShape` struct - baked from 5 amount 3 fee 1.
+//! glow-language: `quad-mold` identity lowers as `QuadShape` struct - baked from 5 amount 3 fee 1 nonce 2.
+//! glow-language: `triple-mold` call body `%-  flip` -> TripleShape swap - baked 5/3/1 -> 3/5/1.
+//! glow-language: `quad-mold` call body `%-  flip` -> QuadShape swap - baked 5/3/1/2 -> 3/5/1/2.
+//! glow-language: `penta-mold` identity lowers as `PentaShape` struct - baked from 5 amount 3 fee 1 nonce 2 memo 7.
+//! glow-language: `penta-mold` call body `%-  flip` -> PentaShape swap - baked 5/3/1/2/7 -> 3/5/1/2/7.
+//! glow-language: `hexa-mold` identity lowers as `HexaShape` struct - baked from 5 amount 3 fee 1 nonce 2 memo 7 tag 4.
+//! glow-language: `hexa-mold` call body `%-  flip` -> HexaShape swap - baked 5/3/1/2/7/4 -> 3/5/1/2/7/4.
+//! glow-language: `hepta-mold` identity lowers as `HeptaShape` struct - baked from 5 amount 3 fee 1 nonce 2 memo 7 tag 4 to 6.
+//! glow-language: `hepta-mold` call body `%-  flip` -> HeptaShape swap - baked 5/3/1/2/7/4/6 -> 3/5/1/2/7/4/6.
+//! glow-language: `octa-mold` identity lowers as `OctaShape` struct - baked from 5 amount 3 fee 1 nonce 2 memo 7 tag 4 to 6 via 8.
+//! glow-language: `octa-mold` call body `%-  flip` -> OctaShape swap - baked 5/3/1/2/7/4/6/8 -> 3/5/1/2/7/4/6/8.
+//! glow-language: `nona-mold` identity lowers as `NonaShape` struct - baked from 5 amount 3 fee 1 nonce 2 memo 7 tag 4 to 6 via 8 ref 9.
+//! glow-language: `nona-mold` call body `%-  flip` -> NonaShape swap - baked 5/3/1/2/7/4/6/8/9 -> 3/5/1/2/7/4/6/8/9.
+//! glow-language: pair...nona identity emit collapses through `emit_n_field_identity`
+//! (faces - demos shared).
+//! glow-language: pair...nona flip call-body collapses through `emit_n_field_flip_call_body`
+//! (same faces - demos; from<->amount swap).
+//! glow-language: `kind-mold` call body `%-  flip` -> KindShape switch - baked `.mint` -> `.send`.
+//! glow-language: `xact-mold` call body `%-  flip` -> XactShape switch - baked mint/5 -> `.send`.
+//! glow-language: `xfer-mold` call body `%-  flip` -> XferShape switch - baked mint/5/3 -> `.send`.
 //! glow-language: xact+xfer flip call-body collapses through `emit_tagged_payload_flip_call_body`
 //!   (mint_faces 1|2). Kind unit flip stays its own family.
 //! glow-language: kind flip call-body collapses through `emit_tagged_unit_flip_call_body`.
-//! glow-language: `pair-mold` call body `%-  flip` → PairShape swap · baked 5/3 → 3/5.
-//! glow-language: `amount-mold` argv identity — generator beside fixture (u32-shaped named mold).
-//! glow-language: `count-mold` argv identity — twin generator beside fixture.
-//! glow-language: `kind-mold` argv identity — unit-tag reader (`mint`/`send`).
-//! glow-language: `xact-mold` argv identity — payload tag + amount (`mint <u32>` / `send`).
-//! glow-language: `xfer-mold` argv identity — payload tag + two mint faces (`mint <from> <amount>` / `send`).
-//! glow-language–321: pair…nona `$:` argv readers (survey).
-//! glow-language: `$:` argv dispatch collapses — shape → N → `emit_n_field_argv` (sameness).
-//! glow-language: `$:` welcome dispatch collapses — shape → N → identity / flip (sameness).
+//! glow-language: `pair-mold` call body `%-  flip` -> PairShape swap - baked 5/3 -> 3/5.
+//! glow-language: `amount-mold` argv identity -- generator beside fixture (u32-shaped named mold).
+//! glow-language: `count-mold` argv identity -- twin generator beside fixture.
+//! glow-language: `kind-mold` argv identity -- unit-tag reader (`mint`/`send`).
+//! glow-language: `xact-mold` argv identity -- payload tag + amount (`mint <u32>` / `send`).
+//! glow-language: `xfer-mold` argv identity -- payload tag + two mint faces (`mint <from> <amount>` / `send`).
+//! glow-language-321: pair...nona `$:` argv readers (survey).
+//! glow-language: `$:` argv dispatch collapses -- shape -> N -> `emit_n_field_argv` (sameness).
+//! glow-language: `$:` welcome dispatch collapses -- shape -> N -> identity / flip (sameness).
 //! glow-language: N-path reads `nest_type.closed_tuple_field_count`; living locals say shape.
 //! STOA338a: pair-faces parse seats; lower answers PairNotYetLowered until 338b.
 //! Gate function named `bartis_gate` to avoid collisions with the sample face.
@@ -60,10 +60,10 @@ pub const LowerError = rb.ParseError || error{Overflow};
 pub const bartis_demo_sample: u32 = 5;
 /// Expected result for identity body with baked sample.
 pub const bartis_identity_expect: u32 = 5;
-/// Baked multi-face xfer mint (matches mold-xfer welcome · glow-language).
+/// Baked multi-face xfer mint (matches mold-xfer welcome - glow-language).
 pub const bartis_xfer_demo_from: u32 = 5;
 pub const bartis_xfer_demo_amount: u32 = 3;
-/// Baked multi-field pair (matches mold-pair welcome · glow-language).
+/// Baked multi-field pair (matches mold-pair welcome - glow-language).
 pub const bartis_pair_demo_from: u32 = 5;
 pub const bartis_pair_demo_amount: u32 = 3;
 pub const bartis_triple_demo_from: u32 = 5;
@@ -188,7 +188,7 @@ fn call_body_expr(gate: []const u8, zface: []const u8, buf: []u8) LowerError![]c
         return std.fmt.bufPrint(buf, "if ({s} <= {d}) 1 else 0", .{ zface, rb.max_prodto_bound }) catch return error.Overflow;
     }
     if (std.mem.eql(u8, gate, "gardens_lawful")) {
-        // glow-language · O3: the check reads the vane's own constant through the plant's import.
+        // glow-language - O3: the check reads the vane's own constant through the plant's import.
         return std.fmt.bufPrint(buf, "if ({s} <= gardens.max_gardens) 1 else 0", .{zface}) catch return error.Overflow;
     }
     if (std.mem.eql(u8, gate, "caps_lawful")) {
@@ -224,7 +224,7 @@ fn call_expect(gate: []const u8, sample: u32) LowerError!u32 {
 
 fn fold_sumto_expect(n: u32, bound: u32) u32 {
     if (n == 0 or n > bound) return 0;
-    // Triangular number 1..n — closed form, width named.
+    // Triangular number 1..n -- closed form, width named.
     return (n *% (n +% 1)) / 2;
 }
 
@@ -255,7 +255,7 @@ fn expect_for(spec: *const rb.GateSpec) LowerError!u32 {
     };
 }
 
-/// glow-language/335: welcome-path expect for `|+ sum` — sum of closed-tuple demos for the sample's N.
+/// glow-language/335: welcome-path expect for `|+ sum` -- sum of closed-tuple demos for the sample's N.
 fn fold_sum_n_expect(spec: *const rb.GateSpec) LowerError!u32 {
     const sn = rb.shape_name_slice(spec);
     const n = nest_type.closed_tuple_field_count(sn) orelse return error.SampleDoesNotNest;
@@ -267,7 +267,7 @@ fn fold_sum_n_expect(spec: *const rb.GateSpec) LowerError!u32 {
     return acc;
 }
 
-/// glow-language: product expect over the same demo fields — identity 1, not 0.
+/// glow-language: product expect over the same demo fields -- identity 1, not 0.
 fn fold_prod_n_expect(spec: *const rb.GateSpec) LowerError!u32 {
     const sn = rb.shape_name_slice(spec);
     const n = nest_type.closed_tuple_field_count(sn) orelse return error.SampleDoesNotNest;
@@ -308,9 +308,9 @@ fn emit_fold_prodto_gate_fn(out: []u8, used: *u32, zface: []const u8, bound: u32
 }
 
 
-/// glow-language: pair list-fold welcome — seated elder bytes; glow-language delegates here at n=2.
+/// glow-language: pair list-fold welcome -- seated elder bytes; glow-language delegates here at n=2.
 
-/// glow-language: list fold by product — welcome path. Operator *%; identity of none is 1.
+/// glow-language: list fold by product -- welcome path. Operator *%; identity of none is 1.
 fn emit_fold_prod_n_welcome(out: []u8, field_count: u32, zface: []const u8, comment: []const u8) LowerError!u32 {
     // invariant: the emitter names each field from closed_tuple_faces, a table of nine, and
     // indexes it by position -- so nine is that table's length rather than a chosen ceiling,
@@ -357,7 +357,7 @@ fn emit_fold_prod_n_welcome(out: []u8, field_count: u32, zface: []const u8, comm
     return used;
 }
 
-/// glow-language: list fold by product — argv path; answer spoken; wraps with *%.
+/// glow-language: list fold by product -- argv path; answer spoken; wraps with *%.
 fn emit_fold_prod_n_argv(out: []u8, field_count: u32, zface: []const u8, comment: []const u8) LowerError!u32 {
     // invariant: the emitter names each field from closed_tuple_faces, a table of nine, and
     // indexes it by position -- so nine is that table's length rather than a chosen ceiling,
@@ -434,7 +434,7 @@ fn emit_fold_sum_pair_welcome(out: []u8, zface: []const u8, comment: []const u8)
     return used;
 }
 
-/// glow-language: pair list-fold argv — seated elder bytes; glow-language delegates here at n=2.
+/// glow-language: pair list-fold argv -- seated elder bytes; glow-language delegates here at n=2.
 fn emit_fold_sum_pair_argv(out: []u8, zface: []const u8, comment: []const u8) LowerError!u32 {
     var used: u32 = 0;
     try append_print(out, &used, "const std = @import(\"std\");\n\n", .{});
@@ -463,7 +463,7 @@ fn emit_fold_sum_pair_argv(out: []u8, zface: []const u8, comment: []const u8) Lo
     return used;
 }
 
-/// glow-language: `|+ sum` over closed `$:` pair…nona — at n=2 delegates to the elder pair emitter.
+/// glow-language: `|+ sum` over closed `$:` pair...nona -- at n=2 delegates to the elder pair emitter.
 fn emit_fold_sum_n_welcome(out: []u8, field_count: u32, zface: []const u8, comment: []const u8) LowerError!u32 {
     // invariant: the emitter names each field from closed_tuple_faces, a table of nine, and
     // indexes it by position -- so nine is that table's length rather than a chosen ceiling,
@@ -511,7 +511,7 @@ fn emit_fold_sum_n_welcome(out: []u8, field_count: u32, zface: []const u8, comme
     return used;
 }
 
-/// glow-language: `|+ sum` argv — at n=2 delegates to the elder pair emitter.
+/// glow-language: `|+ sum` argv -- at n=2 delegates to the elder pair emitter.
 fn emit_fold_sum_n_argv(out: []u8, field_count: u32, zface: []const u8, comment: []const u8) LowerError!u32 {
     // invariant: the emitter names each field from closed_tuple_faces, a table of nine, and
     // indexes it by position -- so nine is that table's length rather than a chosen ceiling,
@@ -600,7 +600,7 @@ fn emit_argv_main(out: []u8, used: *u32, zface: []const u8, expect_expr: []const
     try append_print(out, used, "}}\n", .{});
 }
 
-/// PLEAC 1.2 — the speaking argv main: the gate's answer reaches stdout.
+/// PLEAC 1.2 -- the speaking argv main: the gate's answer reaches stdout.
 /// say is argv-only; the welcome road refuses it honestly at expect_for.
 fn emit_argv_speaking_main(out: []u8, used: *u32, zface: []const u8) LowerError!void {
     try append_print(out, used, "pub fn main(init: std.process.Init) !u8 {{\n", .{});
@@ -637,7 +637,7 @@ fn is_xfer_sample(spec: *const rb.GateSpec) bool {
     return nest_type.is_xfer_named_shape(rb.shape_name_slice(spec));
 }
 
-/// glow-language: closed unit `$%` kind-mold identity → KindShape enum · baked `.mint`.
+/// glow-language: closed unit `$%` kind-mold identity -> KindShape enum - baked `.mint`.
 fn emit_kind_identity(out: []u8, zface: []const u8, comment: []const u8) LowerError!u32 {
     var used: u32 = 0;
     try append_print(out, &used, "const std = @import(\"std\");\n\n", .{});
@@ -656,7 +656,7 @@ fn emit_kind_identity(out: []u8, zface: []const u8, comment: []const u8) LowerEr
     return used;
 }
 
-/// glow-language: closed unit `$%` kind-mold argv identity → KindShape · tag word from argv.
+/// glow-language: closed unit `$%` kind-mold argv identity -> KindShape - tag word from argv.
 fn emit_kind_argv(out: []u8, zface: []const u8, comment: []const u8) LowerError!u32 {
     var used: u32 = 0;
     try append_print(out, &used, "const std = @import(\"std\");\n\n", .{});
@@ -679,8 +679,8 @@ fn emit_kind_argv(out: []u8, zface: []const u8, comment: []const u8) LowerError!
     return used;
 }
 
-/// glow-language: closed payload `$%` xact-mold argv identity → XactShape · tag + amount from argv.
-/// `mint <u32>` → `.mint { .amount }` · `send` → `.send`. Distinct from kind unit tags and u32 parseInt-only.
+/// glow-language: closed payload `$%` xact-mold argv identity -> XactShape - tag + amount from argv.
+/// `mint <u32>` -> `.mint { .amount }` - `send` -> `.send`. Distinct from kind unit tags and u32 parseInt-only.
 fn emit_xact_argv(out: []u8, zface: []const u8, comment: []const u8) LowerError!u32 {
     var used: u32 = 0;
     try append_print(out, &used, "const std = @import(\"std\");\n\n", .{});
@@ -713,7 +713,7 @@ fn emit_xact_argv(out: []u8, zface: []const u8, comment: []const u8) LowerError!
     return used;
 }
 
-/// glow-language: closed multi-face payload `$%` xfer-mold argv identity → XferShape · tag + from/amount.
+/// glow-language: closed multi-face payload `$%` xfer-mold argv identity -> XferShape - tag + from/amount.
 /// `mint <from> <amount>` / `send`. Distinct from xact (one mint face) and kind unit tags.
 fn emit_xfer_argv(out: []u8, zface: []const u8, comment: []const u8) LowerError!u32 {
     var used: u32 = 0;
@@ -748,7 +748,7 @@ fn emit_xfer_argv(out: []u8, zface: []const u8, comment: []const u8) LowerError!
     return used;
 }
 
-/// glow-language / glow-language: closed unit `$%` kind-mold call body → KindShape flip (via unit helper).
+/// glow-language / glow-language: closed unit `$%` kind-mold call body -> KindShape flip (via unit helper).
 fn emit_kind_call_body(out: []u8, zface: []const u8, gate: []const u8, comment: []const u8) LowerError!u32 {
     // invariant: the body written below is shaped for this one gate kind, so the parse and the
     // lowering are pinned to each other here -- a gate of another kind would be lowered as this
@@ -758,7 +758,7 @@ fn emit_kind_call_body(out: []u8, zface: []const u8, gate: []const u8, comment: 
 }
 
 /// glow-language: one tagged-unit `$%` flip call-body emit for kind (KindShape enum).
-/// mint ↔ send. Distinct from payload union flip and from `$:` N-field.
+/// mint <-> send. Distinct from payload union flip and from `$:` N-field.
 fn emit_tagged_unit_flip_call_body(out: []u8, zface: []const u8, comment: []const u8) LowerError!u32 {
     var used: u32 = 0;
     try append_print(out, &used, "const std = @import(\"std\");\n\n", .{});
@@ -777,7 +777,7 @@ fn emit_tagged_unit_flip_call_body(out: []u8, zface: []const u8, comment: []cons
     return used;
 }
 
-/// glow-language: closed payload `$%` xact-mold identity → XactShape union · baked mint/5.
+/// glow-language: closed payload `$%` xact-mold identity -> XactShape union - baked mint/5.
 fn emit_xact_identity(out: []u8, zface: []const u8, comment: []const u8) LowerError!u32 {
     var used: u32 = 0;
     try append_print(out, &used, "const std = @import(\"std\");\n\n", .{});
@@ -799,7 +799,7 @@ fn emit_xact_identity(out: []u8, zface: []const u8, comment: []const u8) LowerEr
     return used;
 }
 
-/// glow-language / glow-language: closed payload `$%` xact-mold call body → XactShape flip (via payload helper).
+/// glow-language / glow-language: closed payload `$%` xact-mold call body -> XactShape flip (via payload helper).
 fn emit_xact_call_body(out: []u8, zface: []const u8, gate: []const u8, comment: []const u8) LowerError!u32 {
     // invariant: the body written below is shaped for this one gate kind, so the parse and the
     // lowering are pinned to each other here -- a gate of another kind would be lowered as this
@@ -808,7 +808,7 @@ fn emit_xact_call_body(out: []u8, zface: []const u8, gate: []const u8, comment: 
     return emit_tagged_payload_flip_call_body(out, 1, zface, comment);
 }
 
-/// glow-language: closed multi-face payload `$%` xfer-mold → XferShape · baked mint/5/3.
+/// glow-language: closed multi-face payload `$%` xfer-mold -> XferShape - baked mint/5/3.
 fn emit_xfer_identity(out: []u8, zface: []const u8, comment: []const u8) LowerError!u32 {
     var used: u32 = 0;
     try append_print(out, &used, "const std = @import(\"std\");\n\n", .{});
@@ -830,7 +830,7 @@ fn emit_xfer_identity(out: []u8, zface: []const u8, comment: []const u8) LowerEr
     return used;
 }
 
-/// glow-language / glow-language: closed multi-face payload `$%` xfer-mold call body → XferShape flip (via payload helper).
+/// glow-language / glow-language: closed multi-face payload `$%` xfer-mold call body -> XferShape flip (via payload helper).
 fn emit_xfer_call_body(out: []u8, zface: []const u8, gate: []const u8, comment: []const u8) LowerError!u32 {
     // invariant: the body written below is shaped for this one gate kind, so the parse and the
     // lowering are pinned to each other here -- a gate of another kind would be lowered as this
@@ -840,7 +840,7 @@ fn emit_xfer_call_body(out: []u8, zface: []const u8, gate: []const u8, comment: 
 }
 
 /// glow-language: one tagged-payload `$%` flip call-body emit for xact (1 mint face) and xfer (2).
-/// mint → .send; send → empty mint. Distinct from KindShape unit-enum flip and from `$:` N-field.
+/// mint -> .send; send -> empty mint. Distinct from KindShape unit-enum flip and from `$:` N-field.
 fn emit_tagged_payload_flip_call_body(out: []u8, mint_faces: u32, zface: []const u8, comment: []const u8) LowerError!u32 {
     // invariant: the tagged payload is emitted in a one-face or a two-face form and no other,
     // so a third would fall through to whichever branch came last
@@ -878,10 +878,10 @@ fn emit_tagged_payload_flip_call_body(out: []u8, mint_faces: u32, zface: []const
     return used;
 }
 
-/// Closed `$:` face order for pair…nona identity emit (glow-language).
+/// Closed `$:` face order for pair...nona identity emit (glow-language).
 const closed_tuple_faces = [_][]const u8{ "from", "amount", "fee", "nonce", "memo", "tag", "to", "via", "ref" };
 
-/// Closed `$:` demo vals for pair…nona identity emit (glow-language) — matches seated pins.
+/// Closed `$:` demo vals for pair...nona identity emit (glow-language) -- matches seated pins.
 const closed_tuple_demos = [_]u32{ 5, 3, 1, 2, 7, 4, 6, 8, 9 };
 
 fn closed_tuple_type_name(field_count: u32) []const u8 {
@@ -898,7 +898,7 @@ fn closed_tuple_type_name(field_count: u32) []const u8 {
     };
 }
 
-/// glow-language / glow-language: N-field `$:` argv identity — parse N decimals from argv[1..N].
+/// glow-language / glow-language: N-field `$:` argv identity -- parse N decimals from argv[1..N].
 /// Distinct from tagged `$%` argv and from single-u32 parseInt.
 fn emit_n_field_argv(out: []u8, field_count: u32, zface: []const u8, comment: []const u8) LowerError!u32 {
     // invariant: the emitter names each field from closed_tuple_faces, a table of nine, and
@@ -955,7 +955,7 @@ fn emit_n_field_argv(out: []u8, field_count: u32, zface: []const u8, comment: []
     return used;
 }
 
-/// glow-language: one N-field identity emit for closed `$:` pair…nona (N = 2…9).
+/// glow-language: one N-field identity emit for closed `$:` pair...nona (N = 2...9).
 fn emit_n_field_identity(out: []u8, field_count: u32, zface: []const u8, comment: []const u8) LowerError!u32 {
     // invariant: the emitter names each field from closed_tuple_faces, a table of nine, and
     // indexes it by position -- so nine is that table's length rather than a chosen ceiling,
@@ -1001,8 +1001,8 @@ fn emit_n_field_identity(out: []u8, field_count: u32, zface: []const u8, comment
     return used;
 }
 
-/// glow-language: one N-field flip call-body emit for closed `$:` pair…nona (N = 2…9).
-/// Swaps from↔amount; remaining faces pass through. Demo pins match closed_tuple_demos.
+/// glow-language: one N-field flip call-body emit for closed `$:` pair...nona (N = 2...9).
+/// Swaps from<->amount; remaining faces pass through. Demo pins match closed_tuple_demos.
 fn emit_n_field_flip_call_body(out: []u8, field_count: u32, zface: []const u8, comment: []const u8) LowerError!u32 {
     // invariant: the emitter names each field from closed_tuple_faces, a table of nine, and
     // indexes it by position -- so nine is that table's length rather than a chosen ceiling,
@@ -1152,7 +1152,7 @@ fn emit(spec: *const rb.GateSpec, out: []u8) LowerError!u32 {
         }
     }
 
-    // glow-language: closed `$:` pair…nona welcome — one path (shape → N → identity / flip).
+    // glow-language: closed `$:` pair...nona welcome -- one path (shape -> N -> identity / flip).
     if (nest_type.closed_tuple_field_count(shape)) |n| {
         switch (spec.body) {
             .identity => {
@@ -1206,7 +1206,7 @@ fn emit(spec: *const rb.GateSpec, out: []u8) LowerError!u32 {
             // lowered as this one
             assert(rb.is_closed_call_gate(gate));
             if (vane_decide_import(gate)) |imp| {
-                // glow-language/345 · O3: the plant imports its vane; the expect lives in-plant.
+                // glow-language/345 - O3: the plant imports its vane; the expect lives in-plant.
                 try append_print(out, &used, "{s}", .{imp});
                 var body_buf: [160]u8 = undefined;
                 const body_return = try call_body_expr(gate, zface, &body_buf);
@@ -1286,7 +1286,7 @@ fn emit_argv(spec: *const rb.GateSpec, out: []u8) LowerError!u32 {
     const zn = try zig_safe_ident(face, &zig_face_buf);
     const zface = zig_face_buf[0..@as(usize, @intCast(zn))];
 
-    // glow-language: kind unit-tag argv identity — distinct from u32 parseInt reader.
+    // glow-language: kind unit-tag argv identity -- distinct from u32 parseInt reader.
     if (is_kind_sample(spec)) {
         switch (spec.body) {
             .identity => {
@@ -1306,7 +1306,7 @@ fn emit_argv(spec: *const rb.GateSpec, out: []u8) LowerError!u32 {
         }
     }
 
-    // glow-language: xact payload argv identity — tag + amount; distinct from kind and u32-only.
+    // glow-language: xact payload argv identity -- tag + amount; distinct from kind and u32-only.
     if (is_xact_sample(spec)) {
         switch (spec.body) {
             .identity => {
@@ -1326,7 +1326,7 @@ fn emit_argv(spec: *const rb.GateSpec, out: []u8) LowerError!u32 {
         }
     }
 
-    // glow-language: xfer payload argv identity — tag + from/amount.
+    // glow-language: xfer payload argv identity -- tag + from/amount.
     if (is_xfer_sample(spec)) {
         switch (spec.body) {
             .identity => {
@@ -1346,7 +1346,7 @@ fn emit_argv(spec: *const rb.GateSpec, out: []u8) LowerError!u32 {
         }
     }
 
-    // glow-language: closed `$:` pair…nona argv — one path (shape → N → emit_n_field_argv).
+    // glow-language: closed `$:` pair...nona argv -- one path (shape -> N -> emit_n_field_argv).
     if (nest_type.closed_tuple_field_count(shape)) |n| {
         switch (spec.body) {
             .identity => {
@@ -1399,7 +1399,7 @@ fn emit_argv(spec: *const rb.GateSpec, out: []u8) LowerError!u32 {
                 return used;
             }
             if (vane_decide_import(gate)) |imp| {
-                // glow-language/345 · O3: the argv plant imports its vane; body and expect share one expression.
+                // glow-language/345 - O3: the argv plant imports its vane; body and expect share one expression.
                 try append_print(out, &used, "{s}", .{imp});
             }
             var body_buf: [160]u8 = undefined;

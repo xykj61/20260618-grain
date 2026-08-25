@@ -1,69 +1,69 @@
 //! glow-book: runes.md#g-bartis
-//! glow/rune_bartis.rye — parses Glow's `|=` bartis gate rune (glow-language–109 · glow-language).
+//! glow/rune_bartis.rye -- parses Glow's `|=` bartis gate rune (glow-language-109 - glow-language).
 //!
 //! Thin one-arm gate: `|=  sample=@u32` or `|=  sample=amount-shape` on line one,
 //! then either:
 //!   - identity body: bare face matching the sample (glow-language)
-//!   - call body: `%-  <gate>  <sample-face>` (glow-language–104)
-//! Closed demo gates: `double` · `inc` · `dec` (`@u32`) · `flip` (kind · xact · xfer · pair · triple · quad · penta · hexa · hepta · octa · nona · glow-language–131/136–139/141/143/145/147).
+//!   - call body: `%-  <gate>  <sample-face>` (glow-language-104)
+//! Closed demo gates: `double` - `inc` - `dec` (`@u32`) - `flip` (kind - xact - xfer - pair - triple - quad - penta - hexa - hepta - octa - nona - glow-language-131/136-139/141/143/145/147).
 //! Token-driven via tokens.rye.
-//! glow-language: TAME tidy — copy_disjoint · split header/body parse · assert alias.
-//! glow-language: nest/type — sample aura nests under `@u32` via nest_type;
+//! glow-language: TAME tidy -- copy_disjoint - split header/body parse - assert alias.
+//! glow-language: nest/type -- sample aura nests under `@u32` via nest_type;
 //!   refuse is `SampleDoesNotNest`.
 //! glow-language: closed named mold `amount-mold` (one-field `$:` ≡ `@u32` lower).
 //! glow-language: closed allowlist alias `amount-shape` ≡ `amount-mold` (Glow OS shape word).
 //! glow-language: closed allowlist alias `count-shape` ≡ `count-mold` (Glow OS shape word).
-//! glow-language: closed allowlist alias `pair-shape` ≡ `pair-mold` (Glow OS shape word · PairShape).
-//! glow-language: closed allowlist alias `kind-shape` ≡ `kind-mold` (Glow OS shape word · KindShape).
-//! glow-language: closed allowlist alias `xact-shape` ≡ `xact-mold` (Glow OS shape word · XactShape).
-//! glow-language: closed allowlist alias `xfer-shape` ≡ `xfer-mold` (Glow OS shape word · XferShape).
-//! glow-language: closed allowlist alias `triple-shape` ≡ `triple-mold` (Glow OS shape word · TripleShape).
-//! glow-language: closed allowlist alias `quad-shape` ≡ `quad-mold` (Glow OS shape word · QuadShape).
-//! glow-language: closed allowlist alias `penta-shape` ≡ `penta-mold` (Glow OS shape word · PentaShape).
-//! glow-language: closed allowlist alias `hexa-shape` ≡ `hexa-mold` (Glow OS shape word · HexaShape).
-//! glow-language: closed allowlist alias `hepta-shape` ≡ `hepta-mold` (Glow OS shape word · HeptaShape).
-//! glow-language: closed allowlist alias `octa-shape` ≡ `octa-mold` (Glow OS shape word · OctaShape).
-//! glow-language: closed allowlist alias `nona-shape` ≡ `nona-mold` (Glow OS shape word · NonaShape).
-//! glow-language / glow-language: expansion calls `assert_sample_nesting_nests(false, …)` (stated no-op).
+//! glow-language: closed allowlist alias `pair-shape` ≡ `pair-mold` (Glow OS shape word - PairShape).
+//! glow-language: closed allowlist alias `kind-shape` ≡ `kind-mold` (Glow OS shape word - KindShape).
+//! glow-language: closed allowlist alias `xact-shape` ≡ `xact-mold` (Glow OS shape word - XactShape).
+//! glow-language: closed allowlist alias `xfer-shape` ≡ `xfer-mold` (Glow OS shape word - XferShape).
+//! glow-language: closed allowlist alias `triple-shape` ≡ `triple-mold` (Glow OS shape word - TripleShape).
+//! glow-language: closed allowlist alias `quad-shape` ≡ `quad-mold` (Glow OS shape word - QuadShape).
+//! glow-language: closed allowlist alias `penta-shape` ≡ `penta-mold` (Glow OS shape word - PentaShape).
+//! glow-language: closed allowlist alias `hexa-shape` ≡ `hexa-mold` (Glow OS shape word - HexaShape).
+//! glow-language: closed allowlist alias `hepta-shape` ≡ `hepta-mold` (Glow OS shape word - HeptaShape).
+//! glow-language: closed allowlist alias `octa-shape` ≡ `octa-mold` (Glow OS shape word - OctaShape).
+//! glow-language: closed allowlist alias `nona-shape` ≡ `nona-mold` (Glow OS shape word - NonaShape).
+//! glow-language / glow-language: expansion calls `assert_sample_nesting_nests(false, ...)` (stated no-op).
 //! glow-language: closed allowlist adds `count-mold` beside `amount-mold`.
 //! glow-language: closed allowlist adds unit `$%` `kind-mold` (identity lower).
 //! glow-language: closed allowlist adds payload `$%` `xact-mold` (identity lower).
 //! glow-language: closed allowlist adds multi-face payload `$%` `xfer-mold` (identity lower).
 //! glow-language: closed allowlist adds multi-field `$:` `pair-mold` (identity lower).
-//! glow-language: closed call-body under kind-mold — `flip` (mint↔send).
-//! glow-language: closed call-body under xact-mold — `flip` (mint↔send).
-//! glow-language: closed call-body under xfer-mold — `flip` (mint↔send).
-//! glow-language: closed call-body under pair-mold — `flip` (from↔amount).
-//! glow-language: closed call-body under triple-mold — `flip` (from↔amount · fee stays).
-//! glow-language: closed call-body under quad-mold — `flip` (from↔amount · fee/nonce stay).
+//! glow-language: closed call-body under kind-mold -- `flip` (mint<->send).
+//! glow-language: closed call-body under xact-mold -- `flip` (mint<->send).
+//! glow-language: closed call-body under xfer-mold -- `flip` (mint<->send).
+//! glow-language: closed call-body under pair-mold -- `flip` (from<->amount).
+//! glow-language: closed call-body under triple-mold -- `flip` (from<->amount - fee stays).
+//! glow-language: closed call-body under quad-mold -- `flip` (from<->amount - fee/nonce stay).
 //! glow-language: closed allowlist adds five-field `$:` `penta-mold` (identity lower).
-//! glow-language: closed call-body under penta-mold — `flip` (from↔amount · fee/nonce/memo stay).
+//! glow-language: closed call-body under penta-mold -- `flip` (from<->amount - fee/nonce/memo stay).
 //! glow-language: closed allowlist adds six-field `$:` `hexa-mold` (identity lower).
-//! glow-language: closed call-body under hexa-mold — `flip` (from↔amount · fee/nonce/memo/tag stay).
+//! glow-language: closed call-body under hexa-mold -- `flip` (from<->amount - fee/nonce/memo/tag stay).
 //! glow-language: closed allowlist adds seven-field `$:` `hepta-mold` (identity lower).
-//! glow-language: closed call-body under hepta-mold — `flip` (from↔amount · fee/nonce/memo/tag/to stay).
+//! glow-language: closed call-body under hepta-mold -- `flip` (from<->amount - fee/nonce/memo/tag/to stay).
 //! glow-language: closed allowlist adds eight-field `$:` `octa-mold` (identity lower).
-//! glow-language: closed call-body under octa-mold — `flip` (from↔amount · fee/nonce/memo/tag/to/via stay).
+//! glow-language: closed call-body under octa-mold -- `flip` (from<->amount - fee/nonce/memo/tag/to/via stay).
 //! glow-language: closed allowlist adds nine-field `$:` `nona-mold` (identity lower).
-//! glow-language: closed call-body under nona-mold — `flip` (from↔amount · fee/nonce/memo/tag/to/via/ref stay).
+//! glow-language: closed call-body under nona-mold -- `flip` (from<->amount - fee/nonce/memo/tag/to/via/ref stay).
 //! glow-language: closed cond-body under `@u32` (Ashvini a1 gate one; welcome bakes sample 5, argv speaks).
-//! glow-language: closed fold-body under `@u32` — `|+  sumto  <face>  <bound>` (Ashvini a2; empty=0; past wall=0).
-//! glow-language: closed fold-body under `pair-shape` — `|+  sum  <face>` (Ashvini a2; list fold of two fields).
-//! glow-language: second range-fold verb — `|+  prodto  <face>  <bound>` (empty=1; bound >12 → FoldBoundTooLarge).
-//! glow-language: `|+  sum  <face>` widens across closed `$:` pair…nona; pair path delegates to glow-language emitters.
-//! glow-language: `|+  prod  <face>` — list fold by product over the same closed tuple; reducer chosen at the call.
-//! glow-language: closed cond-body under `@u32` — `?:  (eq <face> <dec>)  <dec>  <dec>` (exact match; a1 unfinished).
-//! STOA338a: pair-faces header `|=  [a=@u32 b=@u32]` · face-vs-face cond
-//!   `?:  (eq|gth a b)  <dec>  <dec>` — parse seats; lower answers `PairNotYetLowered` (338b emits).
-//! glow-language: GateSpec fields — `shape_name` · `shape_name_len` · `shape_name_slice` · `max_shape_len`.
-//! Nesting / gold · open `$:` beyond nona bartis samples held.
+//! glow-language: closed fold-body under `@u32` -- `|+  sumto  <face>  <bound>` (Ashvini a2; empty=0; past wall=0).
+//! glow-language: closed fold-body under `pair-shape` -- `|+  sum  <face>` (Ashvini a2; list fold of two fields).
+//! glow-language: second range-fold verb -- `|+  prodto  <face>  <bound>` (empty=1; bound >12 -> FoldBoundTooLarge).
+//! glow-language: `|+  sum  <face>` widens across closed `$:` pair...nona; pair path delegates to glow-language emitters.
+//! glow-language: `|+  prod  <face>` -- list fold by product over the same closed tuple; reducer chosen at the call.
+//! glow-language: closed cond-body under `@u32` -- `?:  (eq <face> <dec>)  <dec>  <dec>` (exact match; a1 unfinished).
+//! STOA338a: pair-faces header `|=  [a=@u32 b=@u32]` - face-vs-face cond
+//!   `?:  (eq|gth a b)  <dec>  <dec>` -- parse seats; lower answers `PairNotYetLowered` (338b emits).
+//! glow-language: GateSpec fields -- `shape_name` - `shape_name_len` - `shape_name_slice` - `max_shape_len`.
+//! Nesting / gold - open `$:` beyond nona bartis samples held.
 //!
 //! Parse shape (token stream):
 //!   1. skip leading newlines
 //!   2. rune2 `|=`
-//!   3a. single: ident · equals · aura/`-shape` · newline · body
-//!   3b. glow-language: `[` · ident · equals · `@u32` · ident · equals · `@u32` · `]` · newline · body
-//!   4. body — identity · `%-` call · `?:` cond (literal or face-vs-face) · `|+` fold
+//!   3a. single: ident - equals - aura/`-shape` - newline - body
+//!   3b. glow-language: `[` - ident - equals - `@u32` - ident - equals - `@u32` - `]` - newline - body
+//!   4. body -- identity - `%-` call - `?:` cond (literal or face-vs-face) - `|+` fold
 //!   5. trailing newlines only
 
 const std = @import("std");
@@ -178,7 +178,7 @@ pub fn is_xfer_call_gate(gate: []const u8) bool {
     return std.mem.eql(u8, gate, "flip");
 }
 
-/// glow-language: closed call-body gate under pair…nona `$:` — `flip` only today.
+/// glow-language: closed call-body gate under pair...nona `$:` -- `flip` only today.
 pub fn is_n_field_call_gate(gate: []const u8) bool {
     return std.mem.eql(u8, gate, "flip");
 }
@@ -199,7 +199,7 @@ fn parse_body(src: []const u8, toks: []const tokens.Token, start: u32, face_text
         if (i >= n or toks[@as(usize, @intCast(i))].kind != .ident) return error.MalformedBody;
         const gate_text = tokens.slice_of(src, toks[@as(usize, @intCast(i))]);
         if (gate_text.len == 0 or gate_text.len > max_gate_len) return error.MalformedBody;
-        // Closed demo gates — double (glow-language) · inc · dec (glow-language) · flip (glow-language).
+        // Closed demo gates -- double (glow-language) - inc - dec (glow-language) - flip (glow-language).
         if (!is_closed_call_gate(gate_text)) return error.BodyGateNotYetLowered;
         i += 1;
         if (i >= n or toks[@as(usize, @intCast(i))].kind != .ident) return error.MalformedBody;
@@ -212,8 +212,8 @@ fn parse_body(src: []const u8, toks: []const tokens.Token, start: u32, face_text
         return i;
     }
     if (toks[@as(usize, @intCast(i))].kind == .rune2 and std.mem.eql(u8, tokens.slice_of(src, toks[@as(usize, @intCast(i))]), "?:")) {
-        // glow-language/337: `?:  (gth|eq <face> <dec>)  <dec>  <dec>` — ceiling or exact.
-        // glow-language: `?:  (gth|eq <face> <face2>)  <dec>  <dec>` — two runtime faces.
+        // glow-language/337: `?:  (gth|eq <face> <dec>)  <dec>  <dec>` -- ceiling or exact.
+        // glow-language: `?:  (gth|eq <face> <face2>)  <dec>  <dec>` -- two runtime faces.
         i += 1;
         if (i >= n or toks[@as(usize, @intCast(i))].kind != .lparen) return error.MalformedBody;
         i += 1;
@@ -229,7 +229,7 @@ fn parse_body(src: []const u8, toks: []const tokens.Token, start: u32, face_text
         i += 1;
         if (i >= n) return error.MalformedBody;
         if (toks[@as(usize, @intCast(i))].kind == .ident) {
-            // glow-language face-vs-face — requires a pair-faces header.
+            // glow-language face-vs-face -- requires a pair-faces header.
             if (face2_text.len == 0) return error.MalformedBody;
             const cond_face2 = tokens.slice_of(src, toks[@as(usize, @intCast(i))]);
             if (!std.mem.eql(u8, cond_face2, face2_text)) return error.BodyFaceMismatch;
@@ -279,7 +279,7 @@ fn parse_body(src: []const u8, toks: []const tokens.Token, start: u32, face_text
         return i;
     }
     if (toks[@as(usize, @intCast(i))].kind == .rune2 and std.mem.eql(u8, tokens.slice_of(src, toks[@as(usize, @intCast(i))]), "|+")) {
-        // glow-language/334: `|+  sumto|prodto  <face>  <dec>` · glow-language/336: `|+  sum|prod  <face>`
+        // glow-language/334: `|+  sumto|prodto  <face>  <dec>` - glow-language/336: `|+  sum|prod  <face>`
         i += 1;
         if (i >= n or toks[@as(usize, @intCast(i))].kind != .ident) return error.MalformedBody;
         const op = tokens.slice_of(src, toks[@as(usize, @intCast(i))]);
@@ -299,12 +299,12 @@ fn parse_body(src: []const u8, toks: []const tokens.Token, start: u32, face_text
             return i;
         }
         if (std.mem.eql(u8, op, "sum")) {
-            // No bound literal — field fold; shape checked after header parse.
+            // No bound literal -- field fold; shape checked after header parse.
             spec.body = .fold_sum;
             return i;
         }
         if (std.mem.eql(u8, op, "prod")) {
-            // glow-language: list fold by product — same shape wall as sum; reducer chosen at the call.
+            // glow-language: list fold by product -- same shape wall as sum; reducer chosen at the call.
             spec.body = .fold_prod;
             return i;
         }
@@ -313,7 +313,7 @@ fn parse_body(src: []const u8, toks: []const tokens.Token, start: u32, face_text
     return error.MalformedBody;
 }
 
-/// glow-language: decimal literal to u32 — refuses empty, leading zero (house parse law), overflow.
+/// glow-language: decimal literal to u32 -- refuses empty, leading zero (house parse law), overflow.
 fn parse_decimal_u32(text: []const u8) ParseError!u32 {
     if (text.len == 0) return error.MalformedBody;
     if (text.len > 1 and text[0] == '0') return error.MalformedBody;
@@ -386,7 +386,7 @@ pub fn parse_source(src: []const u8) ParseError!GateSpec {
         if (i >= n or toks[@as(usize, @intCast(i))].kind != .rbracket) return error.MalformedBody;
         i += 1;
 
-        // Newline(s) — end of first line.
+        // Newline(s) -- end of first line.
         if (i >= n or toks[@as(usize, @intCast(i))].kind != .newline) return error.MalformedBody;
         while (i < n and toks[@as(usize, @intCast(i))].kind == .newline) : (i += 1) {}
 
@@ -405,7 +405,7 @@ pub fn parse_source(src: []const u8) ParseError!GateSpec {
         if (i >= n or toks[@as(usize, @intCast(i))].kind != .equals) return error.MissingEquals;
         i += 1;
 
-        // Sample shape — aura `@u32` or closed named living `-shape` / study `-mold`.
+        // Sample shape -- aura `@u32` or closed named living `-shape` / study `-mold`.
         if (i >= n) return error.MissingAura;
         const shape_tok = toks[@as(usize, @intCast(i))];
         var named_shape: ?[]const u8 = null;
@@ -428,7 +428,7 @@ pub fn parse_source(src: []const u8) ParseError!GateSpec {
         nest_type.assert_sample_nesting_nests(false, sample_text, stated_shape) catch return error.SampleDoesNotNest;
         i += 1;
 
-        // Newline(s) — end of first line.
+        // Newline(s) -- end of first line.
         if (i >= n or toks[@as(usize, @intCast(i))].kind != .newline) return error.MalformedBody;
         while (i < n and toks[@as(usize, @intCast(i))].kind == .newline) : (i += 1) {}
 
@@ -445,13 +445,13 @@ pub fn parse_source(src: []const u8) ParseError!GateSpec {
 
     i = try parse_body(src, toks, i, face_text, face2_text, &spec);
 
-    // Trailing newlines only — anything else is a malformed body.
+    // Trailing newlines only -- anything else is a malformed body.
     while (i < n) : (i += 1) {
         if (toks[@as(usize, @intCast(i))].kind != .newline) return error.MalformedBody;
     }
 
     // glow-language/334: range folds only under bare `@u32`.
-    // glow-language/335: sum under closed `$:` pair…nona (field count from the named shape).
+    // glow-language/335: sum under closed `$:` pair...nona (field count from the named shape).
     // glow-language: pair-faces header only with face-vs-face cond bodies.
     switch (spec.body) {
         .fold_sumto, .fold_prodto => {
