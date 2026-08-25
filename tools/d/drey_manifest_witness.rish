@@ -1,12 +1,12 @@
-# tools/d/drey_manifest_witness.rish — the desk manifest of holdings: describe by address, ship no payload (mikrophone).
+# tools/d/drey_manifest_witness.rish -- the desk manifest of holdings: describe by address, ship no payload (mikrophone).
 #
-# Chapter A (Hardware & Right-to-Repair) · waymark mikrophone · Mikrophone firmware journey · rung mikrophone.
+# Chapter A (Hardware & Right-to-Repair) - waymark mikrophone - Mikrophone firmware journey - rung mikrophone.
 # Design read: active-designing/date/20260814/20260814-065231_drey8-desk-manifest-of-holdings-exploration.md
-# Stands on: mikrophone/catalog.rye (mikrophone) — the content-addressed desk; and mikrophone/wire.rye (mikrophone) — the same
+# Stands on: mikrophone/catalog.rye (mikrophone) -- the content-addressed desk; and mikrophone/wire.rye (mikrophone) -- the same
 # verify-before-trust framing discipline, here over metadata rather than payload.
 #
-# mikrophone/manifest.rye lets the desk describe WHAT it holds — one record per recording carrying its content address
-# and payload length, no payload bytes at all — so a far hand learns the desk's holdings by address and computes exactly
+# mikrophone/manifest.rye lets the desk describe WHAT it holds -- one record per recording carrying its content address
+# and payload length, no payload bytes at all -- so a far hand learns the desk's holdings by address and computes exactly
 # which recordings it lacks (have/want), before a single payload byte crosses. The selftest proves: a catalog's manifest
 # round-trips exactly, its size is header + count records regardless of payload size, every corruption refuses by name,
 # have/want is honest, and an empty catalog advertises a whole manifest of zero holdings.

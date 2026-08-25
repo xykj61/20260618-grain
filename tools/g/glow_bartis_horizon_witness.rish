@@ -1,4 +1,4 @@
-# glow_bartis_horizon_witness.rish — bartis implement witness (glow-language GREEN).
+# glow_bartis_horizon_witness.rish -- bartis implement witness (glow-language GREEN).
 #
 # Proves |= bartis is tokenized, the thin identity gate lowers, and the welcome
 # binary exits 0. Replaces the glow-language horizon check now that glow-language is GREEN.

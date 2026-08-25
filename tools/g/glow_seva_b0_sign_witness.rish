@@ -1,4 +1,4 @@
-# glow_seva_b0_sign_witness.rish — Glow sign/verify product surface (glow-language · glow-language).
+# glow_seva_b0_sign_witness.rish -- Glow sign/verify product surface (glow-language - glow-language).
 #
 #   rishi/bin/rishi run tools/g/glow_seva_b0_sign_witness.rish
 

@@ -1,4 +1,4 @@
-# glow_rune_shape_witness.rish — thin `+$` / `$:` mold rune head (glow-language).
+# glow_rune_shape_witness.rish -- thin `+$` / `$:` mold rune head (glow-language).
 #
 #   rishi/bin/rishi run tools/g/glow_rune_shape_witness.rish
 

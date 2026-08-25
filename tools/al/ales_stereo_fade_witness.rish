@@ -1,12 +1,12 @@
-# tools/al/ales_stereo_fade_witness.rish — stereo_fade: the fade envelope carried into stereo with ONE SHARED RAMP, both channels in lockstep, validated once before either mutates (lotus-audio).
+# tools/al/ales_stereo_fade_witness.rish -- stereo_fade: the fade envelope carried into stereo with ONE SHARED RAMP, both channels in lockstep, validated once before either mutates (lotus-audio).
 #
-# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
+# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
 # Design read: active-designing/date/20260815/20260815-030651_fill-ales130-lotus-stereo-fade.md
-# Stands on: lotus/fade.rye (lotus-audio — the mono ramped gain run once per channel, itself reusing lotus-audio's one true saturate), lotus/pan.rye (lotus-audio — the StereoClip, two mono Clips left/right, and its
-# balance invariant), lotus/timeline.rye (lotus-audio — the Clip and its buf/len/samples), lotus/meter.rye (lotus-audio — the peak/RMS meter, read-only). A Lotus master is a StereoClip whose defining invariant
+# Stands on: lotus/fade.rye (lotus-audio -- the mono ramped gain run once per channel, itself reusing lotus-audio's one true saturate), lotus/pan.rye (lotus-audio -- the StereoClip, two mono Clips left/right, and its
+# balance invariant), lotus/timeline.rye (lotus-audio -- the Clip and its buf/len/samples), lotus/meter.rye (lotus-audio -- the peak/RMS meter, read-only). A Lotus master is a StereoClip whose defining invariant
 # is that left and right hold the same length. This rung carries lotus-audio's fade into stereo the way the amplitude class asks: run the proven mono fade on each channel with the SAME ramp, so a fade
 # opens or closes both speakers together. A fade's gain is a positional ramp the caller names, not a measured scalar, and because a positional gain is identical for both channels the shared ramp
-# preserves the stereo image for free — no measurement, no linking needed (contrast lotus-audio's normalize, where the shared thing is a measured scalar).
+# preserves the stereo image for free -- no measurement, no linking needed (contrast lotus-audio's normalize, where the shared thing is a measured scalar).
 #
 # lotus/stereo_fade.rye validates both channels once against the shared length before either is mutated (BadGain on a zero denominator, BadRange on a span outside the samples), then ramps both
 # channels through lotus-audio's fade; FadeError reused whole. The crux is four laws. THE STEREO FADE LAW: each channel equals lotus-audio's mono fade with the same ramp byte for byte, fade-in and fade-out.

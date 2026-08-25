@@ -1,8 +1,8 @@
-# glow_nest_type_surface_witness.rish — nest/type surface wording (glow-language+).
+# glow_nest_type_surface_witness.rish -- nest/type surface wording (glow-language+).
 #
 # Proves living pins name nest/type surface, ambient gold stays held,
 # barket is tokenized (glow-language), and stated bartis remains GREEN. Docs-only
-# binder grown when tokenize landed — ambient gold still held (glow-language).
+# binder grown when tokenize landed -- ambient gold still held (glow-language).
 #
 #   rishi/bin/rishi run tools/g/glow_nest_type_surface_witness.rish
 
@@ -18,11 +18,11 @@ assert tame_pin.ok else "TAME missing glow-language nest/type surface"
 let tame_nest = run ["sh" "-c" "grep -F 'nest/type surface' ${tame}"]
 assert tame_nest.ok else "TAME missing nest/type surface phrase"
 
-# tokens.rye MUST tokenize |^ as of glow-language (parse/lower land at glow-language–113).
+# tokens.rye MUST tokenize |^ as of glow-language (parse/lower land at glow-language-113).
 let has_barket = run ["sh" "-c" "awk '/const pairs =/,/};/' ${tokens} | grep -F '|^'"]
 assert has_barket.ok else "tokens.rye must tokenize |^ (glow-language)"
 
-# |= bartis remains tokenized (glow-language+) — nest wording does not undo bartis.
+# |= bartis remains tokenized (glow-language+) -- nest wording does not undo bartis.
 let has_bartis = run ["sh" "-c" "awk '/const pairs =/,/};/' ${tokens} | grep -F '|='"]
 assert has_bartis.ok else "tokens.rye must still tokenize |= (bartis GREEN)"
 

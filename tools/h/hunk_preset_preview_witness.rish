@@ -1,13 +1,13 @@
-# tools/h/hunk_preset_preview_witness.rish — the Skate preview of a named filter, seen before committed (open-image).
+# tools/h/hunk_preset_preview_witness.rish -- the Skate preview of a named filter, seen before committed (open-image).
 #
-# Chapter A (Hardware & Right-to-Repair) · waymark open-image · journey Photos app · rung open-image.
+# Chapter A (Hardware & Right-to-Repair) - waymark open-image - journey Photos app - rung open-image.
 # Design read: active-designing/date/20260813/20260813-183502_hunk-preset-preview-exploration.md.
-# Teachers, thanked clean-room: gratitude/qoi.md (the open codec) · the named filter strips of Instagram / VSCO /
+# Teachers, thanked clean-room: gratitude/qoi.md (the open codec) - the named filter strips of Instagram / VSCO /
 # iCloud Photos (concept only, siloed).
 #
-# open-image gave a keeper filters by name; open-image gave the eye — a pending edit-list previewed as a Skate grid before
+# open-image gave a keeper filters by name; open-image gave the eye -- a pending edit-list previewed as a Skate grid before
 # it is committed. This rung joins the two: `brushstroke/preset_preview.rye` `preview_preset` looks a recipe up in a
-# PresetBook by name and previews it (pure — the source untouched, nothing stored), and `preview_book` is the filter
+# PresetBook by name and previews it (pure -- the source untouched, nothing stored), and `preview_book` is the filter
 # strip: every named filter previewed over one image at once. The selftest proves a named preview equals
 # edit_preview.preview over its recipe cell-for-cell, that distinct names differ in the view, that the strip fills
 # one grid per preset each equal to its own preview, that a preview is non-destructive and deterministic and lit,

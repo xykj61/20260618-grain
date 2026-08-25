@@ -1,13 +1,13 @@
-# tools/h/hunk_edit_preview_witness.rish — the Skate view of a pending edit, seen before committed, on metal (open-image).
+# tools/h/hunk_edit_preview_witness.rish -- the Skate view of a pending edit, seen before committed, on metal (open-image).
 #
-# Chapter A (Hardware & Right-to-Repair) · waymark open-image · journey Photos app · rung open-image.
+# Chapter A (Hardware & Right-to-Repair) - waymark open-image - journey Photos app - rung open-image.
 # Design read: active-designing/date/20260813/20260813-160955_hunk-edit-preview-seen-before-committed-exploration.md.
-# Teachers, thanked clean-room: gratitude/qoi.md (the open codec) · the non-destructive edit history of
+# Teachers, thanked clean-room: gratitude/qoi.md (the open codec) - the non-destructive edit history of
 # iCloud Photos / Google Photos (concept only, siloed).
 #
 # open-image recorded the Photos verbs as data and proved replay is deterministic and non-destructive; open-image banked
 # that determinism as a content address. This rung is the eye: `brushstroke/edit_preview.rye` `preview` replays an
-# edit-list over a source image (pure — the source untouched, nothing stored) and down-maps the fresh result to a
+# edit-list over a source image (pure -- the source untouched, nothing stored) and down-maps the fresh result to a
 # Skate grid, so a pending edit is SEEN before it is committed. The selftest proves the preview equals
 # down_map(apply(source,list)) cell-for-cell, is non-destructive (the empty list previews to the source's own
 # down-map), changes the view when the edit is pending (a flip_h swaps red<->blue), is deterministic, rasterizes to

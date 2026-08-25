@@ -1,13 +1,13 @@
-# tools/al/ales_stereo_schmitt_witness.rish — stereo_schmitt: the Schmitt trigger carried into stereo with ONE SHARED BAND and TWO INDEPENDENT RAILS, the first state-carrying member of the comparator class lifted to stereo (lotus-audio).
+# tools/al/ales_stereo_schmitt_witness.rish -- stereo_schmitt: the Schmitt trigger carried into stereo with ONE SHARED BAND and TWO INDEPENDENT RAILS, the first state-carrying member of the comparator class lifted to stereo (lotus-audio).
 #
-# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
+# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
 # Design read: active-designing/date/20260815/20260815-044135_fill-ales144-lotus-stereo-schmitt.md
-# Stands on: lotus/schmitt.rye (lotus-audio — the mono Schmitt trigger run once per channel, its from-silence schmitt, its carried SchmittTrigger, its precheck band-and-span law, and its SchmittError, all reused whole),
-# lotus/stereo_infinite_clip.rye (lotus-audio — the memoryless comparator whose odd antisymmetry this state-carrying member honestly parts from), lotus/pan.rye (lotus-audio — the StereoClip, two mono Clips left/right, and its
-# balance invariant), lotus/timeline.rye (lotus-audio — the Clip, its buf/len/samples, sample_min/max). A Lotus master is a StereoClip whose defining invariant is that left and right hold the same length. This rung carries
-# lotus-audio's hysteresis into stereo — a rise past t_high flipping each channel's rail high, a fall past t_low flipping it low, a sample between holding, the band a dead zone the noise cannot rattle — running the proven mono
+# Stands on: lotus/schmitt.rye (lotus-audio -- the mono Schmitt trigger run once per channel, its from-silence schmitt, its carried SchmittTrigger, its precheck band-and-span law, and its SchmittError, all reused whole),
+# lotus/stereo_infinite_clip.rye (lotus-audio -- the memoryless comparator whose odd antisymmetry this state-carrying member honestly parts from), lotus/pan.rye (lotus-audio -- the StereoClip, two mono Clips left/right, and its
+# balance invariant), lotus/timeline.rye (lotus-audio -- the Clip, its buf/len/samples, sample_min/max). A Lotus master is a StereoClip whose defining invariant is that left and right hold the same length. This rung carries
+# lotus-audio's hysteresis into stereo -- a rise past t_high flipping each channel's rail high, a fall past t_low flipping it low, a sample between holding, the band a dead zone the noise cannot rattle -- running the proven mono
 # schmitt on each channel with the same band, one dead zone landing on both speakers together. Where the just-closed stereo dead-zone family is memoryless, this carries one bit per channel: each channel remembers its own
-# rail from the shared low-rail convention, so the two rails advance independently — an identical-channel master staying identical, an out-of-phase master NOT held out of phase (the honest parting from the memoryless odd
+# rail from the shared low-rail convention, so the two rails advance independently -- an identical-channel master staying identical, an out-of-phase master NOT held out of phase (the honest parting from the memoryless odd
 # family), and a two-piece StereoSchmitt run equalling the whole run once byte for byte on both channels (no seam flip), lotus-audio's carried-state crux carried into stereo.
 #
 # lotus/stereo_schmitt.rye validates the shared band and length once against lotus-audio's own precheck before either channel is mutated (BadThreshold on a band that is not two ordered thresholds inside the rails, BadRange on a

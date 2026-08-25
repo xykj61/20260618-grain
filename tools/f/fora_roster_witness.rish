@@ -1,8 +1,8 @@
-# tools/f/fora_roster_witness.rish — a Constel roster holds only plainly-fake piers, membership an invariant (constels-naming).
+# tools/f/fora_roster_witness.rish -- a Constel roster holds only plainly-fake piers, membership an invariant (constels-naming).
 #
-# Chapter: the Six-Chapter double-seat, Chapter D/F thread · waymark constels-naming · Constel test-network naming · rung constels-naming.
+# Chapter: the Six-Chapter double-seat, Chapter D/F thread - waymark constels-naming - Constel test-network naming - rung constels-naming.
 # Design read: active-designing/date/20260814/20260814-041928_fora1-constel-roster-fake-pier-registry.md
-# Law kin: .claude/rules/placeholder-ship-names.md — a Constel name is guaranteed never a real @p by the missing vowel;
+# Law kin: .claude/rules/placeholder-ship-names.md -- a Constel name is guaranteed never a real @p by the missing vowel;
 # constels-naming carries that guarantee up to a whole constellation: every roster member enters only through generate + never_a_ship,
 # and the rendered whole always passes check_constellation.
 #

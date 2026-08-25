@@ -1,21 +1,21 @@
-# tools/al/ales_reverb_width_witness.rish — reverb_width: reverberate the master WET, then set how wide the reverberated result sits, closing the width axis the reverb series opened (lotus-audio).
+# tools/al/ales_reverb_width_witness.rish -- reverb_width: reverberate the master WET, then set how wide the reverberated result sits, closing the width axis the reverb series opened (lotus-audio).
 #
-# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
+# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
 # Design read: active-designing/date/20260815/20260815-122004_fill-ales212-lotus-reverb-width.md
-# Stands on: lotus/stereo_reverb_preset.rye (lotus-audio — the named-room stereo wet, run over the master unchanged, its StereoReverbPresetError forwarded
-# whole), lotus/stereo_width.rye (lotus-audio — the width control, encode/scale-the-side/decode, run over the wet result), lotus/mid_side.rye (lotus-audio —
-# the reversible mid/side primitive width spends), lotus/pan.rye (lotus-audio — the StereoClip and its balance invariant), lotus/clock.rye (lotus-audio — the
-# validated sample clock). A keeper wants a reverb WIDE across the field for air, or NARROW toward the centre so the wash does not smear the mix —
+# Stands on: lotus/stereo_reverb_preset.rye (lotus-audio -- the named-room stereo wet, run over the master unchanged, its StereoReverbPresetError forwarded
+# whole), lotus/stereo_width.rye (lotus-audio -- the width control, encode/scale-the-side/decode, run over the wet result), lotus/mid_side.rye (lotus-audio --
+# the reversible mid/side primitive width spends), lotus/pan.rye (lotus-audio -- the StereoClip and its balance invariant), lotus/clock.rye (lotus-audio -- the
+# validated sample clock). A keeper wants a reverb WIDE across the field for air, or NARROW toward the centre so the wash does not smear the mix --
 # and that is exactly "reverberate, then widen".
 #
 # lotus/reverb_width.rye composes two proven stages with NO new audio arithmetic: validate the width fraction FIRST (a bad fraction refuses BadWidth
 # before the reverb writes, so the master is left dry), reverberate wet in place (lotus-audio's stereo_reverb_preset, unchanged), widen the wet result
 # (lotus-audio's stereo_width, the width already proven legal so it cannot fault). THE MONO COLLAPSE: width == 0 zeroes the wet's side, so both channels
-# become the reverberated master's shared mid = (wl+wr)/2, a fully centred wash. THE WIDEN LAW: width == 2·den widens the wet — reverb_width IS
+# become the reverberated master's shared mid = (wl+wr)/2, a fully centred wash. THE WIDEN LAW: width == 2-den widens the wet -- reverb_width IS
 # reverberate-then-widen, so its result equals stereo_width applied to a fresh copy of the pure reverb byte for byte, and the per-sample |L−R| grows.
 # THE UNITY EDGE: width == den is the mid/side round-trip over the reverberated master, within ≤ 1 LSB of the pure stereo reverb on both channels
 # (lotus-audio's honest halved-side cost). THE CENTRED-INVARIANT LAW: a centred master reverberates to a centred wet whose side is zero, so width leaves
-# it untouched at any setting — a mono source has no reverb width to turn. THE FAULT LAW: a bad width refuses BadWidth, a span past the clip
+# it untouched at any setting -- a mono source has no reverb width to turn. THE FAULT LAW: a bad width refuses BadWidth, a span past the clip
 # DurationTooLong, an out-of-range span BadRange, each leaving the master DRY and untouched.
 #
 # Run from the repository root:

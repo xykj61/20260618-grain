@@ -1,12 +1,12 @@
-# tools/al/ales_stereo_crossfade_witness.rish — stereo_crossfade: the equal-power crossfade carried into stereo with ONE SHARED LAW, both channels in lockstep, validated once before either mutates (lotus-audio).
+# tools/al/ales_stereo_crossfade_witness.rish -- stereo_crossfade: the equal-power crossfade carried into stereo with ONE SHARED LAW, both channels in lockstep, validated once before either mutates (lotus-audio).
 #
-# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
+# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
 # Design read: active-designing/date/20260815/20260815-031427_fill-ales131-lotus-stereo-crossfade.md
-# Stands on: lotus/crossfade.rye (lotus-audio — the mono equal-power crossfade run once per channel, itself reusing lotus-audio's split and lotus-audio's one true saturate), lotus/pan.rye (lotus-audio — the StereoClip, two
-# mono Clips left/right, and its balance invariant), lotus/timeline.rye (lotus-audio — the Clip, its buf/len/samples, and the EditError reused whole). A Lotus master is a StereoClip whose defining invariant
+# Stands on: lotus/crossfade.rye (lotus-audio -- the mono equal-power crossfade run once per channel, itself reusing lotus-audio's split and lotus-audio's one true saturate), lotus/pan.rye (lotus-audio -- the StereoClip, two
+# mono Clips left/right, and its balance invariant), lotus/timeline.rye (lotus-audio -- the Clip, its buf/len/samples, and the EditError reused whole). A Lotus master is a StereoClip whose defining invariant
 # is that left and right hold the same length. lotus-audio's fade closed on the recognition that a stereo fade-out laid under a stereo fade-in IS a stereo crossfade; this rung makes that gesture its own
-# primitive: run lotus-audio's proven mono crossfade on each channel with the SAME equal-power weights. Those weights are positional (identical at each seat regardless of channel), so — exactly as lotus-audio's
-# shared ramp — the shared law preserves the stereo image for free (no measurement, no linking needed).
+# primitive: run lotus-audio's proven mono crossfade on each channel with the SAME equal-power weights. Those weights are positional (identical at each seat regardless of channel), so -- exactly as lotus-audio's
+# shared ramp -- the shared law preserves the stereo image for free (no measurement, no linking needed).
 #
 # lotus/stereo_crossfade.rye validates the overlap once against the shared length before either output channel is written (BadRange on a length mismatch between the two masters or an overlap shorter than
 # two samples), then crosses both channels through lotus-audio's crossfade; EditError reused whole. The crux is four laws. THE STEREO CROSSFADE LAW: each channel equals lotus-audio's mono crossfade byte for byte,

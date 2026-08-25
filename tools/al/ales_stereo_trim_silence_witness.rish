@@ -1,18 +1,18 @@
-# tools/al/ales_stereo_trim_silence_witness.rish — stereo_trim_silence: the silence stripper carried into stereo, two independent silences cut in one lockstep, the suite's first stereo edit built on the segmenter (lotus-audio).
+# tools/al/ales_stereo_trim_silence_witness.rish -- stereo_trim_silence: the silence stripper carried into stereo, two independent silences cut in one lockstep, the suite's first stereo edit built on the segmenter (lotus-audio).
 #
-# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
+# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
 # Design read: active-designing/date/20260815/20260815-051802_fill-ales148-lotus-stereo-trim-silence.md
-# Stands on: lotus/stereo_segment.rye (lotus-audio — the stereo voice-activity segmenter, run once to read BOTH channels' silences over one shared frame grid, its segment_stereo, its StereoSegments, its StereoSegmentError, reused
-# whole), lotus/segment.rye (lotus-audio — the mono segmenter and max_segments, through lotus-audio), lotus/trim_silence.rye (lotus-audio — the mono silence stripper, imported by the selftest to prove the lockstep law), lotus/pan.rye
-# (lotus-audio — the StereoClip, two mono Clips left/right, its balance invariant), lotus/timeline.rye (lotus-audio — the Clip, its cut, its max_clip, the EditError reused whole), lotus/voiced.rye (lotus-audio — the .silent verdict this
+# Stands on: lotus/stereo_segment.rye (lotus-audio -- the stereo voice-activity segmenter, run once to read BOTH channels' silences over one shared frame grid, its segment_stereo, its StereoSegments, its StereoSegmentError, reused
+# whole), lotus/segment.rye (lotus-audio -- the mono segmenter and max_segments, through lotus-audio), lotus/trim_silence.rye (lotus-audio -- the mono silence stripper, imported by the selftest to prove the lockstep law), lotus/pan.rye
+# (lotus-audio -- the StereoClip, two mono Clips left/right, its balance invariant), lotus/timeline.rye (lotus-audio -- the Clip, its cut, its max_clip, the EditError reused whole), lotus/voiced.rye (lotus-audio -- the .silent verdict this
 # intersects). A Lotus master is a StereoClip whose defining invariant is that left and right hold the same length; lotus-audio proved the two channels segment independently, so their silences differ in count and boundary, and
 # trimming each channel by its own silence would tear the stereo image apart.
 #
-# lotus/stereo_trim_silence.rye decides ONE cut for both channels — the silence intersection: segment both channels over one shared frame grid, mark a frame jointly-silent only where it is silent in both channels, and cut
-# exactly those frames from both channels in lockstep (back to front, so every earlier frame's index stays valid). A frame silent in only one channel is kept — content in either speaker survives; only a moment where neither
+# lotus/stereo_trim_silence.rye decides ONE cut for both channels -- the silence intersection: segment both channels over one shared frame grid, mark a frame jointly-silent only where it is silent in both channels, and cut
+# exactly those frames from both channels in lockstep (back to front, so every earlier frame's index stays valid). A frame silent in only one channel is kept -- content in either speaker survives; only a moment where neither
 # speaker carries sound is removed. It validates the shared frame length, band, span, and floor once through lotus-audio's own up-front checks before any cut (BadThreshold on an illegal band, BadRange on a span past the samples,
 # BadFloor on a floor above the peak ceiling, BadFrame on a zero/oversized/non-dividing length), so a refusal never trims one channel and leaves the other; StereoSegmentError and EditError reused whole. The crux is that it
-# invents no new measurement and no new sample — it reads its silences through lotus-audio and removes whole frames through lotus-audio's cut — so it can never drift from the segmenter it composes; what is new is the composition rule,
+# invents no new measurement and no new sample -- it reads its silences through lotus-audio and removes whole frames through lotus-audio's cut -- so it can never drift from the segmenter it composes; what is new is the composition rule,
 # the intersection of two independent silences, whose whole honesty is that running the proven mono trim_silence on each channel apart would desync the pair.
 #
 # Run from the repository root:

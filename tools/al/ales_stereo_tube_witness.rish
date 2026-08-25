@@ -1,13 +1,13 @@
-# tools/al/ales_stereo_tube_witness.rish — stereo_tube: the asymmetric tube drive carried into stereo with ONE SHARED UNEVEN RAIL, both channels in lockstep, the even-harmonic corner of the stereo NONLINEAR
+# tools/al/ales_stereo_tube_witness.rish -- stereo_tube: the asymmetric tube drive carried into stereo with ONE SHARED UNEVEN RAIL, both channels in lockstep, the even-harmonic corner of the stereo NONLINEAR
 # class (lotus-audio).
 #
-# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
+# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
 # Design read: active-designing/date/20260815/20260815-034120_fill-ales135-lotus-stereo-tube.md
-# Stands on: lotus/tube.rye (lotus-audio — the mono asymmetric tube drive run once per channel, itself lotus-audio's pre-gain split into one ceiling per sign), lotus/stereo_drive.rye (lotus-audio — the odd hard-drive
-# sibling equal ceilings recover), lotus/pan.rye (lotus-audio — the StereoClip, two mono Clips left/right, and its balance invariant), lotus/timeline.rye (lotus-audio — the Clip, its buf/len/samples, sample_min/max).
-# A Lotus master is a StereoClip whose defining invariant is that left and right hold the same length. This rung carries lotus-audio's uneven rail into stereo — the positive half of each wave pinned at ceil_pos and
+# Stands on: lotus/tube.rye (lotus-audio -- the mono asymmetric tube drive run once per channel, itself lotus-audio's pre-gain split into one ceiling per sign), lotus/stereo_drive.rye (lotus-audio -- the odd hard-drive
+# sibling equal ceilings recover), lotus/pan.rye (lotus-audio -- the StereoClip, two mono Clips left/right, and its balance invariant), lotus/timeline.rye (lotus-audio -- the Clip, its buf/len/samples, sample_min/max).
+# A Lotus master is a StereoClip whose defining invariant is that left and right hold the same length. This rung carries lotus-audio's uneven rail into stereo -- the positive half of each wave pinned at ceil_pos and
 # the negative half at ceil_neg, the warm even-order harmonics of a real vacuum-tube stage that clips harder on one polarity than the other. It holds the nonlinear lesson as lotus-audio stated it, and adds the
-# tube's own second edge: the map is not odd, so the same rail does not hold the inter-channel ratio OR the inter-channel antisymmetry — an out-of-phase master comes back not out of phase. What the shared map
+# tube's own second edge: the map is not odd, so the same rail does not hold the inter-channel ratio OR the inter-channel antisymmetry -- an out-of-phase master comes back not out of phase. What the shared map
 # keeps, per channel, is the two-sided ceiling and sign discipline, an identical-channel master stays identical, and EQUAL ceilings degenerate both channels to lotus-audio's stereo hard drive.
 #
 # lotus/stereo_tube.rye validates both channels once against the shared parameters and length before either is mutated (BadGain on a zero denominator / below-unity gain / oversized numerator, BadCeiling on

@@ -1,14 +1,14 @@
-# tools/h/hunk_touch_view_witness.rish — the touchable painted surface: the page scrolls under the finger (open-image).
+# tools/h/hunk_touch_view_witness.rish -- the touchable painted surface: the page scrolls under the finger (open-image).
 #
-# Chapter A (Hardware & Right-to-Repair) · waymark open-image · marketplace / Photos-app surface · rung open-image.
+# Chapter A (Hardware & Right-to-Repair) - waymark open-image - marketplace / Photos-app surface - rung open-image.
 # Design read: active-designing/date/20260813/20260813-201754_hunk-touch-view-exploration.md.
-# Teacher, thanked clean-room: the touchable list surface of any reader (iCloud Photos / a McMaster-Carr catalog) — a
+# Teacher, thanked clean-room: the touchable list surface of any reader (iCloud Photos / a McMaster-Carr catalog) -- a
 # finger drives the page and the same page is drawn, so the glass shows where the finger left it (concept only, siloed).
 #
-# The touch-scroll journey grew along two arcs that never met: render (open-image cursor · open-image bar · open-image painted view)
-# and input (open-image seam · open-image drag · open-image fling · open-image session). This rung binds them to the SAME cursor:
+# The touch-scroll journey grew along two arcs that never met: render (open-image cursor - open-image bar - open-image painted view)
+# and input (open-image seam - open-image drag - open-image fling - open-image session). This rung binds them to the SAME cursor:
 # `pond/apps/preset_touch_view.rye` `TouchView` lets open-image's session mutate the cursor and open-image's view paint it, so
-# `paint()` is always `scroll_view` of the cursor the session just moved — the picture cannot drift from the position.
+# `paint()` is always `scroll_view` of the cursor the session just moved -- the picture cannot drift from the position.
 # The selftest drives a touchable painted surface over a real five-book library and proves the page tracks the finger, a
 # flick coasts to a bottom-pinned page on glass, the picture never drifts, and the refusals hold. No network, no key, no
 # funds.

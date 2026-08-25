@@ -1,5 +1,5 @@
 #!/bin/sh
-# glow_rune_alphabet_worker.sh — device-free G1 gate for glow-language+.
+# glow_rune_alphabet_worker.sh -- device-free G1 gate for glow-language+.
 # Invoked by tools/g/glow_rune_alphabet_witness.rish.
 
 set -e

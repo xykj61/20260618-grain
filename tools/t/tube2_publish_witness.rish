@@ -1,4 +1,4 @@
-# tube2_publish_witness.rish — glow-publishing: signed app+manifest publish into Granary.
+# tube2_publish_witness.rish -- glow-publishing: signed app+manifest publish into Granary.
 #
 # Maker publishes a glow-publishing Manifest resin under a signed person/weave name;
 # consumer resolves, clones, and admits (glow-publishing) before install. See

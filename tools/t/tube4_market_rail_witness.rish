@@ -1,6 +1,6 @@
-# tube4_market_rail_witness.rish — glow-publishing: market acquire of a published app.
+# tube4_market_rail_witness.rish -- glow-publishing: market acquire of a published app.
 #
-# glow-publishing publish → Exchange list → Neth pay → weave settle → glow-publishing fetch.
+# glow-publishing publish -> Exchange list -> Neth pay -> weave settle -> glow-publishing fetch.
 # See linengrow/tube4_market_rail.rye.
 #
 # Run from the repository root:

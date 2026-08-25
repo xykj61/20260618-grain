@@ -1,16 +1,16 @@
-# tools/al/ales_top_tail_witness.rish — the top-and-tail trimmer: segment the clip through lotus-audio, then cut ONLY the leading and trailing silence, keeping every internal pause (lotus-audio).
+# tools/al/ales_top_tail_witness.rish -- the top-and-tail trimmer: segment the clip through lotus-audio, then cut ONLY the leading and trailing silence, keeping every internal pause (lotus-audio).
 #
-# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
+# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
 # Design read: active-designing/date/20260814/20260814-234106_fill-ales98-lotus-top-tail-trimmer.md
-# Stands on: lotus/segment.rye (lotus-audio — the voice-activity segmenter), lotus/trim_silence.rye (lotus-audio — the full silence stripper, the length-bracket twin), lotus/
-# split_silence.rye (lotus-audio — the auto-splitter, the outer-boundary twin), lotus/timeline.rye (lotus-audio — the Clip and cut), lotus/voiced.rye (lotus-audio — the .silent verdict).
-# lotus-audio removes EVERY silent run and closes ranks; lotus-audio cuts AT every silence and keeps each region apart. Between them lives the most-used silence gesture of all —
-# TOP AND TAIL — trim only the dead air at the START and the END, and leave every pause INSIDE the recording exactly where the speaker left it.
+# Stands on: lotus/segment.rye (lotus-audio -- the voice-activity segmenter), lotus/trim_silence.rye (lotus-audio -- the full silence stripper, the length-bracket twin), lotus/
+# split_silence.rye (lotus-audio -- the auto-splitter, the outer-boundary twin), lotus/timeline.rye (lotus-audio -- the Clip and cut), lotus/voiced.rye (lotus-audio -- the .silent verdict).
+# lotus-audio removes EVERY silent run and closes ranks; lotus-audio cuts AT every silence and keeps each region apart. Between them lives the most-used silence gesture of all --
+# TOP AND TAIL -- trim only the dead air at the START and the END, and leave every pause INSIDE the recording exactly where the speaker left it.
 #
 # lotus/top_tail.rye segments [0, clip.len) into frames of frame_len samples through lotus-audio, finds the FIRST and LAST non-silent runs, then cuts the trailing silence
 # (tail first, so the leading index stays valid) and the leading silence through lotus-audio's cut, leaving every silent run BETWEEN them untouched. The crux is two laws.
-# THE SPAN LAW: the trimmed clip equals the original over [first_nonsilent.start, last_nonsilent.end) byte for byte — the original narrowed to its living span, internal
-# silence kept. THE BRACKET LAW: it equals the original bracketed by lotus-audio's outer takes byte for byte, and trim_silence.len <= top_and_tail.len <= original.len — top-
+# THE SPAN LAW: the trimmed clip equals the original over [first_nonsilent.start, last_nonsilent.end) byte for byte -- the original narrowed to its living span, internal
+# silence kept. THE BRACKET LAW: it equals the original bracketed by lotus-audio's outer takes byte for byte, and trim_silence.len <= top_and_tail.len <= original.len -- top-
 # tail keeps every sample lotus-audio's full trimmer keeps PLUS the internal silences, equal only when there is no interior gap. The selftest proves both, plus: the interior
 # pause is KEPT (strictly longer than the full trim on a gapped clip); an all-silent clip trims to empty; a no-silent clip is unchanged; a head-silent clip loses only its
 # head, a tail-silent clip only its tail; an empty clip, a ragged frame length, an inverted band, and an illegal floor each refuse by name, the clip untouched.

@@ -1,6 +1,6 @@
-# tools/d/drey_serve_witness.rish — the desk serves a wanted recording: answer a want by re-framing a held payload (mikrophone).
+# tools/d/drey_serve_witness.rish -- the desk serves a wanted recording: answer a want by re-framing a held payload (mikrophone).
 #
-# Chapter A (Hardware & Right-to-Repair) · waymark mikrophone · Mikrophone firmware journey · rung mikrophone.
+# Chapter A (Hardware & Right-to-Repair) - waymark mikrophone - Mikrophone firmware journey - rung mikrophone.
 # Design read: active-designing/date/20260814/20260814-065650_drey9-desk-serves-a-wanted-recording-exploration.md
 # Stands on: mikrophone/catalog.rye (mikrophone), mikrophone/manifest.rye (mikrophone), mikrophone/wire.rye (mikrophone).
 #

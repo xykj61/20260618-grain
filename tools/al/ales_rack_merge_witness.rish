@@ -1,9 +1,9 @@
-# tools/al/ales_rack_merge_witness.rish — two saved racks joined, sealed import (lotus-audio).
+# tools/al/ales_rack_merge_witness.rish -- two saved racks joined, sealed import (lotus-audio).
 #
-# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
+# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
 # Design read: active-designing/date/20260814/20260814-151927_fill-ales35-lotus-rack-merge.md
-# Stands on: lotus/rack.rye (lotus-audio) — the Rack and its disjoint named Slots, grafted whole; lotus/rack_seal.rye (lotus-audio) —
-# verify_and_parse reused whole as the integrity gate before a sealed import; lotus/rack_sheet.rye (lotus-audio) — the sheet grammar.
+# Stands on: lotus/rack.rye (lotus-audio) -- the Rack and its disjoint named Slots, grafted whole; lotus/rack_seal.rye (lotus-audio) --
+# verify_and_parse reused whole as the integrity gate before a sealed import; lotus/rack_sheet.rye (lotus-audio) -- the sheet grammar.
 #
 # lotus/rack_merge.rye joins two racks: merge grafts every named slot of src whole into dst, atomic and disjoint. The crux: merging src
 # into dst refuses Duplicate on any name already held and RackFull if the union exceeds the ceiling, and on any refusal dst is left
@@ -12,7 +12,7 @@
 # session in one call. The selftest proves: a two-slot src merges whole into a two-slot dst (all four present, byte-for-byte, src
 # untouched); a grafted slot survives a drop from src; a name collision refuses Duplicate and a union past the ceiling refuses
 # RackFull, dst untouched each time; an empty src is a no-op; verify_and_import loads a sealed sheet and a tampered sheet refuses
-# DigestMismatch before a single slot joins. Purely local — no signature, no keys, no network, no funds.
+# DigestMismatch before a single slot joins. Purely local -- no signature, no keys, no network, no funds.
 #
 # Run from the repository root:
 #   rishi/bin/rishi run tools/al/ales_rack_merge_witness.rish

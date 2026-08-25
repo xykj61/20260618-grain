@@ -1,9 +1,9 @@
-# glow_nest_type_witness.rish — nest/type surface (glow-language–110 · glow-language · glow-language–126).
+# glow_nest_type_witness.rish -- nest/type surface (glow-language-110 - glow-language - glow-language-126).
 #
-# Proves stated aura · $% tag · named-shape · nesting-sample refuse (glow-language) ·
-# nesting-sample accept under stated closed molds (glow-language) · count-shape (glow-language) ·
-# kind-shape (glow-language) · xact-shape (glow-language) · xfer-shape (glow-language) · pair-shape (glow-language) · triple-shape (glow-language) · quad-shape (glow-language) · penta-shape (glow-language) · hexa-shape (glow-language) · stated/nesting/gold (glow-language).
-# Ambient gold · open `$:` (deca-shape) gate samples stay held.
+# Proves stated aura - $% tag - named-shape - nesting-sample refuse (glow-language) -
+# nesting-sample accept under stated closed molds (glow-language) - count-shape (glow-language) -
+# kind-shape (glow-language) - xact-shape (glow-language) - xfer-shape (glow-language) - pair-shape (glow-language) - triple-shape (glow-language) - quad-shape (glow-language) - penta-shape (glow-language) - hexa-shape (glow-language) - stated/nesting/gold (glow-language).
+# Ambient gold - open `$:` (deca-shape) gate samples stay held.
 #
 #   rishi/bin/rishi run tools/g/glow_nest_type_witness.rish
 

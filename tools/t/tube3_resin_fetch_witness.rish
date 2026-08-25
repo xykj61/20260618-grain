@@ -1,6 +1,6 @@
-# tube3_resin_fetch_witness.rish — glow-publishing: sealed Manifest resin fetch.
+# tube3_resin_fetch_witness.rish -- glow-publishing: sealed Manifest resin fetch.
 #
-# glow-publishing publish → Amphora digest wire → Comlink seal → verify before admit.
+# glow-publishing publish -> Amphora digest wire -> Comlink seal -> verify before admit.
 # See linengrow/tube3_resin_fetch.rye.
 #
 # Run from the repository root:

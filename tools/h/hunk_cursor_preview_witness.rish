@@ -1,15 +1,15 @@
-# tools/h/hunk_cursor_preview_witness.rish — the Skate view of a cursor's neighbors on metal (open-image).
+# tools/h/hunk_cursor_preview_witness.rish -- the Skate view of a cursor's neighbors on metal (open-image).
 #
-# Chapter A (Hardware & Right-to-Repair) · waymark open-image · journey Photos app · rung open-image.
+# Chapter A (Hardware & Right-to-Repair) - waymark open-image - journey Photos app - rung open-image.
 # Design read: active-designing/date/20260813/20260813-171500_hunk-edit-cursor-undo-redo-exploration.md (the Skate-painted cursor door).
-# Teacher, thanked clean-room: the undo/redo previews of a photo editor — a keeper sees the neighbor image a step
+# Teacher, thanked clean-room: the undo/redo previews of a photo editor -- a keeper sees the neighbor image a step
 # would restore before committing to the walk (concept only, siloed).
 #
 # open-image gave the edit-list a cursor (history plus a position); open-image gave a pending edit an eye. This rung joins
 # them: `brushstroke/cursor_preview.rye` shows the Skate grid of a cursor's view at any position without mutating the
 # cursor (a value copy walks). preview_undo/preview_redo show the one-step neighbors. The property only a cursor can
 # offer, a plain revert cannot: a rewound cursor RETAINS its redo tail, so preview_redo shows a real image of the road
-# ahead — and after open-image's forget-the-tail push, that same preview honestly falls back to the current view. The
+# ahead -- and after open-image's forget-the-tail push, that same preview honestly falls back to the current view. The
 # selftest proves the neighbor previews against a direct view, that a preview never mutates the cursor, and the crux
 # tie-in to open-image. No network, no key, no funds.
 #

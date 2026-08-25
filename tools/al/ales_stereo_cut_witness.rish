@@ -1,9 +1,9 @@
-# tools/al/ales_stereo_cut_witness.rish — stereo_cut: the foundational span-remove carried into stereo, both channels in lockstep, validate-both-before-either (lotus-audio).
+# tools/al/ales_stereo_cut_witness.rish -- stereo_cut: the foundational span-remove carried into stereo, both channels in lockstep, validate-both-before-either (lotus-audio).
 #
-# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus · the creative suite) · waymark lotus-audio · rung lotus-audio.
+# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
 # Design read: active-designing/date/20260815/20260815-015354_fill-ales117-lotus-stereo-cut.md
-# Stands on: lotus/timeline.rye (lotus-audio — the Clip, the mono cut run once per channel, and the EditError reused whole), lotus/pan.rye (lotus-audio — the StereoClip, two mono Clips left/right,
-# and its balance invariant), lotus/meter.rye (lotus-audio — the peak/RMS meter). A Lotus master is a StereoClip whose defining invariant is that left and right hold the same length so the
+# Stands on: lotus/timeline.rye (lotus-audio -- the Clip, the mono cut run once per channel, and the EditError reused whole), lotus/pan.rye (lotus-audio -- the StereoClip, two mono Clips left/right,
+# and its balance invariant), lotus/meter.rye (lotus-audio -- the peak/RMS meter). A Lotus master is a StereoClip whose defining invariant is that left and right hold the same length so the
 # channels stay aligned in time; circling a span on the master and deleting it removes it from both speakers at once. This rung carries lotus-audio's cut into stereo the way lotus-audio carried
 # replace: run the proven mono cut on each channel with the same at and count.
 #

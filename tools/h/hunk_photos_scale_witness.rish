@@ -1,12 +1,12 @@
-# tools/h/hunk_photos_scale_witness.rish — the Photos app resizes the open grid on metal (open-image).
+# tools/h/hunk_photos_scale_witness.rish -- the Photos app resizes the open grid on metal (open-image).
 #
-# Chapter A (Hardware & Right-to-Repair) · waymark open-image · journey Photos app · rung open-image.
+# Chapter A (Hardware & Right-to-Repair) - waymark open-image - journey Photos app - rung open-image.
 # Design read: active-designing/date/20260813/20260813-154324_hunk-photos-scale-exploration.md
 # Teacher, thanked clean-room: the everyday iCloud Photos / Google Photos resize gesture (concept only, siloed).
 #
 # open-image cropped, open-image turned and mirrored; this rung gives the Photos app its resize. `image/photos.rye`
 # `scale` is a pure bounded function over the decoded RGBA grid: it samples output pixel (nx, ny) from the
-# source pixel at (nx·w/new_w, ny·h/new_h) — nearest-neighbor — returning a fresh image and leaving the source
+# source pixel at (nx-w/new_w, ny-h/new_h) -- nearest-neighbor -- returning a fresh image and leaving the source
 # untouched. The selftest proves an identity resize recovers the source byte-for-byte, a 2x nearest upscale
 # samples each output pixel from src(nx/2, ny/2), a downscale to 1x1 picks the top-left pixel, the scaled image
 # still re-encodes and round-trips as an open image, and a zero target and an over-ceiling target each refuse
@@ -38,7 +38,7 @@ assert selftest.out contains "2x nearest upscale samples each pixel" else "hunk-
 
 assert selftest.out contains "scaled image re-encodes and round-trips" else "hunk-photos-scale: a scaled image did not round-trip as an open image"
 
-# open-image crop and open-image orient selftests still run in the same binary — their GREEN lines must remain.
+# open-image crop and open-image orient selftests still run in the same binary -- their GREEN lines must remain.
 assert selftest.out contains "GREEN image-photos:" else "hunk-photos-scale: open-image crop selftest no longer GREEN beneath"
 assert selftest.out contains "GREEN image-photos-orient" else "hunk-photos-scale: open-image orient selftest no longer GREEN beneath"
 

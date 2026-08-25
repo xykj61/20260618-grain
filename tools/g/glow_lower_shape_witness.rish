@@ -1,4 +1,4 @@
-# glow_lower_shape_witness.rish — thin `+$` / `$:` lowers to Rye (glow-language).
+# glow_lower_shape_witness.rish -- thin `+$` / `$:` lowers to Rye (glow-language).
 #
 #   rishi/bin/rishi run tools/g/glow_lower_shape_witness.rish
 
