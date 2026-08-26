@@ -1,5 +1,7 @@
 # dimeroll-expansion — The Bit Design System, the Surface, and the Entity Books
 
+> **Fossil `20260825.233311`** -- the living mutant is [`../../20260825-233311_wade-bit-design-system-and-dimeroll-entities.md`](../../20260825-233311_wade-bit-design-system-and-dimeroll-entities.md) (accretes the word's arrival); this dated body stays whole.
+
 **Stamp:** `20260811.220402`
 **Language:** EN
 **Style:** Radiant (see [`../context/RADIANT_STYLE.md`](../context/RADIANT_STYLE.md))
