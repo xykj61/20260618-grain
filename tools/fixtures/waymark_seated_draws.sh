@@ -29,4 +29,4 @@ draw sala-broadcast-live-session-fold seva-broadcast
 draw glow-glass-hearth-display-and-wired-sync hearth-display
 draw glow-language-rune-heads-nest-and-lowering-2 glow-language
 draw source-pier-papers-identity-refresh source-identity
-draw djinn-bozo-exec-keaton-murr-hats djinn-exec
+# djinn-exec is hand-seated since the 20260825 debride; its input is not re-derived.

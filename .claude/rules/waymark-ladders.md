@@ -30,7 +30,7 @@ Before the first rung is written as `X0` / `X1` / … in TASKS, ROADMAP, compres
 | **glow-language** | `glow-language-rune-heads-nest-and-lowering-2` | Glow language SLC · rune heads · nest · composition |
 | **usb-hearth** | *(hand-seated; not a word-list draw — absent from flw)* | USB hearth carry Glass↔Desk |
 | **source-identity** | `source-pier-papers-identity-refresh` | SOURCE.md identity · remotes · apps · onboarding refresh |
-| **djinn-exec** | `djinn-bozo-exec-keaton-murr-hats` | DJINN → Bozo exec · Keaton → Murr exec · Linn→Bozo Capricorn 10 |
+| **djinn-exec** | *(input debrided `20260825` -- it carried a name; hand-seated)* | DJINN → Bozo exec · Keaton → Murr exec · Linn→Bozo Capricorn 10 |
 | **compass-language** | `glow-language-runes-stdlib-and-pipeline` | Compass Chapter Equinox 1 — The Language (Glow runes · stdlib/PLEAC · Brix-infuse · pipeline) |
 | **compass-identity** | `kumara-identity-comlink-and-fractal-network` | Compass Chapter Equinox 2 — Identity & Network (Kumara · d12/d60 topology · Comlink · settlement) |
 | **compass-surface** | `realidream-surface-and-quin-inference-and-mcp-2` | Compass Chapter Equinox 3 — Surface & Intelligence (Realidream · Quin voices · MCP-in-Bron) |
