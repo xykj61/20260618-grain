@@ -1,5 +1,7 @@
 # Anywhere We Go, We're Found
 
+> **Fossil `20260826.024940`** -- the living mutant is [`20260826-024940_anywhere-we-are-found.md`](20260826-024940_anywhere-we-are-found.md); this dated body stays whole.
+
 *A vision for joyful, open, and regenerative technology, and for the communities it serves. These notes began as a scribble months ago. This is their revival -- the same direction, drawn out clearly, in our own voice, and deepened by the fuller vision it was always reaching toward.*
 
 **Stamp:** `20260628.124512`

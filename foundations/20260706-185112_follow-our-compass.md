@@ -1,5 +1,7 @@
 # Follow Our Compass -- Navigation Back to Direction
 
+> **Fossil `20260826.024943`** -- the living mutant is [`20260826-024943_follow-our-compass.md`](20260826-024943_follow-our-compass.md); this dated body stays whole.
+
 *The tree already names a **grain** -- ten structural strands that decide how an idea may be cut to fit. This brief names a **compass** -- the habit of returning to those strands, the foundations beneath them, and the active-designing ladder ahead -- so "which way next?" has one calm answer without replacing the grain we already seated.*
 
 **Stamp:** `20260706.185112`

@@ -1,5 +1,7 @@
 # Lantern, Lattice, and Kiln -- An Open Model, Served Honestly
 
+> **Fossil `20260826.024944`** -- the living mutant is [`20260826-024944_lantern-lattice-kiln.md`](20260826-024944_lantern-lattice-kiln.md); this dated body stays whole.
+
 *The open-model layer for Grain and the public benefit company that stewards it: where a model is baked, served, and metered. Three named parts carry the work -- the kiln, the serving fabric, and the honest meter -- with the token economy pointed at real cost and the model kept in the commons.*
 
 **Stamp:** `20260728.232511`

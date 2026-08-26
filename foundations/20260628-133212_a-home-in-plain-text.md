@@ -1,5 +1,7 @@
 # A Home in Plain Text
 
+> **Fossil `20260826.024941`** -- the living mutant is [`20260826-024941_a-home-in-plain-text.md`](20260826-024941_a-home-in-plain-text.md); this dated body stays whole.
+
 *The terminal as a calm, portable, lasting place to work.*
 
 **Stamp:** `20260628.133212`
