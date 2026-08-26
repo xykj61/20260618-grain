@@ -4,7 +4,7 @@
 **Language:** EN
 **Style:** Gauge (see `../context/GAUGE_STYLE.md`)
 **Voice:** Kyri
-**Status:** Living foundation -- the *why* beneath the tree's own consensus season, and the map through its parts.
+**Status:** Fossil `20260825.211055` -- the living mutant is [`20260825-211055_mycelium-the-consensus-protocol.md`](20260825-211055_mycelium-the-consensus-protocol.md) (accretes the interim carriage); this dated body stays whole. Was: Living foundation -- the *why* beneath the tree's own consensus season, and the map through its parts.
 **Chapter:** D -- Kresfa & Mycelium (the language and the consensus). Double-seat vision: [`../active-designing/date/20260813/20260813-020035_double-seat-expansion-six-seasons.md`](../active-designing/date/20260813/20260813-020035_double-seat-expansion-six-seasons.md).
 **First design read:** [`../active-designing/date/20260813/20260813-032851_mycelium-consensus-cord-exploration.md`](../active-designing/date/20260813/20260813-032851_mycelium-consensus-cord-exploration.md).
 
