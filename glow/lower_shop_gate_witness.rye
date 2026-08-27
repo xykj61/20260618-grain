@@ -1,13 +1,13 @@
-//! glow/lower_bartis_witness.rye -- proves `|=` bartis lowers to runnable `.rye` (glow-language-103).
+//! glow/lower_shop_gate_witness.rye -- proves `|=` bartis lowers to runnable `.rye` (glow-language-103).
 //!
-//!   rye build glow/lower_bartis_witness.rye -femit-bin=glow/bin/lower_bartis_witness
-//!   glow/bin/lower_bartis_witness
+//!   rye build glow/lower_shop_gate_witness.rye -femit-bin=glow/bin/lower_shop_gate_witness
+//!   glow/bin/lower_shop_gate_witness
 
 const std = @import("std");
 const assert = std.debug.assert;
 const print = std.debug.print;
-const lower = @import("lower_bartis.rye");
-const rb = @import("rune_bartis.rye");
+const lower = @import("lower_shop_gate.rye");
+const rb = @import("rune_shop_gate.rye");
 
 const witness_version = "20260720.192038";
 

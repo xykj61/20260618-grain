@@ -6,7 +6,7 @@
 #
 # Scan roster: mantra caravan linengrow comlink rishi/src tally aurora pond brushstroke image mikrophone rye/src
 # plus Glow TAME surfaces: tokens - lower_named_cast (glow-language-87) on the 256 roster;
-# lower_shape (glow-language) - lower_bartis (glow-language) - lower_barket (glow-language) ride one-file ban overflow seats + width-check.
+# lower_shape (glow-language) - lower_shop_gate (glow-language) - lower_shop_nest (glow-language) ride one-file ban overflow seats + width-check.
 # Law detail: tools/t/tame_style_scan_bans.rish - tools/t/tame_style_scan_advise.rish - context/TAME_GUIDANCE.md
 
 MODE="${1:-bans}"

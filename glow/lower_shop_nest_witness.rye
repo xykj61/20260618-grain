@@ -1,13 +1,13 @@
-//! glow/lower_barket_witness.rye -- proves `|^` barket lowers to runnable `.rye` (glow-language-118).
+//! glow/lower_shop_nest_witness.rye -- proves `|^` barket lowers to runnable `.rye` (glow-language-118).
 //!
-//!   rye build glow/lower_barket_witness.rye -femit-bin=glow/bin/lower_barket_witness
-//!   glow/bin/lower_barket_witness
+//!   rye build glow/lower_shop_nest_witness.rye -femit-bin=glow/bin/lower_shop_nest_witness
+//!   glow/bin/lower_shop_nest_witness
 
 const std = @import("std");
 const assert = std.debug.assert;
 const print = std.debug.print;
-const lower = @import("lower_barket.rye");
-const rb = @import("rune_barket.rye");
+const lower = @import("lower_shop_nest.rye");
+const rb = @import("rune_shop_nest.rye");
 
 const witness_version = "20260720.192038";
 
