@@ -1,11 +1,13 @@
-# The Swarm That Feeds the Kiln
+# The Swarm That Feeds the Oven
+
+> **Fossil.** The bake seat renamed **Kiln** on Keaton's word `20260827.025118`; the naming muddle this page carried (Ember as the baker) resolves in the mutant -- Kiln bakes, Ember keeps the corpus forge. The living page is [`20260827-025118_the-swarm-that-feeds-the-kiln.md`](20260827-025118_the-swarm-that-feeds-the-kiln.md).
 
 **Stamp:** `20260826.001746`
 **Language:** EN
 **Style:** Gauge, Field setting (see `../context/GAUGE_STYLE.md`)
 **Voice:** Kyri
 **Status:** Mixed -- design; the cohort-training pattern read as a Mycelium cousin, its poisoning gap repaired with the tree's own spine; proposals only
-**Kin:** [`../foundations/20260826-024944_lantern-lattice-kiln.md`](../foundations/20260826-024944_lantern-lattice-kiln.md) -- [`../foundations/20260825-211055_mycelium-the-consensus-protocol.md`](../foundations/20260825-211055_mycelium-the-consensus-protocol.md)
+**Kin:** [`../foundations/20260826-024944_lantern-lattice-oven.md`](../foundations/20260826-024944_lantern-lattice-oven.md) -- [`../foundations/20260825-211055_mycelium-the-consensus-protocol.md`](../foundations/20260825-211055_mycelium-the-consensus-protocol.md)
 
 The tree's open model layer has three seated names: Ember bakes the model, Lattice serves
 it, Lantern meters what the asking cost. The foundation says the bake happens on shared
@@ -71,7 +73,7 @@ That is the difference between a swarm and a commons.
 training section) with a touch of `2026-04-18-031102-pdt-the-open-spine-v4.md`.
 
 **The living tree already covers:** the model layer's three names and the honest meter in
-`foundations/20260826-024944_lantern-lattice-kiln.md`; the shared compute and its public
+`foundations/20260826-024944_lantern-lattice-oven.md`; the shared compute and its public
 funding in `foundations/20260728-225239_the-wafer-and-the-sovereign-coin.md`; leaderless
 deterministic order in `foundations/20260825-211055_mycelium-the-consensus-protocol.md`;
 the five primitives in `foundations/20260826-024942_the-grain-and-the-crossing.md`.
