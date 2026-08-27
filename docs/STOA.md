@@ -1,6 +1,20 @@
-# glow-language — Glow SLC · nest · product · ≤80 · glow-language–294 · 2026-07-22 · draw → **glow-language**
+# glow-language — Glow SLC · nest · product · ≤80 · draw → **glow-language**
+
+**Status:** Living compressor -- the ladder as this page holds it
+**Molted:** `20260827.173952` -- in place, under checkpoint `3a606a8ac9` (180 inbound references keep the path)
+**Kin:** [`../.claude/rules/waymark-ladders.md`](../.claude/rules/waymark-ladders.md) (glow-language is a seated draw) - [`../.claude/rules/stamp-and-name.md`](../.claude/rules/stamp-and-name.md) (why the next rung is stamped rather than counted) - [`COMPASS.md`](COMPASS.md) - home is [`../README.md`](../README.md)
+**Last row on this page:** **glow-language**, GREEN `20260724.181200`
+**Last row in the tree:** **glow-language**, carried by the witnesses themselves
 
 Living Grain desks lead with `shape-*` (shape duals glow-language–173; pin polish glow-language; multi-field cast twins glow-language–176). Seva B0 Glow: glow-language–304 · **glow-language** after xact argv (payload tag+amount GREEN). Hoon study twins under `glow/gen/hoon-study/`.
+
+**The last thirteen rungs live in their witnesses rather than here.** glow-language through glow-language ran
+and are GREEN on metal -- `tools/g/glow_tally_pair_bound_witness.rish` (glow-language),
+`glow_shop_gate_pair_select_witness.rish` (341), `glow_run_worker.sh` (344),
+`glow_vane_pair_mirrors_witness.rish` (346) -- and each names its own rung in its first line. They
+are named here rather than transcribed, because a compressor that invents rows it did not read is
+worse than one that says where the rows are. Whoever next works this ladder folds them in from the
+witnesses.
 
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
