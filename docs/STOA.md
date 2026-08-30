@@ -21,11 +21,12 @@ witnesses already keep.
 **Where the last thirteen came from.** glow-language-346 stood green in `tools/g/` witnesses while this
 page's last row read glow-language -- the sync law's own case, booked in
 [`../active-designing/20260827-174816_the-glow-tree-and-the-rooms-that-say-what-they-hold.md`](../active-designing/20260827-174816_the-glow-tree-and-the-rooms-that-say-what-they-hold.md).
-Each of the thirteen claims below is read from the witness header, the desk's own first line, or the
-landing commit body, and each stamp is that commit's **committer** date, which runs monotone across
-all thirteen -- so 338b sits below 339, the order the work actually took: 338a parsed, 339 wove,
-338b emitted on metal. A compressor keeps its worth by writing only rows it read, so every row here
-names where it came from.
+Each dated claim below is read from the witness header, the desk's own first line, or the
+landing commit body, and each stamp is that commit's **author** date rendered on the one clock in
+America/New_York. That is the stamp-and-name reading, and it runs monotone across all thirteen -- so
+338b sits below 339, the order the work actually took: 338a parsed, 339 wove, 338b emitted on metal.
+A compressor keeps its worth by writing only rows it read, so every row here names where it came
+from.
 
 **glow-language onward is marked by stamp and name**: a rung still ahead is a forecast,
 and this page announced `glow-language-294` in its own head while the work ran on to glow-language.
@@ -49,8 +50,8 @@ and this page announced `glow-language-294` in its own head while the work ran o
 | **glow-language-304** | Survey seated, inventary retired - tagged `$%` payload flip, bartis and barket twins - tagged unit flip helper - kind unit-tag argv - xact payload argv | `emit_tagged_payload_flip` - `emit_tagged_unit_flip` - `emit_kind_argv` - `emit_xact_argv` | **GREEN** `20260722.155438`...`184804` |
 | **glow-language-321** | The N-field argv family, xfer through nona: one survey per arity, bartis and barket each time, family closed at nine | `emit_{xfer,n_field,triple,quad,penta,hexa,hepta,octa,nona}_argv` | **GREEN** `20260722.185953`...`195019` |
 | **glow-language-331** | `$:` argv sameness collapse - `$:` welcome sameness collapse - nest_type table over shape params - gate-spec `shape_name` (GateSpec/BarketSpec rename) | mold-to-N-to-emit - allowlist/N tables - living `shape_name` | **GREEN** `20260722.195021`...`204133` |
-| **glow-language** | Rishi glow mode SLC: sixteen heads at `rishi glow`, quit word | claim [`../waymarks/stoa-300s/20260724-144740_stoa332-rishi-glow-mode-slc.md`](../waymarks/stoa-300s/20260724-144740_stoa332-rishi-glow-mode-slc.md) | **GREEN** `20260724.144740` |
-| **glow-language** | Digraph-table twin: Glow desk and Rye `match_rune2` agree byte for byte | `glow_digraph_twin_witness` - claim [`../waymarks/stoa-300s/20260724-181200_stoa333-digraph-table-twin.md`](../waymarks/stoa-300s/20260724-181200_stoa333-digraph-table-twin.md) | **GREEN** `20260724.181200` |
+| **glow-language** | Rishi glow mode SLC: sixteen heads at `rishi glow`, quit word | claim [`../waymarks/stoa-300s/20260724-144740_stoa332-rishi-glow-mode-slc.md`](../waymarks/stoa-300s/20260724-144740_stoa332-rishi-glow-mode-slc.md) | **GREEN** `20260724.145539` |
+| **glow-language** | Digraph-table twin: Glow desk and Rye `match_rune2` agree byte for byte | `glow_digraph_twin_witness` - claim [`../waymarks/stoa-300s/20260724-181200_stoa333-digraph-table-twin.md`](../waymarks/stoa-300s/20260724-181200_stoa333-digraph-table-twin.md) | **GREEN** `20260724.181314` |
 | **glow-language** | `|+ prodto` fold body: the product of 1..n within its bound, and an empty `n=0` folds to the product identity **1**, not 0 | `glow_lower_shop_gate_witness` - `glow/lower_shop_gate.rye` | **GREEN** `20260802.195658` |
 | **glow-language** | `|+ sum` widened over the closed `$:` shapes pair through nona; at `n=2` it delegates to the elder pair emitter rather than re-deriving it | `glow_lower_shop_gate_witness` - welcome and argv paths | **GREEN** `20260802.200734` |
 | **glow-language** | `|+ prod` list fold chooses its reducer at the call, welcome and argv alike; the identity of none is 1 and it wraps with `*%` | `glow_lower_shop_gate_witness` - `glow_shop_nest_lower_witness` | **GREEN** `20260802.205625` |
@@ -58,12 +59,12 @@ and this page announced `glow-language-294` in its own head while the work ran o
 | **STOA338a** | Pair-faces parse: two runtime faces meet in the header and the cond; the lower refuses by name with `PairNotYetLowered` until 338b emits | `glow_shop_gate_pair_faces_witness` | **GREEN** `20260803.162411` |
 | **glow-language** | `sumto` as a call -- the first Tend unary on the `%-` allowlist | `glow_compose_tend_unary_witness` | **GREEN** `20260803.163728` |
 | **STOA339b** | compose-after-inc desk, landed in the same weave | `glow_compose_after_inc_witness` | **GREEN** `20260803.163728` |
-| **STOA338b** | Pair-faces on metal: expect from the seated demo pair, a two-parameter welcome plant, and an argv main reading two samples whose arity refuses at exit 2 | `glow_shop_gate_pair_metal_witness` - worker pair arity class | **GREEN** `20260803.165903` |
-| **glow-language** | The Tally wall asks count against cap, as pair-faces | `glow_tally_pair_bound_witness` | **GREEN** `20260804.001716` |
-| **glow-language** | Face-valued arms: min/max select over the pair | `glow_shop_gate_pair_select_witness` | **GREEN** `20260804.001716` |
-| **glow-language** | `prodto` joins the `%-` door carrying **its own** law rather than its sibling's -- bound 12, beyond it folds to 0, and zero answers 1 | `glow_compose_tend_unary_witness` - `gate-prodto.glow` | **GREEN** `20260804.003744` |
-| **glow-language** | The decide family opens: `sumto_lawful` and `prodto_lawful` join `%-`, each reading its fold's bound from the one place that bound lives | `glow_compose_tend_unary_witness` - `gate-{sumto,prodto}-lawful.glow` | **GREEN** `20260804.004527` |
-| **glow-language** | The vane wall answers through the import door: `gardens_lawful` lands, the plant importing its vane by a same-dir cache alias with the expect in-plant | `glow_compose_tend_unary_witness` - `glow_run_worker.sh` - `gate-gardens-lawful.glow` | **GREEN** `20260804.005939` |
+| **STOA338b** | Pair-faces on metal: expect from the seated demo pair, a two-parameter welcome plant, and an argv main reading two samples whose arity refuses at exit 2 | `glow_shop_gate_pair_metal_witness` - worker pair arity class | **GREEN** `20260803.165237` |
+| **glow-language** | The Tally wall asks count against cap, as pair-faces | `glow_tally_pair_bound_witness` | **GREEN** `20260803.191802` |
+| **glow-language** | Face-valued arms: min/max select over the pair | `glow_shop_gate_pair_select_witness` | **GREEN** `20260804.001631` |
+| **glow-language** | `prodto` joins the `%-` door carrying **its own** law rather than its sibling's -- bound 12, beyond it folds to 0, and zero answers 1 | `glow_compose_tend_unary_witness` - `gate-prodto.glow` | **GREEN** `20260804.003333` |
+| **glow-language** | The decide family opens: `sumto_lawful` and `prodto_lawful` join `%-`, each reading its fold's bound from the one place that bound lives | `glow_compose_tend_unary_witness` - `gate-{sumto,prodto}-lawful.glow` | **GREEN** `20260804.004523` |
+| **glow-language** | The vane wall answers through the import door: `gardens_lawful` lands, the plant importing its vane by a same-dir cache alias with the expect in-plant | `glow_compose_tend_unary_witness` - `glow_run_worker.sh` - `gate-gardens-lawful.glow` | **GREEN** `20260804.005936` |
 | **glow-language** | Caravan kin through the wider door: `caps_lawful` and `dependents_lawful` land via `vane_decide_import` and a caravan directory alias | `glow_compose_tend_unary_witness` - `gate-{caps,dependents}-lawful.glow` | **GREEN** `20260804.012027` |
 | **glow-language** | The 2m mirrors: Caravan caps and Mantra floor each ask with two runtime faces, and cond operands bind in header order, honored in the desk. The 338 application arc closes across Tally, Caravan, and Mantra | `glow_vane_pair_mirrors_witness` | **GREEN** `20260804.230305` |
 
