@@ -33,17 +33,17 @@ might fail to keep.
 zero to sixty-three and you have written a prediction in a place people cite. This tree has now
 measured nine such announcements against what their ladders actually reached:
 
-| Announced | Reached |
-|---|---|
-| f0-f63 | f3 |
-| u0-u127 | u91 |
-| i0-i15 | i6 |
-| sixteen rounds | two rooms of twelve |
-| compass-language-compass-language | compass-language |
-| compass-identity-compass-identity | compass-identity |
-| compass-surface-compass-surface | compass-surface |
-| compass-world-compass-world | compass-world |
-| slh-dsa-slh-dsa | slh-dsa |
+| Ladder | Rungs announced | Rungs reached |
+|---|---|---|
+| the fascia equinox | 64 | 3 |
+| the MUR chapter | 128 | 91 |
+| the inner scope | 16 | 6 |
+| a sixteen-round chapter | 16 | two rooms of twelve |
+| compass-language | 64 | 0 |
+| compass-identity | 64 | 0 |
+| compass-surface | 64 | 6 |
+| compass-world | 64 | 0 |
+| slh-dsa | 64 | 4 |
 
 The four at the top were found by hand and written into the law. The five below stood in one living
 page the whole time, where four equinoxes announced 256 rungs between them and had reached six.
@@ -64,7 +64,7 @@ ledger's `%N` rows stand exactly as written -- and a gap in them would mean a re
 missing, which is worth being able to see.
 
 **Rungs already written keep every number they wrote.** Dated logs, commit messages, and witnesses
-that say compass-surface are testimony. The retirement reaches the *announcement* of a length, and reaches it
+that carry a waymark and a number are testimony. The retirement reaches the *announcement* of a length, and reaches it
 only in pages that speak as now.
 
 ## The test
