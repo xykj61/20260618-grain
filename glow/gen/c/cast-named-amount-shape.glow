@@ -1,4 +1,4 @@
-::  Same-desk named-cast — +$ amount-shape then ^- amount-shape (glow-language).
+::  Same-desk named-cast -- +$ amount-shape then ^- amount-shape (glow-language).
 ::  Glow OS primary spelling; cast-named-amount.glow keeps the mold twin.
 +$  amount-shape
   $:  amount=@u32

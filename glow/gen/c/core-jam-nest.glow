@@ -1,4 +1,4 @@
-::  Open arm nest jam body — (jam (mix sample sample) sample) (glow-language).
+::  Open arm nest jam body -- (jam (mix sample sample) sample) (glow-language).
 |%
 ++  nest  (jam (mix sample sample) sample)
 --

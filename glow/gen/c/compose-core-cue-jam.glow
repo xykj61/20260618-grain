@@ -1,4 +1,4 @@
-::  Face then cue-of-jam arm — product core round-trip (glow-language).
+::  Face then cue-of-jam arm -- product core round-trip (glow-language).
 =/  amount  5
 |%
 ++  unpack  (cue (jam sample sample))

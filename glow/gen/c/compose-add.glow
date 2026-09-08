@@ -1,4 +1,4 @@
-::  Cross-line — two faces then %+ add (glow-language).
+::  Cross-line -- two faces then %+ add (glow-language).
 =/  from  5
 =/  amount  3
 %+  add  from  amount

@@ -1,3 +1,3 @@
-::  Typed multi-line — @u32 faces (glow-language).
+::  Typed multi-line -- @u32 faces (glow-language).
 =/  from=@u32  5
 =/  amount=@u32  3

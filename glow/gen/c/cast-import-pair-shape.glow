@@ -1,4 +1,4 @@
-::  Cross-desk multi-field named-cast — import shape-pair then ^- pair-shape (glow-language).
+::  Cross-desk multi-field named-cast -- import shape-pair then ^- pair-shape (glow-language).
 ::  Glow OS primary spelling; unlocks cast twins for pair-shape.
 /+  shape-pair
 ^-  pair-shape

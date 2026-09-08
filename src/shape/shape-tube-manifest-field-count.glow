@@ -1,13 +1,13 @@
 ::  name       tube manifest field count
 ::  shape      fields - int (@u32)
-::  invariant  the glow-publishing app-manifest mold (landed as the elder tube0 rung) carries four fields: name · version · capabilities · iteration-bound
+::  invariant  the glow-publishing app-manifest mold (landed as the elder tube0 rung) carries four fields: name - version - capabilities - iteration-bound
 ::  example    4
-::  readers    Pool · glow-publishing · Surface app room
+::  readers    Pool - glow-publishing - Surface app room
 ::  nib        surface-p19-v0
 ::
-::  Surface Chapter p19 — second pedestal in src/app (Pool agents).
+::  Surface Chapter p19 -- second pedestal in src/app (Pool agents).
 ::  Names the glow-publishing app-manifest mold field count from docs/glow-publishing.md.
-::  Does not seat packaging · APK · NativeActivity · or revive pond/apps.
+::  Does not seat packaging - APK - NativeActivity - or revive pond/apps.
 +$  tube-manifest-field-count-shape
   $:  fields=@u32
   ==

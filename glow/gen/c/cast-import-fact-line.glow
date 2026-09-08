@@ -1,4 +1,4 @@
-::  Cross-desk named-cast — import shape-fact-line then ^- fact-line-shape (glow-language).
+::  Cross-desk named-cast -- import shape-fact-line then ^- fact-line-shape (glow-language).
 ::  Mirrors glow-language pair / glow-language triple import casts; glow-language @t bound 1024.
 /+  shape-fact-line
 ^-  fact-line-shape

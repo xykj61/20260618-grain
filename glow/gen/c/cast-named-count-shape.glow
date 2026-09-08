@@ -1,4 +1,4 @@
-::  Same-desk named-cast — +$ count-shape then ^- count-shape (glow-language).
+::  Same-desk named-cast -- +$ count-shape then ^- count-shape (glow-language).
 ::  Glow OS primary spelling; shape-count.glow keeps the study twin.
 +$  count-shape
   $:  count=@u32
