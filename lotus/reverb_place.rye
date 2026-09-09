@@ -22,7 +22,7 @@
 //! Design read: active-designing/date/20260815/20260815-125233_fill-ales214-lotus-reverb-place.md
 //! Stands on: lotus/stereo_reverb_preset.rye (lotus-audio) -- the named-room stereo wet, run over the master unchanged, its StereoReverbPresetError
 //! forwarded whole; lotus/stereo_width.rye (lotus-audio) -- the width control (encode/scale-the-side/decode), run over the wet, its BadWidth reused; lotus/
-//! power.rye (lotus-audio) -- the equal-power split `split(pos, den)` = [isqrt(den-(den−pos)), isqrt(den-pos)], reused verbatim; lotus/timeline.rye (lotus-audio)
+//! power.rye (lotus-audio) -- the equal-power split `split(pos, den)` = [isqrt(den-(den-pos)), isqrt(den-pos)], reused verbatim; lotus/timeline.rye (lotus-audio)
 //! -- the Clip and its proven `gain`; lotus/pan.rye (lotus-audio) -- the StereoClip, its balance invariant, and the fold bound max_pan_den; lotus/clock.rye
 //! (lotus-audio) -- the validated sample clock the preset speaks its span against.
 //!
