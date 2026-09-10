@@ -1,16 +1,16 @@
-# glow-publishing — Glow application framework ladder
+# glow-publishing -- Glow application framework ladder
 
-*App = Pool agent. Manifest = bounded mold. Publish = signed fold. Packaging = NativeActivity envelope over Glow-built native code — never a Kotlin transpiler.*
+*App = Pool agent. Manifest = bounded mold. Publish = signed fold. Packaging = NativeActivity envelope over Glow-built native code -- never a Kotlin transpiler.*
 
-**Status:** Checkable — operator compressor (glow-publishing / glow-publishing.5 / glow-publishing–5 / glow-publishing GREEN; Resource Scope · Network · Sensors Grants GREEN; glow-publishing horizon)
+**Status:** Checkable -- operator compressor (glow-publishing / glow-publishing.5 / glow-publishing-5 / glow-publishing GREEN; Resource Scope - Network - Sensors Grants GREEN; glow-publishing horizon)
 **Depth:** guide
 **Ceiling:** <=150 lines
-**Last updated:** 2026-07-18 (seva-broadcast living names · Mantra-rev tip wording)
-**Compresses:** [`20260716-142818_glow-application-framework-and-publishing.md`](../expanding-prompts/yonder/20260716-142818_glow-application-framework-and-publishing.md) · [`20260717-014522_native-activity-shim-and-slc-packaging.md`](../active-designing/date/20260717/20260717-014522_native-activity-shim-and-slc-packaging.md) · [`seva-broadcast.md`](seva-broadcast.md)
+**Last updated:** 2026-07-18 (seva-broadcast living names - Mantra-rev tip wording)
+**Compresses:** [`20260716-142818_glow-application-framework-and-publishing.md`](../expanding-prompts/yonder/20260716-142818_glow-application-framework-and-publishing.md) - [`20260717-014522_native-activity-shim-and-slc-packaging.md`](../active-designing/date/20260717/20260717-014522_native-activity-shim-and-slc-packaging.md) - [`seva-broadcast.md`](seva-broadcast.md)
 
 ---
 
-## Thesis — emission, not transpilation
+## Thesis -- emission, not transpilation
 
 A Glow app declares itself with a **glow-publishing** manifest (name, version, capabilities, iteration bound). Android packaging **emits** permission lines from a closed table and wraps the Glow-built `.so` in Android's own `NativeActivity` (`hasCode=false`), rather than rewriting Glow into Kotlin. Every rune, bound, and assertion stays native.
 
@@ -23,14 +23,14 @@ Language path and device path meet here: Glow's fold (language) becomes an insta
 | Rung | Claim | Primary witness | State |
 |------|-------|-----------------|-------|
 | **glow-publishing** | App-manifest mold validates at the boundary | `tools/t/tube0_manifest_witness.rish` | GREEN |
-| **glow-publishing.5** | Permissions emit; NativeActivity envelope; signed APK with **seva-broadcast** Seva fold (module `seva_b0_fold`); install + `seva_root.txt` on pixel-glass and Pixel 10a | `tools/t/tube0_5_android_permission_witness.rish` · `tools/t/tube05_envelope_witness.rish` · `tools/t/tube05_apk_pack_witness.rish` · `tools/t/tube05_install_proof_onpath_host.rish` | **GREEN** pack · Seva wire · pixel-glass `20260717.122010` · **Pixel `20260717.123226`** |
-| **glow-publishing** | Pool admits an agent iff manifest caps match a grant | `tools/t/tube1_admission_witness.rish` · glass gate `tube1_glass_gate.rye` | **GREEN** device-free `20260717.131000` · glass + Pixel `20260717.131404` |
-| **glow-publishing** | Maker signs app+manifest into Granary; consumer verifies before install | `tools/t/tube2_publish_witness.rish` · glass `tube2_glass_pub.rye` | **GREEN** device-free `20260717.131500`; glass + Pixel `20260717.144536` |
-| **glow-publishing** | Manifest resin fetched by digest under Comlink seal; verified before admit | `tools/t/tube3_resin_fetch_witness.rish` · glass `tube3_glass_fetch.rye` | **GREEN** device-free `20260717.133900`; glass + Pixel `20260717.145328` |
-| **glow-publishing** | Price on Exchange, settle via Neth, unlock sealed fetch | `tools/t/tube4_market_rail_witness.rish` · glass `tube4_glass_market.rye` | **GREEN** device-free `20260717.134300`; glass + Pixel `20260717.145547` |
-| **glow-publishing** | Update as a Mantra revision; rollback selects prior rev | `tools/t/tube5_mantra_revision_witness.rish` · glass Mantra-rev paint `tube5_glass_tip.rye` | **GREEN** device-free `20260717.135200`; glass pack + Pixel look `20260717.140600` |
-| **glow-publishing** | Whole stack on real GrapheneOS build | — | horizon — needs pixel-glass |
-| **glow-publishing** | Packaging + admit + rail present on physical Pixel | glow-publishing.5 install · glow-publishing–5 glass | **GREEN** `20260717.145547` — Pixel look for 0.5+T1–T5; pixel-glass already closed |
+| **glow-publishing.5** | Permissions emit; NativeActivity envelope; signed APK with **seva-broadcast** Seva fold (module `seva_b0_fold`); install + `seva_root.txt` on pixel-glass and Pixel 10a | `tools/t/tube0_5_android_permission_witness.rish` - `tools/t/tube05_envelope_witness.rish` - `tools/t/tube05_apk_pack_witness.rish` - `tools/t/tube05_install_proof_onpath_host.rish` | **GREEN** pack - Seva wire - pixel-glass `20260717.122010` - **Pixel `20260717.123226`** |
+| **glow-publishing** | Pool admits an agent iff manifest caps match a grant | `tools/t/tube1_admission_witness.rish` - glass gate `tube1_glass_gate.rye` | **GREEN** device-free `20260717.131000` - glass + Pixel `20260717.131404` |
+| **glow-publishing** | Maker signs app+manifest into Granary; consumer verifies before install | `tools/t/tube2_publish_witness.rish` - glass `tube2_glass_pub.rye` | **GREEN** device-free `20260717.131500`; glass + Pixel `20260717.144536` |
+| **glow-publishing** | Manifest resin fetched by digest under Comlink seal; verified before admit | `tools/t/tube3_resin_fetch_witness.rish` - glass `tube3_glass_fetch.rye` | **GREEN** device-free `20260717.133900`; glass + Pixel `20260717.145328` |
+| **glow-publishing** | Price on Exchange, settle via Neth, unlock sealed fetch | `tools/t/tube4_market_rail_witness.rish` - glass `tube4_glass_market.rye` | **GREEN** device-free `20260717.134300`; glass + Pixel `20260717.145547` |
+| **glow-publishing** | Update as a Mantra revision; rollback selects prior rev | `tools/t/tube5_mantra_revision_witness.rish` - glass Mantra-rev paint `tube5_glass_tip.rye` | **GREEN** device-free `20260717.135200`; glass pack + Pixel look `20260717.140600` |
+| **glow-publishing** | Whole stack on real GrapheneOS build | -- | horizon -- needs pixel-glass |
+| **glow-publishing** | Packaging + admit + rail present on physical Pixel | glow-publishing.5 install - glow-publishing-5 glass | **GREEN** `20260717.145547` -- Pixel look for 0.5+T1-T5; pixel-glass already closed |
 
 ---
 
@@ -38,7 +38,7 @@ Language path and device path meet here: Glow's fold (language) becomes an insta
 
 ```bash
 rishi/bin/rishi run tools/t/tube05_apk_pack_witness.rish
-# → tools/.cache/tube05/seva-broadcaster.apk
+# -> tools/.cache/tube05/seva-broadcaster.apk
 #    package org.glow.app.seva_broadcaster
 #    NativeActivity + lib/{arm64-v8a,x86_64}/libglowapp.so (NDK-linked, DT_NEEDED libc)
 #    onCreate runs seva-broadcast Seva fold; writes files/seva_root.txt (pixel-glass demo root)
@@ -53,49 +53,49 @@ rishi/bin/rishi run tools/t/tube05_apk_pack_witness.rish
 | Native entry (`ANativeActivity_onCreate`) | `linengrow/glow_native_activity.rye` |
 | Pack worker | `tools/t/tube05_apk_pack_worker.sh` |
 
-**Install GREEN** — pixel-glass `20260717.122010` · physical Pixel 10a `20260717.123226` (`seva_root.txt` = pixel-glass demo root both times). Re-run anytime:
+**Install GREEN** -- pixel-glass `20260717.122010` - physical Pixel 10a `20260717.123226` (`seva_root.txt` = pixel-glass demo root both times). Re-run anytime:
 
 ```bash
 # Host terminal (not ai-jail):
 rishi/bin/rishi run tools/h/hawm0_boot_onpath_host.rish   # emulator path
 # or: Pixel USB debugging authorized, then:
 rishi/bin/rishi run tools/t/tube05_install_proof_onpath_host.rish
-# → 99b3ae967c5a230acfc598a7e949b3c2c638ce996be47a51a7c9f8cb12e4c5fe
+# -> 99b3ae967c5a230acfc598a7e949b3c2c638ce996be47a51a7c9f8cb12e4c5fe
 ```
 
 **Surface + Skate on Pixel GREEN `20260717.125858`:** `glow_native_surface.rye` rasterizes Brushstroke Skate onto the ANativeWindow; Keaton confirmed on-device. Fold + `seva_root.txt` still land in onCreate; tap finishes.
 
 **Thin-view on glass GREEN `20260717.130602`:** R1 path landed; Keaton confirmed ledger lines on Pixel.
 
-**R2 surface on glass GREEN `20260717.130848`:** `seva_r2_surface.rye` hosts ask · receipt · reputation (capability-isolated) onto one `seva_surface.Surface`; Skate paints `[ask] issuer 200` / `[receipt] issuer 250` / `[reputation] issuer 275` above the B0 hex. Install proof GREEN; Keaton confirmed on Pixel.
+**R2 surface on glass GREEN `20260717.130848`:** `seva_r2_surface.rye` hosts ask - receipt - reputation (capability-isolated) onto one `seva_surface.Surface`; Skate paints `[ask] issuer 200` / `[receipt] issuer 250` / `[reputation] issuer 275` above the B0 hex. Install proof GREEN; Keaton confirmed on Pixel.
 
-**glow-publishing glass gate GREEN `20260717.131404` · cover `20260717.161823`:** `tube1_glass_gate.rye` admits seva-broadcaster (state resources + `photos` + `contacts` + `network` + `sensors`) before R2 paints; covering scopes and Network · Sensors toggles are load-bearing. Title (with B1) `SEVA B0+B1+R2+T1 GREEN` / `glow-publishing admitted · Pool x3`. Install proof GREEN; Keaton confirmed on Pixel.
+**glow-publishing glass gate GREEN `20260717.131404` - cover `20260717.161823`:** `tube1_glass_gate.rye` admits seva-broadcaster (state resources + `photos` + `contacts` + `network` + `sensors`) before R2 paints; covering scopes and Network - Sensors toggles are load-bearing. Title (with B1) `SEVA B0+B1+R2+T1 GREEN` / `glow-publishing admitted - Pool x3`. Install proof GREEN; Keaton confirmed on Pixel.
 
-**glow-publishing Mantra-rev tip on glass GREEN `20260717.140600`:** after admit + R2, `tube5_glass_tip.rye` lands Mantra rev1/rev2 and paints `glow-publishing tip rev2 · 0.2.0` (UI string — Mantra revision tip, not landed-edge *nib*). Install proof GREEN (binds `seva_root.txt`); Keaton confirmed the Mantra-rev line on Pixel.
+**glow-publishing Mantra-rev tip on glass GREEN `20260717.140600`:** after admit + R2, `tube5_glass_tip.rye` lands Mantra rev1/rev2 and paints `glow-publishing tip rev2 - 0.2.0` (UI string -- Mantra revision tip, not landed-edge *nib*). Install proof GREEN (binds `seva_root.txt`); Keaton confirmed the Mantra-rev line on Pixel.
 
-**glow-publishing publish on glass GREEN `20260717.144536`:** after Mantra-rev tip + hex, `tube2_glass_pub.rye` runs demo publish + resolve/admit and paints `glow-publishing published · verified` on row 8. Install proof GREEN; Keaton confirmed on Pixel.
+**glow-publishing publish on glass GREEN `20260717.144536`:** after Mantra-rev tip + hex, `tube2_glass_pub.rye` runs demo publish + resolve/admit and paints `glow-publishing published - verified` on row 8. Install proof GREEN; Keaton confirmed on Pixel.
 
-**glow-publishing sealed fetch on glass GREEN `20260717.145328`:** `tube3_glass_fetch.rye` runs demo publish + Comlink-sealed fetch and paints `glow-publishing sealed · fetch ok` on row 9. Install proof GREEN; Keaton confirmed on Pixel.
+**glow-publishing sealed fetch on glass GREEN `20260717.145328`:** `tube3_glass_fetch.rye` runs demo publish + Comlink-sealed fetch and paints `glow-publishing sealed - fetch ok` on row 9. Install proof GREEN; Keaton confirmed on Pixel.
 
-**glow-publishing market on glass GREEN `20260717.145547`:** `tube4_glass_market.rye` runs demo Exchange+Neth acquire and paints `glow-publishing market · acquired` on row 10. Install proof GREEN; Keaton confirmed on Pixel. Debug keystore under `tools/.cache/tube05/` is host-local, never for publish.
+**glow-publishing market on glass GREEN `20260717.145547`:** `tube4_glass_market.rye` runs demo Exchange+Neth acquire and paints `glow-publishing market - acquired` on row 10. Install proof GREEN; Keaton confirmed on Pixel. Debug keystore under `tools/.cache/tube05/` is host-local, never for publish.
 
-**seva-broadcast welcome carriage on glass GREEN `20260717.170315` · Pixel `20260717.171015`:** device-free seva-broadcast (`seva_broadcast_delivery.rye`) already GREEN; glass presents the in-process welcome path (`seva_b1_carriage_core.rye` · `seva_b1_glass_carriage.rye`) as `SEVA B1 carriage · 3 ev` on row 11 (dated paint string). Witness `tools/s/seva_b1_glass_carriage_witness.rish` GREEN; pack GREEN; install proof GREEN. Keaton confirmed title `SEVA B0+B1+R2+T1 GREEN` and the seva-broadcast line on Pixel. UDP hop stays out of the APK.
+**seva-broadcast welcome carriage on glass GREEN `20260717.170315` - Pixel `20260717.171015`:** device-free seva-broadcast (`seva_broadcast_delivery.rye`) already GREEN; glass presents the in-process welcome path (`seva_b1_carriage_core.rye` - `seva_b1_glass_carriage.rye`) as `SEVA B1 carriage - 3 ev` on row 11 (dated paint string). Witness `tools/s/seva_b1_glass_carriage_witness.rish` GREEN; pack GREEN; install proof GREEN. Keaton confirmed title `SEVA B0+B1+R2+T1 GREEN` and the seva-broadcast line on Pixel. UDP hop stays out of the APK.
 
-**Dexter + glass-keyboard on glass:** D0–D3 GREEN; Pixel look for Dexter line GREEN. **glass-keyboard+glass-keyboard** `20260717.180558` — English QWERTY letters painted on Skate rows 14–17 with hit boxes ([`docs/glass-keyboard.md`](glass-keyboard.md)). System IME still unused; caret blink is glass-keyboard; tap→Action is glass-keyboard.
+**Dexter + glass-keyboard on glass:** D0-D3 GREEN; Pixel look for Dexter line GREEN. **glass-keyboard+glass-keyboard** `20260717.180558` -- English QWERTY letters painted on Skate rows 14-17 with hit boxes ([`docs/glass-keyboard.md`](glass-keyboard.md)). System IME still unused; caret blink is glass-keyboard; tap->Action is glass-keyboard.
 
-**glow-publishing glass path GREEN `20260717.145547`:** installable APK on GrapheneOS Pixel presents admit + R2 + Mantra-rev tip + publish + sealed fetch + market acquire. seva-broadcast carriage joins that glass stack `20260717.170315` · Pixel-confirmed `20260717.171015`. glow-publishing (real GrapheneOS *build*) stays horizon behind pixel-glass.
+**glow-publishing glass path GREEN `20260717.145547`:** installable APK on GrapheneOS Pixel presents admit + R2 + Mantra-rev tip + publish + sealed fetch + market acquire. seva-broadcast carriage joins that glass stack `20260717.170315` - Pixel-confirmed `20260717.171015`. glow-publishing (real GrapheneOS *build*) stays horizon behind pixel-glass.
 
-**Resource Scope (Storage · Contact) GREEN `20260717.155846` · glass cover `20260717.161220`:** [`../linengrow/glow_storage_scope.rye`](../linengrow/glow_storage_scope.rye) — one mold for GrapheneOS Storage Scopes and Contact Scopes. [`admit_manifest_scopes`](../linengrow/tube1_admission.rye) stacks scopes under Caravan grant; revoke refuses. Glass declares `photos` + `contacts` and Scopes cover them (`tube1_glass_gate.rye`); weaker/revoked scopes refuse. APK permission emission stays on the separate glow-publishing.5 path. GrapheneOS stays the hardware root; Glow implements the parallels in Glow, never Kotlin.
+**Resource Scope (Storage - Contact) GREEN `20260717.155846` - glass cover `20260717.161220`:** [`../linengrow/glow_storage_scope.rye`](../linengrow/glow_storage_scope.rye) -- one mold for GrapheneOS Storage Scopes and Contact Scopes. [`admit_manifest_scopes`](../linengrow/tube1_admission.rye) stacks scopes under Caravan grant; revoke refuses. Glass declares `photos` + `contacts` and Scopes cover them (`tube1_glass_gate.rye`); weaker/revoked scopes refuse. APK permission emission stays on the separate glow-publishing.5 path. GrapheneOS stays the hardware root; Glow implements the parallels in Glow, never Kotlin.
 
-**Network Grant GREEN `20260717.160607` · glow-publishing wire `20260717.160828`:** [`../linengrow/glow_network_grant.rye`](../linengrow/glow_network_grant.rye) — clean-room Glow parallel of GrapheneOS Network permission toggle. Binary grant/revoke; refused grant **appears down**. [`admit_manifest_networked`](../linengrow/tube1_admission.rye) requires the grant only when the manifest declares `network`; glass keeps the door live without adding INTERNET to the R2 present path. Manifest emission of `network` + `right_net` → INTERNET stays glow-publishing.5.
+**Network Grant GREEN `20260717.160607` - glow-publishing wire `20260717.160828`:** [`../linengrow/glow_network_grant.rye`](../linengrow/glow_network_grant.rye) -- clean-room Glow parallel of GrapheneOS Network permission toggle. Binary grant/revoke; refused grant **appears down**. [`admit_manifest_networked`](../linengrow/tube1_admission.rye) requires the grant only when the manifest declares `network`; glass keeps the door live without adding INTERNET to the R2 present path. Manifest emission of `network` + `right_net` -> INTERNET stays glow-publishing.5.
 
-**Sensors Grant GREEN · glow-publishing wire `20260717.161013` · glow-publishing.5 emit `20260717.161448`:** [`../linengrow/glow_sensors_grant.rye`](../linengrow/glow_sensors_grant.rye) — GrapheneOS Sensors permission toggle parallel. Binary grant/revoke; refused grant **appears zeroed**. [`admit_manifest_gated`](../linengrow/tube1_admission.rye) stacks Network + Sensors; engages `sensors` only when declared. Glass keeps both toggle doors live on the R2 present path. glow-publishing.5 closed table: `sensors` + `right_device` → `android.permission.OTHER_SENSORS`.
+**Sensors Grant GREEN - glow-publishing wire `20260717.161013` - glow-publishing.5 emit `20260717.161448`:** [`../linengrow/glow_sensors_grant.rye`](../linengrow/glow_sensors_grant.rye) -- GrapheneOS Sensors permission toggle parallel. Binary grant/revoke; refused grant **appears zeroed**. [`admit_manifest_gated`](../linengrow/tube1_admission.rye) stacks Network + Sensors; engages `sensors` only when declared. Glass keeps both toggle doors live on the R2 present path. glow-publishing.5 closed table: `sensors` + `right_device` -> `android.permission.OTHER_SENSORS`.
 
 ---
 
 ## Decision pinned
 
-No Glow→Kotlin/JVM transpiler — [`active-designing/date/20260717/20260717-014522_native-activity-shim-and-slc-packaging.md`](../active-designing/date/20260717/20260717-014522_native-activity-shim-and-slc-packaging.md). Full ladder plan: [`expanding-prompts/yonder/20260716-142818_…`](../expanding-prompts/yonder/20260716-142818_glow-application-framework-and-publishing.md). GrapheneOS-facing app logic stays Glow/Rye → native.
+No Glow->Kotlin/JVM transpiler -- [`active-designing/date/20260717/20260717-014522_native-activity-shim-and-slc-packaging.md`](../active-designing/date/20260717/20260717-014522_native-activity-shim-and-slc-packaging.md). Full ladder plan: [`expanding-prompts/yonder/20260716-142818_...`](../expanding-prompts/yonder/20260716-142818_glow-application-framework-and-publishing.md). GrapheneOS-facing app logic stays Glow/Rye -> native.
 
 Device ladder this joins: [`pixel-glass.md`](pixel-glass.md).
 

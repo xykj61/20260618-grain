@@ -1,18 +1,18 @@
-# pixel-glass — GrapheneOS / Pixel mobile ladder
+# pixel-glass -- GrapheneOS / Pixel mobile ladder
 
 *Waymark for the Pixel/GrapheneOS SLC line. Emulation first, then real Titan-class hardware. Compresses the living ledger; never replaces it.*
 
-**Status:** Checkable — operator compressor
+**Status:** Checkable -- operator compressor
 **Depth:** guide
 **Ceiling:** <=120 lines
 **Last updated:** 2026-07-18 (seva-broadcast living name beside Seva fold modules)
-**Compresses:** [`two-dev-environments-and-mobile-emulation.md`](../context/specs/two-dev-environments-and-mobile-emulation.md) · [`20260716-115927_waymark-ladder-naming-and-g0-collision-fix.md`](../context/specs/20260716-115927_waymark-ladder-naming-and-g0-collision-fix.md) · [`pixel-10a-grapheneos-setup.md`](../manual/guides/pixel-10a-grapheneos-setup.md) · [`seva-broadcast.md`](seva-broadcast.md)
+**Compresses:** [`two-dev-environments-and-mobile-emulation.md`](../context/specs/two-dev-environments-and-mobile-emulation.md) - [`20260716-115927_waymark-ladder-naming-and-g0-collision-fix.md`](../context/specs/20260716-115927_waymark-ladder-naming-and-g0-collision-fix.md) - [`pixel-10a-grapheneos-setup.md`](../manual/guides/pixel-10a-grapheneos-setup.md) - [`seva-broadcast.md`](seva-broadcast.md)
 
 ---
 
-## Thesis — prove the compute, then the platform
+## Thesis -- prove the compute, then the platform
 
-**pixel-glass** is the waymark for the GrapheneOS/Pixel ladder (SHA3-512 over the flw word list fixture, seated `20260716.115927`; runtime pin `tools/fixtures/f/flw-four-letter.txt`). It is a different ladder from the Genode proven-seat **G0/G1** in [`PROVEN_SEAT.md`](PROVEN_SEAT.md) — that collision is why waymarks exist.
+**pixel-glass** is the waymark for the GrapheneOS/Pixel ladder (SHA3-512 over the flw word list fixture, seated `20260716.115927`; runtime pin `tools/fixtures/f/flw-four-letter.txt`). It is a different ladder from the Genode proven-seat **G0/G1** in [`PROVEN_SEAT.md`](PROVEN_SEAT.md) -- that collision is why waymarks exist.
 
 pixel-glass/pixel-glass exercise real AOSP/Android userland (useful for Glow code). GrapheneOS's own hardening comes into play only at pixel-glass (real GrapheneOS build) or pixel-glass (physical device). Name that boundary honestly, and never claim the emulator is GrapheneOS.
 
@@ -24,10 +24,10 @@ pixel-glass/pixel-glass exercise real AOSP/Android userland (useful for Glow cod
 |------|-------|-------------------------|-------|
 | **pixel-glass** | Stock AOSP AVD boots, KVM-accelerated | `tools/h/hawm0_boot_onpath_host.rish` | GREEN |
 | **pixel-glass** | **seva-broadcast** Seva fold runs inside that AVD (module `seva_b0_fold`); session root matches native | `tools/h/hawm1_seva_witness.rish` | GREEN |
-| **pixel-glass** | Real GrapheneOS build / image | — | horizon (Linux/KVM + full AOSP) |
-| **pixel-glass** | Physical Pixel, GrapheneOS flashed, boot-key hash matched | [`pixel-10a-grapheneos-setup.md`](../manual/guides/pixel-10a-grapheneos-setup.md) · hash `d8f879d1…` | **closed** `20260717.013700` |
+| **pixel-glass** | Real GrapheneOS build / image | -- | horizon (Linux/KVM + full AOSP) |
+| **pixel-glass** | Physical Pixel, GrapheneOS flashed, boot-key hash matched | [`pixel-10a-grapheneos-setup.md`](../manual/guides/pixel-10a-grapheneos-setup.md) - hash `d8f879d1...` | **closed** `20260717.013700` |
 
-On-device Seva via `tools/h/hawm3_seva_device_witness.rish` (aarch64) needs USB debugging on the phone — host-terminal, same boundary as pixel-glass.
+On-device Seva via `tools/h/hawm3_seva_device_witness.rish` (aarch64) needs USB debugging on the phone -- host-terminal, same boundary as pixel-glass.
 
 ---
 
@@ -36,13 +36,13 @@ On-device Seva via `tools/h/hawm3_seva_device_witness.rish` (aarch64) needs USB 
 | Task | Door |
 |------|------|
 | Flash GrapheneOS on a Pixel 10a | [`manual/guides/pixel-10a-grapheneos-setup.md`](../manual/guides/pixel-10a-grapheneos-setup.md) |
-| Upstream install / features wording | [`gratitude/grapheneos/`](../gratitude/grapheneos/) (MIT mirror — study, not our guide) |
+| Upstream install / features wording | [`gratitude/grapheneos/`](../gratitude/grapheneos/) (MIT mirror -- study, not our guide) |
 | Living ledger (full register) | [`context/specs/two-dev-environments-and-mobile-emulation.md`](../context/specs/two-dev-environments-and-mobile-emulation.md) |
-| Packaging + glass rail on Pixel | [`glow-publishing.md`](glow-publishing.md) — glow-publishing.5–glow-publishing + **glow-publishing GREEN** `20260717.145547` (glow-publishing waits on pixel-glass) |
-| GrapheneOS Storage · Contact Scopes → Glow | [`../linengrow/glow_storage_scope.rye`](../linengrow/glow_storage_scope.rye) — **GREEN** `20260717.155846` · glass cover `20260717.161220` (scopes cover declared photos + contacts) |
-| GrapheneOS Network permission toggle → Glow | [`../linengrow/glow_network_grant.rye`](../linengrow/glow_network_grant.rye) — **GREEN** `20260717.160607` · glow-publishing wire `20260717.160828` (binary grant; appears down; glass door live) |
-| GrapheneOS Sensors permission toggle → Glow | [`../linengrow/glow_sensors_grant.rye`](../linengrow/glow_sensors_grant.rye) — **GREEN** `20260717.161013` · emit `20260717.161448` (appears zeroed; `OTHER_SENSORS` table row) |
-| Install APK + prove Seva root | Host terminal: `tools/t/tube05_install_proof_onpath_host.rish` — **pixel-glass** · **Pixel** · glass through glow-publishing + **seva-broadcast** carriage + Dexter D1 line (`20260717.173133`; D2 Pixel look open) |
+| Packaging + glass rail on Pixel | [`glow-publishing.md`](glow-publishing.md) -- glow-publishing.5-glow-publishing + **glow-publishing GREEN** `20260717.145547` (glow-publishing waits on pixel-glass) |
+| GrapheneOS Storage - Contact Scopes -> Glow | [`../linengrow/glow_storage_scope.rye`](../linengrow/glow_storage_scope.rye) -- **GREEN** `20260717.155846` - glass cover `20260717.161220` (scopes cover declared photos + contacts) |
+| GrapheneOS Network permission toggle -> Glow | [`../linengrow/glow_network_grant.rye`](../linengrow/glow_network_grant.rye) -- **GREEN** `20260717.160607` - glow-publishing wire `20260717.160828` (binary grant; appears down; glass door live) |
+| GrapheneOS Sensors permission toggle -> Glow | [`../linengrow/glow_sensors_grant.rye`](../linengrow/glow_sensors_grant.rye) -- **GREEN** `20260717.161013` - emit `20260717.161448` (appears zeroed; `OTHER_SENSORS` table row) |
+| Install APK + prove Seva root | Host terminal: `tools/t/tube05_install_proof_onpath_host.rish` -- **pixel-glass** - **Pixel** - glass through glow-publishing + **seva-broadcast** carriage + Dexter D1 line (`20260717.173133`; D2 Pixel look open) |
 
 ---
 
@@ -52,7 +52,7 @@ On-device Seva via `tools/h/hawm3_seva_device_witness.rish` (aarch64) needs USB 
 |--------|-------|------------|
 | **pixel-glass** | GrapheneOS / Pixel | this page |
 | **Genode G0/G1** | proven-seat / Sculpt | [`PROVEN_SEAT.md`](PROVEN_SEAT.md) |
-| **M0–M3** | Fairphone / postmarketOS | living ledger only (no compressor yet) |
+| **M0-M3** | Fairphone / postmarketOS | living ledger only (no compressor yet) |
 
 ---
 

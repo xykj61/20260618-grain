@@ -1,38 +1,38 @@
-# glass-keyboard — Glow English QWERTY glass keyboard ladder
+# glass-keyboard -- Glow English QWERTY glass keyboard ladder
 
-*Waymark for Dexter’s on-Skate English keyboard. Own keys; Graphene IME stays optional hardware path. Compresses the silo; never replaces it.*
+*Waymark for Dexter's on-Skate English keyboard. Own keys; Graphene IME stays optional hardware path. Compresses the silo; never replaces it.*
 
-**Status:** Checkable — operator compressor
+**Status:** Checkable -- operator compressor
 **Depth:** guide
 **Ceiling:** <=80 lines
 **Last updated:** 2026-07-18 (glass-keyboard send design seated)
-**Compresses:** [`20260717-175220_dexter-english-qwerty-glass-keyboard.md`](../active-designing/date/20260717/20260717-175220_dexter-english-qwerty-glass-keyboard.md) · study [`20260717-175220_glow-english-qwerty-glass-keyboard-ios-inspired.md`](../external-research/20260717-175220_glow-english-qwerty-glass-keyboard-ios-inspired.md) · send [`20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md`](../active-designing/date/20260718/20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md)
+**Compresses:** [`20260717-175220_dexter-english-qwerty-glass-keyboard.md`](../active-designing/date/20260717/20260717-175220_dexter-english-qwerty-glass-keyboard.md) - study [`20260717-175220_glow-english-qwerty-glass-keyboard-ios-inspired.md`](../external-research/20260717-175220_glow-english-qwerty-glass-keyboard-ios-inspired.md) - send [`20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md`](../active-designing/date/20260718/20260718-122145_hearth-lulu-display-presets-short-home-and-zeta6-send.md)
 
 ---
 
-## Thesis — paint the hand
+## Thesis -- paint the hand
 
-**glass-keyboard** is Glow’s own English QWERTY on Skate: layout tables → paint → tap → Dexter `Action` — Glow paints the hand itself, rather than leaning on the Graphene/AOSP soft IME, which bare NativeActivity does not attach reliably. iOS-inspired modes from public notes; clean-room.
+**glass-keyboard** is Glow's own English QWERTY on Skate: layout tables -> paint -> tap -> Dexter `Action` -- Glow paints the hand itself, rather than leaning on the Graphene/AOSP soft IME, which bare NativeActivity does not attach reliably. iOS-inspired modes from public notes; clean-room.
 
-**Waymark draw:** input `glow-english-qwerty-glass-keyboard-3` · SHA3-512 · flw.txt → **glass-keyboard** (`tools/w/waymark_derive.rish`, `20260717.180025`).
+**Waymark draw:** input `glow-english-qwerty-glass-keyboard-3` - SHA3-512 - flw.txt -> **glass-keyboard** (`tools/w/waymark_derive.rish`, `20260717.180025`).
 
 ## Rung table
 
 | Rung | Claim | Witness / gate | State |
 |------|-------|----------------|-------|
-| **glass-keyboard** | Letters · numbers · symbols layout tables | `tools/d/dexter_glass_keyboard_witness.rish` | **GREEN** `20260717.180025` |
-| **glass-keyboard** | Paint letters mode on Skate; hit boxes | same witness · pack | **GREEN** `20260717.180558` · Pixel look `20260717.180933` |
-| **glass-keyboard** | Tap → Dexter Action → live line | same witness · pack | **GREEN** `20260717.180933` · Pixel typing look `20260717.183345` |
-| **glass-keyboard** | Blinking caret on Dexter line | `dexter_glass_witness` · pack · timerfd | **GREEN** `20260717.182826` · Pixel blink look `20260717.183345` |
-| **ZETA2b** | Hit boxes match paint · phone density · portrait fill | same witness · pack | **GREEN** `20260717.183842` · Pixel look `20260717.184837` |
-| **glass-keyboard** | Emoji mode SLC — frequent + 4 tabs · UTF-8 · monochrome atlas | same witness · pack | **GREEN** `20260717.185520` · Pixel look `20260717.190045` · distinct glyphs polish |
-| **glass-keyboard** | Pixel look — keys + caret + type by tap | glass-keyboard · glass-keyboard · ZETA2b | **GREEN** `20260717.184837` |
-| **glass-keyboard** | `ret` = newline · `^` = submit (iOS-shaped send; clean-room) | keyboard + Dexter witnesses · pack · Pixel | **GREEN** device-free `20260718.122938` · Pixel look `20260718.123705` |
+| **glass-keyboard** | Letters - numbers - symbols layout tables | `tools/d/dexter_glass_keyboard_witness.rish` | **GREEN** `20260717.180025` |
+| **glass-keyboard** | Paint letters mode on Skate; hit boxes | same witness - pack | **GREEN** `20260717.180558` - Pixel look `20260717.180933` |
+| **glass-keyboard** | Tap -> Dexter Action -> live line | same witness - pack | **GREEN** `20260717.180933` - Pixel typing look `20260717.183345` |
+| **glass-keyboard** | Blinking caret on Dexter line | `dexter_glass_witness` - pack - timerfd | **GREEN** `20260717.182826` - Pixel blink look `20260717.183345` |
+| **ZETA2b** | Hit boxes match paint - phone density - portrait fill | same witness - pack | **GREEN** `20260717.183842` - Pixel look `20260717.184837` |
+| **glass-keyboard** | Emoji mode SLC -- frequent + 4 tabs - UTF-8 - monochrome atlas | same witness - pack | **GREEN** `20260717.185520` - Pixel look `20260717.190045` - distinct glyphs polish |
+| **glass-keyboard** | Pixel look -- keys + caret + type by tap | glass-keyboard - glass-keyboard - ZETA2b | **GREEN** `20260717.184837` |
+| **glass-keyboard** | `ret` = newline - `^` = submit (iOS-shaped send; clean-room) | keyboard + Dexter witnesses - pack - Pixel | **GREEN** device-free `20260718.122938` - Pixel look `20260718.123705` |
 
 ## Hands-on
 
 ```bash
-rishi/bin/rishi run tools/w/waymark_derive.rish   # input_name = …-keyboard-3
+rishi/bin/rishi run tools/w/waymark_derive.rish   # input_name = ...-keyboard-3
 rishi/bin/rishi run tools/d/dexter_glass_keyboard_witness.rish
 ```
 
