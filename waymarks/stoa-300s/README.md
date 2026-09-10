@@ -1,4 +1,4 @@
-# glow-language 300s — claim index
+# glow-language 300s -- claim index
 
 **Where this sits:** home is [`../../README.md`](../../README.md) - a first hour in your hands is
 [`../../docs-geode/tutorials/the-first-hour.md`](../../docs-geode/tutorials/the-first-hour.md) - the whole
