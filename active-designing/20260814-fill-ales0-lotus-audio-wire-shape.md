@@ -2,6 +2,7 @@
 
 **Stamp:** `20260814.111419` - **Language:** EN - **Voice:** Kyri - **Style:** Gauge (see `../context/GAUGE_STYLE.md`)
 **Status:** Living design capture -- the self-approved round that opens Chapter C (Lotus)
+**Room:** mixed -- the shape and what its witness proves are checkable; *The road on* names horizons.
 **Waymark:** lotus-audio (`season-c-lotus-creative-suite-audio-wire-shape` -> lotus-audio, drawn `20260814`, seated in [`../.claude/rules/waymark-ladders.md`](../.claude/rules/waymark-ladders.md))
 **Kin:** [`the Eight-Chapter double-seat`](date/20260816/20260816-205859_double-seat-expansion-eight-seasons.md) -- Chapter C - [`Lotus, the DAW`](yonder/20260630-014012_lotus-the-daw.md) - idiom twins [`constel/wire.rye`](../constel/wire.rye) (constels-naming) - [`mikrophone/wire.rye`](../mikrophone/wire.rye) (mikrophone)
 

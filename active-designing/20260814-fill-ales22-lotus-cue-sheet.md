@@ -2,6 +2,7 @@
 
 **Stamp:** `20260814.134526` - **Language:** EN - **Voice:** Kyri - **Style:** Gauge (see `../context/GAUGE_STYLE.md`)
 **Status:** Living design capture -- the self-approved round after lotus-audio
+**Room:** mixed -- the shape and what its witness proves are checkable; *The road on* names horizons.
 **Waymark:** lotus-audio - rung lotus-audio
 **Kin:** [`lotus-audio -- the markers track`](20260814-fill-ales20-lotus-markers.md) - [`lotus-audio -- markers in real time`](20260814-fill-ales21-lotus-marker-time.md) - [`lotus/cue_sheet.rye`](../lotus/cue_sheet.rye) - [`lotus/markers.rye`](../lotus/markers.rye) (lotus-audio, the sorted track and its one `add` reused whole) - [`image/filter_preset.rye`](../image/filter_preset.rye) (open-image, the proven "travels as text" idiom this rung mirrors) - [`tally/parse_int.rye`](../tally/parse_int.rye) (strict decimal at the text edge)
 

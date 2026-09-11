@@ -2,6 +2,7 @@
 
 **Stamp:** `20260814.140030` - **Language:** EN - **Voice:** Kyri - **Style:** Gauge (see `../context/GAUGE_STYLE.md`)
 **Status:** Living design capture -- the self-approved round after lotus-audio
+**Room:** mixed -- the shape and what its witness proves are checkable; *The road on* names horizons.
 **Waymark:** lotus-audio - rung lotus-audio
 **Kin:** [`lotus-audio -- the selection`](20260814-fill-ales23-lotus-selection.md) - [`lotus/graft.rye`](../lotus/graft.rye) - [`lotus/selection.rye`](../lotus/selection.rye) (lotus-audio, the grabbed span this rung relocates) - [`lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio, `splice` and `cut` reused whole) - [`lotus/pan.rye`](../lotus/pan.rye) (lotus-audio, the `StereoClip` whose channels share one length)
 

@@ -2,6 +2,7 @@
 
 **Stamp:** `20260814.130009` - **Language:** EN - **Voice:** Kyri - **Style:** Gauge (see `../context/GAUGE_STYLE.md`)
 **Status:** Living design capture -- the self-approved round after lotus-audio
+**Room:** mixed -- the shape and what its witness proves are checkable; *The road on* names horizons.
 **Waymark:** lotus-audio - rung lotus-audio
 **Kin:** [`lotus-audio -- the transport loop`](20260814-fill-ales14-lotus-transport-loop.md) - [`lotus-audio -- the stereo transport`](20260814-fill-ales15-lotus-stereo-transport.md) - [`lotus/stereo_loop.rye`](../lotus/stereo_loop.rye) - [`lotus/loop.rye`](../lotus/loop.rye) (lotus-audio, the mono loop reused whole) - [`lotus/stereo_transport.rye`](../lotus/stereo_transport.rye) (lotus-audio, the stereo head)
 

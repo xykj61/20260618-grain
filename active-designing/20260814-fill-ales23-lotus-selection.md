@@ -2,6 +2,7 @@
 
 **Stamp:** `20260814.135230` - **Language:** EN - **Voice:** Kyri - **Style:** Gauge (see `../context/GAUGE_STYLE.md`)
 **Status:** Living design capture -- the self-approved round after lotus-audio
+**Room:** mixed -- the shape and what its witness proves are checkable; *The road on* names horizons.
 **Waymark:** lotus-audio - rung lotus-audio
 **Kin:** [`lotus-audio -- the markers track`](20260814-fill-ales20-lotus-markers.md) - [`lotus-audio -- the cue sheet`](20260814-fill-ales22-lotus-cue-sheet.md) - [`lotus/selection.rye`](../lotus/selection.rye) - [`lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio, `cut` and `gain` reused whole) - [`lotus/pan.rye`](../lotus/pan.rye) (lotus-audio, the `StereoClip` whose channels share one length) - [`lotus/markers.rye`](../lotus/markers.rye) (lotus-audio, `region_between`)
 

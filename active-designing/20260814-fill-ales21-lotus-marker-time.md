@@ -2,6 +2,7 @@
 
 **Stamp:** `20260814.133633` - **Language:** EN - **Voice:** Kyri - **Style:** Gauge (see `../context/GAUGE_STYLE.md`)
 **Status:** Living design capture -- the self-approved round after lotus-audio
+**Room:** mixed -- the shape and what its witness proves are checkable; *The road on* names horizons.
 **Waymark:** lotus-audio - rung lotus-audio
 **Kin:** [`lotus-audio -- the markers track`](20260814-fill-ales20-lotus-markers.md) - [`lotus-audio -- the transport loop`](20260814-fill-ales14-lotus-transport-loop.md) (its `mark_ms`, the twin this rung mirrors) - [`lotus-audio -- the sample clock`](20260814-fill-ales5-lotus-sample-clock.md) - [`lotus/marker_time.rye`](../lotus/marker_time.rye) - [`lotus/markers.rye`](../lotus/markers.rye) (lotus-audio, the sorted track reused whole) - [`lotus/clock.rye`](../lotus/clock.rye) (lotus-audio, seconds <-> samples)
 

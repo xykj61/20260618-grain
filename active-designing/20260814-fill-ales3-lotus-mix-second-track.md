@@ -2,6 +2,7 @@
 
 **Stamp:** `20260814.113212` - **Language:** EN - **Voice:** Kyri - **Style:** Gauge (see `../context/GAUGE_STYLE.md`)
 **Status:** Living design capture -- the self-approved round after lotus-audio
+**Room:** mixed -- the shape and what its witness proves are checkable; *The road on* names horizons.
 **Waymark:** lotus-audio - rung lotus-audio
 **Kin:** [`lotus-audio -- the timeline edits`](20260814-fill-ales2-lotus-timeline-edits.md) - [`lotus/mix.rye`](../lotus/mix.rye) - [`lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio)
 

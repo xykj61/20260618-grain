@@ -2,6 +2,7 @@
 
 **Stamp:** `20260814.142637` - **Language:** EN - **Voice:** Kyri - **Style:** Gauge (see `../context/GAUGE_STYLE.md`)
 **Status:** Living design capture -- the self-approved round after lotus-audio
+**Room:** mixed -- the shape and what its witness proves are checkable; *The road on* names horizons.
 **Waymark:** lotus-audio - rung lotus-audio
 **Kin:** [`lotus-audio -- the crossfade join`](20260814-fill-ales26-lotus-crossfade-join.md) - [`lotus-audio -- the stereo crossfade join`](20260814-fill-ales27-lotus-stereo-crossfade-join.md) - [`lotus/insert_join.rye`](../lotus/insert_join.rye) - [`lotus/join.rye`](../lotus/join.rye) (lotus-audio, `join` run once per seam) - [`lotus/timeline.rye`](../lotus/timeline.rye) (lotus-audio, the `Clip` and `max_clip`)
 

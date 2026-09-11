@@ -2,6 +2,7 @@
 
 **Stamp:** `20260814.123255` - **Language:** EN - **Voice:** Kyri - **Style:** Gauge (see `../context/GAUGE_STYLE.md`)
 **Status:** Living design capture -- the self-approved round after lotus-audio
+**Room:** mixed -- the shape and what its witness proves are checkable; *The road on* names horizons.
 **Waymark:** lotus-audio - rung lotus-audio
 **Kin:** [`lotus-audio -- the equal-power law`](20260814-fill-ales11-lotus-equal-power.md) - [`lotus-audio -- a fade envelope`](20260814-fill-ales4-lotus-fade-envelope.md) - [`lotus-audio -- mix a second track`](20260814-fill-ales3-lotus-mix-second-track.md) - [`lotus/crossfade.rye`](../lotus/crossfade.rye) - [`lotus/power.rye`](../lotus/power.rye) (lotus-audio)
 
