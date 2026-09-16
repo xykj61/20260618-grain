@@ -24,6 +24,6 @@ let stand = run ["sh" "-c" "${check} 2>&1"]
 assert stand.ok else "usb-hearth stand-in check failed"
 assert stand.out contains "stand-in" else "usb-hearth check missing stand-in"
 assert stand.out contains "GREEN" else "usb-hearth check not GREEN"
-say "${stand.out}"
+say "${stand.out_brief}"
 
 say "GREEN: usb-hearth device-wire lab witness passed (device-free)."
