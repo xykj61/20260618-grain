@@ -1,6 +1,6 @@
 # glow-language -- After Boot->Harvest Chain - Check-In
 
-*An Acme Corporation employee reading this gets the fork after the pixel-glass boot->harvest chain is authored: the harvest half is GREEN in-jail, the onpath script refuses without `/dev/kvm` as designed, and the next door is either a real host boot GREEN or extending the Bron with a Sala root field.*
+*An Acme Corporation employee reading this gets the fork after the pixel-glass boot->harvest chain is authored: the harvest half is GREEN in-jail, the onpath script refuses without `/dev/kvm` as designed, and the next door is either a real host boot GREEN or extending the Kyri with a Sala root field.*
 
 **Language:** EN  
 **Version:** `20260722.152849` (EDT - Framework host)  
@@ -27,7 +27,7 @@ glow-language: `hawm0_boot_harvest_onpath_host` - chain witness GREEN - onpath R
 |---|---|---|
 | **A** | **Send glow-language** -- **chosen** with round-close | pier carries boot->harvest chain |
 | **B** | **Host onpath full GREEN** -- **attempted** -> glow-language | Pixel raced bare adb; serial pin then retry |
-| **C** | **pixel-glass / Pixel root into harvest Bron** | extend `hawm-harvest-v1` with sala root (Pixel adb works in this seat) |
+| **C** | **pixel-glass / Pixel root into harvest Kyri** | extend `hawm-harvest-v1` with sala root (Pixel adb works in this seat) |
 | **D** | **Fleets - pixel-glass - gold - seva-broadcast - UDP** | thicker -- **held** |
 
 ---
@@ -39,7 +39,7 @@ glow-language: `hawm0_boot_harvest_onpath_host` - chain witness GREEN - onpath R
 cd ~/urbit   # or this clone path
 rishi/bin/rishi run tools/hawm0_boot_harvest_onpath_host.rish
 # expect: GREEN: glow-language -- pixel-glass boot then hawm-harvest-v1 onpath.
-cat tools/.cache/hawm0/hawm-harvest.bron
+cat tools/.cache/hawm0/hawm-harvest.kyri
 ```
 
 ---

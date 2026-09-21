@@ -30,7 +30,7 @@ The witness (`tools/hunk_sprite_witness.rish`) indexes three products into one 8
 
 - **open-image — the product page.** A rendered product window painted through open-image's Skate down-map, so a catalog entry is *seen* on the canvas, not only decoded.
 - **open-image — the sheet as a Tablecloth artifact.** The whole sprite stored content-addressed (open-image), so the catalog a keeper serves is the exact bytes whose digest the index pins — a tampered sheet refusing before a product renders.
-- **open-image — the catalog manifest.** A `format sprite-catalog-v1` Bron record binding names to windows, round-tripping byte-for-byte, so a marketplace travels as text a person can read.
+- **open-image — the catalog manifest.** A `format sprite-catalog-v1` Kyri record binding names to windows, round-tripping byte-for-byte, so a marketplace travels as text a person can read.
 
 ## Discipline this round keeps
 

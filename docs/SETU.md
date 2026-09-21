@@ -20,7 +20,7 @@ The fold crosses USB as files, then as a sealed ping, then as an NCM-shaped fram
 
 | Rung | Claim | Witness | State |
 |------|-------|---------|-------|
-| **usb-hearth** | adb pull Bron | `setu0_hearth_pull_witness` | **GREEN** |
+| **usb-hearth** | adb pull Kyri | `setu0_hearth_pull_witness` | **GREEN** |
 | **usb-hearth.5** | Desk station apply | `setu05_desk_apply_witness` | **GREEN** |
 | **usb-hearth** | `usb_desk` lane ping | `setu1_lane_ping_witness` | **GREEN** |
 | **usb-hearth** | Bare ping UDP :38501 | `setu2_lane_wire_witness` | **GREEN** |

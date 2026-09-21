@@ -1,6 +1,6 @@
 # glow-language -- After pixel-glass Log-Harvest Inventary - Check-In
 
-*An Acme Corporation employee reading this gets the fork after pixel-glass 1A inventary landed: host log surfaces are named, `hawm-harvest-v1` folds meta into Bron, and the device-free witness is GREEN. The next door is a live host boot harvest chain or a held thicker season -- not fleets yet.*
+*An Acme Corporation employee reading this gets the fork after pixel-glass 1A inventary landed: host log surfaces are named, `hawm-harvest-v1` folds meta into Kyri, and the device-free witness is GREEN. The next door is a live host boot harvest chain or a held thicker season -- not fleets yet.*
 
 **Language:** EN  
 **Version:** `20260722.152631` (EDT - Framework host)  
@@ -27,7 +27,7 @@ glow-language: inventary of meta - emulator log - ephemeral Rish - logcat-held -
 |---|---|---|
 | **A** | **Send glow-language** -- **chosen** with round-close | pier carries harvest inventary |
 | **B** | **Host boot -> harvest chain** -- **chosen** -> glow-language | `hawm0_boot` then harvest worker as one onpath GREEN (needs `/dev/kvm`) |
-| **C** | **pixel-glass root into harvest Bron** | extend shape with sala root hex after hawm1 |
+| **C** | **pixel-glass root into harvest Kyri** | extend shape with sala root hex after hawm1 |
 | **D** | **Fleets - pixel-glass - gold - seva-broadcast - UDP** | thicker -- **held** |
 
 ---

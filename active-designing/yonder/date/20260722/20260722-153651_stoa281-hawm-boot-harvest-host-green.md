@@ -7,7 +7,7 @@
 **Style:** Gauge (see `../../context/GAUGE_STYLE.md`)
 **Voice:** Quin  
 **Status:** Checkable -- host onpath GREEN `20260722.153549` - serial field folded `20260722.153651`  
-**Register:** Checkable (Two Rooms) -- host printout + harvest Bron; fleets still Intent  
+**Register:** Checkable (Two Rooms) -- host printout + harvest Kyri; fleets still Intent  
 
 **Grounds in:** glow-language lean B retry - glow-language serial pin - glow-language onpath  
 

@@ -21,7 +21,7 @@
 |---|---|---|
 | **A** | **Send glow-language** -- **chosen** with round-close | pier carries serial pin |
 | **B** | **Host boot->harvest retry** -- **chosen** -> glow-language | host GREEN `20260722.153549` beside Pixel |
-| **C** | **pixel-glass / Pixel root into harvest Bron** | after host GREEN, or parallel kg |
+| **C** | **pixel-glass / Pixel root into harvest Kyri** | after host GREEN, or parallel kg |
 | **D** | **Fleets - pixel-glass - gold - seva-broadcast - UDP** | **held** |
 
 ---

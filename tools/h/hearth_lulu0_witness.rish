@@ -1,4 +1,4 @@
-# hearth_lulu0_witness.rish -- hearth-display Hearth Bron mold.
+# hearth_lulu0_witness.rish -- hearth-display Hearth Kyri mold.
 #
 #   rishi/bin/rishi run tools/h/hearth_lulu0_witness.rish
 
@@ -14,8 +14,8 @@ assert selftest.out contains "GREEN" else "hearth-display not GREEN"
 assert selftest.out contains "waymark hearth-display" else "hearth-display missing waymark claim"
 assert selftest.out contains "preset sizes" else "hearth-display missing preset-size claim"
 assert selftest.out contains "refuses bad home_id" else "hearth-display missing home_id refuse claim"
-assert selftest.out contains "kd/hearth.bron" else "hearth-display missing path claim"
-assert selftest.out contains "Bron round-trip" else "hearth-display missing Bron round-trip claim"
+assert selftest.out contains "kd/hearth.kyri" else "hearth-display missing path claim"
+assert selftest.out contains "Kyri round-trip" else "hearth-display missing Kyri round-trip claim"
 assert selftest.out contains "unknown preset refused" else "hearth-display missing unknown-preset claim"
 
-say "GREEN: hearth-display Hearth Bron mold witness passed."
+say "GREEN: hearth-display Hearth Kyri mold witness passed."

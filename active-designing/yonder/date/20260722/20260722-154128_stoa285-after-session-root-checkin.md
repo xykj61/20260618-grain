@@ -1,6 +1,6 @@
 # glow-language -- After Harvest `session_root` - Check-In
 
-*An Acme Corporation employee reading this gets the fork after pixel-glass's session root lives in the harvest Bron: host boot->harvest->pixel-glass->root fold is one checkable chain, and the next door is either stop/rest, a Pixel-side harvest field, or a held thicker season.*
+*An Acme Corporation employee reading this gets the fork after pixel-glass's session root lives in the harvest Kyri: host boot->harvest->pixel-glass->root fold is one checkable chain, and the next door is either stop/rest, a Pixel-side harvest field, or a held thicker season.*
 
 **Language:** EN  
 **Version:** `20260722.154128` (EDT - Framework host)  

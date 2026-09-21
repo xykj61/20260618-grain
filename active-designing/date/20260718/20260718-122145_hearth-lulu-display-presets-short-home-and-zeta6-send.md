@@ -1,6 +1,6 @@
 # Hearth · hearth-display — display presets, short home, and glass-keyboard send
 
-*Owned Glow design: a Hearth preference record (Bron), declared presets (Brix/infuse discipline), waymark **hearth-display**, and glass-keyboard keyboard send — so Glow Glass paragraphs and Glow Desk stations share one short home and one Skate budget down to the Mantrapod floor.*
+*Owned Glow design: a Hearth preference record (Kyri), declared presets (Brix/infuse discipline), waymark **hearth-display**, and glass-keyboard keyboard send — so Glow Glass paragraphs and Glow Desk stations share one short home and one Skate budget down to the Mantrapod floor.*
 
 **Stamp:** `20260718.122145` (Eastern)  
 **Status:** Mixed — siloed design; glass-keyboard Pixel GREEN · **hearth-display–5 closed** · **usb-hearth–usb-hearth GREEN** `20260718.184537` · usb-hearth check-in · Amber/Amphora fuse declined [`20260718-133455`](20260718-133455_glass-desk-compose-amber-amphora-revive.md)  
@@ -15,7 +15,7 @@
 
 | Name | Role |
 |------|------|
-| **Hearth** | Preference mold — short `home_id` + display preset + (later) ret/send policy. Not a new kernel vane; a Bron record Pool may host as a settings agent. |
+| **Hearth** | Preference mold — short `home_id` + display preset + (later) ret/send policy. Not a new kernel vane; a Kyri record Pool may host as a settings agent. |
 | **hearth-display** | Waymark for hearth / display / wired-sync ladder. Input `glow-glass-hearth-display-and-wired-sync`, drawn `20260718.122145`. |
 | **glass-keyboard** | Same glass-keyboard ladder: newline + ↑ send (product keyboard). |
 
@@ -45,13 +45,13 @@ Keaton’s example home id **`kd`** is the first fixture; schema allows any two 
 
 | Rung | Claim | Gate |
 |------|-------|------|
-| **hearth-display** | Bron hearth: `home_id` (exactly 2 `a–z`) + `display_preset` enum; load/store path under short home | **GREEN** `hearth_lulu0_witness` `20260718.123900` |
+| **hearth-display** | Kyri hearth: `home_id` (exactly 2 `a–z`) + `display_preset` enum; load/store path under short home | **GREEN** `hearth_lulu0_witness` `20260718.123900` |
 | **hearth-display** | NativeActivity/Skate **applies** preset → logical size / scale table; panel_max reads window | **GREEN** closed `20260718.125639` |
 | **hearth-display** | Glass Settings face lists presets (Pool agent when ready) | **GREEN** closed `20260718.130606` |
 | **hearth-display** | Short `home_id` editor on glass | **GREEN** Pixel closed `20260718.131549` |
 | **hearth-display** | `wire_lane` preference (`local` \| `usb_desk`) on Settings | **GREEN** Pixel closed `20260718.132031` |
 | **hearth-display** | `cellular` preference (`off` \| `optional`) on Settings | **GREEN** Pixel closed `20260718.132503` |
-| **usb-hearth** | adb pull hearth Bron Glass→Desk (USB file path) | **GREEN** device-free + Pixel host `20260718.132731` · [`docs/usb-hearth.md`](../docs/usb-hearth.md) |
+| **usb-hearth** | adb pull hearth Kyri Glass→Desk (USB file path) | **GREEN** device-free + Pixel host `20260718.132731` · [`docs/usb-hearth.md`](../docs/usb-hearth.md) |
 | **usb-hearth.5** | Desk applies pulled Hearth → station card | **GREEN** `20260718.133328` |
 | **usb-hearth** | `usb_desk` Comlink lane ping; `local` refuses | **GREEN** `20260718.133853` |
 | **usb-hearth** | Ping over hosted UDP stand-in (port 38501) | **GREEN** `20260718.134348` |
@@ -64,7 +64,7 @@ Keaton’s example home id **`kd`** is the first fixture; schema allows any two 
 
 ```
 Brix  — declares preset table (infuse-shaped merge, closed enum)
-Bron  — hearth record values at the seam
+Kyri  — hearth record values at the seam
 Mantra / Tablecloth — durable hold when store v1 opens (horizon)
 Skate / Brushstroke — apply
 Pool  — optional settings agent host
@@ -86,7 +86,7 @@ Two scenes (welcome chat vs live chat) are **`advance_face` with N=2`** — same
 
 ## Why not a new vane
 
-Ojjo is benchmarks. Pool is the app host. Mantra already versions. **Hearth is a mold + Bron file**, not an Arvo-shaped vane, until a second consumer forces graduation (module law). Display apply stays Brushstroke/Skate.
+Ojjo is benchmarks. Pool is the app host. Mantra already versions. **Hearth is a mold + Kyri file**, not an Arvo-shaped vane, until a second consumer forces graduation (module law). Display apply stays Brushstroke/Skate.
 
 ---
 
