@@ -36,7 +36,7 @@ On-device Seva via `tools/h/hawm3_seva_device_witness.rish` (aarch64) needs USB 
 | Task | Door |
 |------|------|
 | Flash GrapheneOS on a Pixel 10a | [`manual/guides/pixel-10a-grapheneos-setup.md`](../manual/guides/pixel-10a-grapheneos-setup.md) |
-| Upstream install / features wording | [`gratitude/grapheneos/`](../gratitude/grapheneos/) (MIT mirror -- study, not our guide) |
+| Upstream install / features wording | `gratitude/grapheneos/` (MIT mirror -- study, not our guide) |
 | Living ledger (full register) | [`context/specs/two-dev-environments-and-mobile-emulation.md`](../context/specs/two-dev-environments-and-mobile-emulation.md) |
 | Packaging + glass rail on Pixel | [`glow-publishing.md`](glow-publishing.md) -- glow-publishing.5-glow-publishing + **glow-publishing GREEN** `20260717.145547` (glow-publishing waits on pixel-glass) |
 | GrapheneOS Storage - Contact Scopes -> Glow | [`../linengrow/glow_storage_scope.rye`](../linengrow/glow_storage_scope.rye) -- **GREEN** `20260717.155846` - glass cover `20260717.161220` (scopes cover declared photos + contacts) |
