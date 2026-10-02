@@ -28,4 +28,4 @@ rishi/bin/rishi run tools/d/docs_geode_bhakta_witness.rish
 
 The scan reads every `*.md` under `docs-geode/`. A page with no style line, a style line without Bhakta, or a style line that names Gauge, is a miss. `verdict=ok` means the folder's doors agree.
 
-*Cursor twin retired* `20260920.135100` -- this rule is born after that retirement, so it has no `.cursor/rules` twin.
+Canonical Cursor twin: `.cursor/rules/docs-geode-bhakta.mdc`
