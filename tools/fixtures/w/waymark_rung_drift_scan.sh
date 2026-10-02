@@ -69,7 +69,7 @@ set -eu
 ROOT="${RUNG_ROOT:-.}"
 CEILING="${RUNG_CEILING:-17212}"
 
-marks='pixel-glass|glow-publishing|glass-keyboard|seva-broadcast|hearth-display|glow-language|usb-hearth|source-identity|djinn-exec|compass-language|compass-identity|compass-surface|compass-world|harvest-yield|harvest-trade|harvest-commons|harvest-rest|cion-molt|cion-survey|cion-living-molt|cion-debride|cion-seal|AHOY|dimeroll-expansion|open-image|mikrophone|constels-naming|lotus-audio|slh-dsa|SEVA|MAND|MONA'
+marks='pixel-glass|glow-publishing|glass-keyboard|seva-broadcast|hearth-display|glow-language|usb-hearth|source-identity|djinn-exec|compass-language|compass-identity|compass-surface|compass-world|harvest-yield|harvest-trade|harvest-commons|harvest-rest|cion-molt|cion-survey|cion-living-molt|cion-debride|cion-seal|AHOY|front-door|dimeroll-expansion|open-image|mikrophone|constels-naming|lotus-audio|slh-dsa|SEVA|MAND|MONA'
 
 mkdir -p .mind-state/tmp
 state_tmp=$(CDPATH= cd .mind-state/tmp && pwd)

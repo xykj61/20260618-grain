@@ -107,6 +107,8 @@ say "corpus sha3-512: ${digest_val}"
 #   constel-local-test-constellations -> constels-naming (20260817 - Constel fake-pier test-network naming, siloed dev constellations)
 #   dimeroll-hr-and-accounting-entities -> dimeroll-expansion (20260817 - Bit-Design surface + Dimeroll entities season, idx 5141)
 #   cion-molt-living-mutants-and-fossils -> cion-living-molt (20260817 - cion-molt Eq2 Molt, idx 2813)
+#   root-readme-lindy-foundation-weave-and-seed-legitimacy -> AHOY (molted 20261002.153434; old slug stays so the draw re-derives)
+#   root-readme-long-return-foundation-weave-and-seed-legitimacy -> front-door (20261002.153434 - front-door chapter, idx 134)
 # usb-hearth is hand-seated (not a corpus draw -- usb-hearth is absent from flw); exclude only.
 # SEVA is hand-seated (viewer; absent from flw).
 # MAND is the seated M vane (in flw corpus; exclude so it never draws as a waymark).
@@ -146,7 +148,7 @@ assert shape_check.ok else "derived waymark '${word_val}' is not exactly four up
 # Existing proper names this scheme must never echo (four-letter Lexicon
 # identities + seated waymarks). Seated waymarks also live in
 # .cursor/rules/waymark-ladders.mdc -- if the word matches, append -2 and redraw.
-let exclude_check = run ["sh" "-c" "echo '${word_val}' | grep -qxE '(BRIX|KYRI|POND|MURR|SURF|MALA|SEVA|MAND|MONA|POOL|QUIN|RIYO|REYA|TREY|TERA|TRIZ|OJJO|GLOW|RHYZ|PEAL|pixel-glass|glow-publishing|glass-keyboard|seva-broadcast|hearth-display|usb-hearth|MAIR|glow-language|source-identity|djinn-exec|compass-language|compass-identity|compass-surface|compass-world|harvest-yield|harvest-trade|harvest-commons|harvest-rest|cion-molt|cion-survey|cion-debride|cion-seal|BOZO|LINN|AHOY|open-image|lotus-audio|mikrophone|constels-naming|cion-living-molt|dimeroll-expansion|slh-dsa)'"]
+let exclude_check = run ["sh" "-c" "echo '${word_val}' | grep -qxE '(BRIX|KYRI|POND|MURR|SURF|MALA|SEVA|MAND|MONA|POOL|QUIN|RIYO|REYA|TREY|TERA|TRIZ|OJJO|GLOW|RHYZ|PEAL|pixel-glass|glow-publishing|glass-keyboard|seva-broadcast|hearth-display|usb-hearth|MAIR|glow-language|source-identity|djinn-exec|compass-language|compass-identity|compass-surface|compass-world|harvest-yield|harvest-trade|harvest-commons|harvest-rest|cion-molt|cion-survey|cion-debride|cion-seal|BOZO|LINN|AHOY|front-door|open-image|lotus-audio|mikrophone|constels-naming|cion-living-molt|dimeroll-expansion|slh-dsa)'"]
 assert (exclude_check.ok == false) else "derived waymark collides with an already-seated name -- append -2 to input_name above and rerun"
 
 say ""
