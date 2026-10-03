@@ -1,5 +1,5 @@
-# tools/f/fascia_metric_v0.rish -- accrete shim -> tools/gen/chapter/fascia_metric_v0.rish (Generator Chapter s4)
-let cmd = flatten [ ["rishi/bin/rishi" "run" "tools/gen/chapter/fascia_metric_v0.rish"] args ]
+# Elder door. The living runner is tools/gen/chapter/fascia_metric.rish.
+let cmd = flatten [ ["rishi/bin/rishi" "run" "tools/gen/chapter/fascia_metric.rish"] args ]
 let r = run cmd
 if r.out != "" then say r.out
 exit r.code
