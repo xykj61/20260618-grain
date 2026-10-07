@@ -35,7 +35,9 @@ promise this tree has already made.
 **What Gauge genuinely inherits is warmth and clarity**, which the line above already says. What it
 does not inherit is the *floor* or the *poetry*, and those are exactly what the elder pages are for.
 A guide is archived when nothing needs it; three registers on two axes need all three.
-**Kin:** [`TWILIGHT_STYLE.md`](TWILIGHT_STYLE.md) (the nocturne register) - [`TWO_ROOMS.md`](TWO_ROOMS.md) (proven or proposed)
+**Kin:** [`TWILIGHT_STYLE.md`](TWILIGHT_STYLE.md) (the nocturne register) - [`TWO_ROOMS.md`](TWO_ROOMS.md) (proven or proposed) - [`RADIANT_STYLE.md`](RADIANT_STYLE.md) - [`BHAKTA_STYLE.md`](BHAKTA_STYLE.md) - [`TEACHER_STYLE.md`](TEACHER_STYLE.md)
+
+**Blend `20261007.085102`.** Gauge still measures. Radiant still warms. Bhakta still opens the door. Teacher Style is the same open door in civic American English. Fossils of this page, Radiant, and Bhakta sit at [`archive/20261007-085102_GAUGE_STYLE.md`](archive/20261007-085102_GAUGE_STYLE.md) and its two siblings. The cut stays RED.
 
 **Purpose:** One style for writing that carries measurements and still welcomes a reader. A gauge
 reports a reading exactly, and this style keeps that exactness while adding what a gauge has never
@@ -455,7 +457,7 @@ Four questions, twenty-five points each, so the judgement is repeatable rather t
 1. **Named.** Does a live line on the card, a standing law, or a roster reach this artifact?
 2. **Reached.** Does someone arriving at the live work actually pass through it, rather than around it?
 3. **Current.** Does it describe the tree as it stands today, rather than a chapter that has closed?
-4. **Carried.** Which side does it serve -- the public projection `grain-os/grain`, the working
+4. **Carried.** Which side does it serve -- the public projection `grain-ww/grain`, the working
    repository `xy`, or both -- and is that the right side for what it holds?
 
 The fourth question generalizes cleanly past this tree. Any organization has a published face and a
