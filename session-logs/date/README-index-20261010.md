@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.180322` | [Grass, three front doors graded, no build](20261010/20261010-180322_grass-three-front-doors-graded-no-build.kyri) | Three front doors graded at door setting, B or better; no edit. |
 | `20261010.180041` | [Earth-row decline, no build](20261010/20261010-180041_earth-row-decline-no-build.kyri) | Round-open clean; claims held by peers; law lane waits on Keaton; no build. |
 | `20261010.180351` | [Patchouli, queue empty again, no build](20261010/20261010-180351_patchouli-queue-empty-fifteenth-no-build.kyri) | Lane empty on fresh grep nets; no code moved; nib carried. |
 | `20261010.175652` | [Petrichor gated, no build](20261010/20261010-175652_petrichor-gated-no-build.kyri) | Lane gated on public seam and consent rail; no build |
