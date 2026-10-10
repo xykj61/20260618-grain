@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.171212` | [Incense, receipt witnesses green, no build](20261010/20261010-171212_incense-receipt-witnesses-green-no-build.kyri) | Three receipt witnesses GREEN on metal; no build; nib carried. |
 | `20261010.171030` | [Grass, queue empty, third repeat, no build](20261010/20261010-171030_grass-queue-empty-third-repeat-no-build.kyri) | Third identical grade today; queue empty; check-in asked. |
 | `20261010.171500` | [Patchouli, queue empty, seventeenth](20261010/20261010-171500_patchouli-queue-empty-seventeenth-no-build.kyri) | Fresh net finds nothing in mantra/ or tally/; no build. |
 | `20261010.170657` | [Pheromone, queue empty again, no build](20261010/20261010-170657_pheromone-queue-empty-second-no-build.kyri) | Language lane still closed; nib carried to d40903e4df. |
