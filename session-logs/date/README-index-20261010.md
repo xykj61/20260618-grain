@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.183109` | [Incense, earth row, no build](20261010/20261010-183109_incense-earth-row-no-build.kyri) | Queue waits at %642 or %519; no build; nib carried. |
 | `20261010.183208` | [Diffuser, eighth base ten-family](20261010/20261010-183208_eighth-ten-below-line.kyri) | Ten-family tau +0.47 on base 8; falsifier hit; no roster. |
 | `20261010.183039` | [Pheromone, third hold, no build](20261010/20261010-183039_pheromone-lane-third-hold-no-build.kyri) | Lane held on the card; claims and BOOKED reds read, nothing agent-doable; no build. |
 | `20261010.183332` | [Patchouli, queue empty, no build](20261010/20261010-183332_patchouli-queue-empty-sixteenth-net-no-build.kyri) | Both nets and REDS OPEN rows read; nothing agent-doable; no build. |
