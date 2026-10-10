@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.172114` | [Patchouli, queue empty, nineteenth](20261010/20261010-172114_patchouli-queue-empty-nineteenth-no-build.kyri) | No build; owed red %840 waits on headroom and a ruling. |
 | `20261010.171816` | [Petrichor, queue gated, no build](20261010/20261010-171816_petrichor-queue-gated-ff-no-build.kyri) | Ff to 7693521fca; queue gated; no build. |
 | `20261010.172034` | [Incense, queue gated, no build](20261010/20261010-172034_incense-queue-gated-no-build.kyri) | Round-open clean; queue gated on named hands; no build. |
 | `20261010.171933` | [Grass, queue empty, fifth repeat, no build](20261010/20261010-171933_grass-queue-empty-fifth-repeat-open-reds-named.kyri) | Queue empty; peer reds named; check-in asked. |
