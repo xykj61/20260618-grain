@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.180041` | [Earth-row decline, no build](20261010/20261010-180041_earth-row-decline-no-build.kyri) | Round-open clean; claims held by peers; law lane waits on Keaton; no build. |
 | `20261010.175652` | [Petrichor gated, no build](20261010/20261010-175652_petrichor-gated-no-build.kyri) | Lane gated on public seam and consent rail; no build |
 | `20261010.175742` | [Grass, inner prompt graded, no build](20261010/20261010-175742_grass-inner-prompt-graded-no-build.kyri) | Inner prompt graded B or better; no edit. |
 | `20261010.180007` | [Patchouli, queue empty, sign seam held, no build](20261010/20261010-180007_patchouli-queue-empty-sign-seam-held.kyri) | Lane empty; %840 seam held for a ruling; no build. |
