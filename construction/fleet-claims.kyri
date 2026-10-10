@@ -58,9 +58,9 @@ stamp 20261010.150345
 epoch 1791659025
 paths rishi/src/main.rye tools/r/content_key_witness.rish
 what Land content-keyed compilation in Rishi: identical declared inputs may reuse a binary while every owed proof still executes, with a witness proving the cache misses on each planted change.
-claim copal-sunn14-choir-roster
+claim copal-sundial-roster
 seat copal
-stamp 20261010.183330
-epoch 1791671610
-paths tools/gen/chapter/sunn14_witness_choir.rish construction/standing-equipment.kyri
-what Roster the unrostered SUNN14 witness choir in standing-equipment.kyri, GREEN on metal and proven RED when a planted limb is broken.
+stamp 20261010.183743
+epoch 1791671863
+paths tools/gen/chapter/sundial.rish construction/standing-equipment.kyri
+what Roster the unrostered sundial recursion-confidence witness in standing-equipment.kyri, GREEN on metal with its built-in shred refuse leg proven RED.
