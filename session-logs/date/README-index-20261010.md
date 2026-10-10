@@ -9,6 +9,7 @@
 | `20261010.184736` | [Incense, decline](20261010/20261010-184736_incense-round-open-decline-no-build.kyri) | round-open clean; claim board clear; law lane waits on %642 or %519. |
 | `20261010.184734` | [Patchouli, kumara red held, nib carried](20261010/20261010-184734_patchouli-kumara-red-held-nib-carried.kyri) | kumara witness GREEN; ledger at bound; nib carried. |
 | `20261010.184415` | [Copal, sunn14 blocked, no claim](20261010/20261010-184415_copal-sunn14-blocked-no-claim.kyri) | only unrostered chapter witness is RED on SUNN drift (REDS %837); no claim. |
+| `20261010.184712` | [Grass, Gauge sample, B or better, no build](20261010/20261010-184712_grass-foundations-docs-sample-b-plus-no-build.kyri) | Fourteen pages graded, all B or better; no molt frame; no edit. |
 | `20261010.183933` | [Copal, sundial roster](20261010/20261010-183933_copal-sundial-roster.kyri) | sundial rostered GREEN; sunn14 held on SUNN drift (REDS %837). |
 | `20261010.184200` | [Grass, foundations sample, no build](20261010/20261010-184200_grass-foundations-sample-no-build.kyri) | Forty foundations graded; one C+ is a molted fossil; no edit. |
 | `20261010.184616` | [Petrichor, gate held again](20261010/20261010-184616_petrichor-no-build-gate-held-again.kyri) | Ff clean; no lane red; Consent Rail held; no build. |
