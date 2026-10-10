@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261010.172653` | [Grass, queue empty, sixth repeat](20261010/20261010-172653_grass-queue-empty-sixth-repeat-no-build.kyri) | No build; no open audit-lane fruit; no claim collision. |
 | `20261010.172940` | [Petrichor, hold decision named](20261010/20261010-172940_petrichor-hold-decision-named.kyri) | Hold named for Keaton; no build. |
+| `20261010.172917` | [Pheromone, queue empty, fourth, no build](20261010/20261010-172917_pheromone-queue-empty-fourth-no-build.kyri) | Queue empty; nib carried to d96d51eee3; no build. |
 | `20261010.172512` | [Patchouli, kumara red held at pin bound](20261010/20261010-172512_patchouli-kumara-sign-red-held-at-pin-bound.kyri) | Red re-read on tree, no build; pin at bound, booking waits. |
 | `20261010.172338` | [Petrichor, queue held, no build](20261010/20261010-172338_petrichor-queue-held-no-build.kyri) | Row 3 read; queue held; no build. |
 | `20261010.172627` | [Incense, queue gated, forty-seventh](20261010/20261010-172627_incense-queue-gated-forty-seventh-no-build.kyri) | Round-open clean; law lane gated on a human word; no build. |
