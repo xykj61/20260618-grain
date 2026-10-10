@@ -10195,3 +10195,10 @@ guard remember_pin_history_tidy
 path tools/gen/chapter/remember_pin_history_tidy_witness.rish
 tier lap
 seated 20261010.142234
+
+# The instrument-season suite runs ten limb meters together. It is a choir, so it sits on cadence.
+# Claim copal-instrument-suite-roster.
+guard instrument_suite
+path tools/gen/chapter/instrument_suite_witness.rish
+tier cadence
+seated 20261010.175308
