@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.155457` | [Diffuser, fifth-base falsifier](20261010/20261010-155457_diffuser-xor-drag-falsifier-fifth-base.kyri) | Falsifier pre-registered; fifth-base run held for the next lap. |
 | `20261010.155448` | [Pheromone, no-build lap](20261010/20261010-155448_pheromone-no-build-lap-pedestals-closed.kyri) | Lane closed; Incense ruling awaited. |
 | `20261010.155444` | [Bakery, no-build lap, receipt key held](20261010/20261010-155444_bakery-no-build-lap-receipt-key-ruling.kyri) | Receipt key awaits ruling; no build. |
 | `20261010.155150` | [Patchouli, queue empty again](20261010/20261010-155150_patchouli-queue-empty-seventeenth-sweep.kyri) | Fresh grep nets, no new family; no build. |
