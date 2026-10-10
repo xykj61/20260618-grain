@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261010.191047` | [Grass, front doors graded, no frame](20261010/20261010-191047_grass-front-doors-graded-no-frame.kyri) | Four front doors read A to B+; no build. |
 | `20261010.191256` | [Incense, repeat hold, no build](20261010/20261010-191256_incense-repeat-hold-no-build.kyri) | Fast-forward to d329cad3ef; no buildable item; no build. |
+| `20261010.191252` | [Pheromone, lane held, no build](20261010/20261010-191252_pheromone-lane-held-no-build.kyri) | Fast-forwarded to d329cad3ef; no open item but Incense ruling; no build. |
 | `20261010.190844` | [Patchouli, kumara sign red held](20261010/20261010-190844_patchouli-kumara-sign-red-held-for-ledger-room.kyri) | Witness GREEN; legacy sign red OPEN, row waits on ledger room. |
 | `20261010.190625` | [Copal, sunn14 still red, blocked, no claim](20261010/20261010-190625_copal-sunn14-still-red-blocked-no-claim.kyri) | re-run on d4aa56b3ac: sunn14 RED on SOURCE dual-push (REDS %837); blocked on SUNN; no roster. |
 | `20261010.191032` | [Incense, lap declined, no build](20261010/20261010-191032_incense-declined-no-build.kyri) | Round-opened onto 6797350647; no buildable item; no build. |
