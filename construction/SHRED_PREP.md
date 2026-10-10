@@ -262,6 +262,16 @@ Molted by the QA frame, Grass lane: the writing fossil is bannered, the one livi
 (`foundations/README.md`) is repointed, and the Reach reading moved C+/71 to A+/97 at Door on
 the living mutant. Prep only -- the fossil stays on disk, and no shred is opened.
 
+### Class M -- `foundations/20260826-181402_the-mitra-shed.md`, prepped `20261010.164250` (cut stays RED)
+
+Molted by the QA frame, Grass lane: the writing fossil is bannered, and the one living citer
+(`mitra/README.md`) is repointed to the living mutant. The three dated citers
+(`foundations/20260826-194850_the-happy-zone-and-the-thin-edge.md`,
+`foundations/20260826-181401_the-fascia-and-the-way-home.md`, and the 20260826 and 20261009 session logs)
+keep the fossil path, which still resolves. The Register reading moved C+/75 to B+/85 at Door on the
+living mutant (negative share 39% to 11%, composite 75 to 85). Prep only -- the fossil stays on disk,
+and no shred is opened.
+
 ### Class M -- the vendor names (Codex, arbor, the bench scorecard) -- prepped `20260906.114734`, folded whole to [`archive/shred/SHRED_PREP-vendor-names-class-m-20260906.md`](archive/shred/SHRED_PREP-vendor-names-class-m-20260906.md) on `20260907.023053`. Thirteen fossils bannered, three refused a banner for three different reasons, three traps named. **Cut still RED.**
 
 ### Class M -- CUT `20260826`, the rune renames -- folded whole to [`archive/shred/SHRED_PREP-rune-rename-cut-20260826.md`](archive/shred/SHRED_PREP-rune-rename-cut-20260826.md) on `20260906.114734`: 19 files renamed, 46 touched, 538 substitutions, and 273 occurrences of the syllable left standing as the scope line rather than a leftover.

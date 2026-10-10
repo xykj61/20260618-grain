@@ -4,7 +4,7 @@
 **Style:** Gauge, Door setting (see [`../context/GAUGE_STYLE.md`](../context/GAUGE_STYLE.md))
 **Voice:** Kyri
 **Status:** Living -- room seated `20260826` on Keaton's word; documentation-first, the code horizon named honestly below
-**Where this sits:** home is [`../README.md`](../README.md) -- the process whole is [`../foundations/20260826-181402_the-mitra-shed.md`](../foundations/20260826-181402_the-mitra-shed.md) -- the fascia it protects is [`../foundations/20260826-181401_the-fascia-and-the-way-home.md`](../foundations/20260826-181401_the-fascia-and-the-way-home.md)
+**Where this sits:** home is [`../README.md`](../README.md) -- the process whole is [`../foundations/20261010-164250_the-mitra-shed.md`](../foundations/20261010-164250_the-mitra-shed.md) -- the fascia it protects is [`../foundations/20260826-181401_the-fascia-and-the-way-home.md`](../foundations/20260826-181401_the-fascia-and-the-way-home.md)
 
 Mitra is the tree's discipline for removing a dated fossil without breaking a single promise
 it ever received: molt first, repoint the living, wait for the circle, checkpoint, cut, then
