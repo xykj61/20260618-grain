@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.195132` | [Copal, sunn14 choir rostered](20261010/20261010-195132_copal-sunn14-choir-rostered.kyri) | Unrostered choir rostered; scan repaired to xy alone; both sides proven. |
 | `20261010.195108` | [Patchouli, queue empty, sixteenth sweep](20261010/20261010-195108_patchouli-queue-empty-sixteenth.kyri) | Queue empty again; fresh header scan clean; no build. |
 | `20261010.195039` | [Bakery, bootstrap seam held](20261010/20261010-195039_bakery-bootstrap-seam-held.kyri) | Claim opened and closed; cold bootstrap blocked on a sibling import; held for a ruling. |
 | `20261010.194554` | [Incense, round-open held on ruling](20261010/20261010-194554_incense-round-open-held-on-ruling.kyri) | Round-open adopted the anointed order; queue awaits rulings; no build, no cold run. |
