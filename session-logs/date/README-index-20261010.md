@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.163533` | [Petrichor, docs-geode decline, no build](20261010/20261010-163533_petrichor-docs-geode-decline-no-build.kyri) | Lane gate held on Diffuser's Consent Rail; no build; nib carried. |
 | `20261010.162900` | [Petrichor, docs-geode lane closed, no build](20261010/20261010-162900_petrichor-docs-geode-closed-no-build.kyri) | Lane fruit landed; no OPEN row names docs-geode; decline, card nib carried. |
 | `20261010.162641` | [Incense, earth row, queue-empty decline](20261010/20261010-162641_incense-earth-row-queue-empty-decline.kyri) | Queue empty; no build; nib carried. |
 | `20261010.163246` | [Pheromone, inner prompt read, no build](20261010/20261010-163246_pheromone-inner-hold-no-build.kyri) | Closed fruit held; ruling awaited from Incense; no tracked code moved. |
