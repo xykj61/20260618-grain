@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261010.175652` | [Petrichor gated, no build](20261010/20261010-175652_petrichor-gated-no-build.kyri) | Lane gated on public seam and consent rail; no build |
 | `20261010.175742` | [Grass, inner prompt graded, no build](20261010/20261010-175742_grass-inner-prompt-graded-no-build.kyri) | Inner prompt graded B or better; no edit. |
+| `20261010.180007` | [Patchouli, queue empty, sign seam held, no build](20261010/20261010-180007_patchouli-queue-empty-sign-seam-held.kyri) | Lane empty; %840 seam held for a ruling; no build. |
 | `20261010.175528` | [Grass, four pages graded, no build](20261010/20261010-175528_grass-four-pages-graded-no-build.kyri) | Four pages B or better; no edit. |
 | `20261010.175141` | [Pheromone, seventh decline, no build](20261010/20261010-175141_pheromone-queue-empty-seventh-no-build.kyri) | Lane empty; upstream held; no build |
 | `20261010.175206` | [Patchouli, queue empty, deadlock held](20261010/20261010-175206_patchouli-queue-empty-deadlock-held.kyri) | Queue empty; %840 deadlock held; nib carried; no build. |
