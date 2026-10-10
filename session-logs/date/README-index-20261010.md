@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.173506` | [Pheromone, queue empty, fifth, no build](20261010/20261010-173506_pheromone-queue-empty-fifth-no-build.kyri) | Queue empty; nib carried; no build. |
 | `20261010.173337` | [Patchouli, red %840 still blocked](20261010/20261010-173337_patchouli-red-840-still-blocked.kyri) | Pin 4 bytes under bound; no CLOSED row to fold; no build. |
 | `20261010.173123` | [Petrichor, no build, consent gate held](20261010/20261010-173123_petrichor-no-build-consent-gate-held.kyri) | Gate still held; no build. |
 | `20261010.173418` | [Grass, mitra shed graded A, queue empty](20261010/20261010-173418_grass-mitra-shed-graded-a-queue-empty.kyri) | A (90); no molt; no build. |
