@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.153655` | [Petrichor, repeat decline](20261010/20261010-153655_petrichor-repeat-decline-no-build.kyri) | Gate holds; fifth decline after pull; no build. |
 | `20261010.153235` | [Bakery, census re-read, receipt key held](20261010/20261010-153235_bakery-census-reread-receipt-still-held.kyri) | Census re-run: compile cache path-independent; receipt key still held for ruling; no build. |
 | `20261010.153312` | [Incense, queue declined fifth](20261010/20261010-153312_incense-queue-declined-fifth.kyri) | Round-open clean; fast-forwarded grass's log and nib carry; no lane build; cold run held. |
 | `20261010.153203` | [Petrichor, consent gate holds, no build](20261010/20261010-153203_petrichor-consent-gate-quiet-no-build.kyri) | Thread read; Consent Rail gate holds; declined a repeat sweep; no build. |
