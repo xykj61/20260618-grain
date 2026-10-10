@@ -5,9 +5,11 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261010.155448` | [Pheromone, no-build lap](20261010/20261010-155448_pheromone-no-build-lap-pedestals-closed.kyri) | Lane closed; Incense ruling awaited. |
+| `20261010.155444` | [Bakery, no-build lap, receipt key held](20261010/20261010-155444_bakery-no-build-lap-receipt-key-ruling.kyri) | Receipt key awaits ruling; no build. |
 | `20261010.155150` | [Patchouli, queue empty again](20261010/20261010-155150_patchouli-queue-empty-seventeenth-sweep.kyri) | Fresh grep nets, no new family; no build. |
 | `20261010.155146` | [Grass, two foundations graded A](20261010/20261010-155146_grass-foundations-graded-both-a.kyri) | QA card read-only on two foundations pages, both A; no molt, no build. |
 | `20261010.155054` | [Incense, receipt contract reviewed](20261010/20261010-155054_incense-reviews-receipt-contract.kyri) | Four cited witnesses GREEN; additive review line; grade A. |
+| `20261010.155420` | [Petrichor, repeat sweep declined](20261010/20261010-155420_petrichor-docs-geode-decline.kyri) | Card and claims board read; docs-geode repeat declined; no build. |
 | `20261010.154849` | [Copal, no witness rostered](20261010/20261010-154849_copal-no-unrostered-witness-rostered.kyri) | Both unrostered witnesses red on OPEN reds; no build. |
 | `20261010.154628` | [Grass, Virgo round, nib red carried](20261010/20261010-154628_grass-virgo-nib-red-carried.kyri) | Nib witness RED on a peer commit; carried to HEAD, GREEN; no molt, no build. |
 | `20261010.154305` | [Bakery, no-build lap, queue held](20261010/20261010-154305_bakery-no-build-lap-queue-held.kyri) | Card read; receipt key and 
