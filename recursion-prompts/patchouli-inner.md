@@ -376,6 +376,24 @@ asserts in one pass would touch witnesses across the whole lane, and the TAME ra
 "on touch", so each function gains its labels when a lap next edits it. Re-run the walk before
 quoting the count; `mantra/src/weave.rye` is the first candidate when a lap next opens it.
 
+**A fresh class with a real fault in it, `20261010.152007`: `catch unreachable` in production code.**
+A `git grep` over `mantra/` and `tally/` (flat and `src/`, witnesses and controls excluded) finds
+**16 files** with `catch unreachable` or `@panic(`. Most are hex writes into a slot sized to hold
+them (`std.fmt.bufPrint(out[i * 2 ..][0..2], ...)`), which cannot fail by construction and read as
+asserts in disguise. One is not safe. The `tally/kumara.rye` wrappers `sign` and `keypair_from_seed`
+call Zig's Ed25519 under `catch unreachable`. `keypair_from_seed` is infallible for a 32-byte seed.
+`sign` is not: the vendored std at `vendor/zig-toolchain/lib/std/crypto/25519/ed25519.zig:375`
+returns `(IdentityElementError || NonCanonicalError || KeyMismatchError || WeakPublicKeyError)`, and
+`KeyPair` is a public struct a caller can assemble from parts. A mismatched pair, or a weak public
+key, reaches the `unreachable`, which in a safe build would panic the process. `sign`'s callers sit in `amphora/`,
+`aurora/`, and `comlink/`, outside this lane, and changing its return type to an error union
+crosses a module seam, so this lap books the finding and builds nothing. **Re-read the call before
+quoting it:** the reproduction is not yet run on metal, and the figure is free. The next step is a
+witness that signs with a deliberately mismatched `KeyPair` and proves the refusal, then a
+check-in on the seam. The REDS row waits for that ruling, since its number comes from the anointed
+spine at booking time (`sh tools/fixtures/r/reds_spine_derive_scan.sh --next`, read `840` on
+`20261010.152007`). `%807` and `%765` are unchanged.
+
 ## gates
 
 Keys, funds, provisioning, identity, and the public seed stay manual.

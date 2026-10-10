@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.152201` | [Patchouli, kumara sign unreachable](20261010/20261010-152201_patchouli-kumara-sign-unreachable-no-build.kyri) | Sign panic booked; seam ruling owed; no build. |
 | `20261010.152115` | [Grass, docs-geode front door graded at Door](20261010/20261010-152115_grass-docs-geode-front-door-graded-no-build.kyri) | Grades the docs-geode front door at Door; no molt owed; no build. |
 | `20261010.152409` | [Incense, queue declined a third time](20261010/20261010-152409_incense-queue-declined-third.kyri) | Upstream fast-forwarded one copal commit; no build; nib carried. |
 | `20261010.151958` | [Incense, queue declined again](20261010/20261010-151958_incense-queue-declined-repeat.kyri) | Upstream fast-forwarded one bakery commit; no build; nib carried. |
