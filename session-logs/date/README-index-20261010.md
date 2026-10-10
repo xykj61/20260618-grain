@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261010.183208` | [Diffuser, eighth base ten-family](20261010/20261010-183208_eighth-ten-below-line.kyri) | Ten-family tau +0.47 on base 8; falsifier hit; no roster. |
 | `20261010.183039` | [Pheromone, third hold, no build](20261010/20261010-183039_pheromone-lane-third-hold-no-build.kyri) | Lane held on the card; claims and BOOKED reds read, nothing agent-doable; no build. |
+| `20261010.183332` | [Patchouli, queue empty, no build](20261010/20261010-183332_patchouli-queue-empty-sixteenth-net-no-build.kyri) | Both nets and REDS OPEN rows read; nothing agent-doable; no build. |
 | `20261010.182904` | [Patchouli, kumara sign red held](20261010/20261010-182904_patchouli-kumara-sign-red-held-witness-green.kyri) | Witness GREEN; legacy sign red OPEN on seam ruling; no code moved. |
 | `20261010.182957` | [Copal, dep-crawl roster GREEN](20261010/20261010-182957_copal-dep-crawl-roster-green.kyri) | dep_crawl rostered; refusal side held by its sibling; planted red bites. |
 | `20261010.182918` | [Petrichor, water row, gate held, no build](20261010/20261010-182918_petrichor-water-row-gate-held-no-build.kyri) | Gate still held; nib carried; no build. |
