@@ -52,3 +52,9 @@ format fleet-claims-v1
 # The board opens empty, and the first claim belongs to the next ship that opens a build. Seeding
 # it with this lap's own work would be a claim written after the fact, which is the one thing a
 # declaration may never be.
+claim bakery-content-keyed-compile
+seat bakery
+stamp 20261010.150345
+epoch 1791659025
+paths rishi/src/main.rye tools/r/content_key_witness.rish
+what Land content-keyed compilation in Rishi: identical declared inputs may reuse a binary while every owed proof still executes, with a witness proving the cache misses on each planted change.
