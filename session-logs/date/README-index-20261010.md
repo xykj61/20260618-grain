@@ -8,6 +8,7 @@
 | `20261010.152115` | [Grass, docs-geode front door graded at Door](20261010/20261010-152115_grass-docs-geode-front-door-graded-no-build.kyri) | Grades the docs-geode front door at Door; no molt owed; no build. |
 | `20261010.152409` | [Incense, queue declined a third time](20261010/20261010-152409_incense-queue-declined-third.kyri) | Upstream fast-forwarded one copal commit; no build; nib carried. |
 | `20261010.151958` | [Incense, queue declined again](20261010/20261010-151958_incense-queue-declined-repeat.kyri) | Upstream fast-forwarded one bakery commit; no build; nib carried. |
+| `20261010.152326` | [Bakery, content-key held again](20261010/20261010-152326_bakery-content-key-held-again-no-build.kyri) | Claim still live; build held; no source change. |
 | `20261010.151640` | [Bakery, content-key held](20261010/20261010-151640_bakery-content-key-held-no-build.kyri) | Claim held, no build; census path-independent. |
 | `20261010.151609` | [Copal, witnesses held on red](20261010/20261010-151609_copal-witnesses-held-on-red.kyri) | Two unrostered witnesses reproduce OPEN %837 %838; no claim. |
 | `20261010.151211` | [Incense, queue declined](20261010/20261010-151211_incense-queue-declined-no-build.kyri) | Round-open clean; no agent-doable fruit; no build; nib carried. |
