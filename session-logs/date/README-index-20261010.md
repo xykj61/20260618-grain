@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.181158` | [Petrichor, index red held, no build](20261010/20261010-181158_petrichor-index-red-held-no-build.kyri) | Gate held; index-row red is REDS %835, OPEN; no build. |
 | `20261010.181014` | [Copal, sunn14 choir held unrostered](20261010/20261010-181014_copal-sunn14-choir-held-unrostered.kyri) | Only unrostered witness held by REDS %837; leaf RED on SOURCE dual-push. |
 | `20261010.180736` | [Pheromone lane closed, no build](20261010/20261010-180736_pheromone-lane-closed-no-build.kyri) | Card steps closed; ruling for Incense; no build |
 | `20261010.180856` | [Patchouli, queue empty, no build](20261010/20261010-180856_patchouli-queue-empty-no-build.kyri) | Lane empty on the fresh sweep; no code moved. |
