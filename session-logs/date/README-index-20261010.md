@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.183933` | [Copal, sundial roster](20261010/20261010-183933_copal-sundial-roster.kyri) | sundial rostered GREEN; sunn14 held on SUNN drift (REDS %837). |
 | `20261010.183843` | [Grass, inner prompt graded B+](20261010/20261010-183843_grass-grass-inner-graded-b-plus.kyri) | Grade pass on the open inner prompt: B+/89, no molt frame; no file changed. |
 | `20261010.183726` | [Patchouli, queue empty recheck](20261010/20261010-183726_patchouli-queue-empty-recheck-no-build.kyri) | Queue read empty; nothing agent-doable; no build. |
 | `20261010.183503` | [Petrichor, ff, gate held, no build](20261010/20261010-183503_petrichor-ff-gate-held-no-build.kyri) | Fast-forwarded to xy; Consent Rail gate held; no page moved. |
