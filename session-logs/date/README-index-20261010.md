@@ -8,6 +8,7 @@
 | `20261010.163826` | [Patchouli, queue empty again, no build](20261010/20261010-163826_patchouli-queue-empty-no-build.kyri) | Queue empty; no build; nib untouched. |
 | `20261010.163604` | [Grass, fire row, foundations front door, no build](20261010/20261010-163604_grass-foundations-front-door-graded-no-build.kyri) | Door reads A (91); no molt, no build. |
 | `20261010.163525` | [Bakery, receipt-key held](20261010/20261010-163525_bakery-receipt-key-held-census-no-build.kyri) | Ruling held; compile census green; no build. |
+| `20261010.163342` | [Incense, queue-empty decline, no build](20261010/20261010-163342_incense-queue-empty-decline-no-build.kyri) | Clean round-open; no build; 24 unlanded logs in stash reported. |
 | `20261010.162900` | [Petrichor, docs-geode lane closed, no build](20261010/20261010-162900_petrichor-docs-geode-closed-no-build.kyri) | Lane fruit landed; no OPEN row names docs-geode; decline, card nib carried. |
 | `20261010.162641` | [Incense, earth row, queue-empty decline](20261010/20261010-162641_incense-earth-row-queue-empty-decline.kyri) | Queue empty; no build; nib carried. |
 | `20261010.163246` | [Pheromone, inner prompt read, no build](20261010/20261010-163246_pheromone-inner-hold-no-build.kyri) | Closed fruit held; ruling awaited from Incense; no tracked code moved. |
