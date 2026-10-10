@@ -58,3 +58,9 @@ stamp 20261010.194644
 epoch 1791676004
 paths tools/gen/chapter/sunn14_witness_choir.rish construction/standing-equipment.kyri
 what Roster the one unrostered chapter witness, sunn14_witness_choir.rish, on the standing equipment list, and prove it GREEN and RED from both sides.
+claim bakery-rye-binary-freshness
+seat bakery
+stamp 20261010.194952
+epoch 1791676192
+paths rye/bootstrap.sh rye/bin tools/b/built_tool_freshness_witness.rish
+what Rebuild the stale rye binary with rye/bootstrap.sh so built_tool_freshness reads fresh, then prove the guard GREEN on metal (REDS %836 row roster).
