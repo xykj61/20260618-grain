@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.171551` | [Patchouli, queue empty, eighteenth](20261010/20261010-171551_patchouli-queue-empty-eighteenth-no-build.kyri) | No build; owed red %840 waits on headroom. |
 | `20261010.171212` | [Incense, receipt witnesses green, no build](20261010/20261010-171212_incense-receipt-witnesses-green-no-build.kyri) | Three receipt witnesses GREEN on metal; no build; nib carried. |
 | `20261010.171625` | [Grass, queue empty, fourth repeat, no build](20261010/20261010-171625_grass-queue-empty-fourth-repeat-no-build.kyri) | foundations/README.md graded A-range; no page below B; check-in asked. |
 | `20261010.171030` | [Grass, queue empty, third repeat, no build](20261010/20261010-171030_grass-queue-empty-third-repeat-no-build.kyri) | Third identical grade today; queue empty; check-in asked. |
