@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261010.165438` | [Patchouli, queue empty for the fifteenth time, no build](20261010/20261010-165438_patchouli-queue-empty-fifteenth-no-build.kyri) | Queue empty; no build. |
+| `20261010.165351` | [Petrichor, fast-forward, gate held, no build](20261010/20261010-165351_petrichor-ff-mitra-molt-gate-held-no-build.kyri) | Fast-forward past mitra molt; no docs-geode byte; gate held. |
 | `20261010.165151` | [Patchouli, queue empty again, no build](20261010/20261010-165151_patchouli-queue-empty-no-build.kyri) | Queue empty; no build. |
 | `20261010.165156` | [Pheromone, queue empty, no build](20261010/20261010-165156_pheromone-queue-empty-no-build.kyri) | Language lane closed; no build; nib carried. |
 | `20261010.165043` | [Incense, fast-forward, decline, no build](20261010/20261010-165043_incense-captain-baton-ff-decline-no-build.kyri) | Peers fast-forwarded; claim clear; cold run held. |
