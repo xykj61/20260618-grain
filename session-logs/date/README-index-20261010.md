@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.161640` | [Incense, queue-empty decline](20261010/20261010-161640_incense-baton-queue-empty-decline.kyri) | Queue empty, claim board clear, no build; nib carried. |
 | `20261010.161304` | [Petrichor, gates unchanged, decline no build](20261010/20261010-161304_petrichor-gates-unchanged-decline-no-build.kyri) | Gates and upstream read unchanged; no build; no new target. |
 | `20261010.161217` | [Copal, witness re-run still red](20261010/20261010-161217_copal-witness-rerun-still-red.kyri) | Re-run on a81c13e6c5 confirms the fascia RED (%838); not rostered. |
 | `20261010.161057` | [Bakery, receipt-key ruling held](20261010/20261010-161057_bakery-receipt-key-ruling-held.kyri) | Card read; receipt key waits on Keaton; no build. |
