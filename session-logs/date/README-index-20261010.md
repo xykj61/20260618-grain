@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.171732` | [Bakery, claim held, no build](20261010/20261010-171732_bakery-content-key-hold-no-build.kyri) | Claim unbuilt, witness absent; ruling open. |
 | `20261010.171551` | [Patchouli, queue empty, eighteenth](20261010/20261010-171551_patchouli-queue-empty-eighteenth-no-build.kyri) | No build; owed red %840 waits on headroom. |
 | `20261010.171212` | [Incense, receipt witnesses green, no build](20261010/20261010-171212_incense-receipt-witnesses-green-no-build.kyri) | Three receipt witnesses GREEN on metal; no build; nib carried. |
 | `20261010.171625` | [Grass, queue empty, fourth repeat, no build](20261010/20261010-171625_grass-queue-empty-fourth-repeat-no-build.kyri) | foundations/README.md graded A-range; no page below B; check-in asked. |
