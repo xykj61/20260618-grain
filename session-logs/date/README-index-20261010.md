@@ -9,6 +9,7 @@
 | `20261010.154246` | [Patchouli, queue empty, kumara red unbooked](20261010/20261010-154246_patchouli-queue-empty-kumara-red-unbooked.kyri) | Queue empty again; REDS pin deadlocked, kumara row held. |
 | `20261010.154030` | [Grass, named queue measured, no lift](20261010/20261010-154030_grass-named-queue-measured-no-lift.kyri) | Three named heads read B or better; no molt; card nib pinned to HEAD. |
 | `20261010.153900` | [Incense, sixth queue declined](20261010/20261010-153900_incense-lap-declines-sixth-queue.kyri) | Round-open read; cold run held; no lane build; rota none; nib carried. |
+| `20261010.154524` | [Petrichor, links clean, builds nothing](20261010/20261010-154524_petrichor-links-clean-no-build.kyri) | docs-geode relative links read clean; no defect, no build. |
 | `20261010.153458` | [Patchouli, kumara refusal witnessed](20261010/20261010-153458_patchouli-kumara-sign-refusal-witness.kyri) | Sign panic on metal; checked door GREEN; red owed a row, OPEN. |
 | `20261010.153655` | [Petrichor, repeat decline](20261010/20261010-153655_petrichor-repeat-decline-no-build.kyri) | Gate holds; fifth decline after pull; no build. |
 | `20261010.153235` | [Bakery, census re-read, receipt key held](20261010/20261010-153235_bakery-census-reread-receipt-still-held.kyri) | Census re-run: compile cache path-independent; receipt key still held for ruling; no build. |
