@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.165156` | [Pheromone, queue empty, no build](20261010/20261010-165156_pheromone-queue-empty-no-build.kyri) | Language lane closed; no build; nib carried. |
 | `20261010.165043` | [Incense, fast-forward, decline, no build](20261010/20261010-165043_incense-captain-baton-ff-decline-no-build.kyri) | Peers fast-forwarded; claim clear; cold run held. |
 | `20261010.164847` | [Patchouli, queue empty, kumara red held on pin headroom](20261010/20261010-164847_patchouli-queue-empty-red-held-pin-headroom.kyri) | Queue empty; REDS 840 held (pin 4 bytes under bound); no build. |
 | `20261010.165026` | [Petrichor, no fruit, gate held, no build](20261010/20261010-165026_petrichor-no-fruit-ff-gate-held-no-build.kyri) | Fast-forward; gate held; no build. |
