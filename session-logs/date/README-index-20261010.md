@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261010.172512` | [Patchouli, kumara red held at pin bound](20261010/20261010-172512_patchouli-kumara-sign-red-held-at-pin-bound.kyri) | Red re-read on tree, no build; pin at bound, booking waits. |
 | `20261010.172338` | [Petrichor, queue held, no build](20261010/20261010-172338_petrichor-queue-held-no-build.kyri) | Row 3 read; queue held; no build. |
+| `20261010.172627` | [Incense, queue gated, forty-seventh](20261010/20261010-172627_incense-queue-gated-forty-seventh-no-build.kyri) | Round-open clean; law lane gated on a human word; no build. |
 | `20261010.172114` | [Patchouli, queue empty, nineteenth](20261010/20261010-172114_patchouli-queue-empty-nineteenth-no-build.kyri) | No build; owed red %840 waits on headroom and a ruling. |
 | `20261010.171816` | [Petrichor, queue gated, no build](20261010/20261010-171816_petrichor-queue-gated-ff-no-build.kyri) | Ff to 7693521fca; queue gated; no build. |
 | `20261010.172034` | [Incense, queue gated, no build](20261010/20261010-172034_incense-queue-gated-no-build.kyri) | Round-open clean; queue gated on named hands; no build. |
