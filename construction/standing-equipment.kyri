@@ -8458,6 +8458,17 @@ path tools/gen/chapter/dep_crawl.rish
 tier lap
 seated 20261010.182627
 
+# sundial -- the recursion-confidence meter. It measures the session printout through
+# tools/fixtures/s/sundial.sh with no argument, asserts the GREEN line, the score, the band and the
+# witness line, and its own refuse leg requires `shred` to exit RED. Proven on metal `20261010`:
+# the real file reads GREEN with sundial=100 band=green and exit 0, and a copy whose band assert is
+# changed reds at that assert with exit 1. The file keeps its elder name by design; the Plumb name
+# is a letter for the health face, not a rename of this path.
+guard sundial
+path tools/gen/chapter/sundial.rish
+tier lap
+seated 20261010.183843
+
 # mantra_spool_dedup_ratio -- the spool-scale dedup ratio the fourth angle named and left
 # untouched. mantra/spool.rye winds a large artifact across resins split at a fixed, absolute
 # byte offset, beading each resin with fixed-size beading.bead alone -- it never calls
