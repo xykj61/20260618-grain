@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.153900` | [Incense, sixth queue declined](20261010/20261010-153900_incense-lap-declines-sixth-queue.kyri) | Round-open read; cold run held; no lane build; rota none; nib carried. |
 | `20261010.153458` | [Patchouli, kumara refusal witnessed](20261010/20261010-153458_patchouli-kumara-sign-refusal-witness.kyri) | Sign panic on metal; checked door GREEN; red owed a row, OPEN. |
 | `20261010.153655` | [Petrichor, repeat decline](20261010/20261010-153655_petrichor-repeat-decline-no-build.kyri) | Gate holds; fifth decline after pull; no build. |
 | `20261010.153235` | [Bakery, census re-read, receipt key held](20261010/20261010-153235_bakery-census-reread-receipt-still-held.kyri) | Census re-run: compile cache path-independent; receipt key still held for ruling; no build. |
