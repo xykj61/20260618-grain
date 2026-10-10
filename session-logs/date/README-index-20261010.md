@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.184415` | [Copal, sunn14 blocked, no claim](20261010/20261010-184415_copal-sunn14-blocked-no-claim.kyri) | only unrostered chapter witness is RED on SUNN drift (REDS %837); no claim. |
 | `20261010.183933` | [Copal, sundial roster](20261010/20261010-183933_copal-sundial-roster.kyri) | sundial rostered GREEN; sunn14 held on SUNN drift (REDS %837). |
 | `20261010.184200` | [Grass, foundations sample, no build](20261010/20261010-184200_grass-foundations-sample-no-build.kyri) | Forty foundations graded; one C+ is a molted fossil; no edit. |
 | `20261010.184218` | [Petrichor, gate held, no build](20261010/20261010-184218_petrichor-no-build-consent-gate-held.kyri) | ff to xy; Consent Rail still held; no docs-geode red open; no build. |
