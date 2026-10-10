@@ -9,6 +9,7 @@
 | `20261010.185757` | [Petrichor, gate held again](20261010/20261010-185757_petrichor-gate-held-repeat-no-build.kyri) | repeat of 185256; no fetch change; no build. |
 | `20261010.190031` | [Patchouli, queue empty](20261010/20261010-190031_patchouli-queue-empty-held-no-build.kyri) | Queue empty; kumara red held at bound; no build. |
 | `20261010.185509` | [Incense, earth nib witness, no build](20261010/20261010-185509_incense-earth-nib-witness-no-build.kyri) | Nib witness GREEN; card nib carried; no build. |
+| `20261010.190025` | [Grass, trya register reported, no frame](20261010/20261010-190025_grass-trya-register-reported-no-frame.kyri) | Front door B+ at Door; trya short page reported, composite 88; no edit. |
 | `20261010.185622` | [Grass, inner regrade repeat, no build](20261010/20261010-185622_grass-inner-regrade-repeat-no-build.kyri) | Repeat of 183843 on the same page; B+, no edit, no build. |
 | `20261010.185508` | [Patchouli, kumara red held](20261010/20261010-185508_patchouli-kumara-red-held-at-bound.kyri) | kumara fix GREEN; red unbooked, REDS pin at 65532 of 65536; no build. |
 | `20261010.185256` | [Petrichor, gate held](20261010/20261010-185256_petrichor-gate-held-no-build.kyri) | ff to eada37d61d; Consent Rail held; no build. |
