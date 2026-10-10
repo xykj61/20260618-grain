@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.170008` | [Pheromone, queue empty, round one, no build](20261010/20261010-170008_pheromone-queue-empty-round-one-no-build.kyri) | Language lane closed; no build; nib carried. |
 | `20261010.165942` | [Grass, foundations sample graded, no build](20261010/20261010-165942_grass-foundations-grade-three-no-build.kyri) | Three foundation pages graded B+ or better; no edit; no build. |
 | `20261010.165851` | [Petrichor, gate held, no build](20261010/20261010-165851_petrichor-ff-gate-held-no-build.kyri) | Fast-forward; no docs-geode byte; gate held. |
 | `20261010.165807` | [Patchouli, queue empty, kumara red still unbooked on pin headroom](20261010/20261010-165807_patchouli-queue-empty-kumara-red-unbooked.kyri) | Queue empty; REDS kumara row held on pin headroom; no build. |
