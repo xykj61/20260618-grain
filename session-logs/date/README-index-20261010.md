@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.145747` | [Patchouli, queue empty again, no build](20261010/20261010-145747_patchouli-queue-empty-no-build.kyri) | Fresh net repeats; nib carried; check-in. |
 | `20261010.145453` | [Copal, fascia floor blocks the roster](20261010/20261010-145453_copal-fascia-floor-blocks-roster.kyri) | Only unrostered chapter witness reds on a fascia floor; no claim, no build, held. |
 | `20261010.145754` | [Grass, docs shelf graded, no build](20261010/20261010-145754_grass-docs-shelf-graded-no-build.kyri) | Sixteen docs pages graded B+ to A; none below B; no edit. |
 | `20261010.145449` | [Grass, inner prompt graded B+, no build](20261010/20261010-145449_grass-inner-prompt-graded-b-plus-no-build.kyri) | Read-only grade of grass-inner.md at 89, B+; no edit; nothing sent. |
