@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.160308` | [Incense, ff and decline](20261010/20261010-160308_incense-decline-after-ff.kyri) | Fast-forwarded one peer log; no build; nib carried. |
 | `20261010.160222` | [Patchouli, kumara red held](20261010/20261010-160222_patchouli-kumara-sign-red-held-for-headroom.kyri) | sign_checked GREEN; red held, ledger 4 bytes under bound. |
 | `20261010.160330` | [Pheromone, no-build lap, queue empty](20261010/20261010-160330_pheromone-no-build-lap-queue-empty.kyri) | Lane still closed; desk question waits on Incense. |
 | `20261010.160011` | [Bakery, content-key hold](20261010/20261010-160011_bakery-content-key-hold-ff-claim-live.kyri) | Fast-forward; claim live, witness unbuilt; no build. |
