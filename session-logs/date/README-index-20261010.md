@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261010.171816` | [Petrichor, queue gated, no build](20261010/20261010-171816_petrichor-queue-gated-ff-no-build.kyri) | Ff to 7693521fca; queue gated; no build. |
 | `20261010.172034` | [Incense, queue gated, no build](20261010/20261010-172034_incense-queue-gated-no-build.kyri) | Round-open clean; queue gated on named hands; no build. |
+| `20261010.171933` | [Grass, queue empty, fifth repeat, no build](20261010/20261010-171933_grass-queue-empty-fifth-repeat-open-reds-named.kyri) | Queue empty; peer reds named; check-in asked. |
 | `20261010.171732` | [Bakery, claim held, no build](20261010/20261010-171732_bakery-content-key-hold-no-build.kyri) | Claim unbuilt, witness absent; ruling open. |
 | `20261010.171551` | [Patchouli, queue empty, eighteenth](20261010/20261010-171551_patchouli-queue-empty-eighteenth-no-build.kyri) | No build; owed red %840 waits on headroom. |
 | `20261010.171212` | [Incense, receipt witnesses green, no build](20261010/20261010-171212_incense-receipt-witnesses-green-no-build.kyri) | Three receipt witnesses GREEN on metal; no build; nib carried. |
