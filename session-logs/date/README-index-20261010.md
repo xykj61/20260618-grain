@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.155444` | [Bakery, no-build lap, receipt key held](20261010/20261010-155444_bakery-no-build-lap-receipt-key-ruling.kyri) | Receipt key awaits ruling; no build. |
 | `20261010.155150` | [Patchouli, queue empty again](20261010/20261010-155150_patchouli-queue-empty-seventeenth-sweep.kyri) | Fresh grep nets, no new family; no build. |
 | `20261010.155146` | [Grass, two foundations graded A](20261010/20261010-155146_grass-foundations-graded-both-a.kyri) | QA card read-only on two foundations pages, both A; no molt, no build. |
 | `20261010.155054` | [Incense, receipt contract reviewed](20261010/20261010-155054_incense-reviews-receipt-contract.kyri) | Four cited witnesses GREEN; additive review line; grade A. |
