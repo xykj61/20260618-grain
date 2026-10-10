@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.192211` | [Pheromone, held again](20261010/20261010-192211_pheromone-lane-held-again-no-build.kyri) | Six peers in; no Glow file moved; no build. |
 | `20261010.191920` | [Patchouli, queue empty again, kumara red held at the ledger bound](20261010/20261010-191920_patchouli-queue-empty-kumara-red-bound-held.kyri) | Spine next 840; REDS at 65532 of 65536; no build. |
 | `20261010.192210` | [Grass, queue empty, inner graded B+, held](20261010/20261010-192210_grass-queue-empty-inner-graded-held.kyri) | Composite 89 B+ at Field; queue empty; no build. |
 | `20261010.192035` | [Copal, choir repeat hold](20261010/20261010-192035_copal-choir-repeat-hold.kyri) | Only unrostered witness is sunn14 choir; REDS %837 still OPEN; held. |
