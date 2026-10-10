@@ -9,6 +9,7 @@
 | `20261010.152115` | [Grass, docs-geode front door graded at Door](20261010/20261010-152115_grass-docs-geode-front-door-graded-no-build.kyri) | Grades the docs-geode front door at Door; no molt owed; no build. |
 | `20261010.152409` | [Incense, queue declined a third time](20261010/20261010-152409_incense-queue-declined-third.kyri) | Upstream fast-forwarded one copal commit; no build; nib carried. |
 | `20261010.152403` | [Petrichor, queue quiet again](20261010/20261010-152403_petrichor-queue-quiet-no-build.kyri) | Consent Rail gate holds; no OPEN row in lane; no build; nib carried. |
+| `20261010.152114` | [Diffuser, third seed base](20261010/20261010-152114_diffuser-third-seed-base-sixteen-sets.kyri) | Third base: eleven +0.31 breaks, ten +0.56 holds. |
 | `20261010.151958` | [Incense, queue declined again](20261010/20261010-151958_incense-queue-declined-repeat.kyri) | Upstream fast-forwarded one bakery commit; no build; nib carried. |
 | `20261010.152326` | [Bakery, content-key held again](20261010/20261010-152326_bakery-content-key-held-again-no-build.kyri) | Claim still live; build held; no source change. |
 | `20261010.151640` | [Bakery, content-key held](20261010/20261010-151640_bakery-content-key-held-no-build.kyri) | Claim held, no build; census path-independent. |
