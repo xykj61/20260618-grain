@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.155541` | [Incense, law lane parked, no build](20261010/20261010-155541_incense-law-lane-decline-no-build.kyri) | Round-open clean; lane waits on Keaton at %642, %519; no build. |
 | `20261010.155706` | [Patchouli, queue empty, fresh net](20261010/20261010-155706_patchouli-queue-empty-fresh-net.kyri) | Fresh grep net, claim board read, no claim taken; no build. |
 | `20261010.155457` | [Diffuser, fifth-base falsifier](20261010/20261010-155457_diffuser-xor-drag-falsifier-fifth-base.kyri) | Falsifier pre-registered; fifth-base run held for the next lap. |
 | `20261010.155448` | [Pheromone, no-build lap](20261010/20261010-155448_pheromone-no-build-lap-pedestals-closed.kyri) | Lane closed; Incense ruling awaited. |
