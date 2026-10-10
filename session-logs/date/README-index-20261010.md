@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.181651` | [Copal fruit held again, no build](20261010/20261010-181651_copal-fruit-held-measured-no-build.kyri) | Sole witness still held by REDS %837; card count stale; no build. |
 | `20261010.181135` | [Patchouli, queue empty sixteenth](20261010/20261010-181135_patchouli-queue-empty-sixteenth-no-build.kyri) | Lane empty on fresh scan; no code moved. |
 | `20261010.181158` | [Petrichor, index red held, no build](20261010/20261010-181158_petrichor-index-red-held-no-build.kyri) | Gate held; index-row red is REDS %835, OPEN; no build. |
 | `20261010.181509` | [Incense, lane holds, no build](20261010/20261010-181509_incense-lane-holds-no-build.kyri) | Card items need Keaton's word; fast-forwarded; no build. |
