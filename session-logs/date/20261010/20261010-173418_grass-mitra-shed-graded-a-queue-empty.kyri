@@ -22,4 +22,5 @@ file foundations/20261010-164250_the-mitra-shed.md graded only; no edit
 file construction/ITINERARY.md git nib carried forward to the follow-up parent via remember_git_nib write follow-up
 recommend keep-going -- the queue is empty; the next lap takes an unopened file only if its reading comes back below B.
 status GREEN -- qa_report_card read the mitra shed at composite 90 (A); no code or prose moved.
+obs The first push was rejected by a peer landing mid-pull; two rebases later the nib was one commit short of HEAD~1 on the pushed commit, and a pin-only follow-up is refused, so the follow-up below carries the nib with this log note.
 scope one grade reading, one nib carry, one session log; no build.
