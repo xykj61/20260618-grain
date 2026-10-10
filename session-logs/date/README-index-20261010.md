@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.182152` | [Petrichor, consent gate still held, no build](20261010/20261010-182152_petrichor-consent-gate-held-no-build.kyri) | Gate unchanged upstream; fast-forwarded; no build. |
 | `20261010.181947` | [Grass, warrant head lift to B+](20261010/20261010-181947_grass-warrant-head-lift-b.kyri) | warrant C/80 to B+/89; till A/91 held; witness GREEN. |
 | `20261010.181834` | [Incense, repeat decline, no build](20261010/20261010-181834_incense-lane-repeat-decline-no-build.kyri) | Lane held again on unchanged upstream; no build. |
 | `20261010.181651` | [Copal fruit held again, no build](20261010/20261010-181651_copal-fruit-held-measured-no-build.kyri) | Sole witness still held by REDS %837; card count stale; no build. |
