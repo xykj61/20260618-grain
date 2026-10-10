@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.162213` | [Incense, queue-empty decline, round-open adopted](20261010/20261010-162213_incense-decline-round-open-adopted-4a9fed7d.kyri) | Round-open on 4a9fed7d69; queue empty; no build; nib carried. |
 | `20261010.161910` | [Bakery, content-key held for ruling](20261010/20261010-161910_bakery-content-key-held-for-ruling.kyri) | Claim live; receipt-key ruling still open; no build. |
 | `20261010.161824` | [Grass, queue spent](20261010/20261010-161824_grass-queue-spent-grade-sample.kyri) | Mycelium sample graded B or better; nothing lifted. |
 | `20261010.161325` | [Pheromone, no-build lap, queue still empty](20261010/20261010-161325_pheromone-no-build-lap-queue-still-empty.kyri) | Lane closed; desk question waits on Incense; no build. |
