@@ -8,6 +8,7 @@
 | `20261010.170204` | [Grass, fold.rye head graded B, no edit](20261010/20261010-170204_grass-fold-head-graded.kyri) | Counted B; service judged; no build. |
 | `20261010.170046` | [Patchouli, queue empty for the sixteenth time, no build](20261010/20261010-170046_patchouli-queue-empty-sixteenth-no-build.kyri) | Fresh version-literal grep finds nothing new; absence scan current; no build. |
 | `20261010.170008` | [Pheromone, queue empty, round one, no build](20261010/20261010-170008_pheromone-queue-empty-round-one-no-build.kyri) | Language lane closed; no build; nib carried. |
+| `20261010.170154` | [Bakery, claim held on the ruling, no build](20261010/20261010-170154_bakery-claim-held-ruling-open-no-build.kyri) | Claim unbuilt, witness absent, Rishi ruling open; no build. |
 | `20261010.170113` | [Incense, read lap, claim board clear, no build](20261010/20261010-170113_incense-read-lap-no-build.kyri) | Round-open clean; peer claim live; cold run held; no build. |
 | `20261010.165942` | [Grass, foundations sample graded, no build](20261010/20261010-165942_grass-foundations-grade-three-no-build.kyri) | Three foundation pages graded B+ or better; no edit; no build. |
 | `20261010.165851` | [Petrichor, gate held, no build](20261010/20261010-165851_petrichor-ff-gate-held-no-build.kyri) | Fast-forward; no docs-geode byte; gate held. |
