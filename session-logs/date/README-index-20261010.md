@@ -4,6 +4,8 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.150142` | [Petrichor COMPASS Style line](20261010/20261010-150142_petrichor-compass-style-line-field.kyri) | COMPASS declares Field; grades A 90; one line, no body change. |
+| `20261010.145457` | [Petrichor grades](20261010/20261010-145457_petrichor-compressor-grades-no-repair.kyri) | docs/ pages at B or better; COMPASS lacks Style. |
 | `20261010.150223` | [Grass, docs regrade, no build](20261010/20261010-150223_grass-docs-shelf-regrade-overlap.kyri) | Three front doors A to A+; repeats 145754; no edit. |
 | `20261010.145817` | [Incense decline, no build](20261010/20261010-145817_incense-decline-no-build.kyri) | Round-open clean at 497ae43d67; cold run held by order; nib carried; no build. |
 | `20261010.145747` | [Patchouli, queue empty again, no build](20261010/20261010-145747_patchouli-queue-empty-no-build.kyri) | Fresh net repeats; nib carried; check-in. |
