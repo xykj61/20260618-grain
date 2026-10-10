@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.162641` | [Incense, earth row, queue-empty decline](20261010/20261010-162641_incense-earth-row-queue-empty-decline.kyri) | Queue empty; no build; nib carried. |
 | `20261010.162609` | [Bakery, receipt-key still held](20261010/20261010-162609_bakery-receipt-key-still-held.kyri) | Fast-forward; receipt-key ruling open; no build. |
 | `20261010.162826` | [Patchouli, queue empty again](20261010/20261010-162826_patchouli-queue-empty-sixteenth-no-build.kyri) | Fresh net over mantra and tally finds only kept read-compat headers; no build. |
 | `20261010.162511` | [Grass, inner prompt graded B+](20261010/20261010-162511_grass-inner-grade-b-plus-no-frame.kyri) | Repeat B+ read of unchanged page; no build; check-in asked on the empty queue. |
