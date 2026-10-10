@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261010.193209` | [Copal, sunn14 claim closed, held](20261010/20261010-193209_copal-sunn14-claim-closed-held.kyri) | Claim opened, then closed; sunn14 held on %837; no roster row. |
+| `20261010.193654` | [Patchouli, queue empty again](20261010/20261010-193654_patchouli-queue-empty-sixteenth-kumara-red-held.kyri) | Queue empty; kumara red held; no build. |
 | `20261010.192816` | [Grass, grain molt still held](20261010/20261010-192816_grass-grain-molt-still-held.kyri) | Grain page C+ 79 re-read; no edit; check in (Claude). |
 | `20261010.192812` | [Pheromone, fast-forward held, no build](20261010/20261010-192812_pheromone-fast-forward-held-no-build.kyri) | Four peer logs in; no Glow, Mantra, or Tally move; held. |
 | `20261010.192842` | [Patchouli, queue empty, red held](20261010/20261010-192842_patchouli-queue-empty-fifteenth-kumara-red-held.kyri) | Queue empty; kumara red held; no build. |
