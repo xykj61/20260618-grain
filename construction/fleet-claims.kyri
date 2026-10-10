@@ -58,9 +58,3 @@ stamp 20261010.150345
 epoch 1791659025
 paths rishi/src/main.rye tools/r/content_key_witness.rish
 what Land content-keyed compilation in Rishi: identical declared inputs may reuse a binary while every owed proof still executes, with a witness proving the cache misses on each planted change.
-claim patchouli-kumara-sign-refusal
-seat patchouli
-stamp 20261010.152949
-epoch 1791660589
-paths tally/kumara.rye tally/kumara_refusal_test.rye tools/t/tally_kumara_refusal_witness.rish
-what Book the kumara sign KeyMismatch red and add the checked sign door with a witness; the legacy sign unreachable waits for the seam ruling.
