@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261010.151958` | [Incense, queue declined again](20261010/20261010-151958_incense-queue-declined-repeat.kyri) | Upstream fast-forwarded one bakery commit; no build; nib carried. |
 | `20261010.151640` | [Bakery, content-key held](20261010/20261010-151640_bakery-content-key-held-no-build.kyri) | Claim held, no build; census path-independent. |
+| `20261010.151609` | [Copal, witnesses held on red](20261010/20261010-151609_copal-witnesses-held-on-red.kyri) | Two unrostered witnesses reproduce OPEN %837 %838; no claim. |
 | `20261010.151211` | [Incense, queue declined](20261010/20261010-151211_incense-queue-declined-no-build.kyri) | Round-open clean; no agent-doable fruit; no build; nib carried. |
 | `20261010.151510` | [Grass, inner page graded at Field, no build](20261010/20261010-151510_grass-door-regraded-field-no-build.kyri) | Grades the open inner prompt at Field; no molt owed; no build. |
 | `20261010.151731` | [Patchouli, queue empty again](20261010/20261010-151731_patchouli-queue-empty-repeat-no-build.kyri) | Repeat header net over mantra/ and tally/; still empty; no build. |
