@@ -7,6 +7,7 @@
 | `20261010.190844` | [Patchouli, kumara sign red held](20261010/20261010-190844_patchouli-kumara-sign-red-held-for-ledger-room.kyri) | Witness GREEN; legacy sign red OPEN, row waits on ledger room. |
 | `20261010.190625` | [Copal, sunn14 still red, blocked, no claim](20261010/20261010-190625_copal-sunn14-still-red-blocked-no-claim.kyri) | re-run on d4aa56b3ac: sunn14 RED on SOURCE dual-push (REDS %837); blocked on SUNN; no roster. |
 | `20261010.191032` | [Incense, lap declined, no build](20261010/20261010-191032_incense-declined-no-build.kyri) | Round-opened onto 6797350647; no buildable item; no build. |
+| `20261010.190728` | [Petrichor, gate held after pull](20261010/20261010-190728_petrichor-gate-held-after-pull-no-build.kyri) | Held; no build. |
 | `20261010.190532` | [Grass, four rule pages graded, no frame](20261010/20261010-190532_grass-rule-pages-graded-no-frame.kyri) | Four small rule pages read A+ to B+; no build. |
 | `20261010.190327` | [Pheromone, repeat hold](20261010/20261010-190327_pheromone-lane-held-repeat-no-build.kyri) | Held on Incense's ruling; no build. |
 | `20261010.190320` | [Petrichor, gate held after fast-forward](20261010/20261010-190320_petrichor-gate-held-fetch-no-build.kyri) | Fast-forward to d22518d11f; gate still held; no build. |
