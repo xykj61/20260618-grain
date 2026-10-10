@@ -10,6 +10,7 @@
 | `20261010.180856` | [Grass, inner-prompt page graded B+, no build](20261010/20261010-180856_grass-front-door-b-plus-no-build.kyri) | One page graded B+/89; no edit. |
 | `20261010.180322` | [Grass, three front doors graded, no build](20261010/20261010-180322_grass-three-front-doors-graded-no-build.kyri) | Three front doors graded at door setting, B or better; no edit. |
 | `20261010.180309` | [Copal, instrument suite rostered, red held](20261010/20261010-180309_copal-instrument-suite-roster.kyri) | Cadence row added; fascia 36 under floor 41. |
+| `20261010.180704` | [Fire-row decline, no build](20261010/20261010-180704_incense-fire-row-decline-no-build.kyri) | Round-open clean; no build; law lane waits on Keaton at %642 or %519. |
 | `20261010.180041` | [Earth-row decline, no build](20261010/20261010-180041_earth-row-decline-no-build.kyri) | Round-open clean; claims held by peers; law lane waits on Keaton; no build. |
 | `20261010.180351` | [Patchouli, queue empty again, no build](20261010/20261010-180351_patchouli-queue-empty-fifteenth-no-build.kyri) | Lane empty on fresh grep nets; no code moved; nib carried. |
 | `20261010.175652` | [Petrichor gated, no build](20261010/20261010-175652_petrichor-gated-no-build.kyri) | Lane gated on public seam and consent rail; no build |
