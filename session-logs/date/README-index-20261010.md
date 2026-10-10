@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.173011` | [Patchouli, queue empty, twentieth](20261010/20261010-173011_patchouli-queue-empty-twentieth-no-build.kyri) | Queue empty; owed red %840 waits on headroom and a seam ruling; no build. |
 | `20261010.172653` | [Grass, queue empty, sixth repeat](20261010/20261010-172653_grass-queue-empty-sixth-repeat-no-build.kyri) | No build; no open audit-lane fruit; no claim collision. |
 | `20261010.172940` | [Petrichor, hold decision named](20261010/20261010-172940_petrichor-hold-decision-named.kyri) | Hold named for Keaton; no build. |
 | `20261010.172917` | [Pheromone, queue empty, fourth, no build](20261010/20261010-172917_pheromone-queue-empty-fourth-no-build.kyri) | Queue empty; nib carried to d96d51eee3; no build. |
