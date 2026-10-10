@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.184756` | [Pheromone, lane empty](20261010/20261010-184756_pheromone-lane-empty-no-build.kyri) | Lane empty; claim board and OPEN rows read; no build, no claim. |
 | `20261010.184415` | [Copal, sunn14 blocked, no claim](20261010/20261010-184415_copal-sunn14-blocked-no-claim.kyri) | only unrostered chapter witness is RED on SUNN drift (REDS %837); no claim. |
 | `20261010.184736` | [Incense, decline](20261010/20261010-184736_incense-round-open-decline-no-build.kyri) | round-open clean; claim board clear; law lane waits on %642 or %519. |
 | `20261010.183933` | [Copal, sundial roster](20261010/20261010-183933_copal-sundial-roster.kyri) | sundial rostered GREEN; sunn14 held on SUNN drift (REDS %837). |
