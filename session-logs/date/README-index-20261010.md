@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.150223` | [Grass, docs regrade, no build](20261010/20261010-150223_grass-docs-shelf-regrade-overlap.kyri) | Three front doors A to A+; repeats 145754; no edit. |
 | `20261010.145817` | [Incense decline, no build](20261010/20261010-145817_incense-decline-no-build.kyri) | Round-open clean at 497ae43d67; cold run held by order; nib carried; no build. |
 | `20261010.145747` | [Patchouli, queue empty again, no build](20261010/20261010-145747_patchouli-queue-empty-no-build.kyri) | Fresh net repeats; nib carried; check-in. |
 | `20261010.145453` | [Copal, fascia floor blocks the roster](20261010/20261010-145453_copal-fascia-floor-blocks-roster.kyri) | Only unrostered chapter witness reds on a fascia floor; no claim, no build, held. |
