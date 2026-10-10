@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.171816` | [Petrichor, queue gated, no build](20261010/20261010-171816_petrichor-queue-gated-ff-no-build.kyri) | Ff to 7693521fca; queue gated; no build. |
 | `20261010.172034` | [Incense, queue gated, no build](20261010/20261010-172034_incense-queue-gated-no-build.kyri) | Round-open clean; queue gated on named hands; no build. |
 | `20261010.171732` | [Bakery, claim held, no build](20261010/20261010-171732_bakery-content-key-hold-no-build.kyri) | Claim unbuilt, witness absent; ruling open. |
 | `20261010.171551` | [Patchouli, queue empty, eighteenth](20261010/20261010-171551_patchouli-queue-empty-eighteenth-no-build.kyri) | No build; owed red %840 waits on headroom. |
