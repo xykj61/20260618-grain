@@ -1,0 +1,31 @@
+format session-log-v1
+stamp 20261010.191345
+editor claude code interface
+provider anthropic
+product claude code
+role copal, Claude Code in grain-copal
+modality text
+model unverified
+model_status active runtime unverified
+configured_model claude-haiku-5-5
+configured_reasoning unset
+configured_status resolved by sh tools/fixtures/d/declared_model.sh resolved_model; tracked default in .claude/settings.json is not the value this clone runs
+evidence sh tools/fixtures/d/declared_model.sh resolved_model (claude-haiku-5-5)
+voice Kyri
+host anonymized Linux pier, America/New_York clock
+title copal -- sunn14 witness choir: claimed, held RED on booked REDS %837, claim closed
+prompt copal lap: take one unrostered chapter witness, claim it, roster it, prove it from both sides
+think measured unrostered chapter witnesses by exact path rows in standing-equipment.kyri; one remained, tools/gen/chapter/sunn14_witness_choir.rish
+think the choir runs green on voice-roster and sunn6-sunn13 limbs, then fails at sunn_source_thickness on SOURCE.md with missing dual-push
+think REDS %837 already books that exact red as OPEN and states the fix belongs to SUNN, so rostering would put a RED guard into every ship's cold run
+obs claim commit first hit the mechanism-sentence refusal; re-authored the body with a mechanism line, then a parent-nib drift from the rebase, corrected by remember_git_nib write amend
+obs the claim was opened, pushed, and then closed without any roster row, so the board shows no live claim for this path
+loom witness=sunn14_witness_choir limbs=10 green=5 red=1 wall_ms=not_measured
+rota none -- pure roster measurement and claim lap; the council row was not deep-read
+orbit round 1 sign -- no round load applied this lap
+file tools/gen/chapter/sunn14_witness_choir.rish held unrostered -- choir red on SOURCE.md thickness, REDS %837 OPEN
+file construction/fleet-claims.kyri claim opened and closed in the same lap
+file construction/ITINERARY.md git nib carried to the claim commit parent
+scope claim, measure, GREEN-first run of sunn14, and hold; no roster row, no build
+status HELD -- roster row not landed; sunn14 red on REDS %837 (SUNN lane, Keaton's ruling on dual-push); no witness closed this lap
+recommend check-in (Claude) -- SUNN owns SOURCE.md's dual-push wording; the choir can be rostered once that ruling lands
