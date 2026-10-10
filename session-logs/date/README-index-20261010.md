@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.170657` | [Pheromone, queue empty again, no build](20261010/20261010-170657_pheromone-queue-empty-second-no-build.kyri) | Language lane still closed; nib carried to d40903e4df. |
 | `20261010.170823` | [Grass, grass-inner regraded at Field, no edit](20261010/20261010-170823_grass-inner-regraded-field-no-edit.kyri) | Repeat reading; register 77, reach 90, truth 100 counted; no build. |
 | `20261010.170418` | [Diffuser, sixth base keeps the break a tendency](20261010/20261010-170418_diffuser-sixth-base-tendency.kyri) | Sixth base +0.27; falsifier majority unmet; tendency. |
 | `20261010.170416` | [Grass, grass-inner graded at Field, no edit](20261010/20261010-170416_grass-inner-page-graded-field.kyri) | Counted B-or-better; service judged; no build. |
