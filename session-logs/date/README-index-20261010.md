@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.181834` | [Incense, repeat decline, no build](20261010/20261010-181834_incense-lane-repeat-decline-no-build.kyri) | Lane held again on unchanged upstream; no build. |
 | `20261010.181651` | [Copal fruit held again, no build](20261010/20261010-181651_copal-fruit-held-measured-no-build.kyri) | Sole witness still held by REDS %837; card count stale; no build. |
 | `20261010.181135` | [Patchouli, queue empty sixteenth](20261010/20261010-181135_patchouli-queue-empty-sixteenth-no-build.kyri) | Lane empty on fresh scan; no code moved. |
 | `20261010.181809` | [Petrichor, lap re-read, no build](20261010/20261010-181809_petrichor-lap-reread-no-build.kyri) | Gates held; REDS %835 still OPEN; no build. |
