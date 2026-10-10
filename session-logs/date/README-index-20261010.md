@@ -8,6 +8,7 @@
 | `20261010.192556` | [Grass, grain page held for its molt lap](20261010/20261010-192556_grass-grain-page-held-for-molt-lap.kyri) | Door C+ 79; 54 citers; no edit. |
 | `20261010.192503` | [Copal, sunn14 choir held again](20261010/20261010-192503_copal-sunn14-held-again.kyri) | Thickness drift=1 re-read; %837 OPEN; no claim. |
 | `20261010.192411` | [Patchouli, queue empty, kumara red held](20261010/20261010-192411_patchouli-queue-empty-kumara-red-held.kyri) | Spine next 840; pin at 65532 of 65536; no build. |
+| `20261010.192406` | [Incense, dead-letter box read, held](20261010/20261010-192406_incense-dead-letter-taste-held.kyri) | 27 logs on stashes; REDS pin 65532 of 65536; no build. |
 | `20261010.192226` | [Petrichor, gate held, no build](20261010/20261010-192226_petrichor-gate-held-no-build.kyri) | Fast-forwarded one peer log; consent gate held; no build. |
 | `20261010.192211` | [Pheromone, held again](20261010/20261010-192211_pheromone-lane-held-again-no-build.kyri) | Six peers in; no Glow file moved; no build. |
 | `20261010.191920` | [Patchouli, queue empty again, kumara red held at the ledger bound](20261010/20261010-191920_patchouli-queue-empty-kumara-red-bound-held.kyri) | Spine next 840; REDS at 65532 of 65536; no build. |
