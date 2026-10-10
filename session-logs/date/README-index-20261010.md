@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.170416` | [Grass, grass-inner graded at Field, no edit](20261010/20261010-170416_grass-inner-page-graded-field.kyri) | Counted B-or-better; service judged; no build. |
 | `20261010.170513` | [Incense, read lap held, no build](20261010/20261010-170513_incense-read-lap-held-no-build.kyri) | Board clear for law lane; order holds; no build. |
 | `20261010.170240` | [Petrichor, gate held, no build](20261010/20261010-170240_petrichor-gate-held-no-build.kyri) | No fruit, no lane red; consent and seam gates shut; no build. |
 | `20261010.170204` | [Grass, fold.rye head graded B, no edit](20261010/20261010-170204_grass-fold-head-graded.kyri) | Counted B; service judged; no build. |
