@@ -15,8 +15,10 @@ say "dep-crawl: Language EN — bounded dependency closure."
 say "dep-crawl: Style Radiant — report the closure; refuse to guess past a bound."
 say "dep-crawl: Lens TAME — two bounds named up front; status before pipe."
 
-assert length args != 0 else "dep-crawl: name a root file"
-let root = args[0]
+# The roster runs this witness with no arguments, so the root defaults to the
+# standing fixture the negative sibling also closes; a hand may name another root.
+let root = "brushstroke/east_pack_test.rye"
+if length args != 0 then let root = args[0]
 
 let have = run ["test" "-f" root]
 assert have.ok else "dep-crawl: root file absent"
