@@ -18,7 +18,7 @@ obs tau-b +0.56 above the line, null check zero, falsifier did not fire
 obs the script's printed majority_note line is hardcoded and undercounts; the paper names it
 loom witness=ten_det_colmajor_16 wall_ms=unmeasured records=288 seeds=24 sets=16
 rota none -- research lap on the inner prompt, no council row read this lap
-file active-designing/date/20261010/20261010-193827_the-ten-family-ordering-reads-above-the-line-on-the-ninth-base.md the paper for base 20261018
+file active-designing/date/20261010/20261010-193807_the-ten-family-ordering-reads-above-the-line-on-the-ninth-base.md the paper for base 20261018
 file session-output/diffuser-stencil-r3/run_r3_ninth_ten_det_colmajor_16.py scratch script, untracked
 scope one scratch reading and one paper; no roster pass, no claim board entry
 status GREEN for the reading (null check zero, falsifier stamped first); the baton's cold and hot endurance runs were NOT run this lap
