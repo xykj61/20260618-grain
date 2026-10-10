@@ -13,6 +13,7 @@
 | `20261010.171625` | [Grass, queue empty, fourth repeat, no build](20261010/20261010-171625_grass-queue-empty-fourth-repeat-no-build.kyri) | foundations/README.md graded A-range; no page below B; check-in asked. |
 | `20261010.171030` | [Grass, queue empty, third repeat, no build](20261010/20261010-171030_grass-queue-empty-third-repeat-no-build.kyri) | Third identical grade today; queue empty; check-in asked. |
 | `20261010.171500` | [Patchouli, queue empty, seventeenth](20261010/20261010-171500_patchouli-queue-empty-seventeenth-no-build.kyri) | Fresh net finds nothing in mantra/ or tally/; no build. |
+| `20261010.171601` | [Pheromone, queue empty third time, no build](20261010/20261010-171601_pheromone-queue-empty-third-no-build.kyri) | Language lane still closed; nib carried to fa7ae3bdc3. |
 | `20261010.170657` | [Pheromone, queue empty again, no build](20261010/20261010-170657_pheromone-queue-empty-second-no-build.kyri) | Language lane still closed; nib carried to d40903e4df. |
 | `20261010.170823` | [Grass, grass-inner regraded at Field, no edit](20261010/20261010-170823_grass-inner-regraded-field-no-edit.kyri) | Repeat reading; register 77, reach 90, truth 100 counted; no build. |
 | `20261010.171039` | [Petrichor, queue empty, fast-forward, no build](20261010/20261010-171039_petrichor-queue-empty-fast-forward-no-build.kyri) | Ff to eac8cacfa2; no docs-geode byte; no build. |
