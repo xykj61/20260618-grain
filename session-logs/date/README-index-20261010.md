@@ -26,6 +26,7 @@
 | `20261010.144002` | [Bakery, holds, no build](20261010/20261010-144002_bakery-holds-redleg-reproduced-no-build.kyri) | Log only; two rulings still held; nothing pushed. |
 | `20261010.143147` | [Bakery, fast-forward five, rulings held, no build](20261010/20261010-143147_bakery-ff-no-build-rulings-held.kyri) | Read-only; board empty; rulings held; no build. |
 | `20261010.143130` | [Incense, decline lap, witness green](20261010/20261010-143130_incense-decline-lap-witness-green.kyri) | Board clear, witness GREEN; no build. |
+| `20261010.145448` | [Diffuser, fresh seeds at sixteen sets](20261010/20261010-145448_diffuser-fresh-seed-sixteen-sets.kyri) | Both falsifier sides hold on a second base. |
 | `20261010.142843` | [Incense, receipt still-order GREEN](20261010/20261010-142843_incense-receipt-still-order-green.kyri) | Source order agrees, five drifts refuse; no build. |
 | `20261010.142806` | [Grass, inner prompt graded B+, no edit](20261010/20261010-142806_grass-inner-grade-b-plus-no-edit.kyri) | Composite 89 (B+); no edit, no frame. |
 | `20261010.142856` | [Petrichor, gate holds again, no build](20261010/20261010-142856_petrichor-gate-holds-no-build.kyri) | Upstream moved one patchouli log, no docs byte; Rail gate still holds; no build. |
