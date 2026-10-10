@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.185622` | [Grass, inner regrade repeat, no build](20261010/20261010-185622_grass-inner-regrade-repeat-no-build.kyri) | Repeat of 183843 on the same page; B+, no edit, no build. |
 | `20261010.185508` | [Patchouli, kumara red held](20261010/20261010-185508_patchouli-kumara-red-held-at-bound.kyri) | kumara fix GREEN; red unbooked, REDS pin at 65532 of 65536; no build. |
 | `20261010.185256` | [Petrichor, gate held](20261010/20261010-185256_petrichor-gate-held-no-build.kyri) | ff to eada37d61d; Consent Rail held; no build. |
 | `20261010.185145` | [Copal, sunn14 still red, no claim](20261010/20261010-185145_copal-sunn14-still-red-no-claim.kyri) | re-run: sunn14 RED on SUNN drift (REDS %837); no claim, no roster. |
