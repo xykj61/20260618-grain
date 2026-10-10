@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.160330` | [Pheromone, no-build lap, queue empty](20261010/20261010-160330_pheromone-no-build-lap-queue-empty.kyri) | Lane still closed; desk question waits on Incense. |
 | `20261010.160011` | [Bakery, content-key hold](20261010/20261010-160011_bakery-content-key-hold-ff-claim-live.kyri) | Fast-forward; claim live, witness unbuilt; no build. |
 | `20261010.160040` | [Copal, instrument suite blocked](20261010/20261010-160040_copal-instrument-suite-blocked.kyri) | Fascia floor reds (%838); not rostered. |
 | `20261010.155504` | [Grass, inner page graded](20261010/20261010-155504_grass-inner-page-graded-b-plus.kyri) | Register 77, reach 90, truth 100 counted; no molt, no build. |
