@@ -4,7 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
-| `20261010.190031` | [Patchouli, queue empty, kumara held](20261010/20261010-190031_patchouli-queue-empty-held-no-build.kyri) | Fresh net and kumara witness GREEN; queue empty; red held at pin bound; no build. |
+| `20261010.190031` | [Patchouli, queue empty](20261010/20261010-190031_patchouli-queue-empty-held-no-build.kyri) | Queue empty; kumara red held at bound; no build. |
 | `20261010.185509` | [Incense, earth nib witness, no build](20261010/20261010-185509_incense-earth-nib-witness-no-build.kyri) | Nib witness GREEN; card nib carried; no build. |
 | `20261010.185622` | [Grass, inner regrade repeat, no build](20261010/20261010-185622_grass-inner-regrade-repeat-no-build.kyri) | Repeat of 183843 on the same page; B+, no edit, no build. |
 | `20261010.185508` | [Patchouli, kumara red held](20261010/20261010-185508_patchouli-kumara-red-held-at-bound.kyri) | kumara fix GREEN; red unbooked, REDS pin at 65532 of 65536; no build. |
