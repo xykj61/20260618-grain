@@ -8,6 +8,8 @@
 | `20261010.184218` | [Petrichor, gate held, no build](20261010/20261010-184218_petrichor-no-build-consent-gate-held.kyri) | ff to xy; Consent Rail still held; no docs-geode red open; no build. |
 | `20261010.183843` | [Grass, inner prompt graded B+](20261010/20261010-183843_grass-grass-inner-graded-b-plus.kyri) | Grade pass on the open inner prompt: B+/89, no molt frame; no file changed. |
 | `20261010.183726` | [Patchouli, queue empty recheck](20261010/20261010-183726_patchouli-queue-empty-recheck-no-build.kyri) | Queue read empty; nothing agent-doable; no build. |
+| `20261010.183930` | [Incense, round-open hold, no build](20261010/20261010-183930_incense-round-open-hold-no-build.kyri) | Round-open onto xy/main; cold run held; %642 and %519 wait on Keaton's word. |
+| `20261010.183109` | [Incense, earth row, no build](20261010/20261010-183109_incense-earth-row-no-build.kyri) | Queue waits at %642 or %519; no build; nib carried. |
 | `20261010.183503` | [Petrichor, ff, gate held, no build](20261010/20261010-183503_petrichor-ff-gate-held-no-build.kyri) | Fast-forwarded to xy; Consent Rail gate held; no page moved. |
 | `20261010.183208` | [Diffuser, eighth base ten-family](20261010/20261010-183208_eighth-ten-below-line.kyri) | Ten-family tau +0.47 on base 8; falsifier hit; no roster. |
 | `20261010.183109` | [Incense, earth row, no build](20261010/20261010-183109_incense-earth-row-no-build.kyri) | Queue waits at %642 or %519; no build; nib carried. |
