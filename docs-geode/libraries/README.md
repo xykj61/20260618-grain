@@ -62,7 +62,7 @@ find tools -name '*_witness.rish' | tr '\n' '\0' | xargs -0 grep -l 'rishi/' | w
 | [`scribe/`](../../scribe/README.md) | 2 | 4 |
 | [`settlement/`](../../settlement/README.md) | 2 | 4 |
 | [`sundial/`](../../sundial/README.md) | 1 | 1 |
-| [`tally/`](../../tally/README.md) | 17 | 35 |
+| [`tally/`](../../tally/README.md) | 16 | 34 |
 | [`vault/`](../../vault/README.md) | 1 | 2 |
 
 ---
