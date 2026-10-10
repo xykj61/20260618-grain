@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.164613` | [Bakery, receipt-key still held after fast-forward](20261010/20261010-164613_bakery-receipt-key-held-ff-no-build.kyri) | Ruling held; fast-forward only; no build. |
 | `20261010.164515` | [Petrichor, queue empty, no build](20261010/20261010-164515_petrichor-queue-empty-upstream-peer-log-no-build.kyri) | Gate held; no build. |
 | `20261010.164143` | [Patchouli, kumara red unbooked, queue empty](20261010/20261010-164143_patchouli-kumara-red-unbooked-queue-empty.kyri) | Queue empty; red waits on REDS room; no build. |
 | `20261010.164037` | [Petrichor, inner prompt read, upstream logs only, no build](20261010/20261010-164037_petrichor-no-build-upstream-logs-only.kyri) | Two peer log commits ahead; Consent Rail gate unchanged; no build. |
