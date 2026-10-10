@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.155146` | [Grass, two foundations graded A](20261010/20261010-155146_grass-foundations-graded-both-a.kyri) | QA card read-only on two foundations pages, both A; no molt, no build. |
 | `20261010.155054` | [Incense, receipt contract reviewed](20261010/20261010-155054_incense-reviews-receipt-contract.kyri) | Four cited witnesses GREEN; additive review line; grade A. |
 | `20261010.154849` | [Copal, no witness rostered](20261010/20261010-154849_copal-no-unrostered-witness-rostered.kyri) | Both unrostered witnesses red on OPEN reds; no build. |
 | `20261010.154628` | [Grass, Virgo round, nib red carried](20261010/20261010-154628_grass-virgo-nib-red-carried.kyri) | Nib witness RED on a peer commit; carried to HEAD, GREEN; no molt, no build. |
