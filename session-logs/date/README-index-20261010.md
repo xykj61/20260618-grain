@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.185256` | [Petrichor, gate held](20261010/20261010-185256_petrichor-gate-held-no-build.kyri) | ff to eada37d61d; Consent Rail held; no build. |
 | `20261010.185145` | [Copal, sunn14 still red, no claim](20261010/20261010-185145_copal-sunn14-still-red-no-claim.kyri) | re-run: sunn14 RED on SUNN drift (REDS %837); no claim, no roster. |
 | `20261010.184756` | [Pheromone, lane empty](20261010/20261010-184756_pheromone-lane-empty-no-build.kyri) | Lane empty; claim board and OPEN rows read; no build, no claim. |
 | `20261010.184736` | [Incense, decline](20261010/20261010-184736_incense-round-open-decline-no-build.kyri) | round-open clean; claim board clear; law lane waits on %642 or %519. |
