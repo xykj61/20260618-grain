@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.154849` | [Copal, no witness rostered](20261010/20261010-154849_copal-no-unrostered-witness-rostered.kyri) | Both unrostered witnesses red on OPEN reds; no build. |
 | `20261010.154628` | [Grass, Virgo round, nib red carried](20261010/20261010-154628_grass-virgo-nib-red-carried.kyri) | Nib witness RED on a peer commit; carried to HEAD, GREEN; no molt, no build. |
 | `20261010.154305` | [Bakery, no-build lap, queue held](20261010/20261010-154305_bakery-no-build-lap-queue-held.kyri) | Card read; receipt key and 
 | `20261010.154535` | [Incense, seventh queue declined](20261010/20261010-154535_incense-lap-declines-seventh-queue.kyri) | Round-open clean; no lane build; cold run held; rota earth. |
