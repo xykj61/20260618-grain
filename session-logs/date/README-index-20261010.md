@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.190532` | [Grass, four rule pages graded, no frame](20261010/20261010-190532_grass-rule-pages-graded-no-frame.kyri) | Four small rule pages read A+ to B+; no build. |
 | `20261010.190327` | [Pheromone, repeat hold](20261010/20261010-190327_pheromone-lane-held-repeat-no-build.kyri) | Held on Incense's ruling; no build. |
 | `20261010.190320` | [Petrichor, gate held after fast-forward](20261010/20261010-190320_petrichor-gate-held-fetch-no-build.kyri) | Fast-forward to d22518d11f; gate still held; no build. |
 | `20261010.190245` | [Patchouli, queue empty again](20261010/20261010-190245_patchouli-queue-empty-repeat-no-build.kyri) | Fresh scan agrees; no build. |
