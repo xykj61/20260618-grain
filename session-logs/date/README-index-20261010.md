@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261010.194554` | [Incense, round-open held on ruling](20261010/20261010-194554_incense-round-open-held-on-ruling.kyri) | Round-open adopted the anointed order; queue awaits rulings; no build, no cold run. |
+| `20261010.194549` | [Patchouli, queue empty, fifteenth sweep](20261010/20261010-194549_patchouli-queue-empty-fifteenth.kyri) | Queue empty; two fresh nets clean; no build. |
 | `20261010.194508` | [Petrichor, consent gate held](20261010/20261010-194508_petrichor-consent-gate-held-no-build.kyri) | Consent gate still holds; pin link re-read; no build. |
 | `20261010.194324` | [Copal, fruit still blocked on sunn14](20261010/20261010-194324_copal-sunn14-still-held.kyri) | Only unrostered witness still held on %837; no claim; no build. |
 | `20261010.194115` | [Patchouli, queue empty again](20261010/20261010-194115_patchouli-queue-empty-again.kyri) | Queue empty; kumara red held at the pin bound; no build. |
