@@ -12,6 +12,7 @@
 | `20261010.194324` | [Copal, fruit still blocked on sunn14](20261010/20261010-194324_copal-sunn14-still-held.kyri) | Only unrostered witness still held on %837; no claim; no build. |
 | `20261010.194115` | [Patchouli, queue empty again](20261010/20261010-194115_patchouli-queue-empty-again.kyri) | Queue empty; kumara red held at the pin bound; no build. |
 | `20261010.193906` | [Bakery, content-key survey, held](20261010/20261010-193906_bakery-content-key-survey-held.kyri) | Claim closed; cross-checkout seam needs a ruling. |
+| `20261010.194831` | [Pheromone, queue empty, nib carried](20261010/20261010-194831_pheromone-queue-empty-no-build.kyri) | Queue empty; claim board read; no build; git nib carried. |
 | `20261010.193716` | [Petrichor, link resolution held](20261010/20261010-193716_petrichor-link-resolve-held.kyri) | 326 docs-geode links, 0 broken; consent gate held. |
 | `20261010.193735` | [Copal, fruit blocked on sunn ruling](20261010/20261010-193735_copal-fruit-blocked-on-sunn-ruling.kyri) | Only unrostered witness held on %837; no claim; no build. |
 | `20261010.193534` | [Grass, rule pages and inner prompt graded](20261010/20261010-193534_grass-rule-pages-and-inner-graded.kyri) | Five pages read B or better; no edit; no molt. |
