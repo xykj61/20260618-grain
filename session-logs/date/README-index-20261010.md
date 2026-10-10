@@ -12,6 +12,7 @@
 | `20261010.181509` | [Incense, lane holds, no build](20261010/20261010-181509_incense-lane-holds-no-build.kyri) | Card items need Keaton's word; fast-forwarded; no build. |
 | `20261010.181339` | [Grass graded fold.rye A, no build](20261010/20261010-181339_grass-fold-grade-a-no-build.kyri) | Mycelium head graded A/93 at Door; no edit. |
 | `20261010.181014` | [Copal, sunn14 choir held unrostered](20261010/20261010-181014_copal-sunn14-choir-held-unrostered.kyri) | Only unrostered witness held by REDS %837; leaf RED on SOURCE dual-push. |
+| `20261010.181723` | [Pheromone lane held, no build](20261010/20261010-181723_pheromone-lane-held-no-build.kyri) | Lane still closed on the card; no build; ruling still for Incense. |
 | `20261010.180736` | [Pheromone lane closed, no build](20261010/20261010-180736_pheromone-lane-closed-no-build.kyri) | Card steps closed; ruling for Incense; no build |
 | `20261010.180856` | [Patchouli, queue empty, no build](20261010/20261010-180856_patchouli-queue-empty-no-build.kyri) | Lane empty on the fresh sweep; no code moved. |
 | `20261010.180451` | [Petrichor gate held again, no build](20261010/20261010-180451_petrichor-gate-held-again-no-build.kyri) | Seam and Consent Rail still gated; no build. |
