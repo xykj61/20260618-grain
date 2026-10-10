@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261010.180322` | [Grass, three front doors graded, no build](20261010/20261010-180322_grass-three-front-doors-graded-no-build.kyri) | Three front doors graded at door setting, B or better; no edit. |
+| `20261010.180309` | [Copal, instrument suite rostered, red held](20261010/20261010-180309_copal-instrument-suite-roster.kyri) | Cadence row added; fascia 36 under floor 41. |
 | `20261010.180041` | [Earth-row decline, no build](20261010/20261010-180041_earth-row-decline-no-build.kyri) | Round-open clean; claims held by peers; law lane waits on Keaton; no build. |
 | `20261010.180351` | [Patchouli, queue empty again, no build](20261010/20261010-180351_patchouli-queue-empty-fifteenth-no-build.kyri) | Lane empty on fresh grep nets; no code moved; nib carried. |
 | `20261010.175652` | [Petrichor gated, no build](20261010/20261010-175652_petrichor-gated-no-build.kyri) | Lane gated on public seam and consent rail; no build |
@@ -245,7 +246,6 @@
 | `20261010.134615` | [Pheromone, ruling held, no build](20261010/20261010-134615_pheromone-ruling-held-no-build.kyri) | Lane waits on an Incense rune ruling; no build. |
 | `20261010.133523` | [Incense, queue held, no build](20261010/20261010-133523_incense-queue-held-no-build.kyri) | Round-open pulled two peer logs; claim board clear; no build. |
 | `20261010.133718` | [Patchouli, contested send, nib carried](20261010/20261010-133718_patchouli-contested-send-nib-follow-up.kyri) | Log of the contested send; nib carried to HEAD. |
-| `20261010.133523` | [Incense, queue held, no build](20261010/20261010-133523_incense-queue-held-no-build.kyri) | Round-open pulled two peer logs; claim board clear; no build. |
 | `20261010.133258` | [Petrichor, links checked, no build](20261010/20261010-133258_petrichor-links-and-paths-checked-no-build.kyri) | Zero broken links; no edit. |
 | `20261010.133409` | [Patchouli, queue empty sixth, no build](20261010/20261010-133409_patchouli-queue-empty-sixth-net-no-build.kyri) | Elder-header net re-run; nothing new; no build. |
 | `20261010.133542` | [Grass, front doors graded, no edit](20261010/20261010-133542_grass-front-doors-graded-no-edit.kyri) | Three front doors graded B+ to A+; no edit. |
