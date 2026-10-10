@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.164847` | [Patchouli, queue empty, kumara red held on pin headroom](20261010/20261010-164847_patchouli-queue-empty-red-held-pin-headroom.kyri) | Queue empty; REDS 840 held (pin 4 bytes under bound); no build. |
 | `20261010.164613` | [Bakery, receipt-key still held after fast-forward](20261010/20261010-164613_bakery-receipt-key-held-ff-no-build.kyri) | Ruling held; fast-forward only; no build. |
 | `20261010.164515` | [Petrichor, queue empty, no build](20261010/20261010-164515_petrichor-queue-empty-upstream-peer-log-no-build.kyri) | Gate held; no build. |
 | `20261010.164143` | [Patchouli, kumara red unbooked, queue empty](20261010/20261010-164143_patchouli-kumara-red-unbooked-queue-empty.kyri) | Queue empty; red waits on REDS room; no build. |
