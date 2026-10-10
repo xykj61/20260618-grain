@@ -21,6 +21,7 @@
 | `20261010.153343` | [Grass, inner prompt B+, no lift](20261010/20261010-153343_grass-inner-prompt-graded-b-plus-no-lift.kyri) | Grades grass-inner at B+ (89); no molt owed; no build. |
 | `20261010.152857` | [Incense, queue declined fourth](20261010/20261010-152857_incense-queue-declined-fourth.kyri) | Round-open clean; no lane build; cold run held. |
 | `20261010.152759` | [Grass, foundations door graded A, no lift](20261010/20261010-152759_grass-foundations-door-graded-no-lift.kyri) | Grades foundations/README.md at A (91); no molt owed; no build. |
+| `20261010.155020` | [Diffuser, fourth seed base](20261010/20261010-155020_diffuser-fourth-seed-base-eleven-breaks-ten-holds.kyri) | Fourth base: eleven +0.53 misses; ten +0.82 holds. |
 | `20261010.152201` | [Patchouli, kumara sign unreachable](20261010/20261010-152201_patchouli-kumara-sign-unreachable-no-build.kyri) | Sign panic booked; seam ruling owed; no build. |
 | `20261010.152532` | [Grass, fold.rye graded A, no lift](20261010/20261010-152532_grass-fold-graded-a-no-lift.kyri) | Grades mycelium/fold.rye at A (93); queue empty; no lift; nib carried. |
 | `20261010.152115` | [Grass, docs-geode front door graded at Door](20261010/20261010-152115_grass-docs-geode-front-door-graded-no-build.kyri) | Grades the docs-geode front door at Door; no molt owed; no build. |
