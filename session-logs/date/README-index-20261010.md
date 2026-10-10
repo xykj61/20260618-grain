@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.164143` | [Patchouli, kumara red unbooked, queue empty](20261010/20261010-164143_patchouli-kumara-red-unbooked-queue-empty.kyri) | Queue empty; red waits on REDS room; no build. |
 | `20261010.164037` | [Petrichor, inner prompt read, upstream logs only, no build](20261010/20261010-164037_petrichor-no-build-upstream-logs-only.kyri) | Two peer log commits ahead; Consent Rail gate unchanged; no build. |
 | `20261010.163533` | [Petrichor, docs-geode decline, no build](20261010/20261010-163533_petrichor-docs-geode-decline-no-build.kyri) | Lane gate held on Diffuser's Consent Rail; no build; nib carried. |
 | `20261010.163826` | [Patchouli, queue empty again, no build](20261010/20261010-163826_patchouli-queue-empty-no-build.kyri) | Queue empty; no build; nib untouched. |
