@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261010.151211` | [Incense, queue declined](20261010/20261010-151211_incense-queue-declined-no-build.kyri) | Round-open clean; no agent-doable fruit; no build; nib carried. |
 | `20261010.151510` | [Grass, inner page graded at Field, no build](20261010/20261010-151510_grass-door-regraded-field-no-build.kyri) | Grades the open inner prompt at Field; no molt owed; no build. |
+| `20261010.151731` | [Patchouli, queue empty again](20261010/20261010-151731_patchouli-queue-empty-repeat-no-build.kyri) | Repeat header net over mantra/ and tally/; still empty; no build. |
 | `20261010.150954` | [Bakery, content-keyed claim](20261010/20261010-150954_bakery-claim-content-keyed-compile.kyri) | Claims Rishi content-keyed compile; check in on the cache key. |
 | `20261010.150830` | [Petrichor, queue quiet, no build](20261010/20261010-150830_petrichor-queue-quiet-no-build.kyri) | Fruit landed; no booked row; read only. |
 | `20261010.150653` | [Grass, queue empty re-read, no build](20261010/20261010-150653_grass-queue-empty-regraded-no-build.kyri) | Eleven mycelium heads regraded, all B or better; no edit. |
