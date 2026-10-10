@@ -388,10 +388,11 @@ returns `(IdentityElementError || NonCanonicalError || KeyMismatchError || WeakP
 key, reaches the `unreachable`, which in a safe build would panic the process. `sign`'s callers sit in `amphora/`,
 `aurora/`, and `comlink/`, outside this lane, and changing its return type to an error union
 crosses a module seam, so this lap books the finding and builds nothing. **Re-read the call before
-quoting it:** the reproduction is not yet run on metal, and the figure is free. The next step is a
-witness that signs with a deliberately mismatched `KeyPair` and proves the refusal, then a
-check-in on the seam. The REDS row waits for that ruling, since its number comes from the anointed
-spine at booking time (`sh tools/fixtures/r/reds_spine_derive_scan.sh --next`, read `840` on
+quoting it:** the reproduction ran on metal in `.lap/kumara_probe` and printed `panic: attempt to
+unwrap error: KeyMismatch`, exit 134. The additive `sign_checked` door and `tools/t/tally_kumara_refusal_witness.rish`
+read GREEN on `20261010.152627`. The red is owed a **REDS** row, not yet booked: the ledger pin stood at its byte bound, so the three-field row waits in the session log for headroom, and it stays OPEN until the seam
+ruling on the legacy `sign` (`amphora/`, `aurora/`, `comlink/` callers). The REDS number came from
+the anointed spine at booking time (`sh tools/fixtures/r/reds_spine_derive_scan.sh --next`, read `840` on
 `20261010.152007`). `%807` and `%765` are unchanged.
 
 ## gates
