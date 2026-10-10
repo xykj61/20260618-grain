@@ -8,6 +8,7 @@
 | `20261010.150830` | [Petrichor, queue quiet, no build](20261010/20261010-150830_petrichor-queue-quiet-no-build.kyri) | Fruit landed; no booked row; read only. |
 | `20261010.150653` | [Grass, queue empty re-read, no build](20261010/20261010-150653_grass-queue-empty-regraded-no-build.kyri) | Eleven mycelium heads regraded, all B or better; no edit. |
 | `20261010.150438` | [Copal, sunn14 choir held on red](20261010/20261010-150438_copal-sunn14-choir-held-on-existing-red.kyri) | Choir reds on REDS %837 thickness leg; claim closed; no roster row. |
+| `20261010.150921` | [Patchouli, queue empty, fresh class](20261010/20261010-150921_patchouli-queue-empty-fresh-class.kyri) | Fresh version-header net over mantra/ and tally/ finds only elder read-compat and fixtures; no build. |
 | `20261010.150142` | [Petrichor COMPASS Style line](20261010/20261010-150142_petrichor-compass-style-line-field.kyri) | COMPASS declares Field; grades A 90; one line, no body change. |
 | `20261010.145457` | [Petrichor grades](20261010/20261010-145457_petrichor-compressor-grades-no-repair.kyri) | docs/ pages at B or better; COMPASS lacks Style. |
 | `20261010.150223` | [Grass, docs regrade, no build](20261010/20261010-150223_grass-docs-shelf-regrade-overlap.kyri) | Three front doors A to A+; repeats 145754; no edit. |
