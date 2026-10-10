@@ -2,6 +2,7 @@
 
 *Compresses the foundations reading order and Cursor loop vocabulary for an Acme Corporation employee or agent cold start. Never replaces the raw shelf.*
 
+**Style:** Gauge, Field setting (see [`../context/GAUGE_STYLE.md`](../context/GAUGE_STYLE.md))
 **Status:** Checkable -- operator compressor
 **Molted:** `20260827.173952` -- in place, under checkpoint `3a606a8ac9` (26 inbound references keep the path)
 **Kin:** [`../context/GAUGE_STYLE.md`](../context/GAUGE_STYLE.md) (rose step 7) - [`../foundations/20260826-024943_follow-our-compass.md`](../foundations/20260826-024943_follow-our-compass.md) (the walk this compresses) - [`STOA.md`](STOA.md) - home is [`../README.md`](../README.md)
