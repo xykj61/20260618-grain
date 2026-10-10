@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.164037` | [Petrichor, inner prompt read, upstream logs only, no build](20261010/20261010-164037_petrichor-no-build-upstream-logs-only.kyri) | Two peer log commits ahead; Consent Rail gate unchanged; no build. |
 | `20261010.163533` | [Petrichor, docs-geode decline, no build](20261010/20261010-163533_petrichor-docs-geode-decline-no-build.kyri) | Lane gate held on Diffuser's Consent Rail; no build; nib carried. |
 | `20261010.163826` | [Patchouli, queue empty again, no build](20261010/20261010-163826_patchouli-queue-empty-no-build.kyri) | Queue empty; no build; nib untouched. |
 | `20261010.163604` | [Grass, fire row, foundations front door, no build](20261010/20261010-163604_grass-foundations-front-door-graded-no-build.kyri) | Door reads A (91); no molt, no build. |
