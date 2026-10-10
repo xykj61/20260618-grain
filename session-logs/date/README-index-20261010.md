@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.193716` | [Petrichor, link resolution held](20261010/20261010-193716_petrichor-link-resolve-held.kyri) | 326 docs-geode links, 0 broken; consent gate held. |
 | `20261010.193735` | [Copal, fruit blocked on sunn ruling](20261010/20261010-193735_copal-fruit-blocked-on-sunn-ruling.kyri) | Only unrostered witness held on %837; no claim; no build. |
 | `20261010.193209` | [Copal, sunn14 claim closed, held](20261010/20261010-193209_copal-sunn14-claim-closed-held.kyri) | Claim opened, then closed; sunn14 held on %837; no roster row. |
 | `20261010.193654` | [Patchouli, queue empty again](20261010/20261010-193654_patchouli-queue-empty-sixteenth-kumara-red-held.kyri) | Queue empty; kumara red held; no build. |
