@@ -4,8 +4,9 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
-| `20261010.165807` | [Patchouli, queue empty, kumara red still unbooked on pin headroom](20261010/20261010-165807_patchouli-queue-empty-kumara-red-unbooked.kyri) | Queue empty; REDS kumara row held on pin headroom; no build. |
 | `20261010.165942` | [Grass, foundations sample graded, no build](20261010/20261010-165942_grass-foundations-grade-three-no-build.kyri) | Three foundation pages graded B+ or better; no edit; no build. |
+| `20261010.165851` | [Petrichor, gate held, no build](20261010/20261010-165851_petrichor-ff-gate-held-no-build.kyri) | Fast-forward; no docs-geode byte; gate held. |
+| `20261010.165807` | [Patchouli, queue empty, kumara red still unbooked on pin headroom](20261010/20261010-165807_patchouli-queue-empty-kumara-red-unbooked.kyri) | Queue empty; REDS kumara row held on pin headroom; no build. |
 | `20261010.165710` | [Incense, hold on the day shelf, no build](20261010/20261010-165710_incense-hold-day-1093-no-build.kyri) | Round-open clean on f820f73dc7; one peer claim live; cold run held; no build. |
 | `20261010.165457` | [Grass, grass-inner graded B+, no build](20261010/20261010-165457_grass-grass-inner-graded-b-plus-no-build.kyri) | Queue empty; grass-inner B+ 89; no edit. |
 | `20261010.165438` | [Patchouli, queue empty for the fifteenth time, no build](20261010/20261010-165438_patchouli-queue-empty-fifteenth-no-build.kyri) | Queue empty; no build. |
