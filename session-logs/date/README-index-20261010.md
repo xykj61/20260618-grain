@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.180451` | [Petrichor gate held again, no build](20261010/20261010-180451_petrichor-gate-held-again-no-build.kyri) | Seam and Consent Rail still gated; no build. |
 | `20261010.180322` | [Grass, three front doors graded, no build](20261010/20261010-180322_grass-three-front-doors-graded-no-build.kyri) | Three front doors graded at door setting, B or better; no edit. |
 | `20261010.180309` | [Copal, instrument suite rostered, red held](20261010/20261010-180309_copal-instrument-suite-roster.kyri) | Cadence row added; fascia 36 under floor 41. |
 | `20261010.180041` | [Earth-row decline, no build](20261010/20261010-180041_earth-row-decline-no-build.kyri) | Round-open clean; claims held by peers; law lane waits on Keaton; no build. |
