@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.185733` | [Copal, sunn14 red held, no claim](20261010/20261010-185733_copal-sunn14-red-held-no-claim-again.kyri) | re-run: sunn14 still RED on SOURCE.md (REDS %837); blocked on SUNN; no roster. |
 | `20261010.185757` | [Petrichor, gate held again](20261010/20261010-185757_petrichor-gate-held-repeat-no-build.kyri) | repeat of 185256; no fetch change; no build. |
 | `20261010.190031` | [Patchouli, queue empty](20261010/20261010-190031_patchouli-queue-empty-held-no-build.kyri) | Queue empty; kumara red held at bound; no build. |
 | `20261010.185509` | [Incense, earth nib witness, no build](20261010/20261010-185509_incense-earth-nib-witness-no-build.kyri) | Nib witness GREEN; card nib carried; no build. |
