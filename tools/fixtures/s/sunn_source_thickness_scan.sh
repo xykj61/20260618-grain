@@ -58,7 +58,7 @@ check() {
 # in the roster ran the witness that drives this scan.
 check "grain-os/grain" "public clone route"
 check "standing writing voice is **Kyri**" "kyri writing"
-check "dual-push" "dual-push"
+check "Living push is \`xy\` alone" "living push xy alone"
 check "**Waymark:** **SUNN**" "sunn waymark"
 check "fifth OS variant" "quin os hat"
 check "Q-vane" "q-vane"

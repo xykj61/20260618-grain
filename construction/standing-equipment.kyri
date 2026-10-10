@@ -10225,3 +10225,15 @@ guard instrument_suite
 path tools/gen/chapter/instrument_suite_witness.rish
 tier cadence
 seated 20261010.175308
+
+# sunn14_witness_choir -- the SUNN14 choir: nine leaf witnesses sung as limbs, the voice roster, and
+# the SOURCE thickness check, with the thin-stub refusal and the census stamp. It was the one chapter
+# witness with no roster row (claim copal-sunn14-choir-roster). Runs in under a second on this pier,
+# so it stands on the lap tier. Both sides proven on a planted copy: a missing limb path reds
+# "sunn13 limb RED", and a missing GREEN line reds "sunn13 missing GREEN". Repair in the same lap:
+# the SOURCE thickness scan's check read the retired phrase "dual-push" after 501a18eba3 made xy the
+# only living push; it now reads "Living push is `xy` alone".
+guard sunn14_witness_choir
+path tools/gen/chapter/sunn14_witness_choir.rish
+tier lap
+seated 20261010.194804
