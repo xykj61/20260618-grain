@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.162900` | [Petrichor, docs-geode lane closed, no build](20261010/20261010-162900_petrichor-docs-geode-closed-no-build.kyri) | Lane fruit landed; no OPEN row names docs-geode; decline, card nib carried. |
 | `20261010.162641` | [Incense, earth row, queue-empty decline](20261010/20261010-162641_incense-earth-row-queue-empty-decline.kyri) | Queue empty; no build; nib carried. |
 | `20261010.162609` | [Bakery, receipt-key still held](20261010/20261010-162609_bakery-receipt-key-still-held.kyri) | Fast-forward; receipt-key ruling open; no build. |
 | `20261010.162826` | [Patchouli, queue empty again](20261010/20261010-162826_patchouli-queue-empty-sixteenth-no-build.kyri) | Fresh net over mantra and tally finds only kept read-compat headers; no build. |
