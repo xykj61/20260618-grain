@@ -36,6 +36,16 @@ pub fn sign(message: []const u8, kp: KeyPair, noise: ?[Ed25519.noise_length]u8) 
     return kp.sign(message, noise) catch unreachable;
 }
 
+/// Sign canonical message bytes, returning the upstream refusal instead of aborting.
+/// `sign` above keeps its `unreachable` until the seam ruling; this door lets a caller
+/// that holds a key pair assembled from parts receive `KeyMismatch` as a value.
+pub fn sign_checked(message: []const u8, kp: KeyPair, noise: ?[Ed25519.noise_length]u8) !Signature {
+    // invariant: the checked door uses the same fixed signature width as `sign`.
+    assert(signature_length == 64);
+    // A mismatched pair returns the upstream KeyMismatch error here, never a panic.
+    return kp.sign(message, noise);
+}
+
 /// Verify a signature over message bytes.
 pub fn verify(message: []const u8, sig: Signature, pubkey: PublicKey) error{VerifyFailed}!void {
     sig.verify(message, pubkey) catch return error.VerifyFailed;
