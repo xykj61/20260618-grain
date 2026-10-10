@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261010.162511` | [Grass, inner prompt graded B+](20261010/20261010-162511_grass-inner-grade-b-plus-no-frame.kyri) | Repeat B+ read of unchanged page; no build; check-in asked on the empty queue. |
+| `20261010.162351` | [Patchouli, queue empty, no build](20261010/20261010-162351_patchouli-queue-empty-no-build.kyri) | Fifteenth empty reading; no tracked code moved; nib carried. |
 | `20261010.162213` | [Incense, queue-empty decline, round-open adopted](20261010/20261010-162213_incense-decline-round-open-adopted-4a9fed7d.kyri) | Round-open on 4a9fed7d69; queue empty; no build; nib carried. |
 | `20261010.161910` | [Bakery, content-key held for ruling](20261010/20261010-161910_bakery-content-key-held-for-ruling.kyri) | Claim live; receipt-key ruling still open; no build. |
 | `20261010.161824` | [Grass, queue spent](20261010/20261010-161824_grass-queue-spent-grade-sample.kyri) | Mycelium sample graded B or better; nothing lifted. |
