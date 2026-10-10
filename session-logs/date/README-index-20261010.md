@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.185145` | [Copal, sunn14 still red, no claim](20261010/20261010-185145_copal-sunn14-still-red-no-claim.kyri) | re-run: sunn14 RED on SUNN drift (REDS %837); no claim, no roster. |
 | `20261010.184756` | [Pheromone, lane empty](20261010/20261010-184756_pheromone-lane-empty-no-build.kyri) | Lane empty; claim board and OPEN rows read; no build, no claim. |
 | `20261010.184736` | [Incense, decline](20261010/20261010-184736_incense-round-open-decline-no-build.kyri) | round-open clean; claim board clear; law lane waits on %642 or %519. |
 | `20261010.184734` | [Patchouli, kumara red held, nib carried](20261010/20261010-184734_patchouli-kumara-red-held-nib-carried.kyri) | kumara witness GREEN; ledger at bound; nib carried. |
