@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.173808` | [Patchouli, queue empty, no build](20261010/20261010-173808_patchouli-queue-empty-fresh-net-no-build.kyri) | Elder strings only; %840 waits on a ruling. |
 | `20261010.173506` | [Pheromone, queue empty, fifth, no build](20261010/20261010-173506_pheromone-queue-empty-fifth-no-build.kyri) | Queue empty; nib carried; no build. |
 | `20261010.173701` | [Petrichor, gate held after pull](20261010/20261010-173701_petrichor-gate-held-upstream-session-logs-only.kyri) | Peer logs only moved; no build. |
 | `20261010.173337` | [Patchouli, red %840 still blocked](20261010/20261010-173337_patchouli-red-840-still-blocked.kyri) | Pin 4 bytes under bound; no CLOSED row to fold; no build. |
