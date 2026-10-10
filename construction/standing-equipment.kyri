@@ -8446,6 +8446,18 @@ path tools/gen/chapter/dep_crawl_bounds_negative_witness.rish
 tier lap
 seated 20261001.184233
 
+# dep_crawl -- the positive half of the dep-crawl pair. It runs the closure over the root it is
+# handed through tools/fixtures/d/dep_crawl_scan.sh at the named defaults, maxn=256 and maxd=16,
+# and asserts verdict=ok, status agreement, and both bounds by name. The refusal half is
+# dep_crawl_bounds_negative above, which plants maxd=1 and maxn=2 and reads both refusals bite.
+# Proven on metal `20261010`: dep_crawl reads GREEN on its own root with nodes=1 depth=1, and a
+# copy with its asserted bound changed reads RED. Claimed as copal-dep-crawl-roster before this
+# entry landed.
+guard dep_crawl
+path tools/gen/chapter/dep_crawl.rish
+tier lap
+seated 20261010.182627
+
 # mantra_spool_dedup_ratio -- the spool-scale dedup ratio the fourth angle named and left
 # untouched. mantra/spool.rye winds a large artifact across resins split at a fixed, absolute
 # byte offset, beading each resin with fixed-size beading.bead alone -- it never calls
