@@ -4,19 +4,25 @@
 //! Chapter D (Kresfa & Mycelium) - Mycelium consensus - the Warrant - rung r1 -- the crux.
 //! Design read: active-designing/date/20260813/20260813-112420_mycelium-warrant-validator-set-rotation-exploration.md
 //!
-//! The Muster named WHICH nodes are the legitimate validators -- a bounded open roll with a Byzantine
-//! threshold read from its own size. Yet the roll is FROZEN: every validator set stays as first seated. Real
-//! fault-tolerant systems must retire a compromised node, admit a new one, or rotate a whole committee
-//! between epochs (TigerBeetle changes its view, Mysticeti reconfigures its committee) -- and each faces the
-//! same trap: WHO authorizes the new roll? If a fresh set of keys could simply declare itself the
-//! validators, the Muster's whole guarantee evaporates -- an attacker mints a roll of their own keys, calls
-//! it the committee, and a stranger sees a coup and a real succession wearing the same face.
+//! The Muster named WHICH nodes are the legitimate validators: a bounded open roll, with a Byzantine
+//! threshold read from its own size. Yet the roll is FROZEN. Every validator set stays as first seated.
 //!
-//! The Warrant fills that blind spot: a validator set rotates only when a QUORUM OF THE CURRENT ROLL
-//! certifies its successor. Authority is handed forward under signature, one link at a time. A new roll is
-//! believed on the strength of a Byzantine quorum of the OUTGOING validators, who sign the successor's
-//! content-address, rather than on its own word that it is the committee. The crux `verify_warrant(warrant, prev, next)` passes
-//! exactly when:
+//! Real fault-tolerant systems must change their rolls. They retire a compromised node, admit a new one,
+//! or rotate a whole committee between epochs. TigerBeetle changes its view, and Mysticeti reconfigures
+//! its committee. Each change faces the same trap: WHO authorizes the new roll?
+//!
+//! If a fresh set of keys could simply declare itself the validators, the Muster's guarantee would
+//! evaporate. An attacker mints a roll of their own keys and calls it the committee. A stranger then
+//! sees a coup, wearing the same face as a real succession.
+//!
+//! The Warrant fills that blind spot. A validator set rotates only when a QUORUM OF THE CURRENT ROLL
+//! certifies its successor. Authority is handed forward under signature, one link at a time.
+//!
+//! A new roll is believed on the strength of a Byzantine quorum of the OUTGOING validators. They sign
+//! the successor's content-address. The new roll does not earn belief from its own word that it is
+//! the committee.
+//!
+//! The crux is `verify_warrant(warrant, prev, next)`. It passes exactly when:
 //!   - the digests bind the two real rolls (prev_digest == roll_digest(prev), next_digest ==
 //!     roll_digest(next); else DigestMismatch -- a certificate stays bound to the rolls it signed);
 //!   - every endorser is an enrolled member of the PREVIOUS roll (else NotMember -- the CRUX: the successor's
