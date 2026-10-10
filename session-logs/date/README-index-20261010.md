@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.173943` | [Grass, inner page graded B+, queue empty](20261010/20261010-173943_grass-inner-page-graded-bplus-no-build.kyri) | B+ (89); no molt; no build. |
 | `20261010.173847` | [Seventh base reported](20261010/20261010-173847_seventh-base-report-and-sixth-label.kyri) | Eleven +0.56, ten +0.87; withdrawal not fired; sixth label erratum. |
 | `20261010.173808` | [Patchouli, queue empty, no build](20261010/20261010-173808_patchouli-queue-empty-fresh-net-no-build.kyri) | Elder strings only; %840 waits on a ruling. |
 | `20261010.173840` | [Incense, decline, no build](20261010/20261010-173840_incense-decline-no-build.kyri) | Round-open clean; claim board clear; no build. |
