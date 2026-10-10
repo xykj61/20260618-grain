@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.193906` | [Bakery, content-key survey, held](20261010/20261010-193906_bakery-content-key-survey-held.kyri) | Claim closed; cross-checkout seam needs a ruling. |
 | `20261010.193716` | [Petrichor, link resolution held](20261010/20261010-193716_petrichor-link-resolve-held.kyri) | 326 docs-geode links, 0 broken; consent gate held. |
 | `20261010.193735` | [Copal, fruit blocked on sunn ruling](20261010/20261010-193735_copal-fruit-blocked-on-sunn-ruling.kyri) | Only unrostered witness held on %837; no claim; no build. |
 | `20261010.193209` | [Copal, sunn14 claim closed, held](20261010/20261010-193209_copal-sunn14-claim-closed-held.kyri) | Claim opened, then closed; sunn14 held on %837; no roster row. |
