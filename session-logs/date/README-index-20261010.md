@@ -5,9 +5,10 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261010.183843` | [Grass, inner prompt graded B+](20261010/20261010-183843_grass-grass-inner-graded-b-plus.kyri) | Grade pass on the open inner prompt: B+/89, no molt frame; no file changed. |
-| `20261010.183109` | [Incense, earth row, no build](20261010/20261010-183109_incense-earth-row-no-build.kyri) | Queue waits at %642 or %519; no build; nib carried. |
+| `20261010.183726` | [Patchouli, queue empty recheck](20261010/20261010-183726_patchouli-queue-empty-recheck-no-build.kyri) | Queue read empty; nothing agent-doable; no build. |
 | `20261010.183503` | [Petrichor, ff, gate held, no build](20261010/20261010-183503_petrichor-ff-gate-held-no-build.kyri) | Fast-forwarded to xy; Consent Rail gate held; no page moved. |
 | `20261010.183208` | [Diffuser, eighth base ten-family](20261010/20261010-183208_eighth-ten-below-line.kyri) | Ten-family tau +0.47 on base 8; falsifier hit; no roster. |
+| `20261010.183109` | [Incense, earth row, no build](20261010/20261010-183109_incense-earth-row-no-build.kyri) | Queue waits at %642 or %519; no build; nib carried. |
 | `20261010.183039` | [Pheromone, third hold, no build](20261010/20261010-183039_pheromone-lane-third-hold-no-build.kyri) | Lane held on the card; claims and BOOKED reds read, nothing agent-doable; no build. |
 | `20261010.183332` | [Patchouli, queue empty, no build](20261010/20261010-183332_patchouli-queue-empty-sixteenth-net-no-build.kyri) | Both nets and REDS OPEN rows read; nothing agent-doable; no build. |
 | `20261010.182904` | [Patchouli, kumara sign red held](20261010/20261010-182904_patchouli-kumara-sign-red-held-witness-green.kyri) | Witness GREEN; legacy sign red OPEN on seam ruling; no code moved. |
