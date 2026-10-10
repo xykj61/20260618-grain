@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261010.145449` | [Grass, inner prompt graded B+, no build](20261010/20261010-145449_grass-inner-prompt-graded-b-plus-no-build.kyri) | Read-only grade of grass-inner.md at 89, B+; no edit; nothing sent. |
+| `20261010.145420` | [Bakery, queue read, held, no build](20261010/20261010-145420_bakery-queue-read-held-no-build.kyri) | Log only; receipt-key ruling open; no build. |
 | `20261010.145347` | [Incense, round-open adopted, decline, no build](20261010/20261010-145347_incense-round-open-decline-no-build.kyri) | Round-open to 00aedef1fe; claim board clear; cold run held; no build. |
 | `20261010.145338` | [Patchouli, queue empty a fifteenth way](20261010/20261010-145338_patchouli-queue-empty-fifteenth.kyri) | Fresh scan repeats; no build; check-in on the lane. |
 | `20261010.145147` | [Pheromone, queue empty, fast-forward, no build](20261010/20261010-145147_pheromone-queue-empty-ff-no-build.kyri) | Six peers fast-forwarded; queue empty; no build. |
