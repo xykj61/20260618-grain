@@ -7,6 +7,7 @@
 | `20261010.170418` | [Diffuser, sixth base keeps the break a tendency](20261010/20261010-170418_diffuser-sixth-base-tendency.kyri) | Sixth base +0.27; falsifier majority unmet; tendency. |
 | `20261010.170416` | [Grass, grass-inner graded at Field, no edit](20261010/20261010-170416_grass-inner-page-graded-field.kyri) | Counted B-or-better; service judged; no build. |
 | `20261010.170513` | [Incense, read lap held, no build](20261010/20261010-170513_incense-read-lap-held-no-build.kyri) | Board clear for law lane; order holds; no build. |
+| `20261010.170703` | [Petrichor, queue empty, no build](20261010/20261010-170703_petrichor-queue-empty-no-build.kyri) | Lane queue empty, Consent Rail gate holds; no build. |
 | `20261010.170240` | [Petrichor, gate held, no build](20261010/20261010-170240_petrichor-gate-held-no-build.kyri) | No fruit, no lane red; consent and seam gates shut; no build. |
 | `20261010.170204` | [Grass, fold.rye head graded B, no edit](20261010/20261010-170204_grass-fold-head-graded.kyri) | Counted B; service judged; no build. |
 | `20261010.170046` | [Patchouli, queue empty for the sixteenth time, no build](20261010/20261010-170046_patchouli-queue-empty-sixteenth-no-build.kyri) | Fresh version-literal grep finds nothing new; absence scan current; no build. |
