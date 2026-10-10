@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.152115` | [Grass, docs-geode front door graded at Door](20261010/20261010-152115_grass-docs-geode-front-door-graded-no-build.kyri) | Grades the docs-geode front door at Door; no molt owed; no build. |
 | `20261010.151958` | [Incense, queue declined again](20261010/20261010-151958_incense-queue-declined-repeat.kyri) | Upstream fast-forwarded one bakery commit; no build; nib carried. |
 | `20261010.151640` | [Bakery, content-key held](20261010/20261010-151640_bakery-content-key-held-no-build.kyri) | Claim held, no build; census path-independent. |
 | `20261010.151609` | [Copal, witnesses held on red](20261010/20261010-151609_copal-witnesses-held-on-red.kyri) | Two unrostered witnesses reproduce OPEN %837 %838; no claim. |
