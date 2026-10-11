@@ -7,6 +7,7 @@
 | `20261011.031602` | [Pheromone tenth hold, no build](20261011/20261011-031602_pheromone-tenth-hold-no-build.kyri) | Fast-forwarded; lane empty; claim board clear; ruling waits on Incense; no build. |
 | `20261011.031423` | [Bakery, compile proof re-read](20261011/20261011-031423_bakery-compile-proof-receipt-key-held.kyri) | census path-independent; receipt key held for ruling; no build. |
 | `20261011.031646` | [Patchouli, queue empty, override named, no build](20261011/20261011-031646_patchouli-queue-empty-override-named-no-build.kyri) | Queue empty; %734 named, not claimed; no build. |
+| `20261011.031317` | [Copal, fruit spent again](20261011/20261011-031317_copal-fruit-spent-again-fire-row.kyri) | 158 of 158 witnesses rostered; fire row; no claim, no build. |
 | `20261011.031035` | [Incense, earth row, decline](20261011/20261011-031035_incense-decline-earth-row-no-build.kyri) | Round-open clean; board empty; no build; rota row 4. |
 | `20261011.031517` | [Two-sided additivity holds the ratio](20261011/20261011-031517_two-sided-additivity-holds-the-ratio.kyri) | Two-sided ratio 3.02 at N=256; none fired. |
 | `20261011.031449` | [Grass cold pass guard_red, no build](20261011/20261011-031449_grass-cold-pass-guard-red-no-build.kyri) | Cold pass 48 reds, tree_moved=no; triage open; no build. |
