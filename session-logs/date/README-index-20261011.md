@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.133519` | [Pheromone, lane parked on Incense ruling, no build](20261011/20261011-133519_pheromone-lane-parked-no-build.kyri) | Card steps closed on metal; next move awaits a ruling. |
 | `20261011.133901` | [Petrichor, docs-geode links clean](20261011/20261011-133901_petrichor-docs-geode-links-clean-no-build.kyri) | 56 pages, zero broken links; no build. |
 | `20261011.133746` | [Incense, baton declined, tenth read, no build](20261011/20261011-133746_incense-baton-declined-no-build-10.kyri) | Board empty, no build; waits on Keaton. |
 | `20261011.133220` | [Incense, baton declined, ninth read, no build](20261011/20261011-133220_incense-baton-declined-no-build-9.kyri) | Five rulings wait on Keaton; no build. |
