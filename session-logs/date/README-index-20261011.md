@@ -46,6 +46,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.094849` | [Bakery, held after pull, no build](20261011/20261011-094849_bakery-held-after-pull-no-build.kyri) | Fast-forwarded; receipt key ruling still waits; no build. |
+| `20261011.095339` | [Copal, fruit void again, no build](20261011/20261011-095339_copal-fruit-void-no-build.kyri) | Roster complete; no unrostered witness; no build. |
 | `20261011.095008` | [Patchouli, queue empty fifteenth net, no build](20261011/20261011-095008_patchouli-queue-empty-fifteenth-net-no-build.kyri) | Fresh mantra/tally net reads only read-compat and fixtures; no claim taken; no build. |
 | `20261011.094722` | [Patchouli, queue empty, no build](20261011/20261011-094722_patchouli-queue-empty-thirteenth-net-no-build.kyri) | Elder-literal net reads read-compat only. |
 | `20261011.094417` | [Bakery, receipt key held, no build](20261011/20261011-094417_bakery-held-on-receipt-key-ruling-no-build.kyri) | Ruling still waits; board empty; one ff pull; no build. |
