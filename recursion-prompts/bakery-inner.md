@@ -165,8 +165,9 @@ The [folded-shelf recovery review](../session-logs/date/20260925/20260925-131805
 crushed-index versions in the September 8 stashes. Their shallow-shelf exclusion
 landed in `465a6cacd`; keep today's scan and its later checks. The current witness
 passes all 71 controls and its live scan. All 85 stashes remain preserved, and
-52 source versions still await review. The model-control repair and full roster
-proof remain owed.
+52 source versions still await review. The model-control repair landed; `tools/fixtures/f/fleet_codex_control.sh`
+passes 19 of 19 legs on `20261011.000219`, including the omitted and suffix refusals.
+Full roster proof remains owed.
 
 The [link recovery review](../session-logs/date/20260925/20260925-132920_bakery-path-recovery.kyri) covers six more versions.
 Three dated-path drafts are superseded. Its current control satisfies all 19
