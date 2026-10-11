@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.102413` | [Incense, baton declined seventh time, no build](20261011/20261011-102413_incense-baton-declined-seventh-no-build.kyri) | Round-open adopted; board read; %642 and %519 held; no build. |
 | `20261011.102614` | [Grass, foundation graded B, no build](20261011/20261011-102614_grass-foundation-graded-b-no-build.kyri) | Mitra shed B 83; queue empty; no build. |
 | `20261011.102515` | [Diffuser, cold run held, no build](20261011/20261011-102515_diffuser-cold-run-held-no-build.kyri) | Probe gated; Skate render needs a ruling; no build. |
 | `20261011.102252` | [Bakery, receipt key held at its ruling, no build](20261011/20261011-102252_bakery-receipt-key-held-no-build.kyri) | Ruling waits; fast-forward clean; no build. |
