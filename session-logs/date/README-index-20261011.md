@@ -11,6 +11,7 @@
 | `20261011.033624` | [Pheromone, lane empty, witnesses GREEN, no build](20261011/20261011-033624_pheromone-lane-empty-witnesses-green.kyri) | Pulled to 2b4ee85d1e; three lane witnesses GREEN; no build. |
 | `20261011.033709` | [Grass, four foundations graded, no build](20261011/20261011-033709_grass-four-foundations-graded-no-build.kyri) | Four recent foundations read B or better; queue empty; no build. |
 | `20261011.033433` | [Grass, inner regraded, queue held](20261011/20261011-033433_grass-inner-regraded-queue-held-no-build.kyri) | Field grade 77/90/100; queue empty; no build. |
+| `20261011.033517` | [Bakery, plant law in widen control](20261011/20261011-033517_bakery-plant-law-widen-control-adopted.kyri) | Widen control adopts plant_apply; GREEN. |
 | `20261011.033146` | [Patchouli, queue empty, no build](20261011/20261011-033146_patchouli-queue-empty-nineteenth-no-build.kyri) | Pulled to 26ad61feb7; queue empty on fresh net. |
 | `20261011.033345` | [Copal, fruit empty, fourth recount](20261011/20261011-033345_copal-fruit-empty-fourth-recount-no-build.kyri) | Fruit empty at 03449cceb4; no claim, no build. |
 | `20261011.033145` | [Copal, fruit empty, third recount](20261011/20261011-033145_copal-fruit-empty-third-recount-no-build.kyri) | Fruit empty at 26ad61feb7; no claim, no build. |
