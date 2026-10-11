@@ -7,6 +7,7 @@
 |---|---|---|
 | `20261011.191410` | [Patchouli, queue empty, repeat read](20261011/20261011-191410_patchouli-queue-empty-sixteenth-sweep.kyri) | Nets fresh, queue empty; no build. |
 | `20261011.191439` | [Diffuser held, P1 unruled](20261011/20261011-191439_diffuser-hold-p1-unruled-ff.kyri) | Peer incense log only; P1 waits; no run. |
+| `20261011.191702` | [Grass, nine heads graded, none below B](20261011/20261011-191702_grass-nine-heads-graded-no-lift.kyri) | Mycelium queue graded; lowest B+; no lift. |
 | `20261011.191140` | [Grass, grade held, no lift](20261011/20261011-191140_grass-grade-held-no-lift.kyri) | Inner prompt graded, nothing below B; no cold run, no lift. |
 | `20261011.191438` | [Petrichor held after ff, orbit ten bound](20261011/20261011-191438_petrichor-held-after-ff-orbit-ten-bound.kyri) | Gate held; orbit ten, the bound; no build. |
 | `20261011.191118` | [Bakery, hold, receipt key awaits ruling](20261011/20261011-191118_bakery-hold-receipt-key-ruling.kyri) | Board empty; receipt key waits on Keaton; no build. |
