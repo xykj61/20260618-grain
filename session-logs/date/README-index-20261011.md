@@ -6,6 +6,7 @@
 |---|---|---|
 - `20261011.062925` [Petrichor, fruit gated, no build](20261011/20261011-062925_petrichor-fruit-gated-no-build.kyri) | Pull landed session-logs only; lane gated, no build.
 | `20261011.062951` | [Copal, fruit empty, fifth today](20261011/20261011-062951_copal-fruit-empty-fifth-no-build.kyri) | Zero unrostered by exact path; ruling asked. |
+| `20261011.062844` | [Patchouli, queue empty, no build](20261011/20261011-062844_patchouli-queue-empty-no-build.kyri) | Both nets empty; %840 held at pin bound; nib repinned. |
 | `20261011.062515` | [Bakery, measured hold, no build](20261011/20261011-062515_bakery-measured-hold-no-build.kyri) | Plant, cache, scope read; receipt key and %642 await Keaton. |
 | `20261011.062502` | [Patchouli, red held at bound, no build](20261011/20261011-062502_patchouli-red-held-at-pin-bound-no-build.kyri) | Kumara red unbooked; pin 4 bytes under bound. |
 | `20261011.062626` | [Grass, inner re-read B+ at Field, no build](20261011/20261011-062626_grass-inner-regrade-b-plus-no-build.kyri) | Field composite 88; no frame; no build. |
