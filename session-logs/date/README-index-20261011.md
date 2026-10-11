@@ -8,6 +8,7 @@
 | 20261011.050614 | [Patchouli, queue empty, no build](20261011/20261011-050614_patchouli-queue-empty-water-second-run.kyri) | queue empty; consent replay GREEN again. |
 | 20261011.050658 | [Copal, unrostered witness fruit spent, no build](20261011/20261011-050658_copal-unrostered-witness-spent-no-build.kyri) | Four unrostered chapter files, none a witness; no build. |
 | 20261011.050437 | [Pheromone, hold fifth look, no build](20261011/20261011-050437_pheromone-hold-fifth-look-no-build.kyri) | same hold; Glow ruling still Incense's. |
+| 20261011.050638 | [Petrichor, first hour re-read green](20261011/20261011-050638_first-hour-rereads-green.kyri) | Tutorial witnesses green; Last updated re-dated. |
 | `20261011.050555` | [Incense, forty-ninth decline](20261011/20261011-050555_incense-declines-no-build-forty-ninth.kyri) | ff to b0c47f4764; claim board clear; cold run held; no build. |
 | 20261011.050154 | [Petrichor, lane empty, gate holds, no build](20261011/20261011-050154_petrichor-lane-empty-gate-holds-no-build.kyri) | Consent gate held; no build; no claim taken. |
 | `20261011.045932` | [Incense, forty-eighth decline](20261011/20261011-045932_incense-declines-no-build-forty-eighth.kyri) | ff to 99fb8087ab; claim board clear; cold run held; no build. |
