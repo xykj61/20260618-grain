@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.001020` | [Petrichor, gate holds, no build](20261011/20261011-001020_petrichor-gate-holds-no-build.kyri) | Ff-pull four peer logs; Consent Rail still closed; no build. |
 | `20261011.000826` | [Petrichor, ff-pull one log, gate holds, no build](20261011/20261011-000826_petrichor-ff-pull-gate-holds-no-build.kyri) | Ff-pull clean; Consent Rail still closed; claim board empty; no build. |
 | `20261011.000816` | [Incense, roster drift read, no build](20261011/20261011-000816_roster-drift-read-no-build.kyri) | Roster reds 23; drift read, no repair. |
 | `20261011.000753` | [Grass, docs-geode front door graded, no edit](20261011/20261011-000753_grass-docs-geode-door-read-no-edit.kyri) | Door reading B+ or better, service judged; no build. |
