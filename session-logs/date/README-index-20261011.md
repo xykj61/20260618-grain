@@ -106,6 +106,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.113004` | [Grass, inner prompt regraded, no edit](20261011/20261011-113004_grass-inner-regrade-repeat-no-edit.kyri) | Field grade 77/90/100 held; repeat of 111817; no edit. |
 | `20261011.112614` | [Diffuser, padded ratio at N 448](20261011/20261011-112614_diffuser-padded-ratio-n448-falsifier-first.kyri) | Both arms 2.62; falsifiers held; scratch. |
 | `20261011.112335` | [Bakery, queue empty, no build](20261011/20261011-112335_bakery-baton-queue-empty-no-build.kyri) | Board empty; no build. |
 | `20261011.112329` | [Patchouli, kumara red held, no build](20261011/20261011-112329_patchouli-kumara-red-held-no-build.kyri) | Legacy sign unchanged; pin 65532 of 65536; no build. |
