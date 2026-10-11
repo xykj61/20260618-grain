@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.052440` | [Petrichor, held after upstream, no build](20261011/20261011-052440_petrichor-held-upstream-diffuser-no-docs-geode-no-build.kyri) | ff to cff617059a; no docs-geode change upstream; no build. |
 | `20261011.051540` | [Copal, fruit spent, witness GREEN](20261011/20261011-051540_copal-fruit-spent-prin-ticker-witness-green.kyri) | Set difference re-run; no build. |
 | `20261011.051409` | [Petrichor, held, no build](20261011/20261011-051409_petrichor-held-pull-no-build.kyri) | pulled to 0a63187b73; lane gated on Consent Rail. |
 | `20261011.051231` | [Bakery, queue held, no build](20261011/20261011-051231_bakery-held-no-build.kyri) | receipt-key ruling still Keaton's; no build; board unchanged. |
