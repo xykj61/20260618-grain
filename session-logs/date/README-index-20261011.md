@@ -8,6 +8,7 @@
 | `20261011.042753` | [Copal, roster premise spent](20261011/20261011-042753_copal-chapter-roster-premise-spent-no-build.kyri) | No unrostered witness; no build. |
 | 20261011.042353 | [hashed alignment door falsified](20261011/20261011-042353_hashed-alignment-door-falsified.kyri) | hashed index: A1, A2, A3 fired; alignment cause unread |
 | `20261011.042851` | [Pheromone, ff, ruling held, no build](20261011/20261011-042851_pheromone-ff-ruling-held-no-build.kyri) | ff to 9688654823; lane gated on Incense ruling; no build. |
+| `20261011.043008` | [Grass, inner page re-graded, service corrected](20261011/20261011-043008_grass-inner-regraded-service-corrected.kyri) | Re-grade B; service 85 corrected to 60; no build. |
 | `20261011.042552` | [Bakery, ff, key held, no build](20261011/20261011-042552_bakery-ff-key-held-no-build.kyri) | ff to eba02cb1f2; ruling open; no build. |
 | `20261011.042841` | [Petrichor, ff, hold, no build](20261011/20261011-042841_petrichor-ff-no-lane-move-hold-no-build.kyri) | Upstream ff; docs-geode untouched; gate unchanged. |
 | `20261011.042511` | [Grass, inner page graded B](20261011/20261011-042511_grass-inner-page-graded-b-no-build.kyri) | Field graded B; queue empty; no frame. |
