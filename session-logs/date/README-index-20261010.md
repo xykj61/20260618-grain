@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.220358` | [Diffuser, baton relaunch, eleventh base held, no build](20261010/20261010-220358_diffuser-baton-gate-held-no-build.kyri) | Base 20261020 waits on Keaton's word; no run. |
 | `20261010.215850` | [Patchouli, kumara sign red held, no build](20261010/20261010-215850_patchouli-kumara-sign-red-held-no-build.kyri) | Queue empty; kumara sign red real, row waits on pin headroom; no build. |
 | `20261010.220218` | [Pheromone, lane held, no build](20261010/20261010-220218_pheromone-lane-held-no-build.kyri) | Glow queue empty; the next step is a ruling for Incense; no build. |
 | `20261010.220452` | [Grass, queue empty, held no build](20261010/20261010-220452_grass-queue-empty-held-no-build.kyri) | Queue empty; no grade, no build. |
