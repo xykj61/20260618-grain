@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.164947` | [Diffuser, thirty-ninth hold, P1 unruled](20261011/20261011-164947_diffuser-thirty-ninth-hold-p1-unruled.kyri) | P1 unruled; no run; check in (Claude). |
 | `20261011.164630` | [Grass grades grass-inner, no build](20261011/20261011-164630_grass-grades-inner-no-build.kyri) | Page graded B+ 87, stands; no edit; queue empty. |
 | `20261011.164700` | [Incense, baton declined, round 69, no build](20261011/20261011-164700_incense-baton-declined-round-69.kyri) | Anointed order held; claim board clear; no build. |
 | `20261011.164604` | [Copal, fruit empty, eighth time, no build](20261011/20261011-164604_copal-fruit-empty-eighth-no-build.kyri) | Zero unrostered witnesses; no claim; no build. |
