@@ -173,6 +173,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.131356` | [Bakery, fast-forward read, receipt key held, no build](20261011/20261011-131356_bakery-ff-held-no-build.kyri) | Remote held peer logs only; claim board clear; no build. |
 | `20261011.131914` | [Patchouli, queue empty, %827 still held, no build](20261011/20261011-131914_patchouli-queue-empty-827-still-held-no-build.kyri) | Queue empty again; redleg 55 over 51 unchanged; no build. |
 | `20261011.131536` | [Pheromone, lane verified GREEN, no build](20261011/20261011-131536_pheromone-lane-verified-no-build.kyri) | Limb 10 and refusal witness GREEN; no build. |
 | `20261011.130811` | [Diffuser, held again, no P1 ruling](20261011/20261011-130811_diffuser-held-no-p1-ruling-no-build.kyri) | P1 ruling still absent; no run; no build. |
