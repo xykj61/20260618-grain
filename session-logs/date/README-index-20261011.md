@@ -97,6 +97,7 @@
 | `20261011.175335` | [Petrichor, gate held, seventh no-build](20261011/20261011-175335_petrichor-gate-held-seventh-no-build.kyri) | Gate still held; no fruit; no build. |
 | `20261011.174818` | [Petrichor, gate held, sixth no-build](20261011/20261011-174818_petrichor-gate-held-sixth-no-build.kyri) | Gate still held; no fruit; no build. |
 | `20261011.175241` | [Copal, fruit empty, third exact-path read](20261011/20261011-175241_copal-fruit-empty-third-read-no-build.kyri) | Zero unrostered witnesses by exact path; no build. |
+| `20261011.190733` | [Grass, cold run red, no build](20261011/20261011-190733_grass-cold-run-guard-red-no-build.kyri) | Cold roster guard_red, 47 reds; no edit. |
 | `20261011.174658` | [Incense, declined again, no build](20261011/20261011-174658_incense-baton-declined-no-build-again.kyri) | Fast-forward to acec585197; no build. |
 | `20261011.174653` | [Copal, fruit empty, roster complete](20261011/20261011-174653_copal-fruit-empty-roster-complete-no-build.kyri) | Zero unrostered chapter witnesses; no build. |
 | `20261011.174601` | [Diffuser, forty-eighth hold](20261011/20261011-174601_diffuser-forty-eighth-hold-p1-unruled.kyri) | No run; P1 still unruled. |
