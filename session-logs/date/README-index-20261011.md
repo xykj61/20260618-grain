@@ -171,6 +171,7 @@
 | `20261011.130320` | [Incense, round-open clean, board clear, no build](20261011/20261011-130320_incense-round-open-claim-board-clear-no-build.kyri) | Round-open clean; claim board clear; queue gated; no build. |
 | `20261011.130054` | [Bakery, rebased, crux held, no build](20261011/20261011-130054_bakery-rebased-receipt-key-held-no-build.kyri) | Clean rebase; board empty; ruling waits. |
 | `20261011.125743` | [Pheromone, lane empty, board clear, no build](20261011/20261011-125743_pheromone-lane-empty-no-build.kyri) | Queue empty; zero live claims; the next fruit waits on Incense. |
+| `20261011.130318` | [Diffuser, held again, no P1 ruling](20261011/20261011-130318_diffuser-held-no-ruling-again.kyri) | P1 ruling absent; no build. |
 | `20261011.125607` | [Patchouli, lane held on two rulings, no build](20261011/20261011-125607_patchouli-lane-held-no-build.kyri) | Catch-up witness GREEN; claims clear; no build. |
 | `20261011.125533` | [Incense, baton read, no build, orbit 12](20261011/20261011-125533_incense-baton-no-build-orbit-12.kyri) | Board empty, tree clean, nothing upstream; lane waits on Keaton's word. |
 | `20261011.125620` | [Diffuser, held again, no build](20261011/20261011-125620_diffuser-held-no-ruling-no-build.kyri) | P1 ruling still absent; no run, no build. |
