@@ -23,7 +23,7 @@ These are **named habits** in our witness collection -- pointers and examples on
 
 ## Refuse-until-candidate
 
-**Shape:** candidate artifact or season door **absent** -> witness prints measured truth -> **claims nothing** -> exit zero when honest.
+**Shape:** the witness waits on a candidate artifact or season door, prints measured truth, **claims nothing**, and exits zero when honest.
 
 | Example | Witness |
 |---------|---------|
@@ -53,7 +53,7 @@ Pre-open pin note: [`214900`](../active-designing/date/20260712/20260712-214900_
 
 ## Negative-space asserts
 
-**Shape:** assert what must be **false** or **absent**, not only what must hold. Scorecard refuses false supersede green when the incumbent still fails pond-required cells.
+**Shape:** assert what must be **false**, and assert what must hold. The scorecard holds a supersede green back until the incumbent clears every pond-required cell.
 
 | Canon | Where |
 |-------|-------|
