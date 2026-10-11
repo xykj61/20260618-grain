@@ -4,26 +4,26 @@
 //! steps DOWN to follower on its own, without waiting for a read to expose it.
 //!
 //! The gap it closes:
-//!   A leader partitioned into a minority keeps believing it leads. It cannot commit (the majority is elsewhere), yet it lingers --
-//!   blocking nothing it should not, but holding a title the sky has moved past, and in a lease-based read scheme it could even
+//!   A leader partitioned into a minority keeps believing it leads. Its commits stall while the majority sits elsewhere, yet it lingers --
+//!   blocking only what a leader rightly blocks, and holding a title the sky has moved past, and in a lease-based read scheme it could even
 //!   serve a stale value. CheckQuorum is Raft's fix: each election-timeout window the leader counts how many piers ANSWERED its
 //!   heartbeats; the leader always counts itself. If that backing falls below the majority threshold, the leader relinquishes
-//!   leadership -- so a minority-partition leader stops leading promptly, and the majority partition's own election is never shadowed
+//!   leadership -- so a minority-partition leader stops leading promptly, and the majority partition's own election stays unshadowed
 //!   by a ghost leader that thinks it still rules.
 //!
 //! This is the natural companion to FORA22 (pre-vote) and FORA23 (transfer): pre-vote keeps a rejoining node from disrupting a
-//! healthy leader; CheckQuorum keeps an isolated leader from lingering; transfer hands off on purpose. Together the sky neither
-//! disrupts a good leader nor clings to a stranded one.
+//! healthy leader; CheckQuorum keeps an isolated leader from lingering; transfer hands off on purpose. Together the sky protects
+//! a good leader from disruption and releases a stranded one.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter D thread (Kresfa & Mycelium -- the tree's own consensus) - waymark FORA - rung
 //! FORA24. Design read: active-designing/date/20260814/20260814-084900_fora24-constel-tenure-checkquorum.md
 //! Stands on: constel/quorum.rye (FORA9) -- majority_of, the same strict-majority threshold every Constel decision uses;
 //! constel/roster.rye (FORA1) -- max_piers, the bound the heartbeat poll runs within.
 //!
-//! Purely LOCAL -- bounded per-peer ack flags and a count on one bench, siloed to constel/, run from inside the jailed pier. No
-//! socket, no network, no keys, no funds, no real address ever formed (custody gate %2 -- real hardware / any real wire -- and gate
-//! #4 -- real Kumara -- both untouched). A served heartbeat reaches the Comlink-served gate; the socket rung stays the maintainer's
-//! hand.
+//! Purely LOCAL -- bounded per-peer ack flags and a count on one bench, siloed to constel/, run from inside the jailed pier. The
+//! bench holds a socket-free, network-free, key-free, fund-free shape, and it forms a placeholder address only. Custody gate %2
+//! (real hardware, any real wire) and gate #4 (real Kumara) stay as they were. A served heartbeat reaches the Comlink-served gate;
+//! the socket rung stays the maintainer's hand.
 //!
 //!   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye run constel/tenure.rye selftest
 
