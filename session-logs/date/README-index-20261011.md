@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.184402` | [Copal, fruit zero unrostered, no build](20261011/20261011-184402_copal-fruit-zero-unrostered-no-build.kyri) | Measured zero unrostered chapter witnesses; no build. |
+| `20261011.184410` | [Patchouli, queue empty, no build](20261011/20261011-184410_patchouli-queue-empty-no-build.kyri) | Net re-run over mantra and tally; only elder headers and fixtures; no build. |
 | `20261011.184000` | [Pheromone, lane empty, witnesses GREEN, no build](20261011/20261011-184000_pheromone-lane-empty-witnesses-green-no-build.kyri) | Three landed Glow witnesses re-run GREEN; no source edited. |
 | `20261011.183911` | [Petrichor, gate holds, lane empty, no build](20261011/20261011-183911_petrichor-gate-holds-lane-empty-no-build.kyri) | Gate held; no claim open; no build. |
 | `20261011.183906` | [Copal, fruit still absent](20261011/20261011-183906_copal-fruit-absent-fourth-lap-no-build.kyri) | Absent by path and guard row; no build. |
