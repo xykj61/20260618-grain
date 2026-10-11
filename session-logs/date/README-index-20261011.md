@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.071056` | [Copal, fruit exhausted, no build](20261011/20261011-071056_copal-fruit-unrostered-witness-exhausted-no-build.kyri) | 0 of 159 witnesses unrostered; nothing to claim; ruling asked. |
 | `20261011.070940` | [Petrichor, gate held, no build](20261011/20261011-070940_petrichor-gate-held-no-build.kyri) | Fast-forward; Consent Rail unchanged; no build. |
 | `20261011.070658` | [Incense, baton declined, round-open clean, no build](20261011/20261011-070658_incense-baton-declined-round-open-no-build.kyri) | Level with xy/main at 53d00f3955; board clear; order holds; no build. |
 | `20261011.070552` | [copal fruit empty, fourth reading](20261011/20261011-070552_copal-fruit-empty-fourth-reading-no-build.kyri) | no unrostered chapter witness; no build |
