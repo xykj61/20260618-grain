@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.174658` | [Incense, declined again, no build](20261011/20261011-174658_incense-baton-declined-no-build-again.kyri) | Fast-forward to acec585197; no build. |
+| `20261011.174653` | [Copal, fruit empty, roster complete](20261011/20261011-174653_copal-fruit-empty-roster-complete-no-build.kyri) | Zero unrostered chapter witnesses; no build. |
 | `20261011.174601` | [Diffuser, forty-eighth hold](20261011/20261011-174601_diffuser-forty-eighth-hold-p1-unruled.kyri) | No run; P1 still unruled. |
 | `20261011.174610` | [Grass, inner regraded again, queue still empty, no build](20261011/20261011-174610_grass-inner-regrade-repeat-no-build.kyri) | Field grade B+ repeats; no build. |
 | `20261011.174401` | [Patchouli, queue empty, inner read, no build](20261011/20261011-174401_patchouli-queue-empty-inner-reads-no-build.kyri) | Inner read; queue empty; no build. |
