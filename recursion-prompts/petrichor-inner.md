@@ -11,6 +11,17 @@
 
 ## fruit
 
+**Gate reread `20261011.064024`: the grant and revoke facts now stand on the record.** The
+Consent Rail's stated wait -- "until a grant fact and a revoke fact exist"
+(`construction/ITINERARY.md`, Diffuser item 1) -- names two facts that have landed: the grant
+replay (`e2259c8205`, `20261001.201700`) and the revoke that refuses a differing holder
+(`eb69288afe`, `20261001.202400`), both in `mantra/src/consent_replay.rye`. The rail itself
+(`skate/Sources/SkateCore/ConsentRail.swift`) has been on the tree since `20260914`. Earlier
+no-build logs read the gate as held; that reading is stale. Whether Diffuser now opens the rail
+is Diffuser's call, and this lane still waits on the public seam and a green first-hour interface
+before writing the runnable path. Ruling on the gate, and whether Petrichor takes its own next
+fruit, waits on Keaton's word.
+
 **The Wyoming PBC walkthrough closed at grade 9 over its door ceiling, composite A+/97.** Done;
 `YOURS: none`.
 
