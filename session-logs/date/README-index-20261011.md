@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.063559` | [Bakery, no unblocked build, third lap](20261011/20261011-063559_bakery-no-unblocked-build-third-lap.kyri) | Ff to bb24d41af3; claims empty; queue gated, no build. |
+| `20261011.063554` | [Petrichor, consent gate held, no build](20261011/20261011-063554_petrichor-consent-gate-held-no-build.kyri) | Ff to bb24d41af3; gate unchanged; no build. |
 | `20261011.063506` | [Grass, four foundations graded again, no build](20261011/20261011-063506_grass-foundations-repeat-no-build.kyri) | Four pages read A, A, A, B; repeat of the Foundations ground, no molt owed. |
 | `20261011.063318` | [Patchouli, queue empty again, nib repinned](20261011/20261011-063318_patchouli-queue-empty-second-lap.kyri) | Upstream clean; card nib repinned to HEAD; queue still empty. |
 | `20261011.063247` | [Pheromone, lane closed, no build](20261011/20261011-063247_pheromone-lane-closed-no-build.kyri) | Three steps closed; Glow witnesses GREEN; ruling awaited. |
