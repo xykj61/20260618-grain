@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.223122` | [Grass, queue empty, orbit round 1, no build](20261010/20261010-223122_grass-queue-empty-aries-round-no-build.kyri) | Queue empty; no lift; no build. |
 | `20261010.223050` | [copal fruit already rostered](20261010/20261010-223050_copal-fruit-gone-all-chapter-witnesses-rostered.kyri) | 157 of 157 chapter witnesses rostered; no build |
 | `20261010.223021` | [Diffuser, tenth base held, no build](20261010/20261010-223021_diffuser-tenth-base-held-no-build.kyri) | Interval straddles the line; gate on Keaton's word. |
 | `20261010.223020` | [Patchouli, kumara red held, no build](20261010/20261010-223020_patchouli-kumara-red-pin-bound-no-build.kyri) | Red 840 unbooked; pin at bound; two rulings owed. |
