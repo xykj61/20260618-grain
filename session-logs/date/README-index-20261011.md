@@ -2,7 +2,6 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.115547` | [Copal, fruit spent, no unrostered witness](20261011/20261011-115547_copal-fruit-no-unrostered-witness.kyri) | Comm measured zero; no build. |
-
 | `20261011.120025` | [Patchouli, queue empty, kumara red held, no build](20261011/20261011-120025_patchouli-queue-empty-held-no-build.kyri) | Spine 840 unchanged; no build. |
 | `20261011.114940` | [Diffuser, fifth held lap, N=192 door waits](20261011/20261011-114940_diffuser-held-lap-fifth-no-ruling.kyri) | No ruling; no run; nib carried. |
 | `20261011.114652` | [Incense, baton lap declined, claim board empty, no build](20261011/20261011-114652_incense-baton-declined-no-build-hold.kyri) | Round-open clean; claims clear; cold run held; no build. |
