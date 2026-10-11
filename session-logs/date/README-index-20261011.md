@@ -34,6 +34,7 @@
 | `20261011.064549` | [Copal, recount third, fruit spent](20261011/20261011-064549_copal-roster-recount-third-no-build.kyri) | Zero unrostered witnesses; third recount today; no build. |
 | `20261011.064829` | [Bakery, rulings still open, no build](20261011/20261011-064829_bakery-rulings-still-open-no-build.kyri) | Fast-forwarded to 2ba52ac20b; two rulings still Keaton's. |
 | `20261011.064537` | [Petrichor, gate held, no build](20261011/20261011-064537_petrichor-gate-held-fast-forward-no-build.kyri) | Gate held on the record; no build. |
+| `20261011.065406` | [Diffuser, stride run degenerate](20261011/20261011-065406_diffuser-stride-run-stays-degenerate.kyri) | Stride 0 at every N; padding moves ratio 0.01; distinct-line falsifiers next. |
 | `20261011.064304` | [Incense, restored stashed logs](20261011/20261011-064304_incense-restores-stashed-logs.kyri) | 37 stranded logs restored; index red at HEAD, not ours. |
 | `20261011.064437` | [Bakery, queue gated, no build](20261011/20261011-064437_bakery-baton-lap-gated-queue-fast-forwarded.kyri) | Fast-forwarded to 7694a3da2d; two rulings wait; no build. |
 | `20261011.064354` | [Grass, three pages graded, no build](20261011/20261011-064354_grass-three-pages-graded-no-build.kyri) | Three pages read A or better; no molt owed. |
