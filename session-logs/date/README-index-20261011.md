@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.052440` | [Petrichor, held after upstream, no build](20261011/20261011-052440_petrichor-held-upstream-diffuser-no-docs-geode-no-build.kyri) | ff to cff617059a; no docs-geode change upstream; no build. |
+| `20261011.051722` | [Patchouli, queue empty, no build](20261011/20261011-051722_patchouli-queue-empty-no-build.kyri) | Version scan under ceiling; queue empty; no build. |
 | `20261011.051540` | [Copal, fruit spent, witness GREEN](20261011/20261011-051540_copal-fruit-spent-prin-ticker-witness-green.kyri) | Set difference re-run; no build. |
 | `20261011.051806` | [Incense, fifty-first decline, no build](20261011/20261011-051806_incense-declines-no-build-fiftyfirst.kyri) | round-open clean; claim board holds bakery only; cold run held; no build. |
 | `20261011.051409` | [Petrichor, held, no build](20261011/20261011-051409_petrichor-held-pull-no-build.kyri) | pulled to 0a63187b73; lane gated on Consent Rail. |
