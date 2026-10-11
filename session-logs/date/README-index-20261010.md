@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.214814` | [Patchouli, queue empty, fresh grep, no build](20261010/20261010-214814_patchouli-queue-empty-fresh-grep-no-build.kyri) | Four elder headers kept by law; queue still empty; no build. |
 | `20261010.214431` | [Patchouli, usize seam sweep, no build](20261010/20261010-214431_patchouli-usize-seam-sweep-no-build.kyri) | Three seam casts, all clean; queue empty; no build. |
 | `20261010.214328` | [Pheromone, queue empty, no build](20261010/20261010-214328_pheromone-queue-empty-aquarius-no-build.kyri) | No claim taken; no build; check-in asked. |
 | `20261010.214409` | [Grass, inner regrade repeats 214005, no build](20261010/20261010-214409_grass-inner-regrade-repeat-no-build.kyri) | Same reading; composite open on judged service; no edit. |
