@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.094512` | [Grass, register held, no edit](20261011/20261011-094512_grass-register-held-field-setting.kyri) | Inner prompt graded at field, register 77 held; no edit. |
 | `20261011.094239` | [Pheromone, lane held fourth time, no build](20261011/20261011-094239_pheromone-lane-held-fourth-no-build.kyri) | Card lane closed; no open door; no build. |
 | `20261011.093947` | [Incense, round-open held, no build](20261011/20261011-093947_incense-baton-round-open-held-no-build.kyri) | Round-open clean; lane held at a human word; no build. |
 | `20261011.093630` | [Bakery, crux held, no build](20261011/20261011-093630_bakery-crux-held-no-build.kyri) | Read-only lap; claim board empty; cold run exceeds window; no build. |
