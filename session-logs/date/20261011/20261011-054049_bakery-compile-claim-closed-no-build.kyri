@@ -30,3 +30,6 @@ file session-logs/date/20261011/20261011-054049_bakery-compile-claim-closed-no-b
 recommend check in (Claude) -- the receipt key drops HEAD for watched inputs, and a clean_tree field decides whether a shared basis exists at all; both wait on Keaton's word
 scope bakery claim closed and the compile census re-measured; no compile code changed; no endurance run launched
 status GREEN for the census re-measure (changed=3 silent_reuse=0, sharing path_independent=yes); the executable-bit and toolchain-pin halves stay unmeasured and named; no build owed this lap
+think The send met a peer landing: the first push was refused as a race, and the rebase stopped on two conflicts, the card's nib line and one index row. Both took upstream, the row was re-applied below the delimiter, and the rebase finished.
+think The pushed work commit b4127ac368 carried the card nib 8a90c459a5, which was no longer its parent. The card was then written to e7cc6ff48b with the amend shape, but the commit was already on xy, so amending it would need a force push, which the rules refuse. The fix is this follow-up, which names b4127ac368 as HEAD.
+obs The guard reads the working card GREEN at e7cc6ff48b. The remote card reads one commit stale until this follow-up lands.
