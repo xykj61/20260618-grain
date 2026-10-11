@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.121838` | [Incense, baton repeat, queue dry, no build](20261011/20261011-121838_incense-baton-repeat-queue-dry-no-build.kyri) | Repeat of 121622; board clear; no build. |
+| `20261011.121742` | [Diffuser, sawtooth at fixed sets, gcd not isolated](20261011/20261011-121742_diffuser-sawtooth-fixed-set-no-gcd-isolation.kyri) | Gap 0.058; floor confound named. |
 | `20261011.121726` | [Patchouli, queue empty, fourth look](20261011/20261011-121726_patchouli-queue-empty-fourth-look-no-build.kyri) | Nets re-run; read-compat only; no build. |
 | `20261011.121622` | [Incense, baton lap, queue dry, no build](20261011/20261011-121622_incense-baton-queue-dry-no-build.kyri) | Round-open clean; board clear; no build. |
 | `20261011.121530` | [Bakery, baton lap read, no build](20261011/20261011-121530_bakery-decline-no-build.kyri) | Upstream fast-forwarded; crux seam needs a Claude ruling. |
