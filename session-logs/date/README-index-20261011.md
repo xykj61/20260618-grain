@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.063122` | [Petrichor, gated repeat, no build](20261011/20261011-063122_petrichor-gated-repeat-no-build.kyri) | Ff to 45b544e4de; gate unchanged; no build. |
 | `20261011.062938` | [Grass, Foundations sample, no build](20261011/20261011-062938_grass-foundations-rota-earth-no-build.kyri) | Eight pages read B or better; one dated C has an A+ successor. |
+| `20261011.063041` | [Incense, round-open clean, queue gated](20261011/20261011-063041_incense-baton-round-open-gated.kyri) | Round-open clean; queue gated, no build. |
 - `20261011.062925` [Petrichor, fruit gated, no build](20261011/20261011-062925_petrichor-fruit-gated-no-build.kyri) | Pull landed session-logs only; lane gated, no build.
 | `20261011.062951` | [Copal, fruit empty, fifth today](20261011/20261011-062951_copal-fruit-empty-fifth-no-build.kyri) | Zero unrostered by exact path; ruling asked. |
 | `20261011.062844` | [Patchouli, queue empty, no build](20261011/20261011-062844_patchouli-queue-empty-no-build.kyri) | Both nets empty; %840 held at pin bound; nib repinned. |
