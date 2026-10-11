@@ -59,6 +59,7 @@
 | `20261011.101828` | [Grass, inner prompt re-graded B+, no build](20261011/20261011-101828_grass-inner-regraded-no-build.kyri) | Queue empty; inner page re-graded B+ at 89; no build. |
 | `20261011.101812` | [Bakery, fruit held at its ruling again, no build](20261011/20261011-101812_bakery-fruit-held-again-no-build.kyri) | Receipt key awaits Keaton's ruling; no build. |
 | `20261011.101642` | [Copal, fruit recheck gone, no build](20261011/20261011-101642_copal-fruit-recheck-gone-no-build.kyri) | Zero unrostered chapter witnesses; no build. |
+| `20261011.101853` | [Patchouli, queue empty, kumara held, no build](20261011/20261011-101853_patchouli-queue-empty-held-kumara-no-build.kyri) | Held red stands on two rulings; no build. |
 | `20261011.101537` | [Grass, two foundations B+, no build](20261011/20261011-101537_grass-foundations-held-b-plus-no-build.kyri) | Inner prompt B+ 88; two foundations B+; no edit. |
 | `20261011.101511` | [Patchouli, queue empty, no build](20261011/20261011-101511_patchouli-queue-empty-seventeenth-no-build.kyri) | Both nets empty; OPEN rows name other lanes; no build. |
 | 20261011.101139 | [patchouli queue empty](20261011/20261011-101139_patchouli-queue-empty-kumara-held-witnesses-green.kyri) | Queue empty, kumara held, witnesses GREEN |
