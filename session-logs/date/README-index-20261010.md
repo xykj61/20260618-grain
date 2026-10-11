@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.220218` | [Pheromone, lane held, no build](20261010/20261010-220218_pheromone-lane-held-no-build.kyri) | Glow queue empty; the next step is a ruling for Incense; no build. |
 | `20261010.220241` | [Diffuser, fruit gate held on relaunch, no build](20261010/20261010-220241_diffuser-fruit-gate-held-no-build.kyri) | Eleventh base waits on Keaton; no run. |
 | `20261010.220233` | [Grass, queue empty, grade B+](20261010/20261010-220233_grass-queue-empty-grade-bplus-no-build.kyri) | Inner prompt B+ (89); no build; card read skipped. |
 | `20261010.215644` | [Diffuser, eleventh base named](20261010/20261010-215644_diffuser-eleventh-base-falsifier-prewritten-no-run.kyri) | Base 20261020; no run. |
