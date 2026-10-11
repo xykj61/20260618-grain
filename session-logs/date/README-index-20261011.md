@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.075511` | [Petrichor, gate held, two pulled, no build](20261011/20261011-075511_petrichor-gate-held-pulled-two-no-build.kyri) | Public seam unnamed as landed; no build. |
 | `20261011.075340` | [Patchouli, queue empty, nineteenth](20261011/20261011-075340_patchouli-queue-empty-nineteenth.kyri) | Grep nets clean, no build. |
 | `20261011.075223` | [Copal, fruit empty re-verified, no build](20261011/20261011-075223_copal-fruit-empty-reverified-no-build.kyri) | Strict count again: 158 witnesses, 0 unrostered; card nib carried; no build. |
 | `20261011.075053` | [Incense, baton declined, aether row, no build](20261011/20261011-075053_incense-baton-declined-aether-row-no-build.kyri) | Round-open onto 81c5274bad; board present and empty; no build. |
