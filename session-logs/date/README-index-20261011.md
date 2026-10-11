@@ -190,6 +190,7 @@
 | `20261011.133123` | [Patchouli, queue empty eighth read](20261011/20261011-133123_patchouli-queue-empty-eighth-read-no-build.kyri) | Nets empty; no build. |
 | `20261011.133240` | [Petrichor, gate held, sixth hold](20261011/20261011-133240_petrichor-gate-held-sixth-hold-no-build.kyri) | Gate unchanged; no build. |
 | `20261011.133057` | [Bakery, receipt basis measured, no build](20261011/20261011-133057_bakery-receipt-basis-measured-no-build.kyri) | Receipt 11,721 commits stale, misses on every ship; no build. |
+| `20261011.133303` | [Diffuser, held on P1, ninth hold](20261011/20261011-133303_diffuser-held-p1-ninth-hold-no-build.kyri) | No P1 ruling upstream; no door run. |
 | `20261011.132854` | [Pheromone, held, no build](20261011/20261011-132854_pheromone-lane-held-no-build.kyri) | Rune ruling awaits Incense; claim board empty; no build. |
 | `20261011.132845` | [Incense, baton declined, eighth read](20261011/20261011-132845_incense-baton-declined-no-build-8.kyri) | Round-open clean; order unchanged; waits on Keaton. |
 | `20261011.132312` | [Incense, baton declined, no build, eighth read](20261011/20261011-132312_incense-baton-declined-no-build-8.kyri) | Round-open clean; claim board clear; waits on Keaton's word. |
