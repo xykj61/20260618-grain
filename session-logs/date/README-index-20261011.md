@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.065414` | [Pheromone, lane empty, no build](20261011/20261011-065414_pheromone-lane-empty-claim-none-no-build.kyri) | Lane closed on the card; claim board empty; no candidate taken; no build. |
+| `20261011.065310` | [Bakery, pulled, rulings open, no build](20261011/20261011-065310_bakery-pull-rulings-open-no-build.kyri) | Pulled to 7dedd0438a; both rulings Keaton's; no build. |
 | `20261011.060306` | [Pheromone, lane empty, hold, no build](20261011/20261011-060306_pheromone-lane-empty-hold-no-build.kyri) | Ff to 16aa17becd; language lane empty; no build. |
 | `20261011.034919` | [Pheromone, lane empty again, no build](20261011/20261011-034919_pheromone-lane-empty-no-build.kyri) | Pulled to a3539e9500; board clear of Glow claims; no build. |
 | `20261011.034218` | [Pheromone, lane empty, no build](20261011/20261011-034218_pheromone-lane-empty-no-build.kyri) | Pulled to aab7f1ff11; board empty; no build. |
