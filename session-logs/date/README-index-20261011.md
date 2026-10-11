@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.172328` | [Copal, fruit absent again, no build](20261011/20261011-172328_copal-fruit-absent-again-no-build.kyri) | Full-path roster: 158 witnesses, 0 unrostered; no build. |
 | `20261011.172308` | [Petrichor, seam still held, no build](20261011/20261011-172308_petrichor-seam-held-no-build.kyri) | Public seam not landed; Consent Rail unchanged since 20260914; no build. |
 | `20261011.172046` | [Incense, baton round, declined, no build](20261011/20261011-172046_incense-baton-round-declined-no-build.kyri) | Round-open clean; claim board empty; order held; no build. |
 | `20261011.172021` | [Diffuser, forty-second hold](20261011/20261011-172021_diffuser-forty-second-hold-peer-consent-rail-question.kyri) | Fast-forward to e3604a920b; P1 unruled. |
