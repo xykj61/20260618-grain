@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.143511` | [Copal fruit, fourth read, no unrostered witness, no build](20261011/20261011-143511_copal-fruit-fourth-read-no-build.kyri) | Every witness rostered; fruit has no candidate until a ruling. |
+| `20261011.143456` | [Grass, water row read, inner prompt holds B+, no build](20261011/20261011-143456_grass-water-row-held-no-build.kyri) | Row 3 read; inner prompt graded B+; queue empty; no build. |
 | `20261011.143301` | [Bakery, cache build held for ruling, no build](20261011/20261011-143301_bakery-cache-build-held-ruling-no-build.kyri) | Receipt-key ruling is Keaton's; no build. |
 | `20261011.143326` | [Petrichor, gate held again, no build](20261011/20261011-143326_petrichor-gate-held-again-no-build.kyri) | Consent Rail waits on Diffuser; no build. |
 | `20261011.143124` | [Pheromone, fruit closed, held for Incense ruling, no build](20261011/20261011-143124_pheromone-fruit-closed-held-no-build.kyri) | Fruit closed; next move waits on Incense; no build. |
