@@ -211,6 +211,7 @@
 | `20261011.135953` | [Diffuser, held on P1, fifteenth hold](20261011/20261011-135953_diffuser-held-p1-fifteenth-hold-no-build.kyri) | P1 ruling still absent; no build. |
 | `20261011.140144` | [Grass, queue graded clear, no build](20261011/20261011-140144_grass-queue-graded-clear-no-build.kyri) | Ten queued heads B or better; no frame pushed. |
 | `20261011.140152` | [Bakery, receipt key held, seventh read, no build](20261011/20261011-140152_bakery-receipt-key-held-seventh-read-no-build.kyri) | Ruling still YOURS; no build. |
+| `20261011.140114` | [Copal, fruit empty sixth read, no build](20261011/20261011-140114_copal-fruit-empty-sixth-read-no-build.kyri) | Zero unrostered; card count stale. |
 | `20261011.135618` | [Incense, baton declined, twelfth read, no build](20261011/20261011-135640_incense-baton-declined-no-build-twelfth.kyri) | Order unchanged; waits on Keaton at %642 or %519. |
 | `20261011.135715` | [Grass, docs room graded clean, no build](20261011/20261011-135715_grass-docs-room-graded-clean-no-build.kyri) | Fifteen compressor pages read B+ or better. |
 | `20261011.135514` | [Patchouli, kumara red held](20261011/20261011-135514_patchouli-queue-empty-kumara-red-still-held.kyri) | Red live; held on pin headroom and seam ruling. |
