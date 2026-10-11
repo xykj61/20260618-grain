@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.020410` | [Incense baton, round-open reset, no build](20261011/20261011-020410_incense-baton-declined-no-build-round-open-reset.kyri) | Round-open clean on anointed order; claim board empty; law lane waits on Keaton's word; no build. |
 | `20261011.020358` | [Pheromone lane empty, fresh sweep, no build](20261011/20261011-020358_pheromone-lane-empty-fresh-sweep-no-build.kyri) | Five peers fast-forwarded; lane empty; claim board holds only a peer claim; no build. |
 | `20261011.020214` | [Petrichor, gate held again, count named](20261011/20261011-020214_petrichor-gate-held-count-named-choice.kyri) | 43 gate lines counted; two choices named. |
 | `20261011.020023` | [receipt-key claim closed](20261011/20261011-020023_receipt-key-claim-closed-no-build.kyri) | Stale claim closed; no build |
