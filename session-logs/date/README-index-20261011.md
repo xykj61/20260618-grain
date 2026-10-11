@@ -4,8 +4,9 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
-| `20261011.030109` | [Incense, fast-forward and decline](20261011/20261011-030109_incense-fast-forward-decline-no-build.kyri) | Fast-forward clean; no build; held rows wait on Keaton. |
 | `20261011.030313` | [Copal, no unrostered witness](20261011/20261011-030313_copal-no-unrostered-chapter-witness.kyri) | 158 of 158 chapter witnesses rostered; no claim, no build. |
+| `20261011.030242` | [Petrichor fourth hold](20261011/20261011-030242_petrichor-fourth-hold-no-new-target.kyri) | Gate holds; no new target; no build. |
+| `20261011.030109` | [Incense, fast-forward and decline](20261011/20261011-030109_incense-fast-forward-decline-no-build.kyri) | Fast-forward clean; no build; held rows wait on Keaton. |
 | `20261011.025754` | [Patchouli, queue empty](20261011/20261011-025754_patchouli-queue-empty-fire-row-red-840-held.kyri) | Queue empty; red 840 held at pin bound; no build. |
 
 | `20261011.025744` | [Angular stencil reverses the sign](20261011/20261011-025744_angular-stencil-reverses-the-sign.kyri) | Falsifier first; polar floor 2 vs 97 at N=256; neither fired. |
