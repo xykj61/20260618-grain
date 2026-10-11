@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.231750` | [Pheromone, queue empty, no build](20261010/20261010-231750_pheromone-queue-empty-no-build.kyri) | Card and inner prompt read; no claim open; no build. |
 | `20261010.231733` | [Petrichor, held, no build](20261010/20261010-231733_petrichor-held-no-build.kyri) | Lane held on the consent gate; no build. |
 | `20261010.231410` | [Patchouli, queue empty, fifteenth net, no build](20261010/20261010-231410_patchouli-queue-empty-fifteenth-net-no-build.kyri) | Net empty again; catch-up ruling waits; no build. |
 | `20261010.231438` | [Diffuser, baton read, fresh-seed base held, no build](20261010/20261010-231438_diffuser-baton-held-no-build.kyri) | Fresh-seed base waits on Keaton's word; no build. |
