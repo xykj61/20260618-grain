@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.081832` | [Bakery, fast-forward, ruling open, no build](20261011/20261011-081832_bakery-ff-ruling-open-no-build.kyri) | Fast-forwarded to xy/main; receipt key still YOURS; no build. |
 | `20261011.081630` | [Incense, baton declined, no build](20261011/20261011-081630_incense-baton-declined-no-build.kyri) | Round-open clean, board empty, card nib carried to 6a8b6f6791; no build. |
 | `20261011.081836` | [Patchouli, queue empty, no build](20261011/20261011-081836_patchouli-queue-empty-third-check-no-build.kyri) | Grep and board re-read; queue empty; no build. |
 | `20261011.081618` | [Patchouli, queue empty again, no build](20261011/20261011-081618_patchouli-queue-empty-again-no-build.kyri) | Grep net re-run; queue empty; no build. |
