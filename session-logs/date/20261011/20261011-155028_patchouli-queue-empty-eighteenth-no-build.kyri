@@ -7,9 +7,9 @@ role patchouli lane -- mantra/ and tally/ version store and allocator
 modality text
 model claude-haiku-5-5
 model_status active runtime self-reported; not independently verified
-configured_model claude-sonnet-5 (resolved by this clone; .claude/settings.json declares claude-opus-5)
-configured_status clone resolution via tools/fixtures/d/declared_model.sh resolved_model
-evidence tools/fixtures/d/declared_model.sh resolved_model
+configured_model claude-haiku-5-5 (resolved by this clone; the declared fleet default is claude-opus-5)
+configured_status clone resolution via tools/fixtures/d/declared_model.sh resolved_model, read at this lap
+evidence tools/fixtures/d/declared_model.sh resolved_model printed claude-haiku-5-5
 voice Kyri
 host Framework laptop, Linux, one-clock America/New_York
 title Patchouli -- queue empty, eighteenth confirmation, no build
