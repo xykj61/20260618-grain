@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.043811` | [Copal, fruit spent, no build](20261011/20261011-043811_copal-fruit-spent-ruling-no-build.kyri) | 0 of 159 witnesses unrostered; ruling asked. |
 | 20261011.043753 | [second hash constant door falsified](20261011/20261011-043753_second-hash-constant-door-falsified.kyri) | second constant: B1, B2, B3 fired; door void |
 | 20261011.043440 | [Pheromone, ff, witnesses GREEN, held](20261011/20261011-043440_pheromone-witnesses-held-no-build.kyri) | ff to d2b8e; gated on Incense; no build. |
 | `20261011.043007` | [Patchouli, mantra queue empty, no build](20261011/20261011-043007_patchouli-mantra-queue-empty-no-build.kyri) | No chronological header left; queue empty; no build. |
