@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.215644` | [Diffuser, eleventh base named](20261010/20261010-215644_diffuser-eleventh-base-falsifier-prewritten-no-run.kyri) | Base 20261020; no run. |
 | `20261010.215642` | [Petrichor, gate held a seventh read, no build](20261010/20261010-215642_petrichor-gate-held-seventh-read-no-build.kyri) | Pull ff to 02d88c2c72; Consent Rail still gated; no build. |
 | `20261010.215450` | [Pheromone, language lane empty, no build](20261010/20261010-215450_pheromone-language-lane-empty-no-build.kyri) | No open Glow red; claim override declined; no build. |
 | `20261010.214849` | [Diffuser, gate held a sixth read, no build](20261010/20261010-214849_diffuser-gate-held-sixth-read-no-build.kyri) | Fruit gate still shut; no build, no run. |
