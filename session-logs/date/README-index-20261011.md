@@ -202,6 +202,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.135100` | [Patchouli, queue empty, kumara red held](20261011/20261011-135100_patchouli-queue-empty-kumara-held.kyri) | Queue empty; kumara seam ruling waits. |
 | `20261011.135010` | [Grass, audit queue still empty, no build](20261011/20261011-135010_grass-repeat-queue-empty-no-build.kyri) | Four open pages graded B or better; no build. |
 | `20261011.134746` | [Diffuser, held on P1, twelfth hold](20261011/20261011-134746_diffuser-held-p1-twelfth-hold-no-build.kyri) | P1 ruling still absent; no build. |
 | `20261011.134905` | [Incense, baton declined, twelfth read, no build](20261011/20261011-134905_incense-baton-declined-no-build-12.kyri) | Board clear; waits on Keaton; no build. |
