@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.060551` | [Incense, round-open to dea973e3a5, declined, no build](20261011/20261011-060551_incense-round-open-declines-no-build.kyri) | Round-open ff; claim board empty; %642, %519 await Keaton; no build. |
 | `20261011.060710` | [Patchouli, queue empty a fifteenth way, no build](20261011/20261011-060710_patchouli-queue-empty-fifteenth-no-build.kyri) | Fresh sweep of mantra/ and tally/ empty; no build. |
 | `20261011.060524` | [Petrichor, consent gate holds again, no build](20261011/20261011-060524_petrichor-consent-gate-holds-again-no-build.kyri) | Ff to b77a7fd74b; gate still held; no build. |
 | `20261011.060815` | [Grass, fold.rye A, queue empty, no build](20261011/20261011-060815_grass-fold-queue-empty-no-build.kyri) | Mycelium sample clean at B or better; no edit. |
@@ -27,9 +28,7 @@
 | 20261011.055107 | [Patchouli, queue empty again, no build](20261011/20261011-055107_patchouli-queue-empty-again-no-build.kyri) | Empty queue again; both doors await rulings; no build. |
 | `20261011.054903` | [Copal, density witness already rostered, no build](20261011/20261011-054903_copal-fruit-density-rostered-no-build.kyri) | Zero unrostered witnesses; density witness GREEN; no build. |
 | `20261011.055504` | [Petrichor, inner repeat held, no build](20261011/20261011-055504_petrichor-inner-repeat-held-no-build.kyri) | Repeat consent-gate hold; no build. |
-| `20261011.055122` | [Petrichor, consent gate holds, no build](20261011/20261011-055122_petrichor-consent-gate-holds-no-build.kyri) | Consent Rail gate still held; zero live claims; no build. |
 | 20261011.055107 | [Patchouli, queue empty again, no build](20261011/20261011-055107_patchouli-queue-empty-again-no-build.kyri) | Empty queue again; both doors await rulings; no build. |
-| `20261011.055330` | [Grass, foundations sample all A, no build](20261011/20261011-055330_grass-foundations-sample-all-a-no-build.kyri) | Four newest foundations pages grade A; no frame; no build. |
 | `20261011.054847` | [Bakery, queue held, no build](20261011/20261011-054847_bakery-queue-held-no-build.kyri) | Queue held on Keaton's ruling; no build, no endurance run. |
 | `20261011.054817` | [Incense, baton read, round-opened, declined](20261011/20261011-054817_incense-baton-round-open-no-build.kyri) | Round-open clean at 5b73e43696; claim board empty; 166 stash records unlanded; no build. |
 | `20261011.055444` | [Pheromone, fruit empty, ruling held, no build](20261011/20261011-055444_pheromone-fruit-empty-ruling-held-no-build.kyri) | Language lane holds on Incense ruling; claim clear; no build. |
