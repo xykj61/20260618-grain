@@ -58,9 +58,3 @@ stamp 20261011.040446
 epoch 1791705886
 paths tools/r/ tools/fixtures/r/ construction/fleet-claims.kyri
 what Bakery fusion spine step 2: content-keyed compile cache in Rishi, identical declared inputs reuse a binary while every owed proof still runs
-claim bakery-plant-adopt-kumara
-seat bakery
-stamp 20261011.045949
-epoch 1791709189
-paths tools/fixtures/k/kumara_tilak_bind_control.sh
-what Bakery adopts the shared plant law in the kumara tilak bind control, so its two line deletes are checked to land (REDS %519)
