@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
+| `20261011.191420` | [Incense, declined, no build](20261011/20261011-191420_incense-declined-no-build.kyri) | Tree clean; claims present; no sentinel; gated; no build. |
 | `20261011.191130` | [Diffuser held, P1 unruled](20261011/20261011-191130_diffuser-hold-p1-unruled-remote-level.kyri) | Remote level; P1 waits on a ruling; no run. |
 |---|---|---|
 | `20261011.191140` | [Grass, grade held, no lift](20261011/20261011-191140_grass-grade-held-no-lift.kyri) | Inner prompt graded, nothing below B; no cold run, no lift. |
