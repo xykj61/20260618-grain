@@ -48,6 +48,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.095732` | [Bakery, fruit gated, fast-forward, no build](20261011/20261011-095732_bakery-fruit-gated-no-build.kyri) | Receipt key waits on a ruling; no claim, no build. |
 | `20261011.095505` | [Grass, repeat named, queue held, no edit](20261011/20261011-095505_grass-names-the-repeat-no-edit.kyri) | Inner prompt repeat named and left standing; nib carried; no edit. |
 | `20261011.094849` | [Bakery, held after pull, no build](20261011/20261011-094849_bakery-held-after-pull-no-build.kyri) | Fast-forwarded; receipt key ruling still waits; no build. |
 | `20261011.095339` | [Copal, fruit void again, no build](20261011/20261011-095339_copal-fruit-void-no-build.kyri) | Roster complete; no unrostered witness; no build. |
