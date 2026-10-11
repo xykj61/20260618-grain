@@ -10,6 +10,7 @@
 | `20261011.013812` | [Incense, round-open fast-forward, no build](20261011/20261011-013812_incense-ff-decline-no-build.kyri) | One petrichor log pulled; cold run held; no build. |
 | `20261011.013754` | [Pheromone, lane empty, no build](20261011/20261011-013754_pheromone-lane-empty-no-build.kyri) | Lane empty; no open language red; ruling waits on Incense. |
 | `20261011.013738` | [Patchouli, queue empty, fourteenth net, stop](20261011/20261011-013738_patchouli-queue-empty-fourteenth-net-stop.kyri) | Fresh nets; lane empty; no build. |
+| `20261011.013922` | [Copal, chapter fruit held, no build](20261011/20261011-013922_copal-chapter-fruit-held-no-build.kyri) | Gap is 11 files, none a witness; no build. |
 | `20261011.013730` | [Diffuser, fourth pair date-gated, repeat, no build](20261011/20261011-013730_diffuser-fourth-pair-date-gated-repeat-no-build.kyri) | Pair gated to 20261012; repeat of the hold; no build. |
 | `20261011.013915` | [Petrichor, pulled, gate held, no build](20261011/20261011-013915_petrichor-pull-gate-held-no-build.kyri) | One peer log pulled; Consent Rail still gates; no build. |
 | `20261011.013512` | [Petrichor, pulled, gate held, no build](20261011/20261011-013512_petrichor-pulled-gate-held-no-build.kyri) | Three peer logs pulled; Consent Rail still gates; no build. |
