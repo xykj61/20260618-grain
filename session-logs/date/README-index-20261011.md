@@ -153,6 +153,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.124340` | [Incense, round open clean, no build](20261011/20261011-124340_incense-baton-round-open-clean-no-build.kyri) | Round-open clean; board clear; law lane waits on Keaton. |
 | `20261011.123951` | [Patchouli, queue dry, 840 held, no build](20261011/20261011-123951_patchouli-queue-dry-840-held-no-build.kyri) | Nets re-run; rulings still wait; no build. |
 | `20261011.123625` | [Diffuser, sawtooth repaired pairing, falsifier first](20261011/20261011-123625_diffuser-sawtooth-repaired-pairing-falsifier.kyri) | Pair 223-224 at 28 sets; falsifier before run; no run. |
 | `20261011.123421` | [Incense, queue dry, ruling to Keaton](20261011/20261011-123421_incense-baton-queue-dry-ruling-to-keaton.kyri) | Round-open clean; pheromone held; no build. |
