@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.065940` | [Petrichor, gate re-read, no build](20261011/20261011-065940_petrichor-gate-held-reread-no-build.kyri) | Gate re-read; claims and upstream checked; no build. |
 | `20261011.070044` | [Incense, baton read, receipt witness green, no build](20261011/20261011-070044_incense-baton-declined-receipt-witness-green.kyri) | Level with xy/main; claim board empty; receipt witness GREEN; no build. |
 | `20261011.070043` | [Bakery, pulled, receipt-key ruling open, no build](20261011/20261011-070043_bakery-receipt-key-ruling-open-no-build.kyri) | Pulled to 3a0bbd1a9d; receipt key is Keaton's ruling; no build. |
 | `20261011.065948` | [Pheromone, lane empty, no build](20261011/20261011-065948_pheromone-lane-empty-no-build-rota-water.kyri) | Lane empty; no claim; no build. |
