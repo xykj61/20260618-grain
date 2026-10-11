@@ -47,6 +47,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.095505` | [Grass, repeat named, queue held, no edit](20261011/20261011-095505_grass-names-the-repeat-no-edit.kyri) | Inner prompt repeat named and left standing; nib carried; no edit. |
 | `20261011.094849` | [Bakery, held after pull, no build](20261011/20261011-094849_bakery-held-after-pull-no-build.kyri) | Fast-forwarded; receipt key ruling still waits; no build. |
 | `20261011.095339` | [Copal, fruit void again, no build](20261011/20261011-095339_copal-fruit-void-no-build.kyri) | Roster complete; no unrostered witness; no build. |
 | `20261011.095008` | [Patchouli, queue empty fifteenth net, no build](20261011/20261011-095008_patchouli-queue-empty-fifteenth-net-no-build.kyri) | Fresh mantra/tally net reads only read-compat and fixtures; no claim taken; no build. |
