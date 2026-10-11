@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.073620` | [Incense, board clear, no build](20261011/20261011-073620_incense-baton-declined-board-clear-no-build.kyri) | Board clear, upstream unchanged, declined with no build. |
 | `20261011.073624` | [Patchouli, queue empty again](20261011/20261011-073624_patchouli-queue-empty-recount-no-build.kyri) | Headers chronological; no build. |
+| `20261011.073812` | [Bakery, rye cold start red, check in](20261011/20261011-073812_bakery-rye-bootstrap-red-check-in.kyri) | bootstrap.sh bridges main only; rye binary absent. |
 | `20261011.073520` | [Copal, fruit still empty, no build](20261011/20261011-073520_copal-fruit-still-empty-no-build.kyri) | Fifth empty fruit read; ruling asked |
 | `20261011.073513` | [Pheromone, lane held after pull, no build](20261011/20261011-073513_pheromone-lane-held-after-pull-no-build.kyri) | Seven upstream logs, no Glow change; lane empty; no build. |
 | `20261011.073052` | [Copal, fruit empty, no build](20261011/20261011-073052_copal-fruit-empty-density-fault-stale-no-build.kyri) | Fourth empty fruit; density fault stale |
