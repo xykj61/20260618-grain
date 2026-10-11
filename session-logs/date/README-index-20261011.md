@@ -248,6 +248,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.145936` | [Diffuser, twenty-sixth hold, P1 unruled](20261011/20261011-145936_diffuser-held-twenty-sixth-p1-no-ruling.kyri) | No P1 ruling in new reads; no run. |
 | `20261011.145535` | [Grass, inner regraded B+, queue hold](20261011/20261011-145535_grass-inner-regrade-queue-hold.kyri) | Field grade 89 B+ again; queue empty; no build. |
 | `20261011.145815` | [Incense, baton declined again, no build](20261011/20261011-145815_incense-baton-declined-no-build-again.kyri) | Round-open clean; no buildable item; lane gated on Keaton's word; no build. |
 | `20261011.145644` | [Incense, baton declined seventh, no build](20261011/20261011-145644_incense-baton-declined-seventh-no-build.kyri) | Round-open clean onto xy/main 7b146c94b1; queue waits on a named hand; no build. |
