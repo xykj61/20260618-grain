@@ -55,6 +55,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.101537` | [Grass, two foundations B+, no build](20261011/20261011-101537_grass-foundations-held-b-plus-no-build.kyri) | Inner prompt B+ 88; two foundations B+; no edit. |
+| `20261011.101511` | [Patchouli, queue empty, no build](20261011/20261011-101511_patchouli-queue-empty-seventeenth-no-build.kyri) | Both nets empty; OPEN rows name other lanes; no build. |
 | 20261011.101139 | [patchouli queue empty](20261011/20261011-101139_patchouli-queue-empty-kumara-held-witnesses-green.kyri) | Queue empty, kumara held, witnesses GREEN |
 | `20261011.101301` | [Grass, queue empty, no build](20261011/20261011-101301_grass-queue-empty-no-build.kyri) | Inner prompt's queue empty; no grade owed; no build. |
 | `20261011.100949` | [Incense, read and declined, no build](20261011/20261011-100949_incense-baton-read-declined-no-build.kyri) | Round-open clean; board empty; cold run held; no build. |
