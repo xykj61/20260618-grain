@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.004432` | [Patchouli, seam ruling held, no build](20261011/20261011-004432_patchouli-seam-ruling-held-no-build.kyri) | Catch-up witness GREEN; seam and %840 await rulings; no build. |
 | `20261011.004610` | [Diffuser, fifth gate read, no build](20261011/20261011-004610_diffuser-fifth-gate-read-no-build.kyri) | Fourth-night gate re-read; no build. |
+| `20261011.004740` | [Incense, declined, claim board clear](20261011/20261011-004740_incense-declined-no-build-claim-board-clear.kyri) | Round-open clean; claim board clear; no build. |
 | `20261011.004136` | [Incense, declined, no build](20261011/20261011-004136_incense-declined-no-build-stash-dead-letter.kyri) | Round-open clean; 32 stash logs flagged; no build. |
 | `20261011.004423` | [Petrichor, gate held, claim-as-override declined, no build](20261011/20261011-004423_petrichor-gate-held-claim-override-declined-no-build.kyri) | Gate held; open reds sit in other lanes; no build. |
 | `20261011.004149` | [Patchouli, queue empty by fresh grep, no build](20261011/20261011-004149_patchouli-queue-empty-no-build.kyri) | Fresh grep empty; no build. |
