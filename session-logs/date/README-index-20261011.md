@@ -118,6 +118,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.115014` | [Bakery, shared-cache claim held, no build](20261011/20261011-115014_bakery-shared-cache-claim-held.kyri) | Claim pushed; crux open; no build |
 | `20261011.114742` | [Patchouli, recursion class clean, no build](20261011/20261011-114742_patchouli-recursion-class-clean-no-build.kyri) | Queue empty; recursion read clean; kumara red held; no build. |
 | `20261011.114721` | [Grass, inner regraded at Field, no lift](20261011/20261011-114721_grass-inner-regrade-field-no-lift.kyri) | Grade holds B or better; no edit; no build. |
 | `20261011.114353` | [Incense, seventh decline, no build](20261011/20261011-114353_incense-baton-seventh-decline-no-build.kyri) | Round-open clean; board clear; no build. |
