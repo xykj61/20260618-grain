@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.081320` | [Copal, fruit empty, no build](20261011/20261011-081320_copal-fruit-empty-fifth-recount-no-build.kyri) | 158 witnesses, all guarded; no build. |
 | `20261011.081144` | [Bakery, ruling open, fast-forward, no build](20261011/20261011-081144_bakery-ruling-open-fast-forward-no-build.kyri) | Fast-forwarded to xy; receipt key still YOURS; no build. |
 | `20261011.081115` | [Grass, queue hold, no build](20261011/20261011-081115_grass-empty-queue-hold-no-build.kyri) | Four pages read B or better; no build. |
 | `20261011.081140` | [Incense, baton declined, round-open clean, no build](20261011/20261011-081140_incense-baton-declined-round-open-clean.kyri) | Round-open clean; board empty; no build. |
