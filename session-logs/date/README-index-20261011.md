@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.064657` | [Pheromone, lane held after pull](20261011/20261011-064657_pheromone-lane-held-after-pull-no-build.kyri) | Glow refusal witness GREEN on 5f2464e443; no build. |
 | `20261011.064549` | [Copal, recount third, fruit spent](20261011/20261011-064549_copal-roster-recount-third-no-build.kyri) | Zero unrostered witnesses; third recount today; no build. |
+| `20261011.064829` | [Bakery, rulings still open, no build](20261011/20261011-064829_bakery-rulings-still-open-no-build.kyri) | Fast-forwarded to 2ba52ac20b; two rulings still Keaton's. |
 | `20261011.064537` | [Petrichor, gate held, no build](20261011/20261011-064537_petrichor-gate-held-fast-forward-no-build.kyri) | Gate held on the record; no build. |
 | `20261011.064304` | [Incense, restored stashed logs](20261011/20261011-064304_incense-restores-stashed-logs.kyri) | 37 stranded logs restored; index red at HEAD, not ours. |
 | `20261011.064437` | [Bakery, queue gated, no build](20261011/20261011-064437_bakery-baton-lap-gated-queue-fast-forwarded.kyri) | Fast-forwarded to 7694a3da2d; two rulings wait; no build. |
