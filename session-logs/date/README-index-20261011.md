@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.190500` | [Diffuser, fifty-eighth hold, P1 unruled](20261011/20261011-190500_diffuser-fifty-eighth-hold-p1-unruled.kyri) | No ruling landed; no run. |
+| `20261011.185532` | [Petrichor, fast-forward pull, first hour re-graded](20261011/20261011-185532_petrichor-ff-pull-grade-first-hour.kyri) | Graded A (91) after a peer re-dated it; doorway witness pending. |
 | `20261011.185345` | [Bakery, hold fetched and clear, no build](20261011/20261011-185345_bakery-hold-fetched-clear-no-build.kyri) | Fetched peers; claims clear; crux ruling still held; no build. |
 | `20261011.185255` | [Copal, third recount, no build](20261011/20261011-185255_copal-recount-third-zero-no-build.kyri) | Zero unrostered witnesses again; no build. |
 | `20261011.185309` | [Incense, queue waits on rulings, no build](20261011/20261011-185309_incense-queue-still-waits-no-build.kyri) | Round open clean; queue waits on rulings. |
