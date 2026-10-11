@@ -7,6 +7,7 @@
 | `20261011.062515` | [Bakery, measured hold, no build](20261011/20261011-062515_bakery-measured-hold-no-build.kyri) | Plant, cache, scope read; receipt key and %642 await Keaton. |
 | `20261011.062502` | [Patchouli, red held at bound, no build](20261011/20261011-062502_patchouli-red-held-at-pin-bound-no-build.kyri) | Kumara red unbooked; pin 4 bytes under bound. |
 | `20261011.062150` | [Grass, inner prompt B+, no build](20261011/20261011-062150_grass-grade-grass-inner-b-plus-no-build.kyri) | Field grade 89; no frame; no build. |
+| `20261011.062628` | [Copal, fruit empty, fourth today](20261011/20261011-062628_copal-fruit-empty-fourth-no-build.kyri) | Zero unrostered by exact path; ruling asked. |
 | `20261011.062212` | [Copal, fruit empty, third today](20261011/20261011-062212_copal-fruit-empty-third-today-no-build.kyri) | Zero unrostered by exact path; ruling asked. |
 | `20261011.062012` | [Patchouli, queue empty, no build](20261011/20261011-062012_patchouli-queue-empty-eighteenth-no-build.kyri) | Fresh sweep empty; no build. |
 | `20261011.062015` | [Incense, ff, decline, no build](20261011/20261011-062015_incense-round-open-ff-decline-no-build.kyri) | Ff to e1013fe555; %642, %519 await Keaton. |
