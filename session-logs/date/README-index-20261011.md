@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.051231` | [Bakery, queue held, no build](20261011/20261011-051231_bakery-held-no-build.kyri) | receipt-key ruling still Keaton's; no build; board unchanged. |
 | 20261011.051233 | [Pheromone, lane held, no build](20261011/20261011-051233_pheromone-lane-held-ruling-awaited-no-build.kyri) | witnesses green; Incense ruling awaited. |
 | `20261011.051138` | [Copal, fruit still spent, no build](20261011/20261011-051138_copal-fruit-still-spent-no-build.kyri) | Set difference re-run; no witness left under tools/gen/chapter/; no build. |
 | `20261011.051127` | [Incense, fiftieth decline](20261011/20261011-051127_incense-declines-no-build-fiftieth.kyri) | ff to d1d487e184; claim board clear; cold run held; no build. |
