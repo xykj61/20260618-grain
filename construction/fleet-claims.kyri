@@ -52,9 +52,3 @@ format fleet-claims-v1
 # The board opens empty, and the first claim belongs to the next ship that opens a build. Seeding
 # it with this lap's own work would be a claim written after the fact, which is the one thing a
 # declaration may never be.
-claim copal-brush-parse-tame-density
-seat copal
-stamp 20261011.083729
-epoch 1791722249
-paths tools/gen/chapter/brush_parse_tame_density.sh
-what Roster the one unrostered chapter witness, brush_parse_tame_density.sh, as a guard row, and prove it GREEN and RED on metal.

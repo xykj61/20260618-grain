@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 
+| `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.083524` | [Incense, baton printed, declined, no build](20261011/20261011-083524_incense-baton-declined-no-build-orbit-6.kyri) | Fetch clean at 9f24d13bf5; claim board empty; cold run held; no build. |
