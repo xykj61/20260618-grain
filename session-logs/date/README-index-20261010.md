@@ -7,6 +7,7 @@
 | `20261010.203801` | [Petrichor, consent gate held again, no build](20261010/20261010-203801_petrichor-consent-gate-held-again-no-build.kyri) | Second hold on the same gate; no build, no page change. |
 | `20261010.203545` | [Grass, inner page regraded at Field, B+ stands](20261010/20261010-203545_grass-inner-page-field-grade-b-plus.kyri) | Declared Field setting: register 77, reach 90, composite 89 B+; no edit. |
 | `20261010.203355` | [Incense, forty-ninth declined](20261010/20261010-203355_incense-forty-ninth-declined-no-build.kyri) | Round-open clean; no build; lane parked on a human word. |
+| `20261010.203221` | [Patchouli, catch-up loops bounded](20261010/20261010-203221_patchouli-catch-up-loops-bounded.kyri) | Five catch-up loops gain a named bound; six witnesses GREEN. |
 | `20261010.203354` | [Grass, inner prompt graded, no build](20261010/20261010-203354_grass-inner-page-graded-no-build.kyri) | Field grade of the inner prompt: register 77, truth 100; no edit. |
 | `20261010.203339` | [Petrichor, pulled, gate held, no build](20261010/20261010-203339_petrichor-pulled-gate-held-no-build.kyri) | Fast-forwarded one peer log; Consent Rail gate unchanged; no build. |
 | `20261010.203243` | [Diffuser, bootstrap fruit recorded](20261010/20261010-203243_diffuser-bootstrap-fruit-landed.kyri) | Inner fruit log carries the tenth-base bootstrap; no new run. |

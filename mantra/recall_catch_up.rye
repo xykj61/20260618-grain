@@ -37,7 +37,14 @@ pub fn max_revision_held(cat: *const recall_lap1.BoltCatalog, peer: []const u8, 
     return max_rev;
 }
 
+// The most revisions one catch-up pass will sync before it refuses. A peer that keeps answering
+// non-empty would otherwise hold the loop forever. The value is a judgment call: it sits far above
+// any revision count this tree produces per pass, and reaching it returns CatchUpBound rather than
+// a silent cut, so a real overflow stays visible.
+pub const max_catch_up_revisions: u32 = 4096;
+
 /// Sync every revision on `source` that `fetcher` lacks, stopping at the first empty ask.
+/// Refuses with CatchUpBound if the peer still answers non-empty after max_catch_up_revisions asks.
 pub fn catch_up_to_latest(
     fetcher: *recall_lap1.BoltCatalog,
     source: *const recall_lap1.BoltCatalog,
@@ -52,11 +59,14 @@ pub fn catch_up_to_latest(
         .needed = 0,
     };
     var next_rev = max_revision_held(fetcher, peer, bolt) + 1;
-    while (true) {
+    var asks: u32 = 0;
+    while (asks < max_catch_up_revisions) : (asks += 1) {
+        // invariant: the loop condition keeps asks below the bound on every pass through the body
+        assert(asks < max_catch_up_revisions);
         const sync = try recall_lap1.sync_revision(fetcher, source, peer, bolt, next_rev);
         if (sync.total == 0) {
             report.empty_asks += 1;
-            break;
+            return report;
         }
         report.revisions_synced += 1;
         report.total_leaves += sync.total;
@@ -64,7 +74,7 @@ pub fn catch_up_to_latest(
         report.needed += sync.needed;
         next_rev += 1;
     }
-    return report;
+    return error.CatchUpBound;
 }
 
 fn run_selftest(_: std.Io) !u8 {
