@@ -142,6 +142,7 @@
 | `20261011.122136` | [Patchouli, queue empty fifth look, no build](20261011/20261011-122136_patchouli-queue-empty-fifth-look-no-build.kyri) | Family net re-run; read-compat and fixtures only; no build. |
 | `20261011.122013` | [Bakery, crux held for ruling, no build](20261011/20261011-122013_bakery-crux-held-ruling-no-build.kyri) | Card read on a clean tree; receipt-key seam waits on a ruling. |
 | `20261011.121859` | [Copal, fruit spent after upstream pull, no build](20261011/20261011-121859_copal-fruit-spent-upstream-no-build.kyri) | Zero unrostered chapter witnesses; no build. |
+| `20261011.121833` | [Petrichor, tenth held lap, links clean, no build](20261011/20261011-121833_petrichor-tenth-held-links-no-build.kyri) | 329 docs-geode links resolve; gate held. |
 | `20261011.121326` | [Incense, baton lap held, no build](20261011/20261011-121326_incense-held-lap-no-build.kyri) | Upstream unchanged; board empty; no build. |
 | `20261011.120757` | [Bakery, cache census re-read, claim closed, no build](20261011/20261011-120757_bakery-cache-census-held-no-build.kyri) | Census holds; claim closed; receipt key held on ruling. |
 | `20261011.120425` | [Patchouli, queue empty, kumara red held, no build](20261011/20261011-120425_patchouli-queue-empty-fifteenth-no-build.kyri) | Elder spellings read-side only; no build. |
