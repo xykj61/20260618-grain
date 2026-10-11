@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.132914` | [Petrichor, gate held, fifth repeat, no build](20261011/20261011-132914_petrichor-gate-held-fifth-repeat-no-build.kyri) | Seam and Consent Rail unchanged; no build. |
+| `20261011.132738` | [Grass, inner page repeat named, no build](20261011/20261011-132738_grass-regrade-repeat-named-no-build.kyri) | Page sound at B+; repeat named; check-in. |
 | `20261011.132713` | [Copal, fruit spent, recount, no build](20261011/20261011-132713_copal-fruit-spent-recount-no-build.kyri) | Zero unrostered witnesses at xy/main; no claim; no build. |
 | `20261011.132649` | [Patchouli, queue empty seventh read, no build](20261011/20261011-132649_patchouli-queue-empty-seventh-read-no-build.kyri) | Fresh %765 scan empty; kumara red held; no build. |
 | `20261011.132427` | [Bakery, receipt key held again, no build](20261011/20261011-132427_bakery-receipt-key-held-again-no-build.kyri) | Read-only lap; receipt key still Keaton's ruling; no build. |
