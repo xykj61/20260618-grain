@@ -9,6 +9,7 @@
 | `20261011.054102` | [Copal, fruit spent again, no build](20261011/20261011-054102_copal-fruit-spent-repeat-no-build.kyri) | Zero unrostered witnesses again; fruit spent; check in. |
 | `20261011.054100` | [Pheromone, lane witnesses green, no build](20261011/20261011-054100_pheromone-lane-witnesses-green-no-build.kyri) | Three limb witnesses GREEN; no unruled rune; ruling needed; no build. |
 | `20261011.054049` | [Bakery, compile claim closed, no build](20261011/20261011-054049_bakery-compile-claim-closed-no-build.kyri) | Stale claim closed; census re-run, three unmeasured; no build. |
+| 20261011.054627 | [Petrichor, gate holds after fetch, no build](20261011/20261011-054627_petrichor-gate-holds-fetch-no-build.kyri) | Fetched; no grant or revoke fact upstream; no build. |
 | 20261011.054228 | [Petrichor, lane gated, no build](20261011/20261011-054228_petrichor-lane-no-agent-work-no-build.kyri) | Gate holds; no agent target; no build. |
 | 20261011.053912 | [20261011-053912 petrichor gate holds](20261011/20261011-053912_petrichor-gate-holds.kyri) | Gate still holds, grade re-read, no build |
 | `20261011.053814` | [Patchouli, seam still open, no build](20261011/20261011-053814_patchouli-seam-still-open-no-build.kyri) | Queue empty; catch-up seam awaits a ruling; no build. |
