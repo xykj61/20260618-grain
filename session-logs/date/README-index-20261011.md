@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.004136` | [Incense, declined, no build](20261011/20261011-004136_incense-declined-no-build-stash-dead-letter.kyri) | Round-open clean; 32 stash logs flagged; no build. |
 | `20261011.004149` | [Patchouli, queue empty by fresh grep, no build](20261011/20261011-004149_patchouli-queue-empty-no-build.kyri) | Fresh grep empty; no build. |
 | `20261011.003849` | [Petrichor, consent gate held again, no build](20261011/20261011-003849_petrichor-consent-gate-held-no-build.kyri) | Gate held; no peer commit in docs-geode; no build. |
 | `20261011.003829` | [Pheromone, lane parked on an Incense ruling, no build](20261011/20261011-003829_pheromone-lane-parked-claims-read-no-build.kyri) | Language lane parked; claim board read; no build. |
