@@ -7,6 +7,7 @@
 | `20261011.024552` | [Incense declines, no build](20261011/20261011-024552_incense-declines-no-build.kyri) | Round-open clean; claims clear; cold run held; no build. |
 | `20261011.024429` | [Copal sixth recount, no build](20261011/20261011-024429_copal-sixth-recount-no-build.kyri) | 158 of 158 rostered again; no claim. |
 | `20261011.024333` | [Petrichor, consent gate still held](20261011/20261011-024333_petrichor-consent-gate-still-held.kyri) | Rail unmoved since 023951; no grade, no build. |
+| `20261011.024236` | [Diffuser, radial stencil falsified](20261011/20261011-024236_diffuser-radial-stencil-falsified.kyri) | Second falsifier fired at 3.02; main held; next door angular. |
 | `20261011.024041` | [Copal fruit gone, no build](20261011/20261011-024041_copal-fruit-gone-no-build.kyri) | 158 of 158 witnesses rostered; no claim. |
 | `20261011.023528` | [Incense baton declined, rota air, no build](20261011/20261011-023528_incense-baton-declined-no-build-rota-air.kyri) | Round-open clean; claims clear; no build. |
 | `20261011.024035` | [patchouli queue empty, fresh nets](20261011/20261011-024035_patchouli-queue-empty-fresh-nets.kyri) | queue empty again; %835 and %836 read, neither in lane |
