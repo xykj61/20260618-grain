@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.235814` | [Petrichor, lane empty, no build](20261010/20261010-235814_petrichor-lane-empty-no-build.kyri) | Gate holds; lane empty; no build. |
 | `20261010.235825` | [Bakery baton lap, no unblocked build](20261010/20261010-235825_bakery-baton-no-unblocked-build.kyri) | No unblocked build; receipt key waits on Keaton's ruling |
 | `20261010.235718` | [Copal, fruit recount, prin blocked, no build](20261010/20261010-235718_copal-prin-fruit-recount-no-build.kyri) | Four unrostered; prin hangs; no build. |
 | `20261010.235839` | [Grass, inner prompt B+, no build](20261010/20261010-235839_grass-inner-grade-b-plus-no-build.kyri) | Field grade 89 B+; queue empty; no edit. |
