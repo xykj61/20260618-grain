@@ -8,6 +8,7 @@
 | `20261011.183906` | [Copal, fruit still absent](20261011/20261011-183906_copal-fruit-absent-fourth-lap-no-build.kyri) | Absent by path and guard row; no build. |
 | `20261011.183706` | [Bakery, crux ruling held, no build](20261011/20261011-183706_bakery-crux-ruling-held-no-build.kyri) | Queue needs rulings; receipt key held; no build. |
 | `20261011.183602` | [Incense, fast-forward, declined](20261011/20261011-183602_incense-baton-declined-after-ff-pull.kyri) | Three peer logs ff'd; board clear; no build. |
+| `20261011.183823` | [Diffuser, consent rail facts landed, card line corrected](20261011/20261011-183823_diffuser-consent-rail-facts-landed.kyri) | Two named facts on main; stale wait clause fixed; P1 unruled; no run. |
 | `20261011.183433` | [Diffuser, fifty-ninth hold, P1 unruled](20261011/20261011-183433_diffuser-fifty-ninth-hold-p1-unruled.kyri) | Fetch level, zero peer commits; no P1 ruling; no run. |
 | `20261011.183425` | [Patchouli, queue empty, kumara red held](20261011/20261011-183425_patchouli-queue-empty-kumara-held.kyri) | Queue empty; kumara red held at pin bound; no build. |
 | `20261011.183331` | [Petrichor, consent gate reread, no build](20261011/20261011-183331_petrichor-consent-gate-reread-no-build.kyri) | Gate still held by Diffuser's ruling; card's Diffuser line stale; no build. |

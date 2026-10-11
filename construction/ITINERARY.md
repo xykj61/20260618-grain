@@ -323,7 +323,7 @@ The interface uses ASCII as structure, linen as material, and motion as a bounde
 Brushstroke declares each component's grid, role, state, tokens, and motion profile. Skate renders the fixed frame and bounded events. A correspondence witness forces meaning, description, and behavior to change together.
 
 ## Now -- the eight sailing ship itineraries
-**Git nib:** `b426591c82` -- the nib this commit is built on, read after the final rebase (rule 2).
+**Git nib:** `71afaa4d45` -- the nib this commit is built on, read after the final rebase (rule 2).
 
 
 
@@ -421,7 +421,7 @@ The current yonder draft is [`Anyone under our sun`](../docs-geode/edu/yonder/20
 
 **Diffuser research:** [Wake correction](../active-designing/date/20260925/20260925-053315_the-cap-is-already-the-interval.md) -- capped backoff adds a check; batching awaits a witness.
 
-1. Acceptance case 4: the 72 by 18 Receipt Card stands in `skate/Sources/SkateCore/ReceiptCard.swift`. Its source-order witness and printable-byte refusal pass on this host; macOS XCTest remains the runtime proof. The Consent Rail waits until a grant fact and a revoke fact exist.
+1. Acceptance case 4: the 72 by 18 Receipt Card stands in `skate/Sources/SkateCore/ReceiptCard.swift`. Its source-order witness and printable-byte refusal pass on this host; macOS XCTest remains the runtime proof. The Consent Rail's two named facts landed: a grant replay (`e2259c8205`) and a revoke refusal (`eb69288afe`), both on `main` as of `20261011.183331`. Whether the rail opens is Keaton's or Claude's ruling, and it stays unruled here.
 2. Render Still, Settle, and Respond on the existing Skate grid and event ring.
 3. Prove reduced-motion, renderer-loss, hidden-document, settled-frame, deterministic-description, focus-order, and accessibility equivalence.
 4. Measure frame time, pulse count, event capacity, and accessibility parity before proposing richer motion.
