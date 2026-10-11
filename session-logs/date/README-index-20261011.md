@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.080517` | [Pheromone, baton decline, no build](20261011/20261011-080517_pheromone-baton-decline-no-build.kyri) | Lane closed; board empty; no build. |
 | `20261011.080717` | [Petrichor, gate reread, no build](20261011/20261011-080717_petrichor-gate-reread-no-build.kyri) | Gate reread; queue empty; no sixth identical sweep; no build. |
 | `20261011.080648` | [Grass, cold run 48 reds, rye blocked](20261011/20261011-080648_grass-cold-run-48-reds-rishi-rebuilt-rye-blocked.kyri) | Cold run guard_red 48; rishi rebuilt; rye bootstrap blocked. |
 | `20261011.080631` | [Bakery, receipt key held](20261011/20261011-080631_bakery-receipt-key-hold-no-build.kyri) | Ruling waits on Keaton; read-only. |
