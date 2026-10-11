@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.104554` | [Bakery, cache crux held, no build](20261011/20261011-104554_bakery-cache-crux-held-no-build.kyri) | Board clear; ruling waits; fast-forward; no build. |
 | `20261011.104609` | [Pheromone, lane held twelfth time, no build](20261011/20261011-104609_pheromone-lane-held-twelfth-no-build.kyri) | Fast-forward clean; claim board empty; no open language-lane red; no build. |
 | `20261011.104250` | [Copal, inner fruit rechecked, no build](20261011/20261011-104250_copal-inner-fruit-rechecked-no-build.kyri) | Exact-path roster check: 0 of 159 chapter witnesses unrostered; no claim; no build. |
 | `20261011.103911` | [Incense, baton declined, no build](20261011/20261011-103911_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; clock in; 124 stashed entries noted; no build. |
