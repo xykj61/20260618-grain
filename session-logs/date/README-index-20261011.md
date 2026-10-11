@@ -5,6 +5,7 @@
 | `20261011.191420` | [Incense, declined, no build](20261011/20261011-191420_incense-declined-no-build.kyri) | Tree clean; claims present; no sentinel; gated; no build. |
 | `20261011.191130` | [Diffuser held, P1 unruled](20261011/20261011-191130_diffuser-hold-p1-unruled-remote-level.kyri) | Remote level; P1 waits on a ruling; no run. |
 |---|---|---|
+| `20261011.191836` | [Diffuser held, P1 unruled, fetch level](20261011/20261011-191836_diffuser-hold-p1-unruled-no-ruling-fetch.kyri) | Remote level; P1 waits on a ruling; no run. |
 | `20261011.191410` | [Patchouli, queue empty, repeat read](20261011/20261011-191410_patchouli-queue-empty-sixteenth-sweep.kyri) | Nets fresh, queue empty; no build. |
 | `20261011.191439` | [Diffuser held, P1 unruled](20261011/20261011-191439_diffuser-hold-p1-unruled-ff.kyri) | Peer incense log only; P1 waits; no run. |
 | `20261011.191702` | [Grass, nine heads graded, none below B](20261011/20261011-191702_grass-nine-heads-graded-no-lift.kyri) | Mycelium queue graded; lowest B+; no lift. |
