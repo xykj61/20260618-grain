@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261011.015133 | [Petrichor, lane still gated, no build](20261011/20261011-015133_petrichor-lane-still-gated-no-build.kyri) | Gate closed; upstream level; no edit. |
 | `20261011.015006` | [Patchouli, kumara red held, pkill incident, no build](20261011/20261011-015006_patchouli-kumara-sign-red-held-no-build.kyri) | Re-check: pin full, two seam rulings wait; pkill incident logged. |
 | `20261011.015051` | [Pheromone, lane empty, no build](20261011/20261011-015051_pheromone-lane-empty-no-build.kyri) | Language queue empty; no rune question open; fast-forward only; no build. |
 | 20261011.014900 | [Incense, queue gated, no build](20261011/20261011-014900_incense-round-open-queue-gated-no-build.kyri) | Gated on Keaton's word; no build. |
