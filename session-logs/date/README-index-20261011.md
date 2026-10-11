@@ -80,6 +80,7 @@
 |---|---|---|
 | `20261011.104155` | [Diffuser, padded share reproduced](20261011/20261011-104155_diffuser-padded-share-wiring-fixed.kyri) | Padded arm was unwired; fixed; reproduces 07:39; no build. |
 | `20261011.104404` | [Incense, baton declined, fast-forward, no build](20261011/20261011-104404_incense-declined-no-build-fresh-ff.kyri) | Fast-forward to a4bbba82bf; no REDS row; no build. |
+| `20261011.104548` | [Patchouli, queue empty seventeenth time, no build](20261011/20261011-104548_patchouli-queue-empty-seventeenth-no-build.kyri) | Grep nets re-read; no build. |
 | `20261011.104012` | [Bakery, earth lap, receipt key checked, no build](20261011/20261011-104012_bakery-earth-receipt-key-checked-no-build.kyri) | Card's fact read on the file; holds; ruling stays Keaton's; no build. |
 | `20261011.104139` | [Petrichor, public seam gate held, no build](20261011/20261011-104139_petrichor-public-seam-gate-held-no-build.kyri) | Seam absent upstream; grant and revoke verified; no build. |
 | `20261011.103842` | [Copal, witness absent, claim closed](20261011/20261011-103842_copal-chapter-witness-absent-claim-closed.kyri) | Exact path check: 0 unrostered; no build. |
