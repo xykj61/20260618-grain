@@ -11,6 +11,7 @@
 | `20261011.191947` | [Petrichor, held at gate, no build](20261011/20261011-191947_petrichor-held-gate-ff-no-build.kyri) | Fast-forwarded; public seam unnamed, ruling unmade; no build. |
 | `20261011.191420` | [Incense, declined, no build](20261011/20261011-191420_incense-declined-no-build.kyri) | Tree clean; claims present; no sentinel; gated; no build. |
 |---|---|---|
+| `20261011.193907` | [Diffuser held, P1 unruled](20261011/20261011-193907_diffuser-held-sixty-second-p1-unruled.kyri) | P1 waits on a ruling; no run; no build. |
 | `20261011.193657` | [Patchouli, queue empty, kumara held, no build](20261011/20261011-193657_patchouli-queue-empty-kumara-held.kyri) | Witnesses GREEN; kumara red held on a ruling; no build. |
 | `20261011.193550` | [Bakery, build-cache claim](20261011/20261011-193550_bakery-build-cache-claim.kyri) | Build-cache claim opened; nib carried. No build. |
 | `20261011.193525` | [Diffuser, held on P1, no run](20261011/20261011-193525_diffuser-held-p1-remote-ff-no-run.kyri) | P1 unruled; three peer logs; no run. |
