@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.054049` | [Bakery, compile claim closed, no build](20261011/20261011-054049_bakery-compile-claim-closed-no-build.kyri) | Stale claim closed; census re-run, three unmeasured; no build. |
 | 20261011.053912 | [20261011-053912 petrichor gate holds](20261011/20261011-053912_petrichor-gate-holds.kyri) | Gate still holds, grade re-read, no build |
 | `20261011.053814` | [Patchouli, seam still open, no build](20261011/20261011-053814_patchouli-seam-still-open-no-build.kyri) | Queue empty; catch-up seam awaits a ruling; no build. |
 | `20261011.053649` | [Copal, roster re-measured, no build](20261011/20261011-053649_copal-zero-unrostered-measured-no-build.kyri) | Zero unrostered witnesses by comm; fruit spent; check in. |
