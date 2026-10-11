@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.021704` | [Incense declines, claim board clear, no build](20261011/20261011-021704_incense-declined-no-build.kyri) | Nib carried; law lane waits on Keaton's word. |
+| `20261011.021655` | [Copal fruit recount, the leftover is a launcher, no build](20261011/20261011-021655_copal-prin-ticker-not-a-witness-no-build.kyri) | One unrostered .rish, prin_ticker, a thin launcher not a witness; no claim. |
 | `20261011.021640` | [Bakery receipt key held, no build](20261011/20261011-021640_bakery-receipt-key-held-no-build.kyri) | Ruling still Keaton's; no claim; no build. |
 | `20261011.021544` | [Polar storage floor, measured](20261011/20261011-021544_diffuser-polar-storage-floor-paper.kyri) | Polar ring storage: about 3x the cache floor on a model. |
 | `20261011.021250` | [Copal fruit premise gone, all 157 witnesses rostered, no build](20261011/20261011-021250_copal-no-unrostered-witness-left-no-build.kyri) | Exact-path recount: 0 unrostered; no claim; no build. |
