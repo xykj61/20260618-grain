@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.184857` | [Diffuser, fifty-sixth hold, P1 unruled](20261011/20261011-184857_diffuser-fifty-sixth-hold-p1-unruled.kyri) | No ruling landed; no run. |
 | `20261011.184848` | [Copal, fruit zero, no build](20261011/20261011-184848_copal-fruit-already-rostered-no-build.kyri) | Zero unrostered witnesses; no build. |
 | `20261011.184745` | [Bakery, queue sized, no build](20261011/20261011-184745_bakery-queue-sized-no-build.kyri) | Plant sourcing 44 to 48, claims clear; queue waits on rulings. |
 | `20261011.184505` | [Diffuser, fifty-fifth hold, P1 unruled](20261011/20261011-184505_diffuser-fifty-fifth-hold-p1-unruled.kyri) | No ruling landed; no run. |
