@@ -208,6 +208,7 @@
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
 | `20261011.135618` | [Incense, baton declined, twelfth read, no build](20261011/20261011-135640_incense-baton-declined-no-build-twelfth.kyri) | Order unchanged; waits on Keaton at %642 or %519. |
+| `20261011.135715` | [Grass, docs room graded clean, no build](20261011/20261011-135715_grass-docs-room-graded-clean-no-build.kyri) | Fifteen compressor pages read B+ or better. |
 | `20261011.135514` | [Patchouli, kumara red held](20261011/20261011-135514_patchouli-queue-empty-kumara-red-still-held.kyri) | Red live; held on pin headroom and seam ruling. |
 | `20261011.135543` | [Bakery, receipt key held, sixth read, no build](20261011/20261011-135543_receipt-key-held-sixth-read-no-build.kyri) | Receipt key waits on Keaton; no build. |
 | `20261011.135100` | [Patchouli, queue empty, kumara red held](20261011/20261011-135100_patchouli-queue-empty-kumara-held.kyri) | Queue empty; kumara seam ruling waits. |
