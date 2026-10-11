@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+
 | `20261011.180004` | [Diffuser, fifty-first hold](20261011/20261011-180004_diffuser-fifty-first-hold-p1-unpinned.kyri) | No run; P1 still unpinned, no ruling. |
 | `20261011.180241` | [Pheromone, Glow lane held at its ruling, no build](20261011/20261011-180241_pheromone-glow-lane-ruling-held-no-build.kyri) | Fast-forward to 0bbcbe8292; lane waits on Incense; no build. |
 | `20261011.180208` | [Bakery, build-cache witness, GREEN](20261011/20261011-180208_bakery-build-cache-witness.kyri) | Rishi witness gates the 24-leg control; cold roster not run. |
