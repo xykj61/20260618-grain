@@ -10268,3 +10268,13 @@ guard prin_ticker
 path tools/gen/chapter/prin_ticker_witness.rish
 tier lap
 seated 20261011.034555
+
+# prin_scope_slate -- the twelve-nest season slate, tools/gen/chapter/prin_scope.rish. Unrostered
+# since it was written; the chapter's own name `prin_scope` already rosters tools/gen/chapter/prin.rish,
+# so this row takes the distinct guard name. Proven both sides on metal: a clean run exits 0 with
+# `GREEN: prin-scope`, and with `git` removed from PATH the first assert's `git rev-parse` call fails
+# and the run exits 1 with CommandFailed at line 14. Claimed as copal-prin-scope-roster before this landed.
+guard prin_scope_slate
+path tools/gen/chapter/prin_scope.rish
+tier lap
+seated 20261011.170721
