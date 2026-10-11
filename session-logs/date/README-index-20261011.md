@@ -9,6 +9,7 @@
 | `20261011.144030` | [Copal fruit, fifth read, no build](20261011/20261011-144030_copal-fruit-fifth-read-roster-complete-no-build.kyri) | Every witness rostered; fence holds 651 of 651. |
 | `20261011.144435` | [Petrichor, gate held, no build](20261011/20261011-144435_petrichor-consent-rail-settled-upstream-no-build.kyri) | Skate settled the rail; the gate waits on Diffuser. |
 | `20261011.143926` | [Incense, baton declined third time, no build](20261011/20261011-143926_incense-baton-declined-third-no-build.kyri) | Round-open clean, board read, no build. |
+| `20261011.143848` | [Bakery, cache hold re-read, no build](20261011/20261011-143848_bakery-cache-hold-reread-no-build.kyri) | YOURS ruling open; no build. |
 | `20261011.143748` | [Patchouli, queue empty sixteenth read, no build](20261011/20261011-143748_patchouli-queue-empty-sixteenth-read-no-build.kyri) | Queue empty; kumara held for ruling; no build. |
 | `20261011.143511` | [Copal fruit, fourth read, no unrostered witness, no build](20261011/20261011-143511_copal-fruit-fourth-read-no-build.kyri) | Every witness rostered; fruit has no candidate until a ruling. |
 | `20261011.143456` | [Grass, water row read, inner prompt holds B+, no build](20261011/20261011-143456_grass-water-row-held-no-build.kyri) | Row 3 read; inner prompt graded B+; queue empty; no build. |
