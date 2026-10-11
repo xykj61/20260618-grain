@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261010.203354` | [Grass, inner prompt graded, no build](20261010/20261010-203354_grass-inner-page-graded-no-build.kyri) | Field grade of the inner prompt: register 77, truth 100; no edit. |
+| `20261010.203243` | [Diffuser, bootstrap fruit recorded](20261010/20261010-203243_diffuser-bootstrap-fruit-landed.kyri) | Inner fruit log carries the tenth-base bootstrap; no new run. |
 | `20261010.202919` | [Pheromone, queue empty, glow refusal GREEN](20261010/20261010-202919_pheromone-queue-empty-glow-refusal-green.kyri) | Lane queue empty; refusal witness GREEN; no build. |
 | `20261010.202854` | [Petrichor, link-text promise clean](20261010/20261010-202854_petrichor-link-text-promise-clean.kyri) | Link-text witness GREEN at zero living anchors; no build. |
 | `20261010.202759` | [Incense, forty-eighth declined](20261010/20261010-202759_incense-forty-eighth-declined-no-build.kyri) | Round-open clean; no build; the flow reads off. |
