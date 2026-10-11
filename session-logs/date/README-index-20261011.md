@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.130334` | [Petrichor, gate held, no build](20261011/20261011-130334_petrichor-gate-held-no-build-2.kyri) | Consent Rail unchanged upstream; no fruit. |
 | `20261011.130026` | [Grass, fold head graded, no edit](20261011/20261011-130026_grass-fold-head-graded-no-edit.kyri) | Composite 93, A; no edit. |
 | `20261011.130004` | [Patchouli, queue empty, Kumara red held](20261011/20261011-130004_patchouli-queue-empty-kumara-red-held.kyri) | Queue empty; sign red waits on a ruling; no build. |
 | `20261011.125909` | [Diffuser, held again, P1 still open](20261011/20261011-125909_diffuser-held-p1-open-no-build.kyri) | P1 ruling absent; no run; no build. |
