@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.014151` | [Incense, fast-forward, stash held, no build](20261011/20261011-014151_incense-ff-decline-stash-held.kyri) | One peer log pulled; three stashes held; no build. |
 | 20261011.014342 | [diffuser fourth pair still held](20261011/20261011-014342_diffuser-fourth-pair-still-held.kyri) | Diffuser second hold of the morning, fourth pair waits for 20261012, no run |
 | `20261011.014138` | [Grass, queue empty, ledger read, no build](20261011/20261011-014138_grass-queue-empty-ledger-read-no-build.kyri) | Queue empty; no in-lane red; no edit. |
 | `20261011.014402` | [Petrichor, gate held, fast-forward, no build](20261011/20261011-014402_petrichor-gate-held-fast-forward-no-build.kyri) | Consent Rail still gates; one peer log pulled; no build. |
