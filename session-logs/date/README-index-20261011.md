@@ -6,6 +6,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.084954` | [Incense, clean round, declined](20261011/20261011-084954_incense-clean-round-declined-nib-carried.kyri) | Order held; nib carried; no build. |
 | `20261011.084802` | [Incense, clean round, declined](20261011/20261011-084802_incense-baton-declined-clean-round-no-build.kyri) | Anointed order held; no build. |
 | `20261011.084522` | [Bakery, census re-read, receipt key held, no build](20261011/20261011-084522_bakery-census-reread-receipt-key-held.kyri) | Census re-run path-independent; receipt-key ruling still Keaton's; no build. |
 | `20261011.084901` | [Grass, inner page graded, queue hold, no build](20261011/20261011-084901_grass-inner-grade-hold-no-build.kyri) | Field grade 77 register, 90 reach; no molt owed; no build. |
