@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.204300` | [Petrichor, fourth gate hold, no build](20261010/20261010-204300_petrichor-fourth-gate-hold-no-build.kyri) | Consent Rail still shut; no page change. |
 | `20261010.204115` | [Incense, fiftieth declined, no build](20261010/20261010-204115_incense-fiftieth-declined-no-build.kyri) | Round-open clean; no build; lane parked on a human word. |
 | `20261010.203835` | [Copal, density floor speaks at zero markers](20261010/20261010-203835_copal-zero-marker-exit-spoken.kyri) | Silent exit at zero markers repaired; witness GREEN; fruit still blocked on a ruling. |
 | `20261010.204028` | [Petrichor, pulled one commit, gate held, no build](20261010/20261010-204028_petrichor-pulled-gate-held-no-build.kyri) | Fast-forwarded Patchouli's bounds commit; Consent Rail gate unchanged; no build. |
