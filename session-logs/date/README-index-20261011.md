@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.071438` | [Patchouli, queue empty, no build](20261011/20261011-071438_patchouli-queue-empty-no-build-third-read.kyri) | Scans read; %807 waits on Keaton. |
+| `20261011.071545` | [Incense, fast-forward declined, no build](20261011/20261011-071545_incense-ff-declined-no-build.kyri) | Fast-forward to 7163cba3d2; claim board empty; cold run held; lane waits on a human word at %642 or %519. |
 | `20261011.071402` | [Diffuser, distinct-line stride falsifiers run, D3 fired](20261011/20261011-071402_diffuser-distinct-stride-falsifier-run.kyri) | D1, D2, D4 pass; D3 fires on a three-way tie at d'=1; the line-stride result stands. |
 | `20261011.071342` | [Petrichor, gate unchanged, no build](20261011/20261011-071342_petrichor-gate-unchanged-fire-row-no-build.kyri) | Fast-forward; Consent Rail unchanged; fire row read; no build. |
 | `20261011.071223` | [Bakery ff, ruling open, no build](20261011/20261011-071223_bakery-ff-receipt-ruling-open-no-build.kyri) | Ff to b744e33965; ruling open; no build. |
