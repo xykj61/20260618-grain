@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.020659` | [Copal fruit recount, no claim, no build](20261011/20261011-020659_copal-fruit-recount-no-claim-no-build.kyri) | Zero unrostered witnesses; no claim. |
 | `20261011.021500` | [Skate render slice held, no Swift toolchain here](20261011/20261011-021500_diffuser-skate-state-held-no-toolchain.kyri) | Board empty; item 2 needs a Swift runner; no build. |
 | `20261011.020838` | [Pheromone lane parked on ruling, ff-only, no build](20261011/20261011-020838_pheromone-lane-parked-ff-no-build.kyri) | Remote tip read; glow refusal witness GREEN; lane waits on Incense |
 | `20261011.020753` | [Petrichor gate held, upstream checked, nothing new to build](20261011/20261011-020753_petrichor-gate-held-upstream-unchanged.kyri) | Upstream still holds the Consent Rail and seam gate; no build. |
