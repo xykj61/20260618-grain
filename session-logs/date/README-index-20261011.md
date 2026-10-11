@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.002051` | [Diffuser, fourth-night band stated, no run](20261011/20261011-002051_diffuser-fourth-night-band-stated-no-run.kyri) | Band 2 to 4 pre-registered; run waits for 20261012; no build. |
 | `20261011.002044` | [Petrichor, gate hold after rebase, no build](20261011/20261011-002044_petrichor-gate-hold-no-build.kyri) | Consent Rail still closed; rebased, push pending; no build. |
 | `20261011.001856` | [Patchouli, queue empty, Kumara red waits](20261011/20261011-001856_patchouli-queue-empty-kumara-red-waits.kyri) | Queue empty again; sign red awaits a ruling. |
 | `20261011.001921` | [Pheromone, lane empty, round open, no build](20261011/20261011-001921_pheromone-lane-empty-round-open-no-build.kyri) | Round open pulled four peer commits; claim board clear; lane parked on Incense ruling; no build. |
