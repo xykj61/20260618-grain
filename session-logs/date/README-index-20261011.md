@@ -8,6 +8,7 @@
 | `20261011.083548` | [20261011/20261011-083548_petrichor-gate-no-build.kyri](20261011/20261011-083548_petrichor-gate-no-build.kyri) | Third ff to xy; gate facts on tree; no build. |
 | `20261011.083901` | [Incense, baton declined, no build](20261011/20261011-083901_incense-baton-declined-no-build-orbit-7.kyri) | Round-open on be0c0d446e; board holds copal only; no build. |
 | `20261011.083524` | [Incense, baton printed, declined, no build](20261011/20261011-083524_incense-baton-declined-no-build-orbit-6.kyri) | Fetch clean at 9f24d13bf5; claim board empty; cold run held; no build. |
+| `20261011.083711` | [Patchouli, queue empty sixth check, no build](20261011/20261011-083711_patchouli-queue-empty-sixth-check-no-build.kyri) | Pull clean; no counted header left; no build. |
 | 20261011.083729 | [Grass, queue empty, ff to xy, no build](20261011/20261011-083729_grass-queue-empty-ff-no-build.kyri) | Queue empty; fast-forwarded to xy; no edit; no build. |
 | `20261011.083439` | [Bakery, ff to xy/main, receipt-key still held, no build](20261011/20261011-083439_bakery-ff-hold-no-build.kyri) | Fast-forwarded to b2d4d127ab; receipt-key ruling still open; no build. |
 | 20261011.083353 | [Grass, foundations sample, no build](20261011/20261011-083353_grass-foundations-door-sample-no-build.kyri) | Six pages at Door; two C+ fossils molted. |
