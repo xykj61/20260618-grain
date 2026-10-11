@@ -43,6 +43,13 @@ pub fn max_revision_held(cat: *const recall_lap1.BoltCatalog, peer: []const u8, 
 // a silent cut, so a real overflow stays visible.
 pub const max_catch_up_revisions: u32 = 4096;
 
+// invariant: a catalog holds at most max_bindings leaves, so one pass can sync at most that many
+// revisions and the bound above is never the reason a real pass refuses. The refusal branch is
+// therefore unreachable through BoltCatalog; the witness proves the largest reachable pass instead.
+comptime {
+    assert(max_catch_up_revisions > recall_lap1.max_bindings);
+}
+
 /// Sync every revision on `source` that `fetcher` lacks, stopping at the first empty ask.
 /// Refuses with CatchUpBound if the peer still answers non-empty after max_catch_up_revisions asks.
 pub fn catch_up_to_latest(
@@ -112,7 +119,20 @@ fn run_selftest(_: std.Io) !u8 {
         assert(std.mem.eql(u8, buf_f[0..rf.len], buf_s[0..rs.len]));
     }
 
+    // The largest pass a catalog can produce: every leaf slot filled, fetcher empty.
+    // invariant: revisions 1..max_bindings all exist on the source, so the pass syncs exactly that many.
+    var full_source: recall_lap1.BoltCatalog = .empty();
+    var fill: u32 = 1;
+    while (fill <= recall_lap1.max_bindings) : (fill += 1) {
+        try full_source.append_leaf("peerB", "b", fill, path, "rev-fill", "plain-text");
+    }
+    var full_fetcher: recall_lap1.BoltCatalog = .empty();
+    const full = try catch_up_to_latest(&full_fetcher, &full_source, "peerB", "b");
+    assert(full.revisions_synced == recall_lap1.max_bindings);
+    assert(full.empty_asks == 1);
+
     print("ns-catchup: two revisions crossed in one call -- empty ask stops loop GREEN\n", .{});
+    print("ns-catchup: a full catalog of {d} revisions synced, no bound refusal -- largest pass GREEN\n", .{recall_lap1.max_bindings});
     print("ns-catchup: second call asked once, changed nothing -- stopping rule GREEN\n", .{});
     print("ns-catchup: recall identical on both catalogs -- referential transparency GREEN\n", .{});
     print("ns-catchup: version {s}\n", .{recall_catch_up_version});
