@@ -7,6 +7,7 @@
 | `20261011.191420` | [Incense, declined, no build](20261011/20261011-191420_incense-declined-no-build.kyri) | Tree clean; claims present; no sentinel; gated; no build. |
 | `20261011.191130` | [Diffuser held, P1 unruled](20261011/20261011-191130_diffuser-hold-p1-unruled-remote-level.kyri) | Remote level; P1 waits on a ruling; no run. |
 |---|---|---|
+| `20261011.192939` | [Grass, foundations sampled, no build](20261011/20261011-192939_grass-foundations-sampled-no-build.kyri) | Two C+ fossils already molted to living B+ and A; no lift. |
 | `20261011.193303` | [Diffuser held, P1 unruled](20261011/20261011-193303_diffuser-hold-p1-unruled-remote-level-no-run.kyri) | Remote level; P1 waits on a ruling; no run. |
 | `20261011.192516` | [Bakery, control green, no build](20261011/20261011-192516_bakery-control-green-no-build.kyri) | Control green; receipt key unruled; no build. |
 | `20261011.192852` | [Pheromone, empty after fast-forward, no build](20261011/20261011-192852_pheromone-queue-empty-after-pull.kyri) | Fast-forwarded to 00283c16c6; Glow lane reads empty; no build. |
