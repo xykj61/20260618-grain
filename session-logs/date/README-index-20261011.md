@@ -102,6 +102,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.112219` | [Copal, fruit empty, card count stale, no build](20261011/20261011-112219_copal-fruit-empty-stale-card-count-no-build.kyri) | Zero unrostered witnesses; no build. |
+| `20261011.112139` | [Petrichor, docs-geode links clean, no build](20261011/20261011-112139_petrichor-links-clean-no-build.kyri) | 383 relative links, 0 broken; no build. |
 | `20261011.111743` | [Copal, fruit empty a sixth time, no build](20261011/20261011-111743_copal-fruit-sixth-check-no-build.kyri) | Zero unrostered witnesses by path rows; no build. |
 | `20261011.111616` | [Petrichor, lane gated, no build](20261011/20261011-111616_petrichor-held-lane-gated-no-build.kyri) | Both gates read; claims empty; prose witness GREEN; held. |
 | `20261011.111918` | [Pheromone, lane awaits a ruling, no build](20261011/20261011-111918_pheromone-lane-awaits-ruling-no-build.kyri) | Queue empty; new rune waits on Incense; no build. |
