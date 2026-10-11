@@ -52,9 +52,3 @@ format fleet-claims-v1
 # The board opens empty, and the first claim belongs to the next ship that opens a build. Seeding
 # it with this lap's own work would be a claim written after the fact, which is the one thing a
 # declaration may never be.
-claim bakery-rishi-fusion-measure
-seat bakery
-stamp 20261010.213137
-epoch 1791682297
-paths tools/fixtures/b/rishi_fusion_measure_scan.sh tools/fixtures/b/rishi_fusion_measure_control.sh
-what Item one of the Bakery spine: a bounded, replayable scan that measures where Rishi discovery, dependency closure, compile, proof, and receipt time lives, with a pen control, before any cache changes.
