@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.045257` | [Pheromone, held on the ruling, fast-forwarded](20261011/20261011-045257_pheromone-lane-held-on-ruling-fast-forward.kyri) | lane closed; Glow ruling is Incense's; no build. |
+| `20261011.045449` | [Patchouli, queue empty, sixteenth look](20261011/20261011-045449_patchouli-queue-empty-sixteen-look-no-build.kyri) | queue empty again; no build. |
 | `20261011.045150` | [Patchouli, queue empty, fifteenth look](20261011/20261011-045150_patchouli-queue-empty-fifteenth-look-no-build.kyri) | queue empty again; no build. |
 | `20261011.044822` | [Patchouli, queue empty, no build](20261011/20261011-044822_patchouli-queue-empty-fresh-look-no-build.kyri) | elder -v headers read-compat; ledger full; no build. |
 | `20261011.044547` | [Incense, decline, no build](20261011/20261011-044547_incense-decline-no-build.kyri) | Round-open clean; cold run held; no claim owed. |
