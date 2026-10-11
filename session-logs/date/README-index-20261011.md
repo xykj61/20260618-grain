@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.023110` | [Bakery queue empty, no build](20261011/20261011-023110_bakery-queue-empty-reds-lane-owned-no-build.kyri) | Census green; ruling and reds wait; no build. |
 | `20261011.022813` | [Petrichor, consent gate held, no build](20261011/20261011-022813_petrichor-consent-gate-held-no-build.kyri) | Gate holds; no fruit; path scan present. |
 | `20261011.022623` | [Pheromone held again, no build](20261011/20261011-022623_pheromone-held-again-no-build.kyri) | Ruling held with Incense; nib carried. |
 | `20261011.022620` | [Copal fruit absent, fourth recount, no build](20261011/20261011-022620_copal-fruit-absent-fourth-no-build.kyri) | Zero unrostered witnesses again; no claim, no build. |
