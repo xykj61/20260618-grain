@@ -14,6 +14,7 @@
 | `20261011.084209` | [Incense, baton declined, stash recovered, no build](20261011/20261011-084209_incense-baton-declined-recovered-stash-no-build.kyri) | Two own stashed declines landed; no build. |
 | `20261011.081432` | [Incense, baton read, clean tree, no build](20261011/20261011-081432_incense-baton-declined-clean-tree-no-build.kyri) | Clean tree; queue gated on Keaton; no build. |
 | `20261011.080702` | [Incense, baton read, no build](20261011/20261011-080702_incense-baton-declined-no-build-haiku.kyri) | Clean tree; no named work item; no build. |
+| `20261011.084831` | [Copal, prin scope row hangs, no build](20261011/20261011-084831_copal-prin-scope-row-hangs-no-build.kyri) | Bare prin.rish loops; red unbooked, REDS pin full. |
 | `20261011.084117` | [Bakery, ff to xy/main, receipt key held, no build](20261011/20261011-084117_bakery-ff-receipt-key-held-no-build.kyri) | Fast-forwarded to 40cd9af12f; receipt-key ruling still open; no build. |
 | `20261011.084016` | [Pheromone, lane held on ruling, ff to xy, no build](20261011/20261011-084016_pheromone-lane-held-ff-no-build.kyri) | Glow ruling still with Incense; ff to 775ab6dfb2; no build. |
 | `20261011.083548` | [20261011/20261011-083548_petrichor-gate-no-build.kyri](20261011/20261011-083548_petrichor-gate-no-build.kyri) | Third ff to xy; gate facts on tree; no build. |
