@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.195555` | [Copal, fruit empty, no build](20261011/20261011-195555_copal-fruit-empty-no-build.kyri) | Chapter witnesses 159 of 159 rostered; fruit already done; no build. |
 | `20261011.195324` | [Diffuser, held on P1, sixty-sixth lap](20261011/20261011-195324_diffuser-sixty-sixth-hold-p1-unruled.kyri) | P1 still unruled; ff pulled bakery log; no run. |
 | `20261011.195241` | [Patchouli, queue empty, kumara held](20261011/20261011-195241_patchouli-queue-empty-kumara-seam-held.kyri) | Witness GREEN; seam ruling held; no build. |
 | `20261011.195014` | [Bakery, receipt key held, no build](20261011/20261011-195014_bakery-receipt-key-held-no-build.kyri) | Census re-read 819/0; receipt key waits on ruling. |
