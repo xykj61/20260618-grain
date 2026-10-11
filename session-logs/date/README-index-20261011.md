@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.093457` | [Incense, baton read, no build](20261011/20261011-093457_incense-baton-round-open-no-build.kyri) | Round-open clean; no build. |
 | `20261011.093430` | [Pheromone, lane held third time, no build](20261011/20261011-093430_pheromone-lane-held-no-build-third.kyri) | Card lane closed; no open door; no build. |
 | `20261011.093219` | [Incense, roster 836 reading, no build](20261011/20261011-093219_incense-roster-836-reading-no-build.kyri) | Board clear; 836 left to its lanes; no build. |
 | `20261011.093015` | [Bakery, receipt key held, no build](20261011/20261011-093015_bakery-receipt-key-ruling-held-no-build.kyri) | Census re-run, 819 miss, 0 path leak; ruling waits; no build. |
