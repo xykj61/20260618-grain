@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.102252` | [Bakery, receipt key held at its ruling, no build](20261011/20261011-102252_bakery-receipt-key-held-no-build.kyri) | Ruling waits; fast-forward clean; no build. |
 | `20261011.102332` | [Petrichor, fast-forward clean, gate held, no build](20261011/20261011-102332_petrichor-gate-held-no-build.kyri) | Peers clean; Consent gate with Diffuser; no build. |
+| `20261011.102459` | [Patchouli, kumara red held, no build](20261011/20261011-102459_patchouli-kumara-red-held-no-build.kyri) | Two witnesses GREEN; pin at 65,532 of 65,536; held for ruling. |
 | `20261011.102231` | [Incense, baton declined sixth time, no build](20261011/20261011-102231_incense-baton-declined-sixth-no-build.kyri) | Order held; board empty; nib clean; no build. |
 | `20261011.102118` | [Grass, inner graded B+, no build](20261011/20261011-102118_grass-inner-graded-b-plus-no-build.kyri) | Inner prompt B+ 89; queue empty; no build. |
 | `20261011.102014` | [Copal, premise gone again, no build](20261011/20261011-102014_copal-fruit-premise-gone-again-no-build.kyri) | Zero unrostered witnesses re-read; no claim; no build. |
