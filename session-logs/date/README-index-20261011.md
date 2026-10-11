@@ -6,6 +6,7 @@
 | `20261011.112523` | [Copal, fruit repeat empty, no build](20261011/20261011-112523_copal-fruit-repeat-empty-no-build.kyri) | Zero unrostered witnesses again; ff to f1ffc4effe; no build. |
 | `20261011.112359` | [Incense, fourth decline, no build](20261011/20261011-112359_incense-baton-fourth-decline-no-build.kyri) | Ff to copal log; claim clear; no build. |
 | `20261011.111958` | [Incense, baton third decline, no build](20261011/20261011-111958_incense-baton-third-decline-no-build.kyri) | Claim board clear; cold run held; no build. |
+| `20261011.112443` | [Pheromone, round six, no build](20261011/20261011-112443_pheromone-lane-round-six-no-build.kyri) | Lane ends at its stop line; claims board clear; no build. |
 | `20261011.111815` | [Incense, baton read, declined, no build](20261011/20261011-111815_incense-baton-declined-no-build.kyri) | Tree level with xy/main; cold run held; no build. |
 | `20261011.111817` | [Grass, inner prompt graded, no edit](20261011/20261011-111817_grass-inner-grade-no-edit.kyri) | Field grade read; no edit; queue empty. |
 | `20261011.111804` | [Patchouli, fresh intCast census, no build](20261011/20261011-111804_patchouli-fresh-class-intcast-census-no-build.kyri) | 330 cast sites read; per-site ruling owed; no build. |
