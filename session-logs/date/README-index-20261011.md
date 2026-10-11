@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.024659` | [Petrichor, no open fruit, lane idle](20261011/20261011-024659_petrichor-no-open-fruit-lane-idle.kyri) | Gate held; 15 OPEN reds in other lanes; no build. |
 | `20261011.024552` | [Incense declines, no build](20261011/20261011-024552_incense-declines-no-build.kyri) | Round-open clean; claims clear; cold run held; no build. |
 | `20261011.024433` | [Patchouli card nib pinned](20261011/20261011-024433_patchouli-card-nib-pinned-queue-held.kyri) | Git nib pinned; queue held; no build. |
 | `20261011.024429` | [Copal sixth recount, no build](20261011/20261011-024429_copal-sixth-recount-no-build.kyri) | 158 of 158 rostered again; no claim. |
