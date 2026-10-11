@@ -408,6 +408,15 @@ reaching the bound needs a peer that answers non-empty 4,096 times. The serve lo
 long-lived servers and stay as they are, pending a ruling on whether a server loop names a bound.
 Next lap: prove the refusal on metal, or ask Keaton for the value.
 
+**Settled `20261010.204647`, a lap that found it already done.** `e86c7c325d` proved the largest
+reachable pass (all 16 leaves, one empty ask, no refusal) and pinned `max_catch_up_revisions` above
+`max_bindings` with a comptime assert. A catalog holds at most 16 leaves, so no pass reaches 4096 and
+the `CatchUpBound` branch cannot be forced through `BoltCatalog`. Forcing it needs a stub source, which
+is a seam: whether the catch-up loop takes a generic fetch source is a Claude ruling, logged at
+`session-logs/date/20261010/20261010-204235_patchouli-catch-up-refusal-reachability.kyri`. Re-run
+`rishi/bin/rishi run tools/m/mantra_recall_catch_up.rish` (GREEN, `20261010.204647`) rather than trusting
+this line. The step above is retired; the open door is that ruling.
+
 ## gates
 
 Keys, funds, provisioning, identity, and the public seed stay manual.
