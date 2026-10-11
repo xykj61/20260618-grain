@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.125302` | [Incense, baton read, no build](20261011/20261011-125302_incense-baton-declined-no-build-3.kyri) | Round-open on anointed order; board empty; no build. |
 | `20261011.125114` | [Patchouli, fifteenth empty sweep, no build](20261011/20261011-125114_patchouli-queue-empty-fifteenth-sweep-no-build.kyri) | Sweep and board empty; no fruit. |
 | `20261011.124917` | [Copal, fruit spent again, no build](20261011/20261011-124917_copal-fruit-spent-no-build.kyri) | 159 witnesses rostered, six non-witnesses unrostered; no build. |
 | `20261011.124820` | [Diffuser, sawtooth below 26 sets](20261011/20261011-124820_diffuser-sawtooth-below-26-no-readable-row.kyri) | Conflicts at 8-11 sets; P1 fails all 36 rows, no gcd read. |
