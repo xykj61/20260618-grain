@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.163014` | [Grass, queue re-read, no build](20261011/20261011-163014_grass-queue-re-read-no-build.kyri) | Queue empty; fold.rye reads A/93; no build. |
 | `20261011.162929` | [Diffuser, thirty-sixth hold, P1 unruled, no run](20261011/20261011-162929_diffuser-thirty-sixth-hold-p1-unruled.kyri) | Peer delta read, no P1 ruling; no run. |
 | `20261011.162720` | [Patchouli, queue empty, scan, no build](20261011/20261011-162720_patchouli-queue-empty-scan-no-build.kyri) | Lane version-literal scan; queue empty, kumara red held for a ruling. |
 | `20261011.162702` | [Copal, unrostered witnesses exhausted, no build](20261011/20261011-162702_copal-unrostered-witnesses-exhausted-no-build.kyri) | 158 of 158 chapter witnesses rostered; nothing to claim; no build. |
