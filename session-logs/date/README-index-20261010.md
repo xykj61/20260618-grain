@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261010.221933` | [Diffuser, fourth held lap, no build](20261010/20261010-221933_diffuser-gate-held-fourth-lap-no-build.kyri) | Gate still shut; no word on card; no run. |
 | `20261010.222130` | [Copal, fruit re-checked after pull, no build](20261010/20261010-222130_copal-fruit-recheck-no-build.kyri) | Still zero unrostered; card ~75 stale. |
+| `20261010.222251` | [Diffuser, fifth held lap, no build](20261010/20261010-222251_diffuser-fifth-held-lap-no-build.kyri) | Gate still shut; no word on card; no run. |
 | `20261010.222037` | [Pheromone r14, lane held](20261010/20261010-222037_pheromone-round-14-glow-held-witness-green.kyri) | Glow witness GREEN; held for Incense. |
 | `20261010.221538` | [Copal, unrostered-witness fruit already spent](20261010/20261010-221538_copal-fruit-spent-no-unrostered-witness.kyri) | Zero unrostered by path field; card's ~75 stale; no build. |
 | `20261010.221311` | [Diffuser, third held lap, no build](20261010/20261010-221311_diffuser-gate-held-third-lap-no-build.kyri) | Gate still shut; no word on card; no run. |
