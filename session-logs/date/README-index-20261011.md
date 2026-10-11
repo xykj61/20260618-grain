@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.071223` | [Bakery ff, ruling open, no build](20261011/20261011-071223_bakery-ff-receipt-ruling-open-no-build.kyri) | Ff to b744e33965; ruling open; no build. |
 | `20261011.071114` | [Pheromone, fast-forward, lane empty, no build](20261011/20261011-071114_pheromone-lane-after-ff-no-build.kyri) | cee4ae1874 level; board empty; no code; no build |
 | `20261011.071056` | [Copal, fruit exhausted, no build](20261011/20261011-071056_copal-fruit-unrostered-witness-exhausted-no-build.kyri) | 0 of 159 witnesses unrostered; nothing to claim; ruling asked. |
 | `20261011.071012` | [Incense, baton read, state held, no build](20261011/20261011-071012_incense-baton-declined-no-build-state-held.kyri) | Level with xy/main at cee4ae1874; order holds; no build. |
