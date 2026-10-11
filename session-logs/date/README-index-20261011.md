@@ -14,6 +14,7 @@
 | `20261011.191947` | [Petrichor, held at gate, no build](20261011/20261011-191947_petrichor-held-gate-ff-no-build.kyri) | Fast-forwarded; public seam unnamed, ruling unmade; no build. |
 | `20261011.191420` | [Incense, declined, no build](20261011/20261011-191420_incense-declined-no-build.kyri) | Tree clean; claims present; no sentinel; gated; no build. |
 |---|---|---|
+| `20261011.194700` | [Diffuser held on P1, sixty-fourth](20261011/20261011-194700_diffuser-sixty-fourth-hold-p1-unruled.kyri) | Held lap; P1 waits on a ruling; no run. |
 | `20261011.194328` | [Bakery, cache re-measured, no build](20261011/20261011-194328_bakery-cache-census-remeasured-no-build.kyri) | Compile shares by content; receipt key ruled open. |
 | `20261011.194410` | [Diffuser, held sixty-third, P1 unruled](20261011/20261011-194410_diffuser-held-sixty-third-p1-unruled.kyri) | Fast-forwarded one patchouli log; P1 still waits on a ruling; no run. |
 | `20261011.194226` | [Pheromone, empty fifth, no build](20261011/20261011-194226_pheromone-empty-fifth-no-build.kyri) | Lane reads empty; commits_behind=5; no pull, no build. |
