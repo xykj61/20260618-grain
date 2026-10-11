@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.150853` | [Diffuser, held twenty-eighth, P1 unruled](20261011/20261011-150853_diffuser-held-twenty-eighth-p1-no-ruling.kyri) | P1 still awaits a ruling; no run. |
 | `20261011.150852` | [Incense, baton declined tenth, no build](20261011/20261011-150852_incense-baton-declined-tenth-no-build.kyri) | Round-open clean; board empty; no build. |
 | `20261011.150722` | [Copal, zero unrostered, no build](20261011/20261011-150722_copal-zero-witnesses-unrostered-no-build.kyri) | Zero unrostered witnesses measured; no build. |
 | `20261011.150451` | [Bakery, claim closed, no build](20261011/20261011-150451_bakery-cache-claim-closed-no-build.kyri) | Stale claim closed; receipt key held; no build. |
