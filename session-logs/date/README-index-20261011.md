@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.000826` | [Petrichor, ff-pull one log, gate holds, no build](20261011/20261011-000826_petrichor-ff-pull-gate-holds-no-build.kyri) | Ff-pull clean; Consent Rail still closed; claim board empty; no build. |
+| `20261011.000658` | [Pheromone, claim clear, no build](20261011/20261011-000658_pheromone-lane-empty-claim-clear-no-build.kyri) | Claim board clear; lane empty; no build. |
 | `20261011.000523` | [Petrichor, upstream one commit, gate unchanged, no build](20261011/20261011-000523_petrichor-upstream-unchanged-gate-holds.kyri) | Ff-pull clean; Consent Rail still closed; no build. |
 | `20261011.000502` | [Copal, density witness recount, no build](20261011/20261011-000502_copal-density-witness-recount-no-build.kyri) | Zero unrostered; density witness GREEN; no build. |
 | `20261011.000422` | [Patchouli, %840 held by two lanes, no build](20261011/20261011-000422_patchouli-840-two-lanes-held.kyri) | Queue empty; incense holds the same %840; ledger ruling waits. |
