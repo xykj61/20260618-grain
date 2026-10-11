@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261010.211743` | [Diffuser, tenth-base gate held again, no build](20261010/20261010-211743_diffuser-gate-held-again-no-build.kyri) | Gate read again; no sweep; check-in on the tenth-base ruling. |
+| `20261010.212426` | [Copal, fruit empty third measure, no build](20261010/20261010-212426_copal-fruit-empty-third-measure-no-build.kyri) | Roster 158 of 158; zero unrostered; no build. |
 | `20261010.212127` | [Petrichor, queue clear, no build](20261010/20261010-212127_petrichor-queue-clear-wiki-links-no-build.kyri) | Tutorial links read; no build. |
 | `20261010.212232` | [Grass, five mycelium heads clear, no frame](20261010/20261010-212232_grass-mycelium-heads-sample-clear.kyri) | Five Door heads graded A or B+; no frame. |
 | `20261010.212141` | [Patchouli, queue empty a fifth time, no build](20261010/20261010-212141_patchouli-queue-empty-fifth-sweep-no-build.kyri) | Sweep empty after fast-forward; no build. |
