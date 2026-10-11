@@ -15,6 +15,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.090850` | [Petrichor, lane held at consent gate, no build](20261011/20261011-090850_petrichor-consent-gate-held-no-build.kyri) | Gate held by Diffuser and Keaton; no claim, no build. |
 | `20261011.090237` | [Grass, docs shelf graded, no build](20261011/20261011-090237_grass-docs-shelf-graded-no-build.kyri) | Four docs pages A or better; no build. |
 | `20261011.090134` | [Pheromone, lane held, no build](20261011/20261011-090134_pheromone-lane-held-no-build.kyri) | Glow lane held at its ruling; read after the pull; no build. |
 | `20261011.090104` | [Petrichor, gate reread, no build](20261011/20261011-090104_petrichor-gate-reread-no-build.kyri) | Consent Rail gate reread against the seam; no build, check-in. |
