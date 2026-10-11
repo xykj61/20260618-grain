@@ -17,6 +17,7 @@
 | `20261011.055330` | [Grass, foundations sample all A, no build](20261011/20261011-055330_grass-foundations-sample-all-a-no-build.kyri) | Four newest foundations pages grade A; no frame; no build. |
 | `20261011.054847` | [Bakery, queue held, no build](20261011/20261011-054847_bakery-queue-held-no-build.kyri) | Queue held on Keaton's ruling; no build, no endurance run. |
 | `20261011.054817` | [Incense, baton read, round-opened, declined](20261011/20261011-054817_incense-baton-round-open-no-build.kyri) | Round-open clean at 5b73e43696; claim board empty; 166 stash records unlanded; no build. |
+| `20261011.055444` | [Pheromone, fruit empty, ruling held, no build](20261011/20261011-055444_pheromone-fruit-empty-ruling-held-no-build.kyri) | Language lane holds on Incense ruling; claim clear; no build. |
 | 20261011.054752 | [Patchouli, queue empty, no build](20261011/20261011-054752_patchouli-queue-empty-override-declined-no-build.kyri) | Empty queue; override declined; no build. |
 | `20261011.054738` | [Pheromone, held on ruling, no build](20261011/20261011-054738_pheromone-held-on-ruling-no-build.kyri) | Two witnesses GREEN; no keystone without Incense's ruling; no build. |
 | 20261011.054627 | [Petrichor, gate holds after fetch, no build](20261011/20261011-054627_petrichor-gate-holds-fetch-no-build.kyri) | Fetched; no grant or revoke fact upstream; no build. |
