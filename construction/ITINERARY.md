@@ -285,7 +285,7 @@ The product cards carry the complete ladders:
 - [`DIMEROLL_ITINERARY.md`](DIMEROLL_ITINERARY.md) -- from recognized receipt to trustworthy portable books and distinct entities.
 - [`the Linengrow Receipt Cloth Design System`](../active-designing/date/20260912/20260912-142909_the-linengrow-receipt-cloth-design-system.md) -- Linengrow meaning, Brushstroke description, Skate behavior.
 
-**Git nib:** `dd6df1597f` -- the nib this commit is built on, read after the final rebase (rule 2).
+**Git nib:** `3e9a8280e6` -- the nib this commit is built on, read after the final rebase (rule 2).
 
 **Landed accounts shelved** `20260915.180554` -- the per-ship completed accounts moved whole to [`archive/date/20260915/20260915-180554_itinerary-landed-accounts.md`](archive/date/20260915/20260915-180554_itinerary-landed-accounts.md); [`archive/README.md`](archive/README.md) is the way in.
 
@@ -352,6 +352,8 @@ Brushstroke declares each component's grid, role, state, tokens, and motion prof
 
 **Both named cruxes landed `20261001`, whole** -- weave-meets-Tablecloth and the consent lowering.
 [Account](archive/date/20261002/20261002-000200_itinerary-patchouli-two-cruxes-already-landed-account.md).
+**First proof, consent log, witnessed `20261011.030403`:** a second grant or revoke over bound refuses
+with the log unchanged, and two replays of one log agree field for field (`mantra/src/consent_replay_witness.rye`, GREEN).
 
 ### Copal -- Amphora receipt and portable bundle
 

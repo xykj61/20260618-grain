@@ -138,6 +138,59 @@ fn orphan_against_other_grant() void {
     assert(consent.grant_eql(log.grant.?, grant));
 }
 
+/// A second grant over an admitted grant refuses as too many facts, and the first grant stands.
+fn over_bound_grant_refuses_unchanged() void {
+    var log: consent.Log = .{};
+    const grant = grant_fixture();
+    log.append_grant(grant, true) catch unreachable;
+    var second = grant_fixture();
+    second.grant_id = "consent:sample-pollinator-counts:grant-2";
+    const refused = log.refusal_grant(second, true).?;
+    // invariant: the refusal names the count reason, not a field.
+    assert(refused.reason == .too_many_facts);
+    const written = log.append_grant(second, true);
+    // invariant: the over-bound grant writes nothing and the first grant still stands.
+    assert(std.meta.isError(written));
+    assert(written == consent.ConsentError.TooManyFacts);
+    assert(log.revoke == null);
+    assert(consent.grant_eql(log.grant.?, grant));
+}
+
+/// A second revoke over an admitted revoke refuses as too many facts, and the first revoke stands.
+fn over_bound_revoke_refuses_unchanged() void {
+    var log: consent.Log = .{};
+    const grant = grant_fixture();
+    log.append_grant(grant, true) catch unreachable;
+    const first = revoke_fixture();
+    log.append_revoke(first, true) catch unreachable;
+    var second = revoke_fixture();
+    second.revoke_id = "consent:sample-pollinator-counts:revoke-2";
+    const refused = log.refusal_revoke(second, true).?;
+    // invariant: the refusal names the count reason, not a field.
+    assert(refused.reason == .too_many_facts);
+    const written = log.append_revoke(second, true);
+    // invariant: the over-bound revoke writes nothing and the first revoke still stands.
+    assert(std.meta.isError(written));
+    assert(written == consent.ConsentError.TooManyFacts);
+    assert(std.mem.eql(u8, log.revoke.?.revoke_id, first.revoke_id));
+    assert(consent.grant_eql(log.grant.?, grant));
+}
+
+/// Replaying the same log twice yields the same state, field for field.
+fn replay_is_deterministic() void {
+    var log: consent.Log = .{};
+    log.append_grant(grant_fixture(), true) catch unreachable;
+    log.append_revoke(revoke_fixture(), true) catch unreachable;
+    const first = log.replay() catch unreachable;
+    const second = log.replay() catch unreachable;
+    // invariant: two replays of one log report the same status.
+    assert(first.status == second.status);
+    // invariant: two replays of one log hold the same grant, field by field.
+    assert(consent.grant_eql(first.grant, second.grant));
+    // invariant: two replays of one log hold the same revoke identifier.
+    assert(std.mem.eql(u8, first.revoke.?.revoke_id, second.revoke.?.revoke_id));
+}
+
 /// Every required text field this grant publishes, emptied one at a time, refuses
 /// by that field's own name and writes nothing.
 fn grant_required_field_refusals() void {
@@ -216,6 +269,9 @@ pub fn main() void {
     grant_required_field_refusals();
     revoke_required_field_refusals();
     false_signature_refusals();
+    over_bound_grant_refuses_unchanged();
+    over_bound_revoke_refuses_unchanged();
+    replay_is_deterministic();
     var log: consent.Log = .{};
     const grant = grant_fixture();
     log.append_grant(grant, true) catch unreachable;
