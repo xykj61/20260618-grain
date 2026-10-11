@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.055954` | [Petrichor, queue held, no build](20261011/20261011-055954_petrichor-queue-held-no-build.kyri) | Consent Rail gate still held; no unblocked row; no build. |
 | `20261011.060125` | [Patchouli, queue empty again, no build](20261011/20261011-060125_patchouli-queue-empty-again-no-build.kyri) | Empty queue; %807, %765 await Keaton. |
 | `20261011.055420` | [Patchouli, queue empty, claim not taken, no build](20261011/20261011-055420_patchouli-queue-empty-scan-no-build.kyri) | Next-family scan empty; %456 and %765 want Keaton; no build. |
 | `20261011.055629` | [Grass, fire row grades inner prompt, no build](20261011/20261011-055629_grass-fire-row-inner-grade-no-build.kyri) | Inner prompt at Field, register 77; no build. |
