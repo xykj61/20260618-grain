@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.232849` | [Diffuser, hold, next door needs later day](20261010/20261010-232849_diffuser-hold-next-door-needs-later-day.kyri) | Third night waits for a later calendar day; no build |
 | `20261010.232706` | [Incense, pulled, no build](20261010/20261010-232706_incense-round-open-pulled-no-build.kyri) | Fast-forwarded to 69bf6e6b3d; no build. |
 | `20261010.232444` | [Pheromone, override declined, no build](20261010/20261010-232444_pheromone-override-declined-no-build.kyri) | Lane empty; cross-lane override held for a ruling; no build. |
 | `20261010.232554` | [Bakery, crux premise stalled, check in](20261010/20261010-232554_bakery-crux-premise-stalled-check-in.kyri) | Receipt chain 603 h old; sharing saves 24 files; no build |
