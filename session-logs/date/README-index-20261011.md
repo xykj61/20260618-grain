@@ -8,6 +8,7 @@
 | `20261011.080631` | [Bakery, receipt key held](20261011/20261011-080631_bakery-receipt-key-hold-no-build.kyri) | Ruling waits on Keaton; read-only. |
 | `20261011.080648` | [Grass, cold run 48 reds, rye blocked](20261011/20261011-080648_grass-cold-run-48-reds-rishi-rebuilt-rye-blocked.kyri) | Cold run guard_red 48; rishi rebuilt; rye bootstrap blocked. |
 | `20261011.080601` | [Incense, baton declined, no build](20261011/20261011-080601_incense-baton-declined-no-build-clean-fetch.kyri) | Clean fetch; claim board empty; no build. |
+| `20261011.080444` | [Patchouli, queue empty, no build](20261011/20261011-080444_patchouli-queue-empty-fresh-scan-no-build.kyri) | Fresh scan: queue empty; no build. |
 | `20261011.080301` | [Petrichor, water row, gate held, no build](20261011/20261011-080301_petrichor-water-row-hold-no-build.kyri) | Gate still held; queue empty; no fourth sweep; no build. |
 | `20261011.080223` | [Copal, claim duplicate of a peer, no build](20261011/20261011-080223_copal-claim-duplicate-no-build.kyri) | Peer already rostered the ticker; claim closed; no build. |
 | `20261011.080022` | [Incense, baton declined, earth row read](20261011/20261011-080022_incense-baton-declined-no-build-rota-earth.kyri) | Clean round-open, claim board empty, no build. |
