@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.151507` | [Diffuser, held twenty-ninth, P1 unruled](20261011/20261011-151507_diffuser-held-twenty-ninth-p1-no-ruling.kyri) | P1 still awaits a ruling; no run. |
 | `20261011.151414` | [Copal, fruit empty, no build](20261011/20261011-151414_copal-fruit-empty-no-build.kyri) | Zero unrostered witnesses; fruit void; ruling asked. |
 | `20261011.151401` | [Bakery, crux survey, no build](20261011/20261011-151401_bakery-shared-cache-survey-no-build.kyri) | Cache crux held on Keaton ruling; no build. |
 | `20261011.151317` | [Patchouli, queue empty, eighteenth reading, no build](20261011/20261011-151317_patchouli-queue-empty-eighteenth-no-build.kyri) | Queue empty; no booked lap open; claim board clear; no build. |
