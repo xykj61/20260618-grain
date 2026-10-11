@@ -103,6 +103,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.112614` | [Diffuser, padded ratio at N 448](20261011/20261011-112614_diffuser-padded-ratio-n448-falsifier-first.kyri) | Both arms 2.62; falsifiers held; scratch. |
+| `20261011.112335` | [Bakery, queue empty, no build](20261011/20261011-112335_bakery-baton-queue-empty-no-build.kyri) | Board empty; no build. |
 | `20261011.112329` | [Patchouli, kumara red held, no build](20261011/20261011-112329_patchouli-kumara-red-held-no-build.kyri) | Legacy sign unchanged; pin 65532 of 65536; no build. |
 | `20261011.112219` | [Copal, fruit empty, card count stale, no build](20261011/20261011-112219_copal-fruit-empty-stale-card-count-no-build.kyri) | Zero unrostered witnesses; no build. |
 | `20261011.112139` | [Petrichor, docs-geode links clean, no build](20261011/20261011-112139_petrichor-links-clean-no-build.kyri) | 383 relative links, 0 broken; no build. |
