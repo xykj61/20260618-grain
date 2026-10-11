@@ -85,6 +85,7 @@
 | `20261011.105239` | [Pheromone, lane held thirteenth time, no build](20261011/20261011-105239_pheromone-lane-held-thirteenth-no-build.kyri) | Fast-forward clean; claim board empty; no open language-lane red; no build. |
 | `20261011.105207` | [Bakery, crux held after ff, no build](20261011/20261011-105207_bakery-crux-held-after-ff-no-build.kyri) | Five peer commits in; receipt-key ruling still Keaton's; no build. |
 | `20261011.105008` | [Diffuser, padded ratio re-derived](20261011/20261011-105008_diffuser-padded-ratio-rederived.kyri) | Ratios 2.70, 2.60, 2.88 reproduce stored values; no falsifier; no build. |
+| `20261011.105155` | [Copal, prin thin hand, no build](20261011/20261011-105155_copal-prin-no-witness-left-no-build.kyri) | No unrostered witness left; no build. |
 | `20261011.104913` | [Patchouli, queue empty an eighteenth time, kumara ruling asked](20261011/20261011-104913_patchouli-queue-empty-eighteenth-kumara-ruling-asked.kyri) | Grep nets empty; %840 held for a seam ruling; no build. |
 | `20261011.105057` | [Petrichor, consent gate held, no build](20261011/20261011-105057_petrichor-gate-held-no-build.kyri) | Public seam not landed; fast-forward; no build. |
 | `20261011.104753` | [Incense, baton recur, no build](20261011/20261011-104753_incense-baton-recur-no-build.kyri) | Round-open ff to 693b1077de; claim board empty; clock in on all eight; no build. |
