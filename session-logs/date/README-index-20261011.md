@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.063648` | [Patchouli, 840 held, queue empty](20261011/20261011-063648_patchouli-840-held-queue-empty-check-in.kyri) | Red 840 held on two rulings; no build. |
 | `20261011.063559` | [Bakery, no unblocked build, third lap](20261011/20261011-063559_bakery-no-unblocked-build-third-lap.kyri) | Ff to bb24d41af3; claims empty; queue gated, no build. |
 | `20261011.063554` | [Petrichor, consent gate held, no build](20261011/20261011-063554_petrichor-consent-gate-held-no-build.kyri) | Ff to bb24d41af3; gate unchanged; no build. |
 | `20261011.063506` | [Grass, four foundations graded again, no build](20261011/20261011-063506_grass-foundations-repeat-no-build.kyri) | Four pages read A, A, A, B; repeat of the Foundations ground, no molt owed. |
