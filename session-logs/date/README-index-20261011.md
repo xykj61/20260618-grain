@@ -11,6 +11,7 @@
 | `20261011.005613` | [Patchouli, sign red held, no build](20261011/20261011-005613_patchouli-sign-red-held-queue-empty-no-build.kyri) | Sign red still live; queue empty. |
 | `20261011.005403` | [Petrichor, gate held, no build](20261011/20261011-005403_petrichor-gate-held-no-build.kyri) | Consent Rail and seam still gated; no build. |
 | `20261011.005240` | [Incense, card read, no build](20261011/20261011-005240_incense-declined-no-build-card-read.kyri) | Queue held by rulings; nib carried; no build. |
+| `20261011.005548` | [Copal, fruit void again, no build](20261011/20261011-005548_copal-fruit-void-fifth-to-sixth-no-build.kyri) | Zero unrostered witnesses; no build. |
 | `20261011.005247` | [Copal, roster recount, no build](20261011/20261011-005247_copal-fruit-roster-recount-no-build.kyri) | Zero unrostered witnesses; three non-witness files named; no build. |
 | `20261011.005400` | [Diffuser, gate held a seventh read, no build](20261011/20261011-005400_diffuser-gate-held-seventh-read-no-build.kyri) | Clock 20261011; pair waits for 20261012. |
 | `20261011.005110` | [Pheromone, upstream fetched, Glow lane untouched, no build](20261011/20261011-005110_pheromone-upstream-glow-untouched-no-build.kyri) | Four upstream logs, no Glow commit; no build. |
