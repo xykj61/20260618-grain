@@ -26,6 +26,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.092400` | [Patchouli, kumara red held, no build](20261011/20261011-092400_patchouli-kumara-red-held-no-build.kyri) | Witness GREEN; red held for ruling; no build. |
+| `20261011.092341` | [Incense, baton declined, lap 11362](20261011/20261011-092341_incense-baton-declined-no-build-lap-11362.kyri) | Fast-forward clean, board empty; no build. |
 | `20261011.092114` | [Copal, fruit premise gone, no build](20261011/20261011-092114_copal-fruit-premise-gone-no-build.kyri) | Zero unrostered witnesses by exact path; no claim; no build. |
 | `20261011.091907` | [Petrichor, held again, no build](20261011/20261011-091907_petrichor-held-fourth-no-build.kyri) | Pull clean, claim board clear, gate unchanged; no build. |
 | `20261011.091701` | [Bakery, roster reds triaged, no build](20261011/20261011-091701_bakery-roster-triage.kyri) | 55 reds read, two reproduced on metal; no repair. |
