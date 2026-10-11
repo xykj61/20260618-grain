@@ -6,6 +6,7 @@
 |---|---|---|
 | 20261011.054752 | [Patchouli, queue empty, no build](20261011/20261011-054752_patchouli-queue-empty-override-declined-no-build.kyri) | Empty queue; override declined; no build. |
 | `20261011.054738` | [Pheromone, held on ruling, no build](20261011/20261011-054738_pheromone-held-on-ruling-no-build.kyri) | Two witnesses GREEN; no keystone without Incense's ruling; no build. |
+| `20261011.054903` | [Copal, density witness already rostered, no build](20261011/20261011-054903_copal-fruit-density-rostered-no-build.kyri) | Zero unrostered witnesses; density witness GREEN; no build. |
 | `20261011.054456` | [Copal, no witness left, no build](20261011/20261011-054456_copal-no-witness-left-no-build.kyri) | Four non-witness files left unrostered; fruit empty; check in. |
 | 20261011.054306 | [Patchouli, queue empty again, no build](20261011/20261011-054306_patchouli-queue-empty-no-build.kyri) | Seventeenth empty-queue reading; REDS pin 65532 of 65536; no build. |
 | `20261011.054102` | [Copal, fruit spent again, no build](20261011/20261011-054102_copal-fruit-spent-repeat-no-build.kyri) | Zero unrostered witnesses again; fruit spent; check in. |
