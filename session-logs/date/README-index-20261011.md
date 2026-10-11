@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.064832` | [Patchouli, queue empty, no build](20261011/20261011-064832_patchouli-queue-empty-sweep-no-build.kyri) | Fresh sweep: queue empty; no build; %840 seam open. |
 | `20261011.064657` | [Pheromone, lane held after pull](20261011/20261011-064657_pheromone-lane-held-after-pull-no-build.kyri) | Glow refusal witness GREEN on 5f2464e443; no build. |
 | `20261011.064549` | [Copal, recount third, fruit spent](20261011/20261011-064549_copal-roster-recount-third-no-build.kyri) | Zero unrostered witnesses; third recount today; no build. |
 | `20261011.064829` | [Bakery, rulings still open, no build](20261011/20261011-064829_bakery-rulings-still-open-no-build.kyri) | Fast-forwarded to 2ba52ac20b; two rulings still Keaton's. |
