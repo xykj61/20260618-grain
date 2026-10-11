@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.094938` | [Pheromone, lane held fifth time, no build](20261011/20261011-094938_pheromone-lane-held-fifth-no-build.kyri) | Card lane closed; stop clause holds; no build. |
+| `20261011.095047` | [Incense, declined again, no build](20261011/20261011-095047_incense-baton-declined-again-no-build.kyri) | Fast-forward clean; claim board empty; cold run held; no build. |
 | `20261011.094909` | [Incense, baton read, declined, no build](20261011/20261011-094909_incense-baton-declined-no-build.kyri) | Round-open clean; claim board empty; cold run held; no build.
 | `20261011.094836` | [Petrichor, consent gate held, no build](20261011/20261011-094836_petrichor-consent-gate-held-no-build.kyri) | Gate read unchanged, tree pulled clean; no new fruit; no build. |
 | `20261011.094512` | [Grass, register held, no edit](20261011/20261011-094512_grass-register-held-field-setting.kyri) | Inner prompt graded at field, register 77 held; no edit. |
