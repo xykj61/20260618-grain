@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.021704` | [Incense declines, claim board clear, no build](20261011/20261011-021704_incense-declined-no-build.kyri) | Nib carried; law lane waits on Keaton's word. |
+| `20261011.021640` | [Bakery receipt key held, no build](20261011/20261011-021640_bakery-receipt-key-held-no-build.kyri) | Ruling still Keaton's; no claim; no build. |
 | `20261011.021250` | [Copal fruit premise gone, all 157 witnesses rostered, no build](20261011/20261011-021250_copal-no-unrostered-witness-left-no-build.kyri) | Exact-path recount: 0 unrostered; no claim; no build. |
 | `20261011.021411` | [Petrichor gate held, no build](20261011/20261011-021411_petrichor-gate-held-no-build.kyri) | Consent Rail still gated to 20261012; no page opened. |
 | `20261011.020659` | [Copal fruit recount, no claim, no build](20261011/20261011-020659_copal-fruit-recount-no-claim-no-build.kyri) | Zero unrostered witnesses; no claim. |
