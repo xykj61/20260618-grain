@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.142854` | [Diffuser, twentieth hold, P1 ruling still absent, no run](20261011/20261011-142854_diffuser-held-twentieth-p1-no-ruling.kyri) | No run; the P1 ruling is still absent from the tree. |
 | `20261011.142658` | [Patchouli, queue empty fifteenth read, no build](20261011/20261011-142658_patchouli-queue-empty-fifteenth-read-no-build.kyri) | Queue empty; no build. |
 | `20261011.142555` | [Bakery, cache claim landed, no build](20261011/20261011-142555_bakery-cache-claim-landed.kyri) | Claim on the board; content-keyed first proof waits for its build. |
 | `20261011.142252` | [Copal, no unrostered witness stands, no build](20261011/20261011-142252_copal-fruit-no-unrostered-witness-no-build.kyri) | Fruit premise stale; 0 of 159 unrostered. |
