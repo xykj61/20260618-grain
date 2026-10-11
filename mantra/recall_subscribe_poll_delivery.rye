@@ -217,11 +217,12 @@ fn catch_up_wire_in_process(
         .needed = 0,
     };
     var next_rev = cu.max_revision_held(fetcher, peer, bolt) + 1;
-    while (true) {
+    var asks: u32 = 0;
+    while (asks < cu.max_catch_up_revisions) : (asks += 1) {
         const step = try run_wire_exchange_in_process(fetcher, source, peer, bolt, next_rev);
         if (step.entry_count == 0) {
             report.empty_asks += 1;
-            break;
+            return report;
         }
         report.revisions_synced += 1;
         report.total_leaves += step.report.total;
@@ -229,7 +230,7 @@ fn catch_up_wire_in_process(
         report.needed += step.report.needed;
         next_rev += 1;
     }
-    return report;
+    return error.CatchUpBound;
 }
 
 fn poll_one_cycle_wire_in_process(
@@ -288,11 +289,12 @@ fn catch_up_wire_over_sockets(
         .needed = 0,
     };
     var next_rev = cu.max_revision_held(fetcher, peer, bolt) + 1;
-    while (true) {
+    var asks: u32 = 0;
+    while (asks < cu.max_catch_up_revisions) : (asks += 1) {
         const step = try run_one_wire_exchange_sockets(fetcher, peer, bolt, next_rev);
         if (step.entry_count == 0) {
             report.empty_asks += 1;
-            break;
+            return report;
         }
         report.revisions_synced += 1;
         report.total_leaves += step.report.total;
@@ -300,7 +302,7 @@ fn catch_up_wire_over_sockets(
         report.needed += step.report.needed;
         next_rev += 1;
     }
-    return report;
+    return error.CatchUpBound;
 }
 
 fn poll_one_cycle_wire_sockets(

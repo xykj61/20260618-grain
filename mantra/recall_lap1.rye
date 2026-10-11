@@ -38,6 +38,7 @@ pub const RecallError = error{
     RevisionImmutable,
     RevisionOutOfOrder,
     CatalogFull,
+    CatchUpBound,
 };
 
 /// A name in the grammar peer / bolt / revision / path.

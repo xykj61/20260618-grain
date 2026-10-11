@@ -395,6 +395,19 @@ ruling on the legacy `sign` (`amphora/`, `aurora/`, `comlink/` callers). The RED
 the anointed spine at booking time (`sh tools/fixtures/r/reds_spine_derive_scan.sh --next`, read `840` on
 `20261010.152007`). `%807` and `%765` are unchanged.
 
+**The unbounded catch-up loops, `20261010.203221`.** A `while (true)` census over `mantra/` found a
+class the grep nets never read: five catch-up loops that advance `next_rev` until a peer answers
+empty, with no named maximum. TAME asks every loop to name one, and the module header of
+`recall_catch_up.rye` already called its loop bounded, so the header and the code disagreed. Each
+loop now runs `asks < max_catch_up_revisions` (`4096` in `recall_catch_up.rye`, a judgment value
+that sits far above any per-pass count this tree produces) and returns `CatchUpBound` past it. The
+error is a new variant of `RecallError` in `recall_lap1.rye`. The six catch-up and subscribe-poll
+witnesses read GREEN on the bounded paths. **The refusal branch has no witness yet**, since
+reaching the bound needs a peer that answers non-empty 4,096 times. The serve loops
+(`recall_batch_delivery`, `snapshot_export_delivery`, `run_source_loop_with_catalog`) are
+long-lived servers and stay as they are, pending a ruling on whether a server loop names a bound.
+Next lap: prove the refusal on metal, or ask Keaton for the value.
+
 ## gates
 
 Keys, funds, provisioning, identity, and the public seed stay manual.
