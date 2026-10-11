@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.002954` | [Patchouli, queue empty, no build](20261011/20261011-002954_patchouli-queue-empty-no-build.kyri) | Mantra and tally queue empty again; claim board clear; no build. |
+| `20261011.002912` | [Petrichor, gate held, no build](20261011/20261011-002912_petrichor-gate-held-no-build.kyri) | Consent Rail unchanged; fast-forwarded; no build. |
 | 20261011.002832 | [incense declined, no build](20261011/20261011-002832_incense-declined-no-build-round-open-clean.kyri) | round-open clean, board empty, cold run held |
 | `20261011.002523` | [Pheromone, lane parked, claims clear, no build](20261011/20261011-002523_pheromone-lane-parked-claims-clear-no-build.kyri) | Language lane parked on an Incense ruling; claim board clear; no build. |
 | `20261011.002728` | [Bakery, crux held for a ruling, no build](20261011/20261011-002728_bakery-crux-held-no-build.kyri) | Shared-cache crux is a seam; claim board clear; no build. |
