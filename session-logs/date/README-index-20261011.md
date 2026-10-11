@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.040031` | [Grass inner prompt graded B+, no build](20261011/20261011-040031_grass-inner-graded-b-plus-no-build.kyri) | Page reads B+ 89; queue empty; no edit. |
 | `20261011.035948` | [Copal, fruit empty a third time](20261011/20261011-035948_copal-fruit-third-empty-measure-no-build.kyri) | No unrostered witness; ruling wanted. |
+| `20261011.040225` | [Patchouli, queue empty for the twenty-fourth time, no build](20261011/20261011-040225_patchouli-queue-empty-twenty-fourth-no-build.kyri) | Queue reads empty; no build; no file touched. |
 | `20261011.035411` | [Incense, receipt case board GREEN, no build](20261011/20261011-035411_incense-receipt-case-board-green-no-build.kyri) | Case board GREEN; milestone unstamped; no build. |
 | `20261011.035652` | [Bakery census re-read, receipt key held](20261011/20261011-035652_bakery-census-reread-receipt-key-still-held.kyri) | Census holds; no build. |
 | `20261011.040054` | [Pheromone, lane held, no re-check, no build](20261011/20261011-040054_pheromone-lane-held-no-recheck-no-build.kyri) | Lane held on Incense's ruling; no witness re-run; no build. |
