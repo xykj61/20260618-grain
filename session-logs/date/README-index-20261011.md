@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.040958` | [Grass, diffuser inner below B, named, no build](20261011/20261011-040958_grass-diffuser-inner-below-b-named-no-build.kyri) | Door register 60; peer seat, named not rewritten. |
+| `20261011.040928` | [Patchouli, queue empty, no build](20261011/20261011-040928_patchouli-queue-empty-no-build.kyri) | Fresh sweep reads empty; no build. |
 | `20261011.040324` | [Grass, three rule pages graded A, no build](20261011/20261011-040324_grass-three-rule-pages-graded-a-no-build.kyri) | Send-word, align, unicode-second graded A; queue empty; no edit. |
 | `20261011.040603` | [Incense, baton declined, round-open adopted](20261011/20261011-040603_incense-baton-declined-round-open-adopt.kyri) | Held queue; no build. |
 | `20261011.040446` | [Bakery claims compile cache](20261011/20261011-040446_bakery-content-keyed-claim-no-build.kyri) | Claim opened; build held. |
