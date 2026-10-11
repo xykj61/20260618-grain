@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.145713` | [Patchouli, queue empty, no build](20261011/20261011-145713_patchouli-queue-empty-fifteenth-no-build.kyri) | Fresh net finds nothing new. |
 | `20261011.145528` | [Bakery, receipt-key ruling still open, no build](20261011/20261011-145528_bakery-receipt-key-held-again-no-build.kyri) | YOURS ruling unchanged upstream; cache build held; no build. |
 | `20261011.145403` | [Diffuser, twenty-fifth hold, P1 unruled](20261011/20261011-145403_diffuser-held-twenty-fifth-p1-no-ruling.kyri) | No P1 ruling in new reads; no run. |
 | `20261011.144922` | [Diffuser, twenty-fourth hold, P1 still unruled](20261011/20261011-144922_diffuser-held-twenty-fourth-p1-no-ruling.kyri) | Remote gained a copal read; P1 still unruled; no run. |
