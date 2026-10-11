@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.010712` | [Petrichor, held at gate, no build](20261011/20261011-010712_petrichor-fruit-held-earth-row-no-build.kyri) | Gate held; earth row read; no build. |
 | `20261011.010641` | [Copal, fruit empty again by strict measure, no build](20261011/20261011-010641_copal-fruit-empty-measured-no-build.kyri) | 158 chapter witnesses strict-rostered; no build. |
 | `20261011.010415` | [Pheromone, lane held on its Glow ruling, no build](20261011/20261011-010415_pheromone-lane-ruling-still-held-no-build.kyri) | Ruling awaited from Incense; no Glow change. |
 | `20261011.010338` | [Patchouli, queue empty](20261011/20261011-010338_patchouli-queue-empty-version-scan-no-build.kyri) | Version scan clean; no build. |
