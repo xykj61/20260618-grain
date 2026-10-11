@@ -11,6 +11,7 @@
 | `20261011.074531` | [Petrichor, gate held, upstream moved, no build](20261011/20261011-074531_petrichor-gate-held-upstream-moved-no-build.kyri) | Gate unchanged; one incense log upstream; no build. |
 | `20261011.074125` | [Petrichor, gate held, no build](20261011/20261011-074125_petrichor-gate-held-no-build.kyri) | Consent Rail gate held; board clear; no build. |
 | `20261011.074442` | [Copal, fruit empty, no build](20261011/20261011-074442_copal-fruit-empty-strict-count-no-build.kyri) | Strict count: no witness left; no build. |
+| `20261011.074331` | [Bakery, rye cold start held](20261011/20261011-074331_bakery-rye-cold-start-red-pin-deadlocked-held.kyri) | Red on 589f6741c6; pin full; ruling. |
 | `20261011.074110` | [Incense, baton lap declined, board clear, no build](20261011/20261011-074110_incense-baton-declined-no-build.kyri) | Round-open clean on 5d81712dc6; board clear; no build. |
 | `20261011.074009` | [Incense, round-open adopted, declined, no build](20261011/20261011-074009_incense-baton-round-open-declined-no-build.kyri) | Anointed order adopted at ce1a9bd1a2; board clear; gated, no build. |
 | `20261011.073950` | [Diffuser, padding arm corrected](20261011/20261011-073950_diffuser-padding-arm-wiring-correction.kyri) | Padding flag unset; D4 passes on real padding. |
