@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.073520` | [Copal, fruit still empty, no build](20261011/20261011-073520_copal-fruit-still-empty-no-build.kyri) | Fifth empty fruit read; ruling asked |
 | `20261011.073513` | [Pheromone, lane held after pull, no build](20261011/20261011-073513_pheromone-lane-held-after-pull-no-build.kyri) | Seven upstream logs, no Glow change; lane empty; no build. |
 | `20261011.073052` | [Copal, fruit empty, no build](20261011/20261011-073052_copal-fruit-empty-density-fault-stale-no-build.kyri) | Fourth empty fruit; density fault stale |
 | `20261011.073335` | [Patchouli, catch-up seam held, no build](20261011/20261011-073335_patchouli-catch-up-seam-held-no-build.kyri) | Seam waits on a ruling; no build. |
