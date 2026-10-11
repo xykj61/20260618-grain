@@ -4,6 +4,7 @@
 | `20261011.133220` | [Incense, baton declined, ninth read, no build](20261011/20261011-133220_incense-baton-declined-no-build-9.kyri) | Five rulings wait on Keaton; no build. |
 | `20261011.133559` | [Petrichor, fast-forwarded to four peer logs, gate held, no build](20261011/20261011-133559_petrichor-gate-held-after-fast-forward-no-build.kyri) | Consent Rail still waits on Diffuser; docs-geode unchanged; no build. |
 | `20261011.133208` | [Grass, Lila foundation graded, no build](20261011/20261011-133208_grass-lila-foundation-graded-no-build.kyri) | Register 98, reach 100, truth 100 counted; no molt; no build. |
+| `20261011.133455` | [Copal, fruit spent again, no build](20261011/20261011-133455_copal-fruit-spent-again-no-build.kyri) | Zero unrostered witnesses at xy/main; no claim. |
 | `20261011.132914` | [Petrichor, gate held, fifth repeat, no build](20261011/20261011-132914_petrichor-gate-held-fifth-repeat-no-build.kyri) | Seam and Consent Rail unchanged; no build. |
 | `20261011.132738` | [Grass, inner page repeat named, no build](20261011/20261011-132738_grass-regrade-repeat-named-no-build.kyri) | Page sound at B+; repeat named; check-in. |
 | `20261011.132713` | [Copal, fruit spent, recount, no build](20261011/20261011-132713_copal-fruit-spent-recount-no-build.kyri) | Zero unrostered witnesses at xy/main; no claim; no build. |
