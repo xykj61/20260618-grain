@@ -7,6 +7,7 @@
 | `20261011.074735` | [Patchouli, queue empty](20261011/20261011-074735_patchouli-queue-empty-seventeenth-no-build.kyri) | Grep nets clean; no build. |
 | `20261011.074600` | [Incense, baton declined, no build](20261011/20261011-074600_incense-baton-declined-no-build-round-open-clean.kyri) | Clean on 1840f3c83d; no build. |
 | `20261011.074538` | [Pheromone, baton lap, lane closed on record, no build](20261011/20261011-074538_pheromone-baton-lap-check-in-no-build.kyri) | Card and record read; next door is Incense's ruling; no build. |
+| `20261011.074753` | [Diffuser, baton lap, next door gated](20261011/20261011-074753_diffuser-baton-lap-next-door-gated.kyri) | Next door awaits Keaton's raw vendor event; no build. |
 | `20261011.074343` | [Diffuser, huge-page sweep falsifier fired](20261011/20261011-074343_diffuser-huge-page-sweep-falsifier-fired.kyri) | Huge pages 90-98 permille, control 220-339; both under 500, falsifier fired. |
 | `20261011.074448` | [Incense, baton declined, board clear, no build](20261011/20261011-074448_incense-baton-declined-claim-board-clear-no-build.kyri) | Round-open clean on 0cad513376; board clear; no build. |
 | `20261011.074531` | [Petrichor, gate held, upstream moved, no build](20261011/20261011-074531_petrichor-gate-held-upstream-moved-no-build.kyri) | Gate unchanged; one incense log upstream; no build. |
