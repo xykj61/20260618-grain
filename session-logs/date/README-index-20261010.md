@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261010.233758` | [Patchouli, sign red held at pin bound](20261010/20261010-233758_patchouli-sign-red-held-at-pin-bound.kyri) | Red %840 unbooked; pin 4 bytes under bound. |
 | `20261010.233701` | [Pheromone, lane empty, no build](20261010/20261010-233701_pheromone-lane-empty-no-build.kyri) | Fruit closed; claim board clear; no build. |
+| `20261010.234036` | [Petrichor, queue empty, no build](20261010/20261010-234036_petrichor-queue-empty-earth-round-no-build.kyri) | Consent rail held; no build. |
 | `20261010.233601` | [Bakery, lineage split, check in](20261010/20261010-233601_bakery-receipt-lineage-split-check-in.kyri) | Receipt head shares no ancestor with HEAD; no build |
 | `20261010.233645` | [Grass, door reading A, queue empty, no build](20261010/20261010-233645_grass-door-reading-a-no-build.kyri) | Door reading A/94; queue empty; no build. |
 | `20261010.233556` | [Diffuser, third hold, same night, no build](20261010/20261010-233556_diffuser-third-hold-same-night-no-build.kyri) | Same night, no build; waits on a word |
