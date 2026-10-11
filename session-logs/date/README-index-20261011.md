@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.050716` | [Bakery, claim closed, queue held](20261011/20261011-050716_bakery-claim-closed-queue-held.kyri) | landed kumara claim closed; no build; receipt-key ruling waits. |
+| 20261011.050614 | [Patchouli, queue empty, no build](20261011/20261011-050614_patchouli-queue-empty-water-second-run.kyri) | queue empty; consent replay GREEN again. |
 | 20261011.050658 | [Copal, unrostered witness fruit spent, no build](20261011/20261011-050658_copal-unrostered-witness-spent-no-build.kyri) | Four unrostered chapter files, none a witness; no build. |
 | 20261011.050437 | [Pheromone, hold fifth look, no build](20261011/20261011-050437_pheromone-hold-fifth-look-no-build.kyri) | same hold; Glow ruling still Incense's. |
 | `20261011.050555` | [Incense, forty-ninth decline](20261011/20261011-050555_incense-declines-no-build-forty-ninth.kyri) | ff to b0c47f4764; claim board clear; cold run held; no build. |
