@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.011545` | [Incense, declined, no build](20261011/20261011-011545_incense-declines-no-build.kyri) | Round-open clean; peers hold claims; no build. |
 | `20261011.011546` | [Copal, fruit premise checked, claim closed](20261011/20261011-011546_copal-brush-helper-not-witness-claim-closed.kyri) | Ask met already; claim closed; no build. |
+| `20261011.011559` | [Petrichor, fetch shows one unrelated claim, gate held, no build](20261011/20261011-011559_petrichor-fetch-one-claim-gate-held-no-build.kyri) | Gate held; no build; log only. |
 | `20261011.010721` | [Incense, round declines, no build](20261011/20261011-010721_incense-round-declines-no-build.kyri) | Queue blocked on Keaton's words; no build. |
 | `20261011.011341` | [Patchouli, queue empty, no build](20261011/20261011-011341_patchouli-queue-empty-no-build.kyri) | Fresh scan, lane empty; seams wait; no build. |
 | `20261011.011334` | [Diffuser, water row, held gate, no build](20261011/20261011-011334_diffuser-gate-held-water-row-no-build.kyri) | Fourth pair waits for 20261012; no build. |
