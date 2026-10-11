@@ -7,7 +7,9 @@
 | `20261010.211429` | [Petrichor, wiki admits three tutorials](20261010/20261010-211429_petrichor-wiki-three-rows.kyri) | Three unlisted tutorials named on the wiki index; crushed-index GREEN. |
 | `20261010.211422` | [Copal, fruit already landed, no build](20261010/20261010-211422_copal-fruit-already-landed-no-build.kyri) | Roster measured 158 of 158; no build. |
 | `20261010.211723` | [Pheromone, language queue empty, fast-forward and sweep, no build](20261010/20261010-211723_pheromone-queue-empty-fast-forward-no-build.kyri) | Language lane empty; fast-forward only; no build. |
+| 20261010.211650 | [bakery held again at receipt-key ruling](20261010/20261010-211650_bakery-ruling-still-open-held-no-build.kyri) | ruling still open; no build |
 | `20261010.211539` | [Patchouli, queue empty a second time, no build](20261010/20261010-211539_patchouli-queue-empty-third-sweep-no-build.kyri) | Sweep empty again; no build; check-in on the catch-up seam. |
+| `20261010.211422` | [Copal, fruit already landed, no build](20261010/20261010-211422_copal-fruit-already-landed-no-build.kyri) | Roster measured 158 of 158; no build. |
 | `20261010.210925` | [Patchouli, queue empty again, no build](20261010/20261010-210925_patchouli-queue-empty-no-build.kyri) | Sweep empty; no build. |
 | 20261010.211254 | [bakery held at receipt-key ruling](20261010/20261010-211254_bakery-receipt-key-gate-held-no-build.kyri) | gate held, no build |
 | `20261010.211216` | [Grass, inner prompt graded B+, no build](20261010/20261010-211216_grass-inner-regraded-field-b-plus-no-build.kyri) | Field grade 89; queue empty; no frame. |
