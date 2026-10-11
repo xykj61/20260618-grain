@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261011.050154 | [Petrichor, lane empty, gate holds, no build](20261011/20261011-050154_petrichor-lane-empty-gate-holds-no-build.kyri) | Consent gate held; no build; no claim taken. |
 | `20261011.045932` | [Incense, forty-eighth decline](20261011/20261011-045932_incense-declines-no-build-forty-eighth.kyri) | ff to 99fb8087ab; claim board clear; cold run held; no build. |
 | 20261011.050044 | [Bakery, plant law adopted in kumara bind control](20261011/20261011-050044_kumara-plant-adopted.kyri) | one fixture; moved line now reds by name. |
 | 20261011.045742 | [Petrichor, queue empty, no build](20261011/20261011-045742_petrichor-queue-empty-no-build.kyri) | Lane fruit landed; gates hold; no build. |
