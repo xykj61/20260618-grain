@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.105716` | [Incense, recur second decline, no build](20261011/20261011-105716_incense-recur-second-decline-no-build.kyri) | Round-open clean; board empty; order holds; no build. |
 | `20261011.105515` | [Grass, WITNESS_PATTERNS register 71 to 83](20261011/20261011-105515_grass-witness-patterns-register-lift.kyri) | Shape lines affirmative; claims kept. |
 | `20261011.105308` | [Patchouli, queue empty nineteenth, no build](20261011/20261011-105308_patchouli-queue-empty-nineteenth-no-build.kyri) | Fresh grep nets clear; claim board clear; kumara ruling waits. |
 | `20261011.104554` | [Bakery, cache crux held, no build](20261011/20261011-104554_bakery-cache-crux-held-no-build.kyri) | Board clear; ruling waits; fast-forward; no build. |
