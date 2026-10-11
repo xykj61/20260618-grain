@@ -10261,3 +10261,10 @@ guard prin_scope
 path tools/gen/chapter/prin.rish
 tier cadence
 seated 20261011.003401
+
+# prin_ticker -- the Prin verse ticker's once path and empty-set refusal, proven from both sides by
+# its control; the chapter hand is held to delegation, since its slide mode loops and cannot end.
+guard prin_ticker
+path tools/gen/chapter/prin_ticker_witness.rish
+tier lap
+seated 20261011.034555
