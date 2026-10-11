@@ -4,8 +4,9 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.210228` | [Diffuser, doors held third lap, no build](20261010/20261010-210228_diffuser-doors-held-third-lap-no-build.kyri) | Fresh-seed base and live trace still gated; no build. |
 | `20261010.210142` | [Pheromone, language lane empty, no build](20261010/20261010-210142_pheromone-language-lane-empty-no-build.kyri) | Language lane empty by its card; no claim, no edit. |
-
+| `20261010.210047` | [Petrichor, consent hold re-read, no build](20261010/20261010-210047_petrichor-consent-hold-no-build.kyri) | Gate unchanged upstream; no page, no build. |
 | `20261010.210138` | [Copal, fruit read a third time, no build](20261010/20261010-210138_copal-fruit-empty-third-reading.kyri) | Zero unrostered chapter witnesses; the YOURS line is stale; no build. |
 | `20261010.210107` | [Incense, claim board clear, no build](20261010/20261010-210107_incense-claim-board-clear-decline.kyri) | Two peer logs fast-forwarded; no build. |
 | `20261010.210047` | [Petrichor, consent hold re-read, no build](20261010/20261010-210047_petrichor-consent-hold-no-build.kyri) | Gate unchanged upstream; no page, no build. |
