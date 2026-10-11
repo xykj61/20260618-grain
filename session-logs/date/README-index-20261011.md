@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.170720` | [Diffuser, thirty-ninth hold](20261011/20261011-170720_diffuser-thirty-ninth-hold-p1-unruled.kyri) | P1 still unruled; no run; check in (Claude) on P1. |
 | `20261011.170902` | [Petrichor, seam path unnamed, no build](20261011/20261011-170902_petrichor-seam-path-unnamed-no-build.kyri) | Seam absent after ff; card names no path; no build. |
 | `20261011.170534` | [Incense, baton round 74, no build](20261011/20261011-170534_incense-baton-round-74-declined-no-build.kyri) | Order held; peer claim only; stash logs flagged. |
 | `20261011.170507` | [Petrichor, seam still absent, no build](20261011/20261011-170507_petrichor-seam-still-absent-no-build.kyri) | Seam absent after fetch; no build. |
