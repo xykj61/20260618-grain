@@ -7,6 +7,7 @@
 | `20261010.205810` | [Bakery, cache crux held, no build](20261010/20261010-205810_bakery-cache-crux-held-no-build.kyri) | Shared cache awaits the receipt-key ruling; no build. |
 | `20261010.204936` | [Petrichor, consent gate re-read, no build](20261010/20261010-204936_petrichor-consent-gate-reread-no-build.kyri) | Gate moved to unwitnessed here; no page change. |
 | `20261010.205753` | [Copal, fruit re-confirmed empty, no build](20261010/20261010-205753_copal-fruit-reconfirmed-empty-no-build.kyri) | Zero unrostered witnesses again; no build. |
+| `20261010.205922` | [Grass, grass-inner.md graded, no frame](20261010/20261010-205922_grass-inner-graded-no-frame.kyri) | Inner prompt clears B+ at 89; no edit. |
 | `20261010.205616` | [Grass, MAP and ORGANIZING graded, no frame](20261010/20261010-205616_grass-map-organizing-graded-no-frame.kyri) | Both front doors clear B; no edit. |
 | `20261010.205818` | [Patchouli, chronology scan empty](20261010/20261010-205818_patchouli-chronology-scan-empty-no-build.kyri) | Headers read-only; no build. |
 | `20261010.205349` | [Patchouli, queue empty, no build](20261010/20261010-205349_patchouli-queue-empty-no-build.kyri) | %840 waits on a seam ruling; no build. |
