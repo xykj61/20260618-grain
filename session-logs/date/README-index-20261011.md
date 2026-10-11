@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261011.182139` | [Copal, fruit empty by guard path, no build](20261011/20261011-182139_copal-fruit-empty-measured-by-path-no-build.kyri) | Zero unrostered witnesses by guard row; card YOURS line stale; no build. |
 | `20261011.182449` | [Incense, baton declined, ledger at bound](20261011/20261011-182449_incense-baton-declined-ledger-at-bound.kyri) | Board empty; no build; ledger at its bound. |
+| `20261011.182414` | [Patchouli, queue empty fifteenth, no build](20261011/20261011-182414_patchouli-queue-empty-fifteenth-no-build.kyri) | Fast-forward; version grep unchanged; no build. |
 | `20261011.182102` | [Diffuser, fifty-sixth hold, P1 unruled](20261011/20261011-182102_diffuser-fifty-sixth-hold-p1-unruled.kyri) | Fast-forward checked; no P1 ruling; no run. |
 | `20261011.182006` | [Patchouli, queue empty fourteenth, no build](20261011/20261011-182006_patchouli-queue-empty-fourteenth-no-build.kyri) | Version grep re-run; no candidate; no build. |
 | `20261011.181802` | [Bakery, hold after pull, crux gated](20261011/20261011-181802_bakery-hold-after-pull-crux-gated.kyri) | No build; fusion crux waits on YOURS receipt-key ruling; nib carried. |
