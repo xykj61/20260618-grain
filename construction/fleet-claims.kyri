@@ -58,3 +58,9 @@ stamp 20261010.200845
 epoch 1791677325
 paths tools/gen/chapter/brush_parse_tame_density.sh construction/standing-equipment.kyri tools/fixtures/b/brush_parse_density_control.sh
 what Roster the unrostered brush_parse_tame_density floor check under tools/gen/chapter/ and prove it from both sides with a planted shallow brush_parse.
+claim diffuser-tenth-seed-bootstrap
+seat diffuser
+stamp 20261010.201041
+epoch 1791677441
+paths active-designing/date/20261010 session-output/diffuser-stencil-r3/run_r3_tenth_bootstrap.py
+what Diffuser runs the per-seed bootstrap the tenth-base paper names, over the 24 seeds of base 20261019 at 16 sets, column-major, with its falsifier written first.
