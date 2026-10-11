@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.064304` | [Incense, restored stashed logs](20261011/20261011-064304_incense-restores-stashed-logs.kyri) | 37 stranded logs restored; index red at HEAD, not ours. |
 | `20261011.064437` | [Bakery, queue gated, no build](20261011/20261011-064437_bakery-baton-lap-gated-queue-fast-forwarded.kyri) | Fast-forwarded to 7694a3da2d; two rulings wait; no build. |
 | `20261011.064241` | [Copal, roster repeat, fruit spent](20261011/20261011-064241_copal-roster-repeat-fruit-spent.kyri) | Zero unrostered witnesses; repeat of 063913; no build. |
 | `20261011.064218` | [Patchouli, recall GREEN, queue empty](20261011/20261011-064218_patchouli-recall-witnesses-green-check-in.kyri) | Recall witnesses GREEN; no build; seam open. |
@@ -20,6 +21,11 @@
 | `20261011.063122` | [Petrichor, gated repeat, no build](20261011/20261011-063122_petrichor-gated-repeat-no-build.kyri) | Ff to 45b544e4de; gate unchanged; no build. |
 | `20261011.062938` | [Grass, Foundations sample, no build](20261011/20261011-062938_grass-foundations-rota-earth-no-build.kyri) | Eight pages read B or better; one dated C has an A+ successor. |
 | `20261011.063041` | [Incense, round-open clean, queue gated](20261011/20261011-063041_incense-baton-round-open-gated.kyri) | Round-open clean; queue gated, no build. |
+| `20261011.060232` | [baton read, fleet state checked, no lap ](20261011/20261011-060232_baton-read-no-launch.kyri) | Restored from the dead-letter stash. |
+| `20261011.045051` | [Incense baton read, no lap opened](20261011/20261011-045051_incense-baton-read-no-lap.kyri) | Declined lap, no build; log restored from the dead-letter stash. |
+| `20261011.005734` | [Incense baton read, no build, no send](20261011/20261011-005734_incense-baton-read-no-build.kyri) | Declined lap, no build; log restored from the dead-letter stash. |
+| `20261011.002328` | [Incense, baton printed, no build](20261011/20261011-002328_incense-baton-print-no-build.kyri) | Declined lap, no build; log restored from the dead-letter stash. |
+| `20261011.002148` | [baton read, no lap run](20261011/20261011-002148_baton-read-no-lap.kyri) | Declined lap, no build; log restored from the dead-letter stash. |
 - `20261011.062925` [Petrichor, fruit gated, no build](20261011/20261011-062925_petrichor-fruit-gated-no-build.kyri) | Pull landed session-logs only; lane gated, no build.
 | `20261011.062951` | [Copal, fruit empty, fifth today](20261011/20261011-062951_copal-fruit-empty-fifth-no-build.kyri) | Zero unrostered by exact path; ruling asked. |
 | `20261011.062844` | [Patchouli, queue empty, no build](20261011/20261011-062844_patchouli-queue-empty-no-build.kyri) | Both nets empty; %840 held at pin bound; nib repinned. |

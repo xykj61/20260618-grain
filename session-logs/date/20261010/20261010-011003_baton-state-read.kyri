@@ -1,0 +1,22 @@
+format session-log-v1
+stamp 20261010.011003
+editor Claude Code
+provider Anthropic
+product Claude Code
+role incense captain
+modality text
+model claude-haiku-5-5
+model_status active runtime unverified
+voice Kyri
+host Linux workstation, one-clock zone America/New_York
+title baton read, state checked, no lap run
+prompt baton pasted with "ty every1 baton prin recur"
+think read baton; the lap it asks for includes claim push, cold roster run, GPG commits and push to xy
+think tree clean at 932da76687; xy/main is one commit ahead, so the round-open pull is still owed
+think pushing and committing belong to a sanctioned send, and this turn gave no send word
+obs did not claim, commit, pull or push; the lap waits for a word
+obs NOW lists the BAKERY receipt-key ruling as YOURS, and the queue top is %642 scrub
+file construction/ITINERARY.md read NOW section for the queue and YOURS items
+file session-logs/date/20261010/20261010-011003_baton-state-read.kyri this log, uncommitted
+status WRITTEN -- read-only lap, no commits, no pushes
+recommend check in (either) -- say "send" or "kg" to run the full lap, or name the queue door to take

@@ -60,6 +60,7 @@
 | `20261003.100355` | [no-fruit-no-claim](20261003/20261003-100355_petrichor-no-fruit-no-claim.kyri) | docs-geode fruit closed, peer's fleet-wide claim check already stood -- reported rather than duplicated |
 | `20261003.100323` | [keepalive un-reverses release-fast](20261003/20261003-100323_keepalive-workload-un-reverses-release-fast.kyri) | Diffuser: keep-alive shape restores Region's edge |
 | `20261003.100119` | [nineteenth-sweep-found-the-breach-not-mine](20261003/20261003-100119_nineteenth-sweep-found-the-breach-not-mine.kyri) | written-ascii clean; spoken-ascii ratchet RED tree-wide, 0 hits in mantra/-tally/, named for whoever touches it next |
+| `20261003.044709` | [incense's thirty-eighth decline, nine co](20261003/20261003-044709_thirty-eighth-decline.kyri) | Restored from the dead-letter stash. |
 | 20261003.100054 | [dependencies-census-sent-after-seven-rebases](20261003/20261003-100054_dependencies-census-sent-after-seven-rebases.kyri) | Pushed clean to ba80958aaa after seven round-open rebases, five conflicts resolved |
 | `20261003.100033` | [statement.rye's module head lifts from C+ to A](20261003/20261003-100033_statement-rye-head-lifts-c-plus-to-a.kyri) | register 54 to 96, reach 50 to 70, composite 92/A, four witnesses GREEN |
 | `20261003.095509` | [seventeenth-empty-sweep](20261003/20261003-095509_seventeenth-empty-sweep.kyri) | Same conclusion as the sixteenth; no claim-as-override candidate either |

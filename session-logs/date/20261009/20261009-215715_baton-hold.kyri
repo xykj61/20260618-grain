@@ -1,0 +1,22 @@
+format session-log-v1
+stamp 20261009.215715
+editor Claude Code
+provider Anthropic
+product Claude Code
+role incense captain
+modality text
+model claude-haiku-5-5
+model_status active runtime self-reported
+voice Kyri
+host Linux 6.18.41 -- one-clock zone America/New_York
+title baton hold, no build
+prompt ty every1 baton prin recur
+think the baton asks a full lap: round-open, claim, cold run, build, send, log
+think the card's next order (20261002.142242) holds the cold run unlaunched and the law lane waiting on a human word
+think the tree is clean at ebf10b11f7 and no new claim or red was named in this prompt
+obs no code, pin, or push was made this lap; a commit would only restate the hold
+obs the prompt was not restated in full, since the baton is prepended from tools/f/fleet_baton.txt
+status GREEN for the read; no witness run; nothing left open that this lap can close
+file recursion-prompts/incense-inner.md read for rite, laws, state and next
+file construction/ITINERARY.md not re-read this lap; next order taken from the inner prompt
+recommend check in (Claude) -- the law lane waits on a word at REDS %642 or %519, and the cold run waits on Keaton's hold or go

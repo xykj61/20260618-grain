@@ -12,6 +12,7 @@
 | `20260926.195536` | [fascia_home_link closes on eight rooms](20260926/20260926-195536_fascia-home-link-eight-rooms.kyri) | no_path_home 8->0, wall restored to zero. |
 | `20260926.185006` | [day shelf rows over bound, second time](20260926/20260926-185006_row-bound-second-repair.kyri) | 12 rows over 192 bytes trimmed; verdict=ok. |
 | `20260926.174957` | [Cold run in flight, held still](20260926/20260926-174957_holding-on-inherited-cold-run.kyri) | ~3 min in; held still, stash-recovered. |
+| `20260926.174711` | [round-open clean, claim board stale, col](20260926/20260926-174711_cold-run-hold.kyri) | Restored from the dead-letter stash. |
 | `20260926.173946` | [unheard-guard ceiling closed](20260926/20260926-173946_unheard-guard-control-ceiling-closed.kyri) | 22->18, four guards rostered; stale Cursor check fixed |
 | `20260926.161325` | [commit_parent_claim's third anchor move](20260926/20260926-161325_commit-parent-claim-third-anchor-move.kyri) | Sentence-binding fault; anchor moved to 661bc26fc0. |
 | `20260926.143701` | [hold still on an inherited cold run](20260926/20260926-143701_hold-still-inherited-cold-run.kyri) | Held still on ORDER while an inherited pass ran, per rule. |
@@ -37,6 +38,7 @@
 | `20260926.054749` | [A shelved elder dropped out of its own gate](20260926/20260926-054749_verdict-home-date-shelf.kyri) | verdict_home repaired, witness GREEN. |
 | `20260926.045858` | [Peer's cold run held the lock](20260926/20260926-045858_cold-run-wait.kyri) | Waited rather than TERMing; stash-recovered. |
 | `20260926.044306` | [Five root-finders born unrunnable](20260926/20260926-044306_root-finder-rishi-bin-to-src.kyri) | root_finder swept rishi/bin to rishi/src, witness GREEN. |
+| `20260926.035802` | [round-open clean, claim board clear, col](20260926/20260926-035802_cold-run-launch-hold.kyri) | Restored from the dead-letter stash. |
 | `20260926.034110` | [A qualified print call rode past its ceiling](20260926/20260926-034110_opening-lines-print-bind.kyri) | opening_lines repaired, witness GREEN. |
 | `20260926.023747` | [Git nib field one char short of resolving](20260926/20260926-023747_nib-honesty-truncated-hash.kyri) | nib_honesty repaired, witness GREEN. |
 | `20260926.015215` | [Cold run launched and held](20260926/20260926-015215_cold-run-launch-hold.kyri) | Nothing built yet; stash-recovered. |
