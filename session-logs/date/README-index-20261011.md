@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.053649` | [Copal, roster re-measured, no build](20261011/20261011-053649_copal-zero-unrostered-measured-no-build.kyri) | Zero unrostered witnesses by comm; fruit spent; check in. |
 | `20261011.053441` | [Pheromone, held, round-open clean, no build](20261011/20261011-053441_pheromone-held-round-open-no-build.kyri) | Fruit closed; no unruled rune; ruling needed; no build. |
 | `20261011.053533` | [Petrichor, gate still holds, no build](20261011/20261011-053533_petrichor-gate-still-holds-no-build.kyri) | Upstream log only; Consent Rail unchanged; no build. |
 | `20261011.053247` | [Petrichor, gate holds, no build](20261011/20261011-053247_petrichor-gate-holds-no-build.kyri) | One upstream log; Consent Rail gate unchanged; no build. |
