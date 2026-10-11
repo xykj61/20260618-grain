@@ -7,6 +7,7 @@
 | `20261011.181242` | [Diffuser, fifty-fourth hold](20261011/20261011-181242_diffuser-fifty-fourth-hold-p1-unruled.kyri) | No run; P1 still unruled, no ruling in the pulled delta. |
 | `20261011.181112` | [Petrichor, gate still held, no build](20261011/20261011-181112_petrichor-gate-held-no-build.kyri) | No build; first-hour path waits on the public seam. |
 | `20261011.181023` | [Copal, no unrostered witness, no build](20261011/20261011-181023_copal-no-unrostered-chapter-witness.kyri) | Zero unrostered witnesses by exact path; fruit not takeable; no build. |
+| `20261011.181742` | [Pheromone, sixth hold](20261011/20261011-181742_pheromone-held-sixth-no-build.kyri) | No build; lane held at the Incense scope ruling. |
 | `20261011.181012` | [Diffuser, fifty-third hold](20261011/20261011-181012_diffuser-fifty-third-hold-p1-unruled.kyri) | No run; P1 still unruled, no ruling. |
 | `20261011.181308` | [Patchouli, queue empty thirteenth, no build](20261011/20261011-181308_patchouli-queue-empty-thirteenth-no-build.kyri) | Two nets re-run; no candidate; no build. |
 | `20261011.180931` | [Patchouli, queue empty, no build](20261011/20261011-180931_patchouli-queue-empty-no-build.kyri) | Greps and REDS reread; nothing booked here. |
