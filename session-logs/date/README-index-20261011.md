@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.123130` | [Copal, unrostered witness fruit spent, no build](20261011/20261011-123130_copal-unrostered-witness-spent-no-build.kyri) | 159 of 159 witnesses rostered; no build. |
 | `20261011.122457` | [Diffuser, sawtooth at 32 sets saturates to compulsory](20261011/20261011-122457_diffuser-sawtooth-thirty-two-saturates.kyri) | Every trace 1.0000; no conflicts; F2 empty. |
 | `20261011.122437` | [Pheromone, held at a ruling, no build](20261011/20261011-122437_pheromone-held-no-build-queue-at-ruling.kyri) | Inner fruit awaits Incense ruling; claim board empty; no build. |
 | `20261011.122419` | [Patchouli, queue empty, sixth look](20261011/20261011-122419_patchouli-queue-empty-sixth-look-no-build.kyri) | Read only; no family; kumara red held. |
