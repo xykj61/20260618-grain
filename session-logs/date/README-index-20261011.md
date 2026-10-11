@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.060710` | [Patchouli, queue empty a fifteenth way, no build](20261011/20261011-060710_patchouli-queue-empty-fifteenth-no-build.kyri) | Fresh sweep of mantra/ and tally/ empty; no build. |
 | `20261011.060524` | [Petrichor, consent gate holds again, no build](20261011/20261011-060524_petrichor-consent-gate-holds-again-no-build.kyri) | Ff to b77a7fd74b; gate still held; no build. |
 | `20261011.060815` | [Grass, fold.rye A, queue empty, no build](20261011/20261011-060815_grass-fold-queue-empty-no-build.kyri) | Mycelium sample clean at B or better; no edit. |
 | `20261011.060259` | [Copal, fruit spent, rostered, no build](20261011/20261011-060259_copal-fruit-spent-rostered-no-build.kyri) | Zero unrostered witnesses by exact line; no build. |
