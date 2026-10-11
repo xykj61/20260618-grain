@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.113133` | [Petrichor, lane held on two gates, no build](20261011/20261011-113133_petrichor-lane-held-no-build.kyri) | Upstream two logs; both gates unchanged; no build. |
+| `20261011.113102` | [Patchouli, queue empty, no build](20261011/20261011-113102_patchouli-queue-empty-no-build.kyri) | Fresh nets clear; claims clear; kumara red held; no build. |
 | `20261011.112838` | [Diffuser, held lap, N=192 door waits](20261011/20261011-112838_diffuser-held-no-fruit-n192-waits.kyri) | No fruit ruled; no run; nib carried. |
 | `20261011.112657` | [Incense, fifth decline, no build](20261011/20261011-112657_incense-baton-fifth-decline-no-build.kyri) | Round-open clean; board clear; no build. |
 | `20261011.112613` | [Patchouli, kumara red re-verified, held, no build](20261011/20261011-112613_patchouli-kumara-red-reverify-no-build.kyri) | Red stands at kumara sign; pin 65532 of 65536; no build. |
