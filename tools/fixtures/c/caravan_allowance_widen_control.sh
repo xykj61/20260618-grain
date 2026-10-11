@@ -38,6 +38,7 @@ while [ ! -d "$_fd_root/rishi/src" ] || [ ! -d "$_fd_root/tools/fixtures" ]; do
   _fd_root=$(dirname "$_fd_root")
 done
 . "$_fd_root/tools/fixtures/s/shell_portable.sh"
+. "$_fd_root/tools/fixtures/p/plant.sh"
 
 zig="$1"
 pen="$2"
@@ -58,11 +59,14 @@ if env RYE_ZIG="$zig" rye/bin/rye build "$pen/caravan/allowances.rye" -femit-bin
 fi
 
 # The refusal: one Caravan bound widened past its Microkit counterpart, 16 channels to 64 against 62.
-sed_inplace 's|^pub const max_channels: u32 = 16;|pub const max_channels: u32 = 64;|' "$pen/caravan/channels.rye"
+# The plant is checked: a moved line reads `plant_matched_nothing` on stderr and drift on stdout,
+# never the unmutated module's exit code (REDS %519, via tools/fixtures/p/plant.sh).
+plant_landed_ok=yes
+plant_apply "$pen/caravan/channels.rye" 's|^pub const max_channels: u32 = 16;|pub const max_channels: u32 = 64;|' max_channels_widened || plant_landed_ok=no
 
 widened=build_failed
 assertion_named=no
-if env RYE_ZIG="$zig" rye/bin/rye build "$pen/caravan/allowances.rye" -femit-bin="$pen/widened" >/dev/null 2>&1; then
+if [ "$plant_landed_ok" = yes ] && env RYE_ZIG="$zig" rye/bin/rye build "$pen/caravan/allowances.rye" -femit-bin="$pen/widened" >/dev/null 2>&1; then
   # The abort message is the shell reporting a signal, and the signal IS the proof, so it is
   # kept out of the report rather than printed as though something had gone wrong.
   if sh -c '"$1" selftest > "$2" 2>&1' _ "$pen/widened" "$pen/out.txt" 2>/dev/null; then
