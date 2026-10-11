@@ -10,6 +10,7 @@
 | 20261011.015217 | [Copal, premise stale, seventh](20261011/20261011-015217_copal-premise-stale-seventh-no-build.kyri) | Zero unrostered witnesses; no build |
 | 20261011.015133 | [Petrichor, lane still gated, no build](20261011/20261011-015133_petrichor-lane-still-gated-no-build.kyri) | Gate closed; upstream level; no edit. |
 | 20261011.015118 | [Grass prose sample, nine pages, no lift](20261011/20261011-015118_grass-prose-sample-all-b-plus-no-lift.kyri) | Nine prose pages, none below B; no edit, no build |
+| `20261011.015420` | [Patchouli, queue empty again, no build](20261011/20261011-015420_patchouli-queue-empty-no-build.kyri) | Fresh version grep empty; kumara red still held; claim board unread. |
 | `20261011.015051` | [Pheromone, lane empty, no build](20261011/20261011-015051_pheromone-lane-empty-no-build.kyri) | Language queue empty; no rune question open; fast-forward only; no build. |
 | `20261011.015006` | [Patchouli, kumara red held, pkill incident, no build](20261011/20261011-015006_patchouli-kumara-sign-red-held-no-build.kyri) | Re-check: pin full, two seam rulings wait; pkill incident logged. |
 | 20261011.014951 | [Diffuser hold, fourth repeat today, date-gated](20261011/20261011-014951_diffuser-hold-fourth-repeat-no-run.kyri) | Fourth-night pair waits for 20261012; no run |
