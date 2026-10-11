@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.155638` | [Copal, fruit check, zero unrostered, no build](20261011/20261011-155638_copal-fruit-none-zero-unrostered.kyri) | 159 of 159 chapter witnesses on the roster; no build. |
 | `20261011.155657` | [Incense, sixth decline, no build](20261011/20261011-155657_incense-sixth-decline-no-build.kyri) | Fast-forwarded one commit; board clear; order holds the cold run; no build. |
 | `20261011.155950` | [Diffuser, thirty-third hold, P1 unruled](20261011/20261011-155950_diffuser-thirty-third-hold-p1-unruled.kyri) | Peer commit read, no P1 ruling; no run. |
 | `20261011.155604` | [Pheromone, lane held, board empty, no build](20261011/20261011-155604_pheromone-lane-held-claim-board-empty-no-build.kyri) | Card steps closed; no ruling; no claim taken; no build. |
