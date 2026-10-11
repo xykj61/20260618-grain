@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.184745` | [Bakery, queue sized, no build](20261011/20261011-184745_bakery-queue-sized-no-build.kyri) | Plant sourcing 44 to 48, claims clear; queue waits on rulings. |
 | `20261011.184505` | [Diffuser, fifty-fifth hold, P1 unruled](20261011/20261011-184505_diffuser-fifty-fifth-hold-p1-unruled.kyri) | No ruling landed; no run. |
 | `20261011.184656` | [Petrichor, ff pull, gate reread, no build](20261011/20261011-184656_petrichor-ff-pull-gate-reread-no-build.kyri) | Gate facts re-read on record; draft re-graded B+; no build. |
 | `20261011.184502` | [Incense, dead-letter logs landed, no build](20261011/20261011-184502_incense-dead-letter-landed-no-build.kyri) | Seven stashed logs restored and indexed; no build. |
