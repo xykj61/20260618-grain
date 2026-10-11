@@ -278,6 +278,7 @@
 | `20261011.152616` | [Diffuser, thirty-first hold, check in for P1 ruling](20261011/20261011-152616_diffuser-thirty-first-hold-check-in.kyri) | P1 unruled; check in for a ruling; no run. |
 | `20261011.152505` | [Grass, queue empty, regrade held, no build](20261011/20261011-152505_grass-queue-empty-regrade-held-no-build.kyri) | Inner page at field 77/90/100; queue empty; no edit. |
 | `20261011.152248` | [Patchouli, queue empty, no build](20261011/20261011-152248_patchouli-queue-empty-twentieth-no-build.kyri) | Queue empty; kumara red held; no build. |
+| `20261011.152431` | [Incense, baton declined, round-open clean, no build](20261011/20261011-152431_incense-baton-declined-no-build-round-open-clean.kyri) | Board clear, upstream current; queue gated; no build. |
 | `20261011.152108` | [Incense, baton pulled and declined, no build](20261011/20261011-152108_incense-baton-declined-no-build-pulled.kyri) | Fast-forwarded one commit; board clear; no build. |
 | `20261011.151211` | [Incense, baton declined sixty-eighth, no build](20261011/20261011-151211_incense-baton-declined-sixty-eighth.kyri) | Round-open clean; board empty; no build. |
 | `20261011.151338` | [Pheromone, gated again, no build](20261011/20261011-151338_pheromone-gated-again-no-build.kyri) | Tally-bounds form still awaits a Claude ruling; no build. |
