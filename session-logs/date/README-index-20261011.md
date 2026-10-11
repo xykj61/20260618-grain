@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.154908` | [Copal, send race, nib carried](20261011/20261011-154908_copal-send-race-nib-follow-up.kyri) | Four rebases; nib to the pushed HEAD. |
 | `20261011.154649` | [Patchouli, earth row, queue empty, no build](20261011/20261011-154649_patchouli-earth-row-queue-empty-no-build.kyri) | Queue empty; REDS %840 held on pin headroom; no build. |
 | `20261011.154624` | [Incense, declined a third time, no build](20261011/20261011-154624_incense-baton-declined-no-build-third.kyri) | Board clear; cold run held; awaits Keaton. |
 | `20261011.154442` | [Copal, none unrostered, no build](20261011/20261011-154442_copal-chapter-witness-none-unrostered-again-no-build.kyri) | Re-read on the pulled HEAD; awaits Keaton. |
