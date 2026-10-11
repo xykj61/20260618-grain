@@ -6,6 +6,7 @@
 | `20261010.220218` | [Pheromone, lane held, no build](20261010/20261010-220218_pheromone-lane-held-no-build.kyri) | Glow queue empty; the next step is a ruling for Incense; no build. |
 | `20261010.220241` | [Diffuser, fruit gate held on relaunch, no build](20261010/20261010-220241_diffuser-fruit-gate-held-no-build.kyri) | Eleventh base waits on Keaton; no run. |
 | `20261010.220233` | [Grass, queue empty, grade B+](20261010/20261010-220233_grass-queue-empty-grade-bplus-no-build.kyri) | Inner prompt B+ (89); no build; card read skipped. |
+| `20261010.220030` | [Copal, fruit spent again, no build](20261010/20261010-220030_copal-fruit-spent-again-no-build.kyri) | Zero unrostered chapter witnesses by name; no claim, no build. |
 | `20261010.215644` | [Diffuser, eleventh base named](20261010/20261010-215644_diffuser-eleventh-base-falsifier-prewritten-no-run.kyri) | Base 20261020; no run. |
 | `20261010.215642` | [Petrichor, gate held a seventh read, no build](20261010/20261010-215642_petrichor-gate-held-seventh-read-no-build.kyri) | Pull ff to 02d88c2c72; Consent Rail still gated; no build. |
 | `20261010.215450` | [Pheromone, language lane empty, no build](20261010/20261010-215450_pheromone-language-lane-empty-no-build.kyri) | No open Glow red; claim override declined; no build. |
