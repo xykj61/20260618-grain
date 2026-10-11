@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.034753` | [Grass, four heads graded, no build](20261011/20261011-034753_grass-four-heads-graded-no-build.kyri) | Four mycelium heads read A; no frame. |
+| `20261011.034801` | [Incense, round declined, no build](20261011/20261011-034801_incense-declined-no-build-round-open-adopted.kyri) | Round-open adopted; cold run held; no build. |
 | `20261011.034607` | [Petrichor, fruit empty again, no build](20261011/20261011-034607_petrichor-fruit-empty-again-no-build.kyri) | Gate held; no claim; log only. |
 | `20261011.034602` | [Patchouli, alloc survey, queue empty](20261011/20261011-034602_patchouli-unbounded-alloc-survey-queue-empty.kyri) | diff.rye bounded; no red; no build. |
 | `20261011.034549` | [Bakery lap, receipt key held, no build](20261011/20261011-034549_bakery-receipt-key-held-no-build.kyri) | Queue gated on Keaton's word; no build; read only. |
