@@ -7,6 +7,7 @@
 | 20261011.044233 | [Diffuser, label shuffle identity](20261011/20261011-044233_label-shuffle-identity-diffuser.kyri) | shuffle is a relabel; C1 held; door retired |
 | `20261011.044132` | [Petrichor, link sweep clean, no build](20261011/20261011-044132_petrichor-link-sweep-clean-no-build.kyri) | 0 broken relative links in living docs-geode pages. |
 | `20261011.044239` | [Copal, fruit already rostered](20261011/20261011-044239_copal-chapter-witness-fruit-already-rostered.kyri) | 0 of 158 unrostered; card line stale. |
+| `20261011.044249` | [Patchouli, third look, queue empty](20261011/20261011-044249_patchouli-queue-empty-third-look.kyri) | Same HEAD as 043909; no header left to molt |
 | `20261011.043811` | [Copal, fruit spent, no build](20261011/20261011-043811_copal-fruit-spent-ruling-no-build.kyri) | 0 of 159 witnesses unrostered; ruling asked. |
 | 20261011.043753 | [second hash constant door falsified](20261011/20261011-043753_second-hash-constant-door-falsified.kyri) | second constant: B1, B2, B3 fired; door void |
 | 20261011.043816 | [Bakery, ff, receipt key held, no build](20261011/20261011-043816_bakery-ff-receipt-key-held-no-build.kyri) | ff to 23a24e0266; census path-independent; receipt key awaits Claude ruling; no build. |
