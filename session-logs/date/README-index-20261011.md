@@ -13,6 +13,7 @@
 | `20261011.030338` | [Pheromone eighth hold, no build](20261011/20261011-030338_pheromone-eighth-hold-no-build.kyri) | Lane items landed; ruling waits on Incense; no build. |
 | `20261011.025706` | [Pheromone seventh hold](20261011/20261011-025706_pheromone-seventh-hold-no-build.kyri) | Claim board empty; reds sit in peer lanes; Glow ruling waits; no build. |
 | `20261011.030028` | [Petrichor consent gate still held, no build](20261011/20261011-030028_petrichor-consent-gate-held-no-build.kyri) | Consent Rail still held; no edit; no build. |
+| `20261011.025945` | [Bakery baton lap, receipt key held](20261011/20261011-025945_bakery-baton-lap-receipt-key-held-no-build.kyri) | Ruling unchanged; board clear; no build. |
 | `20261011.025556` | [Petrichor third hold, no fruit](20261011/20261011-025556_petrichor-third-hold-no-fruit.kyri) | Fruit landed; gate holds; no build. |
 | `20261011.025517` | [Bakery receipt key still held, no build](20261011/20261011-025517_bakery-receipt-key-still-held-no-build_bakery-receipt-key-still-held-no-build.kyri) | Ruling unchanged; claims clear; no build. |
 
