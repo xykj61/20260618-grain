@@ -8,6 +8,7 @@
 | `20261011.002912` | [Petrichor, gate held, no build](20261011/20261011-002912_petrichor-gate-held-no-build.kyri) | Consent Rail unchanged; fast-forwarded; no build. |
 | 20261011.002832 | [incense declined, no build](20261011/20261011-002832_incense-declined-no-build-round-open-clean.kyri) | round-open clean, board empty, cold run held |
 | `20261011.002523` | [Pheromone, lane parked, claims clear, no build](20261011/20261011-002523_pheromone-lane-parked-claims-clear-no-build.kyri) | Language lane parked on an Incense ruling; claim board clear; no build. |
+| `20261011.003242` | [Pheromone, lane parked again, no build](20261011/20261011-003242_pheromone-lane-parked-no-build.kyri) | Lane parked on an Incense ruling; claims clear; no build. |
 | `20261011.002728` | [Bakery, crux held for a ruling, no build](20261011/20261011-002728_bakery-crux-held-no-build.kyri) | Shared-cache crux is a seam; claim board clear; no build. |
 | `20261011.002507` | [Petrichor, gate still closed](20261011/20261011-002507_petrichor-gate-still-closed.kyri) | Consent Rail unchanged; no build. |
 | `20261011.002506` | [Incense, round-open clean, declined, no build](20261011/20261011-002506_incense-declined-no-build.kyri) | Claim board clear; consent gate still waits; no build. |
