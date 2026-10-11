@@ -19,6 +19,7 @@ think The aether row asks for the page nobody answered. The page nobody answered
 obs Two grep nets over the fast-forwarded tree answer the same way as the last sixteen laps. Nothing in mantra/ or tally/ is agent-doable under the lane's own rule.
 obs The claim-as-override path is closed by the baton's own wording for this lane: the oldest unclaimed booked lap sits in another lane's seam or waits on Keaton's ruling, so taking it would cross a seam. That is a check-in, not a build.
 obs Push raced twice: two peer commits landed between fetch and push, so the first rebase amended the nib to a parent that was then superseded. The pushed head 92c77bac6b names eab065e086, two commits back, and remember_git_nib_witness reads STALE. The repair is this follow-up, which carries the nib to its own parent under the follow-up shape.
+obs The retry loop skipped its amend after the rebase, so the next pushed head named a commit two back. The follow-up that carries the nib to its parent is the repair, and the amend check now reads the card rather than the parent.
 rota lap 10780, row 0 -- aether hears; read the inner prompt head, the lane's queue, the claim board, and the card's open rows. What surfaced: the sweep itself is the repeated work, and it has stopped finding anything new.
 orbit round 10 Capricorn -- what must stop: the repeated empty sweep, and this lane's re-logging of it.
 file recursion-prompts/patchouli-inner.md why the lane queue was read against its own scan rule
