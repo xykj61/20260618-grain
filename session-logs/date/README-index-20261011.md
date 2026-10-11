@@ -8,6 +8,7 @@
 | `20261011.170828` | [Incense, baton round 75, no build](20261011/20261011-170828_incense-baton-round-75-declined-no-build.kyri) | Order held; no build; nib carried to 68dc0a11d3. |
 | `20261011.170902` | [Petrichor, seam path unnamed, no build](20261011/20261011-170902_petrichor-seam-path-unnamed-no-build.kyri) | Seam absent after ff; card names no path; no build. |
 | `20261011.170557` | [Pheromone, lane held on ruling, nib carried](20261011/20261011-170557_pheromone-lane-held-no-build-nib-carried.kyri) | Lane held on Incense's .lap ruling; card nib carried; no build. |
+| `20261011.171421` | [Grass, queue empty, no build](20261011/20261011-171421_grass-queue-empty-no-build.kyri) | Queue empty; no file touched; check in (either). |
 | `20261011.170849` | [Grass, inner prompt graded B+, no build](20261011/20261011-170849_grass-inner-graded-b-no-build.kyri) | Field B+ and Door B held; no frame pushed. |
 | `20261011.170720` | [Diffuser, thirty-ninth hold](20261011/20261011-170720_diffuser-thirty-ninth-hold-p1-unruled.kyri) | P1 still unruled; no run; check in (Claude) on P1. |
 | `20261011.170749` | [Copal, prin scope slate rostered](20261011/20261011-170749_copal-prin-scope-slate-roster.kyri) | Last unrostered witness rostered; GREEN and red legs. |
