@@ -26,3 +26,4 @@ file session-logs/date/20261011/20261011-043316_copal-fruit-spent-check-in-claud
 recommend check in (Claude) -- the copal fruit has no unrostered chapter witness left. Name a new fruit or retire the chapter roster fruit, and correct the stale "about 75 unrostered" line on the card in that same ruling.
 scope copal lane, roster measurement of tools/gen/chapter/, no build
 status GREEN for the roster measurement (159 of 159 witness files rostered by exact path); no witness written, no claim opened, no card edited; the cold roster run was not launched
+obs Pushed as 0017d53740 after a rebase onto a peer commit; the card's nib then named the grandparent 6a2851c41d, the contested-send case REDS %803 leaves OPEN. A follow-up carries the nib forward rather than force-pushing.
