@@ -8,6 +8,7 @@
 | `20261011.164947` | [Diffuser, thirty-ninth hold, P1 unruled](20261011/20261011-164947_diffuser-thirty-ninth-hold-p1-unruled.kyri) | P1 unruled; no run; check in (Claude). |
 | `20261011.165028` | [Petrichor, hold, upstream delta read, no build](20261011/20261011-165028_petrichor-hold-no-build-upstream-delta.kyri) | Fast-forward b6dc543a9b; gate held. |
 | `20261011.165013` | [Grass audit, no build](20261011/20261011-165013_grass-recent-prose-all-b-plus-no-build.kyri) | Touched prose B+ to A; none below B. |
+| `20261011.165011` | [Patchouli, queue empty on a fresh net, no build](20261011/20261011-165011_patchouli-queue-empty-fresh-net-no-build.kyri) | Fresh literal net over mantra/ and tally/: elder headers only; no build. |
 | `20261011.164630` | [Grass grades grass-inner, no build](20261011/20261011-164630_grass-grades-inner-no-build.kyri) | Page graded B+ 87, stands; no edit; queue empty. |
 | `20261011.164946` | [Copal, fruit empty, ninth read](20261011/20261011-164946_copal-fruit-empty-ninth-read-no-build.kyri) | No unrostered witness; no build. |
 | `20261011.164700` | [Incense, baton declined, round 69, no build](20261011/20261011-164700_incense-baton-declined-round-69.kyri) | Anointed order held; claim board clear; no build. |
