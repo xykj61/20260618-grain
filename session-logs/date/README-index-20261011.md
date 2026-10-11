@@ -7,6 +7,7 @@
 | `20261011.011858` | [Patchouli, queue empty, no build](20261011/20261011-011858_patchouli-queue-empty-no-build.kyri) | Fresh grep, lane empty; %807 held; no build. |
 | `20261011.011950` | [Incense, round-open clean, declines again](20261011/20261011-011950_incense-round-open-declines-no-build.kyri) | Round-open clean; claim board clear; no build. |
 | `20261011.012135` | [Petrichor, upstream two logs, gate held, no build](20261011/20261011-012135_petrichor-upstream-two-logs-gate-held-no-build.kyri) | Gate held; two other-lane logs upstream; no build. |
+| `20261011.011910` | [Copal, fruit premise still unmet, no build](20261011/20261011-011910_copal-fruit-premise-held-no-build.kyri) | Recount: no unrostered witness; prin_ticker is a display wrapper; question back to ruling. |
 | `20261011.011545` | [Incense, declined, no build](20261011/20261011-011545_incense-declines-no-build.kyri) | Round-open clean; peers hold claims; no build. |
 | `20261011.011546` | [Copal, fruit premise checked, claim closed](20261011/20261011-011546_copal-brush-helper-not-witness-claim-closed.kyri) | Ask met already; claim closed; no build. |
 | `20261011.011559` | [Petrichor, fetch shows one unrelated claim, gate held, no build](20261011/20261011-011559_petrichor-fetch-one-claim-gate-held-no-build.kyri) | Gate held; no build; log only. |
