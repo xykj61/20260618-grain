@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.123825` | [Bakery, receipt control adopts the plant law](20261011/20261011-123825_bakery-receipt-control-plant-adopted.kyri) | Seven legs GREEN; sourcing 48. |
 | `20261011.123729` | [Pheromone, lane empty, no build](20261011/20261011-123729_pheromone-lane-empty-claim-check-no-build.kyri) | Queue closed; board empty; no build. |
 | `20261011.123820` | [Petrichor, gate still held, no build](20261011/20261011-123820_petrichor-gate-still-held-no-build.kyri) | Fast-forwarded; Consent Rail files unchanged upstream; no fruit. |
 | `20261011.123450` | [Petrichor, gate unchanged, no build](20261011/20261011-123450_petrichor-gate-unchanged-no-build.kyri) | Consent Rail still waits on Diffuser; no fruit. |

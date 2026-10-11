@@ -15,6 +15,10 @@ pen=$(mktemp -d "${TMPDIR:-/tmp}/receipt-key-control.XXXXXX")
 trap 'rm -rf "$pen"' EXIT INT TERM
 fails=0
 
+# The plant law (REDS %519): a sed that matches nothing copies the writer byte for byte, and the
+# mutant then reads as the healthy writer. plant_write names that case instead of passing it.
+. "$here/tools/fixtures/p/plant.sh"
+
 # leg NAME STATUS -- STATUS is the exit code of the check that just ran; 0 is ok, anything else fails.
 leg() {
   if [ "$2" -eq 0 ]; then
@@ -68,8 +72,11 @@ if [ "$(printf '%s\n' "$out" | grep -c 'result=miss')" -eq 6 ]; then leg scan_al
 
 # invariant: a writer that drops the mode reads silent_reuse on the executable-bit row, so the
 # scan would catch a regression. The mutant is the real writer with the stat line removed.
-sed "s|^mode=\$(ls -ld.*|mode=0|" "$writer" > "$pen/mutant.sh"
-if KEY_WRITER="$pen/mutant.sh" sh "$scan" | grep -q 'executable_bit result=silent_reuse'; then leg mode_drop_is_caught 0; else leg mode_drop_is_caught 1; fi
+if plant_write "$writer" "$pen/mutant.sh" "s|^mode=\$(ls -ld.*|mode=0|" mode_drop; then
+  if KEY_WRITER="$pen/mutant.sh" sh "$scan" | grep -q 'executable_bit result=silent_reuse'; then leg mode_drop_is_caught 0; else leg mode_drop_is_caught 1; fi
+else
+  leg mode_drop_plant_landed 1
+fi
 
 echo "fails=$fails"
 [ "$fails" -eq 0 ] && echo verdict=ok || { echo verdict=fail; exit 1; }
