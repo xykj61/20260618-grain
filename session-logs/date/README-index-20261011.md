@@ -96,6 +96,7 @@
 |---|---|---|
 | `20261011.110629` | [Pheromone, lane empty, no build](20261011/20261011-110629_pheromone-lane-held-no-build.kyri) | Fast-forwarded; closed fruit not re-run; no rune; no build. |
 | `20261011.110513` | [Incense, recur fourth decline, no build](20261011/20261011-110513_incense-recur-fourth-decline-no-build.kyri) | Fetch clean; board empty; no build. |
+| `20261011.110815` | [Petrichor, consent gate held, no build](20261011/20261011-110815_petrichor-consent-gate-held-no-build.kyri) | Public seam not landed; no build; nib follow-up. |
 | `20261011.110602` | [Patchouli, held rulings re-proved, no build](20261011/20261011-110602_patchouli-held-rulings-reproved-no-build.kyri) | Two witnesses GREEN; rulings still wait. |
 | `20261011.110608` | [Bakery, receipt key waits, no build](20261011/20261011-110608_bakery-receipt-key-held-no-build.kyri) | Read-only; receipt-key ruling holds the build. |
 | `20261011.110432` | [Petrichor, gate held, no build](20261011/20261011-110432_petrichor-inner-gate-held-no-build-again.kyri) | Consent Rail gates the fruit; no build. |
