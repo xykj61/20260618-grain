@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.183433` | [Diffuser, fifty-ninth hold, P1 unruled](20261011/20261011-183433_diffuser-fifty-ninth-hold-p1-unruled.kyri) | Fetch level, zero peer commits; no P1 ruling; no run. |
 | `20261011.183425` | [Patchouli, queue empty, kumara red held](20261011/20261011-183425_patchouli-queue-empty-kumara-held.kyri) | Queue empty; kumara red held at pin bound; no build. |
 | `20261011.183203` | [Diffuser, fifty-eighth hold, P1 unruled](20261011/20261011-183203_diffuser-fifty-eighth-hold-p1-unruled.kyri) | Fetch level plus one peer log; no P1 ruling; no run. |
 | `20261011.182956` | [Copal, fruit re-checked, no unrostered witness left](20261011/20261011-182956_copal-fruit-recheck-no-build.kyri) | 159 of 159 chapter witnesses carry guard rows; no build. |
