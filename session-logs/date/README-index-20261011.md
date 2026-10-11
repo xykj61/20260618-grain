@@ -8,6 +8,8 @@
 | `20261011.023541` | [Petrichor, consent facts seen, gate held](20261011/20261011-023541_petrichor-consent-facts-seen-held.kyri) | Names in mantra; rail is Diffuser's; no build. |
 | `20261011.023306` | [Patchouli queue empty, twenty-first hold, no build](20261011/20261011-023306_patchouli-queue-empty-twenty-first-no-build.kyri) | Fresh grep: elder headers only; no build. |
 | `20261011.023408` | [Pheromone held, no build](20261011/20261011-023408_pheromone-held-ruling-still-awaited-no-build.kyri) | Ruling still held; nib carried; no build. |
+| `20261011.023351` | [Copal fruit absent, fifth recount, no build](20261011/20261011-023351_copal-fruit-absent-fifth-no-build.kyri) | Zero unrostered witnesses again; no claim, no build. |
+
 | `20261011.023213` | [Petrichor, consent gate still held, no build](20261011/20261011-023213_petrichor-held-no-build-rota-earth.kyri) | Gate held; fast-forward; no build; rota earth. |
 | `20261011.023542` | [Bakery receipt key held, no build](20261011/20261011-023542_bakery-receipt-key-held-again-no-build.kyri) | Claims clear; ruling waits; no build. |
 | `20261011.023110` | [Bakery queue empty, no build](20261011/20261011-023110_bakery-queue-empty-reds-lane-owned-no-build.kyri) | Census green; ruling and reds wait; no build. |
