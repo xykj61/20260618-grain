@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261011.054306 | [Patchouli, queue empty again, no build](20261011/20261011-054306_patchouli-queue-empty-no-build.kyri) | Seventeenth empty-queue reading; REDS pin 65532 of 65536; no build. |
 | `20261011.054102` | [Copal, fruit spent again, no build](20261011/20261011-054102_copal-fruit-spent-repeat-no-build.kyri) | Zero unrostered witnesses again; fruit spent; check in. |
 | `20261011.054100` | [Pheromone, lane witnesses green, no build](20261011/20261011-054100_pheromone-lane-witnesses-green-no-build.kyri) | Three limb witnesses GREEN; no unruled rune; ruling needed; no build. |
 | `20261011.054049` | [Bakery, compile claim closed, no build](20261011/20261011-054049_bakery-compile-claim-closed-no-build.kyri) | Stale claim closed; census re-run, three unmeasured; no build. |
