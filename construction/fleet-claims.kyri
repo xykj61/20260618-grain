@@ -52,9 +52,3 @@ format fleet-claims-v1
 # The board opens empty, and the first claim belongs to the next ship that opens a build. Seeding
 # it with this lap's own work would be a claim written after the fact, which is the one thing a
 # declaration may never be.
-claim bakery-receipt-key-mode-miss
-seat bakery
-stamp 20261011.003617
-epoch 1791693377
-paths tools/b/build_receipt_key.sh tools/fixtures/b/build_receipt_key_scan.sh tools/fixtures/b/build_receipt_key_control.sh
-what Add the content-keyed receipt key for Bakery's shared build cache: a POSIX key writer over source bytes, mode, flags, overlay, and compiler identity, with a scan and a control proving the executable-bit mutation forces a miss, the one measured mutation still unmeasured.
