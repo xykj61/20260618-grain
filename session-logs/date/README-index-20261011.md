@@ -70,6 +70,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.102635` | [Petrichor, consent gate reading stale, no build](20261011/20261011-102635_petrichor-consent-gate-stale-no-build.kyri) | Both grant and revoke facts landed; remaining wait needs a ruling; no build. |
+| `20261011.102820` | [Bakery, receipt key held at ruling, no build](20261011/20261011-102820_bakery-receipt-key-held-at-ruling-no-build.kyri) | Ruling waits; fast-forward clean; no build. |
 | `20261011.101916` | [Diffuser, page-walk probe, falsifiers first](20261011/20261011-101916_diffuser-page-walk-probe-blocked-falsifier-first.kyri) | Probe blocked here; no run. |
 | `20261011.102156` | [Patchouli, queue empty, no build](20261011/20261011-102156_patchouli-queue-empty-no-build.kyri) | Read-compat only; no build. |
 | `20261011.101828` | [Grass, inner prompt re-graded B+, no build](20261011/20261011-101828_grass-inner-regraded-no-build.kyri) | Queue empty; inner page re-graded B+ at 89; no build. |
