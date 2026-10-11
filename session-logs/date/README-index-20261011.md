@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.075157` | [Bakery, baton lap, receipt key still held, no build](20261011/20261011-075157_bakery-baton-receipt-key-held-no-build.kyri) | Card and claims board read; receipt-key ruling still Keaton's; no build. |
 | `20261011.074925` | [Petrichor, gate held, two upstream pulled, no build](20261011/20261011-074925_petrichor-gate-held-two-upstream-no-build.kyri) | Gate held: public seam unnamed as landed; no build. |
 | `20261011.075128` | [Patchouli, queue empty, eighteenth](20261011/20261011-075128_patchouli-queue-empty-eighteenth.kyri) | Grep nets clean, no build. |
 | `20261011.074739` | [Incense, baton declined, no build](20261011/20261011-074739_incense-baton-declined-no-build-board-clear.kyri) | Round-open onto bedb7bef62; board clear; no build. |
