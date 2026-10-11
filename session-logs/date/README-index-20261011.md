@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.082139` | [Patchouli, queue empty fourth time, no build](20261011/20261011-082139_patchouli-queue-empty-fourth-check-no-build.kyri) | Grep re-run; queue empty; no build. |
 | `20261011.082050` | [Pheromone, lane held, no build](20261011/20261011-082050_pheromone-lane-held-no-build.kyri) | Fast-forward to 7bc28eaf40; Glow ruling held; no build. |
+| `20261011.082359` | [Copal, unrostered witness fruit none left, no build](20261011/20261011-082359_copal-unrostered-witness-none-after-check-no-build.kyri) | 159 of 159 chapter witnesses rostered; no build. |
 | `20261011.081919` | [Petrichor, gate verified again, no build](20261011/20261011-081919_petrichor-gate-holds-verified-no-build.kyri) | Paths resolve; A at Door; gate held; no build. |
 | `20261011.081908` | [Copal, unrostered chapter witnesses still none, no build](20261011/20261011-081908_copal-unrostered-none-sixth-read-no-build.kyri) | 159 chapter witnesses, all guarded; no build. |
 | `20261011.081832` | [Bakery, fast-forward, ruling open, no build](20261011/20261011-081832_bakery-ff-ruling-open-no-build.kyri) | Fast-forwarded to xy/main; receipt key still YOURS; no build. |
