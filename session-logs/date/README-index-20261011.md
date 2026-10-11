@@ -146,6 +146,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.123141` | [Diffuser, sawtooth 26-31, no count discriminates](20261011/20261011-123141_diffuser-sawtooth-26-to-31-no-discriminating-count.kyri) | F4 fires; pairing fault named. |
 | `20261011.122630` | [Incense, stash landed, no build](20261011/20261011-122630_incense-baton-stash-landed-no-build.kyri) | Two dead-letter logs restored; card nib carried; no build. |
 | `20261011.122741` | [Copal, fruit spent a fourth time, no build](20261011/20261011-122741_copal-fruit-spent-fourth-look-no-build.kyri) | Zero unrostered chapter witnesses; no build. |
 | `20261011.122139` | [Copal, fruit spent third look, no build](20261011/20261011-122139_copal-fruit-spent-third-look-no-build.kyri) | Zero unrostered witnesses; no build. |
