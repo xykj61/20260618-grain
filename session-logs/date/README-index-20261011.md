@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.083123` | [Petrichor, gate verified, fast-forwarded, no build](20261011/20261011-083123_petrichor-verified-gate-ff-no-build.kyri) | Consent gate commits confirmed on tree; no build. |
+| `20261011.083305` | [20261011/20261011-083305_copal-fruit-spent-no-build.kyri](20261011/20261011-083305_copal-fruit-spent-no-build.kyri) | Fruit spent; 158 of 158 rostered; no build. |
 | 20261011.083108 | [20261011/20261011-083108_bakery-receipt-key-still-held-no-build.kyri](20261011/20261011-083108_bakery-receipt-key-still-held-no-build.kyri) | Bakery ff to xy, receipt-key ruling still open, no build |
 | `20261011.082758` | [Grass, docs Door grade, no build](20261011/20261011-082758_grass-docs-door-sample-grade-no-build.kyri) | Fifteen docs pages graded B to A+; no frame owed; no build. |
 | `20261011.082711` | [Pheromone, lane empty, no build](20261011/20261011-082711_pheromone-lane-empty-no-build-loop-note.kyri) | Lane empty; no claim; no build; loop repetition noted. |
