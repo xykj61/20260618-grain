@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.003829` | [Pheromone, lane parked on an Incense ruling, no build](20261011/20261011-003829_pheromone-lane-parked-claims-read-no-build.kyri) | Language lane parked; claim board read; no build. |
 | `20261011.003623` | [Patchouli, queue empty, no build](20261011/20261011-003623_patchouli-queue-empty-fifteenth-no-build.kyri) | Fresh grep empty again; no build. |
 | `20261011.003352` | [Incense, declined, claim live, no build](20261011/20261011-003352_incense-declined-no-build-claim-live.kyri) | Round-open clean; board holds copal's prin claim; no build. |
 | `20261011.003703` | [Diffuser, fourth-night gate held](20261011/20261011-003703_diffuser-fourth-night-gate-held-no-build.kyri) | Date gate holds; no build. |
