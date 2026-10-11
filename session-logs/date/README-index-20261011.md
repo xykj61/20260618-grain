@@ -12,6 +12,7 @@
 | `20261011.192039` | [Copal, fruit gone, no claim](20261011/20261011-192039_copal-fruit-gone-no-claim.kyri) | 159 of 159 witnesses rostered; nothing to claim; no build. |
 | `20261011.191702` | [Incense, declined, no build](20261011/20261011-191702_incense-baton-declined-no-build.kyri) | Round open clean; board empty; held on %642 or %519. |
 | `20261011.191836` | [Diffuser held, P1 unruled, fetch level](20261011/20261011-191836_diffuser-hold-p1-unruled-no-ruling-fetch.kyri) | Remote level; P1 waits on a ruling; no run. |
+| `20261011.192300` | [Pheromone, queue empty, no build](20261011/20261011-192300_pheromone-queue-empty-no-build.kyri) | Lane empty by REDS and claim board; no build. |
 | `20261011.191410` | [Patchouli, queue empty, repeat read](20261011/20261011-191410_patchouli-queue-empty-sixteenth-sweep.kyri) | Nets fresh, queue empty; no build. |
 | `20261011.191439` | [Diffuser held, P1 unruled](20261011/20261011-191439_diffuser-hold-p1-unruled-ff.kyri) | Peer incense log only; P1 waits; no run. |
 | `20261011.191702` | [Grass, nine heads graded, none below B](20261011/20261011-191702_grass-nine-heads-graded-no-lift.kyri) | Mycelium queue graded; lowest B+; no lift. |
