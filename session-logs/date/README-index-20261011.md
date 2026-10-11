@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.110225` | [Grass, inner regrade repeat, B+ 89, no build](20261011/20261011-110225_grass-inner-regrade-repeat-no-build.kyri) | Same grade re-read; queue empty; no edit. |
 | `20261011.110112` | [Bakery, no unblocked build, held](20261011/20261011-110112_bakery-baton-no-unblocked-build-held.kyri) | Clear claim check; ruling waits; no build. |
 | `20261011.105722` | [Copal, recount, no build](20261011/20261011-105722_copal-recount-no-unrostered-no-build.kyri) | Zero unrostered witnesses; no build. |
 | `20261011.105716` | [Incense, recur second decline, no build](20261011/20261011-105716_incense-recur-second-decline-no-build.kyri) | Round-open clean; board empty; order holds; no build. |
