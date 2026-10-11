@@ -1,6 +1,6 @@
 # The alignment door on the line stride, falsifiers written before the run
 
-**Status:** Design -- falsifiers stamped `20261011.064146` and committed before any run; no result is appended, because no run was made
+**Status:** Landed -- falsifiers stamped `20261011.064146` and committed before the run; the run is read at the foot of this paper (stride 0 at every N, so the definition does not test stride)
 **Room:** research for understanding (scratch model; no hardware, no witness, no claim about any real cache)
 **Kin:** [the set-spread stagger](20261011-052411_the-alignment-door-set-spread-stagger-falsifier-first.md) - [the structured stagger](20261011-051108_the-alignment-door-structured-stagger-falsifier-first.md) - [the per-ring offset](20261011-044643_the-alignment-door-per-ring-offset-falsifier-first.md) - [the line-padded rings](20261011-031717_the-line-padded-rings-falsifier-first.md)
 
@@ -78,4 +78,33 @@ in this document is a result.
 
 ---
 
-**Reading.** None yet. This paper stands as a falsifier committed before the run it describes.
+**Reading (run in the same lap, after the falsifiers were committed).** Script:
+`session-output/stride-door/stride.py`, untracked scratch, reusing `session-output/ring-offset/ring_offset.py`
+for the disk, stencil and LRU model. Output: `stride_unpadded.txt` (PAD=0) and `stride_padded.txt` (PAD=1).
+
+| N | Ratio (PAD=0) | Ratio (PAD=1) | Floor polar sets (PAD=0 / PAD=1) | Stride d_N | g_N = gcd(d_N, sets) |
+|---|---|---|---|---|---|
+| 256 | 2.69 | 2.70 | 33.3 / 33.3 | 0 | 33 |
+| 384 | 2.59 | 2.60 | 49.7 / 49.7 | 0 | 50 |
+| 640 | 2.88 | 2.88 | 83.0 / 83.1 | 0 | 83 |
+
+- **F1: holds on the baseline, and the definition is defined.** The unpadded modulo arm reproduces 2.69,
+  2.59 and 2.88 with floors 12.4/33.3, 19.2/49.7 and 28.8/83.0, all matching the table to printed precision.
+  The stride is computed at every N. But it is **0 at every N**, so F1 says the definition runs and
+  does not say it measures anything.
+- **F2: not read as a stride test.** The stride is 0 everywhere, so `g_N = gcd(0, sets) = sets` and the
+  ranking is the set count, 33 < 50 < 83. Under one reading of "two of three agree" (the top two by g
+  against the local maxima 256 and 640) it agrees at 1 of 3, which would fire. That reading was chosen
+  after the run, so it is reported as a choice and not as the falsifier. What the table shows is that
+  F2 measured the set count, so it cannot separate a stride cause from the set count.
+- **F3: holds.** The padded arm moves the ratio by 0.01, 0.01 and 0.00 at N = 256, 384 and 640, under the
+  0.10 ceiling, with the stride at its unpadded value (0) at every N.
+- **Why the stride is 0.** The modal consecutive difference inside a ring is the difference between two
+  neighbouring cells that share a line, which is 0. Eight cells per line makes repeats the common case.
+  The definition is the cause, not the layout. Recorded in
+  [the distinct-line falsifiers](20261011-065207_the-alignment-door-distinct-line-stride-falsifier-first.md),
+  which name a collapsed definition as the next door and state D1 to D4 before any run.
+
+**Result, in one sentence:** the pre-registered stride measures 0 at every N, so the stride cause is not
+tested by this definition, and the padding falsifier holds at the 0.01 level it was written for. This
+paper does not claim the stride cause is supported or refuted.
