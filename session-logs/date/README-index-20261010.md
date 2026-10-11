@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.221142` | [Patchouli, queue held, kumara red waits](20261010/20261010-221142_patchouli-queue-held-kumara-red.kyri) | Queue empty; kumara red held at pin bound. |
 | `20261010.220947` | [Copal, itinerary round roster, claim held](20261010/20261010-220947_copal-itinerary-round-roster.kyri) | Printer rostered as nearest candidate; roster red predates. |
 | `20261010.220906` | [Diffuser, gate still held, no build](20261010/20261010-220906_diffuser-baton-relaunch-gate-still-held-no-build.kyri) | Eleventh base waits on Keaton; no run. |
 | `20261010.220815` | [Grass, inner regrade, queue empty](20261010/20261010-220815_grass-inner-regrade-queue-empty.kyri) | B+ (89) again; no build. |
