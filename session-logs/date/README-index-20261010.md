@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.233601` | [Bakery, lineage split, check in](20261010/20261010-233601_bakery-receipt-lineage-split-check-in.kyri) | Receipt head shares no ancestor with HEAD; no build |
 | `20261010.233645` | [Grass, door reading A, queue empty, no build](20261010/20261010-233645_grass-door-reading-a-no-build.kyri) | Door reading A/94; queue empty; no build. |
 | `20261010.233539` | [Incense, contract read, held, no build](20261010/20261010-233539_incense-contract-read-held-no-build.kyri) | Receipt gate held for Keaton; no build. |
 | `20261010.233535` | [Petrichor, consent rail still held, no build](20261010/20261010-233535_petrichor-consent-rail-still-held-no-build.kyri) | Gate unchanged; no claim; no build. |
