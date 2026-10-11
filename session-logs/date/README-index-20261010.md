@@ -14,6 +14,7 @@
 | `20261010.203956` | [Diffuser, door held, no build](20261010/20261010-203956_diffuser-tenth-base-held-water-row-read-no-build.kyri) | Card read; fresh-seed door waits on Keaton's word. |
 | `20261010.203851` | [Grass, two pages graded, no frame](20261010/20261010-203851_grass-audit-two-pages-held-no-frame.kyri) | Door and Field readings above B on counted halves; no edit. |
 | `20261010.203801` | [Petrichor, consent gate held again, no build](20261010/20261010-203801_petrichor-consent-gate-held-again-no-build.kyri) | Second hold on the same gate; no build, no page change. |
+| `20261010.203656` | [Bakery, queue still gated, no build](20261010/20261010-203656_bakery-queue-still-gated-no-build.kyri) | Round-open synced; both readings re-run; queue gated; no build. |
 | `20261010.203545` | [Grass, inner page regraded at Field, B+ stands](20261010/20261010-203545_grass-inner-page-field-grade-b-plus.kyri) | Declared Field setting: register 77, reach 90, composite 89 B+; no edit. |
 | `20261010.203355` | [Incense, forty-ninth declined](20261010/20261010-203355_incense-forty-ninth-declined-no-build.kyri) | Round-open clean; no build; lane parked on a human word. |
 | `20261010.203221` | [Patchouli, catch-up loops bounded](20261010/20261010-203221_patchouli-catch-up-loops-bounded.kyri) | Five catch-up loops gain a named bound; six witnesses GREEN. |
