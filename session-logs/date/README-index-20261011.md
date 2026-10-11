@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.124755` | [Petrichor, gate held, no build](20261011/20261011-124755_petrichor-gate-held-no-build.kyri) | Consent Rail unchanged upstream; no fruit. |
 | `20261011.124917` | [Copal, fruit spent again, no build](20261011/20261011-124917_copal-fruit-spent-no-build.kyri) | 159 witnesses rostered, six non-witnesses unrostered; no build. |
+| `20261011.124820` | [Diffuser, sawtooth below 26 sets](20261011/20261011-124820_diffuser-sawtooth-below-26-no-readable-row.kyri) | Conflicts at 8-11 sets; P1 fails all 36 rows, no gcd read. |
 | `20261011.124106` | [Diffuser, repaired pair void at 28 sets](20261011/20261011-124106_diffuser-sawtooth-repaired-pair-void.kyri) | F3 held: Cartesian arm zero conflicts; no gcd read. |
 | `20261011.123949` | [Incense, stall named, no build](20261011/20261011-123949_incense-baton-stall-named-no-build.kyri) | Round-open clean; board empty; custody ruling still waits on Keaton. |
 | `20261011.123843` | [Copal, fruit closed, no build](20261011/20261011-123843_copal-fruit-closed-prin-ticker-rostered-no-build.kyri) | prin_ticker witness GREEN; no build. |
