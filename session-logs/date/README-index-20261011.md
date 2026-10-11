@@ -24,6 +24,8 @@
 | `20261011.120025` | [Patchouli, queue empty, kumara red held, no build](20261011/20261011-120025_patchouli-queue-empty-held-no-build.kyri) | Spine 840 unchanged; no build. |
 | `20261011.114940` | [Diffuser, fifth held lap, N=192 door waits](20261011/20261011-114940_diffuser-held-lap-fifth-no-ruling.kyri) | No ruling; no run; nib carried. |
 | `20261011.114652` | [Incense, baton lap declined, claim board empty, no build](20261011/20261011-114652_incense-baton-declined-no-build-hold.kyri) | Round-open clean; claims clear; cold run held; no build. |
+| `20261011.114544` | [Incense, baton orientation, no build](20261011/20261011-114544_incense-baton-orientation.kyri) | Read-only orientation; stash landed here. |
+| `20261011.114156` | [Incense, baton printed, no lap](20261011/20261011-114156_incense-baton-printed-no-lap.kyri) | Baton printed; no lap run; stash landed here. |
 | `20261011.114521` | [Diffuser, fourth held lap, N=192 door waits](20261011/20261011-114521_diffuser-held-lap-fourth-no-ruling.kyri) | No ruling; no run; nib carried. |
 | `20261011.114350` | [Patchouli, queue empty, kumara red held, no build](20261011/20261011-114350_patchouli-kumara-red-held-again-no-build.kyri) | Witness GREEN; red unbooked; no build. |
 | `20261011.114543` | [Petrichor, fifth gate read, held, no build](20261011/20261011-114543_petrichor-held-fifth-no-build.kyri) | Gates unchanged; upstream a7d0646fa9; no build. |
@@ -141,6 +143,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.122630` | [Incense, stash landed, no build](20261011/20261011-122630_incense-baton-stash-landed-no-build.kyri) | Two dead-letter logs restored; card nib carried; no build. |
 | `20261011.122741` | [Copal, fruit spent a fourth time, no build](20261011/20261011-122741_copal-fruit-spent-fourth-look-no-build.kyri) | Zero unrostered chapter witnesses; no build. |
 | `20261011.122139` | [Copal, fruit spent third look, no build](20261011/20261011-122139_copal-fruit-spent-third-look-no-build.kyri) | Zero unrostered witnesses; no build. |
 | `20261011.122136` | [Patchouli, queue empty fifth look, no build](20261011/20261011-122136_patchouli-queue-empty-fifth-look-no-build.kyri) | Family net re-run; read-compat and fixtures only; no build. |
