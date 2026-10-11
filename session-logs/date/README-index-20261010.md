@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.222754` | [Diffuser, sixth held lap, no build](20261010/20261010-222754_diffuser-gate-held-sixth-lap-no-build.kyri) | Gate still shut; no word on card; no run. |
 | `20261010.222552` | [Incense, forty-seventh decline, no build](20261010/20261010-222552_incense-declined-forty-seventh-no-build.kyri) | Law lane waits on Keaton's word. |
 | `20261010.222628` | [Copal, fruit spent third re-check, no build](20261010/20261010-222628_copal-fruit-spent-third-recheck-no-build.kyri) | 158 of 158 rostered; no build. |
 | `20261010.222529` | [Pheromone r15, lane held, repeat](20261010/20261010-222529_pheromone-round-15-held-repeat-no-build.kyri) | Glow witness GREEN again; held for Incense; no build. |
