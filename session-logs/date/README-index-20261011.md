@@ -8,6 +8,7 @@
 | `20261011.011546` | [Copal, fruit premise checked, claim closed](20261011/20261011-011546_copal-brush-helper-not-witness-claim-closed.kyri) | Ask met already; claim closed; no build. |
 | `20261011.010721` | [Incense, round declines, no build](20261011/20261011-010721_incense-round-declines-no-build.kyri) | Queue blocked on Keaton's words; no build. |
 | `20261011.011341` | [Patchouli, queue empty, no build](20261011/20261011-011341_patchouli-queue-empty-no-build.kyri) | Fresh scan, lane empty; seams wait; no build. |
+| `20261011.011334` | [Diffuser, water row, held gate, no build](20261011/20261011-011334_diffuser-gate-held-water-row-no-build.kyri) | Fourth pair waits for 20261012; no build. |
 | `20261011.011128` | [Patchouli, queue empty, %840 held at pin bound](20261011/20261011-011128_patchouli-sign-red-840-pin-bound-no-build.kyri) | Queue empty; kumara red unbooked at the REDS pin bound; no build. |
 | `20261011.010757` | [Diffuser, gate held, aether row, no build](20261011/20261011-010757_diffuser-gate-held-aether-row-no-build.kyri) | Fourth pair waits for 20261012; aether row read; no build. |
 | `20261011.011216` | [Petrichor, gate still held, no build](20261011/20261011-011216_petrichor-gate-held-no-build-again.kyri) | Gate held; no build; log only. |
