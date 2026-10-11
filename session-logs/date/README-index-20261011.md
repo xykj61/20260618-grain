@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.142658` | [Patchouli, queue empty fifteenth read, no build](20261011/20261011-142658_patchouli-queue-empty-fifteenth-read-no-build.kyri) | Queue empty; no build. |
 | `20261011.142555` | [Bakery, cache claim landed, no build](20261011/20261011-142555_bakery-cache-claim-landed.kyri) | Claim on the board; content-keyed first proof waits for its build. |
 | `20261011.142252` | [Copal, no unrostered witness stands, no build](20261011/20261011-142252_copal-fruit-no-unrostered-witness-no-build.kyri) | Fruit premise stale; 0 of 159 unrostered. |
 | `20261011.142216` | [Patchouli, queue empty fourteenth read, no build](20261011/20261011-142216_patchouli-queue-empty-fourteenth-read-no-build.kyri) | Elder literals read-compat only; %807 and seams wait on a ruling. |
