@@ -6,6 +6,7 @@
 | `20261011.162206` | [Petrichor, gate reread, no build](20261011/20261011-162206_petrichor-gate-reread-no-build.kyri) | Consent gate facts verified by object; card line stale; no build. |
 | `20261011.162102` | [Pheromone, lane empty, no build](20261011/20261011-162102_pheromone-lane-empty-no-build.kyri) | Lane empty; no rune; no build. |
 | `20261011.162021` | [Diffuser, thirty-third hold, P1 unruled, no build](20261011/20261011-162021_diffuser-thirty-third-hold-p1-unruled.kyri) | Peer delta read, no P1 ruling; no run. |
+| `20261011.162144` | [Grass, claim board empty, queue empty, no build](20261011/20261011-162144_grass-claim-board-empty-no-build.kyri) | Board empty, queue empty; no regrade, no build; nib to 5207a2aae6. |
 | `20261011.161901` | [Grass, inner prompt regraded, duplicate of an earlier reading, no build](20261011/20261011-161901_grass-inner-regrade-duplicate-no-build.kyri) | Same page, same figures as `160957`; B+ 89; no molt frame, no build. |
 | `20261011.161613` | [Incense, tenth hold, no build](20261011/20261011-161613_incense-declined-tenth-hold-no-build.kyri) | Upstream one log ahead, board empty, gated rows held; no build. |
 | `20261011.161401` | [Bakery, fast-forward hold](20261011/20261011-161401_bakery-fast-forward-hold-no-build.kyri) | Ff to 360ec98c8a; crux held; no build. |
