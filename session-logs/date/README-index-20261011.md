@@ -77,6 +77,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.104012` | [Bakery, earth lap, receipt key checked, no build](20261011/20261011-104012_bakery-earth-receipt-key-checked-no-build.kyri) | Card's fact read on the file; holds; ruling stays Keaton's; no build. |
+| `20261011.104139` | [Petrichor, public seam gate held, no build](20261011/20261011-104139_petrichor-public-seam-gate-held-no-build.kyri) | Seam absent upstream; grant and revoke verified; no build. |
 | `20261011.103842` | [Copal, witness absent, claim closed](20261011/20261011-103842_copal-chapter-witness-absent-claim-closed.kyri) | Exact path check: 0 unrostered; no build. |
 | `20261011.103835` | [Patchouli, queue empty seventeenth, no build](20261011/20261011-103835_patchouli-queue-empty-seventeenth-no-build.kyri) | Seventeenth empty-queue reading; no build. |
 | `20261011.103820` | [Pheromone, held eleventh, no build](20261011/20261011-103820_pheromone-lane-held-eleventh-no-build.kyri) | Rune ruling awaits Incense; no build. |
