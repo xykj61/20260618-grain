@@ -9,6 +9,7 @@
 | `20261011.004149` | [Patchouli, queue empty by fresh grep, no build](20261011/20261011-004149_patchouli-queue-empty-no-build.kyri) | Fresh grep empty; no build. |
 | `20261011.003849` | [Petrichor, consent gate held again, no build](20261011/20261011-003849_petrichor-consent-gate-held-no-build.kyri) | Gate held; no peer commit in docs-geode; no build. |
 | `20261011.004121` | [Diffuser, fourth-night gate still held](20261011/20261011-004121_diffuser-fourth-night-gate-still-held-no-build.kyri) | Date gate holds; no run, no build. |
+| `20261011.004505` | [Pheromone, lane parked on the Incense ruling, no build](20261011/20261011-004505_pheromone-lane-parked-no-build.kyri) | Language lane parked; no build; no witness run. |
 | `20261011.003829` | [Pheromone, lane parked on an Incense ruling, no build](20261011/20261011-003829_pheromone-lane-parked-claims-read-no-build.kyri) | Language lane parked; claim board read; no build. |
 | `20261011.003623` | [Patchouli, queue empty, no build](20261011/20261011-003623_patchouli-queue-empty-fifteenth-no-build.kyri) | Fresh grep empty again; no build. |
 | `20261011.003352` | [Incense, declined, claim live, no build](20261011/20261011-003352_incense-declined-no-build-claim-live.kyri) | Round-open clean; board holds copal's prin claim; no build. |
