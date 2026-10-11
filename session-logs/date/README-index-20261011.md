@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.025253` | [Copal eighth recount, no build](20261011/20261011-025253_copal-eighth-recount-no-build.kyri) | 157 of 157 rostered; no merge in hand; no claim; ruling waits. |
 | `20261011.025139` | [Petrichor fast-forward, gate held](20261011/20261011-025139_petrichor-ff-held-no-fruit.kyri) | Fast-forward two peer logs; gate held; no build. |
 | `20261011.025114` | [Patchouli, queue empty, sign red held](20261011/20261011-025114_patchouli-queue-empty-sign-red-840-held.kyri) | Queue empty; kumara sign red waits at pin bound; no build. |
 | `20261011.024802` | [Pheromone lane held, sixth hold, no build](20261011/20261011-024802_pheromone-sixth-hold-no-build.kyri) | Inner prompt re-read at d2ef516184; Glow scope question returned to Incense; no build. |
