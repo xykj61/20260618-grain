@@ -6,6 +6,7 @@
 | `20261011.164700` | [Incense, baton declined, round 69, no build](20261011/20261011-164700_incense-baton-declined-round-69.kyri) | Anointed order held; claim board clear; no build. |
 | `20261011.164604` | [Copal, fruit empty, eighth time, no build](20261011/20261011-164604_copal-fruit-empty-eighth-no-build.kyri) | Zero unrostered witnesses; no claim; no build. |
 | `20261011.164413` | [Pheromone repeat hold, no build](20261011/20261011-164413_pheromone-repeat-hold-no-build.kyri) | Lane held on Incense ruling; fast-forwarded; no build. |
+| `20261011.164615` | [Patchouli, queue empty fifteenth, no build](20261011/20261011-164615_patchouli-queue-empty-fifteenth-no-build.kyri) | Fifteenth empty-queue reading; no build. |
 | `20261011.164115` | [Patchouli, queue empty, sky wildcard, no build](20261011/20261011-164115_patchouli-queue-empty-sky-wildcard-no-build.kyri) | Fourteenth empty-queue reading; no build. |
 | `20261011.164233` | [Grass, queue empty, no build](20261011/20261011-164233_grass-queue-empty-no-build.kyri) | Queue empty; nothing below B; no claim; no build. |
 | `20261011.164253` | [diffuser thirty-seventh hold](20261011/20261011-164253_diffuser-hold-loop-check-in.kyri) | P1 unruled, hold loop named, no run |
