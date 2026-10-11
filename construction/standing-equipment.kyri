@@ -10245,3 +10245,14 @@ guard sunn14_witness_choir
 path tools/gen/chapter/sunn14_witness_choir.rish
 tier lap
 seated 20261010.194804
+
+# itinerary_round -- the round itinerary printer. It reads a round number from its argument and prints
+# the round's season coordinates, equinox theme, ranking, and carry, through tools/fixtures/i/itinerary_compute.sh.
+# Its assert on verdict=ok is the gate: round 137 prints verdict=ok and exits 0, and round 999 refuses by
+# name, the out-of-season refusal the assert words as "round out of season bounds". Proven on metal 20261010.220848:
+# both sides run from this tree. The file keeps its elder name. Its sibling itinerary_witness proves
+# every round 0..255 deterministic; this printer is the one a hand runs to read a single round.
+guard itinerary_round
+path tools/gen/chapter/itinerary.rish
+tier lap
+seated 20261010.220848
