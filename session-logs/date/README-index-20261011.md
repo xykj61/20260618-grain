@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.033145` | [Copal, fruit empty, third recount](20261011/20261011-033145_copal-fruit-empty-third-recount-no-build.kyri) | Fruit empty at 26ad61feb7; no claim, no build. |
 | `20261011.032938` | [Patchouli, queue empty on a fresh net, no build](20261011/20261011-032938_patchouli-queue-empty-fresh-grep-no-build.kyri) | Fresh elder-literal net empty; pull to 748a1fa6cb; no build. |
 | `20261011.032604` | [Incense, decline round eight](20261011/20261011-032604_incense-decline-round-eight-no-build.kyri) | Round-open clean; claim board clear; no build owed. |
 | `20261011.032434` | [Grass, air row, card headroom, no build](20261011/20261011-032434_grass-air-row-card-headroom-no-build.kyri) | Grade B+ 89 held; rota air row; card nib carried; no build. |
