@@ -6,6 +6,7 @@
 | `20261011.153738` | [Pheromone, lane closed, no build](20261011/20261011-153738_pheromone-lane-closed-no-build.kyri) | Fruit closed; next move needs a Glow ruling. |
 | `20261011.153827` | [Diffuser, thirty-fourth hold, P1 unruled](20261011/20261011-153827_diffuser-thirty-fourth-hold-p1-unruled.kyri) | P1 held for a ruling; no run. |
 | `20261011.153716` | [Patchouli, queue empty a seventeenth way, no build](20261011/20261011-153716_patchouli-queue-empty-seventeenth-no-build.kyri) | Queue empty; pin still deadlocked; no build. |
+| `20261011.153958` | [Grass, mycelium sample graded, no lift](20261011/20261011-153958_grass-mycelium-sample-graded-no-lift.kyri) | Five heads graded B+ or better; no lift, no edit. |
 | `20261011.153130` | [Grass, inner fourth grade, header moved](20261011/20261011-153130_grass-inner-fourth-grade-index-header.kyri) | Field B+ 89 held; day index header back on top. |
 | `20261011.153328` | [Bakery, census read, crux held, no build](20261011/20261011-153328_bakery-cache-census-held-no-build.kyri) | Same source reuses cache; shared seam awaits ruling. |
 | `20261011.153529` | [Incense, baton read again, no build, late](20261011/20261011-153529_incense-baton-declined-late-no-build.kyri) | Claim board clear; cold run held; law lane waiting on Keaton's word. |
