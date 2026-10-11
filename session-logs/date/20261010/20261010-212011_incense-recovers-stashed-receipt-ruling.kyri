@@ -7,10 +7,10 @@ role incense captain
 modality text
 model claude-haiku-5-5
 model_status active runtime reported by session
-configured_model claude-sonnet-5
+configured_model claude-haiku-5-5
 configured_reasoning medium
-configured_status fleet default, local override not read this lap
-evidence .claude/settings.json fleet default
+configured_status resolved on this clone by declared_model.sh resolved_model
+evidence sh tools/fixtures/d/declared_model.sh resolved_model, read this lap; the fleet default in .claude/settings.json is claude-sonnet-5 and is not the value this clone runs
 voice Kyri
 host anonymized linux one-clock America/New_York
 title Incense recovers a stashed product ruling, cold run held
