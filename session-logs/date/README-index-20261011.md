@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.002507` | [Petrichor, gate still closed](20261011/20261011-002507_petrichor-gate-still-closed.kyri) | Consent Rail unchanged; no build. |
 | `20261011.002506` | [Incense, round-open clean, declined, no build](20261011/20261011-002506_incense-declined-no-build.kyri) | Claim board clear; consent gate still waits; no build. |
 | `20261011.002315` | [Copal, unrostered recount, no build](20261011/20261011-002315_copal-unrostered-recount-no-build.kyri) | Fruit void, zero unrostered; no build. |
 | `20261011.002051` | [Diffuser, fourth-night band stated, no run](20261011/20261011-002051_diffuser-fourth-night-band-stated-no-run.kyri) | Band 2 to 4 pre-registered; run waits for 20261012; no build. |
