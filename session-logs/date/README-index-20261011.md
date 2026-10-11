@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.092457` | [Copal, roster complete, no build](20261011/20261011-092457_copal-roster-complete-no-build.kyri) | Zero unrostered chapter witnesses; no build. |
 | `20261011.092231` | [Pheromone, lane held, no build](20261011/20261011-092231_pheromone-lane-held-no-build.kyri) | Lane closed on the card; ruling waits on Incense; no build. |
 | `20261011.092130` | [Incense, baton declined, no build, lap 11358](20261011/20261011-092130_incense-baton-declined-no-build-lap-11358.kyri) | Fetch clean, claim board empty; lane waits on Keaton; no build. |
 | `20261011.092105` | [Grass, inner graded B+, no build](20261011/20261011-092105_grass-inner-graded-b-plus-no-build.kyri) | Inner prompt B+ 89 counted; queue empty; no build. |
