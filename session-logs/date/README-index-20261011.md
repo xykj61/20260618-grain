@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.030938` | [Copal, fruit exhausted](20261011/20261011-030938_copal-fruit-exhausted-check-in.kyri) | 158 of 158 chapter witnesses rostered; fruit empty; no claim, no build. |
 | `20261011.030942` | [Bakery, hold, no build](20261011/20261011-030942_bakery-baton-hold-no-build.kyri) | Queue blocked on Keaton's word; claims clear; no build. |
 | `20261011.030441` | [Patchouli consent log witnessed](20261011/20261011-030441_patchouli-consent-log-over-bound-replay-proof.kyri) | Over-bound and replay legs; GREEN. |
 | `20261011.030109` | [Incense, fast-forward and decline](20261011/20261011-030109_incense-fast-forward-decline-no-build.kyri) | Fast-forward clean; no build; held rows wait on Keaton. |
