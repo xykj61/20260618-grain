@@ -112,6 +112,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.113632` | [Petrichor, gates held, no build](20261011/20261011-113632_petrichor-lane-gates-held-no-build.kyri) | Gate unchanged after xy/main ff; no build. |
 | `20261011.113521` | [Incense, baton declined after copal, no build](20261011/20261011-113521_incense-baton-declined-after-copal-no-build.kyri) | Ff to copal log; claim clear; no build. |
 | `20261011.113732` | [Patchouli, queue empty again, no build](20261011/20261011-113732_patchouli-queue-empty-fresh-nets-no-build.kyri) | Fresh nets clear; claims clear; no build. |
 | `20261011.113136` | [Copal, fruit spent, no build](20261011/20261011-113136_copal-fruit-spent-no-build.kyri) | All chapter witnesses rostered by exact path; no build. |
