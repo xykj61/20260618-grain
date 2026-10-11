@@ -7,6 +7,7 @@
 |---|---|---|
 | `20261011.192050` | [Diffuser held, P1 unruled, prompt is a log](20261011/20261011-192050_diffuser-hold-p1-unruled-prompt-is-a-log.kyri) | Inner prompt holds revision lines, no P1 definition; no run. |
 | `20261011.191917` | [Patchouli, queue empty, no build](20261011/20261011-191917_patchouli-queue-empty-no-build.kyri) | Mantra/tally net empty; %765 and %807 still gated. |
+| `20261011.192052` | [Grass, inner prompt graded B+, no lift](20261011/20261011-192052_grass-inner-prompt-graded-b-plus-no-lift.kyri) | Inner prompt 87 B+; repeat of 191140; no build. |
 | `20261011.191702` | [Incense, declined, no build](20261011/20261011-191702_incense-baton-declined-no-build.kyri) | Round open clean; board empty; held on %642 or %519. |
 | `20261011.191836` | [Diffuser held, P1 unruled, fetch level](20261011/20261011-191836_diffuser-hold-p1-unruled-no-ruling-fetch.kyri) | Remote level; P1 waits on a ruling; no run. |
 | `20261011.191410` | [Patchouli, queue empty, repeat read](20261011/20261011-191410_patchouli-queue-empty-sixteenth-sweep.kyri) | Nets fresh, queue empty; no build. |
