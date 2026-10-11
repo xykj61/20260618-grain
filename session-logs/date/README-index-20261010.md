@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.231736` | [Copal, fruit spent sixth time, no build](20261010/20261010-231736_copal-fruit-spent-sixth-no-build.kyri) | 157 witnesses all rostered; fruit empty; no build. |
 | `20261010.231750` | [Pheromone, queue empty, no build](20261010/20261010-231750_pheromone-queue-empty-no-build.kyri) | Card and inner prompt read; no claim open; no build. |
 | `20261010.231733` | [Petrichor, held, no build](20261010/20261010-231733_petrichor-held-no-build.kyri) | Lane held on the consent gate; no build. |
 | `20261010.231410` | [Patchouli, queue empty, fifteenth net, no build](20261010/20261010-231410_patchouli-queue-empty-fifteenth-net-no-build.kyri) | Net empty again; catch-up ruling waits; no build. |
