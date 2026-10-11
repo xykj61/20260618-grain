@@ -77,3 +77,33 @@ contradicts one is reported as a fire, not as a sign the falsifier was mis-set.
 ---
 
 Appended after the run, below this line. The five falsifiers above are not edited.
+
+**Run.** Stamped before the run, after the falsifiers were committed at `f0c10f22c3`. Script:
+`session-output/ring-offset/ring_offset.py`, untracked scratch, reusing the unpadded layout, the stencil and the 8-way LRU model of `padded_bitslice.py`. The one change is the polar arm's set index, `(line + off[ring]) % sets`, with the line's ring read at its first address. The Cartesian arm is untouched. Grid, tolerance and smax match `fine_capacity.py`.
+
+| N | Arm | Seed | Cartesian floor (sets) | Polar floor (sets) | Ratio | Polar monotone violations | Cartesian monotone violations |
+|---|---|---|---|---|---|---|---|
+| 256 | zero offsets (R1) | -- | 12.4 | 33.3 | 2.69 | 0 | 0 |
+| 384 | zero offsets (R1) | -- | 19.2 | 49.7 | 2.59 | 0 | 1 |
+| 640 | zero offsets (R1) | -- | 28.8 | 83.0 | 2.88 | 0 | 6 |
+| 256 | per-ring offset | 1 | 12.4 | 39.4 | 3.19 | 0 | 0 |
+| 384 | per-ring offset | 1 | 19.2 | 58.7 | 3.06 | 3 | 1 |
+| 640 | per-ring offset | 1 | 28.8 | 99.7 | 3.46 | 0 | 6 |
+| 256 | per-ring offset | 2 | 12.4 | 39.1 | 3.16 | 0 | 0 |
+| 384 | per-ring offset | 2 | 19.2 | 58.2 | 3.04 | 3 | 1 |
+| 256 | per-ring offset | 3 | 12.4 | 39.3 | 3.18 | 1 | 0 |
+| 384 | per-ring offset | 3 | 19.2 | 57.9 | 3.02 | 2 | 1 |
+
+**Falsifiers read.**
+
+- **R1 held.** With zero offsets the script reproduces the modulo table at N = 256, 384 and 640: floors 12.4 and 33.3, 19.2 and 49.7, and 28.8 and 83.0, ratios 2.69, 2.59 and 2.88, zero polar violations. The line-ring definition does not disturb the baseline.
+- **R2 held.** The Cartesian floors under the offset arm equal the modulo values at 256, 384 and 640, and the 640 Cartesian violation count (6) matches the zero control.
+- **R3 fired.** Seed 1 gives ratios 3.19, 3.06 and 3.46 at N = 256, 384 and 640, a spread of 0.40. The falsifier fires at 0.29 or more, the modulo spread, and the offsets widen it rather than flatten it. The alignment reading does not explain the sawtooth on this model.
+- **R4 held.** The lowest ratio under offsets is 3.02, well above the 2.0 floor of the falsifier.
+- **R5 fired.** The polar curve gains monotone violations under offsets: 3 at N = 384 for seed 1, 3 for seed 2, and 1 and 2 for seed 3, against zero for the modulo polar curve at both sizes. The falsifier fires on any count, and the count is reported as it was read.
+
+**Reading.** The ring-to-set alignment cause is not supported. A seeded random offset per ring raises the polar floor by about 15 to 20 percent at each N and widens the ratio's spread across N. Read plainly, the modulo index's ring-start arrangement is not hiding a penalty that a random partition would reveal. It is the other way: a random partition is a worse layout for this stencil. The paper does not claim why. It reports that R3 and R5 fired and that the modulo sawtooth is not explained by the per-ring offset construction.
+
+**Caveats, stated before the next door.** One offset construction, a seeded random draw per ring, tested at three seeds on two sizes and on one seed at 640. The ring-of-line definition is a choice; the cell-level alternative was not built. The seed-2 and seed-3 runs were made after the falsifiers were committed, so they are robustness checks, not pre-stated tests. The Cartesian arm shows a monotone violation at 384 and at 640 (6) in both the zero and offset runs, which is the baseline's own feature. No hardware, no witness, and no claim about a real cache.
+
+**Next door, not run.** A structured offset rather than a random one, `off[r] = r * k mod sets` for a small constant `k`, which tests whether a regular stagger can lower the floor the random draw raised. Its falsifier is to be written and committed before its first run.
