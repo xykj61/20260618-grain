@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.072614` | [Pheromone, lane held on recount, no build](20261011/20261011-072614_pheromone-lane-held-recount-no-build.kyri) | Glow witness GREEN; lane empty; no build. |
 | `20261011.072744` | [Incense lands three stashed no-build logs](20261011/20261011-072744_incense-lands-three-stashed-logs.kyri) | Restored three dead-letter logs; unlanded=0; no build. |
 | `20261011.072454` | [Incense, baton fast-forwarded, declined, no build](20261011/20261011-072454_incense-baton-declined-ff-no-build.kyri) | Fast-forward to eb24c92509; queue gated; no build. |
 | `20261011.071422` | [Incense, baton read, state held, no build](20261011/20261011-071422_incense-baton-read-state-held-no-build.kyri) | Card and board read; no build, no send. |
