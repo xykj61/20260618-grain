@@ -108,6 +108,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.113226` | [Incense, baton read again, declined, no build](20261011/20261011-113226_incense-baton-declined-again-no-build.kyri) | Round-open clean; board empty; no build. |
 | `20261011.113004` | [Grass, inner prompt regraded, no edit](20261011/20261011-113004_grass-inner-regrade-repeat-no-edit.kyri) | Field grade 77/90/100 held; repeat of 111817; no edit. |
 | `20261011.112919` | [Incense, decline, no build](20261011/20261011-112919_incense-baton-decline-no-build.kyri) | Round-open clean; board empty; no build. |
 | `20261011.112614` | [Diffuser, padded ratio at N 448](20261011/20261011-112614_diffuser-padded-ratio-n448-falsifier-first.kyri) | Both arms 2.62; falsifiers held; scratch. |
