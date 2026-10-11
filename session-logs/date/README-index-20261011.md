@@ -8,6 +8,7 @@
 | `20261011.160957` | [Grass, inner prompt regraded at field](20261011/20261011-160957_grass-inner-regraded-field-no-build.kyri) | Register 77, reach 90, truth 100; no edit, no build. |
 | `20261011.160739` | [Copal, fruit recheck, none unrostered, no build](20261011/20261011-160739_copal-fruit-recheck-none-unrostered.kyri) | 158 of 158 witnesses rostered by path; no build. |
 | `20261011.160633` | [Petrichor, Aether hears, gate held, no build](20261011/20261011-160633_petrichor-aether-hears-gate-held.kyri) | Gate held; no build; check-in named. |
+| `20261011.161148` | [Patchouli, queue empty, Kumara red held](20261011/20261011-161148_patchouli-queue-empty-kumara-red-held.kyri) | Elder-header nets empty; Kumara sign red held for ruling; no build. |
 | `20261011.160754` | [Patchouli, Kumara red reconfirmed, held](20261011/20261011-160754_patchouli-kumara-red-reconfirmed-held.kyri) | Sign red live and unbooked; witness GREEN; no build. |
 | `20261011.160651` | [Incense, sixty-eighth hold, no build](20261011/20261011-160651_incense-declined-no-build-fleet-hold.kyri) | Round state clean, claim board clear, no build. |
 | `20261011.160623` | [Diffuser, thirty-fifth hold, P1 unruled](20261011/20261011-160623_diffuser-thirty-fifth-hold-p1-unruled.kyri) | Peer delta read, no P1 ruling; no run. |
