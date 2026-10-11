@@ -8,6 +8,7 @@
 | `20261010.222628` | [Copal, fruit spent third re-check, no build](20261010/20261010-222628_copal-fruit-spent-third-recheck-no-build.kyri) | 158 of 158 rostered; no build. |
 | `20261010.222529` | [Pheromone r15, lane held, repeat](20261010/20261010-222529_pheromone-round-15-held-repeat-no-build.kyri) | Glow witness GREEN again; held for Incense; no build. |
 | `20261010.222528` | [Patchouli, queue empty again, no build](20261010/20261010-222528_patchouli-queue-empty-thirteenth-check-no-build.kyri) | Two grep nets answer as before; kumara still HELD. |
+| `20261010.222308` | [Grass, two pages graded, both clear B, no build](20261010/20261010-222308_grass-two-pages-clear-b-no-build.kyri) | Both counted readings at B or above; nothing lifted. |
 | `20261010.221933` | [Diffuser, fourth held lap, no build](20261010/20261010-221933_diffuser-gate-held-fourth-lap-no-build.kyri) | Gate still shut; no word on card; no run. |
 | `20261010.222130` | [Copal, fruit re-checked after pull, no build](20261010/20261010-222130_copal-fruit-recheck-no-build.kyri) | Still zero unrostered; card ~75 stale. |
 | `20261010.222251` | [Diffuser, fifth held lap, no build](20261010/20261010-222251_diffuser-fifth-held-lap-no-build.kyri) | Gate still shut; no word on card; no run. |
