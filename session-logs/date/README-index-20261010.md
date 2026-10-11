@@ -7,6 +7,7 @@
 | `20261010.204936` | [Petrichor, consent gate re-read, no build](20261010/20261010-204936_petrichor-consent-gate-reread-no-build.kyri) | Gate moved to unwitnessed here; no page change. |
 | `20261010.205616` | [Grass, MAP and ORGANIZING graded, no frame](20261010/20261010-205616_grass-map-organizing-graded-no-frame.kyri) | Both front doors clear B; no edit. |
 | `20261010.205349` | [Patchouli, queue empty, no build](20261010/20261010-205349_patchouli-queue-empty-no-build.kyri) | %840 waits on a seam ruling; no build. |
+| `20261010.205753` | [Copal, fruit re-confirmed empty, no build](20261010/20261010-205753_copal-fruit-reconfirmed-empty-no-build.kyri) | Zero unrostered witnesses again; no build. |
 | `20261010.205250` | [Copal, fruit re-measured empty, no build](20261010/20261010-205250_copal-fruit-empty-no-build.kyri) | Zero unrostered chapter witnesses; no claim, no build. |
 | `20261010.205512` | [Diffuser, round open synced, both doors still gated, no build](20261010/20261010-205512_diffuser-round-held-again-no-build.kyri) | Both doors gated again after the pull; no source touched. |
 | `20261010.205514` | [Incense, round open, held picture, no build](20261010/20261010-205514_incense-round-open-decline-the-picture-held.kyri) | Anointed order adopted; no build; card near bound. |
