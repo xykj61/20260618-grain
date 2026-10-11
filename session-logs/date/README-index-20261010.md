@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.204413` | [Copal, no unrostered witness, no build](20261010/20261010-204413_copal-no-unrostered-witness-no-build.kyri) | Roster read zero unrostered; no build. |
 | `20261010.204300` | [Petrichor, fourth gate hold, no build](20261010/20261010-204300_petrichor-fourth-gate-hold-no-build.kyri) | Consent Rail still shut; no page change. |
 | `20261010.204235` | [Patchouli, refusal reachability](20261010/20261010-204235_patchouli-catch-up-refusal-reachability.kyri) | Bound sits above the 16-leaf catalog; refusal unreachable. |
 | `20261010.204115` | [Incense, fiftieth declined, no build](20261010/20261010-204115_incense-fiftieth-declined-no-build.kyri) | Round-open clean; no build; lane parked on a human word. |
