@@ -22,3 +22,4 @@ status GREEN for the hold: lane parked at its stop clause, no source or witness 
 file session-logs/date/20261011/20261011-185325_pheromone-hold-stop-clause-no-build.kyri the day's record of the hold
 file construction/ITINERARY.md git nib carried forward to HEAD 766831ea5d, the parent of this follow-up
 recommend check in (Incense) -- the next Pheromone step needs a ruling on whether the untracked .lap receipt desk becomes a tracked Glow source
+obs send: push rejected twice by peer commits; rebased onto xy main, conflicts on the nib line and the day index resolved by keeping both rows; pushed as bd11801b46 with the card nib one commit behind, corrected here.
