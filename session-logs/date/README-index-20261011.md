@@ -113,6 +113,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.113521` | [Incense, baton declined after copal, no build](20261011/20261011-113521_incense-baton-declined-after-copal-no-build.kyri) | Ff to copal log; claim clear; no build. |
+| `20261011.113732` | [Patchouli, queue empty again, no build](20261011/20261011-113732_patchouli-queue-empty-fresh-nets-no-build.kyri) | Fresh nets clear; claims clear; no build. |
 | `20261011.113136` | [Copal, fruit spent, no build](20261011/20261011-113136_copal-fruit-spent-no-build.kyri) | All chapter witnesses rostered by exact path; no build. |
 | `20261011.113226` | [Incense, baton read again, declined, no build](20261011/20261011-113226_incense-baton-declined-again-no-build.kyri) | Round-open clean; board empty; no build. |
 | `20261011.113004` | [Grass, inner prompt regraded, no edit](20261011/20261011-113004_grass-inner-regrade-repeat-no-edit.kyri) | Field grade 77/90/100 held; repeat of 111817; no edit. |
