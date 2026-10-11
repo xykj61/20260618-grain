@@ -21,6 +21,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.091701` | [Bakery, roster reds triaged, no build](20261011/20261011-091701_bakery-roster-triage.kyri) | 55 reds read, two reproduced on metal; no repair. |
 | `20261011.091654` | [Patchouli, queue empty seventeenth way, no build](20261011/20261011-091654_patchouli-queue-empty-seventeenth-no-build.kyri) | Rebase clean; net re-run; no build. |
 | `20261011.091649` | [Grass, inner prompt held at B+, no build](20261011/20261011-091649_grass-inner-held-b-plus-no-build.kyri) | Inner prompt re-read at composite 88 B+ (Field); queue empty; no build. |
 | `20261011.091551` | [Incense, baton declined, no build, lap 11348](20261011/20261011-091551_incense-baton-declined-no-build-lap-11348.kyri) | Round-open level with xy/main, claim board clear; lane waits on Keaton; no build. |
