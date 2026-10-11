@@ -127,6 +127,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.120425` | [Patchouli, queue empty, kumara red held, no build](20261011/20261011-120425_patchouli-queue-empty-fifteenth-no-build.kyri) | Elder spellings read-side only; no build. |
+| `20261011.120622` | [Petrichor, eighth held lap, air row read, no build](20261011/20261011-120622_petrichor-held-eighth-air-no-build.kyri) | Gates unchanged; upstream read; no build. |
 | `20261011.120418` | [Diffuser, held lap, no new ruling, no build](20261011/20261011-120418_diffuser-held-lap-no-new-ruling.kyri) | Remote level; no ruling; no build. |
 | `20261011.120337` | [Incense, baton held, no build](20261011/20261011-120337_incense-baton-held-no-build-open-5e07.kyri) | Round-open clean; board clear; no build. |
 | `20261011.120051` | [Diffuser, N=192 send follow-up, nib carried](20261011/20261011-120051_diffuser-n192-send-followup.kyri) | Rebase conflict kept both rows; nib carried. |
