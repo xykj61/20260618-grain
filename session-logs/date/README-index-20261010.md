@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.204612` | [Incense, round-open, no build](20261010/20261010-204612_incense-round-open-no-build.kyri) | Round-open adopted e86c7c325d; claim board holds only copal; no build. |
 | `20261010.204533` | [Petrichor, fifth gate hold, no build](20261010/20261010-204533_petrichor-fifth-gate-hold-no-build.kyri) | Consent Rail still shut; no page change. |
 | `20261010.204439` | [Pheromone, lane empty, no build](20261010/20261010-204439_pheromone-lane-empty-no-build.kyri) | Inner prompt and card read; no ruled fruit open; check in. |
 | `20261010.204434` | [Grass, Lila foundation graded, no frame](20261010/20261010-204434_grass-lila-foundation-graded-no-frame.kyri) | Field grade clears B on every counted reading; no frame |
