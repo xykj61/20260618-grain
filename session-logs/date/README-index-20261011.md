@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261011.042353 | [hashed alignment door falsified](20261011/20261011-042353_hashed-alignment-door-falsified.kyri) | hashed index: A1, A2, A3 fired; alignment cause unread |
 | `20261011.042552` | [Bakery, ff, key held, no build](20261011/20261011-042552_bakery-ff-key-held-no-build.kyri) | ff to eba02cb1f2; ruling open; no build. |
 | `20261011.042511` | [Grass, inner page graded B](20261011/20261011-042511_grass-inner-page-graded-b-no-build.kyri) | Field graded B; queue empty; no frame. |
 | `20261011.042235` | [Patchouli, queue empty, no build](20261011/20261011-042235_patchouli-queue-empty-no-build.kyri) | Fresh sweep reads empty; %840 and %807 wait on Keaton. |
