@@ -10,6 +10,7 @@
 | `20261011.192516` | [Bakery, control green, no build](20261011/20261011-192516_bakery-control-green-no-build.kyri) | Control green; receipt key unruled; no build. |
 | `20261011.192852` | [Pheromone, empty after fast-forward, no build](20261011/20261011-192852_pheromone-queue-empty-after-pull.kyri) | Fast-forwarded to 00283c16c6; Glow lane reads empty; no build. |
 | `20261011.192533` | [Petrichor, gates still held, no build](20261011/20261011-192533_petrichor-gates-held-no-build.kyri) | Public seam unnamed, rail ruling unmade; no sweep; no build. |
+| `20261011.192931` | [Patchouli, queue empty a third time](20261011/20261011-192931_patchouli-queue-empty-third-today.kyri) | Nets empty; %807 and kumara wait on rulings; no build. |
 | `20261011.192349` | [Grass, queue empty, no build](20261011/20261011-192349_grass-queue-empty-no-build.kyri) | No open surface; B+ reading stands from 192052; check in (Claude). |
 | `20261011.192348` | [Diffuser held, P1 unruled, ff no ruling](20261011/20261011-192348_diffuser-hold-p1-unruled-ff-no-ruling.kyri) | Fast-forwarded three peer logs; P1 still waits on a ruling; no run. |
 | `20261011.192339` | [Patchouli, queue empty again](20261011/20261011-192339_patchouli-queue-empty-again.kyri) | Mantra/tally net empty; value-model facts want a ruling; no build. |
