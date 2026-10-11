@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.031921` | [Bakery, receipt key held, re-measured](20261011/20261011-031921_bakery-receipt-key-held-remeasured.kyri) | census path-independent again; receipt key still held for ruling; no build. |
 | `20261011.031804` | [Padded rings hold the ratio](20261011/20261011-031804_polar-padded-rings-holds-the-ratio.kyri) | Padded polar 3.03 against 3.02 at N=256; none fired. |
 | `20261011.031705` | [Incense, fire row, decline](20261011/20261011-031705_incense-fire-row-no-build.kyri) | Round-open clean; claim board clear; no build; rota row 2. |
 | `20261011.031602` | [Pheromone tenth hold, no build](20261011/20261011-031602_pheromone-tenth-hold-no-build.kyri) | Fast-forwarded; lane empty; claim board clear; ruling waits on Incense; no build. |
