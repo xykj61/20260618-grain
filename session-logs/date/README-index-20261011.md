@@ -56,6 +56,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.101812` | [Bakery, fruit held at its ruling again, no build](20261011/20261011-101812_bakery-fruit-held-again-no-build.kyri) | Receipt key awaits Keaton's ruling; no build. |
 | `20261011.101642` | [Copal, fruit recheck gone, no build](20261011/20261011-101642_copal-fruit-recheck-gone-no-build.kyri) | Zero unrostered chapter witnesses; no build. |
 | `20261011.101537` | [Grass, two foundations B+, no build](20261011/20261011-101537_grass-foundations-held-b-plus-no-build.kyri) | Inner prompt B+ 88; two foundations B+; no edit. |
 | `20261011.101511` | [Patchouli, queue empty, no build](20261011/20261011-101511_patchouli-queue-empty-seventeenth-no-build.kyri) | Both nets empty; OPEN rows name other lanes; no build. |
