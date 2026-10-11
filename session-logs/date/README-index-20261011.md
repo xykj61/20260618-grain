@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.062938` | [Grass, Foundations sample, no build](20261011/20261011-062938_grass-foundations-rota-earth-no-build.kyri) | Eight pages read B or better; one dated C has an A+ successor. |
 - `20261011.062925` [Petrichor, fruit gated, no build](20261011/20261011-062925_petrichor-fruit-gated-no-build.kyri) | Pull landed session-logs only; lane gated, no build.
 | `20261011.062951` | [Copal, fruit empty, fifth today](20261011/20261011-062951_copal-fruit-empty-fifth-no-build.kyri) | Zero unrostered by exact path; ruling asked. |
 | `20261011.062844` | [Patchouli, queue empty, no build](20261011/20261011-062844_patchouli-queue-empty-no-build.kyri) | Both nets empty; %840 held at pin bound; nib repinned. |
