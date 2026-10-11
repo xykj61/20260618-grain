@@ -7,6 +7,7 @@
 | `20261010.221311` | [Diffuser, third held lap, no build](20261010/20261010-221311_diffuser-gate-held-third-lap-no-build.kyri) | Gate still shut; no word on card; no run. |
 | `20261010.221327` | [Pheromone, Glow witness GREEN, no build](20261010/20261010-221327_pheromone-glow-witness-green-no-build.kyri) | Step three witness GREEN; lane held for Incense. |
 | `20261010.221207` | [Grass, grade repeated, queue empty, no build](20261010/20261010-221207_grass-regrade-repeat-queue-empty.kyri) | Same page, same B+ (89); repeat named, no build. |
+| `20261010.221658` | [Patchouli, queue empty again, kumara held](20261010/20261010-221658_patchouli-queue-empty-kumara-held-again.kyri) | Queue empty; kumara red held at pin bound. |
 | `20261010.221142` | [Patchouli, queue held, kumara red waits](20261010/20261010-221142_patchouli-queue-held-kumara-red.kyri) | Queue empty; kumara red held at pin bound. |
 | `20261010.221039` | [Incense, round-open decline, no build](20261010/20261010-221039_incense-round-open-decline-no-build.kyri) | Upstream a session log at 9dc3848de0; ledger at 4 bytes headroom; no build. |
 | `20261010.220947` | [Copal, itinerary round roster, claim held](20261010/20261010-220947_copal-itinerary-round-roster.kyri) | Printer rostered as nearest candidate; roster red predates. |
