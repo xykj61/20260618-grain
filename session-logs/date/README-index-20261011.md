@@ -137,6 +137,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.122013` | [Bakery, crux held for ruling, no build](20261011/20261011-122013_bakery-crux-held-ruling-no-build.kyri) | Card read on a clean tree; receipt-key seam waits on a ruling. |
 | `20261011.121859` | [Copal, fruit spent after upstream pull, no build](20261011/20261011-121859_copal-fruit-spent-upstream-no-build.kyri) | Zero unrostered chapter witnesses; no build. |
 | `20261011.121326` | [Incense, baton lap held, no build](20261011/20261011-121326_incense-held-lap-no-build.kyri) | Upstream unchanged; board empty; no build. |
 | `20261011.120757` | [Bakery, cache census re-read, claim closed, no build](20261011/20261011-120757_bakery-cache-census-held-no-build.kyri) | Census holds; claim closed; receipt key held on ruling. |
