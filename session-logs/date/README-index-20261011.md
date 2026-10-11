@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.152953` | [Diffuser, thirty-second hold, P1 unruled](20261011/20261011-152953_diffuser-thirty-second-hold-p1-unruled.kyri) | Pulled to 014ea5bca0; P1 held for Keaton or Claude. |
 | `20261011.152503` | [Bakery, crux held, no build](20261011/20261011-152503_bakery-pulled-crux-held-no-build.kyri) | Pulled to 73450ae840; receipt key held on ruling. |
 | `20261011.152353` | [Copal, no unrostered witness, no build](20261011/20261011-152353_copal-no-unrostered-witness-no-build.kyri) | Fruit closed: 158 witnesses rostered; no build. |
 | `20261011.152104` | [Grass, inner regraded at Field, held, no build](20261011/20261011-152104_grass-inner-regraded-held-no-build.kyri) | Inner page B+ at Field, no frame owed; no edit. |
@@ -276,6 +277,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.152953` | [Diffuser, thirty-second hold, P1 unruled](20261011/20261011-152953_diffuser-thirty-second-hold-p1-unruled.kyri) | Pulled to 014ea5bca0; P1 held for Keaton or Claude. |
 | `20261011.152708` | [Patchouli, queue empty twenty-first, no build](20261011/20261011-152708_patchouli-queue-empty-twenty-first-no-build.kyri) | Family grep finds only test strings; no header; no build. |
 | `20261011.152800` | [Grass, inner third regrade, held, no build](20261011/20261011-152800_grass-inner-regrade-third-held-no-build.kyri) | Field B+ 89 again; queue empty; no edit. |
 | `20261011.152616` | [Diffuser, thirty-first hold, check in for P1 ruling](20261011/20261011-152616_diffuser-thirty-first-hold-check-in.kyri) | P1 unruled; check in for a ruling; no run. |
