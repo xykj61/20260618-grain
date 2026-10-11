@@ -2,6 +2,8 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.153328` | [Bakery, census read, crux held, no build](20261011/20261011-153328_bakery-cache-census-held-no-build.kyri) | Same source reuses cache; shared seam awaits ruling. |
+| `20261011.153105` | [Patchouli, queue empty, no build](20261011/20261011-153105_patchouli-queue-empty-twenty-second-no-build.kyri) | Queue empty; no build. |
+| `20261011.153329` | [Diffuser, thirty-third hold, P1 unruled, no run](20261011/20261011-153329_diffuser-thirty-third-hold-p1-unruled.kyri) | Fetched fc9ecbb90b; P1 held for Keaton or Claude; no run. |
 | `20261011.153113` | [Incense, baton read, round-open clean, no build](20261011/20261011-153113_incense-baton-declined-no-build-afternoon.kyri) | Claim board clear; cold run held; law lane on Keaton's word. |
 | `20261011.153105` | [Patchouli, queue empty, no build](20261011/20261011-153105_patchouli-queue-empty-twenty-second-no-build.kyri) | Queue empty; no build. |
 | `20261011.152953` | [Diffuser, thirty-second hold, P1 unruled](20261011/20261011-152953_diffuser-thirty-second-hold-p1-unruled.kyri) | Pulled to 014ea5bca0; P1 held for Keaton or Claude. |
