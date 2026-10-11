@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.005727` | [Diffuser, gate still held, no build](20261011/20261011-005727_diffuser-gate-still-held-no-build.kyri) | Clock 20261011; pair waits for 20261012; no build. |
+| `20261011.005858` | [Patchouli, queue empty, no build](20261011/20261011-005858_patchouli-queue-empty-sign-red-held-no-build.kyri) | Sign red held; queue empty. |
 | `20261011.005613` | [Patchouli, sign red held, no build](20261011/20261011-005613_patchouli-sign-red-held-queue-empty-no-build.kyri) | Sign red still live; queue empty. |
 | `20261011.005403` | [Petrichor, gate held, no build](20261011/20261011-005403_petrichor-gate-held-no-build.kyri) | Consent Rail and seam still gated; no build. |
 | `20261011.005240` | [Incense, card read, no build](20261011/20261011-005240_incense-declined-no-build-card-read.kyri) | Queue held by rulings; nib carried; no build. |
