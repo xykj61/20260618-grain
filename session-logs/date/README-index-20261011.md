@@ -8,6 +8,7 @@
 | `20261011.190356` | [Diffuser, sixtieth hold, sawtooth ruling owed](20261011/20261011-190356_diffuser-sixtieth-hold-sawtooth-ruling.kyri) | F4 fired on record; no run; ruling owed. |
 | `20261011.185942` | [Diffuser, fifty-ninth hold, P1 unruled](20261011/20261011-185942_diffuser-fifty-ninth-hold-p1-unruled.kyri) | No ruling landed; no run. |
 | `20261011.190120` | [Petrichor, ff pull, gate still held, no build](20261011/20261011-190120_petrichor-ff-pull-gate-held-no-build.kyri) | Two peer logs pulled; gate held; no build. |
+| `20261011.190312` | [Patchouli, queue empty, sign seam held](20261011/20261011-190312_patchouli-queue-empty-sign-seam-held.kyri) | Fresh nets empty; sign seam and %807 await rulings; no build. |
 | `20261011.190001` | [Incense, declines, queue gated](20261011/20261011-190001_incense-declines-queue-gated.kyri) | Round open clean; claim board empty; queue waits on a ruling; no build. |
 | `20261011.185545` | [Incense, round open clean, declined, no build](20261011/20261011-185545_incense-baton-declined-after-clean-round-open.kyri) | Round open clean on the anointed order; claim board clear; queue waits on rulings. |
 | `20261011.190500` | [Diffuser, fifty-eighth hold, P1 unruled](20261011/20261011-190500_diffuser-fifty-eighth-hold-p1-unruled.kyri) | No ruling landed; no run. |
