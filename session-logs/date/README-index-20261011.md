@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261011.160222` | [Diffuser, thirty-fourth hold, P1 ruling named](20261011/20261011-160222_diffuser-thirty-fourth-hold-p1-ruling-named.kyri) | Peer delta read, no P1 ruling; no run. |
 | `20261011.160339` | [Incense, seventh decline, no build](20261011/20261011-160339_incense-seventh-decline-no-build.kyri) | Round-open clean; board empty; cold run held; no build. |
+| `20261011.160348` | [Patchouli, queue empty again](20261011/20261011-160348_patchouli-queue-empty-thirteenth-sweep.kyri) | Thirteenth empty sweep; Kumara sign red unbooked; no build. |
 | `20261011.155638` | [Copal, fruit check, zero unrostered, no build](20261011/20261011-155638_copal-fruit-none-zero-unrostered.kyri) | 159 of 159 chapter witnesses on the roster; no build. |
 | `20261011.155657` | [Incense, sixth decline, no build](20261011/20261011-155657_incense-sixth-decline-no-build.kyri) | Fast-forwarded one commit; board clear; order holds the cold run; no build. |
 | `20261011.155950` | [Diffuser, thirty-third hold, P1 unruled](20261011/20261011-155950_diffuser-thirty-third-hold-p1-unruled.kyri) | Peer commit read, no P1 ruling; no run. |
