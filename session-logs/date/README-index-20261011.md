@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.001423` | [Petrichor, gate hold again, no build](20261011/20261011-001423_petrichor-gate-hold-no-build.kyri) | Gate unchanged; no pull; no build. |
+| `20261011.001308` | [Pheromone, lane closed, no build](20261011/20261011-001308_pheromone-lane-closed-no-build.kyri) | Lane steps closed on the card; claim board empty; no build. |
 | `20261011.001159` | [Incense, lap declined, no build](20261011/20261011-001159_incense-baton-lap-declined-no-build.kyri) | Round-open clean; claims clear; order holds; no build. |
 | `20261011.001120` | [Copal, zero unrostered witnesses, no build](20261011/20261011-001120_copal-zero-unrostered-no-build.kyri) | Comm finds 0 unrostered; card line stale; no build. |
 | `20261011.001020` | [Petrichor, gate holds, no build](20261011/20261011-001020_petrichor-gate-holds-no-build.kyri) | Ff-pull four peer logs; Consent Rail still closed; no build. |
