@@ -60,3 +60,27 @@ results reproduce unchanged.
 ## Result
 
 Appended after the run, below this line. The five falsifiers above are not edited.
+
+**Run.** Stamped after the falsifiers were committed at `75b9501d76`. Script: `session-output/ring-offset/spread_stagger.py`, untracked scratch, a copy of `stagger_offset.py` with `offsets_for` replaced by `off[r] = (r * sets) // rings`. Output: `session-output/ring-offset/spread_stagger_256_384_640.txt`.
+
+| N | Arm | Cartesian floor (sets) | Polar floor (sets) | Ratio | Polar monotone | Cartesian monotone |
+|---|---|---|---|---|---|---|
+| 256 | set-spread | 12.4 | 33.3 | 2.70 | 0 | 0 |
+| 384 | set-spread | 19.2 | 49.7 | 2.60 | 0 | 1 |
+| 640 | set-spread | 28.8 | 83.0 | 2.88 | 0 | 6 |
+
+**Falsifiers read.**
+
+- **T1 held.** Every offset is `(r * sets) // rings` with `r < rings`, so each lies in `[0, sets)`. Checked by construction, not by a separate assertion in the run.
+- **T2 held.** The Cartesian floors are 12.4, 19.2 and 28.8, equal to the modulo values, and the Cartesian violation counts (0, 1, 6) match the baseline.
+- **T3 inconclusive.** Spread is 0.28 (2.60 to 2.88). That is below the 0.29 that fires, and above the 0.10 that supports, so it reads inconclusive. The gap to 0.29 is 0.01, which is within the rounding of the printed ratios and should not be read as a real narrowing.
+- **T4 held.** The lowest ratio is 2.60, above the 2.0 floor.
+- **T5 held.** The polar curve has zero monotone violations at all three N.
+
+**Prediction read.** The paper predicted polar floors within about 3 percent of modulo. They match the modulo floors exactly at all three sizes (33.3, 49.7, 83.0), so the prediction held with room to spare, and the even spread lands on the modulo index just as the constant stagger did.
+
+**Reading.** Spreading the rings evenly across the set index changes nothing measurable in this model. Together with the constant stagger (K = 2, 3), the random per-ring draw, and the per-set relabel, four partition changes now leave the sawtooth where it stood: the constant and even staggers move the polar floor by 0 to 3 percent, and the random draw moves it by 15 to 20 percent without flattening the zig-zag. The ring-start family is closed at this model, and this run is its last member.
+
+**Caveats.** One ring-of-line definition, one offset construction in this family, and one model (8 ways, LRU, line size 8, unpadded). No hardware, no witness, and no claim about a real cache.
+
+**Next door, not run.** Stop this line. The next door is a different cause, such as the stride between line addresses, and its falsifier is to be written and committed before any run.
