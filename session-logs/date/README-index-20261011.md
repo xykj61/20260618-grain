@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261011.053912 | [20261011-053912 petrichor gate holds](20261011/20261011-053912_petrichor-gate-holds.kyri) | Gate still holds, grade re-read, no build |
+| `20261011.053814` | [Patchouli, seam still open, no build](20261011/20261011-053814_patchouli-seam-still-open-no-build.kyri) | Queue empty; catch-up seam awaits a ruling; no build. |
 | `20261011.053649` | [Copal, roster re-measured, no build](20261011/20261011-053649_copal-zero-unrostered-measured-no-build.kyri) | Zero unrostered witnesses by comm; fruit spent; check in. |
 | `20261011.053441` | [Pheromone, held, round-open clean, no build](20261011/20261011-053441_pheromone-held-round-open-no-build.kyri) | Fruit closed; no unruled rune; ruling needed; no build. |
 | `20261011.053533` | [Petrichor, gate still holds, no build](20261011/20261011-053533_petrichor-gate-still-holds-no-build.kyri) | Upstream log only; Consent Rail unchanged; no build. |
