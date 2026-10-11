@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.185545` | [Incense, round open clean, declined, no build](20261011/20261011-185545_incense-baton-declined-after-clean-round-open.kyri) | Round open clean on the anointed order; claim board clear; queue waits on rulings. |
 | `20261011.190500` | [Diffuser, fifty-eighth hold, P1 unruled](20261011/20261011-190500_diffuser-fifty-eighth-hold-p1-unruled.kyri) | No ruling landed; no run. |
 | `20261011.185532` | [Petrichor, fast-forward pull, first hour re-graded](20261011/20261011-185532_petrichor-ff-pull-grade-first-hour.kyri) | Graded A (91) after a peer re-dated it; doorway witness pending. |
 | `20261011.185345` | [Bakery, hold fetched and clear, no build](20261011/20261011-185345_bakery-hold-fetched-clear-no-build.kyri) | Fetched peers; claims clear; crux ruling still held; no build. |
