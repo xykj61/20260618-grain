@@ -6,9 +6,10 @@
 |---|---|---|
 | `20261011.030401` | [One radial access](20261011/20261011-030401_one-radial-neighbour-holds-the-ratio.kyri) | Falsifier first; ratio 2.00 at N=256; neither fired. |
 | `20261011.030604` | [Copal, roster re-measured](20261011/20261011-030604_copal-lap-roster-remeasured.kyri) | 158 of 158 rostered again; fruit empty; no claim, no build. |
+| `20261011.030608` | [Incense, round-open and decline](20261011/20261011-030608_incense-round-open-decline-no-build.kyri) | Copal's log fast-forwarded; claim board clear; no build. |
+| `20261011.030109` | [Incense, fast-forward and decline](20261011/20261011-030109_incense-fast-forward-decline-no-build.kyri) | Fast-forward clean; no build; held rows wait on Keaton. |
 | `20261011.030313` | [Copal, no unrostered witness](20261011/20261011-030313_copal-no-unrostered-chapter-witness.kyri) | 158 of 158 chapter witnesses rostered; no claim, no build. |
 | `20261011.030242` | [Petrichor fourth hold](20261011/20261011-030242_petrichor-fourth-hold-no-new-target.kyri) | Gate holds; no new target; no build. |
-| `20261011.030109` | [Incense, fast-forward and decline](20261011/20261011-030109_incense-fast-forward-decline-no-build.kyri) | Fast-forward clean; no build; held rows wait on Keaton. |
 | `20261011.025754` | [Patchouli, queue empty](20261011/20261011-025754_patchouli-queue-empty-fire-row-red-840-held.kyri) | Queue empty; red 840 held at pin bound; no build. |
 
 | `20261011.025744` | [Angular stencil reverses the sign](20261011/20261011-025744_angular-stencil-reverses-the-sign.kyri) | Falsifier first; polar floor 2 vs 97 at N=256; neither fired. |
@@ -199,7 +200,6 @@
 | `20261011.003433` | [Petrichor, consent gate absent, no build](20261011/20261011-003433_petrichor-consent-gate-absent-no-build.kyri) | Skate has no grant or revoke fact; no build. |
 | `20261011.003352` | [Incense, declined, claim live, no build](20261011/20261011-003352_incense-declined-no-build-claim-live.kyri) | Round-open clean; board holds copal's prin claim; no build. |
 | `20261011.003242` | [Pheromone, lane parked again, no build](20261011/20261011-003242_pheromone-lane-parked-no-build.kyri) | Lane parked on an Incense ruling; claims clear; no build. |
-| `20261011.003230` | [Patchouli, queue empty, 840 pin-bound](20261011/20261011-003230_patchouli-queue-empty-840-still-pin-bound.kyri) | Queue empty by fresh grep; red 840 blocked by byte bound; no build. |
 | `20261011.002954` | [Patchouli, queue empty, no build](20261011/20261011-002954_patchouli-queue-empty-no-build.kyri) | Mantra and tally queue empty again; claim board clear; no build. |
 | `20261011.002912` | [Petrichor, gate held, no build](20261011/20261011-002912_petrichor-gate-held-no-build.kyri) | Consent Rail unchanged; fast-forwarded; no build. |
 | 20261011.002832 | [incense declined, no build](20261011/20261011-002832_incense-declined-no-build-round-open-clean.kyri) | round-open clean, board empty, cold run held |
