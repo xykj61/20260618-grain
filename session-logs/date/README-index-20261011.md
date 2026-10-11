@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.073052` | [Copal, fruit empty, no build](20261011/20261011-073052_copal-fruit-empty-density-fault-stale-no-build.kyri) | Fourth empty fruit; density fault stale |
 | `20261011.073026` | [Patchouli, kumara red held on pin bound](20261011/20261011-073026_patchouli-kumara-red-held-on-pin-bound.kyri) | REDS at 65532 of 65536; sign panic row %840 waits. |
 | `20261011.073043` | [Diffuser, repeat-share door run, padding arm vacuous](20261011/20261011-073043_diffuser-repeat-share-result.kyri) | D1 to D3 pass on the scratch model; D4 vacuous, padding did not move a line index. |
 | `20261011.072614` | [Pheromone, lane held on recount, no build](20261011/20261011-072614_pheromone-lane-held-recount-no-build.kyri) | Glow witness GREEN; lane empty; no build. |
