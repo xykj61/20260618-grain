@@ -10256,3 +10256,8 @@ guard itinerary_round
 path tools/gen/chapter/itinerary.rish
 tier lap
 seated 20261010.220848
+
+guard prin_scope
+path tools/gen/chapter/prin.rish
+tier cadence
+seated 20261011.003401
