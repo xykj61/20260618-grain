@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
+| `20261011.193119` | [Petrichor, held after ff, no build](20261011/20261011-193119_petrichor-held-after-ff-no-build.kyri) | Upstream logs only; Consent Rail gate unchanged; no build. |
 | `20261011.192443` | [Copal, roster recheck, no build](20261011/20261011-192443_copal-witness-roster-recheck-no-build.kyri) | 159 witnesses rostered by exact path; card's ~75 stale; no build. |
 | `20261011.191947` | [Petrichor, held at gate, no build](20261011/20261011-191947_petrichor-held-gate-ff-no-build.kyri) | Fast-forwarded; public seam unnamed, ruling unmade; no build. |
 | `20261011.191420` | [Incense, declined, no build](20261011/20261011-191420_incense-declined-no-build.kyri) | Tree clean; claims present; no sentinel; gated; no build. |
