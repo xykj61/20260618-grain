@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.223549` | [Patchouli, queue empty again, no build](20261010/20261010-223549_patchouli-queue-empty-again-no-build.kyri) | Both nets empty; catch-up refusal seam awaits a Claude ruling. |
 | `20261010.223122` | [Grass, queue empty, orbit round 1, no build](20261010/20261010-223122_grass-queue-empty-aries-round-no-build.kyri) | Queue empty; no lift; no build. |
 | `20261010.223050` | [copal fruit already rostered](20261010/20261010-223050_copal-fruit-gone-all-chapter-witnesses-rostered.kyri) | 157 of 157 chapter witnesses rostered; no build |
 | `20261010.223345` | [Patchouli, queue empty fresh net, no build](20261010/20261010-223345_patchouli-queue-empty-fresh-net-no-build.kyri) | Two nets answer empty; %807 and %765 still wait on Keaton or another lane. |
