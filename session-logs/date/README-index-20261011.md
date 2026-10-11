@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.021250` | [Copal fruit premise gone, all 157 witnesses rostered, no build](20261011/20261011-021250_copal-no-unrostered-witness-left-no-build.kyri) | Exact-path recount: 0 unrostered; no claim; no build. |
+| `20261011.021411` | [Petrichor gate held, no build](20261011/20261011-021411_petrichor-gate-held-no-build.kyri) | Consent Rail still gated to 20261012; no page opened. |
 | `20261011.020659` | [Copal fruit recount, no claim, no build](20261011/20261011-020659_copal-fruit-recount-no-claim-no-build.kyri) | Zero unrostered witnesses; no claim. |
 | `20261011.021138` | [Diffuser fourth-night gated to 20261012](20261011/20261011-021138_diffuser-fourth-night-clock-gated-no-build.kyri) | Clock reads 20261011; no build. |
 | `20261011.021022` | [Patchouli queue empty, seventeenth sweep, no build](20261011/20261011-021022_patchouli-queue-empty-seventeenth-no-build.kyri) | Lane queue reads empty again; claim-as-override declined; no build. |
