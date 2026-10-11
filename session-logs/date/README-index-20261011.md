@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.004939` | [Diffuser, gate held, no build](20261011/20261011-004939_diffuser-gate-held-sixth-read-no-build.kyri) | Clock 20261011; pair waits for 20261012. |
 | `20261011.004841` | [Petrichor, gate held, peer tutorials graded, no build](20261011/20261011-004841_petrichor-gate-held-peer-tutorials-graded-no-build.kyri) | Consent Rail still closed; four pages graded A or B+; no build. |
 | `20261011.004614` | [Copal, fruit void again, no build](20261011/20261011-004614_copal-fruit-void-no-build.kyri) | No unrostered witness under tools/gen/chapter/; nib carried; no build. |
 | `20261011.004432` | [Patchouli, seam ruling held, no build](20261011/20261011-004432_patchouli-seam-ruling-held-no-build.kyri) | Catch-up witness GREEN; seam and %840 await rulings; no build. |
