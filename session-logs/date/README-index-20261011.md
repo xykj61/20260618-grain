@@ -17,6 +17,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.091341` | [Grass, inner prompt regraded B+, no build](20261011/20261011-091341_grass-inner-regraded-no-build.kyri) | Inner prompt re-read at B+ (89); queue empty; no build. |
 | `20261011.090959` | [Runner digest survey, receipt key](20261011/20261011-090959_runner-digest-survey.kyri) | Digest folds HEAD in, so no peer matches; survey only, no build. |
 | `20261011.090850` | [Petrichor, lane held at consent gate, no build](20261011/20261011-090850_petrichor-consent-gate-held-no-build.kyri) | Gate held by Diffuser and Keaton; no claim, no build. |
 | `20261011.090804` | [Incense, declined, lap 11340](20261011/20261011-090804_incense-baton-declined-no-build-lap-11340.kyri) | Round-open clean, board clear; waits on Keaton; no build. |
