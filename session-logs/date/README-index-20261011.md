@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.004610` | [Diffuser, fifth gate read, no build](20261011/20261011-004610_diffuser-fifth-gate-read-no-build.kyri) | Fourth-night gate re-read; no build. |
 | `20261011.004136` | [Incense, declined, no build](20261011/20261011-004136_incense-declined-no-build-stash-dead-letter.kyri) | Round-open clean; 32 stash logs flagged; no build. |
 | `20261011.004423` | [Petrichor, gate held, claim-as-override declined, no build](20261011/20261011-004423_petrichor-gate-held-claim-override-declined-no-build.kyri) | Gate held; open reds sit in other lanes; no build. |
 | `20261011.004149` | [Patchouli, queue empty by fresh grep, no build](20261011/20261011-004149_patchouli-queue-empty-no-build.kyri) | Fresh grep empty; no build. |
