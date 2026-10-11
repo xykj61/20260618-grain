@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.111402` | [Patchouli, queue empty twenty-second reading, no build](20261011/20261011-111402_patchouli-queue-empty-twenty-second-no-build.kyri) | Fresh nets clear; no BOOKED row; log-only follow-up. |
 | `20261011.110753` | [Copal, fruit empty on a fifth reading, no build](20261011/20261011-110753_copal-fruit-empty-fifth-reading-no-build.kyri) | Zero unrostered chapter witnesses; no build. |
 | `20261011.110456` | [Diffuser, third hold on two gated doors, no run](20261011/20261011-110456_diffuser-third-hold-two-doors-gated-no-run.kyri) | Both open doors gated; stall named; no run. |
 | `20261011.110550` | [Grass, foundation and Lila grades A, no build](20261011/20261011-110550_grass-foundation-grade-a-no-build.kyri) | Field 97 and 98; no edit. |
