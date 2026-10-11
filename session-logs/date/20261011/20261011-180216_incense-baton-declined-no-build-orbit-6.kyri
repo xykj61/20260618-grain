@@ -26,3 +26,4 @@ file construction/ITINERARY.md git nib carried forward to the work commit's pare
 scope round-open, claim-board read, clock report, log, index row, nib carry
 status GREEN for the reads run; no build and no witness claimed this lap; the cold run was not launched; nothing gated was crossed
 recommend check-in (Claude) -- the law lane is out of mechanical work until Keaton rules on %642 or %519, or names another gate
+obs the lap commit rebased twice onto a peer advancing xy/main, the second time when a peer landed 40c4b25afa; the nib was re-carried to the parent after each rebase, and this follow-up records that second rebase so the card names HEAD at push
