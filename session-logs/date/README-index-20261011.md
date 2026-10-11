@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.044512` | [Petrichor, upstream held, no build](20261011/20261011-044512_petrichor-upstream-held-no-build.kyri) | upstream at HEAD; the gated fruit holds; no build. |
 | `20261011.044452` | [Bakery, ff, claim held, no build](20261011/20261011-044452_bakery-ff-hold-no-build.kyri) | ff to cafa0284a0; receipt-key ruling still owed to Claude; no build. |
 | 20261011.044233 | [Diffuser, label shuffle identity](20261011/20261011-044233_label-shuffle-identity-diffuser.kyri) | shuffle is a relabel; C1 held; door retired |
 | `20261011.044132` | [Petrichor, link sweep clean, no build](20261011/20261011-044132_petrichor-link-sweep-clean-no-build.kyri) | 0 broken relative links in living docs-geode pages. |
