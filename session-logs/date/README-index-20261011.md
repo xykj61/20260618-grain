@@ -82,6 +82,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.104913` | [Patchouli, queue empty an eighteenth time, kumara ruling asked](20261011/20261011-104913_patchouli-queue-empty-eighteenth-kumara-ruling-asked.kyri) | Grep nets empty; %840 held for a seam ruling; no build. |
 | `20261011.104753` | [Incense, baton recur, no build](20261011/20261011-104753_incense-baton-recur-no-build.kyri) | Round-open ff to 693b1077de; claim board empty; clock in on all eight; no build. |
 | `20261011.104646` | [Petrichor, consent gate held, no build](20261011/20261011-104646_petrichor-gate-held-no-build.kyri) | Gate reread after fast-forward; seam still absent; no build. |
 | `20261011.104155` | [Diffuser, padded share reproduced](20261011/20261011-104155_diffuser-padded-share-wiring-fixed.kyri) | Padded arm was unwired; fixed; reproduces 07:39; no build. |
