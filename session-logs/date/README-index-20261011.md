@@ -7,6 +7,8 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.084802` | [Incense, clean round, declined](20261011/20261011-084802_incense-baton-declined-clean-round-no-build.kyri) | Anointed order held; no build. |
+| `20261011.084522` | [Bakery, census re-read, receipt key held, no build](20261011/20261011-084522_bakery-census-reread-receipt-key-held.kyri) | Census re-run path-independent; receipt-key ruling still Keaton's; no build. |
+
 | `20261011.084245` | [Petrichor, gate held, no build](20261011/20261011-084245_petrichor-gate-held-no-build.kyri) | Gate facts on HEAD; Diffuser's ruling holds the fruit; no build. |
 | `20261011.084414` | [Kumara sign red live, pin at bound, row held](20261011/20261011-084414_patchouli-kumara-sign-red-pin-bound.kyri) | Red reproduces; ledger at byte bound; two rulings owed. |
 | `20261011.084209` | [Incense, baton declined, stash recovered, no build](20261011/20261011-084209_incense-baton-declined-recovered-stash-no-build.kyri) | Two own stashed declines landed; no build. |
