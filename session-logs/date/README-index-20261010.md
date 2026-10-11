@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261010.212513` | [Diffuser, tenth-base held, no base run](20261010/20261010-212513_diffuser-tenth-base-held-no-base-run.kyri) | Held gate read again; no fresh base; check-in on Keaton's word. |
 | `20261010.212849` | [Petrichor, queue held, no build](20261010/20261010-212849_petrichor-queue-held-board-empty-no-build.kyri) | Board empty on xy; no claimable lane row. |
+| `20261010.213023` | [Patchouli, queue empty a sixteenth way](20261010/20261010-213023_patchouli-queue-empty-sixteenth.kyri) | Fresh mantra/tally grep; no family left; no build. |
 | `20261010.212418` | [Petrichor, queue still held, no build](20261010/20261010-212418_petrichor-queue-held-no-build.kyri) | Inner prompt and claims board read; no build. |
 | `20261010.212528` | [Patchouli, queue empty a fifteenth way](20261010/20261010-212528_patchouli-queue-empty-fifteenth.kyri) | Fresh mantra/tally grep; no family left; no build. |
 | `20261010.212447` | [Grass, grain-grass inner prompt B+, no frame](20261010/20261010-212447_grass-grain-inner-graded-b-plus-no-frame.kyri) | Page graded composite 87; no edit. |
