@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.181802` | [Bakery, hold after pull, crux gated](20261011/20261011-181802_bakery-hold-after-pull-crux-gated.kyri) | No build; fusion crux waits on YOURS receipt-key ruling; nib carried. |
 | `20261011.181810` | [Diffuser, fifty-fifth hold, P1 unruled](20261011/20261011-181810_diffuser-fifty-fifth-hold-p1-unruled.kyri) | Fast-forward brought one pin-only peer commit; no P1 ruling; no run. |
 | `20261011.181642` | [Copal, fruit empty again, no build](20261011/20261011-181642_copal-fruit-empty-no-claim-no-build.kyri) | Third empty fruit today: no unrostered guard, no build. |
 | `20261011.181153` | [Incense, stash flagged, no build](20261011/20261011-181153_incense-baton-stash-no-build.kyri) | Round-open clean at 4884cef14a; six stashed logs flagged. |
