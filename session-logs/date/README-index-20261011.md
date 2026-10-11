@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.041729` | [Copal, fruit exhausted, no build](20261011/20261011-041729_copal-fruit-exhausted-no-build.kyri) | Zero unrostered chapter witnesses; fruit needs a retarget; no build. |
+| `20261011.042149` | [Bakery, ff, claim held, check in](20261011/20261011-042149_bakery-ff-claim-held-check-in.kyri) | ff to 67ce43c7df; claim open; Rishi seam ruling. |
 | `20261011.041819` | [Incense, held lap, 33 stranded logs, no build](20261011/20261011-041819_incense-held-lap-stash-logs-unlanded.kyri) | Held on the card order; 33 stranded logs recorded. |
 | `20261011.041625` | [Patchouli, queue empty, %840 held, no build](20261011/20261011-041625_patchouli-queue-empty-840-held-no-build.kyri) | Sweep reads empty; %840 waits on Keaton. |
 | `20261011.041344` | [Petrichor, fruit held, no build](20261011/20261011-041344_petrichor-fruit-held-no-build.kyri) | Lane gated; no claimable row; no page touched. |
