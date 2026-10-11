@@ -96,6 +96,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.111616` | [Petrichor, lane gated, no build](20261011/20261011-111616_petrichor-held-lane-gated-no-build.kyri) | Both gates read; claims empty; prose witness GREEN; held. |
 | `20261011.111308` | [Copal, fruit empty again, no build](20261011/20261011-111308_copal-fruit-empty-again-no-build.kyri) | Zero unrostered chapter witnesses; no build. |
 | `20261011.111619` | [Grass, docs-geode sample graded, no build](20261011/20261011-111619_grass-docs-geode-sample-all-b-no-build.kyri) | Twenty-four pages, lowest 90; no edit. |
 | `20261011.111152` | [Bakery, plant adoption read, receipt key held, no build](20261011/20261011-111152_bakery-plant-adoption-held.kyri) | Remainder 361 unclaimed; ruling waits; no build. |
