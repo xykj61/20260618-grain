@@ -22,6 +22,8 @@ think Result: 329 links checked, 0 broken. The reading is clean and nothing need
 loom docs_geode_links=329 broken=0 scope=living_non_shelf
 obs The lane has no open target without the gate lifting. A clean reading is still a true one, and it is recorded rather than dressed as a repair.
 obs Nothing was booked on REDS or the claims board, because no red was found and no new instrument was opened.
+obs Contested send: the first push was refused as non-fast-forward because peers landed three commits. The rebase conflicted in the shelf index and the card; both were resolved by keeping every peer row and taking the upstream card, then the nib was amended to the rebased parent.
+obs A second pull moved the lap again, and the card's nib named two commits back, which reds remember_git_nib_witness. This follow-up carries that content and names HEAD before it is made, per rule 5.
 obs Not run this lap: the cold and hot endurance runs, and the claim check. Neither applies, since no tracked file changed except this log and its index row.
 rota none -- link reading only; no council row read this lap
 orbit round 7 sign -- computed from the commit count 11617; SPELLBOOK not opened, so the sign is unread
