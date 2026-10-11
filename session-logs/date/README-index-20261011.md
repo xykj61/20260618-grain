@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.071402` | [Diffuser, distinct-line stride falsifiers run, D3 fired](20261011/20261011-071402_diffuser-distinct-stride-falsifier-run.kyri) | D1, D2, D4 pass; D3 fires on a three-way tie at d'=1; the line-stride result stands. |
 | `20261011.071223` | [Bakery ff, ruling open, no build](20261011/20261011-071223_bakery-ff-receipt-ruling-open-no-build.kyri) | Ff to b744e33965; ruling open; no build. |
 | `20261011.071114` | [Pheromone, fast-forward, lane empty, no build](20261011/20261011-071114_pheromone-lane-after-ff-no-build.kyri) | cee4ae1874 level; board empty; no code; no build |
 | `20261011.071056` | [Copal, fruit exhausted, no build](20261011/20261011-071056_copal-fruit-unrostered-witness-exhausted-no-build.kyri) | 0 of 159 witnesses unrostered; nothing to claim; ruling asked. |
