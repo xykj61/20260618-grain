@@ -155,6 +155,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.124537` | [Incense, roster red read, no build](20261011/20261011-124537_incense-roster-red-read-no-build.kyri) | 48 roster guards read red; repair waits on a check-in. |
 | `20261011.124358` | [Copal, fruit spent again, recount, no build](20261011/20261011-124358_copal-fruit-spent-recount-no-build.kyri) | 159 of 159 rostered; no build. |
 | `20261011.124340` | [Incense, round open clean, no build](20261011/20261011-124340_incense-baton-round-open-clean-no-build.kyri) | Round-open clean; board clear; law lane waits on Keaton. |
 | `20261011.124259` | [Petrichor, gate held, no build](20261011/20261011-124259_petrichor-gate-held-air-feels-no-build.kyri) | Gate on Diffuser; no claim; no build. |
