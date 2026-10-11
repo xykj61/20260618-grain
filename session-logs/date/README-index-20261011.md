@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.024144` | [Bakery first proof green, cache held](20261011/20261011-024144_bakery-first-proof-green-held-no-build.kyri) | Key proven; wiring waits on ruling. |
 | `20261011.024824` | [Copal seventh recount, no build](20261011/20261011-024824_copal-seventh-recount-no-build.kyri) | 158 of 158 rostered; no claim; ruling on prin.rish waits. |
+| `20261011.025001` | [Incense declines, ff two peer logs](20261011/20261011-025001_incense-declines-ff-two-peer-logs.kyri) | Fast-forward two peer logs; cold run held; no build. |
 | `20261011.024659` | [Petrichor, no open fruit, lane idle](20261011/20261011-024659_petrichor-no-open-fruit-lane-idle.kyri) | Gate held; 15 OPEN reds in other lanes; no build. |
 | `20261011.024552` | [Incense declines, no build](20261011/20261011-024552_incense-declines-no-build.kyri) | Round-open clean; claims clear; cold run held; no build. |
 | `20261011.024433` | [Patchouli card nib pinned](20261011/20261011-024433_patchouli-card-nib-pinned-queue-held.kyri) | Git nib pinned; queue held; no build. |
