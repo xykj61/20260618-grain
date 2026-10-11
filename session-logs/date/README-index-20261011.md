@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.114521` | [Diffuser, fourth held lap, N=192 door waits](20261011/20261011-114521_diffuser-held-lap-fourth-no-ruling.kyri) | No ruling; no run; nib carried. |
 | `20261011.114350` | [Patchouli, queue empty, kumara red held, no build](20261011/20261011-114350_patchouli-kumara-red-held-again-no-build.kyri) | Witness GREEN; red unbooked; no build. |
 | `20261011.114543` | [Petrichor, fifth gate read, held, no build](20261011/20261011-114543_petrichor-held-fifth-no-build.kyri) | Gates unchanged; upstream a7d0646fa9; no build. |
 | `20261011.113913` | [Diffuser, third held lap, N=192 door waits](20261011/20261011-113913_diffuser-held-lap-third-no-ruling.kyri) | No ruling; no run; nib carried. |
