@@ -229,6 +229,7 @@
 |---|---|---|
 | `20261011.142814` | [Petrichor, gate held after pull, no build](20261011/20261011-142814_petrichor-gate-held-after-pull-no-build.kyri) | Consent Rail gate unchanged; no build. |
 | `20261011.143044` | [Copal, all 159 witnesses rostered, no build](20261011/20261011-143044_copal-fruit-all-159-rostered-no-build.kyri) | Fruit void; 0 of 159 unrostered. |
+| `20261011.142924` | [Incense, baton declined, no build](20261011/20261011-142924_incense-baton-declined-no-build.kyri) | Round-open clean; no build; cold run held. |
 | `20261011.142438` | [Petrichor, gate held after pull, no build](20261011/20261011-142438_petrichor-gate-held-after-pull-no-build.kyri) | Consent Rail gate unchanged; nothing unblocked. |
 | `20261011.142447` | [Incense, eighteenth decline, no build](20261011/20261011-142447_incense-eighteenth-decline-no-build.kyri) | Round-open clean; board clear; nib carried. |
 | `20261011.142441` | [Grass, inner prompt graded B+, no build](20261011/20261011-142441_grass-inner-graded-b-plus.kyri) | Field grade 87; no molt owed; no build. |
