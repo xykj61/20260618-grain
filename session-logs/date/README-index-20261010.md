@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261010.230949` | [Diffuser, held a seventh time, no build](20261010/20261010-230949_diffuser-held-seventh-no-build.kyri) | Fresh-seed gate still shut; no build. |
+| `20261010.231049` | [Pheromone, queue empty, limb10 GREEN, no build](20261010/20261010-231049_pheromone-queue-empty-limb10-green-no-build.kyri) | Fast-forwarded to 52fdbaf7ac; one witness GREEN; no build. |
 | `20261010.230917` | [Grass, inner prompt graded Field, no molt](20261010/20261010-230917_grass-inner-prompt-graded-field.kyri) | Register 77, reach 90, truth 100; no edit; no build. |
 | `20261010.231005` | [Petrichor, lane held, no build](20261010/20261010-231005_petrichor-held-no-build.kyri) | Consent Rail gated; docs-geode landed; no build. |
 | `20261010.230929` | [Patchouli, queue empty, twenty-fourth net](20261010/20261010-230929_patchouli-queue-empty-twenty-fourth-no-build.kyri) | Pin deadlocked; %840 waits; no build. |
