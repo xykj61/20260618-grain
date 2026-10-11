@@ -6,6 +6,7 @@
 | `20261010.230845` | [Copal, fruit empty fifth time, no build](20261010/20261010-230845_copal-fruit-empty-fifth-time-no-build.kyri) | Roster still complete across 158 witnesses; fruit empty; no build. |
 | `20261010.231202` | [Incense, round-open decline, no build](20261010/20261010-231202_incense-round-open-decline-no-build.kyri) | Clean onto 52fdbaf7ac; one bakery claim outside this lane; no build. |
 | `20261010.231330` | [Petrichor, pulled and held, no build](20261010/20261010-231330_petrichor-pulled-lane-still-held.kyri) | Ff-only pull to e9bf591; lane still held; no build. |
+| `20261010.231318` | [Bakery, fusion measure, first witness](20261010/20261010-231318_bakery-fusion-measure-first-witness.kyri) | Compile dominates; control 6/6; no cache change. |
 | `20261010.230949` | [Diffuser, held a seventh time, no build](20261010/20261010-230949_diffuser-held-seventh-no-build.kyri) | Fresh-seed gate still shut; no build. |
 | `20261010.231049` | [Pheromone, queue empty, limb10 GREEN, no build](20261010/20261010-231049_pheromone-queue-empty-limb10-green-no-build.kyri) | Fast-forwarded to 52fdbaf7ac; one witness GREEN; no build. |
 | `20261010.231158` | [Grass, docs-geode sample clean, no build](20261010/20261010-231158_grass-docs-geode-sample-clean-no-build.kyri) | Six pages graded A or A+; none below B; no build. |
