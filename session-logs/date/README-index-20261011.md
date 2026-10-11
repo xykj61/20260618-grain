@@ -26,6 +26,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.092829` | [Pheromone, lane held again, no build](20261011/20261011-092829_pheromone-lane-held-no-build-again.kyri) | Fetch clean, claim board empty; lane waits on Incense; no build. |
 | `20261011.092400` | [Patchouli, kumara red held, no build](20261011/20261011-092400_patchouli-kumara-red-held-no-build.kyri) | Witness GREEN; red held for ruling; no build. |
 | `20261011.092341` | [Incense, baton declined, lap 11362](20261011/20261011-092341_incense-baton-declined-no-build-lap-11362.kyri) | Fast-forward clean, board empty; no build. |
 | `20261011.092457` | [Grass, inner graded at Field, no build](20261011/20261011-092457_grass-inner-field-grade-no-build.kyri) | Inner prompt Field 77, reach 90, truth 100; no edit. |
