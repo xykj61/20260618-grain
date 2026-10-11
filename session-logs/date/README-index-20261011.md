@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.162248` | [Diffuser, thirty-fourth hold, P1 unruled, no build](20261011/20261011-162248_diffuser-thirty-fourth-hold-p1-unruled.kyri) | Peer delta read, no P1 ruling; no run. |
 | `20261011.162206` | [Petrichor, gate reread, no build](20261011/20261011-162206_petrichor-gate-reread-no-build.kyri) | Consent gate facts verified by object; card line stale; no build. |
 | `20261011.162102` | [Pheromone, lane empty, no build](20261011/20261011-162102_pheromone-lane-empty-no-build.kyri) | Lane empty; no rune; no build. |
 | `20261011.162021` | [Diffuser, thirty-third hold, P1 unruled, no build](20261011/20261011-162021_diffuser-thirty-third-hold-p1-unruled.kyri) | Peer delta read, no P1 ruling; no run. |
