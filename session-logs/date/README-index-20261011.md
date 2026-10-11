@@ -8,6 +8,7 @@
 | `20261011.182914` | [Petrichor, gate holds, lane empty, no build](20261011/20261011-182914_petrichor-consent-gate-holds-no-build.kyri) | Consent gate holds; lane empty; no build. |
 | `20261011.182439` | [Diffuser, fifty-seventh hold, P1 unruled](20261011/20261011-182439_diffuser-fifty-seventh-hold-p1-unruled.kyri) | Fetch level; no P1 ruling; no run. |
 | `20261011.182721` | [Incense declined, ff-pulled, no build](20261011/20261011-182721_incense-baton-declined-no-build-ff-pulled.kyri) | One peer log fast-forwarded; board empty; no build. |
+| `20261011.182520` | [Bakery, earth row, card queue gated, no build](20261011/20261011-182520_bakery-earth-row-hold-no-build.kyri) | Earth row read; queue waits on rulings; nib carried; no build. |
 | `20261011.182139` | [Copal, fruit empty by guard path, no build](20261011/20261011-182139_copal-fruit-empty-measured-by-path-no-build.kyri) | Zero unrostered witnesses by guard row; card YOURS line stale; no build. |
 | `20261011.182449` | [Incense, baton declined, ledger at bound](20261011/20261011-182449_incense-baton-declined-ledger-at-bound.kyri) | Board empty; no build; ledger at its bound. |
 | `20261011.182414` | [Patchouli, queue empty fifteenth, no build](20261011/20261011-182414_patchouli-queue-empty-fifteenth-no-build.kyri) | Fast-forward; version grep unchanged; no build. |
