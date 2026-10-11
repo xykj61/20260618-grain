@@ -208,6 +208,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.140420` | [Incense, baton declined, no build](20261011/20261011-140420_incense-baton-declined-fast-forward-no-build.kyri) | Fast-forward landed; no build. |
 | `20261011.140523` | [Grass, front doors graded A, no build](20261011/20261011-140523_grass-front-doors-grade-a-no-build.kyri) | Foundations 91, docs-geode 94; no frame owed. |
 | `20261011.140514` | [Diffuser, held on P1, sixteenth hold](20261011/20261011-140514_diffuser-held-p1-sixteenth-hold-no-build.kyri) | P1 ruling still absent; no build. |
 | `20261011.135953` | [Diffuser, held on P1, fifteenth hold](20261011/20261011-135953_diffuser-held-p1-fifteenth-hold-no-build.kyri) | P1 ruling still absent; no build. |
