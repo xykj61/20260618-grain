@@ -11,6 +11,7 @@
 | `20261011.074739` | [Incense, baton declined, no build](20261011/20261011-074739_incense-baton-declined-no-build-board-clear.kyri) | Round-open onto bedb7bef62; board clear; no build. |
 | `20261011.074735` | [Copal, fruit empty, all 158 rostered, no build](20261011/20261011-074735_copal-fruit-empty-all-158-rostered-no-build.kyri) | Strict count: 0 unrostered chapter witnesses; board clear; no build. |
 | `20261011.074735` | [Patchouli, queue empty](20261011/20261011-074735_patchouli-queue-empty-seventeenth-no-build.kyri) | Grep nets clean; no build. |
+| `20261011.075230` | [Pheromone, lane closed, no build](20261011/20261011-075230_pheromone-baton-lane-closed-no-build.kyri) | Card and record read; lane closed; no build. |
 | `20261011.074600` | [Incense, baton declined, no build](20261011/20261011-074600_incense-baton-declined-no-build-round-open-clean.kyri) | Clean on 1840f3c83d; no build. |
 | `20261011.074538` | [Pheromone, baton lap, lane closed on record, no build](20261011/20261011-074538_pheromone-baton-lap-check-in-no-build.kyri) | Card and record read; next door is Incense's ruling; no build. |
 | `20261011.074753` | [Diffuser, baton lap, next door gated](20261011/20261011-074753_diffuser-baton-lap-next-door-gated.kyri) | Next door awaits Keaton's raw vendor event; no build. |
