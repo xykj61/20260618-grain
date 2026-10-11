@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261011.182006` | [Patchouli, queue empty fourteenth, no build](20261011/20261011-182006_patchouli-queue-empty-fourteenth-no-build.kyri) | Version grep re-run; no candidate; no build. |
 | `20261011.181802` | [Bakery, hold after pull, crux gated](20261011/20261011-181802_bakery-hold-after-pull-crux-gated.kyri) | No build; fusion crux waits on YOURS receipt-key ruling; nib carried. |
+| `20261011.182022` | [Incense, baton declined, no build](20261011/20261011-182022_incense-baton-declined-no-build.kyri) | Round-open clean; claim board empty; no build; nib carried to c93a60b295. |
 | `20261011.181810` | [Diffuser, fifty-fifth hold, P1 unruled](20261011/20261011-181810_diffuser-fifty-fifth-hold-p1-unruled.kyri) | Fast-forward brought one pin-only peer commit; no P1 ruling; no run. |
 | `20261011.181642` | [Copal, fruit empty again, no build](20261011/20261011-181642_copal-fruit-empty-no-claim-no-build.kyri) | Third empty fruit today: no unrostered guard, no build. |
 | `20261011.181715` | [Petrichor, gate hold, rail unruled](20261011/20261011-181715_petrichor-gate-hold-rail-unruled.kyri) | Pulled three peer commits; consent gate still unruled; no build. |
