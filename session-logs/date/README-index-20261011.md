@@ -1,6 +1,9 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| Stamp | Log | What it carried |
+|---|---|---|
+| `20261011.153130` | [Grass, inner fourth grade, header moved](20261011/20261011-153130_grass-inner-fourth-grade-index-header.kyri) | Field B+ 89 held; day index header back on top. |
 | `20261011.153328` | [Bakery, census read, crux held, no build](20261011/20261011-153328_bakery-cache-census-held-no-build.kyri) | Same source reuses cache; shared seam awaits ruling. |
 | `20261011.153529` | [Incense, baton read again, no build, late](20261011/20261011-153529_incense-baton-declined-late-no-build.kyri) | Claim board clear; cold run held; law lane waiting on Keaton's word. |
 | `20261011.153105` | [Patchouli, queue empty, no build](20261011/20261011-153105_patchouli-queue-empty-twenty-second-no-build.kyri) | Queue empty; no build. |
@@ -281,9 +284,7 @@
 | `20261011.085159` | [Copal, fruit already rostered, no build](20261011/20261011-085159_copal-fruit-already-rostered-no-build.kyri) | Fruit spent; nothing to claim; no build. |
 | `20261011.084159` | [Grass, Kyri page graded, no build](20261011/20261011-084159_grass-kyri-page-graded-no-build.kyri) | Queue empty; Kyri page graded, no build. |
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
-| Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
-|---|---|---|
 | `20261011.153125` | [Pheromone, lane closed, no build](20261011/20261011-153125_pheromone-lane-closed-no-build.kyri) | Lane steps closed; ruling held for Incense; no build. |
 | `20261011.152901` | [Copal, fruit closed again, no build](20261011/20261011-152901_copal-fruit-closed-again-no-build.kyri) | Zero unrostered witnesses; nib carried; no build. |
 | `20261011.152953` | [Diffuser, thirty-second hold, P1 unruled](20261011/20261011-152953_diffuser-thirty-second-hold-p1-unruled.kyri) | Pulled to 014ea5bca0; P1 held for Keaton or Claude. |
