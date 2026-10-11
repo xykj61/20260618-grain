@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.002728` | [Bakery, crux held for a ruling, no build](20261011/20261011-002728_bakery-crux-held-no-build.kyri) | Shared-cache crux is a seam; claim board clear; no build. |
 | `20261011.002507` | [Petrichor, gate still closed](20261011/20261011-002507_petrichor-gate-still-closed.kyri) | Consent Rail unchanged; no build. |
 | `20261011.002506` | [Incense, round-open clean, declined, no build](20261011/20261011-002506_incense-declined-no-build.kyri) | Claim board clear; consent gate still waits; no build. |
 | `20261011.002315` | [Copal, unrostered recount, no build](20261011/20261011-002315_copal-unrostered-recount-no-build.kyri) | Fruit void, zero unrostered; no build. |
