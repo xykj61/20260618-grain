@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.055122` | [Petrichor, consent gate holds, no build](20261011/20261011-055122_petrichor-consent-gate-holds-no-build.kyri) | Consent Rail gate still held; zero live claims; no build. |
 | 20261011.055107 | [Patchouli, queue empty again, no build](20261011/20261011-055107_patchouli-queue-empty-again-no-build.kyri) | Empty queue again; both doors await rulings; no build. |
 | `20261011.054847` | [Bakery, queue held, no build](20261011/20261011-054847_bakery-queue-held-no-build.kyri) | Queue held on Keaton's ruling; no build, no endurance run. |
 | 20261011.054752 | [Patchouli, queue empty, no build](20261011/20261011-054752_patchouli-queue-empty-override-declined-no-build.kyri) | Empty queue; override declined; no build. |
