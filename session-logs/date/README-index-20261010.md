@@ -7,6 +7,7 @@
 | `20261010.224613` | [Diffuser, doors held, no build](20261010/20261010-224613_diffuser-doors-held-no-build.kyri) | Fruit queue held on Keaton's word; no build. |
 | `20261010.224626` | [Grass, inner prompt graded B+, no edit](20261010/20261010-224626_grass-inner-door-grade.kyri) | Field register 77, reach 90, truth 100, judged service 90; composite 89. |
 | `20261010.224341` | [Grass, compressor docs all B or better](20261010/20261010-224341_grass-compressor-docs-all-b-or-better.kyri) | Fifteen docs graded; 83 to 98; no edit. |
+| `20261010.224602` | [Patchouli, queue empty, fifth net, no build](20261010/20261010-224602_patchouli-queue-empty-fifth-net-no-build.kyri) | Elder-version net empty again; %807 and %840 await Keaton. |
 | `20261010.224204` | [Patchouli, header scan empty, no build](20261010/20261010-224204_patchouli-header-scan-empty-no-build.kyri) | Writers all chronological; catch-up seam awaits Claude. |
 | `20261010.223815` | [Diffuser, doors wait, no build](20261010/20261010-223815_diffuser-doors-wait-no-build.kyri) | Fresh base and raw event await Keaton; no Swift here. |
 | `20261010.224058` | [Pheromone lane held, no build](20261010/20261010-224058_pheromone-lane-held-no-build.kyri) | Glow lane held for Incense; no code change; prior GREEN not re-run. |
