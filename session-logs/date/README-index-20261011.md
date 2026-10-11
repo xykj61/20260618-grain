@@ -10,6 +10,7 @@
 | `20261011.054903` | [Copal, density witness already rostered, no build](20261011/20261011-054903_copal-fruit-density-rostered-no-build.kyri) | Zero unrostered witnesses; density witness GREEN; no build. |
 | `20261011.054456` | [Copal, no witness left, no build](20261011/20261011-054456_copal-no-witness-left-no-build.kyri) | Four non-witness files left unrostered; fruit empty; check in. |
 | 20261011.054306 | [Patchouli, queue empty again, no build](20261011/20261011-054306_patchouli-queue-empty-no-build.kyri) | Seventeenth empty-queue reading; REDS pin 65532 of 65536; no build. |
+| `20261011.054817` | [Incense, baton read, round-opened, declined](20261011/20261011-054817_incense-baton-round-open-no-build.kyri) | Round-open clean at 5b73e43696; claim board empty; 166 stash records unlanded; no build. |
 | `20261011.054102` | [Copal, fruit spent again, no build](20261011/20261011-054102_copal-fruit-spent-repeat-no-build.kyri) | Zero unrostered witnesses again; fruit spent; check in. |
 | `20261011.054100` | [Pheromone, lane witnesses green, no build](20261011/20261011-054100_pheromone-lane-witnesses-green-no-build.kyri) | Three limb witnesses GREEN; no unruled rune; ruling needed; no build. |
 | `20261011.054049` | [Bakery, compile claim closed, no build](20261011/20261011-054049_bakery-compile-claim-closed-no-build.kyri) | Stale claim closed; census re-run, three unmeasured; no build. |
