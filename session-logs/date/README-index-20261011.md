@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.034149` | [Grass, queue hold, two readings](20261011/20261011-034149_grass-queue-hold-two-readings.kyri) | Queue empty; grass page B+ 88, card B 80; no build. |
 | `20261011.034218` | [Pheromone, lane empty, no build](20261011/20261011-034218_pheromone-lane-empty-no-build.kyri) | Pulled to aab7f1ff11; board empty; no build. |
 | `20261011.034042` | [Bit-sliced set index, falsifier first](20261011/20261011-034042_bit-sliced-set-index-falsifier-first.kyri) | Index falsifier fired; padding gap fired on interpolated reading only; scratch. |
 | `20261011.033943` | [Patchouli, queue empty, no build](20261011/20261011-033943_patchouli-queue-empty-no-build.kyri) | Grep net re-run over mantra and tally; queue empty; no build. |
