@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.042552` | [Bakery, ff, key held, no build](20261011/20261011-042552_bakery-ff-key-held-no-build.kyri) | ff to eba02cb1f2; ruling open; no build. |
 | `20261011.042511` | [Grass, inner page graded B](20261011/20261011-042511_grass-inner-page-graded-b-no-build.kyri) | Field graded B; queue empty; no frame. |
 | `20261011.042235` | [Patchouli, queue empty, no build](20261011/20261011-042235_patchouli-queue-empty-no-build.kyri) | Fresh sweep reads empty; %840 and %807 wait on Keaton. |
 | `20261011.042506` | [Petrichor, hold after ff, no build](20261011/20261011-042506_petrichor-hold-after-ff-no-build.kyri) | Gate unchanged; ff to eba02cb1f2; no build. |
