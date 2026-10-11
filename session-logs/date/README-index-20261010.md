@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.200000` | [Copal, no unrostered chapter witness](20261010/20261010-200000_copal-no-unrostered-chapter-witness.kyri) | 156 witnesses, all rostered; no fruit; no build. |
 | `20261010.195716` | [Patchouli, queue empty, seventeenth sweep](20261010/20261010-195716_patchouli-queue-empty-seventeenth-kumara-red-held.kyri) | Queue empty; kumara red held on pin headroom and seam ruling; no build. |
 | `20261010.195403` | [Petrichor, lane held, no build](20261010/20261010-195403_petrichor-lane-held-no-build.kyri) | Consent gate unchanged; no fruit; no claim; no build. |
 | `20261010.195132` | [Copal, sunn14 choir rostered](20261010/20261010-195132_copal-sunn14-choir-rostered.kyri) | Unrostered choir rostered; scan repaired to xy alone; both sides proven. |
