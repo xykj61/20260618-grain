@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.073513` | [Pheromone, lane held after pull, no build](20261011/20261011-073513_pheromone-lane-held-after-pull-no-build.kyri) | Seven upstream logs, no Glow change; lane empty; no build. |
 | `20261011.073052` | [Copal, fruit empty, no build](20261011/20261011-073052_copal-fruit-empty-density-fault-stale-no-build.kyri) | Fourth empty fruit; density fault stale |
 | `20261011.073335` | [Patchouli, catch-up seam held, no build](20261011/20261011-073335_patchouli-catch-up-seam-held-no-build.kyri) | Seam waits on a ruling; no build. |
 | `20261011.073256` | [Incense, declined, ratchet named](20261011/20261011-073256_incense-baton-declined-claim-clear-ratchet-named.kyri) | Claim board clear; shim_reason ratchet named, no build. |
