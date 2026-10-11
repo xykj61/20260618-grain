@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261011.015217 | [Copal, premise stale, seventh](20261011/20261011-015217_copal-premise-stale-seventh-no-build.kyri) | Zero unrostered witnesses; no build |
 | 20261011.015133 | [Petrichor, lane still gated, no build](20261011/20261011-015133_petrichor-lane-still-gated-no-build.kyri) | Gate closed; upstream level; no edit. |
 | 20261011.015118 | [Grass prose sample, nine pages, no lift](20261011/20261011-015118_grass-prose-sample-all-b-plus-no-lift.kyri) | Nine prose pages, none below B; no edit, no build |
 | `20261011.015051` | [Pheromone, lane empty, no build](20261011/20261011-015051_pheromone-lane-empty-no-build.kyri) | Language queue empty; no rune question open; fast-forward only; no build. |
