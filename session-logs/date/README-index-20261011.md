@@ -96,6 +96,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.111127` | [Diffuser, fourth hold on two gated doors, no run](20261011/20261011-111127_diffuser-fourth-hold-two-doors-gated.kyri) | Both doors still gated; stall held; no run. |
+| `20261011.110959` | [Grass, docs page held, no build](20261011/20261011-110959_grass-docs-witness-patterns-held-no-build.kyri) | Field 83; nothing below B; no build. |
 | `20261011.110629` | [Pheromone, lane empty, no build](20261011/20261011-110629_pheromone-lane-held-no-build.kyri) | Fast-forwarded; closed fruit not re-run; no rune; no build. |
 | `20261011.110513` | [Incense, recur fourth decline, no build](20261011/20261011-110513_incense-recur-fourth-decline-no-build.kyri) | Fetch clean; board empty; no build. |
 | `20261011.110815` | [Petrichor, consent gate held, no build](20261011/20261011-110815_petrichor-consent-gate-held-no-build.kyri) | Public seam not landed; no build; nib follow-up. |
