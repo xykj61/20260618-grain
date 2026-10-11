@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.132127` | [Patchouli, queue empty sixth read](20261011/20261011-132127_patchouli-queue-empty-sixth-read-no-build.kyri) | Fresh grep nets empty; kumara red held for a ruling; no build. |
 | `20261011.132049` | [Pheromone, closed fruit, no build](20261011/20261011-132049_pheromone-closed-fruit-no-build.kyri) | Awaits Incense ruling; no build. |
 | `20261011.132013` | [Incense, baton declined, no build, seventh read](20261011/20261011-132013_incense-baton-declined-no-build-7.kyri) | Round-open clean; order unchanged; waits on Keaton's word. |
 | `20261011.131952` | [Copal, fruit empty recount, no build](20261011/20261011-131952_copal-fruit-empty-recount-no-build.kyri) | Zero unrostered witnesses; no claim; no build. |
