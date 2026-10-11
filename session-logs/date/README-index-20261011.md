@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.064241` | [Copal, roster repeat, fruit spent](20261011/20261011-064241_copal-roster-repeat-fruit-spent.kyri) | Zero unrostered witnesses; repeat of 063913; no build. |
+| `20261011.064218` | [Patchouli, recall GREEN, queue empty](20261011/20261011-064218_patchouli-recall-witnesses-green-check-in.kyri) | Recall witnesses GREEN; no build; seam open. |
 | `20261011.063948` | [Pheromone, lane held, no build](20261011/20261011-063948_pheromone-lane-held-no-build.kyri) | Closed on the card; fast-forwarded to peers; no build. |
 | `20261011.063814` | [Grass, mycelium queue clear](20261011/20261011-063814_grass-mycelium-queue-clear-no-build.kyri) | Ten heads read B or better; queue spent, no build. |
 | `20261011.063913` | [Copal, roster already complete](20261011/20261011-063913_copal-chapter-roster-already-complete.kyri) | 159 witnesses and 166 rows agree; card count stale. |
