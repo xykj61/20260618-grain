@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.181023` | [Copal, no unrostered witness, no build](20261011/20261011-181023_copal-no-unrostered-chapter-witness.kyri) | Zero unrostered witnesses by exact path; fruit not takeable; no build. |
 | `20261011.181012` | [Diffuser, fifty-third hold](20261011/20261011-181012_diffuser-fifty-third-hold-p1-unruled.kyri) | No run; P1 still unruled, no ruling. |
 | `20261011.180931` | [Patchouli, queue empty, no build](20261011/20261011-180931_patchouli-queue-empty-no-build.kyri) | Greps and REDS reread; nothing booked here. |
 | `20261011.180913` | [Pheromone, lane held at ruling, second lap](20261011/20261011-180913_pheromone-lane-held-at-ruling-second-lap.kyri) | No build; fresh pull, claim board read, lane still awaits Incense. |
