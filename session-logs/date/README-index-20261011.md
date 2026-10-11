@@ -162,6 +162,7 @@
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
 | `20261011.125533` | [Incense, baton read, no build, orbit 12](20261011/20261011-125533_incense-baton-no-build-orbit-12.kyri) | Board empty, tree clean, nothing upstream; lane waits on Keaton's word. |
+| `20261011.125620` | [Diffuser, held again, no build](20261011/20261011-125620_diffuser-held-no-ruling-no-build.kyri) | P1 ruling still absent; no run, no build. |
 | `20261011.125333` | [Grass, docs front door graded, no edit](20261011/20261011-125333_grass-docs-front-door-grade-no-edit.kyri) | docs/README.md at B-or-better; no edit. |
 | `20261011.125326` | [Copal, fruit empty again, no build](20261011/20261011-125326_copal-fruit-empty-roster-strict-no-build.kyri) | 158 witnesses rostered, 0 unrostered; no claim, no build. |
 | `20261011.125309` | [Petrichor, gate held on second read, no build](20261011/20261011-125309_petrichor-gate-held-second-read-no-build.kyri) | Public seam not landed upstream; no build. |
