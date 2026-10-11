@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.025114` | [Patchouli, queue empty, sign red held](20261011/20261011-025114_patchouli-queue-empty-sign-red-840-held.kyri) | Queue empty; kumara sign red waits at pin bound; no build. |
 | `20261011.024144` | [Bakery first proof green, cache held](20261011/20261011-024144_bakery-first-proof-green-held-no-build.kyri) | Key proven; wiring waits on ruling. |
 | `20261011.024824` | [Copal seventh recount, no build](20261011/20261011-024824_copal-seventh-recount-no-build.kyri) | 158 of 158 rostered; no claim; ruling on prin.rish waits. |
 | `20261011.025001` | [Incense declines, ff two peer logs](20261011/20261011-025001_incense-declines-ff-two-peer-logs.kyri) | Fast-forward two peer logs; cold run held; no build. |
