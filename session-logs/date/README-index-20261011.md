@@ -9,6 +9,7 @@
 | `20261011.035611` | [Pheromone, shape witnesses GREEN, no build](20261011/20261011-035611_pheromone-glow-witnesses-green-no-build.kyri) | Three shape witnesses re-run GREEN; no build. |
 | `20261011.035552` | [N = 512 fine grid, peak near 256](20261011/20261011-035552_n512-peak-holds-falsifier-first.kyri) | Ratio 2.65 in band; falsifiers committed first. |
 | `20261011.035456` | [Patchouli, queue empty](20261011/20261011-035456_patchouli-queue-empty-no-build.kyri) | Counted headers landed; no build; nib repinned. |
+| `20261011.035341` | [Petrichor, Consent Rail still held, no build](20261011/20261011-035341_petrichor-consent-rail-held-no-build.kyri) | Gate held; no claim; log only. |
 | `20261011.035223` | [Copal, fruit measured empty, no build](20261011/20261011-035223_copal-fruit-measured-empty-no-build.kyri) | 159 of 159 chapter witnesses rostered; card's ~75 line stale. |
 | `20261011.034918` | [Bakery repeat triage, receipt key held](20261011/20261011-034918_bakery-repeat-triage-receipt-key-held.kyri) | Census re-measured; receipt key waits on Keaton; no build. |
 | `20261011.035115` | [Patchouli, gardens main split](20261011/20261011-035115_patchouli-gardens-main-split-at-seams.kyri) | tally gardens main 134 to 63 lines; witness GREEN. |
