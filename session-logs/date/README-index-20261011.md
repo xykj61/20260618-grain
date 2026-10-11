@@ -121,6 +121,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.115803` | [Patchouli, queue empty, no build](20261011/20261011-115803_patchouli-queue-empty-fourteenth-plus-no-build.kyri) | Fresh grep empty; no file changed. |
 | `20261011.115553` | [Incense, baton lap, round-open clean, no build](20261011/20261011-115553_incense-baton-round-open-no-build.kyri) | Round-open clean; claim board clear; no build. |
 | `20261011.115247` | [Incense, water-row lap, declined, no build](20261011/20261011-115247_incense-baton-lap-water-row-no-build.kyri) | Round-open clean; clock in; cold run held; no build. |
 | `20261011.115014` | [Bakery, shared-cache claim held, no build](20261011/20261011-115014_bakery-shared-cache-claim-held.kyri) | Claim pushed; crux open; no build |
