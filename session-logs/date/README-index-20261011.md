@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.035038` | [Petrichor, gate still held, no build](20261011/20261011-035038_petrichor-lane-idle-gate-still-held.kyri) | Gate held; no claim; log only. |
 | `20261011.034753` | [Grass, four heads graded, no build](20261011/20261011-034753_grass-four-heads-graded-no-build.kyri) | Four mycelium heads read A; no frame. |
 | `20261011.034801` | [Incense, round declined, no build](20261011/20261011-034801_incense-declined-no-build-round-open-adopted.kyri) | Round-open adopted; cold run held; no build. |
 | `20261011.034607` | [Petrichor, fruit empty again, no build](20261011/20261011-034607_petrichor-fruit-empty-again-no-build.kyri) | Gate held; no claim; log only. |
