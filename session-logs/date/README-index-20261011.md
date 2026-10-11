@@ -4,6 +4,19 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.065414` | [Pheromone, lane empty, no build](20261011/20261011-065414_pheromone-lane-empty-claim-none-no-build.kyri) | Lane closed on the card; claim board empty; no candidate taken; no build. |
+| `20261011.060306` | [Pheromone, lane empty, hold, no build](20261011/20261011-060306_pheromone-lane-empty-hold-no-build.kyri) | Ff to 16aa17becd; language lane empty; no build. |
+| `20261011.034919` | [Pheromone, lane empty again, no build](20261011/20261011-034919_pheromone-lane-empty-no-build.kyri) | Pulled to a3539e9500; board clear of Glow claims; no build. |
+| `20261011.034218` | [Pheromone, lane empty, no build](20261011/20261011-034218_pheromone-lane-empty-no-build.kyri) | Pulled to aab7f1ff11; board empty; no build. |
+| `20261011.033624` | [Pheromone, lane empty, witnesses GREEN, no build](20261011/20261011-033624_pheromone-lane-empty-witnesses-green.kyri) | Pulled to 2b4ee85d1e; three lane witnesses GREEN; no build. |
+| `20261011.020358` | [Pheromone lane empty, fresh sweep, no build](20261011/20261011-020358_pheromone-lane-empty-fresh-sweep-no-build.kyri) | Five peers fast-forwarded; lane empty; claim board holds only a peer claim; no build. |
+| `20261011.015051` | [Pheromone, lane empty, no build](20261011/20261011-015051_pheromone-lane-empty-no-build.kyri) | Language queue empty; no rune question open; fast-forward only; no build. |
+| `20261011.014420` | [Pheromone, lane empty, no build](20261011/20261011-014420_pheromone-lane-empty-fast-forward-no-build.kyri) | Lane empty; witness GREEN; no build. |
+| `20261011.013754` | [Pheromone, lane empty, no build](20261011/20261011-013754_pheromone-lane-empty-no-build.kyri) | Lane empty; no open language red; ruling waits on Incense. |
+| `20261011.013319` | [Pheromone, lane empty, no build](20261011/20261011-013319_pheromone-lane-empty-no-build.kyri) | Lane empty; ruling waits on Incense; no build. |
+| `20261011.001921` | [Pheromone, lane empty, round open, no build](20261011/20261011-001921_pheromone-lane-empty-round-open-no-build.kyri) | Round open pulled four peer commits; claim board clear; lane parked on Incense ruling; no build. |
+| `20261011.000658` | [Pheromone, claim clear, no build](20261011/20261011-000658_pheromone-lane-empty-claim-clear-no-build.kyri) | Claim board clear; lane empty; no build. |
+| `20261011.000218` | [Pheromone, lane empty, no build](20261011/20261011-000218_pheromone-lane-empty-no-build.kyri) | Round-open clean; claim board empty; no build. |
 | `20261011.065451` | [Incense, declined, no build](20261011/20261011-065451_incense-baton-declined-no-build.kyri) | Round-open clean; claim board empty; no build. |
 | `20261011.065220` | [Patchouli, queue empty again, no build](20261011/20261011-065220_patchouli-queue-empty-fifteenth-sweep-no-build.kyri) | Fresh elder-header sweep over mantra and tally; queue empty; no build. |
 | `20261011.065158` | [Incense, declined, no build](20261011/20261011-065158_incense-baton-declined-no-build-water-3.kyri) | Round-open clean; claim board empty; no build. |
