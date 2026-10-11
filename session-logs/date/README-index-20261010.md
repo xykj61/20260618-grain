@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.203835` | [Copal, density floor speaks at zero markers](20261010/20261010-203835_copal-zero-marker-exit-spoken.kyri) | Silent exit at zero markers repaired; witness GREEN; fruit still blocked on a ruling. |
 | `20261010.204028` | [Petrichor, pulled one commit, gate held, no build](20261010/20261010-204028_petrichor-pulled-gate-held-no-build.kyri) | Fast-forwarded Patchouli's bounds commit; Consent Rail gate unchanged; no build. |
 | `20261010.203745` | [Pheromone, pulled, queue empty, no build](20261010/20261010-203745_pheromone-queue-empty-pulled-no-build.kyri) | Pulled to upstream; lane queue empty; no build. |
 | `20261010.203956` | [Diffuser, door held, no build](20261010/20261010-203956_diffuser-tenth-base-held-water-row-read-no-build.kyri) | Card read; fresh-seed door waits on Keaton's word. |
