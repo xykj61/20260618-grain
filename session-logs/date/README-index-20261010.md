@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.223021` | [Diffuser, tenth base held, no build](20261010/20261010-223021_diffuser-tenth-base-held-no-build.kyri) | Interval straddles the line; gate on Keaton's word. |
 | `20261010.223020` | [Patchouli, kumara red held, no build](20261010/20261010-223020_patchouli-kumara-red-pin-bound-no-build.kyri) | Red 840 unbooked; pin at bound; two rulings owed. |
 | `20261010.222754` | [Diffuser, sixth held lap, no build](20261010/20261010-222754_diffuser-gate-held-sixth-lap-no-build.kyri) | Gate still shut; no word on card; no run. |
 | `20261010.222552` | [Incense, forty-seventh decline, no build](20261010/20261010-222552_incense-declined-forty-seventh-no-build.kyri) | Law lane waits on Keaton's word. |
