@@ -6,6 +6,7 @@
 | `20261011.170507` | [Petrichor, seam still absent, no build](20261011/20261011-170507_petrichor-seam-still-absent-no-build.kyri) | Seam absent after fetch; no build. |
 | `20261011.170039` | [Incense, baton round 73, no build](20261011/20261011-170039_incense-baton-round-73-declined-no-build.kyri) | Order held; no build; board holds bakery claim only. |
 | `20261011.170155` | [Diffuser, thirty-eighth hold](20261011/20261011-170155_diffuser-thirty-eighth-hold-p1-unruled.kyri) | P1 still unruled; no run; check in (Claude) on P1. |
+| `20261011.170443` | [Patchouli, fresh TAME net clean, no build](20261011/20261011-170443_patchouli-fresh-net-clean-no-build.kyri) | Seated TAME bans read zero across mantra/ and tally/; no build. |
 | `20261011.170115` | [Petrichor, seam absent after fetch, no build](20261011/20261011-170115_petrichor-seam-absent-upstream-no-build.kyri) | Seam still absent; ff to a1a109dfa1; no build. |
 | `20261011.170037` | [Grass, queue empty, no build](20261011/20261011-170037_grass-queue-empty-no-build.kyri) | Audit queue empty; no below-B file; log and nib only. |
 | `20261011.165859` | [Pheromone, lane held on ruling, no build](20261011/20261011-165859_pheromone-lane-held-ruling-no-build.kyri) | Lane held on Incense ruling; ff to f16d9234fc; no build. |
