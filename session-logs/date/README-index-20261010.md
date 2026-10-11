@@ -7,6 +7,7 @@
 | `20261010.232849` | [Copal, fruit void, no unrostered witness, no build](20261010/20261010-232849_copal-fruit-void-no-unrostered-witness-no-build.kyri) | 158 chapter witnesses all rostered; fruit empty; no build. |
 | `20261010.232706` | [Incense, pulled, no build](20261010/20261010-232706_incense-round-open-pulled-no-build.kyri) | Fast-forwarded to 69bf6e6b3d; no build. |
 | `20261010.232903` | [Patchouli, catch-up seam ruled held, no build](20261010/20261010-232903_patchouli-catch-up-seam-ruled-held.kyri) | No stub seam; refusal stays unreachable at 16 leaves; three witnesses re-run GREEN. |
+| `20261010.233023` | [Petrichor, held at the consent rail, no build](20261010/20261010-233023_petrichor-held-consent-rail-no-build.kyri) | Consent Rail gate unchanged; no build. |
 | `20261010.232444` | [Pheromone, override declined, no build](20261010/20261010-232444_pheromone-override-declined-no-build.kyri) | Lane empty; cross-lane override held for a ruling; no build. |
 | `20261010.232554` | [Bakery, crux premise stalled, check in](20261010/20261010-232554_bakery-crux-premise-stalled-check-in.kyri) | Receipt chain 603 h old; sharing saves 24 files; no build |
 | `20261010.232429` | [Copal, fruit spent seventh time, no build](20261010/20261010-232429_copal-fruit-spent-seventh-no-build.kyri) | 158 witnesses rostered; fruit empty; no build. |
