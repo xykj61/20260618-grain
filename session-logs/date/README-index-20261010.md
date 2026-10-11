@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.222552` | [Incense, forty-seventh decline, no build](20261010/20261010-222552_incense-declined-forty-seventh-no-build.kyri) | Law lane waits on Keaton's word. |
 | `20261010.222628` | [Copal, fruit spent third re-check, no build](20261010/20261010-222628_copal-fruit-spent-third-recheck-no-build.kyri) | 158 of 158 rostered; no build. |
 | `20261010.221933` | [Diffuser, fourth held lap, no build](20261010/20261010-221933_diffuser-gate-held-fourth-lap-no-build.kyri) | Gate still shut; no word on card; no run. |
 | `20261010.222130` | [Copal, fruit re-checked after pull, no build](20261010/20261010-222130_copal-fruit-recheck-no-build.kyri) | Still zero unrostered; card ~75 stale. |
