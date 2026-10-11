@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.202514` | [Bakery, census held, roster red named](20261010/20261010-202514_bakery-census-held-roster-red-named.kyri) | Census shared; receipt key held; %836 named, no build. |
 | `20261010.202259` | [Incense, forty-seventh declined](20261010/20261010-202259_incense-forty-seventh-declined-no-build.kyri) | Round-open clean; no build. |
 | `20261010.202138` | [Patchouli, queue empty, kumara red rechecked](20261010/20261010-202138_patchouli-queue-empty-kumara-red-recheck.kyri) | Queue empty; kumara sign red re-read and held at the REDS byte bound. |
 | `20261010.202122` | [Grass, voice file graded A, no build](20261010/20261010-202122_grass-kyri-voice-graded-a-no-build.kyri) | KYRI.md door reading A/96; no edit; no build. |
