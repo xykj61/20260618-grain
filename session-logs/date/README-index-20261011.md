@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261011.014608 | [Diffuser hold, third repeat today, date-gated](20261011/20261011-014608_diffuser-hold-repeat-date-gated-no-run.kyri) | Fourth-night pair waits for 20261012, no run, no edit |
+| `20261011.014756` | [Petrichor, lane gated, no build](20261011/20261011-014756_petrichor-lane-gated-no-build.kyri) | Gate still closed; upstream one commit; no edit. |
 | `20261011.014542` | [Patchouli, queue empty, 840 blocked](20261011/20261011-014542_patchouli-840-pin-still-full-no-build.kyri) | Queue empty; REDS full; no edit. |
 | `20261011.014151` | [Incense, fast-forward, stash held, no build](20261011/20261011-014151_incense-ff-decline-stash-held.kyri) | One peer log pulled; three stashes held; no build. |
 | 20261011.014342 | [diffuser fourth pair still held](20261011/20261011-014342_diffuser-fourth-pair-still-held.kyri) | Diffuser second hold of the morning, fourth pair waits for 20261012, no run |
