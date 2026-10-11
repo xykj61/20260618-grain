@@ -52,9 +52,3 @@ format fleet-claims-v1
 # The board opens empty, and the first claim belongs to the next ship that opens a build. Seeding
 # it with this lap's own work would be a claim written after the fact, which is the one thing a
 # declaration may never be.
-claim build-cached-witness
-seat bakery
-stamp 20261011.180108
-epoch 1791756068
-paths tools/b/build_cached_witness.rish
-what Bakery writes the Rishi witness the build-cache consumer still owes: it runs build_cached_control.sh and holds its 24 legs at zero failures, with no roster row yet.
