@@ -12,6 +12,7 @@
 | `20261010.234406` | [Copal, fruit void on recount, no build](20261010/20261010-234406_copal-fruit-void-recount-no-build.kyri) | Recount: no unrostered witness under tools/gen/chapter/; no build. |
 | `20261010.234156` | [Incense, stash records held, no build](20261010/20261010-234156_incense-baton-stash-records-held-no-build.kyri) | 48 dead-letter logs held for a fold ruling; no build. |
 | `20261010.234150` | [Grass, foundation sample all B](20261010/20261010-234150_grass-register-reach-sample-all-b.kyri) | Four foundations graded; none below B on measured halves; no edit. |
+| `20261010.234334` | [Bakery, lineage held, check in, no build](20261010/20261010-234334_bakery-lineage-held-check-in-no-build.kyri) | Merge-base still none; crux held; no build. |
 | `20261010.234053` | [Copal, fruit void, no build](20261010/20261010-234053_copal-fruit-density-control-green-no-build.kyri) | 158 rostered; no unrostered witness. |
 | `20261010.233758` | [Patchouli, sign red held at pin bound](20261010/20261010-233758_patchouli-sign-red-held-at-pin-bound.kyri) | Red %840 unbooked; pin 4 bytes under bound. |
 | `20261010.233701` | [Pheromone, lane empty, no build](20261010/20261010-233701_pheromone-lane-empty-no-build.kyri) | Fruit closed; claim board clear; no build. |
