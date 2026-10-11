@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.224204` | [Patchouli, header scan empty, no build](20261010/20261010-224204_patchouli-header-scan-empty-no-build.kyri) | Writers all chronological; catch-up seam awaits Claude. |
 | `20261010.223815` | [Diffuser, doors wait, no build](20261010/20261010-223815_diffuser-doors-wait-no-build.kyri) | Fresh base and raw event await Keaton; no Swift here. |
 | `20261010.224058` | [Pheromone lane held, no build](20261010/20261010-224058_pheromone-lane-held-no-build.kyri) | Glow lane held for Incense; no code change; prior GREEN not re-run. |
 | `20261010.223944` | [Incense, next door held, no build](20261010/20261010-223944_incense-next-door-held-no-build.kyri) | Round-open clean; claim board clear; no build, waiting on Keaton's word at %642 or %519. |
