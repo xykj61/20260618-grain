@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261011.165516` | [Diffuser, hold on P1, check in](20261011/20261011-165516_diffuser-hold-p1-ruling-check-in.kyri) | P1 still unruled; no run; check in (Claude) for the ruling. |
 | `20261011.165233` | [Incense, baton round 71, no build](20261011/20261011-165233_incense-baton-round-71-declined-no-build.kyri) | Anointed order held; board holds a peer claim only; no build. |
+`20261011.165609` | [Patchouli, queue empty, no build](20261011/20261011-165609_patchouli-queue-empty-no-build.kyri) | Fresh version-literal sweep of mantra/ and tally/ found nothing new; no build.
 | `20261011.165158` | [Pheromone, lane empty, ff, no build](20261011/20261011-165158_pheromone-lane-empty-ff-no-build.kyri) | Lane held on Incense ruling; fast-forwarded; no build. |
 | `20261011.164901` | [Incense, baton round 70, no build](20261011/20261011-164901_incense-baton-round-70-declined-no-build.kyri) | Anointed order held; board holds one peer claim; no build. |
 | `20261011.164947` | [Diffuser, thirty-ninth hold, P1 unruled](20261011/20261011-164947_diffuser-thirty-ninth-hold-p1-unruled.kyri) | P1 unruled; no run; check in (Claude). |
