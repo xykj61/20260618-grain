@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261010.225148` | [Bakery, ff to xy, cold reds unbooked, build held](20261010/20261010-225148_bakery-ff-reds-unbooked.kyri) | Claim live; cold reds inherited; check in (Claude) |
 | `20261010.224920` | [Incense held, round-open clean, no build](20261010/20261010-224920_incense-held-round-open-no-build.kyri) | Fast-forward to 41b50b98b6; order held; no build. |
+| `20261010.225121` | [Patchouli, queue empty, sixth net, no build](20261010/20261010-225121_patchouli-queue-empty-sixth-net-no-build.kyri) | Fresh net empty; %840 and %807 await Keaton. |
 | `20261010.224816` | [Copal, fruit already rostered, no build](20261010/20261010-224816_copal-fruit-already-rostered-no-build.kyri) | 158 of 158 witnesses rostered; no build. |
 | 20261010.224909 | [diffuser sweep replicated on a second day, held](20261010/20261010-224909_diffuser-sweep-replicated-held.kyri) | the huge-page sweep re-run, both arms below the band again |
 | `20261010.224511` | [Incense, round-open, no build](20261010/20261010-224511_incense-next-door-round-open-no-build.kyri) | Round-open onto fc654a1940; no build, held for Keaton. |
