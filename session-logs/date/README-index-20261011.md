@@ -244,6 +244,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.145207` | [Patchouli, kumara held fourth, no build](20261011/20261011-145207_patchouli-kumara-held-fourth-no-build.kyri) | Queue empty; kumara held for ruling; no build. |
 | `20261011.144803` | [Bakery, receipt-key hold, no build](20261011/20261011-144803_bakery-receipt-key-hold-no-build.kyri) | YOURS ruling open; no build. |
 | `20261011.145208` | [Incense, stranded sixth log recovered](20261011/20261011-145208_incense-stranded-sixth-log-recovered.kyri) | Restored the stashed decline log and its row; repair only. |
 | `20261011.145017` | [Incense, baton declined sixth time, no build](20261011/20261011-145017_incense-baton-declined-sixth-no-build.kyri) | Board clear, card read, no build; log only. |
