@@ -7,6 +7,7 @@
 | `20261011.073026` | [Patchouli, kumara red held on pin bound](20261011/20261011-073026_patchouli-kumara-red-held-on-pin-bound.kyri) | REDS at 65532 of 65536; sign panic row %840 waits. |
 | `20261011.073043` | [Diffuser, repeat-share door run, padding arm vacuous](20261011/20261011-073043_diffuser-repeat-share-result.kyri) | D1 to D3 pass on the scratch model; D4 vacuous, padding did not move a line index. |
 | `20261011.072614` | [Pheromone, lane held on recount, no build](20261011/20261011-072614_pheromone-lane-held-recount-no-build.kyri) | Glow witness GREEN; lane empty; no build. |
+| `20261011.073041` | [Incense, baton read, declined, no build](20261011/20261011-073041_incense-baton-declined-no-build-2.kyri) | Round-open on the anointed order; no build; clock report read. |
 | `20261011.072744` | [Incense lands three stashed no-build logs](20261011/20261011-072744_incense-lands-three-stashed-logs.kyri) | Restored three dead-letter logs; unlanded=0; no build. |
 | `20261011.072454` | [Incense, baton fast-forwarded, declined, no build](20261011/20261011-072454_incense-baton-declined-ff-no-build.kyri) | Fast-forward to eb24c92509; queue gated; no build. |
 | `20261011.071422` | [Incense, baton read, state held, no build](20261011/20261011-071422_incense-baton-read-state-held-no-build.kyri) | Card and board read; no build, no send. |
