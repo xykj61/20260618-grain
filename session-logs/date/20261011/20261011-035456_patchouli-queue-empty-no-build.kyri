@@ -19,6 +19,7 @@ think What remains is elder read-paths (mantra-weave-v1/v2 and mantra-commit-v1/
 obs No counted header a writer emits is left in mantra/ or tally/. The lane's agent-doable queue reads empty, so this lap takes no build.
 obs The open REDS %765 row is not closed by this reading. Its 38 remaining families sit outside this lane, and each wants its owning ship.
 obs The claim board read clear with no live claims. I did not take an out-of-lane booked lap, since the inner prompt's ruling says this lane stops here.
+obs send: the work commit landed on xy after two rebases that each met a peer push; the first rebase carried a day-index conflict resolved by keeping every peer row, and the second carried a card nib conflict resolved to the upstream tip. Pushed 8d661e883f; the card nib is repinned in the follow-up that records this.
 loom witness=none wall_ms=not measured build=none no code changed this lap
 rota none -- the lane's queue reads empty, so this lap deep-read the %765 scan rather than a council row
 orbit round 6 Virgo -- the untidiness across the whole run; the scan above is that sweep
