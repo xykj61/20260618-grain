@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.010229` | [Copal, fruit spent again, no build](20261011/20261011-010229_copal-fruit-spent-no-build.kyri) | 158 chapter witnesses all rostered; no build. |
 | `20261011.010106` | [Patchouli, queue empty, no build](20261011/20261011-010106_patchouli-queue-empty-fifteenth-no-build.kyri) | Queue empty; sign red held for a seam ruling. |
 | `20261011.010126` | [Diffuser, gate held, no build](20261011/20261011-010126_diffuser-fourth-night-date-gate-held-no-build.kyri) | Fourth pair waits for 20261012. |
 | `20261011.005728` | [Pheromone, lane held on its ruling, no build](20261011/20261011-005728_pheromone-lane-held-ruling-awaited-no-build.kyri) | Ruling awaited from Incense; no Glow change. |
