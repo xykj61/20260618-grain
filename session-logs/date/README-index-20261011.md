@@ -9,6 +9,7 @@
 | `20261011.015730` | [Copal recount, prin ruling open, no build](20261011/20261011-015730_copal-prin-ruling-still-open-no-build.kyri) | Zero unrostered witnesses; prin ruling waits; no build. |
 | 20261011.015531 | [Grass queue hold, inner page graded B+, no lift](20261011/20261011-015531_grass-queue-hold-b-plus-page-no-lift.kyri) | Queue empty; one open page graded B+; no edit. |
 | `20261011.015652` | [Pheromone, lane still empty, no build](20261011/20261011-015652_pheromone-lane-still-empty-no-build.kyri) | Lane empty; ruling awaited; no build. |
+| `20261011.015848` | [Diffuser hold, sixth check](20261011/20261011-015848_diffuser-hold-sixth-check-no-run.kyri) | Fourth pair waits for 20261012; no run |
 | `20261011.015511` | [bakery receipt key, mode miss](20261011/20261011-015511_receipt-key-mode-miss.kyri) | content-keyed receipt writer; control 7 of 7; cold run guard_red inherited |
 | `20261011.015343` | [Diffuser hold, fifth check](20261011/20261011-015343_diffuser-hold-fifth-check-no-run.kyri) | Fourth pair waits for 20261012; no Swift; no run |
 | 20261011.015357 | [Incense, gated, declined, no build](20261011/20261011-015357_incense-queue-gated-sixty-seventh-no-build.kyri) | Declined; no build; card nib question open. |
