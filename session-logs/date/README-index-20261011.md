@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.010641` | [Copal, fruit empty again by strict measure, no build](20261011/20261011-010641_copal-fruit-empty-measured-no-build.kyri) | 158 chapter witnesses strict-rostered; no build. |
 | `20261011.010415` | [Pheromone, lane held on its Glow ruling, no build](20261011/20261011-010415_pheromone-lane-ruling-still-held-no-build.kyri) | Ruling awaited from Incense; no Glow change. |
+| `20261011.010338` | [Patchouli, queue empty](20261011/20261011-010338_patchouli-queue-empty-version-scan-no-build.kyri) | Version scan clean; no build. |
 | `20261011.010229` | [Copal, fruit spent again, no build](20261011/20261011-010229_copal-fruit-spent-no-build.kyri) | 158 chapter witnesses all rostered; no build. |
 | `20261011.010204` | [Petrichor, gate held, air row, no build](20261011/20261011-010204_petrichor-gate-held-air-row-no-build.kyri) | Gate held; air row read; no build. |
 | `20261011.010147` | [Incense, round-open declines, no build](20261011/20261011-010147_incense-round-open-declines-no-build.kyri) | Round opened clean; board read; no build. |
