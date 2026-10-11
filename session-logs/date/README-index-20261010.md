@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.220906` | [Diffuser, gate still held, no build](20261010/20261010-220906_diffuser-baton-relaunch-gate-still-held-no-build.kyri) | Eleventh base waits on Keaton; no run. |
 | `20261010.220815` | [Grass, inner regrade, queue empty](20261010/20261010-220815_grass-inner-regrade-queue-empty.kyri) | B+ (89) again; no build. |
 | `20261010.220725` | [Patchouli, kumara sign red held](20261010/20261010-220725_patchouli-kumara-sign-red-booked.kyri) | Red reproduces on metal; ledger row held at pin bound. |
 | `20261010.220526` | [Incense, queue held -- air row, no build](20261010/20261010-220526_incense-queue-held-air-row-no-build.kyri) | Upstream at 41505941b1; law lane held on %642 or %519; no build. |
