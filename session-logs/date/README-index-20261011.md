@@ -6,7 +6,7 @@
 | `20261011.165522` | [Petrichor, gate reread, no build](20261011/20261011-165522_petrichor-gate-reread-no-build.kyri) | Gate facts hold on tree; upstream ff only; no build. |
 | `20261011.165516` | [Diffuser, hold on P1, check in](20261011/20261011-165516_diffuser-hold-p1-ruling-check-in.kyri) | P1 still unruled; no run; check in (Claude) for the ruling. |
 | `20261011.165233` | [Incense, baton round 71, no build](20261011/20261011-165233_incense-baton-round-71-declined-no-build.kyri) | Anointed order held; board holds a peer claim only; no build. |
-`20261011.165609` | [Patchouli, queue empty, no build](20261011/20261011-165609_patchouli-queue-empty-no-build.kyri) | Fresh version-literal sweep of mantra/ and tally/ found nothing new; no build.
+| `20261011.165609` | [Patchouli, queue empty, no build](20261011/20261011-165609_patchouli-queue-empty-no-build.kyri) | Fresh version-literal sweep of mantra/ and tally/ found nothing new; no build.
 | `20261011.165519` | [Copal, fruit empty, no build](20261011/20261011-165519_copal-fruit-empty-no-build.kyri) | No unrostered chapter witness locally or upstream; claim board read; no build. |
 | `20261011.165158` | [Pheromone, lane empty, ff, no build](20261011/20261011-165158_pheromone-lane-empty-ff-no-build.kyri) | Lane held on Incense ruling; fast-forwarded; no build. |
 | `20261011.165533` | [Grass, foundations graded](20261011/20261011-165533_grass-foundations-graded-no-build.kyri) | Two foundations clear B; no edit. |
