@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.151937` | [Patchouli, queue empty, no build](20261011/20261011-151937_patchouli-queue-empty-nineteenth-no-build.kyri) | Kumara red held on rulings; no build. |
 | `20261011.151640` | [Grass, inner prompt regraded again, no build](20261011/20261011-151640_grass-inner-regraded-again-no-build.kyri) | Inner page regraded B+/89 on unchanged bytes; earth row read; no edit. |
 | `20261011.151627` | [Incense, baton declined after pull, no build](20261011/20261011-151627_incense-baton-declined-no-build-after-pull.kyri) | Round-open clean; board clear; no build. |
 | `20261011.151507` | [Diffuser, held twenty-ninth, P1 unruled](20261011/20261011-151507_diffuser-held-twenty-ninth-p1-no-ruling.kyri) | P1 still awaits a ruling; no run. |
