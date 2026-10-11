@@ -58,3 +58,9 @@ stamp 20261011.003617
 epoch 1791693377
 paths tools/b/build_receipt_key.sh tools/fixtures/b/build_receipt_key_scan.sh tools/fixtures/b/build_receipt_key_control.sh
 what Add the content-keyed receipt key for Bakery's shared build cache: a POSIX key writer over source bytes, mode, flags, overlay, and compiler identity, with a scan and a control proving the executable-bit mutation forces a miss, the one measured mutation still unmeasured.
+claim copal-brush-parse-tame-density-roster
+seat copal
+stamp 20261011.011405
+epoch 1791695645
+paths tools/gen/chapter/brush_parse_tame_density.sh
+what Roster the brush_parse invariant-marker floor (tools/gen/chapter/brush_parse_tame_density.sh, 20 markers) as a guard row, and prove it red and green on a pen copy.
