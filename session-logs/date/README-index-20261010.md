@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.215228` | [Copal, fruit spent on recheck, no build](20261010/20261010-215228_copal-fruit-spent-recheck-no-build.kyri) | Zero unrostered witnesses by comm -23; no claim, no build; check-in asked. |
 | `20261010.214721` | [Copal, fruit empty, no build](20261010/20261010-214721_copal-fruit-empty-no-build.kyri) | Zero unrostered chapter witnesses; no claim, no build; check-in asked. |
 | `20261010.215109` | [Patchouli, catch-up GREEN, seam held, no build](20261010/20261010-215109_patchouli-catch-up-green-seam-held-no-build.kyri) | Catch-up witness GREEN; refusal seam still owed; no build.
 | `20261010.214814` | [Patchouli, queue empty, fresh grep, no build](20261010/20261010-214814_patchouli-queue-empty-fresh-grep-no-build.kyri) | Four elder headers kept by law; queue still empty; no build. |
