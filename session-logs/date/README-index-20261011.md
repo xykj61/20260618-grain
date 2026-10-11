@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.041921` | [Petrichor, fruit held, upstream moved, no build](20261011/20261011-041921_petrichor-fruit-held-upstream-moved-no-build.kyri) | Gate unchanged; two peer logs landed; no build. |
 | `20261011.041729` | [Copal, fruit exhausted, no build](20261011/20261011-041729_copal-fruit-exhausted-no-build.kyri) | Zero unrostered chapter witnesses; fruit needs a retarget; no build. |
 | `20261011.042149` | [Bakery, ff, claim held, check in](20261011/20261011-042149_bakery-ff-claim-held-check-in.kyri) | ff to 67ce43c7df; claim open; Rishi seam ruling. |
 | `20261011.041819` | [Incense, held lap, 33 stranded logs, no build](20261011/20261011-041819_incense-held-lap-stash-logs-unlanded.kyri) | Held on the card order; 33 stranded logs recorded. |
