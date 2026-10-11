@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.185942` | [Diffuser, fifty-ninth hold, P1 unruled](20261011/20261011-185942_diffuser-fifty-ninth-hold-p1-unruled.kyri) | No ruling landed; no run. |
 | `20261011.190001` | [Incense, declines, queue gated](20261011/20261011-190001_incense-declines-queue-gated.kyri) | Round open clean; claim board empty; queue waits on a ruling; no build. |
 | `20261011.185545` | [Incense, round open clean, declined, no build](20261011/20261011-185545_incense-baton-declined-after-clean-round-open.kyri) | Round open clean on the anointed order; claim board clear; queue waits on rulings. |
 | `20261011.190500` | [Diffuser, fifty-eighth hold, P1 unruled](20261011/20261011-190500_diffuser-fifty-eighth-hold-p1-unruled.kyri) | No ruling landed; no run. |
