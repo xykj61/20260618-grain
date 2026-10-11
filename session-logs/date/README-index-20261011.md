@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.065556` | [Patchouli, queue empty, kumara sign red re-verified](20261011/20261011-065556_patchouli-queue-empty-kumara-sign-reverified-no-build.kyri) | Fresh nets; queue empty; kumara sign still unreachable; no build. |
 | `20261011.065701` | [Incense, baton declined again, no build](20261011/20261011-065701_incense-baton-declined-no-build-again.kyri) | Level with xy/main; claim board empty; no build. |
 | `20261011.065301` | [Copal, recount, prin blocked, no build](20261011/20261011-065301_copal-fruit-recount-prin-blocked-no-build.kyri) | Zero unrostered witnesses; prin ruling open; a self-signalled pkill recorded. |
 | `20261011.065414` | [Pheromone, lane empty, no build](20261011/20261011-065414_pheromone-lane-empty-claim-none-no-build.kyri) | Lane closed on the card; claim board empty; no candidate taken; no build. |
