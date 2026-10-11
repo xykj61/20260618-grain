@@ -10,6 +10,7 @@
 | `20261011.070455` | [Patchouli, queue empty, no build](20261011/20261011-070455_patchouli-queue-empty-no-build.kyri) | Fresh version-literal net; queue empty; no build. |
 | `20261011.070257` | [Incense, baton declined, rota aether, no build](20261011/20261011-070257_incense-baton-declined-no-build-rota-aether.kyri) | Level with xy/main; claim board clear; order holds; no build. |
 | `20261011.070217` | [Patchouli, queue empty, no build](20261011/20261011-070217_patchouli-queue-empty-kumara-red-unbooked-no-build.kyri) | Kumara red unbooked; seam ruling open. |
+| `20261011.070458` | [Bakery, pulled, receipt key still Keaton's, no build](20261011/20261011-070458_bakery-pulled-receipt-ruling-open-no-build.kyri) | Fast-forward pull; receipt-key ruling open; no build. |
 | `20261011.070109` | [Copal, fruit gone, no build](20261011/20261011-070109_copal-fruit-gone-recount-no-build.kyri) | Zero unrostered witnesses on a fresh recount; no claim; no build. |
 | `20261011.070044` | [Incense, baton read, receipt witness green, no build](20261011/20261011-070044_incense-baton-declined-receipt-witness-green.kyri) | Level with xy/main; claim board empty; receipt witness GREEN; no build. |
 | `20261011.070043` | [Bakery, pulled, receipt-key ruling open, no build](20261011/20261011-070043_bakery-receipt-key-ruling-open-no-build.kyri) | Pulled to 3a0bbd1a9d; receipt key is Keaton's ruling; no build. |
