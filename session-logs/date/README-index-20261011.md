@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.022623` | [Pheromone held again, no build](20261011/20261011-022623_pheromone-held-again-no-build.kyri) | Ruling held with Incense; nib carried. |
 
 | `20261011.022533` | [Patchouli queue empty, twentieth hold](20261011/20261011-022533_patchouli-queue-empty-twentieth-no-build.kyri) | Fresh grep: elder headers only; no build. |
 | `20261011.022446` | [Diffuser, fourth-night gate held, no build](20261011/20261011-022446_diffuser-fourth-night-gate-held-no-build.kyri) | Toolchain and date gates re-read; nothing lands; no build. |
