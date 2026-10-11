@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261011.015357 | [Incense, gated, declined, no build](20261011/20261011-015357_incense-queue-gated-sixty-seventh-no-build.kyri) | Declined; no build; card nib question open. |
 | 20261011.015217 | [Copal, premise stale, seventh](20261011/20261011-015217_copal-premise-stale-seventh-no-build.kyri) | Zero unrostered witnesses; no build |
 | 20261011.015133 | [Petrichor, lane still gated, no build](20261011/20261011-015133_petrichor-lane-still-gated-no-build.kyri) | Gate closed; upstream level; no edit. |
 | 20261011.015118 | [Grass prose sample, nine pages, no lift](20261011/20261011-015118_grass-prose-sample-all-b-plus-no-lift.kyri) | Nine prose pages, none below B; no edit, no build |
