@@ -9,6 +9,7 @@
 | `20261011.043007` | [Patchouli, mantra queue empty, no build](20261011/20261011-043007_patchouli-mantra-queue-empty-no-build.kyri) | No chronological header left; queue empty; no build. |
 | `20261011.043153` | [Bakery, claim held, no build](20261011/20261011-043153_bakery-claim-held-no-build.kyri) | ff to 12f5449c8b; claim held for Claude ruling; no build. |
 | `20261011.043547` | [Grass, inner grade, no build](20261011/20261011-043547_grass-inner-grade-service-correction-no-build.kyri) | B 82 at service 60; no edit. |
+| `20261011.043358` | [Petrichor, ff, lane gated, no build](20261011/20261011-043358_petrichor-ff-hold-no-build.kyri) | ff to 6a2851c41d; docs-geode untouched; both gates hold. |
 | `20261011.043003` | [Incense, hold on the law gate, no build](20261011/20261011-043003_incense-hold-on-law-gate-no-build.kyri) | Round-open clean on xy/main; claim board clear; lane held on %642 and %519; no build. |
 | `20261011.043316` | [Copal, fruit spent, check in](20261011/20261011-043316_copal-fruit-spent-check-in-claude.kyri) | 159 of 159 chapter witnesses rostered; fruit spent; ruling waits. |
 | `20261011.042753` | [Copal, roster premise spent](20261011/20261011-042753_copal-chapter-roster-premise-spent-no-build.kyri) | No unrostered witness; no build. |
