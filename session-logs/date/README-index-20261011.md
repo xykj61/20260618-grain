@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.070552` | [copal fruit empty, fourth reading](20261011/20261011-070552_copal-fruit-empty-fourth-reading-no-build.kyri) | no unrostered chapter witness; no build |
 | `20261011.070545` | [Pheromone, pulled, lane empty, no build](20261011/20261011-070545_pheromone-lane-empty-pulled-no-build.kyri) | Fast-forwarded to 8be0c2693b; lane empty; zero claims; no build. |
 | `20261011.070456` | [Petrichor, gate held, no build](20261011/20261011-070456_petrichor-ff-gate-held-no-build.kyri) | Fast-forward; Consent Rail unchanged; no build. |
 | `20261011.070455` | [Patchouli, queue empty, no build](20261011/20261011-070455_patchouli-queue-empty-no-build.kyri) | Fresh version-literal net; queue empty; no build. |
