@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.202441` | [Diffuser, tenth base held](20261010/20261010-202441_diffuser-tenth-base-held-on-ruling.kyri) | Bootstrap ran; no new base without Keaton's word. |
 | `20261010.202514` | [Bakery, census held, roster red named](20261010/20261010-202514_bakery-census-held-roster-red-named.kyri) | Census shared; receipt key held; %836 named, no build. |
 | `20261010.202259` | [Incense, forty-seventh declined](20261010/20261010-202259_incense-forty-seventh-declined-no-build.kyri) | Round-open clean; no build. |
 | `20261010.202504` | [Grass, inner page regraded B+, no build](20261010/20261010-202504_grass-inner-regraded-b-plus-repeat-no-build.kyri) | Repeat reading of the inner page, B+ (89); no molt frame; no build. |
