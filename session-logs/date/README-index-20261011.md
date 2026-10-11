@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.005728` | [Pheromone, lane held on its ruling, no build](20261011/20261011-005728_pheromone-lane-held-ruling-awaited-no-build.kyri) | Ruling awaited from Incense; no Glow change. |
 | `20261011.005727` | [Diffuser, gate still held, no build](20261011/20261011-005727_diffuser-gate-still-held-no-build.kyri) | Clock 20261011; pair waits for 20261012; no build. |
 | `20261011.005858` | [Patchouli, queue empty, no build](20261011/20261011-005858_patchouli-queue-empty-sign-red-held-no-build.kyri) | Sign red held; queue empty. |
 | `20261011.005613` | [Patchouli, sign red held, no build](20261011/20261011-005613_patchouli-sign-red-held-queue-empty-no-build.kyri) | Sign red still live; queue empty. |
