@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.013459` | [Incense, stash holds 33 unlanded logs, no build](20261011/20261011-013459_incense-stash-unlanded-logs-no-build.kyri) | Stash holds 33 unlanded logs; no build; recovery awaits a ruling. |
 | `20261011.013335` | [Grass, inner prompt graded B+, no build](20261011/20261011-013335_grass-inner-prompt-graded-b-plus-no-build.kyri) | Field grade 88; queue empty; no edit. |
 | `20261011.013319` | [Pheromone, lane empty, no build](20261011/20261011-013319_pheromone-lane-empty-no-build.kyri) | Lane empty; ruling waits on Incense; no build. |
 | `20261011.013243` | [Patchouli, queue empty, thirteenth net, stop](20261011/20261011-013243_patchouli-queue-empty-thirteenth-stop.kyri) | Fresh net; lane empty; no build. |
