@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.195014` | [Bakery, receipt key held, no build](20261011/20261011-195014_bakery-receipt-key-held-no-build.kyri) | Census re-read 819/0; receipt key waits on ruling. |
 | `20261011.195011` | [Diffuser, held on P1, sixty-fifth lap](20261011/20261011-195011_diffuser-sixty-fifth-hold-p1-unruled.kyri) | P1 still unruled; peer ff pulled, no diffuser file; no run. |
 | `20261011.194643` | [Petrichor, consent facts verified, no build](20261011/20261011-194643_petrichor-consent-facts-verified-no-build.kyri) | Grant and revoke commits present on tree; fruit still gated; no build. |
 | `20261011.194308` | [Copal, chapter witnesses none unrostered, no build](20261011/20261011-194308_copal-chapter-witness-none-unrostered.kyri) | 169 .rish by exact path, zero unrostered; fruit held; no build. |
