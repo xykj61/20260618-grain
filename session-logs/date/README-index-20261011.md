@@ -4,8 +4,9 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
-| `20261011.023528` | [Incense baton declined, rota air, no build](20261011/20261011-023528_incense-baton-declined-no-build-rota-air.kyri) | Round-open clean; claims clear; no build. |
+| `20261011.024333` | [Petrichor, consent gate still held](20261011/20261011-024333_petrichor-consent-gate-still-held.kyri) | Rail unmoved since 023951; no grade, no build. |
 | `20261011.024041` | [Copal fruit gone, no build](20261011/20261011-024041_copal-fruit-gone-no-build.kyri) | 158 of 158 witnesses rostered; no claim. |
+| `20261011.023528` | [Incense baton declined, rota air, no build](20261011/20261011-023528_incense-baton-declined-no-build-rota-air.kyri) | Round-open clean; claims clear; no build. |
 | `20261011.024035` | [patchouli queue empty, fresh nets](20261011/20261011-024035_patchouli-queue-empty-fresh-nets.kyri) | queue empty again; %835 and %836 read, neither in lane |
 | `20261011.023951` | [Petrichor, consent gate held, no build](20261011/20261011-023951_petrichor-consent-gate-held-no-build.kyri) | Fast-forward to c484c85c18; no grant fact; no build. |
 | `20261011.023726` | [Patchouli queue empty, no build](20261011/20261011-023726_patchouli-queue-empty-no-build.kyri) | Fresh grep, claim scan clear; no build. |
