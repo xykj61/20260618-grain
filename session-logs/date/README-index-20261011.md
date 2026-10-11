@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.052620` | [Copal, fruit spent, no build](20261011/20261011-052620_copal-fruit-spent-no-build.kyri) | Strict comm read: 0 unrostered chapter witnesses; no build. |
 | `20261011.051851` | [Copal, fruit spent, fourth look, no build](20261011/20261011-051851_copal-fruit-spent-fourth-look-no-build.kyri) | Path-line census re-run; zero unrostered witnesses; no build. |
 | `20261011.052530` | [Incense, round-open adopted, no build](20261011/20261011-052530_incense-baton-declined-no-build-round-open-claim-clear.kyri) | Round-open adopted petrichor; claim board clear; no build. |
 | `20261011.052406` | [Petrichor, vocabulary scan clean, held](20261011/20261011-052406_petrichor-vocabulary-scan-clean-held.kyri) | Retired-word scan over docs-geode reads zero; lane held on consent gate. |
