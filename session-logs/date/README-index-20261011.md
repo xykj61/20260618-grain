@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.033617` | [Set-associative line size, falsifier first](20261011/20261011-033617_set-associative-line-size-falsifier-first.kyri) | 8-way sets at LINE 32: main falsifier fired (gap 0.00), direction fired by letter (2.25); scratch only. |
 | `20261011.033636` | [Petrichor, fruit held, no build](20261011/20261011-033636_petrichor-fruit-held-no-build.kyri) | Inner page graded A; docs-geode saturated; gates unmoved; no build. |
 | `20261011.033524` | [Incense, round three, no build](20261011/20261011-033524_incense-round-three-declined-no-build.kyri) | Round-open to def2d5ebb0; claim board empty; no build. |
 | `20261011.033146` | [Patchouli, queue empty, no build](20261011/20261011-033146_patchouli-queue-empty-nineteenth-no-build.kyri) | Pulled to 26ad61feb7; queue empty on fresh net. |
