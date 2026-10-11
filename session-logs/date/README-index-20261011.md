@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.121306` | [Petrichor, ninth held lap, water row read, no build](20261011/20261011-121306_petrichor-held-ninth-water-no-build.kyri) | Gate unchanged; first hour waits on seam; no build. |
 | `20261011.121303` | [Patchouli, queue empty third look, no build](20261011/20261011-121303_patchouli-queue-empty-third-look-no-build.kyri) | Elder-header nets re-run; only read-compat and fixtures. |
+| `20261011.121216` | [Copal, fruit spent, prin hang reproduced, no build](20261011/20261011-121216_copal-fruit-spent-prin-hang-reproduced-no-build.kyri) | Exact-path comm zero; bare prin 124, scope GREEN. |
 | `20261011.121300` | [Diffuser, sawtooth door confounded by set count, no gcd reading](20261011/20261011-121300_diffuser-sawtooth-confounded-no-gcd.kyri) | Pairs held no fixed gcd; gap 0.135 inconclusive. |
 | `20261011.121005` | [Patchouli, queue empty again, no build](20261011/20261011-121005_patchouli-queue-empty-again-no-build.kyri) | Elder-header nets re-run; only read-compat and fixtures. |
 | `20261011.120846` | [Incense, baton lap held again, no build](20261011/20261011-120846_incense-baton-held-again-no-build.kyri) | Round-open clean; board read; no build. |
