@@ -31,3 +31,27 @@ Scratch model only. Fully associative is not claimed; the model is 8 ways with a
 ## Result
 
 Appended after the run, below this line. The three falsifiers above are not edited.
+
+Run at clock `20261011.035502` on the scratch script, no edit to it. Outputs are untracked in
+`session-output/polar-padded/`: `fc256_base_20261011.txt`, `fc512_nopad_20261011.txt`,
+`fc512_pad_20261011.txt`.
+
+| Reading | N = 256 baseline | N = 512, unpadded | N = 512, padded |
+|---|---|---|---|
+| Cartesian floor, sets | 12.4 | 25.0 | 25.0 |
+| Polar floor, sets | 33.3 | 66.3 | 66.4 |
+| Ratio, polar over Cartesian | 2.69 | **2.65** | **2.65** |
+| Monotone violations, polar curve | 0 | 0 | 0 |
+
+- **Baseline.** The N = 256 row reproduces 2.69, so the script has not drifted and the N = 512 row counts.
+- **F1 (band 2.6 to 3.0).** Holds. 2.65 is inside the band. It sits near its lower edge, so the margin is 0.05.
+- **F2 (padding gap at or under 0.10).** Holds. Padded minus unpadded is 0.01 at N = 512, LINE 8.
+- **F3 (zero monotone violations).** Holds on the polar curve at N = 512.
+
+**Reading.** The fine-grid ratio does not keep rising with N. It reads 2.39, 2.60, 2.69 and then 2.65 at N = 64, 128, 256 and 512. The rise has turned, peaking near N = 256 on this model. The paper's projection expected the band to hold, and it did, but a flat or falling tail was not the shape the rise-with-N reading would have predicted. Inference, not measurement: the peak comes from the disk's ring count growing while the ring-mate and radial neighbour structure stays fixed.
+
+**Confidence.** High that the fine grid holds inside the band at N = 512 for this model. Low on any shape claim, since four points on one model with one radius series cannot fix a peak. The model is deterministic (fixed disk, fixed trace, no seeds), so the figures are exact for this model and say nothing about a cache.
+
+**Scope.** Scratch model only, 8 ways, LRU, modulo index, LINE 8. No hardware, no witness, no claim about a real cache.
+
+**Next door.** A disk-size series at N = 384 and 640 on the same fine grid, with the falsifier written and committed before the run, to decide whether the peak sits near 256 or moves.
