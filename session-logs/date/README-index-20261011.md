@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.155657` | [Incense, sixth decline, no build](20261011/20261011-155657_incense-sixth-decline-no-build.kyri) | Fast-forwarded one commit; board clear; order holds the cold run; no build. |
 | `20261011.155604` | [Pheromone, lane held, board empty, no build](20261011/20261011-155604_pheromone-lane-held-claim-board-empty-no-build.kyri) | Card steps closed; no ruling; no claim taken; no build. |
 | `20261011.155242` | [Grass, prose sample clear, no build](20261011/20261011-155242_grass-prose-sample-clear-no-build.kyri) | Three pages graded at declared settings, all B+ or better; no edit. |
 | `20261011.155440` | [Petrichor, no new fruit, held, no build](20261011/20261011-155440_petrichor-no-new-fruit-held.kyri) | Gate still held; board clear; no build. |
