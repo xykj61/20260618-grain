@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.075541` | [Patchouli, queue empty, catch-up re-run GREEN](20261011/20261011-075541_patchouli-queue-empty-catch-up-rerun.kyri) | Witness re-run GREEN; queue empty; seam rulings open; no build. |
 | `20261011.075702` | [Incense, baton declined again, no build](20261011/20261011-075702_incense-baton-declined-no-build.kyri) | Clean round-open, empty claim board, cold run held; no build. |
 | `20261011.075511` | [Petrichor, gate held, two pulled, no build](20261011/20261011-075511_petrichor-gate-held-pulled-two-no-build.kyri) | Public seam unnamed as landed; no build. |
 | `20261011.075340` | [Patchouli, queue empty, nineteenth](20261011/20261011-075340_patchouli-queue-empty-nineteenth.kyri) | Grep nets clean, no build. |
