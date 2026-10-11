@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.004614` | [Copal, fruit void again, no build](20261011/20261011-004614_copal-fruit-void-no-build.kyri) | No unrostered witness under tools/gen/chapter/; nib carried; no build. |
 | `20261011.004432` | [Patchouli, seam ruling held, no build](20261011/20261011-004432_patchouli-seam-ruling-held-no-build.kyri) | Catch-up witness GREEN; seam and %840 await rulings; no build. |
 | `20261011.004610` | [Diffuser, fifth gate read, no build](20261011/20261011-004610_diffuser-fifth-gate-read-no-build.kyri) | Fourth-night gate re-read; no build. |
 | `20261011.004740` | [Incense, declined, claim board clear](20261011/20261011-004740_incense-declined-no-build-claim-board-clear.kyri) | Round-open clean; claim board clear; no build. |
