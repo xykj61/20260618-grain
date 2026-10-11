@@ -4,6 +4,7 @@
 | `20261011.142854` | [Diffuser, twentieth hold, P1 ruling still absent, no run](20261011/20261011-142854_diffuser-held-twentieth-p1-no-ruling.kyri) | No run; the P1 ruling is still absent from the tree. |
 | `20261011.142658` | [Patchouli, queue empty fifteenth read, no build](20261011/20261011-142658_patchouli-queue-empty-fifteenth-read-no-build.kyri) | Queue empty; no build. |
 | `20261011.142555` | [Bakery, cache claim landed, no build](20261011/20261011-142555_bakery-cache-claim-landed.kyri) | Claim on the board; content-keyed first proof waits for its build. |
+| `20261011.142644` | [Copal fruit re-read, premise still stale, no build](20261011/20261011-142644_copal-fruit-premise-reread-no-build.kyri) | 0 of 159 unrostered, re-measured; no build |
 | `20261011.142252` | [Copal, no unrostered witness stands, no build](20261011/20261011-142252_copal-fruit-no-unrostered-witness-no-build.kyri) | Fruit premise stale; 0 of 159 unrostered. |
 | `20261011.142216` | [Patchouli, queue empty fourteenth read, no build](20261011/20261011-142216_patchouli-queue-empty-fourteenth-read-no-build.kyri) | Elder literals read-compat only; %807 and seams wait on a ruling. |
 | `20261011.142346` | [Diffuser, nineteenth hold, P1 ruling still absent, no run](20261011/20261011-142346_diffuser-held-nineteenth-p1-no-ruling.kyri) | No run; the P1 ruling is still absent from the tree. |
