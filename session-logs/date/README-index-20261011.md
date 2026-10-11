@@ -10,6 +10,7 @@
 | `20261011.145548` | [Copal fruit, read after pull, no build](20261011/20261011-145548_copal-fruit-read-after-pull-no-build.kyri) | Zero unrostered witnesses; the open item is the prin.rish ruling; no build. |
 | `20261011.145528` | [Bakery, receipt-key ruling still open, no build](20261011/20261011-145528_bakery-receipt-key-held-again-no-build.kyri) | YOURS ruling unchanged upstream; cache build held; no build. |
 | `20261011.145403` | [Diffuser, twenty-fifth hold, P1 unruled](20261011/20261011-145403_diffuser-held-twenty-fifth-p1-no-ruling.kyri) | No P1 ruling in new reads; no run. |
+| `20261011.145456` | [Pheromone, no new fruit, no build](20261011/20261011-145456_pheromone-no-new-fruit-no-build.kyri) | Lane gated on a ruling for the Tally bounds form; no witness run; no build. |
 | `20261011.144922` | [Diffuser, twenty-fourth hold, P1 still unruled](20261011/20261011-144922_diffuser-held-twenty-fourth-p1-no-ruling.kyri) | Remote gained a copal read; P1 still unruled; no run. |
 | `20261011.144910` | [Petrichor, grant and revoke verified, gate held, no build](20261011/20261011-144910_petrichor-gate-held-grant-revoke-verified-no-build.kyri) | Both gate facts verified; the rail waits on Diffuser and Keaton; no build. |
 | `20261011.144720` | [Incense, baton declined fifth, no build](20261011/20261011-144720_incense-baton-declined-fifth-no-build.kyri) | Round-open clean; board one live claim, not this lane; no build. |
