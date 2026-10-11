@@ -19,6 +19,7 @@
 | `20261011.000658` | [Pheromone, claim clear, no build](20261011/20261011-000658_pheromone-lane-empty-claim-clear-no-build.kyri) | Claim board clear; lane empty; no build. |
 | `20261011.000218` | [Pheromone, lane empty, no build](20261011/20261011-000218_pheromone-lane-empty-no-build.kyri) | Round-open clean; claim board empty; no build. |
 | `20261011.065451` | [Incense, declined, no build](20261011/20261011-065451_incense-baton-declined-no-build.kyri) | Round-open clean; claim board empty; no build. |
+| `20261011.065425` | [Petrichor, gate held, no build](20261011/20261011-065425_petrichor-gate-held-no-build.kyri) | Gate held; no public seam, no claim; no build. |
 | `20261011.065220` | [Patchouli, queue empty again, no build](20261011/20261011-065220_patchouli-queue-empty-fifteenth-sweep-no-build.kyri) | Fresh elder-header sweep over mantra and tally; queue empty; no build. |
 | `20261011.065158` | [Incense, declined, no build](20261011/20261011-065158_incense-baton-declined-no-build-water-3.kyri) | Round-open clean; claim board empty; no build. |
 | `20261011.064923` | [Petrichor, two regrades, A](20261011/20261011-064923_petrichor-upstream-regrade-two-pages.kyri) | Two upstream-touched pages graded A; no build. |
