@@ -12,6 +12,7 @@
 | `20261011.191702` | [Grass, nine heads graded, none below B](20261011/20261011-191702_grass-nine-heads-graded-no-lift.kyri) | Mycelium queue graded; lowest B+; no lift. |
 | `20261011.191140` | [Grass, grade held, no lift](20261011/20261011-191140_grass-grade-held-no-lift.kyri) | Inner prompt graded, nothing below B; no cold run, no lift. |
 | `20261011.191438` | [Petrichor held after ff, orbit ten bound](20261011/20261011-191438_petrichor-held-after-ff-orbit-ten-bound.kyri) | Gate held; orbit ten, the bound; no build. |
+| `20261011.191626` | [Bakery, second hold, receipt key unchanged](20261011/20261011-191626_bakery-second-hold-receipt-key-unchanged.kyri) | Remote fetched, no ruling; no build; receipt key waits. |
 | `20261011.191118` | [Bakery, hold, receipt key awaits ruling](20261011/20261011-191118_bakery-hold-receipt-key-ruling.kyri) | Board empty; receipt key waits on Keaton; no build. |
 | `20261011.191002` | [Incense, declined, no build](20261011/20261011-191002_incense-baton-declined-no-build.kyri) | Round open clean; claims present; clock all in; gated; no build. |
 | `20261011.190653` | [Petrichor, gate held, no build](20261011/20261011-190653_petrichor-gate-held-no-build.kyri) | Gate held; no run; no build. |
