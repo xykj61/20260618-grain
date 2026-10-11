@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.212127` | [Petrichor, queue clear, no build](20261010/20261010-212127_petrichor-queue-clear-wiki-links-no-build.kyri) | Tutorial links read; no build. |
 | `20261010.211429` | [Petrichor, wiki admits three tutorials](20261010/20261010-211429_petrichor-wiki-three-rows.kyri) | Three unlisted tutorials named on the wiki index; crushed-index GREEN. |
 | `20261010.211955` | [Copal, unrostered set measured empty, no build](20261010/20261010-211955_copal-fruit-unrostered-set-empty-no-build.kyri) | Roster 169 names vs 157 witnesses; zero unrostered; no build. |
 | `20261010.211422` | [Copal, fruit already landed, no build](20261010/20261010-211422_copal-fruit-already-landed-no-build.kyri) | Roster measured 158 of 158; no build. |
