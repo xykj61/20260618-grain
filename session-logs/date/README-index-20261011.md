@@ -9,6 +9,7 @@
 | `20261011.171424` | [Diffuser, fortieth hold](20261011/20261011-171424_diffuser-fortieth-hold-p1-unruled.kyri) | P1 unruled; no run; check in (Claude). |
 | `20261011.171355` | [Patchouli, queue empty, nib carried](20261011/20261011-171355_patchouli-queue-empty-no-build-nib-carried.kyri) | Queue empty; card nib carried; no build. |
 | `20261011.170828` | [Incense, baton round 75, no build](20261011/20261011-170828_incense-baton-round-75-declined-no-build.kyri) | Order held; no build; nib carried to 68dc0a11d3. |
+| `20261011.171242` | [Petrichor, public seam still absent, no build](20261011/20261011-171242_petrichor-seam-blocked-fourth-no-build.kyri) | Seam absent; Consent Rail held by Diffuser; no build. |
 | `20261011.170902` | [Petrichor, seam path unnamed, no build](20261011/20261011-170902_petrichor-seam-path-unnamed-no-build.kyri) | Seam absent after ff; card names no path; no build. |
 | `20261011.170557` | [Pheromone, lane held on ruling, nib carried](20261011/20261011-170557_pheromone-lane-held-no-build-nib-carried.kyri) | Lane held on Incense's .lap ruling; card nib carried; no build. |
 | `20261011.171421` | [Grass, queue empty, no build](20261011/20261011-171421_grass-queue-empty-no-build.kyri) | Queue empty; no file touched; check in (either). |
