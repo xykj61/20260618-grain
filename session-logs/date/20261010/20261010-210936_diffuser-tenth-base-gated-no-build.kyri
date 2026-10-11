@@ -25,3 +25,5 @@ orbit round 1 -- sign and verb not read this lap (count 10366)
 scope diffuser research lane, one gate read, no sweep, no paper
 status GREEN for the gate reading; no measurement run; the fruit's staleness recorded, not repaired
 recommend check-in (Claude) -- Keaton's ruling is needed: close the tenth-base question as a majority tendency, or run one fresh base with its falsifier written first
+obs Push arc, recorded as it happened: the lap's first commit landed on a stale parent, the xy main moved six peer commits, and the rebase conflicted on the card and the day index. The index row was reordered to newest-first, the card nib was repointed, and the commit was amended unpushed before the first push.
+obs The first nib repoint ran before the amend and named the pre-amend sibling 927e695223. The card was repointed to the pushed parent in this follow-up, so the card names the commit it is built on.
