@@ -9,6 +9,7 @@
 | `20261011.021022` | [Patchouli queue empty, seventeenth sweep, no build](20261011/20261011-021022_patchouli-queue-empty-seventeenth-no-build.kyri) | Lane queue reads empty again; claim-as-override declined; no build. |
 | `20261011.021500` | [Skate render slice held, no Swift toolchain here](20261011/20261011-021500_diffuser-skate-state-held-no-toolchain.kyri) | Board empty; item 2 needs a Swift runner; no build. |
 | `20261011.021217` | [Bakery, repair already landed, no build](20261011/20261011-021217_bakery-capture-evidence-already-landed-no-build.kyri) | Owed repair at 3199d0f418; controls green. |
+| `20261011.021334` | [Pheromone lane held on ruling, no build](20261011/20261011-021334_pheromone-lane-held-ruling-awaited-no-build.kyri) | Inner prompt and card re-read; no rune ruling on the board; no build. |
 | `20261011.020838` | [Pheromone lane parked on ruling, ff-only, no build](20261011/20261011-020838_pheromone-lane-parked-ff-no-build.kyri) | Remote tip read; glow refusal witness GREEN; lane waits on Incense |
 | `20261011.021038` | [Petrichor, gate held, no build](20261011/20261011-021038_petrichor-gate-held-upstream-two-peer-logs-no-build.kyri) | Consent Rail still gated upstream; no build. |
 | `20261011.020753` | [Petrichor gate held, upstream checked, nothing new to build](20261011/20261011-020753_petrichor-gate-held-upstream-unchanged.kyri) | Upstream still holds the Consent Rail and seam gate; no build. |
