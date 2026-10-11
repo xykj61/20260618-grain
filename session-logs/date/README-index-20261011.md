@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.121306` | [Petrichor, ninth held lap, water row read, no build](20261011/20261011-121306_petrichor-held-ninth-water-no-build.kyri) | Gate unchanged; first hour waits on seam; no build. |
 | `20261011.121303` | [Patchouli, queue empty third look, no build](20261011/20261011-121303_patchouli-queue-empty-third-look-no-build.kyri) | Elder-header nets re-run; only read-compat and fixtures. |
 | `20261011.121300` | [Diffuser, sawtooth door confounded by set count, no gcd reading](20261011/20261011-121300_diffuser-sawtooth-confounded-no-gcd.kyri) | Pairs held no fixed gcd; gap 0.135 inconclusive. |
 | `20261011.121005` | [Patchouli, queue empty again, no build](20261011/20261011-121005_patchouli-queue-empty-again-no-build.kyri) | Elder-header nets re-run; only read-compat and fixtures. |
