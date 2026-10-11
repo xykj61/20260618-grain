@@ -221,6 +221,7 @@
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
 | `20261011.142438` | [Petrichor, gate held after pull, no build](20261011/20261011-142438_petrichor-gate-held-after-pull-no-build.kyri) | Consent Rail gate unchanged; nothing unblocked. |
+| `20261011.142447` | [Incense, eighteenth decline, no build](20261011/20261011-142447_incense-eighteenth-decline-no-build.kyri) | Round-open clean; board clear; nib carried. |
 | `20261011.142203` | [Incense, baton declined, seventeenth, no build](20261011/20261011-142203_incense-baton-declined-seventeenth-no-build.kyri) | Round-open clean; cold run held. |
 | `20261011.141931` | [Petrichor, gate held after fast-forward, no build](20261011/20261011-141931_petrichor-gate-held-after-ff-no-build.kyri) | Seam and Consent Rail still open; no build. |
 | `20261011.141943` | [Patchouli, usize census clean](20261011/20261011-141943_patchouli-usize-seam-census-clean.kyri) | Seam-only usize; kumara held. |
