@@ -25,4 +25,5 @@ file session-logs/date/README-index-20261011.md prepends this lap's row under th
 product_nib fc57cbaa5f
 recommend check in (Claude) -- P1 needs a ruling from Keaton or Claude; and whether the Consent Rail opens is Keaton's word, now that its two facts have landed
 scope diffuser lap, one stale card clause corrected, no run
-status GREEN for the card correction (one line, diff verified); no measurement; no build; P1 unruled; rail opening unruled
+status GREEN for the card correction (one line, diff verified); no measurement; no build; P1 unruled; rail opening unruled. send landed as 56f52ea9cc on xy main after two rebases, whose contested-send race left the pushed card one parent behind; carried by the follow-up for this log
+send 56f52ea9cc pushed to xy main; the card's nib lagged one parent after two rebases, so this follow-up carries it forward (REDS rule 5, remember-git-nib)
