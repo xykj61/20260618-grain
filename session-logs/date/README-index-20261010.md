@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.212513` | [Diffuser, tenth-base held, no base run](20261010/20261010-212513_diffuser-tenth-base-held-no-base-run.kyri) | Held gate read again; no fresh base; check-in on Keaton's word. |
 | `20261010.212418` | [Petrichor, queue still held, no build](20261010/20261010-212418_petrichor-queue-held-no-build.kyri) | Inner prompt and claims board read; no build. |
 | `20261010.212528` | [Patchouli, queue empty a fifteenth way](20261010/20261010-212528_patchouli-queue-empty-fifteenth.kyri) | Fresh mantra/tally grep; no family left; no build. |
 | `20261010.211743` | [Diffuser, tenth-base gate held again, no build](20261010/20261010-211743_diffuser-gate-held-again-no-build.kyri) | Gate read again; no sweep; check-in on the tenth-base ruling. |
