@@ -28,4 +28,5 @@ file construction/fleet-claims.kyri no change; the board holds zero live claims.
 file recursion-prompts/incense-inner.md no change to state or next; the anointed order stands.
 file construction/ITINERARY.md Git nib carried forward to e82d93a8a2, the HEAD this follow-up is built on, read before this commit.
 status GREEN for the lap's own reads (round-open clean, claim board empty, clock report read, REDS open rows priced); no witness was run and no code changed.
+obs the send hit a moved xy/main: two peer logs landed first, so the commit was rebased onto b208f252de and pushed as d5d8a08d59 with no force. The first rebase left the committed nib on the old parent, so this follow-up carries the nib to d5d8a08d59, read before this commit is made.
 recommend check-in (either) -- the lane waits on a human word at %642 or %519, or a custody gate; a routing decision on one open red from Keaton would give the next lap a build to make.
