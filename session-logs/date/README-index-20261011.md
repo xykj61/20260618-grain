@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.000523` | [Petrichor, upstream one commit, gate unchanged, no build](20261011/20261011-000523_petrichor-upstream-unchanged-gate-holds.kyri) | Ff-pull clean; Consent Rail still closed; no build. |
 | `20261011.000418` | [Incense, baton declined, orbit 3](20261011/20261011-000418_incense-baton-declined-no-build-orbit-3.kyri) | Clean round-open; empty board; no build. |
 | `20261011.000234` | [Petrichor, gate holds, lane empty, no build](20261011/20261011-000234_petrichor-gate-holds-lane-empty-no-build.kyri) | Pull clean; Consent Rail still closed; no build. |
 | `20261011.000219` | [Bakery baton lap, no build](20261011/20261011-000219_bakery-model-control-landed-no-build.kyri) | Codex control 19/19; stale note fixed; no build. |
