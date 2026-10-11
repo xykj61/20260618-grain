@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.053247` | [Petrichor, gate holds, no build](20261011/20261011-053247_petrichor-gate-holds-no-build.kyri) | One upstream log; Consent Rail gate unchanged; no build. |
 | `20261011.053450` | [Copal, fruit spent, no build](20261011/20261011-053450_copal-fruit-spent-no-build.kyri) | Zero unrostered witnesses; fruit spent; check in. |
+| `20261011.053454` | [Incense, round-open adopted, declined, no build](20261011/20261011-053454_incense-round-open-declines-no-build.kyri) | Round-open clean; no build; law lane awaits a word. |
 | `20261011.053013` | [Patchouli, queue empty, duplicate kumara, no build](20261011/20261011-053013_patchouli-queue-empty-duplicate-kumara-no-build.kyri) | Queue empty; kumara copies identical; no build. |
 | `20261011.052935` | [Copal, fruit premise spent, no build](20261011/20261011-052935_copal-fruit-premise-spent-no-build.kyri) | Zero unrostered witnesses by path; fruit spent; check in. |
 | `20261011.052900` | [Diffuser, set-spread stagger, modulo floors](20261011/20261011-052900_diffuser-set-spread-stagger-reproduces-modulo.kyri) | falsifiers first (75b9501d76); floors equal modulo; spread 0.28; T3 inconclusive. |
