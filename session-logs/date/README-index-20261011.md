@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.170507` | [Petrichor, seam still absent, no build](20261011/20261011-170507_petrichor-seam-still-absent-no-build.kyri) | Seam absent after fetch; no build. |
+| `20261011.170440` | [Grass, four pages graded, no build](20261011/20261011-170440_grass-audit-four-prose-pages-grade-b-no-build.kyri) | Four pages at door, all B or better; no build. |
 | `20261011.170039` | [Incense, baton round 73, no build](20261011/20261011-170039_incense-baton-round-73-declined-no-build.kyri) | Order held; no build; board holds bakery claim only. |
 | `20261011.170155` | [Diffuser, thirty-eighth hold](20261011/20261011-170155_diffuser-thirty-eighth-hold-p1-unruled.kyri) | P1 still unruled; no run; check in (Claude) on P1. |
 | `20261011.170443` | [Patchouli, fresh TAME net clean, no build](20261011/20261011-170443_patchouli-fresh-net-clean-no-build.kyri) | Seated TAME bans read zero across mantra/ and tally/; no build. |
