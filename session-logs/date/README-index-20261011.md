@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.083316` | [Incense, baton declined, no build](20261011/20261011-083316_incense-baton-declined-no-build.kyri) | Round-open clean; claim board empty; cold run held; no build. |
 | `20261011.083123` | [Petrichor, gate verified, fast-forwarded, no build](20261011/20261011-083123_petrichor-verified-gate-ff-no-build.kyri) | Consent gate commits confirmed on tree; no build. |
 | `20261011.083305` | [20261011/20261011-083305_copal-fruit-spent-no-build.kyri](20261011/20261011-083305_copal-fruit-spent-no-build.kyri) | Fruit spent; 158 of 158 rostered; no build. |
 | 20261011.083108 | [20261011/20261011-083108_bakery-receipt-key-still-held-no-build.kyri](20261011/20261011-083108_bakery-receipt-key-still-held-no-build.kyri) | Bakery ff to xy, receipt-key ruling still open, no build |
