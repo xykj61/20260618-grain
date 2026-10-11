@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.010757` | [Diffuser, gate held, aether row, no build](20261011/20261011-010757_diffuser-gate-held-aether-row-no-build.kyri) | Fourth pair waits for 20261012; aether row read; no build. |
 | `20261011.010712` | [Petrichor, held at gate, no build](20261011/20261011-010712_petrichor-fruit-held-earth-row-no-build.kyri) | Gate held; earth row read; no build. |
 | `20261011.010641` | [Copal, fruit empty again by strict measure, no build](20261011/20261011-010641_copal-fruit-empty-measured-no-build.kyri) | 158 chapter witnesses strict-rostered; no build. |
 | `20261011.010415` | [Pheromone, lane held on its Glow ruling, no build](20261011/20261011-010415_pheromone-lane-ruling-still-held-no-build.kyri) | Ruling awaited from Incense; no Glow change. |
