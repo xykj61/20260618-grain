@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.005613` | [Patchouli, sign red held, no build](20261011/20261011-005613_patchouli-sign-red-held-queue-empty-no-build.kyri) | Sign red still live; queue empty. |
 | `20261011.005403` | [Petrichor, gate held, no build](20261011/20261011-005403_petrichor-gate-held-no-build.kyri) | Consent Rail and seam still gated; no build. |
 | `20261011.005240` | [Incense, card read, no build](20261011/20261011-005240_incense-declined-no-build-card-read.kyri) | Queue held by rulings; nib carried; no build. |
 | `20261011.005247` | [Copal, roster recount, no build](20261011/20261011-005247_copal-fruit-roster-recount-no-build.kyri) | Zero unrostered witnesses; three non-witness files named; no build. |
