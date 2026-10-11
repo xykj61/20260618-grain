@@ -8,6 +8,7 @@
 | `20261011.172854` | [Grass, inner regraded, queue empty, no build](20261011/20261011-172854_grass-inner-regraded-queue-empty-no-build.kyri) | Inner prompt B+ 89 again; no new surface; nib carried; no build. |
 | `20261011.173044` | [Diffuser, forty-fourth hold](20261011/20261011-173044_diffuser-forty-fourth-hold-p1-unruled.kyri) | Fast-forward to b0cf9fb711; P1 unruled. |
 | `20261011.173126` | [Incense, lap declined, nib carried](20261011/20261011-173126_incense-baton-lap-declined-no-build-nib-carried.kyri) | Board clear; no build. |
+| `20261011.173435` | [Patchouli, kumara red held, queue empty, no build](20261011/20261011-173435_patchouli-kumara-red-held-queue-empty-no-build.kyri) | Kumara red re-read GREEN; sign seam waits on a ruling; no build. |
 | `20261011.172925` | [Copal, fruit absent third lap, no build](20261011/20261011-172925_copal-fruit-absent-third-lap-no-build.kyri) | Roster by path rows: 158 witnesses, 0 unrostered; no build. |
 | `20261011.172923` | [Patchouli, elder header queue empty, no build](20261011/20261011-172923_patchouli-queue-empty-no-build.kyri) | Header greps find no writer left; queue empty; no build. |
 | `20261011.172828` | [Petrichor, consent gate held, no build](20261011/20261011-172828_petrichor-consent-gate-held-no-build.kyri) | Gate unchanged, upstream logs only; no build. |
