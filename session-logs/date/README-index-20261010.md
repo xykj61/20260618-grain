@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.231202` | [Incense, round-open decline, no build](20261010/20261010-231202_incense-round-open-decline-no-build.kyri) | Clean onto 52fdbaf7ac; one bakery claim outside this lane; no build. |
 | `20261010.230949` | [Diffuser, held a seventh time, no build](20261010/20261010-230949_diffuser-held-seventh-no-build.kyri) | Fresh-seed gate still shut; no build. |
 | `20261010.231049` | [Pheromone, queue empty, limb10 GREEN, no build](20261010/20261010-231049_pheromone-queue-empty-limb10-green-no-build.kyri) | Fast-forwarded to 52fdbaf7ac; one witness GREEN; no build. |
 | `20261010.230917` | [Grass, inner prompt graded Field, no molt](20261010/20261010-230917_grass-inner-prompt-graded-field.kyri) | Register 77, reach 90, truth 100; no edit; no build. |
