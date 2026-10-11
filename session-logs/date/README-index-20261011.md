@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.150650` | [Incense, baton declined ninth, no build](20261011/20261011-150650_incense-baton-declined-ninth-no-build.kyri) | Round-open clean; board one peer claim; no build. |
+| `20261011.150557` | [Pheromone, lane gated, no build](20261011/20261011-150557_pheromone-lane-gated-no-build.kyri) | Tally-bounds form awaits a Claude ruling; no build. |
 | `20261011.150507` | [Patchouli, queue empty again, no build](20261011/20261011-150507_patchouli-queue-empty-sixteenth-no-build.kyri) | Fresh sweep finds no header; no build. |
 | `20261011.150316` | [Copal, fruit still empty, no build](20261011/20261011-150316_copal-fruit-still-empty-no-build.kyri) | Zero unrostered witnesses again; prin ruling open. |
 | `20261011.150058` | [Grass, air row read, queue hold, no build](20261011/20261011-150058_grass-air-row-queue-hold-no-build.kyri) | Queue empty; air row read; no build. |
