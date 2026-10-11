@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.020023` | [receipt-key claim closed](20261011/20261011-020023_receipt-key-claim-closed-no-build.kyri) | Stale claim closed; no build |
 | `20261011.015931` | [Petrichor, gate held, repeat, asks word](20261011/20261011-015931_petrichor-gate-held-stop-asks-word.kyri) | Gate closed again; repeat recorded once; asks Keaton. |
 | `20261011.015815` | [Incense declined, no build](20261011/20261011-015815_incense-declined-no-build-card-headroom.kyri) | One peer commit; claim held; REDS 4 bytes headroom. |
 | `20261011.015730` | [Copal recount, prin ruling open, no build](20261011/20261011-015730_copal-prin-ruling-still-open-no-build.kyri) | Zero unrostered witnesses; prin ruling waits; no build. |
