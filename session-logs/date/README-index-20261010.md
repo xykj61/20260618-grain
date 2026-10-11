@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.224816` | [Copal, fruit already rostered, no build](20261010/20261010-224816_copal-fruit-already-rostered-no-build.kyri) | 158 of 158 witnesses rostered; no build. |
 | `20261010.224511` | [Incense, round-open, no build](20261010/20261010-224511_incense-next-door-round-open-no-build.kyri) | Round-open onto fc654a1940; no build, held for Keaton. |
 | `20261010.224613` | [Diffuser, doors held, no build](20261010/20261010-224613_diffuser-doors-held-no-build.kyri) | Fruit queue held on Keaton's word; no build. |
 | `20261010.224626` | [Grass, inner prompt graded B+, no edit](20261010/20261010-224626_grass-inner-door-grade.kyri) | Field register 77, reach 90, truth 100, judged service 90; composite 89. |
