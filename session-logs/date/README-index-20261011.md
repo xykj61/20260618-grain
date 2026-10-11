@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.095325` | [Patchouli, queue empty, no build](20261011/20261011-095325_patchouli-queue-empty-read-compat-no-build.kyri) | Elder headers read-compat only; no build. |
 | `20261011.095310` | [Incense, declined, no build](20261011/20261011-095310_incense-baton-declined-fresh-no-build.kyri) | Board clear; cold run held; no build. |
 | `20261011.094938` | [Pheromone, lane held fifth time, no build](20261011/20261011-094938_pheromone-lane-held-fifth-no-build.kyri) | Card lane closed; stop clause holds; no build. |
 | `20261011.095047` | [Incense, declined again, no build](20261011/20261011-095047_incense-baton-declined-again-no-build.kyri) | Fast-forward clean; claim board empty; cold run held; no build. |
