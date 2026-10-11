@@ -163,6 +163,7 @@
 |---|---|---|
 | `20261011.125333` | [Grass, docs front door graded, no edit](20261011/20261011-125333_grass-docs-front-door-grade-no-edit.kyri) | docs/README.md at B-or-better; no edit. |
 | `20261011.125223` | [Diffuser, no build, P1 ruling waits](20261011/20261011-125223_diffuser-no-build-p1-ruling-waits.kyri) | Fast-forwarded to c27951d; claim board clear; no table run, no P1 restated. |
+| `20261011.125309` | [Petrichor, gate held on second read, no build](20261011/20261011-125309_petrichor-gate-held-second-read-no-build.kyri) | Public seam not landed upstream; no build. |
 | `20261011.125017` | [Pheromone, lane empty, earth row read, no build](20261011/20261011-125017_pheromone-lane-empty-earth-row-no-build.kyri) | Board empty upstream; queue closed; no build. |
 | `20261011.124537` | [Incense, roster red read, no build](20261011/20261011-124537_incense-roster-red-read-no-build.kyri) | 48 roster guards read red; repair waits on a check-in. |
 | `20261011.124358` | [Copal, fruit spent again, recount, no build](20261011/20261011-124358_copal-fruit-spent-recount-no-build.kyri) | 159 of 159 rostered; no build. |
