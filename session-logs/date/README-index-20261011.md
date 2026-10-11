@@ -78,6 +78,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.104155` | [Diffuser, padded share reproduced](20261011/20261011-104155_diffuser-padded-share-wiring-fixed.kyri) | Padded arm was unwired; fixed; reproduces 07:39; no build. |
 | `20261011.104404` | [Incense, baton declined, fast-forward, no build](20261011/20261011-104404_incense-declined-no-build-fresh-ff.kyri) | Fast-forward to a4bbba82bf; no REDS row; no build. |
 | `20261011.104012` | [Bakery, earth lap, receipt key checked, no build](20261011/20261011-104012_bakery-earth-receipt-key-checked-no-build.kyri) | Card's fact read on the file; holds; ruling stays Keaton's; no build. |
 | `20261011.104139` | [Petrichor, public seam gate held, no build](20261011/20261011-104139_petrichor-public-seam-gate-held-no-build.kyri) | Seam absent upstream; grant and revoke verified; no build. |
