@@ -25,6 +25,7 @@ think A prior copal lap today (20261011.000131) recorded the same zero-unrostere
 obs Fruit is closed by measurement, so no claim was opened and no witness was invented. Claiming an existing path would have re-rostered something already rostered.
 obs The card's "about 75 unrostered" line is stale. The measured count of unrostered witness names is zero, and the twelve non-witness files are the only gap.
 obs Not run: prin.rish, which an earlier copal lap found hanging. Its only roster would be a display hand, so it stays off the board.
+obs Send facts, written after the push. The first commit named nib 332404bccc; a rebase onto peer work conflicted on that nib line, and the resolution took the upstream side and rewrote the nib to the rebased parent 497b8a060e. The push then landed on top of two more peer commits (01eb0cecb1, fabbfdd06e) that the final pull brought in, so the card's nib sat two commits back and remember_git_nib_witness read STALE on the pushed state. This follow-up pins the nib to 5e3d685f5d, the HEAD read before this commit, which makes the card name the work commit's parent.
 rota none -- the fruit was a roster recount; no deep council read this lap
 orbit round 6 Virgo -- earth, law: what must stop. The untidiness found this lap was the stale "about 75" line, and it is named here.
 loom witness=brush_parse_density_witness verdict=GREEN welcomes=20 refuses=19
