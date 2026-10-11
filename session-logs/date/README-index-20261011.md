@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.091244` | [Petrichor, consent gate facts landed, ruling held, no build](20261011/20261011-091244_petrichor-gate-facts-landed-no-build.kyri) | Pull clean; grant and revoke facts on tree; ruling waits on Keaton; no build.
+| `20261011.091348` | [Patchouli, queue empty sixteenth way, no build](20261011/20261011-091348_patchouli-queue-empty-sixteenth-no-build.kyri) | Fresh nets re-run; lane queue empty; kumara red held; no build. |
 | `20261011.091039` | [Patchouli, queue empty fifteenth way, no build](20261011/20261011-091039_patchouli-queue-empty-no-build.kyri) | Both grep nets re-run; lane queue empty; no build. |
 | `20261011.091047` | [Grass, two context pages graded, no build](20261011/20261011-091047_grass-context-pages-graded-no-build.kyri) | KYRI and RADIANT_STYLE graded B or better; no build. |
 | `20261011.090648` | [Grass, rule pages graded, no build](20261011/20261011-090648_grass-rule-pages-graded-no-build.kyri) | Six rule pages graded B+ or better; no build. |
