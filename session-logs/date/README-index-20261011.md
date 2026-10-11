@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.061333` | [Copal, fruit empty, no build](20261011/20261011-061333_copal-fruit-empty-no-build.kyri) | Zero unrostered witnesses by exact path; no build. |
 | `20261011.061053` | [Bakery, receipt key ruling still open, no build](20261011/20261011-061053_bakery-receipt-key-ruling-held-no-build.kyri) | Ff to ce15ded636; key ruling open; no build. |
 | `20261011.061219` | [Incense, round-open ff, claim board empty, no build](20261011/20261011-061219_incense-round-open-declines-no-build.kyri) | Ff to eb589ae63a; no live claim; %642, %519 await Keaton; no build. |
 | `20261011.061056` | [Patchouli, queue empty a sixteenth way, no build](20261011/20261011-061056_patchouli-queue-empty-sixteenth-no-build.kyri) | Fresh sweep empty; no build. |
