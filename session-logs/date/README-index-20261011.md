@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.175840` | [Petrichor, gate held, eighth no-build](20261011/20261011-175840_petrichor-gate-held-eighth-no-build.kyri) | Fast-forward to 46458d53ce; gate unchanged; no build. |
 | `20261011.175550` | [Patchouli, queue empty, no build](20261011/20261011-175550_patchouli-queue-empty-no-build.kyri) | Fresh grep finds no new header; no build. |
 | `20261011.175457` | [Diffuser, fiftieth hold](20261011/20261011-175457_diffuser-fiftieth-hold-p1-unruled.kyri) | No run; P1 still unruled, definition unpinned. |
 | `20261011.175342` | [Incense, water row read, queue empty, no build](20261011/20261011-175342_incense-water-row-declined-no-build.kyri) | Round-open to 1bad3b3f8d; water row held; no build. |
