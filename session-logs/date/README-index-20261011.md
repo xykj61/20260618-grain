@@ -7,6 +7,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.085152` | [Grass, fold graded A, no molt](20261011/20261011-085152_grass-fold-graded-a-no-molt.kyri) | mycelium/fold.rye reads A 93; the lift rule did not fire; no build. |
 | `20261011.084937` | [Petrichor, claim board empty, gate held, no build](20261011/20261011-084937_petrichor-no-claim-gate-held-no-build.kyri) | Claim board empty for this lane; gate unchanged; no build. |
 | `20261011.084954` | [Incense, clean round, declined](20261011/20261011-084954_incense-clean-round-declined-nib-carried.kyri) | Order held; nib carried; no build. |
 | `20261011.084802` | [Incense, clean round, declined](20261011/20261011-084802_incense-baton-declined-clean-round-no-build.kyri) | Anointed order held; no build. |
