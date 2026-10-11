@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.175550` | [Patchouli, queue empty, no build](20261011/20261011-175550_patchouli-queue-empty-no-build.kyri) | Fresh grep finds no new header; no build. |
 | `20261011.175457` | [Diffuser, fiftieth hold](20261011/20261011-175457_diffuser-fiftieth-hold-p1-unruled.kyri) | No run; P1 still unruled, definition unpinned. |
 | `20261011.175342` | [Incense, water row read, queue empty, no build](20261011/20261011-175342_incense-water-row-declined-no-build.kyri) | Round-open to 1bad3b3f8d; water row held; no build. |
 | `20261011.175228` | [Bakery, build cache consumer, control 24 of 24](20261011/20261011-175228_bakery-build-cache-consumer.kyri) | Cold red 47 elsewhere; hot run owed. |
