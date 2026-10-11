@@ -4,6 +4,7 @@
 | `20261011.093430` | [Pheromone, lane held third time, no build](20261011/20261011-093430_pheromone-lane-held-no-build-third.kyri) | Card lane closed; no open door; no build. |
 | `20261011.093219` | [Incense, roster 836 reading, no build](20261011/20261011-093219_incense-roster-836-reading-no-build.kyri) | Board clear; 836 left to its lanes; no build. |
 | `20261011.093015` | [Bakery, receipt key held, no build](20261011/20261011-093015_bakery-receipt-key-ruling-held-no-build.kyri) | Census re-run, 819 miss, 0 path leak; ruling waits; no build. |
+| `20261011.093400` | [Docs-geode lint green, no build](20261011/20261011-093400_docs-geode-lint-green-no-build.kyri) | Lint advisories only, Bhakta 56/0, doorway ok; no build. |
 | `20261011.092457` | [Copal, roster complete, no build](20261011/20261011-092457_copal-roster-complete-no-build.kyri) | Zero unrostered chapter witnesses; no build. |
 | `20261011.092231` | [Pheromone, lane held, no build](20261011/20261011-092231_pheromone-lane-held-no-build.kyri) | Lane closed on the card; ruling waits on Incense; no build. |
 | `20261011.092130` | [Incense, baton declined, no build, lap 11358](20261011/20261011-092130_incense-baton-declined-no-build-lap-11358.kyri) | Fetch clean, claim board empty; lane waits on Keaton; no build. |
