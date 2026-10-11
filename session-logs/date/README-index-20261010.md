@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.202138` | [Patchouli, queue empty, kumara red rechecked](20261010/20261010-202138_patchouli-queue-empty-kumara-red-recheck.kyri) | Queue empty; kumara sign red re-read and held at the REDS byte bound. |
 | `20261010.202122` | [Grass, voice file graded A, no build](20261010/20261010-202122_grass-kyri-voice-graded-a-no-build.kyri) | KYRI.md door reading A/96; no edit; no build. |
 | `20261010.202009` | [Bakery, cache already shared](20261010/20261010-202009_bakery-compile-cache-already-shared.kyri) | Census: compile cache shared; receipt-key ruling waits. |
 | `20261010.201926` | [Patchouli, queue empty again, kumara red held](20261010/20261010-201926_patchouli-queue-empty-kumara-red-held.kyri) | Queue empty; kumara sign red named, held for REDS headroom. |
