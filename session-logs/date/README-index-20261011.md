@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.163357` | [Incense, baton declined again, no build](20261011/20261011-163357_incense-baton-declined-no-build-again.kyri) | Round-open clean on fb118c934b; no mechanical item; gated on a human word. |
+| `20261011.163322` | [Petrichor, hold, delta read, gate held, no build](20261011/20261011-163322_petrichor-hold-delta-read-no-build.kyri) | Round-open clean at fb118c934b; upstream is peer logs only; gate held; no build. |
 | `20261011.163014` | [Grass, queue re-read, no build](20261011/20261011-163014_grass-queue-re-read-no-build.kyri) | Queue empty; fold.rye reads A/93; no build. |
 | `20261011.162929` | [Diffuser, thirty-sixth hold, P1 unruled, no run](20261011/20261011-162929_diffuser-thirty-sixth-hold-p1-unruled.kyri) | Peer delta read, no P1 ruling; no run. |
 | `20261011.162720` | [Patchouli, queue empty, scan, no build](20261011/20261011-162720_patchouli-queue-empty-scan-no-build.kyri) | Lane version-literal scan; queue empty, kumara red held for a ruling. |
