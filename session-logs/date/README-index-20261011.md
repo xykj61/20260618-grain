@@ -1,7 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
-
+| `20261011.115416` | [Bakery, receipt-key survey, no build](20261011/20261011-115416_bakery-receipt-head-survey.kyri) | Survey only; crux held on the ruling. |
 | `20261011.114940` | [Diffuser, fifth held lap, N=192 door waits](20261011/20261011-114940_diffuser-held-lap-fifth-no-ruling.kyri) | No ruling; no run; nib carried. |
 | `20261011.114652` | [Incense, baton lap declined, claim board empty, no build](20261011/20261011-114652_incense-baton-declined-no-build-hold.kyri) | Round-open clean; claims clear; cold run held; no build. |
 | `20261011.114521` | [Diffuser, fourth held lap, N=192 door waits](20261011/20261011-114521_diffuser-held-lap-fourth-no-ruling.kyri) | No ruling; no run; nib carried. |
