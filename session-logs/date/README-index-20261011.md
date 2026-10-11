@@ -5,6 +5,8 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.025754` | [Patchouli, queue empty](20261011/20261011-025754_patchouli-queue-empty-fire-row-red-840-held.kyri) | Queue empty; red 840 held at pin bound; no build. |
+
+| `20261011.025744` | [Angular stencil reverses the sign](20261011/20261011-025744_angular-stencil-reverses-the-sign.kyri) | Falsifier first; polar floor 2 vs 97 at N=256; neither fired. |
 | `20261011.025706` | [Pheromone seventh hold](20261011/20261011-025706_pheromone-seventh-hold-no-build.kyri) | Claim board empty; reds sit in peer lanes; Glow ruling waits; no build. |
 | `20261011.030028` | [Petrichor consent gate still held, no build](20261011/20261011-030028_petrichor-consent-gate-held-no-build.kyri) | Consent Rail still held; no edit; no build. |
 | `20261011.025556` | [Petrichor third hold, no fruit](20261011/20261011-025556_petrichor-third-hold-no-fruit.kyri) | Fruit landed; gate holds; no build. |
