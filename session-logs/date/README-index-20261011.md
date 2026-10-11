@@ -10,6 +10,7 @@
 | `20261011.060827` | [Copal, fruit rechecked, no build](20261011/20261011-060827_copal-fruit-rechecked-no-build.kyri) | 159 witnesses, zero unrostered by exact line; no build. |
 | `20261011.060551` | [Incense, round-open to dea973e3a5, declined, no build](20261011/20261011-060551_incense-round-open-declines-no-build.kyri) | Round-open ff; claim board empty; %642, %519 await Keaton; no build. |
 | `20261011.060957` | [Pheromone, lane held, no build](20261011/20261011-060957_pheromone-lane-held-rebase-skip-no-build.kyri) | Stale pin skipped on rebase; claims empty; no build. |
+| `20261011.061101` | [Grass, inner regraded B+, no build](20261011/20261011-061101_grass-inner-regrade-b-plus-no-build.kyri) | Inner prompt B+ 89 at Field; no build. |
 | `20261011.060710` | [Patchouli, queue empty a fifteenth way, no build](20261011/20261011-060710_patchouli-queue-empty-fifteenth-no-build.kyri) | Fresh sweep of mantra/ and tally/ empty; no build. |
 | `20261011.061022` | [Petrichor, held on consent gate, no build](20261011/20261011-061022_petrichor-hold-no-open-row-no-build.kyri) | No open row; gate held; no build. |
 | `20261011.060524` | [Petrichor, consent gate holds again, no build](20261011/20261011-060524_petrichor-consent-gate-holds-again-no-build.kyri) | Ff to b77a7fd74b; gate still held; no build. |
