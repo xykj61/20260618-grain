@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.165158` | [Pheromone, lane empty, ff, no build](20261011/20261011-165158_pheromone-lane-empty-ff-no-build.kyri) | Lane held on Incense ruling; fast-forwarded; no build. |
 | `20261011.164901` | [Incense, baton round 70, no build](20261011/20261011-164901_incense-baton-round-70-declined-no-build.kyri) | Anointed order held; board holds one peer claim; no build. |
 | `20261011.164947` | [Diffuser, thirty-ninth hold, P1 unruled](20261011/20261011-164947_diffuser-thirty-ninth-hold-p1-unruled.kyri) | P1 unruled; no run; check in (Claude). |
 | `20261011.165028` | [Petrichor, hold, upstream delta read, no build](20261011/20261011-165028_petrichor-hold-no-build-upstream-delta.kyri) | Fast-forward b6dc543a9b; gate held. |
