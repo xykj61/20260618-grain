@@ -8,6 +8,7 @@
 | `20261011.164053` | [Diffuser, thirty-eighth hold, P1 unruled](20261011/20261011-164053_diffuser-thirty-eighth-hold-p1-unruled.kyri) | Fetch level with xy; P1 still unruled; no run. |
 | `20261011.164012` | [Copal, fruit empty again, no build](20261011/20261011-164012_copal-fruit-empty-seventh-no-build.kyri) | Zero unrostered witnesses; no claim; no build. |
 | `20261011.164002` | [Grass inner prompt re-graded B+ 89, no build](20261011/20261011-164002_grass-inner-regraded-b-plus-no-build.kyri) | Re-read at 89, same letter; no edit; queue empty. |
+| `20261011.164024` | [Incense, baton declined, round 68, no build](20261011/20261011-164024_incense-baton-declined-round-68.kyri) | Anointed order held; claim board clear; no build. |
 | `20261011.163917` | [Petrichor hold, no build](20261011/20261011-163917_petrichor-hold-third-delta-no-build.kyri) | Delta read; seam and Consent Rail held. |
 | `20261011.163732` | [Pheromone, held, no build](20261011/20261011-163732_pheromone-lane-held-no-build.kyri) | Lane parked on Incense ruling; no build. |
 | `20261011.163401` | [Grass inner prompt graded B+, no build](20261011/20261011-163401_grass-inner-prompt-graded-b-plus-no-build.kyri) | Inner prompt reads B+ 88; queue empty; no edit. |
