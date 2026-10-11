@@ -5,6 +5,7 @@
 | `20261011.091348` | [Patchouli, queue empty sixteenth way, no build](20261011/20261011-091348_patchouli-queue-empty-sixteenth-no-build.kyri) | Fresh nets re-run; lane queue empty; kumara red held; no build. |
 | `20261011.091039` | [Patchouli, queue empty fifteenth way, no build](20261011/20261011-091039_patchouli-queue-empty-no-build.kyri) | Both grep nets re-run; lane queue empty; no build. |
 | `20261011.091047` | [Grass, two context pages graded, no build](20261011/20261011-091047_grass-context-pages-graded-no-build.kyri) | KYRI and RADIANT_STYLE graded B or better; no build. |
+| `20261011.091448` | [Pheromone, held again, no build](20261011/20261011-091448_pheromone-held-again-no-build.kyri) | Ruling still waits on Incense; no build. |
 | `20261011.090648` | [Grass, rule pages graded, no build](20261011/20261011-090648_grass-rule-pages-graded-no-build.kyri) | Six rule pages graded B+ or better; no build. |
 | `20261011.090758` | [Pheromone, held again, no build](20261011/20261011-090758_pheromone-held-again-no-build.kyri) | Upstream fast-forwarded; no ruling; lane held, no build. |
 | `20261011.090421` | [Copal, fruit spent, no build](20261011/20261011-090421_copal-fruit-four-covered-no-build.kyri) | Zero witnesses unrostered; no build. |
