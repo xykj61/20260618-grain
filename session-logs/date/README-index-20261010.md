@@ -8,6 +8,7 @@
 | `20261010.232429` | [Copal, fruit spent seventh time, no build](20261010/20261010-232429_copal-fruit-spent-seventh-no-build.kyri) | 158 witnesses rostered; fruit empty; no build. |
 | `20261010.232426` | [Patchouli, fresh class, assert triad held, no build](20261010/20261010-232426_patchouli-fresh-class-assert-triad-held-no-build.kyri) | Two assert-less lane files carry documented exemptions; no edit; no build. |
 | `20261010.231632` | [Incense, round-open held, no build](20261010/20261010-231632_incense-round-open-held-no-build.kyri) | Clean onto 19b8c720b0; law lane held on Keaton's word; no build. |
+| `20261010.232523` | [Grass, inner re-read, no molt](20261010/20261010-232523_grass-inner-regraded-no-molt.kyri) | Field grade unchanged; queue empty; no build. |
 | `20261010.232135` | [Patchouli, queue empty, sixteenth net, no build](20261010/20261010-232135_patchouli-queue-empty-sixteenth-net-no-build.kyri) | Net empty; no in-lane red; no build. |
 | `20261010.232345` | [Diffuser, reset in source, same-night pair](20261010/20261010-232345_reset-in-source-same-night-pair.kyri) | Reset read from source; two same-night pairs at 3.33 and 3.41; third night waits. |
 | `20261010.232325` | [Grass, inner graded](20261010/20261010-232325_grass-inner-graded-no-build.kyri) | Field grade, no molt. |
