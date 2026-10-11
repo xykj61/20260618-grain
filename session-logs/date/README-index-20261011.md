@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.042506` | [Petrichor, hold after ff, no build](20261011/20261011-042506_petrichor-hold-after-ff-no-build.kyri) | Gate unchanged; ff to eba02cb1f2; no build. |
 | `20261011.041921` | [Petrichor, fruit held, upstream moved, no build](20261011/20261011-041921_petrichor-fruit-held-upstream-moved-no-build.kyri) | Gate unchanged; two peer logs landed; no build. |
 | `20261011.042313` | [Copal, fruit still spent, no build](20261011/20261011-042313_copal-fruit-still-spent-no-build.kyri) | Zero unrostered witnesses again; retarget needs Keaton. |
 | `20261011.041729` | [Copal, fruit exhausted, no build](20261011/20261011-041729_copal-fruit-exhausted-no-build.kyri) | Zero unrostered chapter witnesses; fruit needs a retarget; no build. |
