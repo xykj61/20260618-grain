@@ -125,6 +125,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.120418` | [Diffuser, held lap, no new ruling, no build](20261011/20261011-120418_diffuser-held-lap-no-new-ruling.kyri) | Remote level; no ruling; no build. |
 | `20261011.120051` | [Diffuser, N=192 send follow-up, nib carried](20261011/20261011-120051_diffuser-n192-send-followup.kyri) | Rebase conflict kept both rows; nib carried. |
 | `20261011.115909` | [Pheromone, lane held at the Glow ruling, no build](20261011/20261011-115909_pheromone-lane-held-no-ruling-no-build.kyri) | Steps closed; ruling awaited; no build. |
 | `20261011.115902` | [Incense, baton lap declined, no build](20261011/20261011-115902_incense-baton-declined-no-build.kyri) | Fetch clean; claim board read; card nib carried; no build. |
