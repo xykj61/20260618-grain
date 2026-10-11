@@ -62,3 +62,22 @@ argument. The confidence is about the mechanism, not about the code, which the r
 ---
 
 Appended after the run, below this line. The three falsifiers above are not edited.
+
+**Run.** Completed before clock `20261011.044231` (read at append time). One file, `fine_capacity_shuffle.py`, a copy of the second-constant script with one change: the set index is `perm[line % sets]`, with `perm` a seeded permutation of the set labels. Two arms in parallel, `SHUFFLE=0` (identity, the modulo baseline) and `SHUFFLE=1` (the shuffle), each run as `python3 fine_capacity_shuffle.py nopad 256 384`, unpadded, LINE 8, 5 percent. Outputs are untracked under `session-output/polar-padded/`, named `label_modulo_nopad_20261011.txt` and `label_shuffle_nopad_20261011.txt`.
+
+| N | Arm | Cartesian floor (sets) | Polar floor (sets) | Ratio | Monotone violations |
+|---|---|---|---|---|---|
+| 256 | modulo (identity) | 12.4 | 33.3 | 2.69 | 0 |
+| 256 | label shuffle | 12.4 | 33.3 | 2.69 | 0 |
+| 384 | modulo (identity) | 19.2 | 49.7 | 2.59 | 0 |
+| 384 | label shuffle | 19.2 | 49.7 | 2.59 | 0 |
+
+The modulo arm reproduces the earlier readings at both sizes (2.69 at N = 256 and 2.59 at N = 384, from `fc256_base_20261011.txt` and `fc384_640_nopad_20261011.txt`), so the code path is the same one those runs used.
+
+**Check that the shuffle was real.** A matching table would mean nothing if the permutation were the identity. The seeded permutation moves 256 of 256 labels at N = 256 and 383 of 384 at N = 384, so the arms differ in their labels and agree in their misses.
+
+**Falsifiers read.** C1 held: every printed value matches at both sizes. C3 did not fire, since the floors do not differ. C2 is the reading of C1: the per-set shuffle is a relabeling, it changes no set's contents, and it cannot test ring-to-set alignment. The door is retired as a test of alignment.
+
+**Reading.** The check confirms the set-local LRU argument in this model. It says nothing new about the sawtooth itself, which the modulo arm reproduces unchanged. What it does is remove one door from the list and show why, before a fleet of runs spent on it. The next door that can change which lines share a set is a per-ring offset, `set = (line + off[ring]) % sets`, and it needs ring tags on the trace, which the captured trace does not carry. Its falsifier will be written, and committed, before anything is built for it.
+
+**Scope.** Scratch model only, with no hardware, no witness, and no claim about any real cache. The alignment cause stays open. Next door, not run: a per-ring offset that changes the line-to-set partition, its ring tags captured first and its falsifiers written before the run.
