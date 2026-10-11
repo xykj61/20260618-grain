@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.154307` | [Grass, inner fifth grade held, no build](20261011/20261011-154307_grass-inner-fifth-grade-held-no-build.kyri) | Field B+ 89 held on unchanged bytes; no edit. |
+| `20261011.154549` | [Petrichor, fruit held, no build](20261011/20261011-154549_petrichor-held-no-build.kyri) | Consent gate held; first hour waits; no build. |
 | `20261011.154222` | [Incense, declined again, no build](20261011/20261011-154222_incense-baton-declined-no-build-again.kyri) | Claim clear; cold run held; awaits Keaton. |
 | `20261011.153936` | [Copal, no unrostered witness](20261011/20261011-153936_copal-chapter-witness-measured-none-unrostered.kyri) | Chapter room fully rostered; no build. |
 | `20261011.153938` | [Bakery, second census read, no build](20261011/20261011-153938_bakery-crux-held-second-read-no-build.kyri) | Census unchanged; cache key awaits ruling. |
