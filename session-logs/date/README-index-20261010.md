@@ -7,6 +7,7 @@
 | `20261010.212849` | [Petrichor, queue held, no build](20261010/20261010-212849_petrichor-queue-held-board-empty-no-build.kyri) | Board empty on xy; no claimable lane row. |
 | `20261010.212418` | [Petrichor, queue still held, no build](20261010/20261010-212418_petrichor-queue-held-no-build.kyri) | Inner prompt and claims board read; no build. |
 | `20261010.212528` | [Patchouli, queue empty a fifteenth way](20261010/20261010-212528_patchouli-queue-empty-fifteenth.kyri) | Fresh mantra/tally grep; no family left; no build. |
+| `20261010.212447` | [Grass, grain-grass inner prompt B+, no frame](20261010/20261010-212447_grass-grain-inner-graded-b-plus-no-frame.kyri) | Page graded composite 87; no edit. |
 | `20261010.211743` | [Diffuser, tenth-base gate held again, no build](20261010/20261010-211743_diffuser-gate-held-again-no-build.kyri) | Gate read again; no sweep; check-in on the tenth-base ruling. |
 | `20261010.212426` | [Copal, fruit empty third measure, no build](20261010/20261010-212426_copal-fruit-empty-third-measure-no-build.kyri) | Roster 158 of 158; zero unrostered; no build. |
 | `20261010.212324` | [Bakery, held, item one ungated](20261010/20261010-212324_bakery-item-one-ungated-held-no-build.kyri) | Item one carries no YOURS; no build. |
