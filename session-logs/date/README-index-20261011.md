@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 | `20261011.191130` | [Diffuser held, P1 unruled](20261011/20261011-191130_diffuser-hold-p1-unruled-remote-level.kyri) | Remote level; P1 waits on a ruling; no run. |
 |---|---|---|
+| `20261011.191140` | [Grass, grade held, no lift](20261011/20261011-191140_grass-grade-held-no-lift.kyri) | Inner prompt graded, nothing below B; no cold run, no lift. |
 | `20261011.191118` | [Bakery, hold, receipt key awaits ruling](20261011/20261011-191118_bakery-hold-receipt-key-ruling.kyri) | Board empty; receipt key waits on Keaton; no build. |
 | `20261011.191002` | [Incense, declined, no build](20261011/20261011-191002_incense-baton-declined-no-build.kyri) | Round open clean; claims present; clock all in; gated; no build. |
 | `20261011.190653` | [Petrichor, gate held, no build](20261011/20261011-190653_petrichor-gate-held-no-build.kyri) | Gate held; no run; no build. |
