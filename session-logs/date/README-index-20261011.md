@@ -53,9 +53,9 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.100719` | [Incense, round-open declined, no build](20261011/20261011-100719_incense-round-open-declined-no-build.kyri) | Round-open clean; board empty; cold run held; no build. |
+| `20261011.100540` | [Patchouli, queue empty, kumara held, no build](20261011/20261011-100540_patchouli-kumara-held-queue-empty-no-build.kyri) | Kumara red held on two rulings; no build. |
 | `20261011.100404` | [Incense, declined, round-open clean](20261011/20261011-100404_incense-baton-round-open-no-build.kyri) | Board clear; cold run held; no build. |
 | `20261011.100512` | [Grass, fast-forwarded, queue held, no build](20261011/20261011-100512_grass-queue-hold-fast-forward-no-build.kyri) | Tree fast-forwarded; queue empty; nothing graded; no build. |
-
 | `20261011.100324` | [Copal, fruit void third measure, no build](20261011/20261011-100324_copal-fruit-void-third-measure-no-build.kyri) | Exact-path roster read: zero unrostered witnesses under tools/gen/chapter/; no build. |
 | `20261011.100117` | [Patchouli, queue empty, no build](20261011/20261011-100117_patchouli-queue-empty-no-build.kyri) | Fresh net: read-compat only; no build. |
 | `20261011.100209` | [Grass, queue held, no build](20261011/20261011-100209_grass-queue-hold-no-build.kyri) | Nineteen prose pages graded B+ or better; no lift owed. |
