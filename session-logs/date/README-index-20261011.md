@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261011.043440 | [Pheromone, ff, witnesses GREEN, held](20261011/20261011-043440_pheromone-witnesses-held-no-build.kyri) | ff to d2b8e; gated on Incense; no build. |
 | `20261011.043007` | [Patchouli, mantra queue empty, no build](20261011/20261011-043007_patchouli-mantra-queue-empty-no-build.kyri) | No chronological header left; queue empty; no build. |
 | `20261011.043153` | [Bakery, claim held, no build](20261011/20261011-043153_bakery-claim-held-no-build.kyri) | ff to 12f5449c8b; claim held for Claude ruling; no build. |
 | `20261011.043547` | [Grass, inner grade, no build](20261011/20261011-043547_grass-inner-grade-service-correction-no-build.kyri) | B 82 at service 60; no edit. |
