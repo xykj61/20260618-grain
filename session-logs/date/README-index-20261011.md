@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.053247` | [Petrichor, gate holds, no build](20261011/20261011-053247_petrichor-gate-holds-no-build.kyri) | One upstream log; Consent Rail gate unchanged; no build. |
 | `20261011.053013` | [Patchouli, queue empty, duplicate kumara, no build](20261011/20261011-053013_patchouli-queue-empty-duplicate-kumara-no-build.kyri) | Queue empty; kumara copies identical; no build. |
 | `20261011.052935` | [Copal, fruit premise spent, no build](20261011/20261011-052935_copal-fruit-premise-spent-no-build.kyri) | Zero unrostered witnesses by path; fruit spent; check in. |
 | `20261011.052900` | [Diffuser, set-spread stagger, modulo floors](20261011/20261011-052900_diffuser-set-spread-stagger-reproduces-modulo.kyri) | falsifiers first (75b9501d76); floors equal modulo; spread 0.28; T3 inconclusive. |
