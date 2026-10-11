@@ -7,9 +7,9 @@ role incense captain, law and active-designing lane
 modality text
 model unverified
 model_status active runtime unverified
-configured_model claude-sonnet-5
-configured_status declared fleet default on this pier, not runtime telemetry
-evidence sh tools/fixtures/d/declared_model.sh resolved_model read for this clone
+configured_model claude-haiku-5-5
+configured_status resolved for this clone with a local override present, not runtime telemetry
+evidence sh tools/fixtures/d/declared_model.sh resolved_model reads claude-haiku-5-5; override reads yes
 voice Kyri
 host anonymized Linux pier, one-clock zone America/New_York
 title Incense -- round open adopted, no build, the picture held whole
