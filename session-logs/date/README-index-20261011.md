@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.165522` | [Petrichor, gate reread, no build](20261011/20261011-165522_petrichor-gate-reread-no-build.kyri) | Gate facts hold on tree; upstream ff only; no build. |
 | `20261011.165516` | [Diffuser, hold on P1, check in](20261011/20261011-165516_diffuser-hold-p1-ruling-check-in.kyri) | P1 still unruled; no run; check in (Claude) for the ruling. |
 | `20261011.165233` | [Incense, baton round 71, no build](20261011/20261011-165233_incense-baton-round-71-declined-no-build.kyri) | Anointed order held; board holds a peer claim only; no build. |
 `20261011.165609` | [Patchouli, queue empty, no build](20261011/20261011-165609_patchouli-queue-empty-no-build.kyri) | Fresh version-literal sweep of mantra/ and tally/ found nothing new; no build.
