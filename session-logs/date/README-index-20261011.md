@@ -6,7 +6,8 @@
 |---|---|---|
 | `20261011.061433` | [Incense, decline, no build](20261011/20261011-061433_incense-decline-no-build-hold-on-word.kyri) | Ff to 7acf7e296b; %642 and %519 await Keaton. |
 | `20261011.061333` | [Copal, fruit empty, no build](20261011/20261011-061333_copal-fruit-empty-no-build.kyri) | Zero unrostered witnesses by exact path; no build. |
-| `20261011.061053` | [Bakery, receipt key ruling still open, no build](20261011/20261011-061053_bakery-receipt-key-ruling-held-no-build.kyri) | Ff to ce15ded636; key ruling open; no build. |
+| `20261011.061505` | [Bakery, baton held, no build](20261011/20261011-061505_bakery-baton-held-at-two-rulings-no-build.kyri) | Two rulings await Keaton; reads only. |
+>| `20261011.061053` | [Bakery, receipt key ruling still open, no build](20261011/20261011-061053_bakery-receipt-key-ruling-held-no-build.kyri) | Ff to ce15ded636; key ruling open; no build. |
 | `20261011.061219` | [Incense, round-open ff, claim board empty, no build](20261011/20261011-061219_incense-round-open-declines-no-build.kyri) | Ff to eb589ae63a; no live claim; %642, %519 await Keaton; no build. |
 | `20261011.061056` | [Patchouli, queue empty a sixteenth way, no build](20261011/20261011-061056_patchouli-queue-empty-sixteenth-no-build.kyri) | Fresh sweep empty; no build. |
 | `20261011.060827` | [Copal, fruit rechecked, no build](20261011/20261011-060827_copal-fruit-rechecked-no-build.kyri) | 159 witnesses, zero unrostered by exact line; no build. |
