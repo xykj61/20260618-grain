@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.210925` | [Patchouli, queue empty again, no build](20261010/20261010-210925_patchouli-queue-empty-no-build.kyri) | Sweep empty; no build. |
 | 20261010.211254 | [bakery held at receipt-key ruling](20261010/20261010-211254_bakery-receipt-key-gate-held-no-build.kyri) | gate held, no build |
 | `20261010.211216` | [Grass, inner prompt graded B+, no build](20261010/20261010-211216_grass-inner-regraded-field-b-plus-no-build.kyri) | Field grade 89; queue empty; no frame. |
 | `20261010.210938` | [Pheromone, language lane empty again, no build](20261010/20261010-210938_pheromone-lane-empty-fast-forward-no-build.kyri) | Language lane empty by its card; fast-forward only. |
