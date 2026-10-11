@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.013335` | [Grass, inner prompt graded B+, no build](20261011/20261011-013335_grass-inner-prompt-graded-b-plus-no-build.kyri) | Field grade 88; queue empty; no edit. |
 | `20261011.013319` | [Pheromone, lane empty, no build](20261011/20261011-013319_pheromone-lane-empty-no-build.kyri) | Lane empty; ruling waits on Incense; no build. |
+| `20261011.013243` | [Patchouli, queue empty, thirteenth net, stop](20261011/20261011-013243_patchouli-queue-empty-thirteenth-stop.kyri) | Fresh net; lane empty; no build. |
 | `20261011.013141` | [Diffuser, lap gated, repeat, no build](20261011/20261011-013141_diffuser-lap-gated-no-build.kyri) | Same calendar and crossover gates; no fruit. |
 | `20261011.013000` | [Diffuser, fourth night gated, no build](20261011/20261011-013000_diffuser-fourth-night-gated-no-build.kyri) | Pair gated to 20261012; crossover gated to Caravan. |
 | `20261011.012926` | [Copal, premise unmet, third time](20261011/20261011-012926_copal-fruit-premise-unmet-third-no-build.kyri) | No unrostered witness; no build. |
