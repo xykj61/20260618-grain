@@ -24,7 +24,7 @@ rota lap 10611, row 1 -- air feels; the reading is that two honest grades with n
 orbit round 5 -- sign and verb not read this lap.
 file session-logs/date/20261011/20261011-092955_grass-readme-a-foundation-b-no-build.kyri the log for this lap
 file session-logs/date/README-index-20261011.md the day index row for this log
-file construction/ITINERARY.md git nib carried forward as a follow-up, per the remember-git-nib rule 5
+note the card git nib was NOT carried in this commit: a peer edited the same line, the rebase took upstream, and the amend was discarded because the commit was already pushed. The card still names 7ddf9a6030, one commit behind this log, the contested-send case that remember-git-nib.md leaves open.
 scope the day shelf and the card's git nib only; no tracked page, witness, or claim is touched.
 status GREEN for the grades: README A/94 and the Mitra shed foundation B/83, both read by qa_report_card. No witness was run and no code line moved, so no witness is claimed. Left open: the Mitra shed's register at 63 sits above the field ceiling of 30 percent negative, a candidate for a later lift if a lane reaches it.
 recommend keep-going -- the queue is empty; the Mitra shed is the one open reading above the field ceiling, and it waits for a lap that owns the foundation.
