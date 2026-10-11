@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.074343` | [Diffuser, huge-page sweep falsifier fired](20261011/20261011-074343_diffuser-huge-page-sweep-falsifier-fired.kyri) | Huge pages 90-98 permille, control 220-339; both under 500, falsifier fired. |
 | `20261011.074448` | [Incense, baton declined, board clear, no build](20261011/20261011-074448_incense-baton-declined-claim-board-clear-no-build.kyri) | Round-open clean on 0cad513376; board clear; no build. |
 | `20261011.074125` | [Petrichor, gate held, no build](20261011/20261011-074125_petrichor-gate-held-no-build.kyri) | Consent Rail gate held; board clear; no build. |
 | `20261011.074442` | [Copal, fruit empty, no build](20261011/20261011-074442_copal-fruit-empty-strict-count-no-build.kyri) | Strict count: no witness left; no build. |
