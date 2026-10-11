@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.031103` | [Petrichor, first hour green, no build](20261011/20261011-031103_petrichor-first-hour-witness-green-no-build.kyri) | Links resolve; first-hour witness GREEN; no build. |
 | `20261011.030938` | [Copal, fruit exhausted](20261011/20261011-030938_copal-fruit-exhausted-check-in.kyri) | 158 of 158 chapter witnesses rostered; fruit empty; no claim, no build. |
 | `20261011.030942` | [Bakery, hold, no build](20261011/20261011-030942_bakery-baton-hold-no-build.kyri) | Queue blocked on Keaton's word; claims clear; no build. |
 | `20261011.030941` | [Pheromone ninth hold, no build](20261011/20261011-030941_pheromone-ninth-hold-no-build.kyri) | Lane empty; claim board clear; ruling waits on Incense; no build. |
