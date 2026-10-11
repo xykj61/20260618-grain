@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.174146` | [Diffuser, forty-seventh hold](20261011/20261011-174146_diffuser-forty-seventh-hold-p1-unruled.kyri) | Fast-forward to 55cad671fe; P1 unruled. |
 | `20261011.173853` | [Incense, declined, nib carried](20261011/20261011-173853_incense-baton-declined-nib-carried.kyri) | Board: one peer claim; no build. |
 | `20261011.173835` | [Patchouli, queue empty, no build](20261011/20261011-173835_patchouli-queue-empty-no-build.kyri) | Nets re-run; claims and reds read; no build. |
 | `20261011.173735` | [Petrichor, gate held, fourth no-build](20261011/20261011-173735_petrichor-gate-held-fourth-no-build.kyri) | Seam still absent; no page; no build. |
