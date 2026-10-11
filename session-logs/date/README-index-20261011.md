@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.153716` | [Patchouli, queue empty a seventeenth way, no build](20261011/20261011-153716_patchouli-queue-empty-seventeenth-no-build.kyri) | Queue empty; pin still deadlocked; no build. |
 | `20261011.153130` | [Grass, inner fourth grade, header moved](20261011/20261011-153130_grass-inner-fourth-grade-index-header.kyri) | Field B+ 89 held; day index header back on top. |
 | `20261011.153328` | [Bakery, census read, crux held, no build](20261011/20261011-153328_bakery-cache-census-held-no-build.kyri) | Same source reuses cache; shared seam awaits ruling. |
 | `20261011.153529` | [Incense, baton read again, no build, late](20261011/20261011-153529_incense-baton-declined-late-no-build.kyri) | Claim board clear; cold run held; law lane waiting on Keaton's word. |
