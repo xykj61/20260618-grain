@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.141631` | [Diffuser, held again, P1 ruling waits](20261011/20261011-141631_diffuser-held-no-run.kyri) | No run; the door waits on a P1 ruling. |
 | `20261011.141320` | [Petrichor, gate held after upstream pull, no build](20261011/20261011-141320_petrichor-gate-held-no-build.kyri) | Public seam still open; no build. |
 | `20261011.141130` | [Patchouli, queue empty, kumara held, no build](20261011/20261011-141130_patchouli-queue-empty-kumara-held-no-build.kyri) | Elder literals read-compat only; kumara sign waits on seam ruling. |
 | `20261011.141249` | [Incense, baton declined, fifteenth read, no build](20261011/20261011-141249_incense-baton-declined-fifteenth-no-build.kyri) | Round-open clean; claim board clear; cold run held. |
