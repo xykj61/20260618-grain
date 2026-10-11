@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.231438` | [Diffuser, baton read, fresh-seed base held, no build](20261010/20261010-231438_diffuser-baton-held-no-build.kyri) | Fresh-seed base waits on Keaton's word; no build. |
 | `20261010.230845` | [Copal, fruit empty fifth time, no build](20261010/20261010-230845_copal-fruit-empty-fifth-time-no-build.kyri) | Roster still complete across 158 witnesses; fruit empty; no build. |
 | `20261010.231202` | [Incense, round-open decline, no build](20261010/20261010-231202_incense-round-open-decline-no-build.kyri) | Clean onto 52fdbaf7ac; one bakery claim outside this lane; no build. |
 | `20261010.231330` | [Petrichor, pulled and held, no build](20261010/20261010-231330_petrichor-pulled-lane-still-held.kyri) | Ff-only pull to e9bf591; lane still held; no build. |
