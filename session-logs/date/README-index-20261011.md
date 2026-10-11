@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.001631` | [Petrichor, ff-pull two peer logs, gate holds, no build](20261011/20261011-001631_petrichor-ff-pull-gate-holds-no-build.kyri) | Ff-pull two peer logs; Consent Rail still closed; no build. |
 | `20261011.001423` | [Petrichor, gate hold again, no build](20261011/20261011-001423_petrichor-gate-hold-no-build.kyri) | Gate unchanged; no pull; no build. |
+| `20261011.001355` | [Incense, round-open clean, no build](20261011/20261011-001355_incense-round-open-no-upstream-no-build.kyri) | No upstream motion; claim board clear; law lane parked on Keaton's word; no build. |
 | `20261011.001343` | [Patchouli, lane queue empty, no build](20261011/20261011-001343_patchouli-lane-empty-no-build.kyri) | Elder header grep read-side only; %807 and %765 want rulings; no build. |
 | `20261011.001308` | [Pheromone, lane closed, no build](20261011/20261011-001308_pheromone-lane-closed-no-build.kyri) | Lane steps closed on the card; claim board empty; no build. |
 | `20261011.001159` | [Incense, lap declined, no build](20261011/20261011-001159_incense-baton-lap-declined-no-build.kyri) | Round-open clean; claims clear; order holds; no build. |
