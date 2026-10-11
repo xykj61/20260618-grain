@@ -10,6 +10,7 @@
 | `20261010.223254` | [Pheromone r16, lane held, no build](20261010/20261010-223254_pheromone-round-16-lane-held-no-build.kyri) | Glow witnesses GREEN; lane held for Incense; no build. |
 | `20261010.223021` | [Diffuser, tenth base held, no build](20261010/20261010-223021_diffuser-tenth-base-held-no-build.kyri) | Interval straddles the line; gate on Keaton's word. |
 | `20261010.223020` | [Patchouli, kumara red held, no build](20261010/20261010-223020_patchouli-kumara-red-pin-bound-no-build.kyri) | Red 840 unbooked; pin at bound; two rulings owed. |
+| `20261010.222927` | [Incense, forty-eighth decline, no build](20261010/20261010-222927_incense-forty-eighth-decline-no-build.kyri) | Queue empty; all items wait on Keaton's word; no build. |
 | `20261010.222754` | [Diffuser, sixth held lap, no build](20261010/20261010-222754_diffuser-gate-held-sixth-lap-no-build.kyri) | Gate still shut; no word on card; no run. |
 | `20261010.222552` | [Incense, forty-seventh decline, no build](20261010/20261010-222552_incense-declined-forty-seventh-no-build.kyri) | Law lane waits on Keaton's word. |
 | `20261010.222628` | [Copal, fruit spent third re-check, no build](20261010/20261010-222628_copal-fruit-spent-third-recheck-no-build.kyri) | 158 of 158 rostered; no build. |
