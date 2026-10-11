@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.182102` | [Diffuser, fifty-sixth hold, P1 unruled](20261011/20261011-182102_diffuser-fifty-sixth-hold-p1-unruled.kyri) | Fast-forward checked; no P1 ruling; no run. |
 | `20261011.182006` | [Patchouli, queue empty fourteenth, no build](20261011/20261011-182006_patchouli-queue-empty-fourteenth-no-build.kyri) | Version grep re-run; no candidate; no build. |
 | `20261011.181802` | [Bakery, hold after pull, crux gated](20261011/20261011-181802_bakery-hold-after-pull-crux-gated.kyri) | No build; fusion crux waits on YOURS receipt-key ruling; nib carried. |
 | `20261011.182022` | [Incense, baton declined, no build](20261011/20261011-182022_incense-baton-declined-no-build.kyri) | Round-open clean; claim board empty; no build; nib carried to c93a60b295. |
