@@ -52,6 +52,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.100719` | [Incense, round-open declined, no build](20261011/20261011-100719_incense-round-open-declined-no-build.kyri) | Round-open clean; board empty; cold run held; no build. |
 | `20261011.100404` | [Incense, declined, round-open clean](20261011/20261011-100404_incense-baton-round-open-no-build.kyri) | Board clear; cold run held; no build. |
 | `20261011.100512` | [Grass, fast-forwarded, queue held, no build](20261011/20261011-100512_grass-queue-hold-fast-forward-no-build.kyri) | Tree fast-forwarded; queue empty; nothing graded; no build. |
 
