@@ -8,6 +8,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.085152` | [Grass, fold graded A, no molt](20261011/20261011-085152_grass-fold-graded-a-no-molt.kyri) | mycelium/fold.rye reads A 93; the lift rule did not fire; no build. |
+| `20261011.085217` | [Incense, baton declined, no build](20261011/20261011-085217_incense-baton-declined-rebase-to-anointed-no-build.kyri) | Anointed order; claim board clear; no build. |
 | `20261011.084937` | [Petrichor, claim board empty, gate held, no build](20261011/20261011-084937_petrichor-no-claim-gate-held-no-build.kyri) | Claim board empty for this lane; gate unchanged; no build. |
 | `20261011.084954` | [Incense, clean round, declined](20261011/20261011-084954_incense-clean-round-declined-nib-carried.kyri) | Order held; nib carried; no build. |
 | `20261011.084802` | [Incense, clean round, declined](20261011/20261011-084802_incense-baton-declined-clean-round-no-build.kyri) | Anointed order held; no build. |
