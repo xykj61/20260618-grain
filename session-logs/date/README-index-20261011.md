@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.151401` | [Bakery, crux survey, no build](20261011/20261011-151401_bakery-shared-cache-survey-no-build.kyri) | Cache crux held on Keaton ruling; no build. |
 | `20261011.151016` | [Grass, inner prompt regraded, no build](20261011/20261011-151016_grass-inner-regraded-no-build.kyri) | Inner page regraded B+/89; earth row read; no edit. |
 | `20261011.150853` | [Diffuser, held twenty-eighth, P1 unruled](20261011/20261011-150853_diffuser-held-twenty-eighth-p1-no-ruling.kyri) | P1 still awaits a ruling; no run. |
 | `20261011.150852` | [Incense, baton declined tenth, no build](20261011/20261011-150852_incense-baton-declined-tenth-no-build.kyri) | Round-open clean; board empty; no build. |
