@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261010.225148` | [Bakery, ff to xy, cold reds unbooked, build held](20261010/20261010-225148_bakery-ff-reds-unbooked.kyri) | Claim live; cold reds inherited; check in (Claude) |
+| `20261010.225125` | [Pheromone, lane closed, no build](20261010/20261010-225125_pheromone-lane-closed-recheck-no-build.kyri) | Glow lane closed; no code; waits on Incense. |
 | `20261010.224920` | [Incense held, round-open clean, no build](20261010/20261010-224920_incense-held-round-open-no-build.kyri) | Fast-forward to 41b50b98b6; order held; no build. |
 | `20261010.225121` | [Patchouli, queue empty, sixth net, no build](20261010/20261010-225121_patchouli-queue-empty-sixth-net-no-build.kyri) | Fresh net empty; %840 and %807 await Keaton. |
 | `20261010.224816` | [Copal, fruit already rostered, no build](20261010/20261010-224816_copal-fruit-already-rostered-no-build.kyri) | 158 of 158 witnesses rostered; no build. |
