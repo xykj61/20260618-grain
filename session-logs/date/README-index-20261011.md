@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.093630` | [Bakery, crux held, no build](20261011/20261011-093630_bakery-crux-held-no-build.kyri) | Read-only lap; claim board empty; cold run exceeds window; no build. |
 | `20261011.093457` | [Incense, baton read, no build](20261011/20261011-093457_incense-baton-round-open-no-build.kyri) | Round-open clean; no build. |
 | `20261011.093430` | [Pheromone, lane held third time, no build](20261011/20261011-093430_pheromone-lane-held-no-build-third.kyri) | Card lane closed; no open door; no build. |
 | `20261011.093716` | [Patchouli, queue empty, no build](20261011/20261011-093716_patchouli-queue-empty-no-build.kyri) | Elder-literal nets re-run, all hits read-compat; kumara red waits on Keaton; no build. |
