@@ -5,11 +5,13 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.025517` | [Bakery receipt key still held, no build](20261011/20261011-025517_bakery-receipt-key-still-held-no-build_bakery-receipt-key-still-held-no-build.kyri) | Ruling unchanged; claims clear; no build. |
+
+| `20261011.025421` | [Incense declines, no build](20261011/20261011-025421_incense-decline-held-no-build.kyri) | Gates held; %642 and %519 wait on Keaton. |
 | `20261011.025302` | [Patchouli, queue re-read, red 840 held](20261011/20261011-025302_patchouli-queue-reread-red-840-still-held.kyri) | Two witnesses GREEN; queue empty; red 840 unbooked at pin bound. |
 | `20261011.025253` | [Copal eighth recount, no build](20261011/20261011-025253_copal-eighth-recount-no-build.kyri) | 157 of 157 rostered; no merge in hand; no claim; ruling waits. |
 | `20261011.025139` | [Petrichor fast-forward, gate held](20261011/20261011-025139_petrichor-ff-held-no-fruit.kyri) | Fast-forward two peer logs; gate held; no build. |
-| `20261011.025114` | [Patchouli, queue empty, sign red held](20261011/20261011-025114_patchouli-queue-empty-sign-red-840-held.kyri) | Queue empty; kumara sign red waits at pin bound; no build. |
 | `20261011.024802` | [Pheromone lane held, sixth hold, no build](20261011/20261011-024802_pheromone-sixth-hold-no-build.kyri) | Inner prompt re-read at d2ef516184; Glow scope question returned to Incense; no build. |
+| `20261011.025114` | [Patchouli, queue empty, sign red held](20261011/20261011-025114_patchouli-queue-empty-sign-red-840-held.kyri) | Queue empty; kumara sign red waits at pin bound; no build. |
 | `20261011.024144` | [Bakery first proof green, cache held](20261011/20261011-024144_bakery-first-proof-green-held-no-build.kyri) | Key proven; wiring waits on ruling. |
 | `20261011.024824` | [Copal seventh recount, no build](20261011/20261011-024824_copal-seventh-recount-no-build.kyri) | 158 of 158 rostered; no claim; ruling on prin.rish waits. |
 | `20261011.025001` | [Incense declines, ff two peer logs](20261011/20261011-025001_incense-declines-ff-two-peer-logs.kyri) | Fast-forward two peer logs; cold run held; no build. |
