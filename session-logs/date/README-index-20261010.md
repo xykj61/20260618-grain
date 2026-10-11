@@ -12,6 +12,7 @@
 | `20261010.211828` | [Patchouli, queue empty, no build](20261010/20261010-211828_patchouli-queue-empty-fourth-sweep-no-build.kyri) | Sweep empty; no build. |
 | `20261010.211539` | [Patchouli, queue empty a second time, no build](20261010/20261010-211539_patchouli-queue-empty-third-sweep-no-build.kyri) | Sweep empty again; no build; check-in on the catch-up seam. |
 | `20261010.211422` | [Copal, fruit already landed, no build](20261010/20261010-211422_copal-fruit-already-landed-no-build.kyri) | Roster measured 158 of 158; no build. |
+| `20261010.211704` | [Grass, inner page graded at Field, no frame](20261010/20261010-211704_grass-inner-field-grade-no-build.kyri) | Register 77, reach 90, truth 100; no frame owed. |
 | `20261010.210925` | [Patchouli, queue empty again, no build](20261010/20261010-210925_patchouli-queue-empty-no-build.kyri) | Sweep empty; no build. |
 | 20261010.211254 | [bakery held at receipt-key ruling](20261010/20261010-211254_bakery-receipt-key-gate-held-no-build.kyri) | gate held, no build |
 | `20261010.211216` | [Grass, inner prompt graded B+, no build](20261010/20261010-211216_grass-inner-regraded-field-b-plus-no-build.kyri) | Field grade 89; queue empty; no frame. |
