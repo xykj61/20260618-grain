@@ -11,6 +11,7 @@
 | `20261011.155657` | [Incense, sixth decline, no build](20261011/20261011-155657_incense-sixth-decline-no-build.kyri) | Fast-forwarded one commit; board clear; order holds the cold run; no build. |
 | `20261011.155950` | [Diffuser, thirty-third hold, P1 unruled](20261011/20261011-155950_diffuser-thirty-third-hold-p1-unruled.kyri) | Peer commit read, no P1 ruling; no run. |
 | `20261011.160159` | [Petrichor, consent gate still held, no build](20261011/20261011-160159_petrichor-consent-gate-held-again.kyri) | Gate and seam still open; board empty; no build. |
+| `20261011.160350` | [Pheromone, held, remote seven ahead](20261011/20261011-160350_pheromone-lane-held-upstream-seven-no-build.kyri) | Steps closed; board empty; no build. |
 | `20261011.155604` | [Pheromone, lane held, board empty, no build](20261011/20261011-155604_pheromone-lane-held-claim-board-empty-no-build.kyri) | Card steps closed; no ruling; no claim taken; no build. |
 | `20261011.155933` | [Patchouli, queue empty, kumara held](20261011/20261011-155933_patchouli-queue-empty-kumara-held.kyri) | Queue empty; no build; kumara red held for a ruling. |
 | `20261011.155910` | [Grass, docs sample clear, no build](20261011/20261011-155910_grass-docs-sample-clear-no-build.kyri) | Twelve pages graded at door setting, A or better; no edit. |
