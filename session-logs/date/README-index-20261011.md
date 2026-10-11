@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.055439` | [Bakery, ff held on ruling, no build](20261011/20261011-055439_bakery-ff-held-on-ruling-no-build.kyri) | Fast-forwarded; receipt key held on Keaton's ruling; no build. |
 | `20261011.055330` | [Incense, fast-forward, declined, no build](20261011/20261011-055330_incense-fast-forward-declines-no-build.kyri) | Two upstream logs in; claim board empty; no build. |
 | `20261011.055330` | [Grass, foundations sample all A, no build](20261011/20261011-055330_grass-foundations-sample-all-a-no-build.kyri) | Four newest foundations pages grade A; no frame; no build. |
 | `20261011.055311` | [Copal, fruit empty, no build](20261011/20261011-055311_copal-fruit-empty-no-build.kyri) | Zero unrostered witnesses; card line stale; no build. |
