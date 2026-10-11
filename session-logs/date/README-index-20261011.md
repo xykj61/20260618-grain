@@ -10,6 +10,7 @@
 | `20261011.184850` | [Patchouli, queue empty, kumara rulings](20261011/20261011-184850_patchouli-queue-empty-kumara-rulings.kyri) | Queue empty; kumara red held on two rulings; no build. |
 | `20261011.184848` | [Copal, fruit zero, no build](20261011/20261011-184848_copal-fruit-already-rostered-no-build.kyri) | Zero unrostered witnesses; no build. |
 | `20261011.184745` | [Bakery, queue sized, no build](20261011/20261011-184745_bakery-queue-sized-no-build.kyri) | Plant sourcing 44 to 48, claims clear; queue waits on rulings. |
+| `20261011.185325` | [Pheromone, stop clause holds, no build](20261011/20261011-185325_pheromone-hold-stop-clause-no-build.kyri) | No source changed; no build. |
 | `20261011.184505` | [Diffuser, fifty-fifth hold, P1 unruled](20261011/20261011-184505_diffuser-fifty-fifth-hold-p1-unruled.kyri) | No ruling landed; no run. |
 | `20261011.184656` | [Petrichor, ff pull, gate reread, no build](20261011/20261011-184656_petrichor-ff-pull-gate-reread-no-build.kyri) | Gate facts re-read on record; draft re-graded B+; no build. |
 | `20261011.184502` | [Incense, dead-letter logs landed, no build](20261011/20261011-184502_incense-dead-letter-landed-no-build.kyri) | Seven stashed logs restored and indexed; no build. |
