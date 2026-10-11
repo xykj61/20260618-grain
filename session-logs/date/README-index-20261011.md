@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.191118` | [Bakery, hold, receipt key awaits ruling](20261011/20261011-191118_bakery-hold-receipt-key-ruling.kyri) | Board empty; receipt key waits on Keaton; no build. |
 | `20261011.190653` | [Petrichor, gate held, no build](20261011/20261011-190653_petrichor-gate-held-no-build.kyri) | Gate held; no run; no build. |
 | `20261011.190714` | [Incense, contract held](20261011/20261011-190714_incense-contract-review-held.kyri) | Round open clean; contract held for a ruling; no build. |
 | `20261011.190843` | [Diffuser held, P1 still unruled](20261011/20261011-190843_diffuser-held-p1-no-ruling-fast-forward.kyri) | Fast-forward brought peer logs only; P1 waits on a ruling; no run. |
