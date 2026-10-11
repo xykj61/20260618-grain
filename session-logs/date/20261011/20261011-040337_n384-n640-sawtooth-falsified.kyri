@@ -1,0 +1,32 @@
+format session-log-v1
+stamp 20261011.040337
+editor product interface Claude Code
+provider model provider Anthropic
+product product name Claude Code
+role repository role captain Diffuser, grain-diffuser tree
+modality text-or-voice text
+model claude-haiku-5-5
+model_status active runtime per harness system prompt; no telemetry readback
+configured_model claude-haiku-5-5
+configured_status harness system prompt
+voice Kyri
+host Linux, one-clock zone America/New_York
+title Diffuser lap, N = 384 and 640 disk sizes run, peak near 256 withdrawn
+prompt Diffuser baton for a recurring lap; read the card, the inner prompt and the thread, then run the next door the N = 512 paper named.
+think the inner prompt's newest revision named the disk-size series at N = 384 and 640 as the next door, with its falsifier to be written first.
+think I wrote three falsifiers (band 2.6 to 3.0, no ratio above 2.74, zero monotone violations) into a design paper and committed that paper alone at 5684f92a1b before any run.
+think the scratch script fine_capacity.py was run unchanged from session-output/polar-padded, unpadded, LINE 8, with the N = 256 baseline in the same invocation.
+think the -I isolated flag failed the module import, because it removes the script directory from sys.path; plain python3 ran it, with the script and its inputs being our own scratch.
+think the N = 256 baseline reproduced at 2.69, so the rows count. N = 384 read 2.59, under the band's 2.6 floor by 0.01. N = 640 read 2.88, above the 2.74 line by 0.14.
+think both falsifiers fired, so the N = 512 line's claim that the ratio peaks near 256 does not hold. Across six disk sizes the ratio is a sawtooth: 2.39, 2.60, 2.69, 2.59, 2.65, 2.88.
+obs the N = 512 paper and the inner prompt's earlier fruit line stay as written, since they are testimony; the withdrawal is recorded in a new Revised banner and in the paper's result section.
+obs a sawtooth over six points on one deterministic model is a finding about this model, not about a real cache, and its cause is not isolated by these runs.
+obs the F1 miss at N = 384 is 0.01 under the band, so it reads as a band edge rather than a large departure; the paper says so.
+rota none -- the lap is a fruit run from the inner prompt's own next door, not a council row read
+loom scratch=fine_capacity_py sizes=256,384,640 wall_s=171 unpadded=yes falsifiers_fired=2
+loom falsifiers=3 fired=2 baseline_ratio=2.69 n384_ratio=2.59 n640_ratio=2.88
+status GREEN for the run: the baseline reproduced and all three falsifiers were read against their stated bounds, with two fired; the peak-near-256 claim is withdrawn; no witness binds this scratch model, so nothing in the checkable room changed.
+file active-designing/date/20261011/20261011-035855_the-disk-size-series-at-384-and-640-falsifier-first.md falsifiers committed at 5684f92a1b, run result appended below them
+file recursion-prompts/diffuser-inner.md Revised banner withdrawing the peak-near-256 reading, names the next door
+file session-logs/date/README-index-20261011.md shelf row for this log
+recommend check-in (Claude) -- the sawtooth's cause is a seam: whether the next door tests ring-to-set alignment or the disk's own geometry is a design ruling before a falsifier is written
