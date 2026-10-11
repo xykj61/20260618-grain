@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.013141` | [Diffuser, lap gated, repeat, no build](20261011/20261011-013141_diffuser-lap-gated-no-build.kyri) | Same calendar and crossover gates; no fruit. |
 | `20261011.013000` | [Diffuser, fourth night gated, no build](20261011/20261011-013000_diffuser-fourth-night-gated-no-build.kyri) | Pair gated to 20261012; crossover gated to Caravan. |
 | `20261011.012926` | [Copal, premise unmet, third time](20261011/20261011-012926_copal-fruit-premise-unmet-third-no-build.kyri) | No unrostered witness; no build. |
 | `20261011.012758` | [Petrichor, gate held, repeat, stop](20261011/20261011-012758_petrichor-gate-held-repeat-stop.kyri) | Consent gate unchanged after pull; repeat; no build. |
