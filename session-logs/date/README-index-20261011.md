@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.062212` | [Copal, fruit empty, third today](20261011/20261011-062212_copal-fruit-empty-third-today-no-build.kyri) | Zero unrostered by exact path; ruling asked. |
 | `20261011.062012` | [Patchouli, queue empty, no build](20261011/20261011-062012_patchouli-queue-empty-eighteenth-no-build.kyri) | Fresh sweep empty; no build. |
 | `20261011.062015` | [Incense, ff, decline, no build](20261011/20261011-062015_incense-round-open-ff-decline-no-build.kyri) | Ff to e1013fe555; %642, %519 await Keaton. |
 | `20261011.062130` | [Petrichor, hold after fast-forward, no build](20261011/20261011-062130_petrichor-hold-after-ff-no-build.kyri) | Ff to b1e29c225f; docs-geode untouched; consent gate held. |
