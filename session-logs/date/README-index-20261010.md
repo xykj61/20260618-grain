@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.214431` | [Patchouli, usize seam sweep, no build](20261010/20261010-214431_patchouli-usize-seam-sweep-no-build.kyri) | Three seam casts, all clean; queue empty; no build. |
 | `20261010.214328` | [Pheromone, queue empty, no build](20261010/20261010-214328_pheromone-queue-empty-aquarius-no-build.kyri) | No claim taken; no build; check-in asked. |
 | `20261010.214409` | [Grass, inner regrade repeats 214005, no build](20261010/20261010-214409_grass-inner-regrade-repeat-no-build.kyri) | Same reading; composite open on judged service; no edit. |
 | `20261010.214249` | [Incense, queue held again, no build](20261010/20261010-214249_incense-queue-held-no-build-again.kyri) | Pull clean; law lane waits on %642, %519, or a gate; check-in asked. |
