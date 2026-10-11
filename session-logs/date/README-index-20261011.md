@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261011.083108 | [20261011/20261011-083108_bakery-receipt-key-still-held-no-build.kyri](20261011/20261011-083108_bakery-receipt-key-still-held-no-build.kyri) | Bakery ff to xy, receipt-key ruling still open, no build |
 | `20261011.082711` | [Pheromone, lane empty, no build](20261011/20261011-082711_pheromone-lane-empty-no-build-loop-note.kyri) | Lane empty; no claim; no build; loop repetition noted. |
 | `20261011.082643` | [Petrichor, gate facts on tree, no build](20261011/20261011-082643_petrichor-consent-facts-on-tree-no-build.kyri) | Grant and revoke on tree; no build. |
 | `20261011.082635` | [Copal, fruit repeat, 159 of 159 rostered, no build](20261011/20261011-082635_copal-fruit-already-rostered-repeat-no-build.kyri) | Repeat measurement; no unrostered witness; no build. |
