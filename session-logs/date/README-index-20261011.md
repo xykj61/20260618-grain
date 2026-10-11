@@ -4,6 +4,8 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.030441` | [Patchouli consent log witnessed](20261011/20261011-030441_patchouli-consent-log-over-bound-replay-proof.kyri) | Over-bound and replay legs; GREEN. |
+| `20261011.030109` | [Incense, fast-forward and decline](20261011/20261011-030109_incense-fast-forward-decline-no-build.kyri) | Fast-forward clean; no build; held rows wait on Keaton. |
 | `20261011.030401` | [One radial access](20261011/20261011-030401_one-radial-neighbour-holds-the-ratio.kyri) | Falsifier first; ratio 2.00 at N=256; neither fired. |
 | `20261011.030604` | [Copal, roster re-measured](20261011/20261011-030604_copal-lap-roster-remeasured.kyri) | 158 of 158 rostered again; fruit empty; no claim, no build. |
 | `20261011.030608` | [Incense, round-open and decline](20261011/20261011-030608_incense-round-open-decline-no-build.kyri) | Copal's log fast-forwarded; claim board clear; no build. |
