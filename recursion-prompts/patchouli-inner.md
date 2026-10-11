@@ -417,6 +417,16 @@ is a seam: whether the catch-up loop takes a generic fetch source is a Claude ru
 `rishi/bin/rishi run tools/m/mantra_recall_catch_up.rish` (GREEN, `20261010.204647`) rather than trusting
 this line. The step above is retired; the open door is that ruling.
 
+**The kumara red is confirmed live, `20261011.084414`, and it is held rather than booked.** The
+`tally_kumara_refusal_witness.rish` re-runs GREEN, `sign_checked` answers the mismatched pair as
+`KeyMismatch`, and the legacy `sign` at `tally/kumara.rye:36` still reads `catch unreachable`. The
+next spine number is `840`, and no row carries it yet. The row cannot enter `construction/REDS.md`
+without headroom: the pin reads 65,532 of its 65,536 bytes, and no full row is closed to fold, since
+every full row reads OPEN by its last bold marker. Compacting the pointer lines would drop records
+the recital does not hold. The row's three fields live in the lap's session log until a ruling
+arrives on two things: the pin's headroom, and whether the legacy `sign` may change its return type
+across the `amphora/`, `aurora/` and `comlink/` callers. Neither is this lane's to decide alone.
+
 ## gates
 
 Keys, funds, provisioning, identity, and the public seed stay manual.
