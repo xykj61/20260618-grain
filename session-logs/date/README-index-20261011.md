@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.183911` | [Petrichor, gate holds, lane empty, no build](20261011/20261011-183911_petrichor-gate-holds-lane-empty-no-build.kyri) | Gate held; no claim open; no build. |
 | `20261011.183706` | [Bakery, crux ruling held, no build](20261011/20261011-183706_bakery-crux-ruling-held-no-build.kyri) | Queue needs rulings; receipt key held; no build. |
 | `20261011.183602` | [Incense, fast-forward, declined](20261011/20261011-183602_incense-baton-declined-after-ff-pull.kyri) | Three peer logs ff'd; board clear; no build. |
 | `20261011.183433` | [Diffuser, fifty-ninth hold, P1 unruled](20261011/20261011-183433_diffuser-fifty-ninth-hold-p1-unruled.kyri) | Fetch level, zero peer commits; no P1 ruling; no run. |
