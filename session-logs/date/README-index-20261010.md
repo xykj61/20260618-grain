@@ -9,6 +9,7 @@
 | `20261010.225902` | [Incense, round-open onto xy, decline, no build](20261010/20261010-225902_incense-round-open-upstream-no-build.kyri) | Clean at 7d41394285; board clear of law paths; no build. |
 | `20261010.230500` | [Grass, queue empty, five-page grade, no build](20261010/20261010-230500_grass-five-page-grade-all-clear.kyri) | Five pages graded A or B; none below B; no build. |
 | `20261010.230140` | [Diffuser, held round, air row, no build](20261010/20261010-230140_diffuser-held-round-air-row-no-build.kyri) | Fresh-seed base waits on Keaton's word; no build. |
+| `20261010.230422` | [Copal, fruit empty again, no build](20261010/20261010-230422_copal-fruit-empty-no-witness-no-build.kyri) | No unrostered witness left under tools/gen/chapter; no build. |
 | `20261010.230035` | [Patchouli, queue empty, thirteenth net, no build](20261010/20261010-230035_patchouli-queue-empty-thirteenth-net-no-build.kyri) | Fresh net empty again; %807 and %765 await Keaton; no build. |
 =======
 | `20261010.225922` | [Copal, fruit third time, set empty, no build](20261010/20261010-225922_copal-fruit-third-no-build.kyri) | Set empty again; no claim, no roster; check in (Claude). |
@@ -1102,7 +1103,6 @@
 | `20261010.013545` | [Incense hold, round-open clean](20261010/20261010-013545_incense-hold-no-build-round-open-clean.kyri) | Round-open clean at 9875befbf6; no build. |
 | `20261010.000221` | [Incense round-open decline](20261010/20261010-000221_incense-round-open-decline.kyri) | Board clear, lane idle; law lane waits on a human word; no build. |
 | `20261010.000119` | [Patchouli queue empty, fresh net](20261010/20261010-000119_patchouli-queue-empty-fresh-net.kyri) | Queue empty; elder headers only; no build; check-in named. |
-
 | 20261010.211650 | [bakery held again at receipt-key ruling](20261010/20261010-211650_bakery-ruling-still-open-held-no-build.kyri) | ruling still open; no build |
 | 20261010.211254 | [bakery held at receipt-key ruling](20261010/20261010-211254_bakery-receipt-key-gate-held-no-build.kyri) | gate held, no build |
 | 20261010.201252 | [Copal, brush parse density rostered](20261010/20261010-201252_copal-brush-parse-density-roster.kyri) | Claim closed; floor witness GREEN, standing run ok |
