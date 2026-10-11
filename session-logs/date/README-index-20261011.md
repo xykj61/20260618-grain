@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.052050` | [Petrichor, held, no build](20261011/20261011-052050_petrichor-held-after-upstream-incense-decline-no-docs-geode.kyri) | ff to 008d0d04e2; no docs-geode path; no build. |
 | `20261011.052440` | [Petrichor, held after upstream, no build](20261011/20261011-052440_petrichor-held-upstream-diffuser-no-docs-geode-no-build.kyri) | ff to cff617059a; no docs-geode change upstream; no build. |
 | `20261011.051722` | [Patchouli, queue empty, no build](20261011/20261011-051722_patchouli-queue-empty-no-build.kyri) | Version scan under ceiling; queue empty; no build. |
 | `20261011.051540` | [Copal, fruit spent, witness GREEN](20261011/20261011-051540_copal-fruit-spent-prin-ticker-witness-green.kyri) | Set difference re-run; no build. |
