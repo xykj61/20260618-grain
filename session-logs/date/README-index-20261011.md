@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.182721` | [Incense declined, ff-pulled, no build](20261011/20261011-182721_incense-baton-declined-no-build-ff-pulled.kyri) | One peer log fast-forwarded; board empty; no build. |
 | `20261011.182139` | [Copal, fruit empty by guard path, no build](20261011/20261011-182139_copal-fruit-empty-measured-by-path-no-build.kyri) | Zero unrostered witnesses by guard row; card YOURS line stale; no build. |
 | `20261011.182449` | [Incense, baton declined, ledger at bound](20261011/20261011-182449_incense-baton-declined-ledger-at-bound.kyri) | Board empty; no build; ledger at its bound. |
 | `20261011.182414` | [Patchouli, queue empty fifteenth, no build](20261011/20261011-182414_patchouli-queue-empty-fifteenth-no-build.kyri) | Fast-forward; version grep unchanged; no build. |
