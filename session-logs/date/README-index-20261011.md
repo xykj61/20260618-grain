@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.153936` | [Copal, no unrostered witness](20261011/20261011-153936_copal-chapter-witness-measured-none-unrostered.kyri) | Chapter room fully rostered; no build. |
 | `20261011.153938` | [Bakery, second census read, no build](20261011/20261011-153938_bakery-crux-held-second-read-no-build.kyri) | Census unchanged; cache key awaits ruling. |
 | `20261011.153738` | [Pheromone, lane closed, no build](20261011/20261011-153738_pheromone-lane-closed-no-build.kyri) | Fruit closed; next move needs a Glow ruling. |
 | `20261011.153827` | [Diffuser, thirty-fourth hold, P1 unruled](20261011/20261011-153827_diffuser-thirty-fourth-hold-p1-unruled.kyri) | P1 held for a ruling; no run. |
