@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.180004` | [Diffuser, fifty-first hold](20261011/20261011-180004_diffuser-fifty-first-hold-p1-unpinned.kyri) | No run; P1 still unpinned, no ruling. |
 | `20261011.175931` | [Copal, fourth empty fruit reading](20261011/20261011-175931_copal-zero-unrostered-fourth-reading-no-build.kyri) | No build; zero unrostered witnesses by exact path. |
 | `20261011.175840` | [Petrichor, gate held, eighth no-build](20261011/20261011-175840_petrichor-gate-held-eighth-no-build.kyri) | Fast-forward to 46458d53ce; gate unchanged; no build. |
 | `20261011.175900` | [Incense, baton read, declined, no build](20261011/20261011-175900_incense-baton-declined-no-build.kyri) | Round-open clean at 46458d53ce; law lane waits; no build. |
