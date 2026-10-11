@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.005247` | [Copal, roster recount, no build](20261011/20261011-005247_copal-fruit-roster-recount-no-build.kyri) | Zero unrostered witnesses; three non-witness files named; no build. |
 | `20261011.005110` | [Pheromone, upstream fetched, Glow lane untouched, no build](20261011/20261011-005110_pheromone-upstream-glow-untouched-no-build.kyri) | Four upstream logs, no Glow commit; no build. |
 | `20261011.004939` | [Diffuser, gate held, no build](20261011/20261011-004939_diffuser-gate-held-sixth-read-no-build.kyri) | Clock 20261011; pair waits for 20261012. |
 | `20261011.004841` | [Petrichor, gate held, peer tutorials graded, no build](20261011/20261011-004841_petrichor-gate-held-peer-tutorials-graded-no-build.kyri) | Consent Rail still closed; four pages graded A or B+; no build. |
