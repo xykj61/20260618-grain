@@ -173,6 +173,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.131747` | [Patchouli, queue empty a fifth read, no build](20261011/20261011-131747_patchouli-queue-empty-fifth-read-no-build.kyri) | Mantra and tally carry no elder header writer; queue empty; no build. |
 | `20261011.131549` | [Petrichor, gate held a fourth time, no build](20261011/20261011-131549_petrichor-gate-held-fourth-no-build.kyri) | Consent Rail still gated; no fruit; no build. |
 | `20261011.131547` | [Diffuser, held, upstream unchanged](20261011/20261011-131547_diffuser-held-no-ruling-upstream-unchanged.kyri) | Fast-forwarded to 8e6b3e2a96; no P1 ruling; no build. |
 | `20261011.131356` | [Bakery, fast-forward read, receipt key held, no build](20261011/20261011-131356_bakery-ff-held-no-build.kyri) | Remote held peer logs only; claim board clear; no build. |
