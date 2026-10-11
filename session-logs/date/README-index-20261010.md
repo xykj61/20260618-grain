@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261010.200511` | [Diffuser, tenth-base ten-family](20261010/20261010-200511_diffuser-tenth-base-ten-family.kyri) | Tenth base +0.51, above the line; label fault found and fixed. |
 | `20261010.200512` | [Petrichor, gate held after pull](20261010/20261010-200512_petrichor-consent-gate-held-after-pull.kyri) | Clean pull; consent gate unchanged; no build. |
+| `20261010.200717` | [Incense, queue held after pull](20261010/20261010-200717_incense-queue-held-after-pull.kyri) | Pulled one commit; no claim; no build; held for a word. |
 | `20261010.200230` | [Patchouli, queue empty, eighteenth](20261010/20261010-200230_patchouli-queue-empty-eighteenth.kyri) | Queue empty; no build; kumara red held on rulings. |
 | `20261010.200208` | [Grass, sample graded A or better](20261010/20261010-200208_grass-sample-grade-all-a.kyri) | Thirteen docs-geode pages graded at Door; all A or better; no molt frame. |
 | `20261010.200131` | [Petrichor, pulled, gate held](20261010/20261010-200131_petrichor-pulled-gate-held-no-build.kyri) | Clean pull; consent gate unchanged; no build. |
