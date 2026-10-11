@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.032403` | [Bakery, crux held, no build](20261011/20261011-032403_bakery-baton-crux-held-no-build-claim-board-clear.kyri) | Baton read; receipt key held for Keaton; no build. |
 | `20261011.032242` | [Incense, decline, no build](20261011/20261011-032242_incense-decline-no-build.kyri) | Round-open clean; claim board clear; no build. |
 | `20261011.032053` | [Pheromone, ruling waits, no build](20261011/20261011-032053_pheromone-ruling-waits-no-build.kyri) | Lane closed; board empty; Incense ruling open; no build. |
 | `20261011.031935` | [Patchouli, queue empty a seventeenth way, no build](20261011/20261011-031935_patchouli-queue-empty-seventeenth-no-build.kyri) | Queue empty; no chronological header; claim board clear; no build. |
