@@ -74,3 +74,49 @@ is reported as a fire, not as a sign the falsifier was mis-set.
 ---
 
 Appended after the run, below this line. The five falsifiers above are not edited.
+
+**Run.** Stamped after the falsifiers were committed at `6d1305beb1`. Script:
+`session-output/ring-offset/stagger_offset.py` (untracked scratch), run with `K=2` and `K=3`, outputs
+`stagger_K2_256_384_640.txt` and `stagger_K3_256_384_640.txt`. Grid, tolerance, ways and layout as in the
+per-ring paper. One construction, no seed: the stagger is deterministic, so each K gives one reading.
+
+| K | N | Cartesian floor (sets) | Polar floor (sets) | Ratio | Polar monotone violations | Cartesian monotone violations |
+|---|---|---|---|---|---|---|
+| 2 | 256 | 12.4 | 33.9 | 2.74 | 0 | 0 |
+| 2 | 384 | 19.2 | 50.7 | 2.65 | 0 | 1 |
+| 2 | 640 | 28.8 | 83.3 | 2.89 | 0 | 6 |
+| 3 | 256 | 12.4 | 34.2 | 2.76 | 0 | 0 |
+| 3 | 384 | 19.2 | 51.1 | 2.67 | 0 | 1 |
+| 3 | 640 | 28.8 | 83.7 | 2.90 | 0 | 6 |
+
+**Falsifiers read.**
+
+- **S1 held (prior reading).** The K = 0 table above reproduces the modulo baseline.
+- **S2 held.** The Cartesian floors are 12.4, 19.2 and 28.8 at both K, equal to the modulo values, and the
+  Cartesian violation counts (0, 1, 6) match the baseline.
+- **S3 inconclusive.** Spread is 0.24 at K = 2 (2.65 to 2.89) and 0.23 at K = 3 (2.67 to 2.90). Both sit
+  between 0.10 and 0.29, so the falsifier neither supports the alignment reading nor fires. The modulo
+  spread is 0.29, so the stagger narrows the zig-zag by about 0.05 to 0.06. That is a small change, not a
+  flattening.
+- **S4 held.** The lowest ratio at either K is 2.65, above the 2.0 floor.
+- **S5 held.** The polar curve has zero monotone violations at every N and both K. The random per-ring
+  draw had produced 1 to 3 at 384, so the regular stagger does not disturb the curve's shape.
+
+**Reading.** A structured stagger does not reveal a ring-alignment penalty. It raises the polar floor by
+about 2 to 3 percent over the modulo index (33.3 to 34.2 at 256, 83.0 to 83.7 at 640), far less than the
+random draw's 15 to 20 percent, and it trims the sawtooth's spread by a few hundredths. Read plainly, a
+regular stagger lands near the modulo index, and a random one lands worse. The sawtooth survives every
+partition change tried so far. This does not prove that alignment is absent. It shows that three
+different ways of changing the line-to-set partition, a per-set relabel, a random per-ring draw and a
+regular per-ring stagger, leave the zig-zag in place or move it only slightly, so the cause, if it is one
+of the index's, is not a ring-start effect this construction can reach.
+
+**Caveats, stated before the next door.** One construction and one ring-of-line definition. K = 2 and
+K = 3 are the two values tried, and a stagger tied to the set count rather than a constant was not run.
+The Cartesian arm shows a monotone violation at 384 and 640 in every run, which is the baseline's own
+feature. No hardware, no witness, and no claim about a real cache.
+
+**Next door, not run.** Either a stagger that depends on the sets (off[r] = r * sets / rings, which spreads
+the rings evenly across the set index), with its falsifier written and committed before its run, or a
+stop on this line: the ring-start family is closed at this model, and the next door is a different
+cause, such as the stride between line addresses, named before any run.
