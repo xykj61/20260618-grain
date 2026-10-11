@@ -10,6 +10,7 @@
 | `20261011.060404` | [Patchouli catch-up ruling, no build](20261011/20261011-060404_patchouli-catch-up-ruling-check-in.kyri) | Catch-up witness GREEN; two seam rulings open. |
 | `20261011.060125` | [Patchouli, queue empty again, no build](20261011/20261011-060125_patchouli-queue-empty-again-no-build.kyri) | Empty queue; %807, %765 await Keaton. |
 | `20261011.055420` | [Patchouli, queue empty, claim not taken, no build](20261011/20261011-055420_patchouli-queue-empty-scan-no-build.kyri) | Next-family scan empty; %456 and %765 want Keaton; no build. |
+| `20261011.060057` | [Grass, queue hold, re-grade B+, no build](20261011/20261011-060057_grass-queue-hold-regrade-no-build.kyri) | Inner prompt re-read at B+ 89; queue empty; no build. |
 | `20261011.055629` | [Grass, fire row grades inner prompt, no build](20261011/20261011-055629_grass-fire-row-inner-grade-no-build.kyri) | Inner prompt at Field, register 77; no build. |
 | `20261011.055943` | [Incense, ff declined, no build](20261011/20261011-055943_incense-fast-forward-declines-no-build.kyri) | Ff to 80ad08d121; claim board empty; no build. |
 | `20261011.060111` | [Bakery, queue held on rulings, no build](20261011/20261011-060111_bakery-queue-held-on-rulings-no-build.kyri) | Receipt key and %642 wait on rulings; no build. |
