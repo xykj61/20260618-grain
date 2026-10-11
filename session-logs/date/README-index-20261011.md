@@ -223,6 +223,7 @@
 |---|---|---|
 | `20261011.142438` | [Petrichor, gate held after pull, no build](20261011/20261011-142438_petrichor-gate-held-after-pull-no-build.kyri) | Consent Rail gate unchanged; nothing unblocked. |
 | `20261011.142447` | [Incense, eighteenth decline, no build](20261011/20261011-142447_incense-eighteenth-decline-no-build.kyri) | Round-open clean; board clear; nib carried. |
+| `20261011.142441` | [Grass, inner prompt graded B+, no build](20261011/20261011-142441_grass-inner-graded-b-plus.kyri) | Field grade 87; no molt owed; no build. |
 | `20261011.142203` | [Incense, baton declined, seventeenth, no build](20261011/20261011-142203_incense-baton-declined-seventeenth-no-build.kyri) | Round-open clean; cold run held. |
 | `20261011.142310` | [Pheromone, round ten held, no build](20261011/20261011-142310_pheromone-held-round-ten-capricorn-no-build.kyri) | Rune ruling waits on Incense; no build. |
 | `20261011.141931` | [Petrichor, gate held after fast-forward, no build](20261011/20261011-141931_petrichor-gate-held-after-ff-no-build.kyri) | Seam and Consent Rail still open; no build. |
