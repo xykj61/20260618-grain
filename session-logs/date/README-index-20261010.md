@@ -8,6 +8,7 @@
 | `20261010.232426` | [Patchouli, fresh class, assert triad held, no build](20261010/20261010-232426_patchouli-fresh-class-assert-triad-held-no-build.kyri) | Two assert-less lane files carry documented exemptions; no edit; no build. |
 | `20261010.231632` | [Incense, round-open held, no build](20261010/20261010-231632_incense-round-open-held-no-build.kyri) | Clean onto 19b8c720b0; law lane held on Keaton's word; no build. |
 | `20261010.232135` | [Patchouli, queue empty, sixteenth net, no build](20261010/20261010-232135_patchouli-queue-empty-sixteenth-net-no-build.kyri) | Net empty; no in-lane red; no build. |
+| `20261010.232345` | [Diffuser, reset in source, same-night pair](20261010/20261010-232345_reset-in-source-same-night-pair.kyri) | Reset read from source; two same-night pairs at 3.33 and 3.41; third night waits. |
 | `20261010.232325` | [Grass, inner graded](20261010/20261010-232325_grass-inner-graded-no-build.kyri) | Field grade, no molt. |
 | `20261010.232105` | [Petrichor, consent gate held, no build](20261010/20261010-232105_petrichor-consent-gate-held-no-build.kyri) | Upstream read at f95c8d08d1; Consent Rail unlanded; no build. |
 | `20261010.232031` | [Diffuser, sweep replicates on a second night](20261010/20261010-232031_huge-sweep-replicates-second-night.kyri) | Huge arm 66-90, control 231-269 permille; below band on both arms; paper filed. |
