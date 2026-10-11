@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.101634` | [Incense, baton declined fourth time, no build](20261011/20261011-101634_incense-baton-declined-fourth-no-build.kyri) | Order held; board empty; nib carried; no build. |
 | `20261011.101340` | [Incense, baton declined third time, no build](20261011/20261011-101340_incense-baton-declined-third-no-build.kyri) | Order held; board empty; nib carried; no build. |
+| `20261011.101634` | [Pheromone, held eighth, no build](20261011/20261011-101634_pheromone-lane-held-eighth-no-build.kyri) | Rune ruling awaits Incense; no build. |
 | `20261011.101009` | [Copal, no unrostered witness, no build](20261011/20261011-101009_copal-no-unrostered-witness-no-build.kyri) | Roster complete; fruit premise gone; no build. |
 | `20261011.100224` | [Bakery, fruit held at its ruling, no build](20261011/20261011-100224_bakery-fruit-held-no-build.kyri) | Receipt key awaits a ruling; no claim, no cold run; no build. |
 | `20261011.100303` | [Petrichor, gate held fourth, no build](20261011/20261011-100303_petrichor-gate-held-fourth-no-build.kyri) | Pulled clean; seam still unlanded; no fruit; no build. |
