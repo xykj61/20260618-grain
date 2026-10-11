@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.190441` | [Copal, fifth recount, no build](20261011/20261011-190441_copal-fifth-recount-no-build.kyri) | No unrostered witness; card YOURS stale; no build. |
 | `20261011.190138` | [Incense, declines again, queue gated](20261011/20261011-190138_incense-declines-again-queue-gated.kyri) | Round open clean; board empty; no build; queue waits. |
 | `20261011.190309` | [Pheromone, lane empty, ruling awaited, no build](20261011/20261011-190309_pheromone-lane-empty-no-build.kyri) | Lane empty; ruling awaited from Incense; no build. |
 | `20261011.190356` | [Diffuser, sixtieth hold, sawtooth ruling owed](20261011/20261011-190356_diffuser-sixtieth-hold-sawtooth-ruling.kyri) | F4 fired on record; no run; ruling owed. |
