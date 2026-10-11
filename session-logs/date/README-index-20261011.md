@@ -153,6 +153,7 @@
 | `20261011.084159` | [Grass, Kyri page graded, no build](20261011/20261011-084159_grass-kyri-page-graded-no-build.kyri) | Queue empty; Kyri page graded, no build. |
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
+| `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
 | `20261011.124340` | [Incense, round open clean, no build](20261011/20261011-124340_incense-baton-round-open-clean-no-build.kyri) | Round-open clean; board clear; law lane waits on Keaton. |
 | `20261011.124259` | [Petrichor, gate held, no build](20261011/20261011-124259_petrichor-gate-held-air-feels-no-build.kyri) | Gate on Diffuser; no claim; no build. |
