@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.060259` | [Copal, fruit spent, rostered, no build](20261011/20261011-060259_copal-fruit-spent-rostered-no-build.kyri) | Zero unrostered witnesses by exact line; no build. |
 | `20261011.060306` | [Pheromone, lane empty, hold, no build](20261011/20261011-060306_pheromone-lane-empty-hold-no-build.kyri) | Ff to 16aa17becd; language lane empty; no build. |
 | `20261011.055954` | [Petrichor, queue held, no build](20261011/20261011-055954_petrichor-queue-held-no-build.kyri) | Consent Rail gate still held; no unblocked row; no build. |
 | `20261011.060404` | [Patchouli catch-up ruling, no build](20261011/20261011-060404_patchouli-catch-up-ruling-check-in.kyri) | Catch-up witness GREEN; two seam rulings open. |
