@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.081937` | [Grass, inner prompt re-graded, no build](20261011/20261011-081937_grass-inner-regrade-no-build.kyri) | Inner prompt re-reads B+/89 at HEAD; no build. |
 | `20261011.082408` | [Petrichor, gate held after ff, no build](20261011/20261011-082408_petrichor-gate-held-ff-no-build.kyri) | Fast-forwarded to xy; public seam still unlanded; no build. |
+| `20261011.082357` | [Bakery, fast-forward, claim board empty, no build](20261011/20261011-082357_bakery-no-build-hold-after-ff.kyri) | Fast-forwarded to xy/main; board empty; receipt key still YOURS; no build. |
 | `20261011.082139` | [Patchouli, queue empty fourth time, no build](20261011/20261011-082139_patchouli-queue-empty-fourth-check-no-build.kyri) | Grep re-run; queue empty; no build. |
 | `20261011.082050` | [Pheromone, lane held, no build](20261011/20261011-082050_pheromone-lane-held-no-build.kyri) | Fast-forward to 7bc28eaf40; Glow ruling held; no build. |
 | `20261011.082359` | [Copal, unrostered witness fruit none left, no build](20261011/20261011-082359_copal-unrostered-witness-none-after-check-no-build.kyri) | 159 of 159 chapter witnesses rostered; no build. |
