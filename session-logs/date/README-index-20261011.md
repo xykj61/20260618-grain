@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.025517` | [Bakery receipt key still held, no build](20261011/20261011-025517_bakery-receipt-key-still-held-no-build_bakery-receipt-key-still-held-no-build.kyri) | Ruling unchanged; claims clear; no build. |
 | `20261011.025302` | [Patchouli, queue re-read, red 840 held](20261011/20261011-025302_patchouli-queue-reread-red-840-still-held.kyri) | Two witnesses GREEN; queue empty; red 840 unbooked at pin bound. |
 | `20261011.025253` | [Copal eighth recount, no build](20261011/20261011-025253_copal-eighth-recount-no-build.kyri) | 157 of 157 rostered; no merge in hand; no claim; ruling waits. |
 | `20261011.025139` | [Petrichor fast-forward, gate held](20261011/20261011-025139_petrichor-ff-held-no-fruit.kyri) | Fast-forward two peer logs; gate held; no build. |
