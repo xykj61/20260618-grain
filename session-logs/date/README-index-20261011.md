@@ -251,6 +251,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.150309` | [Diffuser, twenty-seventh hold, P1 unruled](20261011/20261011-150309_diffuser-held-twenty-seventh-p1-no-ruling.kyri) | Remote level, no P1 ruling; no run. |
 | `20261011.150114` | [Petrichor, gate held, dead link found](20261011/20261011-150114_petrichor-gate-held-lint-dead-shelf-no-build.kyri) | Gate held; one dead index link; no build. |
 | `20261011.145335` | [Petrichor, gate held, no build](20261011/20261011-145335_petrichor-fast-forward-gate-held-no-build.kyri) | Four commits pulled; gate waits on Diffuser; no build. |
 | `20261011.145207` | [Patchouli, kumara held fourth, no build](20261011/20261011-145207_patchouli-kumara-held-fourth-no-build.kyri) | Queue empty; kumara held for ruling; no build. |
