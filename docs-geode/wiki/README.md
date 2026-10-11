@@ -34,6 +34,9 @@ path from nothing to a signed, sandboxed home is [`../../SOURCE.md`](../../SOURC
 | [tutorials / **Session logs in Cursor**](../tutorials/session-logs-in-cursor.md) | the day's `.kyri` film and index | `tutorials/`, the incense Acme walk |
 | [tutorials / **Cursor Agent on the pier**](../tutorials/cursor-agent-on-the-pier.md) | `launch-cursor-agent.rish`, agent-jail, prompt examples | `tutorials/`, the incense Acme walk |
 | [tutorials / **The incense Acme walk**](../tutorials/the-incense-acme-walk.md) | seed subject incense, style molt, Teacher Style, publish-seed | `tutorials/`, the shelf front door |
+| [tutorials / **The list and the picture**](../tutorials/the-list-and-the-picture.md) | the two functions, the one-list-one-picture design essay | `tutorials/`, the shelf front door |
+| [tutorials / **The two functions**](../tutorials/the-two-functions.md) | the list and the picture, `mantra/README.md`, the span plan | `tutorials/`, the shelf front door, the list and the picture |
+| [tutorials / **The sill**](../tutorials/the-sill.md) | nothing yet -- a plan that links no page outward | `tutorials/` |
 | [blog / **Eighteen times, two agents did the same job**](../blog/20260908-081630_eighteen-times-two-agents-did-the-same-job.md) | the root README, the first hour, SOURCE.md | `blog/`, this page |
 | [lessons / **Lesson 1 -- The house from above**](../lessons/20260910-060225_lesson-1-the-house-from-above.md) | the two addresses a reader arrives at, and which one they are standing in | `lessons/`, the shelf front door |
 | [lessons / **Lesson 2 -- The front door**](../lessons/20260910-060225_lesson-2-the-front-door.md) | what a file is, what an extension says, and how to read a README | `lessons/`, the shelf front door |
