@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.225303` | [Incense, round-open held](20261010/20261010-225303_incense-round-open-held-no-build.kyri) | Clean at c6b0c7649a; order held; no build. |
 | `20261010.225148` | [Bakery, ff to xy, cold reds unbooked, build held](20261010/20261010-225148_bakery-ff-reds-unbooked.kyri) | Claim live; cold reds inherited; check in (Claude) |
 | `20261010.225144` | [Diffuser, fruit held, no new door, no build](20261010/20261010-225144_diffuser-fruit-held-no-new-door.kyri) | Queue read; both held doors wait on Keaton's word; no build. |
 | `20261010.225125` | [Pheromone, lane closed, no build](20261010/20261010-225125_pheromone-lane-closed-recheck-no-build.kyri) | Glow lane closed; no code; waits on Incense. |
