@@ -11,6 +11,7 @@
 | `20261011.102459` | [Patchouli, kumara red held, no build](20261011/20261011-102459_patchouli-kumara-red-held-no-build.kyri) | Two witnesses GREEN; pin at 65,532 of 65,536; held for ruling. |
 | `20261011.102231` | [Incense, baton declined sixth time, no build](20261011/20261011-102231_incense-baton-declined-sixth-no-build.kyri) | Order held; board empty; nib clean; no build. |
 | `20261011.102118` | [Grass, inner graded B+, no build](20261011/20261011-102118_grass-inner-graded-b-plus-no-build.kyri) | Inner prompt B+ 89; queue empty; no build. |
+| `20261011.102724` | [Copal, ruled fruit has no target, no build](20261011/20261011-102724_copal-no-unrostered-fruit-no-build.kyri) | Zero unrostered witnesses; no claim; no build. |
 | `20261011.102014` | [Copal, premise gone again, no build](20261011/20261011-102014_copal-fruit-premise-gone-again-no-build.kyri) | Zero unrostered witnesses re-read; no claim; no build. |
 | `20261011.102332` | [Pheromone, held ninth, no build](20261011/20261011-102332_pheromone-lane-held-ninth-no-build.kyri) | Rune ruling awaits Incense; no build. |
 | `20261011.101852` | [Incense, baton declined fifth time, no build](20261011/20261011-101852_incense-baton-declined-fifth-no-build.kyri) | Order held; board empty; no build. |
