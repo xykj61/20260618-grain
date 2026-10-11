@@ -7,6 +7,7 @@
 | `20261011.164947` | [Diffuser, thirty-ninth hold, P1 unruled](20261011/20261011-164947_diffuser-thirty-ninth-hold-p1-unruled.kyri) | P1 unruled; no run; check in (Claude). |
 | `20261011.165028` | [Petrichor, hold, upstream delta read, no build](20261011/20261011-165028_petrichor-hold-no-build-upstream-delta.kyri) | Fast-forward b6dc543a9b; gate held. |
 | `20261011.164630` | [Grass grades grass-inner, no build](20261011/20261011-164630_grass-grades-inner-no-build.kyri) | Page graded B+ 87, stands; no edit; queue empty. |
+| `20261011.164946` | [Copal, fruit empty, ninth read](20261011/20261011-164946_copal-fruit-empty-ninth-read-no-build.kyri) | No unrostered witness; no build. |
 | `20261011.164700` | [Incense, baton declined, round 69, no build](20261011/20261011-164700_incense-baton-declined-round-69.kyri) | Anointed order held; claim board clear; no build. |
 | `20261011.164604` | [Copal, fruit empty, eighth time, no build](20261011/20261011-164604_copal-fruit-empty-eighth-no-build.kyri) | Zero unrostered witnesses; no claim; no build. |
 | `20261011.164413` | [Pheromone repeat hold, no build](20261011/20261011-164413_pheromone-repeat-hold-no-build.kyri) | Lane held on Incense ruling; fast-forwarded; no build. |
