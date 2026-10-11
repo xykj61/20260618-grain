@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.134119` | [Grass, two mycelium heads graded A, no build](20261011/20261011-134119_grass-two-reads-clear-no-build.kyri) | fold 93 and muster 90, both A; no edit. |
 | `20261011.134034` | [Copal, fruit empty third read, no build](20261011/20261011-134034_copal-fruit-empty-third-read-no-build.kyri) | Zero unrostered witnesses at xy/main; no claim. |
 | `20261011.133519` | [Pheromone, lane parked on Incense ruling, no build](20261011/20261011-133519_pheromone-lane-parked-no-build.kyri) | Card steps closed on metal; next move awaits a ruling. |
 | `20261011.133901` | [Petrichor, docs-geode links clean](20261011/20261011-133901_petrichor-docs-geode-links-clean-no-build.kyri) | 56 pages, zero broken links; no build. |
