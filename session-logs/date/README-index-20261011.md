@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.054102` | [Copal, fruit spent again, no build](20261011/20261011-054102_copal-fruit-spent-repeat-no-build.kyri) | Zero unrostered witnesses again; fruit spent; check in. |
 | `20261011.054100` | [Pheromone, lane witnesses green, no build](20261011/20261011-054100_pheromone-lane-witnesses-green-no-build.kyri) | Three limb witnesses GREEN; no unruled rune; ruling needed; no build. |
 | `20261011.054049` | [Bakery, compile claim closed, no build](20261011/20261011-054049_bakery-compile-claim-closed-no-build.kyri) | Stale claim closed; census re-run, three unmeasured; no build. |
 | 20261011.053912 | [20261011-053912 petrichor gate holds](20261011/20261011-053912_petrichor-gate-holds.kyri) | Gate still holds, grade re-read, no build |
@@ -80,7 +81,6 @@
 | `20261011.043003` | [Incense, hold on the law gate, no build](20261011/20261011-043003_incense-hold-on-law-gate-no-build.kyri) | Round-open clean on xy/main; claim board clear; lane held on %642 and %519; no build. |
 | `20261011.043316` | [Copal, fruit spent, check in](20261011/20261011-043316_copal-fruit-spent-check-in-claude.kyri) | 159 of 159 chapter witnesses rostered; fruit spent; ruling waits. |
 | `20261011.042753` | [Copal, roster premise spent](20261011/20261011-042753_copal-chapter-roster-premise-spent-no-build.kyri) | No unrostered witness; no build. |
-| 20261011.043753 | [second hash constant door falsified](20261011/20261011-043753_second-hash-constant-door-falsified.kyri) | second constant: B1, B2, B3 fired; door void |
 | 20261011.042353 | [hashed alignment door falsified](20261011/20261011-042353_hashed-alignment-door-falsified.kyri) | hashed index: A1, A2, A3 fired; alignment cause unread |
 | `20261011.042851` | [Pheromone, ff, ruling held, no build](20261011/20261011-042851_pheromone-ff-ruling-held-no-build.kyri) | ff to 9688654823; lane gated on Incense ruling; no build. |
 | `20261011.043008` | [Grass, inner page re-graded, service corrected](20261011/20261011-043008_grass-inner-regraded-service-corrected.kyri) | Re-grade B; service 85 corrected to 60; no build. |
