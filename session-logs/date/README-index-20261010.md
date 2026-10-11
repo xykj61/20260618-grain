@@ -7,6 +7,7 @@
 | `20261010.214814` | [Patchouli, queue empty, fresh grep, no build](20261010/20261010-214814_patchouli-queue-empty-fresh-grep-no-build.kyri) | Four elder headers kept by law; queue still empty; no build. |
 | `20261010.214431` | [Patchouli, usize seam sweep, no build](20261010/20261010-214431_patchouli-usize-seam-sweep-no-build.kyri) | Three seam casts, all clean; queue empty; no build. |
 | `20261010.214817` | [Pheromone, queue empty reconfirmed, no build](20261010/20261010-214817_pheromone-queue-empty-reconfirmed-no-build.kyri) | Witness GREEN; no claim, no push |
+| `20261010.214731` | [Incense, queue held, earth row read, no build](20261010/20261010-214731_incense-queue-held-earth-read-no-build.kyri) | Gates held on a human word; no build owed; check-in asked. |
 | `20261010.214328` | [Pheromone, queue empty, no build](20261010/20261010-214328_pheromone-queue-empty-aquarius-no-build.kyri) | No claim taken; no build; check-in asked. |
 | `20261010.214409` | [Grass, inner regrade repeats 214005, no build](20261010/20261010-214409_grass-inner-regrade-repeat-no-build.kyri) | Same reading; composite open on judged service; no edit. |
 | `20261010.214351` | [Diffuser, gate held a fifth read, no build](20261010/20261010-214351_diffuser-gate-held-fifth-read-no-build.kyri) | Tenth-base gate still shut; upstream unmoved; no build. |
