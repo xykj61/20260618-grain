@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.015511` | [bakery receipt key, mode miss](20261011/20261011-015511_receipt-key-mode-miss.kyri) | content-keyed receipt writer; control 7 of 7; cold run guard_red inherited |
 | `20261011.015343` | [Diffuser hold, fifth check](20261011/20261011.015343-015343_diffuser-hold-fifth-check-no-run.kyri) | Fourth pair waits for 20261012; no Swift; no run |
 | 20261011.015357 | [Incense, gated, declined, no build](20261011/20261011-015357_incense-queue-gated-sixty-seventh-no-build.kyri) | Declined; no build; card nib question open. |
 | 20261011.015217 | [Copal, premise stale, seventh](20261011/20261011-015217_copal-premise-stale-seventh-no-build.kyri) | Zero unrostered witnesses; no build |
@@ -99,6 +100,7 @@
 | `20261011.003703` | [Diffuser, fourth-night gate held](20261011/20261011-003703_diffuser-fourth-night-gate-held-no-build.kyri) | Date gate holds; no build. |
 | `20261011.003623` | [Patchouli, queue empty, no build](20261011/20261011-003623_patchouli-queue-empty-fifteenth-no-build.kyri) | Fresh grep empty again; no build. |
 | `20261011.003550` | [Copal, prin scope witness rostered](20261011/20261011-003550_copal-prin-scope-roster.kyri) | prin.rish rostered at 650; scope GREEN; red leg open. |
+| `20261011.003230` | [Patchouli, queue empty, 840 pin-bound](20261011/20261011-003230_patchouli-queue-empty-840-still-pin-bound.kyri) | Queue empty by fresh grep; red 840 blocked by byte bound; no build. |
 | `20261011.003459` | [diffuser fourth-night pair date-gated](20261011/20261011-003459_diffuser-fourth-night-date-gated.kyri) | held at the calendar gate, no build |
 | `20261011.003433` | [Petrichor, consent gate absent, no build](20261011/20261011-003433_petrichor-consent-gate-absent-no-build.kyri) | Skate has no grant or revoke fact; no build. |
 | `20261011.003352` | [Incense, declined, claim live, no build](20261011/20261011-003352_incense-declined-no-build-claim-live.kyri) | Round-open clean; board holds copal's prin claim; no build. |
