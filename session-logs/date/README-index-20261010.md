@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.203745` | [Pheromone, pulled, queue empty, no build](20261010/20261010-203745_pheromone-queue-empty-pulled-no-build.kyri) | Pulled to upstream; lane queue empty; no build. |
 | `20261010.203801` | [Petrichor, consent gate held again, no build](20261010/20261010-203801_petrichor-consent-gate-held-again-no-build.kyri) | Second hold on the same gate; no build, no page change. |
 | `20261010.203545` | [Grass, inner page regraded at Field, B+ stands](20261010/20261010-203545_grass-inner-page-field-grade-b-plus.kyri) | Declared Field setting: register 77, reach 90, composite 89 B+; no edit. |
 | `20261010.203355` | [Incense, forty-ninth declined](20261010/20261010-203355_incense-forty-ninth-declined-no-build.kyri) | Round-open clean; no build; lane parked on a human word. |
