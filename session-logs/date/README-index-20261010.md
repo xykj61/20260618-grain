@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+
 | `20261010.230035` | [Patchouli, queue empty, thirteenth net, no build](20261010/20261010-230035_patchouli-queue-empty-thirteenth-net-no-build.kyri) | Fresh net empty again; %807 and %765 await Keaton; no build. |
 | `20261010.225922` | [Copal, fruit third time, set empty, no build](20261010/20261010-225922_copal-fruit-third-no-build.kyri) | Set empty again; no claim, no roster; check in (Claude). |
 | `20261010.225842` | [Diffuser, fruit held for ruling, no build](20261010/20261010-225842_diffuser-fruit-held-for-ruling-no-build.kyri) | Fresh-seed base waits on Keaton's word; no build. |
