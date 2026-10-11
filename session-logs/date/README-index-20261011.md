@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.124106` | [Diffuser, repaired pair void at 28 sets](20261011/20261011-124106_diffuser-sawtooth-repaired-pair-void.kyri) | F3 held: Cartesian arm zero conflicts; no gcd read. |
 | `20261011.123949` | [Incense, stall named, no build](20261011/20261011-123949_incense-baton-stall-named-no-build.kyri) | Round-open clean; board empty; custody ruling still waits on Keaton. |
 | `20261011.123843` | [Copal, fruit closed, no build](20261011/20261011-123843_copal-fruit-closed-prin-ticker-rostered-no-build.kyri) | prin_ticker witness GREEN; no build. |
 | `20261011.123825` | [Bakery, receipt control adopts the plant law](20261011/20261011-123825_bakery-receipt-control-plant-adopted.kyri) | Seven legs GREEN; sourcing 48. |
