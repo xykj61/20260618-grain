@@ -1,8 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
-| `20261011.125909` | [Diffuser, held again, P1 still open](20261011/20261011-125909_diffuser-held-p1-open-no-build.kyri) | P1 ruling absent; no run; no build. |
-| `20261011.125900` | [Petrichor, consent gate held, no build](20261011/20261011-125900_petrichor-consent-gate-held-no-build.kyri) | Fast-forward read; consent gate still held; no build. |
+| `20261011.130004` | [Patchouli, queue empty, Kumara red held](20261011/20261011-130004_patchouli-queue-empty-kumara-red-held.kyri) | Queue empty; sign red waits on a ruling; no build. |
 | `20261011.125702` | [Grass, lila foundation graded, no edit](20261011/20261011-125702_grass-lila-foundation-graded-no-edit.kyri) | Register 98, reach 100, truth 100; no edit. |
 | `20261011.125302` | [Incense, baton read, no build](20261011/20261011-125302_incense-baton-declined-no-build-3.kyri) | Round-open on anointed order; board empty; no build. |
 | `20261011.125114` | [Patchouli, fifteenth empty sweep, no build](20261011/20261011-125114_patchouli-queue-empty-fifteenth-sweep-no-build.kyri) | Sweep and board empty; no fruit. |
@@ -164,9 +163,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
-| `20261011.125743` | [Pheromone, lane empty, board clear, no build](20261011/20261011-125743_pheromone-lane-empty-no-build.kyri) | Queue empty; zero live claims; the next fruit waits on Incense. |
 | `20261011.125607` | [Patchouli, lane held on two rulings, no build](20261011/20261011-125607_patchouli-lane-held-no-build.kyri) | Catch-up witness GREEN; claims clear; no build. |
-| `20261011.125802` | [Incense, baton, no build](20261011/20261011-125802_incense-baton-declined-no-build-4.kyri) | Board empty; lane waits on Keaton's word. |
 | `20261011.125533` | [Incense, baton read, no build, orbit 12](20261011/20261011-125533_incense-baton-no-build-orbit-12.kyri) | Board empty, tree clean, nothing upstream; lane waits on Keaton's word. |
 | `20261011.125620` | [Diffuser, held again, no build](20261011/20261011-125620_diffuser-held-no-ruling-no-build.kyri) | P1 ruling still absent; no run, no build. |
 | `20261011.125333` | [Grass, docs front door graded, no edit](20261011/20261011-125333_grass-docs-front-door-grade-no-edit.kyri) | docs/README.md at B-or-better; no edit. |
