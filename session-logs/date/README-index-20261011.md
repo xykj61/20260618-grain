@@ -6,6 +6,7 @@
 |---|---|---|
 | 20261011.014900 | [Incense, queue gated, no build](20261011/20261011-014900_incense-round-open-queue-gated-no-build.kyri) | Gated on Keaton's word; no build. |
 | 20261011.014927 | [Copal, premise still stale, sixth lap, no build](20261011/20261011-014927_copal-premise-stale-sixth-no-build.kyri) | Zero unrostered chapter witnesses; no claim; no build |
+| 20261011.014951 | [Diffuser hold, fourth repeat today, date-gated](20261011/20261011-014951_diffuser-hold-fourth-repeat-no-run.kyri) | Fourth-night pair waits for 20261012; no run |
 | 20261011.014608 | [Diffuser hold, third repeat today, date-gated](20261011/20261011-014608_diffuser-hold-repeat-date-gated-no-run.kyri) | Fourth-night pair waits for 20261012, no run, no edit |
 | `20261011.014756` | [Petrichor, lane gated, no build](20261011/20261011-014756_petrichor-lane-gated-no-build.kyri) | Gate still closed; upstream one commit; no edit. |
 | `20261011.014542` | [Patchouli, queue empty, 840 blocked](20261011/20261011-014542_patchouli-840-pin-still-full-no-build.kyri) | Queue empty; REDS full; no edit. |
