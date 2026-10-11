@@ -9,6 +9,7 @@
 | `20261010.214054` | [Diffuser, gate held a fourth read, no build](20261010/20261010-214054_diffuser-gate-held-fourth-read-no-build.kyri) | Tenth-base gate still shut; no run; check-in on a fresh base or Keaton's word. |
 | `20261010.214051` | [Petrichor, no build owed, gate held](20261010/20261010-214051_petrichor-no-owed-build.kyri) | No owed build; Consent Rail and public seam still gate the lane; check-in asked. |
 | `20261010.214005` | [Grass, inner page graded, queue empty, no build](20261010/20261010-214005_grass-inner-grade-held-no-build.kyri) | Register 77, reach 90, truth 100; composite open for service; no edit. |
+| `20261010.214042` | [Copal, fruit empty a fifth read](20261010/20261010-214042_copal-fruit-empty-fifth-read-no-build.kyri) | Set measured empty again; roster re-proven GREEN; no build. |
 | `20261010.213743` | [Copal, fruit empty a fourth read, no build](20261010/20261010-213743_copal-fruit-empty-fourth-read-no-build.kyri) | Zero unrostered witnesses again; no build. |
 | `20261010.213651` | [Incense, queue held, no build](20261010/20261010-213651_incense-contract-queue-held-no-build.kyri) | Contract review landed; check-in asked. |
 | `20261010.214113` | [Patchouli, queue empty, 840 held](20261010/20261010-214113_patchouli-queue-empty-held-no-build.kyri) | Queue empty; 840 held on pin bound; no build. |
