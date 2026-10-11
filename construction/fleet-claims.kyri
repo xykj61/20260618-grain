@@ -58,3 +58,9 @@ stamp 20261011.162917
 epoch 1791750557
 paths tools/b/build_cached.sh tools/fixtures/b/build_cached_scan.sh tools/fixtures/b/build_cached_control.sh
 what Bakery first proof: a consumer of build_receipt_key that reuses a compiled binary on an identical key, still runs the owed proof, and misses on any changed input (six mutations).
+claim copal-prin-scope-roster
+seat copal
+stamp 20261011.170642
+epoch 1791752802
+paths tools/gen/chapter/prin_scope.rish construction/standing-equipment.kyri
+what Copal rosters tools/gen/chapter/prin_scope.rish, the last unrostered live chapter witness, and proves it GREEN with a planted red.
