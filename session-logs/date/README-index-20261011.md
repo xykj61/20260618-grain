@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.061541` | [Patchouli, queue empty a seventeenth way, no build](20261011/20261011-061541_patchouli-queue-empty-seventeenth-no-build.kyri) | Fresh sweep empty; no build. |
 | `20261011.061433` | [Incense, decline, no build](20261011/20261011-061433_incense-decline-no-build-hold-on-word.kyri) | Ff to 7acf7e296b; %642 and %519 await Keaton. |
 | `20261011.061333` | [Copal, fruit empty, no build](20261011/20261011-061333_copal-fruit-empty-no-build.kyri) | Zero unrostered witnesses by exact path; no build. |
 | `20261011.061505` | [Bakery, baton held, no build](20261011/20261011-061505_bakery-baton-held-at-two-rulings-no-build.kyri) | Two rulings await Keaton; reads only. |
