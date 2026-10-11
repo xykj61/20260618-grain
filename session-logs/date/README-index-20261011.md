@@ -42,6 +42,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.095008` | [Patchouli, queue empty fifteenth net, no build](20261011/20261011-095008_patchouli-queue-empty-fifteenth-net-no-build.kyri) | Fresh mantra/tally net reads only read-compat and fixtures; no claim taken; no build. |
 | `20261011.094722` | [Patchouli, queue empty, no build](20261011/20261011-094722_patchouli-queue-empty-thirteenth-net-no-build.kyri) | Elder-literal net reads read-compat only. |
 | `20261011.094417` | [Bakery, receipt key held, no build](20261011/20261011-094417_bakery-held-on-receipt-key-ruling-no-build.kyri) | Ruling still waits; board empty; one ff pull; no build. |
 | `20261011.094047` | [Petrichor, gate held, no build](20261011/20261011-094047_petrichor-gate-held-no-build.kyri) | Public seam not landed; no ungated surface; no build. |
