@@ -8,6 +8,7 @@
 | `20261011.070044` | [Incense, baton read, receipt witness green, no build](20261011/20261011-070044_incense-baton-declined-receipt-witness-green.kyri) | Level with xy/main; claim board empty; receipt witness GREEN; no build. |
 | `20261011.070043` | [Bakery, pulled, receipt-key ruling open, no build](20261011/20261011-070043_bakery-receipt-key-ruling-open-no-build.kyri) | Pulled to 3a0bbd1a9d; receipt key is Keaton's ruling; no build. |
 | `20261011.065948` | [Pheromone, lane empty, no build](20261011/20261011-065948_pheromone-lane-empty-no-build-rota-water.kyri) | Lane empty; no claim; no build. |
+| `20261011.070217` | [Patchouli, queue empty, no build](20261011/20261011-070217_patchouli-queue-empty-kumara-red-unbooked-no-build.kyri) | Kumara red unbooked; seam ruling open. |
 | `20261011.065556` | [Patchouli, queue empty, kumara sign red re-verified](20261011/20261011-065556_patchouli-queue-empty-kumara-sign-reverified-no-build.kyri) | Fresh nets; queue empty; kumara sign still unreachable; no build. |
 | `20261011.065701` | [Incense, baton declined again, no build](20261011/20261011-065701_incense-baton-declined-no-build-again.kyri) | Level with xy/main; claim board empty; no build. |
 | `20261011.065301` | [Copal, recount, prin blocked, no build](20261011/20261011-065301_copal-fruit-recount-prin-blocked-no-build.kyri) | Zero unrostered witnesses; prin ruling open; a self-signalled pkill recorded. |
