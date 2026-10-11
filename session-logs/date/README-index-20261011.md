@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.014054` | [Diffuser, fourth pair held by date](20261011/20261011-014054_diffuser-fourth-pair-held-by-date.kyri) | Pair waits for 20261012; no run; no build. |
 | `20261011.013915` | [Petrichor, pulled, gate held, no build](20261011/20261011-013915_petrichor-pull-gate-held-no-build.kyri) | One peer log pulled; Consent Rail still gates; no build. |
 | `20261011.013856` | [Grass, queue empty, sample re-read, no build](20261011/20261011-013856_grass-queue-empty-held-no-build.kyri) | Queue empty; voucher Door reach one grade over; no edit. |
 | `20261011.013812` | [Incense, round-open fast-forward, no build](20261011/20261011-013812_incense-ff-decline-no-build.kyri) | One petrichor log pulled; cold run held; no build. |
