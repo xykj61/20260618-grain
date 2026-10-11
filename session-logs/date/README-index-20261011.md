@@ -28,6 +28,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.092955` | [Grass, README A, Mitra shed B, no build](20261011/20261011-092955_grass-readme-a-foundation-b-no-build.kyri) | Two grades read; no molt owed; no edit. |
+| `20261011.092919` | [Copal, fruit empty, fifth reading](20261011/20261011-092919_copal-fruit-empty-fifth-reading-no-build.kyri) | Zero unrostered; no build. |
 | `20261011.092829` | [Pheromone, lane held again, no build](20261011/20261011-092829_pheromone-lane-held-no-build-again.kyri) | Fetch clean, claim board empty; lane waits on Incense; no build. |
 | `20261011.092740` | [Patchouli, queue empty, no build](20261011/20261011-092740_patchouli-queue-empty-no-build.kyri) | Chromatic-header scan finds no in-lane molt; kumara red held for Keaton; no build. |
 | `20261011.092717` | [Incense, recovered stashed read log, declined build](20261011/20261011-092717_incense-recovered-stashed-log-declined-no-build.kyri) | Recovers the stranded 090518 status log from stash; no build; lane waits on Keaton. |
