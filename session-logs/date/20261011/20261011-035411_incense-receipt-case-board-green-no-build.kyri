@@ -19,6 +19,7 @@ think the card's incense queue is accepted or waiting: the contract is ruled, an
 think ran the receipt case-board witness once, bounded: nine legs, control_failed=0, GREEN; the milestone stays unstamped, as it should while case 8's build-time half is open.
 think no agent-doable build remains on this lane: the build-time half needs Bakery's fusion build, the open REDS rows wait on named hands or Keaton, and claim-as-override would take another lane's booked work without its owner.
 obs no build this lap; the case board is the one live reading and it agrees with the card's own account of what is still owed.
+obs the push raced the peer seats three times. The clean rebase on the last try moved the commit without rewriting the card's nib, so the pushed commit named its grandparent until this follow-up. The fix is a follow-up commit, not an amend, because the amend would rewrite a pushed commit and need force.
 rota none -- no council row deep-read this lap; the lap read the card, the inner prompt, the claim board, and the case-board witness only.
 orbit round 4 -- sign not read this lap; the verb is held, and no keystone was built.
 status GREEN for the lap's own reads: round-open clean, claim board empty, receipt case-board witness GREEN with control_failed=0. No code changed, so no hot endurance run was owed.
