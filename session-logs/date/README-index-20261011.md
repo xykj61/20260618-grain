@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.015051` | [Pheromone, lane empty, no build](20261011/20261011-015051_pheromone-lane-empty-no-build.kyri) | Language queue empty; no rune question open; fast-forward only; no build. |
 | 20261011.014900 | [Incense, queue gated, no build](20261011/20261011-014900_incense-round-open-queue-gated-no-build.kyri) | Gated on Keaton's word; no build. |
 | 20261011.014927 | [Copal, premise still stale, sixth lap, no build](20261011/20261011-014927_copal-premise-stale-sixth-no-build.kyri) | Zero unrostered chapter witnesses; no claim; no build |
 | 20261011.014951 | [Diffuser hold, fourth repeat today, date-gated](20261011/20261011-014951_diffuser-hold-fourth-repeat-no-run.kyri) | Fourth-night pair waits for 20261012; no run |
