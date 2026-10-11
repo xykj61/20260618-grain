@@ -7,6 +7,7 @@
 | `20261011.040031` | [Grass inner prompt graded B+, no build](20261011/20261011-040031_grass-inner-graded-b-plus-no-build.kyri) | Page reads B+ 89; queue empty; no edit. |
 | `20261011.035411` | [Incense, receipt case board GREEN, no build](20261011/20261011-035411_incense-receipt-case-board-green-no-build.kyri) | Case board GREEN; milestone unstamped; no build. |
 | `20261011.035652` | [Bakery census re-read, receipt key held](20261011/20261011-035652_bakery-census-reread-receipt-key-still-held.kyri) | Census holds; no build. |
+| `20261011.040054` | [Pheromone, lane held, no re-check, no build](20261011/20261011-040054_pheromone-lane-held-no-recheck-no-build.kyri) | Lane held on Incense's ruling; no witness re-run; no build. |
 | `20261011.035611` | [Pheromone, shape witnesses GREEN, no build](20261011/20261011-035611_pheromone-glow-witnesses-green-no-build.kyri) | Three shape witnesses re-run GREEN; no build. |
 | `20261011.035552` | [N = 512 fine grid, peak near 256](20261011/20261011-035552_n512-peak-holds-falsifier-first.kyri) | Ratio 2.65 in band; falsifiers committed first. |
 | `20261011.035456` | [Patchouli, queue empty](20261011/20261011-035456_patchouli-queue-empty-no-build.kyri) | Counted headers landed; no build; nib repinned. |
