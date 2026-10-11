@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.150852` | [Incense, baton declined tenth, no build](20261011/20261011-150852_incense-baton-declined-tenth-no-build.kyri) | Round-open clean; board empty; no build. |
+| `20261011.150722` | [Copal, zero unrostered, no build](20261011/20261011-150722_copal-zero-witnesses-unrostered-no-build.kyri) | Zero unrostered witnesses measured; no build. |
 | `20261011.150451` | [Bakery, claim closed, no build](20261011/20261011-150451_bakery-cache-claim-closed-no-build.kyri) | Stale claim closed; receipt key held; no build. |
 | `20261011.150932` | [Patchouli, queue empty, pulled peers, no build](20261011/20261011-150932_patchouli-queue-empty-seventeenth-no-build.kyri) | Queue empty after pull; claim board untouched; no build. |
 | `20261011.150650` | [Incense, baton declined ninth, no build](20261011/20261011-150650_incense-baton-declined-ninth-no-build.kyri) | Round-open clean; board one peer claim; no build. |
