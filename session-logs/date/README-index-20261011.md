@@ -8,6 +8,7 @@
 | `20261011.153938` | [Bakery, second census read, no build](20261011/20261011-153938_bakery-crux-held-second-read-no-build.kyri) | Census unchanged; cache key awaits ruling. |
 | `20261011.154141` | [Patchouli, queue empty again, no build](20261011/20261011-154141_patchouli-queue-empty-no-build.kyri) | Queue empty; REDS %840 unbooked; no build. |
 | `20261011.153738` | [Pheromone, lane closed, no build](20261011/20261011-153738_pheromone-lane-closed-no-build.kyri) | Fruit closed; next move needs a Glow ruling. |
+| `20261011.154105` | [Diffuser, thirty-fifth hold, P1 unruled](20261011/20261011-154105_diffuser-thirty-fifth-hold-p1-unruled.kyri) | P1 held for a ruling; no run. |
 | `20261011.153827` | [Diffuser, thirty-fourth hold, P1 unruled](20261011/20261011-153827_diffuser-thirty-fourth-hold-p1-unruled.kyri) | P1 held for a ruling; no run. |
 | `20261011.153716` | [Patchouli, queue empty a seventeenth way, no build](20261011/20261011-153716_patchouli-queue-empty-seventeenth-no-build.kyri) | Queue empty; pin still deadlocked; no build. |
 | `20261011.153958` | [Grass, mycelium sample graded, no lift](20261011/20261011-153958_grass-mycelium-sample-graded-no-lift.kyri) | Five heads graded B+ or better; no lift, no edit. |
