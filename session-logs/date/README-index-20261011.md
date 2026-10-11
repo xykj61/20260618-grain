@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.132013` | [Incense, baton declined, no build, seventh read](20261011/20261011-132013_incense-baton-declined-no-build-7.kyri) | Round-open clean; order unchanged; waits on Keaton's word. |
 | `20261011.131832` | [Grass, docs-geode sampled, all B, no build](20261011/20261011-131832_grass-docs-geode-sample-all-b-no-build.kyri) | Lowest 82 (yonder plan); no page below B; no build. |
 | `20261011.131309` | [Grass, queue empty, both heads above B](20261011/20261011-131309_grass-queue-empty-both-above-b-no-build.kyri) | Warrant A 93, rehearsal A 91; no molt; no build. |
 | `20261011.130816` | [Copal, fruit empty fourth read, no build](20261011/20261011-130816_copal-fruit-empty-fourth-read-no-build.kyri) | Four runners unnamed by path, none a witness; no build. |
