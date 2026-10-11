@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.044822` | [Patchouli, queue empty, no build](20261011/20261011-044822_patchouli-queue-empty-fresh-look-no-build.kyri) | elder -v headers read-compat; ledger full; no build. |
 | `20261011.044547` | [Incense, decline, no build](20261011/20261011-044547_incense-decline-no-build.kyri) | Round-open clean; cold run held; no claim owed. |
 | `20261011.044512` | [Petrichor, upstream held, no build](20261011/20261011-044512_petrichor-upstream-held-no-build.kyri) | upstream at HEAD; the gated fruit holds; no build. |
 | `20261011.044452` | [Bakery, ff, claim held, no build](20261011/20261011-044452_bakery-ff-hold-no-build.kyri) | ff to cafa0284a0; receipt-key ruling still owed to Claude; no build. |
