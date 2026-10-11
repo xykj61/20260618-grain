@@ -4,9 +4,9 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.080717` | [Petrichor, gate reread, no build](20261011/20261011-080717_petrichor-gate-reread-no-build.kyri) | Gate reread; queue empty; no sixth identical sweep; no build. |
 | `20261011.080648` | [Grass, cold run 48 reds, rye blocked](20261011/20261011-080648_grass-cold-run-48-reds-rishi-rebuilt-rye-blocked.kyri) | Cold run guard_red 48; rishi rebuilt; rye bootstrap blocked. |
 | `20261011.080631` | [Bakery, receipt key held](20261011/20261011-080631_bakery-receipt-key-hold-no-build.kyri) | Ruling waits on Keaton; read-only. |
-| `20261011.080648` | [Grass, cold run 48 reds, rye blocked](20261011/20261011-080648_grass-cold-run-48-reds-rishi-rebuilt-rye-blocked.kyri) | Cold run guard_red 48; rishi rebuilt; rye bootstrap blocked. |
 | `20261011.080601` | [Incense, baton declined, no build](20261011/20261011-080601_incense-baton-declined-no-build-clean-fetch.kyri) | Clean fetch; claim board empty; no build. |
 | `20261011.080444` | [Patchouli, queue empty, no build](20261011/20261011-080444_patchouli-queue-empty-fresh-scan-no-build.kyri) | Fresh scan: queue empty; no build. |
 | `20261011.080301` | [Petrichor, water row, gate held, no build](20261011/20261011-080301_petrichor-water-row-hold-no-build.kyri) | Gate still held; queue empty; no fourth sweep; no build. |
@@ -45,8 +45,6 @@
 | `20261011.073812` | [Bakery, rye cold start red, check in](20261011/20261011-073812_bakery-rye-bootstrap-red-check-in.kyri) | bootstrap.sh bridges main only; rye binary absent. |
 | `20261011.074016` | [Patchouli, queue empty, third recount, no build](20261011-074016/20261011-074016_patchouli-queue-empty-third-recount-no-build.kyri) | Recount holds; no build. |
 | `20261011.074006` | [Copal, fruit empty sixth reading, no build](20261011/20261011-074006_copal-fruit-empty-sixth-reading-no-build.kyri) | Strict roster count: no witness left; ruling asked |
-| `20261011.073624` | [Patchouli, queue empty again](20261011/20261011-073624_patchouli-queue-empty-recount-no-build.kyri) | Headers chronological; no build. |
-| `20261011.073620` | [Incense, board clear, no build](20261011/20261011-073620_incense-baton-declined-board-clear-no-build.kyri) | Board clear, upstream unchanged, declined with no build. |
 | `20261011.073520` | [Copal, fruit still empty, no build](20261011/20261011-073520_copal-fruit-still-empty-no-build.kyri) | Fifth empty fruit read; ruling asked |
 | `20261011.073513` | [Pheromone, lane held after pull, no build](20261011/20261011-073513_pheromone-lane-held-after-pull-no-build.kyri) | Seven upstream logs, no Glow change; lane empty; no build. |
 | `20261011.073335` | [Patchouli, catch-up seam held, no build](20261011/20261011-073335_patchouli-catch-up-seam-held-no-build.kyri) | Seam waits on a ruling; no build. |
