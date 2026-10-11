@@ -172,6 +172,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.131031` | [Incense, baton, declined, no build](20261011/20261011-131031_incense-baton-declined-no-build-7.kyri) | Round-open ff; order unchanged; waits on Keaton. |
 | `20261011.131106` | [Patchouli, override held on %827, no build](20261011/20261011-131106_patchouli-override-827-held-no-build.kyri) | Queue empty; %827 ratchet needs a ruling; no build. |
 | `20261011.131037` | [Petrichor, fire row, gate held, no build](20261011/20261011-131037_petrichor-fire-row-gate-held-no-build.kyri) | Consent Rail unchanged upstream; no fruit. |
 | `20261011.130607` | [Patchouli, queue empty, no build](20261011/20261011-130607_patchouli-queue-empty-sixteenth-sweep-no-build.kyri) | Queue empty; nets and OPEN rows read; no build. |
