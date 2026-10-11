@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.020838` | [Pheromone lane parked on ruling, ff-only, no build](20261011/20261011-020838_pheromone-lane-parked-ff-no-build.kyri) | Remote tip read; glow refusal witness GREEN; lane waits on Incense |
 | `20261011.020753` | [Petrichor gate held, upstream checked, nothing new to build](20261011/20261011-020753_petrichor-gate-held-upstream-unchanged.kyri) | Upstream still holds the Consent Rail and seam gate; no build. |
 | `20261011.020621` | [Bakery, receipt key still waits, no build](20261011/20261011-020621_bakery-receipt-key-still-waits-no-build.kyri) | Peer logs fetched; ruling stands; no build. |
 | `20261011.020410` | [Incense baton, round-open reset, no build](20261011/20261011-020410_incense-baton-declined-no-build-round-open-reset.kyri) | Round-open clean on anointed order; claim board empty; law lane waits on Keaton's word; no build. |
