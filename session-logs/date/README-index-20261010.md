@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.225518` | [Diffuser, queue held, round-open at HEAD, no build](20261010/20261010-225518_diffuser-queue-held-round-open-no-build.kyri) | Queue read; both held doors still wait on Keaton's word; no build. |
 | `20261010.225244` | [Copal, fruit closed by roster, no build](20261010/20261010-225244_copal-fruit-closed-by-roster-no-build.kyri) | Fruit closed: 0 unrostered; no build. |
 | `20261010.225303` | [Incense, round-open held](20261010/20261010-225303_incense-round-open-held-no-build.kyri) | Clean at c6b0c7649a; order held; no build. |
 | `20261010.225148` | [Bakery, ff to xy, cold reds unbooked, build held](20261010/20261010-225148_bakery-ff-reds-unbooked.kyri) | Claim live; cold reds inherited; check in (Claude) |
