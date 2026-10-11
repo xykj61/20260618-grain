@@ -7,6 +7,7 @@
 | `20261011.143456` | [Grass, water row read, inner prompt holds B+, no build](20261011/20261011-143456_grass-water-row-held-no-build.kyri) | Row 3 read; inner prompt graded B+; queue empty; no build. |
 | `20261011.143301` | [Bakery, cache build held for ruling, no build](20261011/20261011-143301_bakery-cache-build-held-ruling-no-build.kyri) | Receipt-key ruling is Keaton's; no build. |
 | `20261011.143326` | [Petrichor, gate held again, no build](20261011/20261011-143326_petrichor-gate-held-again-no-build.kyri) | Consent Rail waits on Diffuser; no build. |
+| `20261011.143757` | [Pheromone, water row read, lane held, no build](20261011/20261011-143757_pheromone-water-row-held-no-build.kyri) | Lane held on Incense ruling; rota water; no build. |
 | `20261011.143124` | [Pheromone, fruit closed, held for Incense ruling, no build](20261011/20261011-143124_pheromone-fruit-closed-held-no-build.kyri) | Fruit closed; next move waits on Incense; no build. |
 | `20261011.143047` | [Grass, Mitra shed graded B+, no edit](20261011/20261011-143047_grass-mitra-shed-graded-bplus-no-edit.kyri) | Composite 87 on the door reading; no frame pushed. |
 | `20261011.142854` | [Diffuser, twentieth hold, P1 ruling still absent, no run](20261011/20261011-142854_diffuser-held-twentieth-p1-no-ruling.kyri) | No run; the P1 ruling is still absent from the tree. |
