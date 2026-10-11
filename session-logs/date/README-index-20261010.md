@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.222037` | [Pheromone r14, lane held](20261010/20261010-222037_pheromone-round-14-glow-held-witness-green.kyri) | Glow witness GREEN; held for Incense. |
 | `20261010.221538` | [Copal, unrostered-witness fruit already spent](20261010/20261010-221538_copal-fruit-spent-no-unrostered-witness.kyri) | Zero unrostered by path field; card's ~75 stale; no build. |
 | `20261010.221311` | [Diffuser, third held lap, no build](20261010/20261010-221311_diffuser-gate-held-third-lap-no-build.kyri) | Gate still shut; no word on card; no run. |
 | `20261010.221327` | [Pheromone, Glow witness GREEN, no build](20261010/20261010-221327_pheromone-glow-witness-green-no-build.kyri) | Step three witness GREEN; lane held for Incense. |
