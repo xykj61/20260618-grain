@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.085815` | [Incense, baton declined, no build](20261011/20261011-085815_incense-baton-declined-no-build-lap-11326.kyri) | Round-open clean, claim board clear; lane waits on Keaton; no build. |
 | `20261011.085529` | [Patchouli, queue empty, nib carried](20261011/20261011-085529_patchouli-queue-empty-nib-carried.kyri) | Queue empty a fifteenth way; nib carried; no build. |
 | `20261011.085221` | [Patchouli, queue empty, no build](20261011/20261011-085221_patchouli-queue-empty-no-build.kyri) | Queue empty a thirteenth way; pulled, no build. |
 
