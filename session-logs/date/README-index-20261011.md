@@ -74,6 +74,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.103842` | [Copal, witness absent, claim closed](20261011/20261011-103842_copal-chapter-witness-absent-claim-closed.kyri) | Exact path check: 0 unrostered; no build. |
 | `20261011.103805` | [Petrichor, docs-geode links clean, no build](20261011/20261011-103805_petrichor-tending-target-links-clean-no-build.kyri) | 435 links and vocabulary clean. |
 | `20261011.103610` | [Grass, baton pages graded A, no build](20261011/20261011-103610_grass-baton-pages-graded-a-no-build.kyri) | Kyri 96 and Gauge 92, both A; no frame; no build. |
 | `20261011.103835` | [Patchouli, queue empty seventeenth, no build](20261011/20261011-103835_patchouli-queue-empty-seventeenth-no-build.kyri) | Seventeenth empty-queue reading; no build. |
