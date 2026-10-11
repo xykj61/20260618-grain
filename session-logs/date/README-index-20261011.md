@@ -235,6 +235,7 @@
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
 | `20261011.143940` | [Petrichor, gate held, no build](20261011/20261011-143940_petrichor-gate-held-no-build.kyri) | Consent Rail waits on Diffuser; card line stale; no build. |
+| `20261011.144155` | [Diffuser, twenty-second hold, P1 ruling still absent, no run](20261011/20261011-144155_diffuser-held-twenty-second-p1-no-ruling.kyri) | No run; the P1 ruling is still absent from the tree. |
 | `20261011.143508` | [Incense, baton read, declined again, no build](20261011/20261011-143508_incense-baton-declined-again-no-build.kyri) | Round-opened on 0bb59c4e98; no claim owed; no build. |
 | `20261011.143252` | [Diffuser, twenty-first hold, no P1 ruling](20261011/20261011-143252_diffuser-held-twenty-first-p1-no-ruling.kyri) | No run; P1 ruling still absent. |
 | `20261011.143139` | [Patchouli, usize census repeated, no build](20261011/20261011-143139_patchouli-usize-census-repeated-kumara-held.kyri) | usize clean again; kumara ruling waits. |
