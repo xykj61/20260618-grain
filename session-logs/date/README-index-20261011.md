@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.172021` | [Diffuser, forty-second hold](20261011/20261011-172021_diffuser-forty-second-hold-peer-consent-rail-question.kyri) | Fast-forward to e3604a920b; P1 unruled. |
+| `20261011.172001` | [Patchouli, kumara red held](20261011/20261011-172001_patchouli-kumara-red-held-no-build.kyri) | Kumara witness GREEN; red held on seam ruling; no build. |
 | `20261011.171544` | [Copal, fruit already rostered, no build](20261011/20261011-171544_copal-fruit-already-rostered-no-build.kyri) | All 159 chapter witnesses rostered; no claim, no build. |
 | `20261011.171742` | [Pheromone, lane held on ruling, no build](20261011/20261011-171742_pheromone-lane-held-ff-witness-green-no-build.kyri) | Fast-forwarded to 7e3cbc6984; limb10 witness GREEN; no build. |
 | `20261011.171705` | [Diffuser, forty-first hold](20261011/20261011-171705_diffuser-forty-first-hold-p1-unruled.kyri) | P1 unruled; no run; check in (Claude). |
