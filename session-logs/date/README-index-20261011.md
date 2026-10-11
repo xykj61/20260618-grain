@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.073026` | [Patchouli, kumara red held on pin bound](20261011/20261011-073026_patchouli-kumara-red-held-on-pin-bound.kyri) | REDS at 65532 of 65536; sign panic row %840 waits. |
 | `20261011.073043` | [Diffuser, repeat-share door run, padding arm vacuous](20261011/20261011-073043_diffuser-repeat-share-result.kyri) | D1 to D3 pass on the scratch model; D4 vacuous, padding did not move a line index. |
 | `20261011.072614` | [Pheromone, lane held on recount, no build](20261011/20261011-072614_pheromone-lane-held-recount-no-build.kyri) | Glow witness GREEN; lane empty; no build. |
 | `20261011.072744` | [Incense lands three stashed no-build logs](20261011/20261011-072744_incense-lands-three-stashed-logs.kyri) | Restored three dead-letter logs; unlanded=0; no build. |
