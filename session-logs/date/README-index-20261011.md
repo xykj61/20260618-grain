@@ -1,9 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
-| `20261011.115314` | [Petrichor, sixth held lap, water row read, no build](20261011/20261011-115314_petrichor-held-sixth-water-row-no-build.kyri) | Gates unchanged; upstream ff-only; no build. |
-| `20261011.115416` | [Bakery, receipt-key survey, no build](20261011/20261011-115416_bakery-receipt-head-survey.kyri) | Survey only; crux held on the ruling. |
-| `20261011.115234` | [Diffuser, sixth held lap, N=192 door waits](20261011/20261011-115234_diffuser-held-lap-sixth-no-ruling.kyri) | No ruling; no run; nib carried. |
+
 | `20261011.114940` | [Diffuser, fifth held lap, N=192 door waits](20261011/20261011-114940_diffuser-held-lap-fifth-no-ruling.kyri) | No ruling; no run; nib carried. |
 | `20261011.114652` | [Incense, baton lap declined, claim board empty, no build](20261011/20261011-114652_incense-baton-declined-no-build-hold.kyri) | Round-open clean; claims clear; cold run held; no build. |
 | `20261011.114521` | [Diffuser, fourth held lap, N=192 door waits](20261011/20261011-114521_diffuser-held-lap-fourth-no-ruling.kyri) | No ruling; no run; nib carried. |
@@ -123,6 +121,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.115553` | [Incense, baton lap, round-open clean, no build](20261011/20261011-115553_incense-baton-round-open-no-build.kyri) | Round-open clean; claim board clear; no build. |
 | `20261011.115247` | [Incense, water-row lap, declined, no build](20261011/20261011-115247_incense-baton-lap-water-row-no-build.kyri) | Round-open clean; clock in; cold run held; no build. |
 | `20261011.115014` | [Bakery, shared-cache claim held, no build](20261011/20261011-115014_bakery-shared-cache-claim-held.kyri) | Claim pushed; crux open; no build |
 | `20261011.114742` | [Patchouli, recursion class clean, no build](20261011/20261011-114742_patchouli-recursion-class-clean-no-build.kyri) | Queue empty; recursion read clean; kumara red held; no build. |
