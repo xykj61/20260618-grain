@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.013738` | [Patchouli, queue empty, fourteenth net, stop](20261011/20261011-013738_patchouli-queue-empty-fourteenth-net-stop.kyri) | Fresh nets; lane empty; no build. |
 | `20261011.013730` | [Diffuser, fourth pair date-gated, repeat, no build](20261011/20261011-013730_diffuser-fourth-pair-date-gated-repeat-no-build.kyri) | Pair gated to 20261012; repeat of the hold; no build. |
 | `20261011.013512` | [Petrichor, pulled, gate held, no build](20261011/20261011-013512_petrichor-pulled-gate-held-no-build.kyri) | Three peer logs pulled; Consent Rail still gates; no build. |
 | `20261011.013459` | [Incense, stash holds 33 unlanded logs, no build](20261011/20261011-013459_incense-stash-unlanded-logs-no-build.kyri) | Stash holds 33 unlanded logs; no build; recovery awaits a ruling. |
