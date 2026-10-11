@@ -33,3 +33,22 @@ Scratch model only. Eight ways, LRU, modulo index, LINE 8, unpadded, determinist
 ## Result
 
 Appended after the run, below this line. The three falsifiers above are not edited.
+
+Run completed before clock `20261011.041208` (read at append time) on the copy `session-output/polar-padded/fine_capacity_grid1.py`, which differs from the original only in the step factor (1.01) and the smax cap (512). Command: `python3 fine_capacity_grid1.py nopad 256 384 640`, unpadded, LINE 8, 5 percent, 3 min 15 s. Output is untracked in `session-output/polar-padded/fc_grid1_nopad_20261011.txt`.
+
+| Reading | N = 256, 3% / 1% | N = 384, 3% / 1% | N = 640, 3% / 1% |
+|---|---|---|---|
+| Cartesian floor, sets | 12.4 / 12.4 | 19.2 / 19.2 | 28.8 / 28.8 |
+| Polar floor, sets | 33.3 / 33.3 | 49.7 / 49.7 | 83.0 / 82.8 |
+| Ratio, polar over Cartesian | 2.69 / 2.69 | 2.59 / 2.59 | 2.88 / 2.87 |
+| Monotone violations, polar curve | 0 / 0 | 0 / 0 | 0 / 0 |
+
+- **G1 (grid independence, within 0.05).** Holds. The largest shift is 0.01, at N = 640.
+- **G2 (dip and rise survive).** Holds. N = 384 reads 2.59, below 2.65. N = 640 reads 2.87, above 2.75.
+- **G3 (zero monotone violations).** Holds at all three sizes.
+
+**Reading.** The 3 percent grid was not producing the sawtooth at these sizes. The floors moved by at most 0.2 set, and the Cartesian floors did not move at all. The zig-zag across N is therefore a property of the scratch model's curve, not of the search spacing.
+
+**Confidence.** High that the grid step is not the cause at N = 256, 384 and 640. Lower on the other sizes: N = 64, 128, 512 were not rerun at 1 percent, so the claim is bounded to these three points.
+
+**Scope.** Still a scratch model, with no hardware, no witness, and no claim about any real cache. The cause of the sawtooth is not tested here. Ring-to-set alignment is the next door, and its falsifier is to be written and committed before its run.
