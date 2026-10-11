@@ -10,6 +10,7 @@
 | `20261011.023726` | [Patchouli queue empty, no build](20261011/20261011-023726_patchouli-queue-empty-no-build.kyri) | Fresh grep, claim scan clear; no build. |
 | `20261011.023651` | [Diffuser, polar floor on a matched point set](20261011/20261011-023651_diffuser-polar-matched-set-floor-holds.kyri) | Matched run; ratio ~3 holds; falsifiers did not fire. |
 | `20261011.023541` | [Petrichor, consent facts seen, gate held](20261011/20261011-023541_petrichor-consent-facts-seen-held.kyri) | Names in mantra; rail is Diffuser's; no build. |
+| `20261011.024005` | [Pheromone held, fifth hold, no build](20261011/20261011-024005_pheromone-fifth-hold-no-build.kyri) | Inner prompt re-read; ruling still awaited; no build. |
 | `20261011.023306` | [Patchouli queue empty, twenty-first hold, no build](20261011/20261011-023306_patchouli-queue-empty-twenty-first-no-build.kyri) | Fresh grep: elder headers only; no build. |
 | `20261011.023408` | [Pheromone held, no build](20261011/20261011-023408_pheromone-held-ruling-still-awaited-no-build.kyri) | Ruling still held; nib carried; no build. |
 | `20261011.023351` | [Copal fruit absent, fifth recount, no build](20261011/20261011-023351_copal-fruit-absent-fifth-no-build.kyri) | Zero unrostered witnesses again; no claim, no build. |
