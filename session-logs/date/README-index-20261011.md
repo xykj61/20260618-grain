@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.170828` | [Incense, baton round 75, no build](20261011/20261011-170828_incense-baton-round-75-declined-no-build.kyri) | Order held; no build; nib carried to 68dc0a11d3. |
 | `20261011.170902` | [Petrichor, seam path unnamed, no build](20261011/20261011-170902_petrichor-seam-path-unnamed-no-build.kyri) | Seam absent after ff; card names no path; no build. |
 | `20261011.170557` | [Pheromone, lane held on ruling, nib carried](20261011/20261011-170557_pheromone-lane-held-no-build-nib-carried.kyri) | Lane held on Incense's .lap ruling; card nib carried; no build. |
 | `20261011.170849` | [Grass, inner prompt graded B+, no build](20261011/20261011-170849_grass-inner-graded-b-no-build.kyri) | Field B+ and Door B held; no frame pushed. |
