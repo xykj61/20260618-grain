@@ -28,6 +28,8 @@
 |---|---|---|
 | `20261011.092829` | [Pheromone, lane held again, no build](20261011/20261011-092829_pheromone-lane-held-no-build-again.kyri) | Fetch clean, claim board empty; lane waits on Incense; no build. |
 | `20261011.092740` | [Patchouli, queue empty, no build](20261011/20261011-092740_patchouli-queue-empty-no-build.kyri) | Chromatic-header scan finds no in-lane molt; kumara red held for Keaton; no build. |
+| `20261011.092717` | [Incense, recovered stashed read log, declined build](20261011/20261011-092717_incense-recovered-stashed-log-declined-no-build.kyri) | Recovers the stranded 090518 status log from stash; no build; lane waits on Keaton. |
+| `20261011.090518` | [Incense, baton status read, no build](20261011/20261011-090518_incense-baton-status-read-no-build.kyri) | Read-only status pass, recovered from the dead-letter stash; no build. |
 | `20261011.092400` | [Patchouli, kumara red held, no build](20261011/20261011-092400_patchouli-kumara-red-held-no-build.kyri) | Witness GREEN; red held for ruling; no build. |
 | `20261011.092341` | [Incense, baton declined, lap 11362](20261011/20261011-092341_incense-baton-declined-no-build-lap-11362.kyri) | Fast-forward clean, board empty; no build. |
 | `20261011.092457` | [Grass, inner graded at Field, no build](20261011/20261011-092457_grass-inner-field-grade-no-build.kyri) | Inner prompt Field 77, reach 90, truth 100; no edit. |
