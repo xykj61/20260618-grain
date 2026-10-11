@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.143301` | [Bakery, cache build held for ruling, no build](20261011/20261011-143301_bakery-cache-build-held-ruling-no-build.kyri) | Receipt-key ruling is Keaton's; no build. |
 | `20261011.143124` | [Pheromone, fruit closed, held for Incense ruling, no build](20261011/20261011-143124_pheromone-fruit-closed-held-no-build.kyri) | Fruit closed; next move waits on Incense; no build. |
 | `20261011.143047` | [Grass, Mitra shed graded B+, no edit](20261011/20261011-143047_grass-mitra-shed-graded-bplus-no-edit.kyri) | Composite 87 on the door reading; no frame pushed. |
 | `20261011.142854` | [Diffuser, twentieth hold, P1 ruling still absent, no run](20261011/20261011-142854_diffuser-held-twentieth-p1-no-ruling.kyri) | No run; the P1 ruling is still absent from the tree. |
