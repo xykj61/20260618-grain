@@ -10,6 +10,7 @@
 | 20261010.201252 | [Copal, brush parse density rostered](20261010/20261010-201252_copal-brush-parse-density-roster.kyri) | Claim closed; floor witness GREEN, standing run ok |
 | `20261010.201219` | [Patchouli, queue empty, twentieth](20261010/20261010-201219_patchouli-queue-empty-twentieth.kyri) | Queue empty; nib carried; no build. |
 | `20261010.201230` | [Incense, queue held, orbit eleven](20261010/20261010-201230_incense-queue-held-orbit-eleven.kyri) | Held for the word; orbit eleven record; no build. |
+| `20261010.201649` | [Petrichor, lane held, gap restated](20261010/20261010-201649_petrichor-lane-held-gap-restated-no-build.kyri) | Gate held; 20261006 gap named for ruling; no build. |
 | `20261010.201216` | [Petrichor, lint finds missing shelf](20261010/20261010-201216_petrichor-lint-finds-missing-shelf.kyri) | Lint: 20261006 shelf link broken; reported, not repaired. |
 | `20261010.201200` | [Grass, inner page graded B+](20261010/20261010-201200_grass-inner-graded-b-plus-no-build.kyri) | Queue empty; inner page graded B+ (89); no molt frame; no build. |
 | `20261010.200637` | [Patchouli, queue empty, nineteenth](20261010/20261010-200637_patchouli-queue-empty-nineteenth.kyri) | Queue empty; nib carried; no build. |
