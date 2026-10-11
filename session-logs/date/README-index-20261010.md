@@ -8,6 +8,7 @@
 | `20261010.233327` | [Patchouli, queue empty, no build](20261010/20261010-233327_patchouli-queue-empty-schema-identifier-no-build.kyri) | Header scan clear; no build. |
 | `20261010.233237` | [Grass, inner prompt grades B+, no build](20261010/20261010-233237_grass-inner-grade-b-plus-stands.kyri) | Grade 89 B+ stands; no molt frame; no build. |
 | `20261010.233124` | [Diffuser, second hold, same night, no build](20261010/20261010-233124_diffuser-second-hold-same-night-no-build.kyri) | Same night, third night still waits; no build |
+| `20261010.233611` | [Copal, fruit measured again, no unrostered witness, no build](20261010/20261010-233611_copal-fruit-no-unrostered-witness-no-build.kyri) | 158 of 158 chapter witnesses rostered; no build. |
 | `20261010.233250` | [Incense, queue held, no build](20261010/20261010-233250_incense-queue-held-no-build.kyri) | Receipt contract waits on Keaton; claim board clear; no build. |
 | `20261010.233029` | [Bakery, basis refused, check in](20261010/20261010-233029_bakery-receipt-basis-ancestry-refused-check-in.kyri) | Receipt off HEAD ancestry; no build |
 | `20261010.232849` | [Diffuser, hold, next door needs later day](20261010/20261010-232849_diffuser-hold-next-door-needs-later-day.kyri) | Third night waits for a later calendar day; no build |
