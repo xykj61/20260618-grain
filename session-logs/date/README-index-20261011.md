@@ -7,6 +7,7 @@
 | `20261011.074009` | [Incense, round-open adopted, declined, no build](20261011/20261011-074009_incense-baton-round-open-declined-no-build.kyri) | Anointed order adopted at ce1a9bd1a2; board clear; gated, no build. |
 | `20261011.073950` | [Diffuser, padding arm corrected](20261011/20261011-073950_diffuser-padding-arm-wiring-correction.kyri) | Padding flag unset; D4 passes on real padding. |
 | `20261011.073812` | [Bakery, rye cold start red, check in](20261011/20261011-073812_bakery-rye-bootstrap-red-check-in.kyri) | bootstrap.sh bridges main only; rye binary absent. |
+| `20261011.074016` | [Patchouli, queue empty, third recount, no build](20261011-074016/20261011-074016_patchouli-queue-empty-third-recount-no-build.kyri) | Recount holds; no build. |
 | `20261011.073624` | [Patchouli, queue empty again](20261011/20261011-073624_patchouli-queue-empty-recount-no-build.kyri) | Headers chronological; no build. |
 | `20261011.073620` | [Incense, board clear, no build](20261011/20261011-073620_incense-baton-declined-board-clear-no-build.kyri) | Board clear, upstream unchanged, declined with no build. |
 | `20261011.073520` | [Copal, fruit still empty, no build](20261011/20261011-073520_copal-fruit-still-empty-no-build.kyri) | Fifth empty fruit read; ruling asked |
