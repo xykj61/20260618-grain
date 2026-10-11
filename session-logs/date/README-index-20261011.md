@@ -5,7 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.015511` | [bakery receipt key, mode miss](20261011/20261011-015511_receipt-key-mode-miss.kyri) | content-keyed receipt writer; control 7 of 7; cold run guard_red inherited |
-| `20261011.015343` | [Diffuser hold, fifth check](20261011/20261011.015343-015343_diffuser-hold-fifth-check-no-run.kyri) | Fourth pair waits for 20261012; no Swift; no run |
+| `20261011.015343` | [Diffuser hold, fifth check](20261011/20261011-015343_diffuser-hold-fifth-check-no-run.kyri) | Fourth pair waits for 20261012; no Swift; no run |
 | 20261011.015357 | [Incense, gated, declined, no build](20261011/20261011-015357_incense-queue-gated-sixty-seventh-no-build.kyri) | Declined; no build; card nib question open. |
 | 20261011.015217 | [Copal, premise stale, seventh](20261011/20261011-015217_copal-premise-stale-seventh-no-build.kyri) | Zero unrostered witnesses; no build |
 | 20261011.015133 | [Petrichor, lane still gated, no build](20261011/20261011-015133_petrichor-lane-still-gated-no-build.kyri) | Gate closed; upstream level; no edit. |
