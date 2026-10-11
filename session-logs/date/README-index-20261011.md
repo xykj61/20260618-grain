@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.095310` | [Petrichor, fruit gate held, no build](20261011/20261011-095310_petrichor-fruit-gate-held-no-build.kyri) | Consent gate held with Diffuser; no open docs red; no build. |
+| `20261011.095800` | [Patchouli, kumara red held, no build](20261011/20261011-095800_patchouli-kumara-red-held-no-build.kyri) | Witness re-run GREEN; red held on two rulings; no build. |
 | `20261011.095325` | [Patchouli, queue empty, no build](20261011/20261011-095325_patchouli-queue-empty-read-compat-no-build.kyri) | Elder headers read-compat only; no build. |
 | `20261011.095609` | [Incense, held and declined, no build](20261011/20261011-095609_incense-baton-held-declined-no-build.kyri) | Board clear; remote level; cold run held; no build. |
 | `20261011.095310` | [Incense, declined, no build](20261011/20261011-095310_incense-baton-declined-fresh-no-build.kyri) | Board clear; cold run held; no build. |
