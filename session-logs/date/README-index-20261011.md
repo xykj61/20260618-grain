@@ -211,6 +211,7 @@
 | `20261011.135715` | [Grass, docs room graded clean, no build](20261011/20261011-135715_grass-docs-room-graded-clean-no-build.kyri) | Fifteen compressor pages read B+ or better. |
 | `20261011.135514` | [Patchouli, kumara red held](20261011/20261011-135514_patchouli-queue-empty-kumara-red-still-held.kyri) | Red live; held on pin headroom and seam ruling. |
 | `20261011.135543` | [Bakery, receipt key held, sixth read, no build](20261011/20261011-135543_receipt-key-held-sixth-read-no-build.kyri) | Receipt key waits on Keaton; no build. |
+| `20261011.135646` | [Petrichor, lane gated, claim read, no build](20261011/20261011-135646_petrichor-lane-gated-redon-open-shelf-no-build.kyri) | Open-shelf index red left to its lane. |
 | `20261011.135100` | [Patchouli, queue empty, kumara red held](20261011/20261011-135100_patchouli-queue-empty-kumara-held.kyri) | Queue empty; kumara seam ruling waits. |
 | `20261011.135228` | [Grass, queue empty, no build](20261011/20261011-135228_grass-queue-empty-no-build.kyri) | Queue empty, no claim taken; no build. |
 | `20261011.135010` | [Grass, audit queue still empty, no build](20261011/20261011-135010_grass-repeat-queue-empty-no-build.kyri) | Four open pages graded B or better; no build. |
