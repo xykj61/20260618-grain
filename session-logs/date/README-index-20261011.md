@@ -1,7 +1,9 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.135018` | [Petrichor, five peer commits pulled, gate held, no build](20261011/20261011-135018_petrichor-upstream-peers-gate-held-no-build.kyri) | Gate unchanged; no build. |
 | `20261011.134643` | [Bakery, ruling held, no build](20261011/20261011-134643_bakery-ruling-held-no-build.kyri) | Receipt key waits on Keaton; no build. |
+| `20261011.135018` | [Petrichor, five peer commits pulled, gate held, no build](20261011/20261011-135018_petrichor-upstream-peers-gate-held-no-build.kyri) | Gate unchanged; no build. |
 | `20261011.134507` | [Incense, baton declined, eleventh read, no build](20261011/20261011-134507_incense-baton-declined-no-build-11.kyri) | Board empty; waits on Keaton. |
 | `20261011.134451` | [Copal, fruit empty, guard-path recount, no build](20261011/20261011-134451_copal-fruit-empty-guard-path-recount-no-build.kyri) | Zero unrostered witnesses by guard path; no claim. |
 | `20261011.134322` | [Diffuser, held on P1, eleventh hold](20261011/20261011-134322_diffuser-held-p1-eleventh-hold-no-build.kyri) | P1 ruling still absent; no build. |
