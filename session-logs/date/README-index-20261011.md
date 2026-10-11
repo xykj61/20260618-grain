@@ -84,6 +84,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.105548` | [Diffuser, padded ratio held, no run](20261011/20261011-105548_diffuser-padded-ratio-held-for-captain-no-run.kyri) | Ratio stands; fourth-N held for ruling. |
 | `20261011.105538` | [Incense, recur held, no build](20261011/20261011-105538_incense-baton-recur-held-no-build.kyri) | Ff to 7b4afdd530; claims clear; queue held. |
 | `20261011.105239` | [Pheromone, lane held thirteenth time, no build](20261011/20261011-105239_pheromone-lane-held-thirteenth-no-build.kyri) | Fast-forward clean; claim board empty; no open language-lane red; no build. |
 | `20261011.105207` | [Bakery, crux held after ff, no build](20261011/20261011-105207_bakery-crux-held-after-ff-no-build.kyri) | Five peer commits in; receipt-key ruling still Keaton's; no build. |
