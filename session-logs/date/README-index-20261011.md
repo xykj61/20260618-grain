@@ -93,6 +93,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.110602` | [Patchouli, held rulings re-proved, no build](20261011/20261011-110602_patchouli-held-rulings-reproved-no-build.kyri) | Two witnesses GREEN; rulings still wait. |
+| `20261011.110608` | [Bakery, receipt key waits, no build](20261011/20261011-110608_bakery-receipt-key-held-no-build.kyri) | Read-only; receipt-key ruling holds the build. |
 | `20261011.110432` | [Petrichor, gate held, no build](20261011/20261011-110432_petrichor-inner-gate-held-no-build-again.kyri) | Consent Rail gates the fruit; no build. |
 | `20261011.110107` | [Petrichor, inner gate held, queue empty, no build](20261011/20261011-110107_petrichor-inner-gate-held-no-build.kyri) | Consent Rail gate read held; no new target; no build. |
 | `20261011.110051` | [Diffuser, door held again, no run](20261011/20261011-110051_diffuser-door-held-again-gated-no-run.kyri) | Both open doors gated; no run; nib follow-up. |
