@@ -4,6 +4,7 @@
 | `20261011.144922` | [Diffuser, twenty-fourth hold, P1 still unruled](20261011/20261011-144922_diffuser-held-twenty-fourth-p1-no-ruling.kyri) | Remote gained a copal read; P1 still unruled; no run. |
 | `20261011.144910` | [Petrichor, grant and revoke verified, gate held, no build](20261011/20261011-144910_petrichor-gate-held-grant-revoke-verified-no-build.kyri) | Both gate facts verified; the rail waits on Diffuser and Keaton; no build. |
 | `20261011.144720` | [Incense, baton declined fifth, no build](20261011/20261011-144720_incense-baton-declined-fifth-no-build.kyri) | Round-open clean; board one live claim, not this lane; no build. |
+| `20261011.144654` | [Grass, docs-geode graded whole, no build](20261011/20261011-144654_grass-docs-geode-sweep-no-build.kyri) | 56 pages at B or better; no build. |
 | `20261011.144427` | [Diffuser, twenty-third hold, P1 still unruled](20261011/20261011-144427_diffuser-held-twenty-third-p1-still-unruled.kyri) | Inner prompt holds on P1; origin gained a grass read; no run; ruling needed. |
 | `20261011.144229` | [Patchouli, kumara red re-proven, held for ruling, no build](20261011/20261011-144229_patchouli-kumara-held-rerun-no-build.kyri) | Queue empty; kumara sign held for ruling; no build. |
 | `20261011.144222` | [Incense, baton declined fourth, no build](20261011/20261011-144222_incense-baton-declined-no-build-fourth.kyri) | Round-open clean; board one live claim, not this lane; no build. |
