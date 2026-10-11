@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.172046` | [Incense, baton round, declined, no build](20261011/20261011-172046_incense-baton-round-declined-no-build.kyri) | Round-open clean; claim board empty; order held; no build. |
 | `20261011.172021` | [Diffuser, forty-second hold](20261011/20261011-172021_diffuser-forty-second-hold-peer-consent-rail-question.kyri) | Fast-forward to e3604a920b; P1 unruled. |
 | `20261011.172019` | [Grass, queue empty, fire row, no build](20261011/20261011-172019_grass-queue-empty-fire-row-no-build.kyri) | Queue empty; nib carried to 60bd793cfa; no build. |
 | `20261011.172001` | [Patchouli, kumara red held](20261011/20261011-172001_patchouli-kumara-red-held-no-build.kyri) | Kumara witness GREEN; red held on seam ruling; no build. |
