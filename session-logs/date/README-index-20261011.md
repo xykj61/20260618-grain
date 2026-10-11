@@ -11,6 +11,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.090134` | [Pheromone, lane held, no build](20261011/20261011-090134_pheromone-lane-held-no-build.kyri) | Glow lane held at its ruling; read after the pull; no build. |
 | `20261011.090104` | [Petrichor, gate reread, no build](20261011/20261011-090104_petrichor-gate-reread-no-build.kyri) | Consent Rail gate reread against the seam; no build, check-in. |
 | `20261011.090019` | [Grass, inner prompt graded, no build](20261011/20261011-090019_grass-inner-page-graded-no-build.kyri) | Queue empty; inner prompt graded at Field, no molt. |
 | `20261011.085938` | [Patchouli, queue empty again, no build](20261011/20261011-085938_patchouli-queue-empty-sixteenth-no-build.kyri) | Queue empty again; claim board clear; no build. |
