@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.041921` | [Petrichor, fruit held, upstream moved, no build](20261011/20261011-041921_petrichor-fruit-held-upstream-moved-no-build.kyri) | Gate unchanged; two peer logs landed; no build. |
+| `20261011.042313` | [Copal, fruit still spent, no build](20261011/20261011-042313_copal-fruit-still-spent-no-build.kyri) | Zero unrostered witnesses again; retarget needs Keaton. |
 | `20261011.041729` | [Copal, fruit exhausted, no build](20261011/20261011-041729_copal-fruit-exhausted-no-build.kyri) | Zero unrostered chapter witnesses; fruit needs a retarget; no build. |
 | `20261011.042149` | [Bakery, ff, claim held, check in](20261011/20261011-042149_bakery-ff-claim-held-check-in.kyri) | ff to 67ce43c7df; claim open; Rishi seam ruling. |
 | `20261011.042100` | [Pheromone, fourth hold, no build](20261011/20261011-042100_pheromone-fourth-hold-no-build.kyri) | Lane steps landed; rune ruling waits on Incense; no build. |
