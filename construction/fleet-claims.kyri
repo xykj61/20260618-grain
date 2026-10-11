@@ -58,3 +58,9 @@ stamp 20261011.003100
 epoch 1791693060
 paths tools/gen/chapter/prin.rish
 what Roster tools/gen/chapter/prin.rish (the prin scope witness) in construction/standing-equipment.kyri and prove it GREEN plus a planted red leg, so the unrostered chapter-witness count drops by one.
+claim bakery-receipt-key-mode-miss
+seat bakery
+stamp 20261011.003617
+epoch 1791693377
+paths tools/b/build_receipt_key.sh tools/fixtures/b/build_receipt_key_scan.sh tools/fixtures/b/build_receipt_key_control.sh
+what Add the content-keyed receipt key for Bakery's shared build cache: a POSIX key writer over source bytes, mode, flags, overlay, and compiler identity, with a scan and a control proving the executable-bit mutation forces a miss, the one measured mutation still unmeasured.
