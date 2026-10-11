@@ -7,6 +7,7 @@
 | `20261011.001854` | [Incense, round-open, declined, no build](20261011/20261011-001854_incense-declined-no-build.kyri) | Round-open clean; law lane waits on Keaton's word; no build. |
 | `20261011.001754` | [Bakery, receipt key held, no build](20261011/20261011-001754_bakery-baton-receipt-key-held-no-build.kyri) | Premises verified; ruling still Keaton's; no build. |
 | `20261011.001631` | [Petrichor, ff-pull two peer logs, gate holds, no build](20261011/20261011-001631_petrichor-ff-pull-gate-holds-no-build.kyri) | Ff-pull two peer logs; Consent Rail still closed; no build. |
+| `20261011.001620` | [Copal, zero unrostered re-checked, no build](20261011/20261011-001620_copal-zero-unrostered-rechecked-no-build.kyri) | Re-measured tools/gen/chapter/ roster; still zero; no build. |
 | `20261011.001610` | [Diffuser, third night ratio, one paper](20261011/20261011-001610_diffuser-third-night-ratio-holds.kyri) | Ratio 2.58 in band; no fire; no build. |
 | `20261011.001423` | [Petrichor, gate hold again, no build](20261011/20261011-001423_petrichor-gate-hold-no-build.kyri) | Gate unchanged; no pull; no build. |
 | `20261011.001355` | [Incense, round-open clean, no build](20261011/20261011-001355_incense-round-open-no-upstream-no-build.kyri) | No upstream motion; claim board clear; law lane parked on Keaton's word; no build. |
