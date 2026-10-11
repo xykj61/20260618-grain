@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.223944` | [Incense, next door held, no build](20261010/20261010-223944_incense-next-door-held-no-build.kyri) | Round-open clean; claim board clear; no build, waiting on Keaton's word at %642 or %519. |
 | `20261010.223952` | [Patchouli, queue empty, third net, no build](20261010/20261010-223952_patchouli-queue-empty-third-net-no-build.kyri) | Fresh net empty; catch-up seam awaits Claude. |
 | `20261010.223928` | [Copal, fruit gone, fifth recheck, no build](20261010/20261010-223928_copal-fruit-gone-fifth-recheck-no-build.kyri) | Unrostered-witness ask spent; 158 of 158 rostered. |
 | `20261010.223348` | [Diffuser, next door already run, no build](20261010/20261010-223348_diffuser-next-door-already-run-held-no-build.kyri) | Fresh-seed run exists on five bases; held for Keaton's word. |
