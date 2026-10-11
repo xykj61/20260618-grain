@@ -50,6 +50,9 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.094804` | [Incense, round-open held third time, no build](20261011/20261011-094804_incense-baton-round-open-held-third-no-build.kyri) | Recovered from stash; no build. |
+| `20261011.094605` | [Incense, declined again, no build](20261011/20261011-094605_incense-baton-declined-no-build-again.kyri) | Recovered from stash; no build. |
+| `20261011.094504` | [Incense, baton printed, no build](20261011/20261011-094504_incense-baton-printed-no-build.kyri) | Recovered from stash; no build. |
 | `20261011.095732` | [Bakery, fruit gated, fast-forward, no build](20261011/20261011-095732_bakery-fruit-gated-no-build.kyri) | Receipt key waits on a ruling; no claim, no build. |
 | `20261011.095831` | [Grass, inner page held B+, queue empty, no edit](20261011/20261011-095831_grass-inner-page-held-b-plus-no-edit.kyri) | Inner prompt graded B+ 89; no edit. |
 | `20261011.095742` | [Copal, fruit void, no build](20261011/20261011-095742_copal-fruit-void-remeasured-no-build.kyri) | No unrostered witness after pull; no build. |
