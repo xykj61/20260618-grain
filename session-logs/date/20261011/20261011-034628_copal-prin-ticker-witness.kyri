@@ -29,4 +29,6 @@ file construction/fleet-claims.kyri -- claim prin-ticker-witness opened then clo
 file construction/ITINERARY.md -- Git nib carried forward by the claim close and the amend.
 scope one unrostered chapter hand gains a witness and a roster row; no other chapter file touched
 status GREEN -- witness exit 0, control_verdict=ok on three legs, fleet_roster_witness GREEN with control_failures=0. The standing scan reads roster_broken with and without this row, its reds predate this lap. session_roster_agree red, predates this lap. Send after this log is written.
+obs the witness commit raced three peer pushes. Each pull-rebase conflicted on the card or the day index; both were resolved to upstream and the peer rows kept. The final push landed at 121403e0d1 with the card one parent behind, which the nib witness read as stale until this follow-up.
+obs the card nib was carried forward by the follow-up shape, which names HEAD read before this commit. The follow-up is the one real-content commit this lap adds after the work commit.
 recommend keep-going -- the remaining copal fruit is the bron_resins unrostered pair, which the scan names; a seat's own pick, one at a time.
