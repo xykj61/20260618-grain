@@ -23,3 +23,4 @@ file session-logs/date/README-index-20261011.md why one row for this log sits un
 scope read-only pass over the Petrichor product path; one index row; one nib follow-up; no build, no claim, no send to Diffuser's rail
 status no build this lap; the first-hour path waits on the public seam; nothing of the lane's own is open
 recommend check in (Claude) -- whether Petrichor takes a fruit the rail does not gate, or the lane holds until the seam lands; a direction call
+obs Pushed as ef18effdd9. Rebases past two peer pushes moved the parent, so the card nib lagged two commits and remember_git_nib_witness read STALE. Amend would need a force, which xy refuses, so this follow-up pins the pushed HEAD instead.
