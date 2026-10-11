@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.081618` | [Patchouli, queue empty again, no build](20261011/20261011-081618_patchouli-queue-empty-again-no-build.kyri) | Grep net re-run; queue empty; no build. |
 | `20261011.081320` | [Copal, fruit empty, no build](20261011/20261011-081320_copal-fruit-empty-fifth-recount-no-build.kyri) | 158 witnesses, all guarded; no build. |
 | `20261011.081144` | [Bakery, ruling open, fast-forward, no build](20261011/20261011-081144_bakery-ruling-open-fast-forward-no-build.kyri) | Fast-forwarded to xy; receipt key still YOURS; no build. |
 | `20261011.081436` | [Pheromone, queue empty, override scanned, no build](20261011/20261011-081436_pheromone-queue-empty-override-scan-no-build.kyri) | Lane closed; board empty; no build. |
