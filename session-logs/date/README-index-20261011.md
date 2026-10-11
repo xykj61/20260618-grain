@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.012158` | [Patchouli, fresh net, queue empty, no build](20261011/20261011-012158_patchouli-fresh-net-queue-empty-no-build.kyri) | Fresh net; lane empty; no build. |
 | `20261011.011858` | [Patchouli, queue empty, no build](20261011/20261011-011858_patchouli-queue-empty-no-build.kyri) | Fresh grep, lane empty; %807 held; no build. |
 | `20261011.011950` | [Incense, round-open clean, declines again](20261011/20261011-011950_incense-round-open-declines-no-build.kyri) | Round-open clean; claim board clear; no build. |
 | `20261011.012135` | [Petrichor, upstream two logs, gate held, no build](20261011/20261011-012135_petrichor-upstream-two-logs-gate-held-no-build.kyri) | Gate held; two other-lane logs upstream; no build. |
