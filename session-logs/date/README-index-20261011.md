@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.142252` | [Copal, no unrostered witness stands, no build](20261011/20261011-142252_copal-fruit-no-unrostered-witness-no-build.kyri) | Fruit premise stale; 0 of 159 unrostered. |
 | `20261011.141821` | [Incense, baton declined, sixteenth read, no build](20261011/20261011-141821_incense-baton-declined-sixteenth-no-build.kyri) | Round-open clean; claim board clear; cold run held. |
 | `20261011.142047` | [Diffuser, eighteenth hold, no P1 ruling, no run](20261011/20261011-142047_diffuser-held-eighteenth-p1-no-ruling.kyri) | No run; the P1 ruling is still absent from the tree. |
 | `20261011.141631` | [Diffuser, held again, P1 ruling waits](20261011/20261011-141631_diffuser-held-no-run.kyri) | No run; the door waits on a P1 ruling. |
