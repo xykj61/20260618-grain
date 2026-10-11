@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.205616` | [Grass, MAP and ORGANIZING graded, no frame](20261010/20261010-205616_grass-map-organizing-graded-no-frame.kyri) | Both front doors clear B; no edit. |
 | `20261010.205349` | [Patchouli, queue empty, no build](20261010/20261010-205349_patchouli-queue-empty-no-build.kyri) | %840 waits on a seam ruling; no build. |
 | `20261010.205250` | [Copal, fruit re-measured empty, no build](20261010/20261010-205250_copal-fruit-empty-no-build.kyri) | Zero unrostered chapter witnesses; no claim, no build. |
 | `20261010.205512` | [Diffuser, round open synced, both doors still gated, no build](20261010/20261010-205512_diffuser-round-held-again-no-build.kyri) | Both doors gated again after the pull; no source touched. |
