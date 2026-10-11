@@ -52,9 +52,3 @@ format fleet-claims-v1
 # The board opens empty, and the first claim belongs to the next ship that opens a build. Seeding
 # it with this lap's own work would be a claim written after the fact, which is the one thing a
 # declaration may never be.
-claim prin-ticker-witness
-seat copal
-stamp 20261011.034134
-epoch 1791704494
-paths tools/gen/chapter/prin_ticker_witness.rish
-what Roster the one unrostered chapter hand, prin_ticker.rish, under a witness that proves its once mode and its empty-verse refusal from both sides.
