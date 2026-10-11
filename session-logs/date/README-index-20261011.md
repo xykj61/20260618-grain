@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.180931` | [Patchouli, queue empty, no build](20261011/20261011-180931_patchouli-queue-empty-no-build.kyri) | Greps and REDS reread; nothing booked here. |
 | `20261011.180749` | [Diffuser, fifty-second hold](20261011/20261011-180749_diffuser-fifty-second-hold-p1-unruled.kyri) | No run; P1 still unruled, no ruling. |
 | `20261011.180315` | [Petrichor, gate facts, ask ruling](20261011/20261011-180315_petrichor-gate-facts-ask-ruling.kyri) | Rail's two facts on record; check-in, no build. |
 | `20261011.180505` | [Copal, fifth empty fruit, no build](20261011/20261011-180505_copal-fifth-empty-fruit-no-build.kyri) | No build; zero unrostered witnesses by exact path. |
