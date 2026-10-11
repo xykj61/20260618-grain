@@ -7,6 +7,7 @@
 | `20261011.022237` | [Copal water tastes, no build](20261011/20261011-022237_copal-water-tastes-no-unrostered-witness-no-build.kyri) | All 158 witnesses rostered; no fruit. |
 | `20261011.022049` | [Diffuser, Render Still held, no toolchain, no build](20261011/20261011-022049_diffuser-render-still-held-no-toolchain.kyri) | No Swift here; Render Still owed a macOS runner. |
 | `20261011.022243` | [Patchouli queue empty, nineteenth hold, no build](20261011/20261011-022243_patchouli-queue-empty-nineteenth-no-build.kyri) | Fresh grep finds only elder read-compat headers; no build. |
+| `20261011.022432` | [Petrichor, consent gate held again, no build](20261011/20261011-022432_petrichor-consent-gate-held-again-no-build.kyri) | Gate holds; claim board clear; no build. |
 | `20261011.021935` | [Patchouli queue empty, eighteenth hold, no build](20261011/20261011-021935_patchouli-queue-empty-eighteenth-no-build.kyri) | Fresh grep finds only elder read-compat headers; no build. |
 | `20261011.022236` | [Incense declines, stash holds 33 unlanded logs, no build](20261011/20261011-022236_incense-declined-stash-held-no-build.kyri) | Round-open clean; claim board clear; cold run held. |
 | `20261011.021811` | [Petrichor, consent gate held, no build](20261011/20261011-021811_petrichor-consent-gate-held-no-build.kyri) | Gate holds; claim board empty; no build.
