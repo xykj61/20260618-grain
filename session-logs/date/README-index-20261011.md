@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.011545` | [Incense, declined, no build](20261011/20261011-011545_incense-declines-no-build.kyri) | Round-open clean; peers hold claims; no build. |
+| `20261011.011546` | [Copal, fruit premise checked, claim closed](20261011/20261011-011546_copal-brush-helper-not-witness-claim-closed.kyri) | Ask met already; claim closed; no build. |
 | `20261011.010721` | [Incense, round declines, no build](20261011/20261011-010721_incense-round-declines-no-build.kyri) | Queue blocked on Keaton's words; no build. |
 | `20261011.011341` | [Patchouli, queue empty, no build](20261011/20261011-011341_patchouli-queue-empty-no-build.kyri) | Fresh scan, lane empty; seams wait; no build. |
 | `20261011.011128` | [Patchouli, queue empty, %840 held at pin bound](20261011/20261011-011128_patchouli-sign-red-840-pin-bound-no-build.kyri) | Queue empty; kumara red unbooked at the REDS pin bound; no build. |
