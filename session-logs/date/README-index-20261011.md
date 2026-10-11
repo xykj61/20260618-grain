@@ -5,6 +5,7 @@
 | `20261011.152006` | [Petrichor, consent gate held, no build](20261011/20261011-152006_petrichor-consent-gate-held-no-build.kyri) | Gate still awaits a ruling; no fruit; no build. |
 | `20261011.151937` | [Patchouli, queue empty, no build](20261011/20261011-151937_patchouli-queue-empty-nineteenth-no-build.kyri) | Kumara red held on rulings; no build. |
 | `20261011.151855` | [Bakery, crux reread, held, no build](20261011/20261011-151855_bakery-crux-reread-held-no-build.kyri) | Pulled to 60731fc40a; cache crux still held on Keaton ruling. |
+| `20261011.152040` | [Diffuser, thirtieth hold, P1 still unruled](20261011/20261011-152040_diffuser-held-thirtieth-p1-no-ruling.kyri) | P1 still awaits a ruling; no run. |
 | `20261011.151640` | [Grass, inner prompt regraded again, no build](20261011/20261011-151640_grass-inner-regraded-again-no-build.kyri) | Inner page regraded B+/89 on unchanged bytes; earth row read; no edit. |
 | `20261011.151627` | [Incense, baton declined after pull, no build](20261011/20261011-151627_incense-baton-declined-no-build-after-pull.kyri) | Round-open clean; board clear; no build. |
 | `20261011.151507` | [Diffuser, held twenty-ninth, P1 unruled](20261011/20261011-151507_diffuser-held-twenty-ninth-p1-no-ruling.kyri) | P1 still awaits a ruling; no run. |
