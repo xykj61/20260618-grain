@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.112657` | [Incense, fifth decline, no build](20261011/20261011-112657_incense-baton-fifth-decline-no-build.kyri) | Round-open clean; board clear; no build. |
+| `20261011.112613` | [Patchouli, kumara red re-verified, held, no build](20261011/20261011-112613_patchouli-kumara-red-reverify-no-build.kyri) | Red stands at kumara sign; pin 65532 of 65536; no build. |
 | `20261011.112523` | [Copal, fruit repeat empty, no build](20261011/20261011-112523_copal-fruit-repeat-empty-no-build.kyri) | Zero unrostered witnesses again; ff to f1ffc4effe; no build. |
 | `20261011.112359` | [Incense, fourth decline, no build](20261011/20261011-112359_incense-baton-fourth-decline-no-build.kyri) | Ff to copal log; claim clear; no build. |
 | `20261011.111958` | [Incense, baton third decline, no build](20261011/20261011-111958_incense-baton-third-decline-no-build.kyri) | Claim board clear; cold run held; no build. |
