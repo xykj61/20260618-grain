@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.201520` | [Grass, docs-geode front door graded A](20261010/20261010-201520_grass-docs-geode-front-door-graded-a-no-build.kyri) | Front door A/91; no change; no build. |
 | `20261010.201351` | [Pheromone, queue empty, open reds read](20261010/20261010-201351_pheromone-empty-queue-open-reds-read.kyri) | Lane empty; open reds belong to other lanes; no build. |
 | `20261010.201219` | [Patchouli, queue empty, twentieth](20261010/20261010-201219_patchouli-queue-empty-twentieth.kyri) | Queue empty; nib carried; no build. |
 | `20261010.201216` | [Petrichor, lint finds missing shelf](20261010/20261010-201216_petrichor-lint-finds-missing-shelf.kyri) | Lint: 20261006 shelf link broken; reported, not repaired. |
