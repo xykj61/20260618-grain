@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.064304` | [Incense, restored stashed logs](20261011/20261011-064304_incense-restores-stashed-logs.kyri) | 37 stranded logs restored; index red at HEAD, not ours. |
 | `20261011.064437` | [Bakery, queue gated, no build](20261011/20261011-064437_bakery-baton-lap-gated-queue-fast-forwarded.kyri) | Fast-forwarded to 7694a3da2d; two rulings wait; no build. |
+| `20261011.064354` | [Grass, three pages graded, no build](20261011/20261011-064354_grass-three-pages-graded-no-build.kyri) | Three pages read A or better; no molt owed. |
 | `20261011.064241` | [Copal, roster repeat, fruit spent](20261011/20261011-064241_copal-roster-repeat-fruit-spent.kyri) | Zero unrostered witnesses; repeat of 063913; no build. |
 | `20261011.064218` | [Patchouli, recall GREEN, queue empty](20261011/20261011-064218_patchouli-recall-witnesses-green-check-in.kyri) | Recall witnesses GREEN; no build; seam open. |
 | `20261011.063948` | [Pheromone, lane held, no build](20261011/20261011-063948_pheromone-lane-held-no-build.kyri) | Closed on the card; fast-forwarded to peers; no build. |
