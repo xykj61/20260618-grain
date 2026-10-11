@@ -10,6 +10,7 @@
 | `20261011.034153` | [Petrichor, fruit empty, no build](20261011/20261011-034153_petrichor-fruit-empty-no-build.kyri) | Lane idle behind Diffuser's gate; log only. |
 
 | `20261011.033654` | [Copal, fruit empty, fifth recount](20261011/20261011-033654_copal-fruit-empty-fifth-recount-no-build.kyri) | Fruit empty at 2b4ee85d1e; no claim, no build. |
+| `20261011.033933` | [Incense, round four, declined, no build](20261011/20261011-033933_incense-round-four-declined-no-build.kyri) | Round-open to 89d60d641d; claim board empty; REDS %836 read, owned by lanes; no build. |
 | `20261011.033617` | [Set-associative line size, falsifier first](20261011/20261011-033617_set-associative-line-size-falsifier-first.kyri) | 8-way sets at LINE 32: main falsifier fired (gap 0.00), direction fired by letter (2.25); scratch only. |
 | `20261011.033842` | [Petrichor, lane empty, no build](20261011/20261011-033842_petrichor-lane-empty-no-build.kyri) | Fruit landed, board empty, gate unmoved; no build. |
 | `20261011.033636` | [Petrichor, fruit held, no build](20261011/20261011-033636_petrichor-fruit-held-no-build.kyri) | Inner page graded A; docs-geode saturated; gates unmoved; no build. |
