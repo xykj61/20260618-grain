@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.125900` | [Petrichor, consent gate held, no build](20261011/20261011-125900_petrichor-consent-gate-held-no-build.kyri) | Fast-forward read; consent gate still held; no build. |
 | `20261011.125702` | [Grass, lila foundation graded, no edit](20261011/20261011-125702_grass-lila-foundation-graded-no-edit.kyri) | Register 98, reach 100, truth 100; no edit. |
 | `20261011.125302` | [Incense, baton read, no build](20261011/20261011-125302_incense-baton-declined-no-build-3.kyri) | Round-open on anointed order; board empty; no build. |
 | `20261011.125114` | [Patchouli, fifteenth empty sweep, no build](20261011/20261011-125114_patchouli-queue-empty-fifteenth-sweep-no-build.kyri) | Sweep and board empty; no fruit. |
