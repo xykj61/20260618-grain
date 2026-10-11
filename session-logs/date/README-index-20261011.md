@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.170534` | [Incense, baton round 74, no build](20261011/20261011-170534_incense-baton-round-74-declined-no-build.kyri) | Order held; peer claim only; stash logs flagged. |
 | `20261011.170507` | [Petrichor, seam still absent, no build](20261011/20261011-170507_petrichor-seam-still-absent-no-build.kyri) | Seam absent after fetch; no build. |
 | `20261011.170440` | [Grass, four pages graded, no build](20261011/20261011-170440_grass-audit-four-prose-pages-grade-b-no-build.kyri) | Four pages at door, all B or better; no build. |
 | `20261011.170039` | [Incense, baton round 73, no build](20261011/20261011-170039_incense-baton-round-73-declined-no-build.kyri) | Order held; no build; board holds bakery claim only. |
