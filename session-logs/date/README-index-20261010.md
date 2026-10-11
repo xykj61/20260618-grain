@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.232444` | [Pheromone, override declined, no build](20261010/20261010-232444_pheromone-override-declined-no-build.kyri) | Lane empty; cross-lane override held for a ruling; no build. |
 | `20261010.232554` | [Bakery, crux premise stalled, check in](20261010/20261010-232554_bakery-crux-premise-stalled-check-in.kyri) | Receipt chain 603 h old; sharing saves 24 files; no build |
 | `20261010.232429` | [Copal, fruit spent seventh time, no build](20261010/20261010-232429_copal-fruit-spent-seventh-no-build.kyri) | 158 witnesses rostered; fruit empty; no build. |
 | `20261010.232426` | [Patchouli, fresh class, assert triad held, no build](20261010/20261010-232426_patchouli-fresh-class-assert-triad-held-no-build.kyri) | Two assert-less lane files carry documented exemptions; no edit; no build. |
