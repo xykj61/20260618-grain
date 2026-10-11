@@ -53,6 +53,7 @@
 |---|---|---|
 | `20261011.100117` | [Patchouli, queue empty, no build](20261011/20261011-100117_patchouli-queue-empty-no-build.kyri) | Fresh net: read-compat only; no build. |
 | `20261011.100209` | [Grass, queue held, no build](20261011/20261011-100209_grass-queue-hold-no-build.kyri) | Nineteen prose pages graded B+ or better; no lift owed. |
+| `20261011.100133` | [Pheromone, lane held sixth time, no build](20261011/20261011-100133_pheromone-lane-held-sixth-no-build.kyri) | Card lane closed; stop clause holds; no build. |
 | `20261011.095938` | [Incense, stranded logs recovered, no build](20261011/20261011-095938_incense-baton-recovered-stash-logs.kyri) | Three stash logs landed; row bound held; no build. |
 | `20261011.094804` | [Incense, round-open held third time, no build](20261011/20261011-094804_incense-baton-round-open-held-third-no-build.kyri) | Recovered from stash; no build. |
 | `20261011.094605` | [Incense, declined again, no build](20261011/20261011-094605_incense-baton-declined-no-build-again.kyri) | Recovered from stash; no build. |
