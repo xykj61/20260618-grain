@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.144030` | [Copal fruit, fifth read, no build](20261011/20261011-144030_copal-fruit-fifth-read-roster-complete-no-build.kyri) | Every witness rostered; fence holds 651 of 651. |
 | `20261011.143926` | [Incense, baton declined third time, no build](20261011/20261011-143926_incense-baton-declined-third-no-build.kyri) | Round-open clean, board read, no build. |
 | `20261011.143748` | [Patchouli, queue empty sixteenth read, no build](20261011/20261011-143748_patchouli-queue-empty-sixteenth-read-no-build.kyri) | Queue empty; kumara held for ruling; no build. |
 | `20261011.143511` | [Copal fruit, fourth read, no unrostered witness, no build](20261011/20261011-143511_copal-fruit-fourth-read-no-build.kyri) | Every witness rostered; fruit has no candidate until a ruling. |
