@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.063506` | [Grass, four foundations graded again, no build](20261011/20261011-063506_grass-foundations-repeat-no-build.kyri) | Four pages read A, A, A, B; repeat of the Foundations ground, no molt owed. |
 | `20261011.063318` | [Patchouli, queue empty again, nib repinned](20261011/20261011-063318_patchouli-queue-empty-second-lap.kyri) | Upstream clean; card nib repinned to HEAD; queue still empty. |
 | `20261011.063247` | [Pheromone, lane closed, no build](20261011/20261011-063247_pheromone-lane-closed-no-build.kyri) | Three steps closed; Glow witnesses GREEN; ruling awaited. |
 | `20261011.063122` | [Petrichor, gated repeat, no build](20261011/20261011-063122_petrichor-gated-repeat-no-build.kyri) | Ff to 45b544e4de; gate unchanged; no build. |
