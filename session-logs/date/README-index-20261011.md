@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.163732` | [Pheromone, held, no build](20261011/20261011-163732_pheromone-lane-held-no-build.kyri) | Lane parked on Incense ruling; no build. |
+| `20261011.163917` | [Petrichor hold, no build](20261011/20261011-163917_petrichor-hold-third-delta-no-build.kyri) | Delta read; seam and Consent Rail held. |
 | `20261011.163401` | [Grass inner prompt graded B+, no build](20261011/20261011-163401_grass-inner-prompt-graded-b-plus-no-build.kyri) | Inner prompt reads B+ 88; queue empty; no edit. |
 | `20261011.163612` | [Incense, baton declined, round 7, no build](20261011/20261011-163612_incense-baton-declined-round-7.kyri) | Fast-forwarded four peer logs; law lane gated; no build. |
 | `20261011.163306` | [Diffuser, thirty-seventh hold, P1 unruled, no run](20261011/20261011-163306_diffuser-thirty-seventh-hold-p1-unruled.kyri) | P1 still awaits a ruling; no run. |
