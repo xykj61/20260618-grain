@@ -3,9 +3,11 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.214051` | [Petrichor, no build owed, gate held](20261010/20261010-214051_petrichor-no-owed-build.kyri) | No owed build; Consent Rail and public seam still gate the lane; check-in asked. |
 | `20261010.214005` | [Grass, inner page graded, queue empty, no build](20261010/20261010-214005_grass-inner-grade-held-no-build.kyri) | Register 77, reach 90, truth 100; composite open for service; no edit. |
 | `20261010.213743` | [Copal, fruit empty a fourth read, no build](20261010/20261010-213743_copal-fruit-empty-fourth-read-no-build.kyri) | Zero unrostered witnesses again; no build. |
 | `20261010.213651` | [Incense, queue held, no build](20261010/20261010-213651_incense-contract-queue-held-no-build.kyri) | Contract review landed; check-in asked. |
+| `20261010.213641` | [Patchouli, owed red 840 blocked on pin bound](20261010/20261010-213641_patchouli-owed-red-840-blocked-on-pin.kyri) | REDS pin at 65532 of 65536; no closed row to fold; check-in asked. |
 | `20261010.213645` | [Grass, water grade sample all A](20261010/20261010-213645_grass-water-grade-sample-all-a.kyri) | Three living pages graded all A; no frame owed. |
 | `20261010.213641` | [Patchouli, owed red 840 blocked on pin bound](20261010/20261010-213641_patchouli-owed-red-840-blocked-on-pin.kyri) | REDS pin at 65532 of 65536; no closed row to fold; check-in asked. |
 | `20261010.213507` | [Copal, fruit empty a third read, no build](20261010/20261010-213507_copal-fruit-empty-third-read-no-build.kyri) | Zero unrostered witnesses; no claim, no build. |
