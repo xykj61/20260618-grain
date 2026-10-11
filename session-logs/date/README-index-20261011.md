@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.184505` | [Diffuser, fifty-fifth hold, P1 unruled](20261011/20261011-184505_diffuser-fifty-fifth-hold-p1-unruled.kyri) | No ruling landed; no run. |
 | `20261011.184402` | [Copal, fruit zero unrostered, no build](20261011/20261011-184402_copal-fruit-zero-unrostered-no-build.kyri) | Measured zero unrostered chapter witnesses; no build. |
 | `20261011.184410` | [Patchouli, queue empty, no build](20261011/20261011-184410_patchouli-queue-empty-no-build.kyri) | Net re-run over mantra and tally; only elder headers and fixtures; no build. |
 | `20261011.184000` | [Pheromone, lane empty, witnesses GREEN, no build](20261011/20261011-184000_pheromone-lane-empty-witnesses-green-no-build.kyri) | Three landed Glow witnesses re-run GREEN; no source edited. |
