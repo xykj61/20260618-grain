@@ -9,6 +9,7 @@
 | `20261011.162021` | [Diffuser, thirty-third hold, P1 unruled, no build](20261011/20261011-162021_diffuser-thirty-third-hold-p1-unruled.kyri) | Peer delta read, no P1 ruling; no run. |
 | `20261011.162144` | [Grass, claim board empty, queue empty, no build](20261011/20261011-162144_grass-claim-board-empty-no-build.kyri) | Board empty, queue empty; no regrade, no build; nib to 5207a2aae6. |
 | `20261011.161901` | [Grass, inner prompt regraded, duplicate of an earlier reading, no build](20261011/20261011-161901_grass-inner-regrade-duplicate-no-build.kyri) | Same page, same figures as `160957`; B+ 89; no molt frame, no build. |
+| `20261011.162123` | [Patchouli, queue empty a fifteenth way](20261011/20261011-162123_patchouli-queue-empty-fifteenth-no-build.kyri) | Elder-header net and open-row read; no candidate; no build. |
 | `20261011.161613` | [Incense, tenth hold, no build](20261011/20261011-161613_incense-declined-tenth-hold-no-build.kyri) | Upstream one log ahead, board empty, gated rows held; no build. |
 | `20261011.161401` | [Bakery, fast-forward hold](20261011/20261011-161401_bakery-fast-forward-hold-no-build.kyri) | Ff to 360ec98c8a; crux held; no build. |
 | `20261011.161705` | [Diffuser, thirty-second hold, P1 unruled](20261011/20261011-161705_diffuser-thirty-second-hold-p1-unruled.kyri) | Peer delta read, no P1 ruling; no run. |
