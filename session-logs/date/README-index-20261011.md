@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.144910` | [Petrichor, grant and revoke verified, gate held, no build](20261011/20261011-144910_petrichor-gate-held-grant-revoke-verified-no-build.kyri) | Both gate facts verified; the rail waits on Diffuser and Keaton; no build. |
 | `20261011.144720` | [Incense, baton declined fifth, no build](20261011/20261011-144720_incense-baton-declined-fifth-no-build.kyri) | Round-open clean; board one live claim, not this lane; no build. |
 | `20261011.144427` | [Diffuser, twenty-third hold, P1 still unruled](20261011/20261011-144427_diffuser-held-twenty-third-p1-still-unruled.kyri) | Inner prompt holds on P1; origin gained a grass read; no run; ruling needed. |
 | `20261011.144229` | [Patchouli, kumara red re-proven, held for ruling, no build](20261011/20261011-144229_patchouli-kumara-held-rerun-no-build.kyri) | Queue empty; kumara sign held for ruling; no build. |
