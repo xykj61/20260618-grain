@@ -52,9 +52,3 @@ format fleet-claims-v1
 # The board opens empty, and the first claim belongs to the next ship that opens a build. Seeding
 # it with this lap's own work would be a claim written after the fact, which is the one thing a
 # declaration may never be.
-claim prin-ticker-roster
-seat copal
-stamp 20261011.080008
-epoch 1791720008
-paths tools/gen/chapter/prin_ticker.rish tools/fixtures/p/prin_ticker.sh construction/standing-equipment.kyri
-what Roster the one unrostered chapter witness, prin_ticker.rish, and prove it from both sides against its fixture.
