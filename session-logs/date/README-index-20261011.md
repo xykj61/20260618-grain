@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.003623` | [Patchouli, queue empty, no build](20261011/20261011-003623_patchouli-queue-empty-fifteenth-no-build.kyri) | Fresh grep empty again; no build. |
 | `20261011.003352` | [Incense, declined, claim live, no build](20261011/20261011-003352_incense-declined-no-build-claim-live.kyri) | Round-open clean; board holds copal's prin claim; no build. |
 | `20261011.003703` | [Diffuser, fourth-night gate held](20261011/20261011-003703_diffuser-fourth-night-gate-held-no-build.kyri) | Date gate holds; no build. |
 | `20261011.003230` | [Patchouli, queue empty, 840 pin-bound](20261011/20261011-003230_patchouli-queue-empty-840-still-pin-bound.kyri) | Queue empty by fresh grep; red 840 blocked by byte bound; no build. |
