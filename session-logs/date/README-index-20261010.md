@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.234053` | [Copal, fruit void, no build](20261010/20261010-234053_copal-fruit-density-control-green-no-build.kyri) | 158 rostered; no unrostered witness. |
 | `20261010.233758` | [Patchouli, sign red held at pin bound](20261010/20261010-233758_patchouli-sign-red-held-at-pin-bound.kyri) | Red %840 unbooked; pin 4 bytes under bound. |
 | `20261010.233701` | [Pheromone, lane empty, no build](20261010/20261010-233701_pheromone-lane-empty-no-build.kyri) | Fruit closed; claim board clear; no build. |
 | `20261010.234036` | [Petrichor, queue empty, no build](20261010/20261010-234036_petrichor-queue-empty-earth-round-no-build.kyri) | Consent rail held; no build. |
