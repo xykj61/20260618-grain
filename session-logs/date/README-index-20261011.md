@@ -114,6 +114,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.114028` | [Incense, sixth decline](20261011/20261011-114028_incense-baton-declined-sixth-no-build.kyri) | Board clear; no build; nib carried. |
 | `20261011.113736` | [Incense, baton declined again, no build](20261011/20261011-113736_incense-baton-declined-again-no-build.kyri) | Board empty; upstream unchanged; nib carried to HEAD; no build. |
 | `20261011.113632` | [Petrichor, gates held, no build](20261011/20261011-113632_petrichor-lane-gates-held-no-build.kyri) | Gate unchanged after xy/main ff; no build. |
 | `20261011.113521` | [Incense, baton declined after copal, no build](20261011/20261011-113521_incense-baton-declined-after-copal-no-build.kyri) | Ff to copal log; claim clear; no build. |
