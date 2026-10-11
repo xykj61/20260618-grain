@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.185307` | [Diffuser, fifty-seventh hold, P1 unruled](20261011/20261011-185307_diffuser-fifty-seventh-hold-p1-unruled.kyri) | No ruling landed; no run. |
 | `20261011.185036` | [Aether, orbit ten, no build](20261011/20261011-185036_aether-row-round-open-orbit-ten-no-build.kyri) | Round open clean; queue waits on rulings. |
 | `20261011.184857` | [Diffuser, fifty-sixth hold, P1 unruled](20261011/20261011-184857_diffuser-fifty-sixth-hold-p1-unruled.kyri) | No ruling landed; no run. |
 | `20261011.184850` | [Patchouli, queue empty, kumara rulings](20261011/20261011-184850_patchouli-queue-empty-kumara-rulings.kyri) | Queue empty; kumara red held on two rulings; no build. |
