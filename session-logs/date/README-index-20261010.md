@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261010.205243` | [Diffuser, round open synced, doors held, no build](20261010/20261010-205243_diffuser-round-open-held-no-build.kyri) | Both doors gated; no source touched. |
 | `20261010.205150` | [Incense, round-open adopted, no build](20261010/20261010-205150_incense-round-open-adopted-no-build.kyri) | Anointed order adopted; no build. |
+| `20261010.205145` | [Grass, three fronts graded, no frame](20261010/20261010-205145_grass-inner-audit-three-fronts-no-frame.kyri) | Three front doors read A; queue empty; no build. |
 | `20261010.204642` | [Diffuser, both doors held, no build](20261010/20261010-204642_diffuser-doors-held-no-build.kyri) | Fresh seed base and live-set trace both gated; no build. |
 | `20261010.204724` | [Copal, stale density claim closed](20261010/20261010-204724_copal-stale-density-claim-closed.kyri) | Claim closed; density roster had landed; witness GREEN. |
 | `20261010.204927` | [Bakery, queue gated, no build](20261010/20261010-204927_bakery-queue-gated-no-build-second.kyri) | Receipt key held for Keaton's ruling; no build. |
