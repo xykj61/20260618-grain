@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.072151` | [Petrichor, gate held, lint GREEN, no build](20261011/20261011-072151_petrichor-gate-held-docs-lint-no-build.kyri) | Consent Rail unchanged; docs-geode lint GREEN; no build. |
 | `20261011.071849` | [Copal, fruit met, nib carried, no build](20261011/20261011-071849_copal-fruit-met-nib-carried-no-build.kyri) | 0 of 159 unrostered; nib carried; no build. |
 | `20261011.071738` | [Patchouli, kumara red unbooked, queue empty](20261011/20261011-071738_patchouli-kumara-red-unbooked-queue-empty-fourth.kyri) | Queue empty; kumara witness GREEN; sign red not in REDS; check in. |
 | `20261011.071800` | [Pheromone, lane held, no build](20261011/20261011-071800_pheromone-lane-held-no-build.kyri) | ff to e55fe71531; card steps closed; no build |
