@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.022813` | [Petrichor, consent gate held, no build](20261011/20261011-022813_petrichor-consent-gate-held-no-build.kyri) | Gate holds; no fruit; path scan present. |
 | `20261011.022623` | [Pheromone held again, no build](20261011/20261011-022623_pheromone-held-again-no-build.kyri) | Ruling held with Incense; nib carried. |
+| `20261011.022620` | [Copal fruit absent, fourth recount, no build](20261011/20261011-022620_copal-fruit-absent-fourth-no-build.kyri) | Zero unrostered witnesses again; no claim, no build. |
 
 | `20261011.022533` | [Patchouli queue empty, twentieth hold](20261011/20261011-022533_patchouli-queue-empty-twentieth-no-build.kyri) | Fresh grep: elder headers only; no build. |
 | `20261011.022812` | [Diffuser, gate held again](20261011/20261011-022812_diffuser-fourth-night-held-again-no-build.kyri) | Clock, toolchain re-read; no build. |
