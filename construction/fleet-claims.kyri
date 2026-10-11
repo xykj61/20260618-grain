@@ -52,9 +52,3 @@ format fleet-claims-v1
 # The board opens empty, and the first claim belongs to the next ship that opens a build. Seeding
 # it with this lap's own work would be a claim written after the fact, which is the one thing a
 # declaration may never be.
-claim bakery-content-keyed-cache-first-proof
-seat bakery
-stamp 20261011.142551
-epoch 1791743151
-paths tools/fixtures/s/build_cache_scan.sh tools/s/build_cache_witness.rish rishi/src/
-what Bakery opens the content-keyed compile cache first proof: identical declared inputs may reuse a binary while every owed proof still runs; a scan and witness are the new instruments.
