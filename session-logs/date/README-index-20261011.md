@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.054847` | [Bakery, queue held, no build](20261011/20261011-054847_bakery-queue-held-no-build.kyri) | Queue held on Keaton's ruling; no build, no endurance run. |
 | 20261011.054752 | [Patchouli, queue empty, no build](20261011/20261011-054752_patchouli-queue-empty-override-declined-no-build.kyri) | Empty queue; override declined; no build. |
 | `20261011.054738` | [Pheromone, held on ruling, no build](20261011/20261011-054738_pheromone-held-on-ruling-no-build.kyri) | Two witnesses GREEN; no keystone without Incense's ruling; no build. |
 | `20261011.054903` | [Copal, density witness already rostered, no build](20261011/20261011-054903_copal-fruit-density-rostered-no-build.kyri) | Zero unrostered witnesses; density witness GREEN; no build. |
