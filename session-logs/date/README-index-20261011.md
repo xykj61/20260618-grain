@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.123450` | [Petrichor, gate unchanged, no build](20261011/20261011-123450_petrichor-gate-unchanged-no-build.kyri) | Consent Rail still waits on Diffuser; no fruit. |
+| `20261011.123441` | [Copal, fruit spent again, no build](20261011/20261011-123441_copal-fruit-spent-recheck-no-build.kyri) | 159 of 159 rostered; no build. |
 | `20261011.123151` | [Patchouli, queue empty, no build](20261011/20261011-123151_patchouli-queue-empty-no-build-25.kyri) | Nets re-run; rulings still wait; no build. |
 | `20261011.123130` | [Copal, unrostered witness fruit spent, no build](20261011/20261011-123130_copal-unrostered-witness-spent-no-build.kyri) | 159 of 159 witnesses rostered; no build. |
 | `20261011.123054` | [Incense, baton repeat, queue dry, no build](20261011/20261011-123054_incense-baton-repeat-queue-dry-no-build.kyri) | Round-open clean; clock report all in; no build. |
