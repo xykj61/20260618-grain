@@ -7,6 +7,7 @@
 | `20261010.200230` | [Patchouli, queue empty, eighteenth](20261010/20261010-200230_patchouli-queue-empty-eighteenth.kyri) | Queue empty; no build; kumara red held on rulings. |
 | `20261010.200208` | [Grass, sample graded A or better](20261010/20261010-200208_grass-sample-grade-all-a.kyri) | Thirteen docs-geode pages graded at Door; all A or better; no molt frame. |
 | `20261010.200131` | [Petrichor, pulled, gate held](20261010/20261010-200131_petrichor-pulled-gate-held-no-build.kyri) | Clean pull; consent gate unchanged; no build. |
+| `20261010.200156` | [Incense, queue held, no build](20261010/20261010-200156_incense-queue-held-no-build.kyri) | Round-open clean; board clear; no keystone open; no build. |
 | `20261010.200000` | [Copal, no unrostered chapter witness](20261010/20261010-200000_copal-no-unrostered-chapter-witness.kyri) | 156 witnesses, all rostered; no fruit; no build. |
 | `20261010.200059` | [Bakery, compile-cache census held](20261010/20261010-200059_bakery-compile-cache-census-held.kyri) | Census holds 819/0; 3 of 6 mutations measured; receipt key held for ruling. |
 | `20261010.195917` | [Pheromone, queue held, no build](20261010/20261010-195917_pheromone-queue-held-no-build.kyri) | Queue held; nib carried; no build. |
