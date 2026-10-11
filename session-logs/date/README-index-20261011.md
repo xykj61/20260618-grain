@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.105308` | [Patchouli, queue empty nineteenth, no build](20261011/20261011-105308_patchouli-queue-empty-nineteenth-no-build.kyri) | Fresh grep nets clear; claim board clear; kumara ruling waits. |
 | `20261011.104554` | [Bakery, cache crux held, no build](20261011/20261011-104554_bakery-cache-crux-held-no-build.kyri) | Board clear; ruling waits; fast-forward; no build. |
 | `20261011.104609` | [Pheromone, lane held twelfth time, no build](20261011/20261011-104609_pheromone-lane-held-twelfth-no-build.kyri) | Fast-forward clean; claim board empty; no open language-lane red; no build. |
 | `20261011.104558` | [Copal, fruit blocked, prin hangs, no build](20261011/20261011-104558_copal-prin-fruit-blocked-no-build.kyri) | Thin hand unrostered; prin loops; nib repinned. |
