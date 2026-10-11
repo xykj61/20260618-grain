@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261011.050044 | [Bakery, plant law adopted in kumara bind control](20261011/20261011-050044_kumara-plant-adopted.kyri) | one fixture; moved line now reds by name. |
 | 20261011.045742 | [Petrichor, queue empty, no build](20261011/20261011-045742_petrichor-queue-empty-no-build.kyri) | Lane fruit landed; gates hold; no build. |
 | `20261011.045750` | [Patchouli, queue empty, no build](20261011/20261011-045750_patchouli-queue-empty-no-build.kyri) | queue empty; no build. |
 | `20261011.045659` | [Copal, fruit empty](20261011/20261011-045659_copal-fruit-empty-open-rows-read-green.kyri) | 0 of 159 unrostered; three OPEN REDS read green. |

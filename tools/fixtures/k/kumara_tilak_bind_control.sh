@@ -17,13 +17,20 @@ cp tally/kumara.rye "$pen/kumara/kumara.rye"
 cp comlink/topology.rye "$pen/kumara/topology.rye"
 ln -s "$root/vendor/zig-toolchain/zig" "$pen/vendor/zig-toolchain/zig"
 
+# plant_write refuses when the sed matches nothing, so a moved verify line reads as a named
+# plant_matched_nothing rather than as the unmutated module passing (REDS %519).
+. "$root/tools/fixtures/p/plant.sh"
+
 plant_and_expect_red() {
     name=$1
     line=$2
     planted="$pen/kumara/tilak-$name.rye"
     binary="$pen/tilak-$name"
 
-    sed "/$line/d" "$pen/kumara/tilak.rye" > "$planted"
+    if ! plant_write "$pen/kumara/tilak.rye" "$planted" "/$line/d" "$name"; then
+        echo "RED: $name plant did not land"
+        return 1
+    fi
     if env RYE_ZIG="$pen/vendor/zig-toolchain/zig" "$root/rye/bin/rye" build "$planted" -femit-bin="$binary" >/dev/null 2>&1 &&
        "$binary" selftest >/dev/null 2>&1; then
         echo "RED: $name one-directional bind plant passed"
