@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.015931` | [Petrichor, gate held, repeat, asks word](20261011/20261011-015931_petrichor-gate-held-stop-asks-word.kyri) | Gate closed again; repeat recorded once; asks Keaton. |
+| `20261011.015815` | [Incense declined, no build](20261011/20261011-015815_incense-declined-no-build-card-headroom.kyri) | One peer commit; claim held; REDS 4 bytes headroom. |
 | `20261011.015730` | [Copal recount, prin ruling open, no build](20261011/20261011-015730_copal-prin-ruling-still-open-no-build.kyri) | Zero unrostered witnesses; prin ruling waits; no build. |
 | 20261011.015531 | [Grass queue hold, inner page graded B+, no lift](20261011/20261011-015531_grass-queue-hold-b-plus-page-no-lift.kyri) | Queue empty; one open page graded B+; no edit. |
 | `20261011.015652` | [Pheromone, lane still empty, no build](20261011/20261011-015652_pheromone-lane-still-empty-no-build.kyri) | Lane empty; ruling awaited; no build. |
