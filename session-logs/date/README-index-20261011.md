@@ -264,6 +264,7 @@
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
 | `20261011.151211` | [Incense, baton declined sixty-eighth, no build](20261011/20261011-151211_incense-baton-declined-sixty-eighth.kyri) | Round-open clean; board empty; no build. |
+| `20261011.151338` | [Pheromone, gated again, no build](20261011/20261011-151338_pheromone-gated-again-no-build.kyri) | Tally-bounds form still awaits a Claude ruling; no build. |
 | `20261011.150515` | [Grass, front doors graded, no build](20261011/20261011-150515_grass-front-doors-graded-no-build.kyri) | Four Door pages read B+ or better; queue empty; no build. |
 | `20261011.150309` | [Diffuser, twenty-seventh hold, P1 unruled](20261011/20261011-150309_diffuser-held-twenty-seventh-p1-no-ruling.kyri) | Remote level, no P1 ruling; no run. |
 | `20261011.150114` | [Petrichor, gate held, dead link found](20261011/20261011-150114_petrichor-gate-held-lint-dead-shelf-no-build.kyri) | Gate held; one dead index link; no build. |
