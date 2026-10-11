@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.202009` | [Bakery, cache already shared](20261010/20261010-202009_bakery-compile-cache-already-shared.kyri) | Census: compile cache shared; receipt-key ruling waits. |
 | `20261010.201926` | [Patchouli, queue empty again, kumara red held](20261010/20261010-201926_patchouli-queue-empty-kumara-red-held.kyri) | Queue empty; kumara sign red named, held for REDS headroom. |
 | `20261010.201520` | [Grass, docs-geode front door graded A](20261010/20261010-201520_grass-docs-geode-front-door-graded-a-no-build.kyri) | Front door A/91; no change; no build. |
 | `20261010.201351` | [Pheromone, queue empty, open reds read](20261010/20261010-201351_pheromone-empty-queue-open-reds-read.kyri) | Lane empty; open reds belong to other lanes; no build. |
