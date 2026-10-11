@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.044822` | [Patchouli, queue empty, no build](20261011/20261011-044822_patchouli-queue-empty-fresh-look-no-build.kyri) | elder -v headers read-compat; ledger full; no build. |
 | `20261011.044547` | [Incense, decline, no build](20261011/20261011-044547_incense-decline-no-build.kyri) | Round-open clean; cold run held; no claim owed. |
+| `20261011.045007` | [Petrichor, link fixed, bound red held](20261011/20261011-045007_petrichor-shelf-link-repaired-bound-red-held.kyri) | one bakery link repointed; 94 over-bound rows await a ruling. |
 | `20261011.044512` | [Petrichor, upstream held, no build](20261011/20261011-044512_petrichor-upstream-held-no-build.kyri) | upstream at HEAD; the gated fruit holds; no build. |
 | `20261011.044452` | [Bakery, ff, claim held, no build](20261011/20261011-044452_bakery-ff-hold-no-build.kyri) | ff to cafa0284a0; receipt-key ruling still owed to Claude; no build. |
 | 20261011.044233 | [Diffuser, label shuffle identity](20261011/20261011-044233_label-shuffle-identity-diffuser.kyri) | shuffle is a relabel; C1 held; door retired |
@@ -154,7 +155,7 @@
 | `20261011.030028` | [Petrichor consent gate still held, no build](20261011/20261011-030028_petrichor-consent-gate-held-no-build.kyri) | Consent Rail still held; no edit; no build. |
 | `20261011.025945` | [Bakery baton lap, receipt key held](20261011/20261011-025945_bakery-baton-lap-receipt-key-held-no-build.kyri) | Ruling unchanged; board clear; no build. |
 | `20261011.025556` | [Petrichor third hold, no fruit](20261011/20261011-025556_petrichor-third-hold-no-fruit.kyri) | Fruit landed; gate holds; no build. |
-| `20261011.025517` | [Bakery receipt key still held, no build](20261011/20261011-025517_bakery-receipt-key-still-held-no-build_bakery-receipt-key-still-held-no-build.kyri) | Ruling unchanged; claims clear; no build. |
+| `20261011.025517` | [Bakery receipt key still held, no build](20261011/20261011-025517_bakery-receipt-key-still-held-no-build.kyri) | Ruling unchanged; claims clear; no build. |
 
 | `20261011.025421` | [Incense declines, no build](20261011/20261011-025421_incense-decline-held-no-build.kyri) | Gates held; %642 and %519 wait on Keaton. |
 | `20261011.025302` | [Patchouli, queue re-read, red 840 held](20261011/20261011-025302_patchouli-queue-reread-red-840-still-held.kyri) | Two witnesses GREEN; queue empty; red 840 unbooked at pin bound. |
