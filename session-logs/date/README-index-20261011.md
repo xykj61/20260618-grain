@@ -172,9 +172,10 @@
 |---|---|---|
 | `20261011.130607` | [Patchouli, queue empty, no build](20261011/20261011-130607_patchouli-queue-empty-sixteenth-sweep-no-build.kyri) | Queue empty; nets and OPEN rows read; no build. |
 | `20261011.130519` | [Incense, baton, fast-forwarded, no build](20261011/20261011-130519_incense-baton-declined-no-build-5.kyri) | Fast-forward clean; board empty; waits on Keaton's word. |
-| `20261011.125912` | [Copal, fruit empty third read, no build](20261011/20261011-125912_copal-fruit-empty-third-read-no-build.kyri) | Two runners unrostered by full path, both witnessed; no build. |
+| `20261011.130437` | [Pheromone, lane empty, witness green](20261011/20261011-130437_pheromone-lane-witness-green-no-build.kyri) | Glow witness GREEN; lane empty; no build. |
 | `20261011.130320` | [Incense, round-open clean, board clear, no build](20261011/20261011-130320_incense-round-open-claim-board-clear-no-build.kyri) | Round-open clean; claim board clear; queue gated; no build. |
 | `20261011.130054` | [Bakery, rebased, crux held, no build](20261011/20261011-130054_bakery-rebased-receipt-key-held-no-build.kyri) | Clean rebase; board empty; ruling waits. |
+| `20261011.125912` | [Copal, fruit empty third read, no build](20261011/20261011-125912_copal-fruit-empty-third-read-no-build.kyri) | Two runners unrostered by full path, both witnessed; no build. |
 | `20261011.125743` | [Pheromone, lane empty, board clear, no build](20261011/20261011-125743_pheromone-lane-empty-no-build.kyri) | Queue empty; zero live claims; the next fruit waits on Incense. |
 | `20261011.130318` | [Diffuser, held again, no P1 ruling](20261011/20261011-130318_diffuser-held-no-ruling-again.kyri) | P1 ruling absent; no build. |
 | `20261011.125607` | [Patchouli, lane held on two rulings, no build](20261011/20261011-125607_patchouli-lane-held-no-build.kyri) | Catch-up witness GREEN; claims clear; no build. |
