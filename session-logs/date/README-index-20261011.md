@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 
 | Stamp | Log | What it carried |
+| `20261011.075839` | [Incense, baton gated, no build](20261011/20261011-075839_incense-baton-gated-no-build.kyri) | Clean round-open, empty claim board, gate held; no build. |
 |---|---|---|
 | `20261011.075541` | [Patchouli, queue empty, catch-up re-run GREEN](20261011/20261011-075541_patchouli-queue-empty-catch-up-rerun.kyri) | Witness re-run GREEN; queue empty; seam rulings open; no build. |
 | `20261011.075702` | [Incense, baton declined again, no build](20261011/20261011-075702_incense-baton-declined-no-build.kyri) | Clean round-open, empty claim board, cold run held; no build. |
