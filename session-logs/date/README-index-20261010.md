@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.202919` | [Pheromone, queue empty, glow refusal GREEN](20261010/20261010-202919_pheromone-queue-empty-glow-refusal-green.kyri) | Lane queue empty; refusal witness GREEN; no build. |
 | `20261010.202854` | [Petrichor, link-text promise clean](20261010/20261010-202854_petrichor-link-text-promise-clean.kyri) | Link-text witness GREEN at zero living anchors; no build. |
 | `20261010.202759` | [Incense, forty-eighth declined](20261010/20261010-202759_incense-forty-eighth-declined-no-build.kyri) | Round-open clean; no build; the flow reads off. |
 | `20261010.203007` | [Copal, fruit blocked, peers rostered the blockers](20261010/20261010-203007_copal-fruit-blocked-peers-rostered-blockers.kyri) | No clean unrostered witness; %837 and %838 open. No build. |
