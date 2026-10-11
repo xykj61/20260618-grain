@@ -6,6 +6,7 @@
 | `20261011.171742` | [Pheromone, lane held on ruling, no build](20261011/20261011-171742_pheromone-lane-held-ff-witness-green-no-build.kyri) | Fast-forwarded to 7e3cbc6984; limb10 witness GREEN; no build. |
 | `20261011.171705` | [Diffuser, forty-first hold](20261011/20261011-171705_diffuser-forty-first-hold-p1-unruled.kyri) | P1 unruled; no run; check in (Claude). |
 | `20261011.171641` | [Incense, baton round 76, declined](20261011/20261011-171641_incense-baton-round-76-declined-no-build.kyri) | Order held; queue empty; no build. |
+| `20261011.171615` | [Petrichor, inner citations resolve, no build](20261011/20261011-171615_petrichor-inner-cites-resolve-regrade-b-plus-no-build.kyri) | Cited paths resolve; one page re-graded B+; no build. |
 | `20261011.171424` | [Diffuser, fortieth hold](20261011/20261011-171424_diffuser-fortieth-hold-p1-unruled.kyri) | P1 unruled; no run; check in (Claude). |
 | `20261011.171355` | [Patchouli, queue empty, nib carried](20261011/20261011-171355_patchouli-queue-empty-no-build-nib-carried.kyri) | Queue empty; card nib carried; no build. |
 | `20261011.170828` | [Incense, baton round 75, no build](20261011/20261011-170828_incense-baton-round-75-declined-no-build.kyri) | Order held; no build; nib carried to 68dc0a11d3. |
