@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.121005` | [Patchouli, queue empty again, no build](20261011/20261011-121005_patchouli-queue-empty-again-no-build.kyri) | Elder-header nets re-run; only read-compat and fixtures. |
+| `20261011.120846` | [Incense, baton lap held again, no build](20261011/20261011-120846_incense-baton-held-again-no-build.kyri) | Round-open clean; board read; no build. |
 | `20261011.120710` | [Diffuser, held, no N=192 ruling, no build](20261011/20261011-120710_diffuser-held-lap-no-ruling-repeat-seven.kyri) | Ruling grep empty; no measurement. |
 | `20261011.120302` | [Copal, fruit re-measured spent, no build](20261011/20261011-120302_copal-fruit-remeasured-spent-no-build.kyri) | Exact-path comm zero again; git nib carried. |
 | `20261011.115938` | [Bakery, cache census re-read, no build](20261011/20261011-115938_bakery-shared-cache-census-rerun-no-build.kyri) | Census holds; receipt key held on ruling. |
