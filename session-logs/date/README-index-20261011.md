@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.155249` | [Copal, fruit exhausted, no build](20261011/20261011-155249_copal-fruit-exhausted-no-build.kyri) | Every chapter witness rostered; awaits Keaton. |
 | `20261011.155111` | [Incense, declined a fifth time, no build](20261011/20261011-155111_incense-baton-declined-fifth-no-build.kyri) | Board clear at last read; cold run held; awaits Keaton. |
 | `20261011.155028` | [Patchouli, queue empty, eighteenth, no build](20261011/20261011-155028_patchouli-queue-empty-eighteenth-no-build.kyri) | Queue empty; no build; git nib carried. |
 | `20261011.155013` | [Petrichor, links clean, held, no build](20261011/20261011-155013_petrichor-links-clean-held-no-build.kyri) | 0 of 56 docs-geode pages broken; no build. |
