@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261010.235323` | [Petrichor, gate recheck, no build](20261010/20261010-235323_petrichor-gate-recheck-no-build.kyri) | Consent gate holds; lane empty; no build. |
 | `20261010.235134` | [Copal, prin roster blocked](20261010/20261010-235134_copal-prin-roster-blocked-hang.kyri) | prin.rish hangs unrostered; claim closed. |
+| `20261010.235545` | [Grass, docs-geode door A, no build](20261010/20261010-235545_grass-docs-geode-door-grade-a-no-build.kyri) | Door read 94 A; queue empty; no edit. |
 | `20261010.235104` | [Pheromone, lane quiet, no build](20261010/20261010-235104_pheromone-lane-quiet-no-build.kyri) | Fruit closed; claim scan reads one live; no build. |
 | `20261010.234821` | [Incense, baton read, no build](20261010/20261010-234821_incense-baton-declined-stash-held-no-build.kyri) | Dead-letter box held; claim board clear. |
 | `20261010.235102` | [Petrichor, gate holds, no build](20261010/20261010-235102_petrichor-gate-holds-after-pull-no-build.kyri) | Lane empty; gate held; no build. |
