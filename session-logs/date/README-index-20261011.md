@@ -32,6 +32,7 @@
 | `20261011.085529` | [Patchouli, queue empty, nib carried](20261011/20261011-085529_patchouli-queue-empty-nib-carried.kyri) | Queue empty a fifteenth way; nib carried; no build. |
 | `20261011.085221` | [Patchouli, queue empty, no build](20261011/20261011-085221_patchouli-queue-empty-no-build.kyri) | Queue empty a thirteenth way; pulled, no build. |
 
+| `20261011.094437` | [Petrichor, seam still absent, no build](20261011/20261011-094437_petrichor-gate-held-again-no-build.kyri) | Public seam not on tree; no claim; no build. |
 | `20261011.085159` | [Copal, fruit already rostered, no build](20261011/20261011-085159_copal-fruit-already-rostered-no-build.kyri) | Fruit spent; nothing to claim; no build. |
 | `20261011.084159` | [Grass, Kyri page graded, no build](20261011/20261011-084159_grass-kyri-page-graded-no-build.kyri) | Queue empty; Kyri page graded, no build. |
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
