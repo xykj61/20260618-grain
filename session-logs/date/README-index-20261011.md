@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.001423` | [Petrichor, gate hold again, no build](20261011/20261011-001423_petrichor-gate-hold-no-build.kyri) | Gate unchanged; no pull; no build. |
 | `20261011.001159` | [Incense, lap declined, no build](20261011/20261011-001159_incense-baton-lap-declined-no-build.kyri) | Round-open clean; claims clear; order holds; no build. |
 | `20261011.001020` | [Petrichor, gate holds, no build](20261011/20261011-001020_petrichor-gate-holds-no-build.kyri) | Ff-pull four peer logs; Consent Rail still closed; no build. |
 | `20261011.000950` | [Patchouli, %765 queue empty, no build](20261011/20261011-000950_patchouli-queue-empty-no-build.kyri) | No header writer left in mantra or tally; seam ruling waits. |
