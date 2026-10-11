@@ -36,3 +36,20 @@ Scratch model only. Eight ways, LRU, LINE 8, unpadded, deterministic disk and tr
 ## Result
 
 Appended after the run, below this line. The three falsifiers above are not edited.
+
+Run completed (wall time 6m43s, `session-output/polar-padded/fc_hash2_nopad_20261011.txt`) with `python3 fine_capacity_hash2.py nopad 256 384 512 640`, the same grid and model as the first hashed run.
+
+| N | Cartesian floor (sets), modulo / hash2 | Polar floor (sets) | Ratio, hash2 | Monotone violations |
+|---|---|---|---|---|
+| 256 | 12.4 / 13.0 (+5%) | 39.0 | 3.01 | 19 |
+| 384 | 19.2 / 20.9 (+9%) | 61.2 | 2.93 | 25 |
+| 512 | 25.0 / 28.0 (+12%) | 78.0 | 2.79 | 28 |
+| 640 | 28.8 / 32.0 (+11%) | 84.6 | 2.65 | 29 |
+
+- **B1 fired.** The ratio spread is 3.01 minus 2.65, which is 0.36 against the 0.10 limit. The ratio falls steadily with N rather than flattening.
+- **B2 fired.** The Cartesian floor at N = 512 and 640 is 12 and 11 percent above the modulo baseline. The door is void, and B1 says nothing about alignment.
+- **B3 fired.** The polar curve has 19 to 29 monotone violations.
+
+This matches the first constant on the pattern that matters: the hash moves the baseline and breaks the monotone curve, so neither index isolates alignment. Nothing here shows that alignment causes the zig-zag, and nothing here rules it out. The two hashes are not a clean control, and the next door needs a construction that leaves the Cartesian floor fixed, such as a per-set shuffle of the modulo mapping rather than a new hash.
+
+Scope unchanged: scratch model only, no hardware, no witness, no claim about a real cache. Next door named but not run: a per-set shuffle of the modulo index, with its falsifiers written before the run.
