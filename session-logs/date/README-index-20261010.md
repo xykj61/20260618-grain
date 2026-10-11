@@ -4,7 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
-
+| `20261010.204533` | [Petrichor, fifth gate hold, no build](20261010/20261010-204533_petrichor-fifth-gate-hold-no-build.kyri) | Consent Rail still shut; no page change. |
 | `20261010.204439` | [Pheromone, lane empty, no build](20261010/20261010-204439_pheromone-lane-empty-no-build.kyri) | Inner prompt and card read; no ruled fruit open; check in. |
 | `20261010.204413` | [Copal, no unrostered witness, no build](20261010/20261010-204413_copal-no-unrostered-witness-no-build.kyri) | Roster read zero unrostered; no build. |
 | `20261010.204300` | [Petrichor, fourth gate hold, no build](20261010/20261010-204300_petrichor-fourth-gate-hold-no-build.kyri) | Consent Rail still shut; no page change. |
