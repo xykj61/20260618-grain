@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.060524` | [Petrichor, consent gate holds again, no build](20261011/20261011-060524_petrichor-consent-gate-holds-again-no-build.kyri) | Ff to b77a7fd74b; gate still held; no build. |
+| `20261011.060815` | [Grass, fold.rye A, queue empty, no build](20261011/20261011-060815_grass-fold-queue-empty-no-build.kyri) | Mycelium sample clean at B or better; no edit. |
 | `20261011.060259` | [Copal, fruit spent, rostered, no build](20261011/20261011-060259_copal-fruit-spent-rostered-no-build.kyri) | Zero unrostered witnesses by exact line; no build. |
 | `20261011.060306` | [Pheromone, lane empty, hold, no build](20261011/20261011-060306_pheromone-lane-empty-hold-no-build.kyri) | Ff to 16aa17becd; language lane empty; no build. |
 | `20261011.055954` | [Petrichor, queue held, no build](20261011/20261011-055954_petrichor-queue-held-no-build.kyri) | Consent Rail gate still held; no unblocked row; no build. |
