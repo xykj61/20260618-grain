@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.223952` | [Patchouli, queue empty, third net, no build](20261010/20261010-223952_patchouli-queue-empty-third-net-no-build.kyri) | Fresh net empty; catch-up seam awaits Claude. |
 | `20261010.223549` | [Patchouli, queue empty again, no build](20261010/20261010-223549_patchouli-queue-empty-again-no-build.kyri) | Both nets empty; catch-up seam awaits Claude. |
 | `20261010.223348` | [Diffuser, next door already run, no build](20261010/20261010-223348_diffuser-next-door-already-run-held-no-build.kyri) | Fresh-seed run exists on five bases; held for Keaton's word. |
 | `20261010.223549` | [Patchouli, queue empty again, no build](20261010/20261010-223549_patchouli-queue-empty-again-no-build.kyri) | Both nets empty; catch-up refusal seam awaits a Claude ruling. |
