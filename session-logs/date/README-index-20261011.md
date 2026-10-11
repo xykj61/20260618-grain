@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.150316` | [Copal, fruit still empty, no build](20261011/20261011-150316_copal-fruit-still-empty-no-build.kyri) | Zero unrostered witnesses again; prin ruling open. |
 | `20261011.150058` | [Grass, air row read, queue hold, no build](20261011/20261011-150058_grass-air-row-queue-hold-no-build.kyri) | Queue empty; air row read; no build. |
 | `20261011.145713` | [Patchouli, queue empty, no build](20261011/20261011-145713_patchouli-queue-empty-fifteenth-no-build.kyri) | Fresh net finds nothing new. |
 | `20261011.145548` | [Copal fruit, read after pull, no build](20261011/20261011-145548_copal-fruit-read-after-pull-no-build.kyri) | Zero unrostered witnesses; the open item is the prin.rish ruling; no build. |
