@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.162021` | [Diffuser, thirty-third hold, P1 unruled, no build](20261011/20261011-162021_diffuser-thirty-third-hold-p1-unruled.kyri) | Peer delta read, no P1 ruling; no run. |
 | `20261011.161901` | [Grass, inner prompt regraded, duplicate of an earlier reading, no build](20261011/20261011-161901_grass-inner-regrade-duplicate-no-build.kyri) | Same page, same figures as `160957`; B+ 89; no molt frame, no build. |
 | `20261011.161613` | [Incense, tenth hold, no build](20261011/20261011-161613_incense-declined-tenth-hold-no-build.kyri) | Upstream one log ahead, board empty, gated rows held; no build. |
 | `20261011.161401` | [Bakery, fast-forward hold](20261011/20261011-161401_bakery-fast-forward-hold-no-build.kyri) | Ff to 360ec98c8a; crux held; no build. |
