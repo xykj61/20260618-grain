@@ -162,6 +162,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.125743` | [Pheromone, lane empty, board clear, no build](20261011/20261011-125743_pheromone-lane-empty-no-build.kyri) | Queue empty; zero live claims; the next fruit waits on Incense. |
 | `20261011.125607` | [Patchouli, lane held on two rulings, no build](20261011/20261011-125607_patchouli-lane-held-no-build.kyri) | Catch-up witness GREEN; claims clear; no build. |
 | `20261011.125533` | [Incense, baton read, no build, orbit 12](20261011/20261011-125533_incense-baton-no-build-orbit-12.kyri) | Board empty, tree clean, nothing upstream; lane waits on Keaton's word. |
 | `20261011.125620` | [Diffuser, held again, no build](20261011/20261011-125620_diffuser-held-no-ruling-no-build.kyri) | P1 ruling still absent; no run, no build. |
