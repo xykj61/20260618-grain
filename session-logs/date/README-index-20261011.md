@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.030401` | [One radial access](20261011/20261011-030401_one-radial-neighbour-holds-the-ratio.kyri) | Falsifier first; ratio 2.00 at N=256; neither fired. |
 | `20261011.030313` | [Copal, no unrostered witness](20261011/20261011-030313_copal-no-unrostered-chapter-witness.kyri) | 158 of 158 chapter witnesses rostered; no claim, no build. |
 | `20261011.030242` | [Petrichor fourth hold](20261011/20261011-030242_petrichor-fourth-hold-no-new-target.kyri) | Gate holds; no new target; no build. |
 | `20261011.030109` | [Incense, fast-forward and decline](20261011/20261011-030109_incense-fast-forward-decline-no-build.kyri) | Fast-forward clean; no build; held rows wait on Keaton. |
