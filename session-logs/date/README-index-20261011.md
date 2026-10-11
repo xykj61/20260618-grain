@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261011.161613` | [Incense, tenth hold, no build](20261011/20261011-161613_incense-declined-tenth-hold-no-build.kyri) | Upstream one log ahead, board empty, gated rows held; no build. |
 | `20261011.161401` | [Bakery, fast-forward hold](20261011/20261011-161401_bakery-fast-forward-hold-no-build.kyri) | Ff to 360ec98c8a; crux held; no build. |
+| `20261011.161705` | [Diffuser, thirty-second hold, P1 unruled](20261011/20261011-161705_diffuser-thirty-second-hold-p1-unruled.kyri) | Peer delta read, no P1 ruling; no run. |
 | `20261011.161018` | [Pheromone, held again, remote three ahead, no build](20261011/20261011-161018_pheromone-lane-held-remote-three-no-build.kyri) | Remote three ahead, peer logs only; claim board clear; no build. |
 | `20261011.161401` | [Incense, ninth hold, no build](20261011/20261011-161401_incense-baton-declined-ninth-hold.kyri) | Tree clean; board empty; open rows gated; no build. |
 | `20261011.161020` | [Incense, eighth hold, no build](20261011/20261011-161020_incense-declined-eighth-hold-no-build.kyri) | Round-open clean; board empty; open rows gated; no build. |
