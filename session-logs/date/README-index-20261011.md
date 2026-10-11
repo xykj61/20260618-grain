@@ -4,6 +4,10 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.072744` | [Incense lands three stashed no-build logs](20261011/20261011-072744_incense-lands-three-stashed-logs.kyri) | Restored three dead-letter logs; unlanded=0; no build. |
+| `20261011.072454` | [Incense, baton fast-forwarded, declined, no build](20261011/20261011-072454_incense-baton-declined-ff-no-build.kyri) | Fast-forward to eb24c92509; queue gated; no build. |
+| `20261011.071422` | [Incense, baton read, state held, no build](20261011/20261011-071422_incense-baton-read-state-held-no-build.kyri) | Card and board read; no build, no send. |
+| `20261011.065021` | [Incense, baton status read, no build](20261011/20261011-065021_incense-baton-status-read-no-build.kyri) | Read-only turn; landed from the dead-letter box. |
 | `20261011.072640` | [Patchouli, queue empty, no build](20261011/20261011-072640_patchouli-queue-empty-sixteenth-read-kumara-red-held.kyri) | Witnesses GREEN; kumara red held. |
 | `20261011.072222` | [Patchouli, queue empty, fifteenth read](20261011/20261011-072222_patchouli-queue-empty-fifteenth-read.kyri) | No unmolted write in mantra/tally; no build. |
 | `20261011.072222` | [Bakery, held round, no build](20261011/20261011-072222_bakery-crux-held-rebased-no-build.kyri) | Rebased onto peers; receipt-key ruling open; no build. |
