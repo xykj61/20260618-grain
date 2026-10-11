@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.210047` | [Petrichor, consent hold re-read, no build](20261010/20261010-210047_petrichor-consent-hold-no-build.kyri) | Gate unchanged upstream; no page, no build. |
 | `20261010.205810` | [Bakery, cache crux held, no build](20261010/20261010-205810_bakery-cache-crux-held-no-build.kyri) | Shared cache awaits the receipt-key ruling; no build. |
 | `20261010.204936` | [Petrichor, consent gate re-read, no build](20261010/20261010-204936_petrichor-consent-gate-reread-no-build.kyri) | Gate moved to unwitnessed here; no page change. |
 | `20261010.205753` | [Copal, fruit re-confirmed empty, no build](20261010/20261010-205753_copal-fruit-reconfirmed-empty-no-build.kyri) | Zero unrostered witnesses again; no build. |
