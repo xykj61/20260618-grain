@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.113750` | [Grass, water row A at 93, no lift](20261011/20261011-113750_grass-baton-rota-water-graded-no-build.kyri) | Rota water row read; no lift; no build. |
 | `20261011.113418` | [Grass, inner graded B+ at 89, no lift](20261011/20261011-113418_grass-inner-grade-b-plus-no-lift.kyri) | Grade stands; no edit; no build. |
 | `20261011.113133` | [Petrichor, lane held on two gates, no build](20261011/20261011-113133_petrichor-lane-held-no-build.kyri) | Upstream two logs; both gates unchanged; no build. |
 | `20261011.113102` | [Patchouli, queue empty, no build](20261011/20261011-113102_patchouli-queue-empty-no-build.kyri) | Fresh nets clear; claims clear; kumara red held; no build. |
