@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.072222` | [Bakery, held round, no build](20261011/20261011-072222_bakery-crux-held-rebased-no-build.kyri) | Rebased onto peers; receipt-key ruling open; no build. |
 | `20261011.072151` | [Petrichor, gate held, lint GREEN, no build](20261011/20261011-072151_petrichor-gate-held-docs-lint-no-build.kyri) | Consent Rail unchanged; docs-geode lint GREEN; no build. |
 | `20261011.072151` | [Copal, fruit still empty, no build](20261011/20261011-072151_copal-fruit-empty-second-read-no-build.kyri) | 0 of 159 witnesses unrostered; prin ruling waits. |
 | `20261011.071849` | [Copal, fruit met, nib carried, no build](20261011/20261011-071849_copal-fruit-met-nib-carried-no-build.kyri) | 0 of 159 unrostered; nib carried; no build. |
