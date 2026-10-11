@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.100224` | [Bakery, fruit held at its ruling, no build](20261011/20261011-100224_bakery-fruit-held-no-build.kyri) | Receipt key awaits a ruling; no claim, no cold run; no build. |
+| `20261011.100303` | [Petrichor, gate held fourth, no build](20261011/20261011-100303_petrichor-gate-held-fourth-no-build.kyri) | Pulled clean; seam still unlanded; no fruit; no build. |
 | `20261011.095310` | [Petrichor, fruit gate held, no build](20261011/20261011-095310_petrichor-fruit-gate-held-no-build.kyri) | Consent gate held with Diffuser; no open docs red; no build. |
 | `20261011.095800` | [Patchouli, kumara red held, no build](20261011/20261011-095800_patchouli-kumara-red-held-no-build.kyri) | Witness re-run GREEN; red held on two rulings; no build. |
 | `20261011.095325` | [Patchouli, queue empty, no build](20261011/20261011-095325_patchouli-queue-empty-read-compat-no-build.kyri) | Elder headers read-compat only; no build. |
