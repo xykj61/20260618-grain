@@ -55,6 +55,7 @@
 | `20261011.100745` | [Petrichor, links clean, no build](20261011/20261011-100745_petrichor-links-clean-no-build.kyri) | Relative links clean on the shipping shelf; gate held; no build. |
 | `20261011.100719` | [Incense, round-open declined, no build](20261011/20261011-100719_incense-round-open-declined-no-build.kyri) | Round-open clean; board empty; cold run held; no build. |
 | `20261011.100540` | [Patchouli, queue empty, kumara held, no build](20261011/20261011-100540_patchouli-kumara-held-queue-empty-no-build.kyri) | Kumara red held on two rulings; no build. |
+| `20261011.100905` | [Grass, queue held second time](20261011/20261011-100905_grass-queue-hold-second-no-build.kyri) | Board clear; nothing open to grade; no build. |
 | `20261011.100404` | [Incense, declined, round-open clean](20261011/20261011-100404_incense-baton-round-open-no-build.kyri) | Board clear; cold run held; no build. |
 | `20261011.100512` | [Grass, fast-forwarded, queue held, no build](20261011/20261011-100512_grass-queue-hold-fast-forward-no-build.kyri) | Tree fast-forwarded; queue empty; nothing graded; no build. |
 | `20261011.100324` | [Copal, fruit void third measure, no build](20261011/20261011-100324_copal-fruit-void-third-measure-no-build.kyri) | Exact-path roster read: zero unrostered witnesses under tools/gen/chapter/; no build. |
