@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261011.162720` | [Patchouli, queue empty, scan, no build](20261011/20261011-162720_patchouli-queue-empty-scan-no-build.kyri) | Lane version-literal scan; queue empty, kumara red held for a ruling. |
 | `20261011.162702` | [Copal, unrostered witnesses exhausted, no build](20261011/20261011-162702_copal-unrostered-witnesses-exhausted-no-build.kyri) | 158 of 158 chapter witnesses rostered; nothing to claim; no build. |
+| `20261011.162906` | [Petrichor, hold, gate unchanged, no build](20261011/20261011-162906_petrichor-hold-gate-unchanged-no-build.kyri) | Upstream delta read; gate still on Keaton's word; no build. |
 | `20261011.162612` | [Incense, baton held, no build](20261011/20261011-162612_incense-baton-hold-no-build.kyri) | Round-open clean; board unread live; no build. |
 | `20261011.162533` | [Petrichor, hold, consent facts restated, no build](20261011/20261011-162533_petrichor-hold-consent-facts-restated-no-build.kyri) | Consent facts verified by object; no claim, no build. |
 | `20261011.162605` | [Grass, queue empty, pulled, no build](20261011/20261011-162605_grass-queue-empty-pulled-no-build.kyri) | Pulled three commits; board clear; no page open to grade; no build. |
