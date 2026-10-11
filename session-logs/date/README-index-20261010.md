@@ -11,7 +11,6 @@
 | `20261010.230140` | [Diffuser, held round, air row, no build](20261010/20261010-230140_diffuser-held-round-air-row-no-build.kyri) | Fresh-seed base waits on Keaton's word; no build. |
 | `20261010.230422` | [Copal, fruit empty again, no build](20261010/20261010-230422_copal-fruit-empty-no-witness-no-build.kyri) | No unrostered witness left under tools/gen/chapter; no build. |
 | `20261010.230035` | [Patchouli, queue empty, thirteenth net, no build](20261010/20261010-230035_patchouli-queue-empty-thirteenth-net-no-build.kyri) | Fresh net empty again; %807 and %765 await Keaton; no build. |
-=======
 | `20261010.225922` | [Copal, fruit third time, set empty, no build](20261010/20261010-225922_copal-fruit-third-no-build.kyri) | Set empty again; no claim, no roster; check in (Claude). |
 | `20261010.225842` | [Diffuser, fruit held for ruling, no build](20261010/20261010-225842_diffuser-fruit-held-for-ruling-no-build.kyri) | Fresh-seed base waits on Keaton's word; no build. |
 | `20261010.225616` | [Patchouli, queue empty, net held, no build](20261010/20261010-225616_patchouli-queue-empty-net-held.kyri) | Fresh net empty; %807 and %765 await Keaton. |
