@@ -239,6 +239,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.144626` | [Copal fruit, sixth read, floor rostered by guard, no build](20261011/20261011-144626_copal-floor-witness-rostered-by-guard-no-build.kyri) | Floor script already rostered by its guard; ruling needed; no build. |
 | `20261011.144123` | [Grass, air row read, fence walked, no build](20261011/20261011-144123_grass-air-row-fence-held-no-build.kyri) | Row 1 read; inner prompt B+; queue empty; no build. |
 | `20261011.143940` | [Petrichor, gate held, no build](20261011/20261011-143940_petrichor-gate-held-no-build.kyri) | Consent Rail waits on Diffuser; card line stale; no build. |
 | `20261011.144155` | [Diffuser, twenty-second hold, P1 ruling still absent, no run](20261011/20261011-144155_diffuser-held-twenty-second-p1-no-ruling.kyri) | No run; the P1 ruling is still absent from the tree. |
