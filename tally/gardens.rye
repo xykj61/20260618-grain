@@ -293,88 +293,103 @@ pub fn main() void {
     assert(c.len == 256);
     assert(c.ptr == @as([*]u8, @ptrCast(&diff_buf[0])));
 
-    // --- clear_all resets every garden at once ----------------------------
+    // --- clear_all, then reuse: same pointers, fresh season ---------------
+    prove_clear_all(&g, blob_r, diff_r, blob_buf[0..]);
+
+    // --- Every refusal, shown from the failing side ----------------------
+    prove_refusals(&g, blob_buf[0..]);
+
+    // --- A refused division leaves the parent whole ----------------------
+    prove_division_refusal();
+
+    prove_invariants_at_rest(&g);
+
+    print("tally gardens: all facts held.\n", .{});
+}
+
+// clear_all resets every garden in one gesture, and the next alloc reuses the same backing
+// memory. Split out of main at this seam so main stays under the 70-line ceiling.
+fn prove_clear_all(g: *Gardens, blob_r: *Region, diff_r: *Region, blob_buf: []u8) void {
     g.clear_all();
     assert(blob_r.pos  == 0);
     assert(diff_r.pos  == 0);
     const frame_r = g.get("frame") orelse unreachable;
     assert(frame_r.pos == 0);
-
     // Total remaining after clear_all = sum of all backing sizes.
     assert(g.total_remaining() == 512 + 256 + 128);
-
     // --- Reuse after clear_all: same pointers, fresh season ---------------
     const d = blob_r.alloc(512) catch unreachable;
     assert(d.len == 512);
     assert(d.ptr == @as([*]u8, @ptrCast(&blob_buf[0])));
+}
 
-    // --- Every refusal, shown from the failing side ----------------------
-    // A named error nobody has produced is a hope, so each of the four is asked for
-    // here and read back by name.
-    {
-        var spare: [16]u8 = undefined;
-        const names = [_][]const u8{ "a", "b", "c", "d", "e", "f", "g", "h" };
-        // invariant: the roster fills the collection exactly, so the ninth add below is
-        // the first one past the ceiling rather than merely a late one
-        assert(names.len == max_gardens);
-        var full = Gardens.init();
-        for (names) |nm| full.add(nm, spare[0..]) catch unreachable;
-        // invariant: the roster admitted every one of its names, so the collection stands
-        // exactly at its ceiling and the add below is the first one past it
-        assert(full.count == max_gardens);
-        {
-            const over = full.add("i", spare[0..]);
-            // invariant: a garden past the ceiling is refused by name rather than aborted, so
-            // a caller at the edge is handed something it can act on
-            if (over) |_| unreachable else |err| assert(err == GardensError.Full);
-        }
-        {
-            const dup = g.add("blob", &blob_buf);
-            // invariant: a repeated name is refused, since get would answer with the first and
-            // leave this garden unreachable for the life of the collection
-            if (dup) |_| unreachable else |err| assert(err == GardensError.DuplicateName);
-        }
-        {
-            const long = [_]u8{'x'} ** (max_name_len + 1);
-            const too_long = g.add(long[0..], &blob_buf);
-            // invariant: one byte past max_name_len is refused, so the limit this module
-            // publishes is the limit it actually keeps
-            if (too_long) |_| unreachable else |err| assert(err == GardensError.NameTooLong);
-        }
-        {
-            const nameless = g.add("", &blob_buf);
-            // invariant: a nameless garden is refused, since get could never find it again
-            if (nameless) |_| unreachable else |err| assert(err == GardensError.NameEmpty);
-        }
-        // invariant: four refusals left the collection exactly as they found it, since a
-        // refusal that had written an entry would be an admission wearing an error's name
-        assert(g.count == 3);
-    }
-
-    // --- A refused division leaves the parent whole ----------------------
-    // The ordering property, read rather than argued: the admission is weighed before
-    // `divide` moves the parent's cursor.
-    {
-        var parent_buf: [256]u8 = undefined;
-        var parent = Region.init(parent_buf[0..]);
-        var gd = Gardens.init();
-        gd.add_division("child", &parent, 64) catch unreachable;
-        const before = parent.remaining();
-        const again = gd.add_division("child", &parent, 64);
-        // invariant: the second division is refused on its name, which is the refusal the
-        // ordering below is measured against
-        if (again) |_| unreachable else |err| assert(err == GardensError.DuplicateName);
-        // invariant: the refusal came ahead of the carve, so a garden the collection never
-        // holds cost the parent nothing at all
-        assert(parent.remaining() == before);
-    }
-
-    // --- Invariants hold across all entries at rest ----------------------
+// Every garden's name and bounds hold once the season's work is over. Read at rest, after
+// every admission and refusal above has run.
+fn prove_invariants_at_rest(g: *const Gardens) void {
     for (g.entries[0..@intCast(g.count)]) |e| {
         assert(e.name.len > 0);
         assert(e.name.len <= max_name_len);
         assert(e.region.pos <= e.region.buf.len);
     }
+}
 
-    print("tally gardens: all facts held.\n", .{});
+// Every refusal, shown from the failing side. Split out of main at this seam so main
+// stays under the 70-line ceiling; `g` and `blob_buf` are the live state main holds.
+fn prove_refusals(g: *Gardens, blob_buf: []u8) void {
+    // A named error nobody has produced is a hope, so each of the four is asked for
+    // here and read back by name.
+    var spare: [16]u8 = undefined;
+    const names = [_][]const u8{ "a", "b", "c", "d", "e", "f", "g", "h" };
+    // invariant: the roster fills the collection exactly, so the ninth add below is
+    // the first one past the ceiling rather than merely a late one
+    assert(names.len == max_gardens);
+    var full = Gardens.init();
+    for (names) |nm| full.add(nm, spare[0..]) catch unreachable;
+    // invariant: the roster admitted every one of its names, so the collection stands
+    // exactly at its ceiling and the add below is the first one past it
+    assert(full.count == max_gardens);
+    {
+        const over = full.add("i", spare[0..]);
+        // invariant: a garden past the ceiling is refused by name rather than aborted, so
+        // a caller at the edge is handed something it can act on
+        if (over) |_| unreachable else |err| assert(err == GardensError.Full);
+    }
+    {
+        const dup = g.add("blob", blob_buf);
+        // invariant: a repeated name is refused, since get would answer with the first and
+        // leave this garden unreachable for the life of the collection
+        if (dup) |_| unreachable else |err| assert(err == GardensError.DuplicateName);
+    }
+    {
+        const long = [_]u8{'x'} ** (max_name_len + 1);
+        const too_long = g.add(long[0..], blob_buf);
+        // invariant: one byte past max_name_len is refused, so the limit this module
+        // publishes is the limit it actually keeps
+        if (too_long) |_| unreachable else |err| assert(err == GardensError.NameTooLong);
+    }
+    {
+        const nameless = g.add("", blob_buf);
+        // invariant: a nameless garden is refused, since get could never find it again
+        if (nameless) |_| unreachable else |err| assert(err == GardensError.NameEmpty);
+    }
+    // invariant: four refusals left the collection exactly as they found it, since a
+    // refusal that had written an entry would be an admission wearing an error's name
+    assert(g.count == 3);
+}
+
+// The ordering property, read rather than argued: the admission is weighed before
+// `divide` moves the parent's cursor. Split out of main at this seam.
+fn prove_division_refusal() void {
+    var parent_buf: [256]u8 = undefined;
+    var parent = Region.init(parent_buf[0..]);
+    var gd = Gardens.init();
+    gd.add_division("child", &parent, 64) catch unreachable;
+    const before = parent.remaining();
+    const again = gd.add_division("child", &parent, 64);
+    // invariant: the second division is refused on its name, which is the refusal the
+    // ordering below is measured against
+    if (again) |_| unreachable else |err| assert(err == GardensError.DuplicateName);
+    // invariant: the refusal came ahead of the carve, so a garden the collection never
+    // holds cost the parent nothing at all
+    assert(parent.remaining() == before);
 }
