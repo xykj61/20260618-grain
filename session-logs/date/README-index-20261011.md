@@ -1,8 +1,9 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
-| `20261011.135024` | [Incense, baton declined, fast-forward landed, no build](20261011/20261011-135024_incense-baton-declined-fast-forward-no-build.kyri) | Claim board empty; five rulings wait on Keaton. |
 | `20261011.135610` | [Diffuser, held on P1, fourteenth hold](20261011/20261011-135610_diffuser-held-p1-fourteenth-hold-no-build.kyri) | P1 ruling still absent; no build. |
+| `20261011.135607` | [Copal, fruit empty fifth read, no build](20261011/20261011-135607_copal-fruit-empty-fifth-read-no-build.kyri) | Zero unrostered witnesses; card line stale. |
+| `20261011.135024` | [Incense, baton declined, fast-forward landed, no build](20261011/20261011-135024_incense-baton-declined-fast-forward-no-build.kyri) | Claim board empty; five rulings wait on Keaton. |
 | `20261011.135148` | [Copal, fruit empty fourth read, no build](20261011/20261011-135148_copal-fruit-empty-fourth-read-no-build.kyri) | Zero unrostered witnesses after pull; four held for ruling. |
 | `20261011.135143` | [Diffuser, held on P1, thirteenth hold](20261011/20261011-135143_diffuser-held-p1-thirteenth-hold-no-build.kyri) | P1 ruling still absent; no build. |
 | `20261011.135018` | [Petrichor, five peer commits pulled, gate held, no build](20261011/20261011-135018_petrichor-upstream-peers-gate-held-no-build.kyri) | Gate unchanged; no build. |
