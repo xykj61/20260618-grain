@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.052846` | [Pheromone, lane held, no build](20261011/20261011-052846_pheromone-lane-held-no-build.kyri) | Fruit closed; no unruled rune; ruling needed; no build. |
 | `20261011.052646` | [Petrichor, gate re-read, held](20261011/20261011-052646_petrichor-held-consent-gate-no-build.kyri) | Gate re-read; upstream docs clean; no build. |
 | `20261011.052645` | [Patchouli, queue empty again, red 840 held](20261011/20261011-052645_patchouli-queue-empty-red-840-held-no-build.kyri) | Queue empty; red 840 held for the ruling; no build. |
 | `20261011.052620` | [Copal, fruit spent, no build](20261011/20261011-052620_copal-fruit-spent-no-build.kyri) | Strict comm read: 0 unrostered chapter witnesses; no build. |
