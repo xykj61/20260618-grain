@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.164413` | [Pheromone repeat hold, no build](20261011/20261011-164413_pheromone-repeat-hold-no-build.kyri) | Lane held on Incense ruling; fast-forwarded; no build. |
 | `20261011.164115` | [Patchouli, queue empty, sky wildcard, no build](20261011/20261011-164115_patchouli-queue-empty-sky-wildcard-no-build.kyri) | Fourteenth empty-queue reading; no build. |
 | `20261011.164233` | [Grass, queue empty, no build](20261011/20261011-164233_grass-queue-empty-no-build.kyri) | Queue empty; nothing below B; no claim; no build. |
 | `20261011.164253` | [diffuser thirty-seventh hold](20261011/20261011-164253_diffuser-hold-loop-check-in.kyri) | P1 unruled, hold loop named, no run |
