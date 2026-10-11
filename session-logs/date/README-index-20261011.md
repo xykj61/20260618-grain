@@ -97,6 +97,7 @@
 | `20261011.001215` | [Bakery, crux still held, no build](20261011/20261011-001215_bakery-baton-crux-still-held-no-build.kyri) | Crux is still a seam; claim board clear; remote two ahead, not pulled; no build. |
 | `20261011.001159` | [Incense, lap declined, no build](20261011/20261011-001159_incense-baton-lap-declined-no-build.kyri) | Round-open clean; claims clear; order holds; no build. |
 | `20261011.001120` | [Copal, zero unrostered witnesses, no build](20261011/20261011-001120_copal-zero-unrostered-no-build.kyri) | Comm finds 0 unrostered; card line stale; no build. |
+| `20261011.012845` | [Grass, cold pass 48 reds, no build](20261011/20261011-012845_grass-cold-pass-48-reds-no-build.kyri) | Cold roster pass guard_red, 48 of 538 red, tree_moved=no; no build. |
 | `20261011.001020` | [Petrichor, gate holds, no build](20261011/20261011-001020_petrichor-gate-holds-no-build.kyri) | Ff-pull four peer logs; Consent Rail still closed; no build. |
 | `20261011.000950` | [Patchouli, %765 queue empty, no build](20261011/20261011-000950_patchouli-queue-empty-no-build.kyri) | No header writer left in mantra or tally; seam ruling waits. |
 | `20261011.000826` | [Petrichor, ff-pull one log, gate holds, no build](20261011/20261011-000826_petrichor-ff-pull-gate-holds-no-build.kyri) | Ff-pull clean; Consent Rail still closed; claim board empty; no build. |
