@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.204642` | [Diffuser, both doors held, no build](20261010/20261010-204642_diffuser-doors-held-no-build.kyri) | Fresh seed base and live-set trace both gated; no build. |
 | `20261010.204724` | [Copal, stale density claim closed](20261010/20261010-204724_copal-stale-density-claim-closed.kyri) | Claim closed; density roster had landed; witness GREEN. |
 | `20261010.204927` | [Bakery, queue gated, no build](20261010/20261010-204927_bakery-queue-gated-no-build-second.kyri) | Receipt key held for Keaton's ruling; no build. |
 | `20261010.204612` | [Incense, round-open, no build](20261010/20261010-204612_incense-round-open-no-build.kyri) | Round-open adopted e86c7c325d; claim board holds only copal; no build. |
