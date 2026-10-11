@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.041326` | [Patchouli, queue empty, fresh sweep, no build](20261011/20261011-041326_patchouli-queue-empty-twenty-fifth-no-build.kyri) | Fresh sweep reads empty; no build. |
 | `20261011.041155` | [Pheromone, hold again, no build](20261011/20261011-041155_pheromone-hold-again-no-build.kyri) | Peer pull clean; no rune ruling; no build. |
+| `20261011.041445` | [Grass, inner prompt B+, queue held, no build](20261011/20261011-041445_grass-inner-grade-b-plus-hold.kyri) | Field grade 89 B+; queue empty; no edit. |
 | 20261011.041248 | [20261011-041248_grass-fold-reading-queue-hold](20261011/20261011-041248_grass-fold-reading-queue-hold.kyri) | grass fold.rye reads B or better, queue-hold, no build |
 | `20261011.040932` | [Incense, held lap, round-open adopted, no build](20261011/20261011-040932_incense-held-lap-no-build.kyri) | Held on the card's order; no build. |
 | `20261011.041338` | [Copal, fruit spent again, no build](20261011/20261011-041338_copal-fruit-spent-repeat-check-in-claude.kyri) | Zero unrostered witnesses; repeat of the empty-fruit measurement, no build. |
