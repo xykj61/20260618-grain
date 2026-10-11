@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.091244` | [Petrichor, consent gate facts landed, ruling held, no build](20261011/20261011-091244_petrichor-gate-facts-landed-no-build.kyri) | Pull clean; grant and revoke facts on tree; ruling waits on Keaton; no build.
 | `20261011.091348` | [Patchouli, queue empty sixteenth way, no build](20261011/20261011-091348_patchouli-queue-empty-sixteenth-no-build.kyri) | Fresh nets re-run; lane queue empty; kumara red held; no build. |
+| `20261011.091418` | [Copal, recount, no witness](20261011/20261011-091418_copal-recount-no-witness-no-build.kyri) | Zero unrostered witnesses; no build. |
 | `20261011.091039` | [Patchouli, queue empty fifteenth way, no build](20261011/20261011-091039_patchouli-queue-empty-no-build.kyri) | Both grep nets re-run; lane queue empty; no build. |
 | `20261011.091047` | [Grass, two context pages graded, no build](20261011/20261011-091047_grass-context-pages-graded-no-build.kyri) | KYRI and RADIANT_STYLE graded B or better; no build. |
 | `20261011.091448` | [Pheromone, held again, no build](20261011/20261011-091448_pheromone-held-again-no-build.kyri) | Ruling still waits on Incense; no build. |
