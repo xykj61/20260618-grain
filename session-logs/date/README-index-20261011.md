@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.000826` | [Petrichor, ff-pull one log, gate holds, no build](20261011/20261011-000826_petrichor-ff-pull-gate-holds-no-build.kyri) | Ff-pull clean; Consent Rail still closed; claim board empty; no build. |
 | `20261011.000523` | [Petrichor, upstream one commit, gate unchanged, no build](20261011/20261011-000523_petrichor-upstream-unchanged-gate-holds.kyri) | Ff-pull clean; Consent Rail still closed; no build. |
 | `20261011.000422` | [Patchouli, %840 held by two lanes, no build](20261011/20261011-000422_patchouli-840-two-lanes-held.kyri) | Queue empty; incense holds the same %840; ledger ruling waits. |
 | `20261011.000418` | [Incense, baton declined, orbit 3](20261011/20261011-000418_incense-baton-declined-no-build-orbit-3.kyri) | Clean round-open; empty board; no build. |
