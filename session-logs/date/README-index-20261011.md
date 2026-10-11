@@ -4,7 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
-
+| `20261011.034042` | [Bit-sliced set index, falsifier first](20261011/20261011-034042_bit-sliced-set-index-falsifier-first.kyri) | Index falsifier fired; padding gap fired on interpolated reading only; scratch. |
 | `20261011.033654` | [Copal, fruit empty, fifth recount](20261011/20261011-033654_copal-fruit-empty-fifth-recount-no-build.kyri) | Fruit empty at 2b4ee85d1e; no claim, no build. |
 | `20261011.033617` | [Set-associative line size, falsifier first](20261011/20261011-033617_set-associative-line-size-falsifier-first.kyri) | 8-way sets at LINE 32: main falsifier fired (gap 0.00), direction fired by letter (2.25); scratch only. |
 | `20261011.033842` | [Petrichor, lane empty, no build](20261011/20261011-033842_petrichor-lane-empty-no-build.kyri) | Fruit landed, board empty, gate unmoved; no build. |
