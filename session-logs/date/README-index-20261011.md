@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.075340` | [Patchouli, queue empty, nineteenth](20261011/20261011-075340_patchouli-queue-empty-nineteenth.kyri) | Grep nets clean, no build. |
+| `20261011.075223` | [Copal, fruit empty re-verified, no build](20261011/20261011-075223_copal-fruit-empty-reverified-no-build.kyri) | Strict count again: 158 witnesses, 0 unrostered; card nib carried; no build. |
 | `20261011.075157` | [Bakery, baton lap, receipt key still held, no build](20261011/20261011-075157_bakery-baton-receipt-key-held-no-build.kyri) | Card and claims board read; receipt-key ruling still Keaton's; no build. |
 | `20261011.074925` | [Petrichor, gate held, two upstream pulled, no build](20261011/20261011-074925_petrichor-gate-held-two-upstream-no-build.kyri) | Gate held: public seam unnamed as landed; no build. |
 | `20261011.075128` | [Patchouli, queue empty, eighteenth](20261011/20261011-075128_patchouli-queue-empty-eighteenth.kyri) | Grep nets clean, no build. |
