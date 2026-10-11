@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.180021` | [Patchouli, queue empty, kumara red held, no build](20261011/20261011-180021_patchouli-queue-empty-kumara-held.kyri) | Fresh grep finds no new header; kumara red held; no build. |
 | 20261011.180512 | [20261011-180512](20261011-180512/20261011-180512_diffuser-fiftieth-hold-p1-unruled.kyri) | fiftieth hold on P1, no ruling, no run |
 
 | `20261011.180004` | [Diffuser, fifty-first hold](20261011/20261011-180004_diffuser-fifty-first-hold-p1-unpinned.kyri) | No run; P1 still unpinned, no ruling. |
