@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.123729` | [Pheromone, lane empty, no build](20261011/20261011-123729_pheromone-lane-empty-claim-check-no-build.kyri) | Queue closed; board empty; no build. |
+| `20261011.123820` | [Petrichor, gate still held, no build](20261011/20261011-123820_petrichor-gate-still-held-no-build.kyri) | Fast-forwarded; Consent Rail files unchanged upstream; no fruit. |
 | `20261011.123450` | [Petrichor, gate unchanged, no build](20261011/20261011-123450_petrichor-gate-unchanged-no-build.kyri) | Consent Rail still waits on Diffuser; no fruit. |
 | `20261011.123441` | [Copal, fruit spent again, no build](20261011/20261011-123441_copal-fruit-spent-recheck-no-build.kyri) | 159 of 159 rostered; no build. |
 | `20261011.123151` | [Patchouli, queue empty, no build](20261011/20261011-123151_patchouli-queue-empty-no-build-25.kyri) | Nets re-run; rulings still wait; no build. |
