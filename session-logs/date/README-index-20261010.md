@@ -12,6 +12,7 @@
 | `20261010.210922` | [Grass, queue empty, no build](20261010/20261010-210922_grass-queue-empty-no-build.kyri) | Queue empty; air row held; no build. |
 | `20261010.210748` | [Petrichor, consent gate held, no build](20261010/20261010-210748_petrichor-consent-gate-held-no-build.kyri) | Consent Rail still gated; no claim, no build. |
 | `20261010.210337` | [Grass, grass-inner regraded, no frame](20261010/20261010-210337_grass-inner-regraded-no-frame.kyri) | Field reading held; no edit. |
+| `20261010.210728` | [Incense, aether row, stash box found, no build](20261010/20261010-210728_incense-aether-stash-box-no-build.kyri) | Stash dead-letter box holds 29 logs; ruling asked. |
 | `20261010.210236` | [Patchouli, queue re-scanned empty](20261010/20261010-210236_patchouli-queue-rescanned-empty-no-build.kyri) | Chronology scan empty again; no build. |
 | `20261010.210511` | [Petrichor, upstream pulled, consent gate held, no build](20261010/20261010-210511_petrichor-upstream-gate-held-no-build.kyri) | Consent Rail still gated; no page, no build. |
 | `20261010.210228` | [Diffuser, doors held third lap, no build](20261010/20261010-210228_diffuser-doors-held-third-lap-no-build.kyri) | Fresh-seed base and live trace still gated; no build. |
