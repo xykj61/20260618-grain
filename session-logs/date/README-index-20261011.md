@@ -4,6 +4,7 @@
 | `20261011.113418` | [Grass, inner graded B+ at 89, no lift](20261011/20261011-113418_grass-inner-grade-b-plus-no-lift.kyri) | Grade stands; no edit; no build. |
 | `20261011.113133` | [Petrichor, lane held on two gates, no build](20261011/20261011-113133_petrichor-lane-held-no-build.kyri) | Upstream two logs; both gates unchanged; no build. |
 | `20261011.113102` | [Patchouli, queue empty, no build](20261011/20261011-113102_patchouli-queue-empty-no-build.kyri) | Fresh nets clear; claims clear; kumara red held; no build. |
+| `20261011.113332` | [Diffuser, held lap again, N=192 door still waits](20261011/20261011-113332_diffuser-held-lap-no-ruling-repeat.kyri) | No fruit ruled; no run; orbit round 6 read; nib carried. |
 | `20261011.112838` | [Diffuser, held lap, N=192 door waits](20261011/20261011-112838_diffuser-held-no-fruit-n192-waits.kyri) | No fruit ruled; no run; nib carried. |
 | `20261011.113427` | [Pheromone, lane at stop line, no build](20261011/20261011-113427_pheromone-lane-stop-line-no-build.kyri) | Fruit closed; ruling sits with Keaton or Incense; no build. |
 | `20261011.112657` | [Incense, fifth decline, no build](20261011/20261011-112657_incense-baton-fifth-decline-no-build.kyri) | Round-open clean; board clear; no build. |
