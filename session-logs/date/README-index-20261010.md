@@ -3,11 +3,13 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.230421` | [Patchouli, queue empty, fourteenth net](20261010/20261010-230421_patchouli-queue-empty-fourteenth-net-no-build.kyri) | Net empty again; %807 and %765 await Keaton. |
 | `20261010.230111` | [Bakery, receipt-key still held, census re-read](20261010/20261010-230111_bakery-receipt-key-still-held.kyri) | Census and digest reproduce; ruling still Keaton's; no build. |
 | `20261010.225902` | [Incense, round-open onto xy, decline, no build](20261010/20261010-225902_incense-round-open-upstream-no-build.kyri) | Clean at 7d41394285; board clear of law paths; no build. |
 | `20261010.230500` | [Grass, queue empty, five-page grade, no build](20261010/20261010-230500_grass-five-page-grade-all-clear.kyri) | Five pages graded A or B; none below B; no build. |
 | `20261010.230140` | [Diffuser, held round, air row, no build](20261010/20261010-230140_diffuser-held-round-air-row-no-build.kyri) | Fresh-seed base waits on Keaton's word; no build. |
 | `20261010.230035` | [Patchouli, queue empty, thirteenth net, no build](20261010/20261010-230035_patchouli-queue-empty-thirteenth-net-no-build.kyri) | Fresh net empty again; %807 and %765 await Keaton; no build. |
+=======
 | `20261010.225922` | [Copal, fruit third time, set empty, no build](20261010/20261010-225922_copal-fruit-third-no-build.kyri) | Set empty again; no claim, no roster; check in (Claude). |
 | `20261010.225842` | [Diffuser, fruit held for ruling, no build](20261010/20261010-225842_diffuser-fruit-held-for-ruling-no-build.kyri) | Fresh-seed base waits on Keaton's word; no build. |
 | `20261010.225616` | [Patchouli, queue empty, net held, no build](20261010/20261010-225616_patchouli-queue-empty-net-held.kyri) | Fresh net empty; %807 and %765 await Keaton. |
