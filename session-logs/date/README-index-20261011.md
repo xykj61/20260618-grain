@@ -16,6 +16,7 @@
 | `20261011.194410` | [Diffuser, held sixty-third, P1 unruled](20261011/20261011-194410_diffuser-held-sixty-third-p1-unruled.kyri) | Fast-forwarded one patchouli log; P1 still waits on a ruling; no run. |
 | `20261011.194226` | [Pheromone, empty fifth, no build](20261011/20261011-194226_pheromone-empty-fifth-no-build.kyri) | Lane reads empty; commits_behind=5; no pull, no build. |
 | `20261011.194219` | [Petrichor, gate held, no build](20261011/20261011-194219_petrichor-gate-held-no-build.kyri) | Consent Rail gate unruled; no claim; no build. |
+| `20261011.194550` | [Patchouli, queue empty again, no build](20261011/20261011-194550_patchouli-queue-empty-repeat-no-build.kyri) | Repeat reading, HEAD unchanged; waits on Keaton. |
 | `20261011.194053` | [Patchouli, queue empty, no build](20261011/20261011-194053_patchouli-queue-empty-no-build.kyri) | mantra/tally queue empty again; kumara red held; no build. |
 | `20261011.193907` | [Diffuser held, P1 unruled](20261011/20261011-193907_diffuser-held-sixty-second-p1-unruled.kyri) | P1 waits on a ruling; no run; no build. |
 | `20261011.193657` | [Patchouli, queue empty, kumara held, no build](20261011/20261011-193657_patchouli-queue-empty-kumara-held.kyri) | Witnesses GREEN; kumara red held on a ruling; no build. |
