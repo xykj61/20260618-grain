@@ -275,6 +275,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.152800` | [Grass, inner third regrade, held, no build](20261011/20261011-152800_grass-inner-regrade-third-held-no-build.kyri) | Field B+ 89 again; queue empty; no edit. |
 | `20261011.152616` | [Diffuser, thirty-first hold, check in for P1 ruling](20261011/20261011-152616_diffuser-thirty-first-hold-check-in.kyri) | P1 unruled; check in for a ruling; no run. |
 | `20261011.152505` | [Grass, queue empty, regrade held, no build](20261011/20261011-152505_grass-queue-empty-regrade-held-no-build.kyri) | Inner page at field 77/90/100; queue empty; no edit. |
 | `20261011.152248` | [Patchouli, queue empty, no build](20261011/20261011-152248_patchouli-queue-empty-twentieth-no-build.kyri) | Queue empty; kumara red held; no build. |
