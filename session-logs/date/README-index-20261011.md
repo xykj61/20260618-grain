@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.074009` | [Incense, round-open adopted, declined, no build](20261011/20261011-074009_incense-baton-round-open-declined-no-build.kyri) | Anointed order adopted at ce1a9bd1a2; board clear; gated, no build. |
 | `20261011.073620` | [Incense, board clear, no build](20261011/20261011-073620_incense-baton-declined-board-clear-no-build.kyri) | Board clear, upstream unchanged, declined with no build. |
 | `20261011.073624` | [Patchouli, queue empty again](20261011/20261011-073624_patchouli-queue-empty-recount-no-build.kyri) | Headers chronological; no build. |
 | `20261011.073812` | [Bakery, rye cold start red, check in](20261011/20261011-073812_bakery-rye-bootstrap-red-check-in.kyri) | bootstrap.sh bridges main only; rye binary absent. |
