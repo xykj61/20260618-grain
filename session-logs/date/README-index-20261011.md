@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.020358` | [Pheromone lane empty, fresh sweep, no build](20261011/20261011-020358_pheromone-lane-empty-fresh-sweep-no-build.kyri) | Five peers fast-forwarded; lane empty; claim board holds only a peer claim; no build. |
 | `20261011.020023` | [receipt-key claim closed](20261011/20261011-020023_receipt-key-claim-closed-no-build.kyri) | Stale claim closed; no build |
 | `20261011.020210` | [Patchouli, queue empty fifteenth time, no build](20261011/20261011-020210_patchouli-queue-empty-fifteenth-sweep-no-build.kyri) | Queue empty on a fresh sweep; no open row for this lane; no build. |
 | `20261011.015931` | [Petrichor, gate held, repeat, asks word](20261011/20261011-015931_petrichor-gate-held-stop-asks-word.kyri) | Gate closed again; repeat recorded once; asks Keaton. |
