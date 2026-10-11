@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.040324` | [Grass, three rule pages graded A, no build](20261011/20261011-040324_grass-three-rule-pages-graded-a-no-build.kyri) | Send-word, align, unicode-second graded A; queue empty; no edit. |
 | `20261011.040603` | [Incense, baton declined, round-open adopted](20261011/20261011-040603_incense-baton-declined-round-open-adopt.kyri) | Held queue; no build. |
 | `20261011.040337` | [N = 384 and 640 sizes, sawtooth](20261011/20261011-040337_n384-n640-sawtooth-falsified.kyri) | Both falsifiers fired; peak near 256 withdrawn. |
 | `20261011.040605` | [Copal, fruit empty a fourth time](20261011/20261011-040605_copal-fruit-empty-fourth-no-build.kyri) | Every witness rostered; ruling wanted. |
