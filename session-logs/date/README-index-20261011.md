@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.150451` | [Bakery, claim closed, no build](20261011/20261011-150451_bakery-cache-claim-closed-no-build.kyri) | Stale claim closed; receipt key held; no build. |
+| `20261011.150932` | [Patchouli, queue empty, pulled peers, no build](20261011/20261011-150932_patchouli-queue-empty-seventeenth-no-build.kyri) | Queue empty after pull; claim board untouched; no build. |
 | `20261011.150650` | [Incense, baton declined ninth, no build](20261011/20261011-150650_incense-baton-declined-ninth-no-build.kyri) | Round-open clean; board one peer claim; no build. |
 | `20261011.150557` | [Pheromone, lane gated, no build](20261011/20261011-150557_pheromone-lane-gated-no-build.kyri) | Tally-bounds form awaits a Claude ruling; no build. |
 | `20261011.150507` | [Patchouli, queue empty again, no build](20261011/20261011-150507_patchouli-queue-empty-sixteenth-no-build.kyri) | Fresh sweep finds no header; no build. |
