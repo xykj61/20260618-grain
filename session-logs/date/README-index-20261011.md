@@ -216,6 +216,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.141943` | [Patchouli, usize census clean](20261011/20261011-141943_patchouli-usize-seam-census-clean.kyri) | Seam-only usize; kumara held. |
 | `20261011.141718` | [Pheromone, lane held, air row, no build](20261011/20261011-141718_pheromone-held-air-row-no-build.kyri) | Language lane held for a rune ruling from Incense; no build. |
 | `20261011.141629` | [Patchouli, queue empty again, no build](20261011/20261011-141629_patchouli-queue-empty-again-no-build.kyri) | Read-compat only; kumara held on seam. |
 | `20261011.141655` | [Copal, fruit empty on a fourth reading, no build](20261011/20261011-141655_copal-fruit-empty-fourth-read-no-build.kyri) | Zero unrostered chapter witnesses; no build. |
