@@ -1,11 +1,10 @@
 # session-logs day index -- 20261010
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
-
 | Stamp | Log | What it carried |
 |---|---|---|
-
 | `20261010.211429` | [Petrichor, wiki admits three tutorials](20261010/20261010-211429_petrichor-wiki-three-rows.kyri) | Three unlisted tutorials named on the wiki index; crushed-index GREEN. |
+| `20261010.211955` | [Copal, unrostered set measured empty, no build](20261010/20261010-211955_copal-fruit-unrostered-set-empty-no-build.kyri) | Roster 169 names vs 157 witnesses; zero unrostered; no build. |
 | `20261010.211422` | [Copal, fruit already landed, no build](20261010/20261010-211422_copal-fruit-already-landed-no-build.kyri) | Roster measured 158 of 158; no build. |
 | `20261010.211723` | [Pheromone, language queue empty, fast-forward and sweep, no build](20261010/20261010-211723_pheromone-queue-empty-fast-forward-no-build.kyri) | Language lane empty; fast-forward only; no build. |
 | 20261010.211650 | [bakery held again at receipt-key ruling](20261010/20261010-211650_bakery-ruling-still-open-held-no-build.kyri) | ruling still open; no build |
