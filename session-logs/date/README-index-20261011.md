@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261011.164115` | [Patchouli, queue empty, sky wildcard, no build](20261011/20261011-164115_patchouli-queue-empty-sky-wildcard-no-build.kyri) | Fourteenth empty-queue reading; no build. |
 | `20261011.164233` | [Grass, queue empty, no build](20261011/20261011-164233_grass-queue-empty-no-build.kyri) | Queue empty; nothing below B; no claim; no build. |
+| `20261011.164253` | [diffuser thirty-seventh hold](20261011/20261011-164253_diffuser-hold-loop-check-in.kyri) | P1 unruled, hold loop named, no run |
 | `20261011.164053` | [Diffuser, thirty-eighth hold, P1 unruled](20261011/20261011-164053_diffuser-thirty-eighth-hold-p1-unruled.kyri) | Fetch level with xy; P1 still unruled; no run. |
 | `20261011.164012` | [Copal, fruit empty again, no build](20261011/20261011-164012_copal-fruit-empty-seventh-no-build.kyri) | Zero unrostered witnesses; no claim; no build. |
 | `20261011.164002` | [Grass inner prompt re-graded B+ 89, no build](20261011/20261011-164002_grass-inner-regraded-b-plus-no-build.kyri) | Re-read at 89, same letter; no edit; queue empty. |
