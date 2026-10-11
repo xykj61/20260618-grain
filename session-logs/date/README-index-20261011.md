@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.032053` | [Pheromone, ruling waits, no build](20261011/20261011-032053_pheromone-ruling-waits-no-build.kyri) | Lane closed; board empty; Incense ruling open; no build. |
 | `20261011.031935` | [Patchouli, queue empty a seventeenth way, no build](20261011/20261011-031935_patchouli-queue-empty-seventeenth-no-build.kyri) | Queue empty; no chronological header; claim board clear; no build. |
 | `20261011.031843` | [Grass, queue empty, B+ hold, no build](20261011/20261011-031843_grass-queue-empty-hold-no-build.kyri) | Queue empty; inner page B+; no edit. |
 | `20261011.031921` | [Bakery, receipt key held, re-measured](20261011/20261011-031921_bakery-receipt-key-held-remeasured.kyri) | census path-independent again; receipt key still held for ruling; no build. |
