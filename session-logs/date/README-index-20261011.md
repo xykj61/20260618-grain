@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.072640` | [Patchouli, queue empty, no build](20261011/20261011-072640_patchouli-queue-empty-sixteenth-read-kumara-red-held.kyri) | Witnesses GREEN; kumara red held. |
 | `20261011.072222` | [Patchouli, queue empty, fifteenth read](20261011/20261011-072222_patchouli-queue-empty-fifteenth-read.kyri) | No unmolted write in mantra/tally; no build. |
 | `20261011.072222` | [Bakery, held round, no build](20261011/20261011-072222_bakery-crux-held-rebased-no-build.kyri) | Rebased onto peers; receipt-key ruling open; no build. |
 | `20261011.072151` | [Petrichor, gate held, lint GREEN, no build](20261011/20261011-072151_petrichor-gate-held-docs-lint-no-build.kyri) | Consent Rail unchanged; docs-geode lint GREEN; no build. |
