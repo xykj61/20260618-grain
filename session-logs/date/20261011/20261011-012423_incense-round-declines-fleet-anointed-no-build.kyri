@@ -26,3 +26,5 @@ file session-logs/date/20261011/20261011-012423_incense-round-declines-fleet-ano
 status GREEN -- round-open clean, claim board read, no build; nothing new landed, dead-letter stash left for its owner
 scope round-open, claim read, clock report, log and day-index row; no build, no cold run, no custody gate touched
 recommend check-in (checkpoint) -- the law lane waits on a human word at %642 or %519; the fleet's stash of incense baton logs needs an owner's word before any restore.
+obs send a peer pushed mid-lap, so the first push was refused as diverged; the lap rebased once onto that peer's commit and resolved two conflicts, keeping every index row and taking upstream's card.
+obs the amend shape wrote the card after the commit was already amended, so the pushed commit's card named 5e1bcf4e0f, two commits back, and the working tree named 02ed7e9880; this follow-up carries the card forward to the HEAD it lands on.
