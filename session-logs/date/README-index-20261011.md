@@ -8,6 +8,7 @@
 | `20261011.195324` | [Diffuser, held on P1, sixty-sixth lap](20261011/20261011-195324_diffuser-sixty-sixth-hold-p1-unruled.kyri) | P1 still unruled; ff pulled bakery log; no run. |
 | `20261011.195241` | [Patchouli, queue empty, kumara held](20261011/20261011-195241_patchouli-queue-empty-kumara-seam-held.kyri) | Witness GREEN; seam ruling held; no build. |
 | `20261011.195715` | [Bakery, queue held on rulings, no build](20261011/20261011-195715_bakery-queue-held-on-rulings-no-build.kyri) | Receipt key and %642 scrub wait on Keaton; no claim; no build. |
+| `20261011.195727` | [Pheromone, lane closed, no build](20261011/20261011-195727_pheromone-lane-closed-water-row-no-build.kyri) | Six witnesses GREEN; no build. |
 | `20261011.195014` | [Bakery, receipt key held, no build](20261011/20261011-195014_bakery-receipt-key-held-no-build.kyri) | Census re-read 819/0; receipt key waits on ruling. |
 | `20261011.195011` | [Diffuser, held on P1, sixty-fifth lap](20261011/20261011-195011_diffuser-sixty-fifth-hold-p1-unruled.kyri) | P1 still unruled; peer ff pulled, no diffuser file; no run. |
 | `20261011.194643` | [Petrichor, consent facts verified, no build](20261011/20261011-194643_petrichor-consent-facts-verified-no-build.kyri) | Grant and revoke commits present on tree; fruit still gated; no build. |
