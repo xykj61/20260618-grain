@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.132713` | [Copal, fruit spent, recount, no build](20261011/20261011-132713_copal-fruit-spent-recount-no-build.kyri) | Zero unrostered witnesses at xy/main; no claim; no build. |
 | `20261011.132427` | [Bakery, receipt key held again, no build](20261011/20261011-132427_bakery-receipt-key-held-again-no-build.kyri) | Read-only lap; receipt key still Keaton's ruling; no build. |
 | `20261011.132218` | [Grass, docs-geode swept, all A, no build](20261011/20261011-132218_grass-docs-geode-sweep-all-a-no-build.kyri) | 28 pages read at door; composites 90-98; no edit. |
 | `20261011.132127` | [Patchouli, queue empty sixth read](20261011/20261011-132127_patchouli-queue-empty-sixth-read-no-build.kyri) | Fresh grep nets empty; kumara red held for a ruling; no build. |
