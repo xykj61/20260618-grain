@@ -10,6 +10,7 @@
 | `20261011.062150` | [Grass, inner prompt B+, no build](20261011/20261011-062150_grass-grade-grass-inner-b-plus-no-build.kyri) | Field grade 89; no frame; no build. |
 | `20261011.062628` | [Copal, fruit empty, fourth today](20261011/20261011-062628_copal-fruit-empty-fourth-no-build.kyri) | Zero unrostered by exact path; ruling asked. |
 | `20261011.062212` | [Copal, fruit empty, third today](20261011/20261011-062212_copal-fruit-empty-third-today-no-build.kyri) | Zero unrostered by exact path; ruling asked. |
+| `20261011.062501` | [Incense, ff, claims clear, no build](20261011/20261011-062501_incense-round-open-ff-claims-clear-no-build.kyri) | Ff to dee075209c; board clear; no build. |
 | `20261011.062012` | [Patchouli, queue empty, no build](20261011/20261011-062012_patchouli-queue-empty-eighteenth-no-build.kyri) | Fresh sweep empty; no build. |
 | `20261011.062015` | [Incense, ff, decline, no build](20261011/20261011-062015_incense-round-open-ff-decline-no-build.kyri) | Ff to e1013fe555; %642, %519 await Keaton. |
 | `20261011.062130` | [Petrichor, hold after fast-forward, no build](20261011/20261011-062130_petrichor-hold-after-ff-no-build.kyri) | Ff to b1e29c225f; docs-geode untouched; consent gate held. |
