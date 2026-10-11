@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261010.235102` | [Petrichor, gate holds, no build](20261010/20261010-235102_petrichor-gate-holds-after-pull-no-build.kyri) | Lane empty; gate held; no build. |
+| `20261010.235046` | [Diffuser, queue still blocked, no build](20261010/20261010-235046_diffuser-queue-still-blocked-no-build.kyri) | Date gate and reset-check ruling still open; no build. |
 | `20261010.234553` | [Grass, inner prompt B+, no edit](20261010/20261010-234553_grass-inner-prompt-grade-b-plus-no-edit.kyri) | Queue empty; inner prompt 89 B+; no molt. |
 | `20261010.234733` | [Petrichor, consent gate holds, no build](20261010/20261010-234733_petrichor-consent-gate-holds-no-build.kyri) | Lane empty; gate held; no build. |
 | `20261010.234512` | [Diffuser, water row, queue blocked, no build](20261010/20261010-234512_diffuser-water-row-queue-blocked-no-build.kyri) | Doors gated by date and ruling; no build. |
