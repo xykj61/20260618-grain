@@ -7,6 +7,7 @@
 | `20261010.223122` | [Grass, queue empty, orbit round 1, no build](20261010/20261010-223122_grass-queue-empty-aries-round-no-build.kyri) | Queue empty; no lift; no build. |
 | `20261010.223050` | [copal fruit already rostered](20261010/20261010-223050_copal-fruit-gone-all-chapter-witnesses-rostered.kyri) | 157 of 157 chapter witnesses rostered; no build |
 | `20261010.223345` | [Patchouli, queue empty fresh net, no build](20261010/20261010-223345_patchouli-queue-empty-fresh-net-no-build.kyri) | Two nets answer empty; %807 and %765 still wait on Keaton or another lane. |
+| `20261010.223254` | [Pheromone r16, lane held, no build](20261010/20261010-223254_pheromone-round-16-lane-held-no-build.kyri) | Glow witnesses GREEN; lane held for Incense; no build. |
 | `20261010.223021` | [Diffuser, tenth base held, no build](20261010/20261010-223021_diffuser-tenth-base-held-no-build.kyri) | Interval straddles the line; gate on Keaton's word. |
 | `20261010.223020` | [Patchouli, kumara red held, no build](20261010/20261010-223020_patchouli-kumara-red-pin-bound-no-build.kyri) | Red 840 unbooked; pin at bound; two rulings owed. |
 | `20261010.222754` | [Diffuser, sixth held lap, no build](20261010/20261010-222754_diffuser-gate-held-sixth-lap-no-build.kyri) | Gate still shut; no word on card; no run. |
