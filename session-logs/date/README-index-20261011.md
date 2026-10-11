@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.161401` | [Bakery, fast-forward hold](20261011/20261011-161401_bakery-fast-forward-hold-no-build.kyri) | Ff to 360ec98c8a; crux held; no build. |
 | `20261011.161018` | [Pheromone, held again, remote three ahead, no build](20261011/20261011-161018_pheromone-lane-held-remote-three-no-build.kyri) | Remote three ahead, peer logs only; claim board clear; no build. |
 | `20261011.161401` | [Incense, ninth hold, no build](20261011/20261011-161401_incense-baton-declined-ninth-hold.kyri) | Tree clean; board empty; open rows gated; no build. |
 | `20261011.161020` | [Incense, eighth hold, no build](20261011/20261011-161020_incense-declined-eighth-hold-no-build.kyri) | Round-open clean; board empty; open rows gated; no build. |
