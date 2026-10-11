@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.025556` | [Petrichor third hold, no fruit](20261011/20261011-025556_petrichor-third-hold-no-fruit.kyri) | Fruit landed; gate holds; no build. |
 | `20261011.025517` | [Bakery receipt key still held, no build](20261011/20261011-025517_bakery-receipt-key-still-held-no-build_bakery-receipt-key-still-held-no-build.kyri) | Ruling unchanged; claims clear; no build. |
 
 | `20261011.025421` | [Incense declines, no build](20261011/20261011-025421_incense-decline-held-no-build.kyri) | Gates held; %642 and %519 wait on Keaton. |
