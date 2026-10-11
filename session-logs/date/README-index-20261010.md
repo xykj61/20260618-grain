@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.235134` | [Copal, prin roster blocked](20261010/20261010-235134_copal-prin-roster-blocked-hang.kyri) | prin.rish hangs unrostered; claim closed. |
 | `20261010.235104` | [Pheromone, lane quiet, no build](20261010/20261010-235104_pheromone-lane-quiet-no-build.kyri) | Fruit closed; claim scan reads one live; no build. |
 | `20261010.235102` | [Petrichor, gate holds, no build](20261010/20261010-235102_petrichor-gate-holds-after-pull-no-build.kyri) | Lane empty; gate held; no build. |
 | `20261010.235046` | [Diffuser, queue still blocked, no build](20261010/20261010-235046_diffuser-queue-still-blocked-no-build.kyri) | Date gate and reset-check ruling still open; no build. |
