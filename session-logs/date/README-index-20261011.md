@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.115938` | [Bakery, cache census re-read, no build](20261011/20261011-115938_bakery-shared-cache-census-rerun-no-build.kyri) | Census holds; receipt key held on ruling. |
 | `20261011.120004` | [Petrichor, seventh held lap, aether row read, no build](20261011/20261011-120004_petrichor-held-seventh-aether-no-build.kyri) | Gates unchanged; upstream checked; no build. |
 | `20261011.115547` | [Copal, fruit spent, no unrostered witness](20261011/20261011-115547_copal-fruit-no-unrostered-witness.kyri) | Comm measured zero; no build. |
 | `20261011.120025` | [Patchouli, queue empty, kumara red held, no build](20261011/20261011-120025_patchouli-queue-empty-held-no-build.kyri) | Spine 840 unchanged; no build. |
