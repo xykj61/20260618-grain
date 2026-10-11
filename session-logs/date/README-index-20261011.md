@@ -12,6 +12,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.090019` | [Grass, inner prompt graded, no build](20261011/20261011-090019_grass-inner-page-graded-no-build.kyri) | Queue empty; inner prompt graded at Field, no molt. |
+| `20261011.085938` | [Patchouli, queue empty again, no build](20261011/20261011-085938_patchouli-queue-empty-sixteenth-no-build.kyri) | Queue empty again; claim board clear; no build. |
 | `20261011.085723` | [Bakery baton, readings re-run, ruling waits](20261011/20261011-085723_bakery-baton-readings-held-ruling-waits.kyri) | No build; receipt key waits on Keaton. |
 | `20261011.085434` | [Petrichor, gate held, no build](20261011/20261011-085434_petrichor-gate-held-no-build.kyri) | Gate unchanged; upstream pulled; no build. |
 | `20261011.085350` | [Pheromone, Glow lane closed, no build](20261011/20261011-085350_pheromone-glow-lane-closed-no-build.kyri) | Lane closed at last ruling; next move waits on Incense; no build. |
