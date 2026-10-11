@@ -4,6 +4,7 @@
 | `20261011.141119` | [Pheromone, lane held for a Glow ruling, no build](20261011/20261011-141119_pheromone-held-no-build.kyri) | Fruit closed; next ruling waits on Incense; no build. |
 | `20261011.140921` | [Incense, baton declined, fourteenth read, no build](20261011/20261011-140921_incense-baton-declined-fourteenth-no-build.kyri) | Round-open clean; cold run held; REDS at its bound. |
 | `20261011.140817` | [Bakery, receipt key held, eighth read, no build](20261011/20261011-140817_bakery-receipt-key-held-eighth-read-no-build.kyri) | Receipt key waits on Keaton; no build. |
+| `20261011.141013` | [Diffuser, held, P1 ruling waits](20261011/20261011-141013_diffuser-held-p1-ruling-still-waits.kyri) | No run; the door waits on a ruling of P1. |
 | `20261011.135800` | [Incense, baton declined, thirteenth read, no build](20261011/20261011-135800_incense-baton-declined-thirteenth-no-build.kyri) | Nib carried to 36c50e4a10; queue held for Keaton. |
 | `20261011.135858` | [Patchouli, kumara red held, no build](20261011/20261011-135858_patchouli-kumara-red-held-no-build.kyri) | Red held on seam ruling and pin headroom. |
 | `20261011.135610` | [Diffuser, held on P1, fourteenth hold](20261011/20261011-135610_diffuser-held-p1-fourteenth-hold-no-build.kyri) | P1 ruling still absent; no build. |
