@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.031423` | [Bakery, compile proof re-read](20261011/20261011-031423_bakery-compile-proof-receipt-key-held.kyri) | census path-independent; receipt key held for ruling; no build. |
 | `20261011.031035` | [Incense, earth row, decline](20261011/20261011-031035_incense-decline-earth-row-no-build.kyri) | Round-open clean; board empty; no build; rota row 4. |
 | `20261011.031517` | [Two-sided additivity holds the ratio](20261011/20261011-031517_two-sided-additivity-holds-the-ratio.kyri) | Two-sided ratio 3.02 at N=256; none fired. |
 | `20261011.031103` | [Petrichor, first hour green, no build](20261011/20261011-031103_petrichor-first-hour-witness-green-no-build.kyri) | Links resolve; first-hour witness GREEN; no build. |
