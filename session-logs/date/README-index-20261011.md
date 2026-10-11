@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.034549` | [Bakery lap, receipt key held, no build](20261011/20261011-034549_bakery-receipt-key-held-no-build.kyri) | Queue gated on Keaton's word; no build; read only. |
+| `20261011.034455` | [Fine capacity grid off powers of two](20261011/20261011-034455_fine-capacity-grid-off-powers-of-two.kyri) | Modulo floor ratio 2.39 to 2.69 at N 64 to 256; coarse 4.00 was quantization. |
 | `20261011.034149` | [Grass, queue hold, two readings](20261011/20261011-034149_grass-queue-hold-two-readings.kyri) | Queue empty; grass page B+ 88, card B 80; no build. |
 | `20261011.034218` | [Pheromone, lane empty, no build](20261011/20261011-034218_pheromone-lane-empty-no-build.kyri) | Pulled to aab7f1ff11; board empty; no build. |
 | `20261011.034042` | [Bit-sliced set index, falsifier first](20261011/20261011-034042_bit-sliced-set-index-falsifier-first.kyri) | Index falsifier fired; padding gap fired on interpolated reading only; scratch. |
