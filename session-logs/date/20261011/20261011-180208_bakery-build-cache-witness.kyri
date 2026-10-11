@@ -29,4 +29,4 @@ file construction/ITINERARY.md the Git nib carried to the claim commit's parent 
 scope the build-cache witness, its claim, and this log; the cold roster pass, the hot endurance run, and the scan fixture named in the claim are not run or built.
 status GREEN for tools/b/build_cached_witness.rish (24 of 24 control legs, zero failed). Full cold roster pass not run this lap (witness unrostered, cold pass costs about an hour). Hot endurance run owed. Scan fixture not built. Last lap's cold red 47 still awaits triage.
 recommend check in (either) -- the receipt key ruling is the next product door and waits on Keaton's word; the 47 cold reds need a fleet triage call before a full pass means anything.
-sent pushed to xy main as the work commit, with the card nib carried by this follow-up
+sent work commit ac10e636ab pushed to xy main after a peer rebase; the card nib is carried by the local follow-up commit that records this log, pushed as a follow-up with this log
