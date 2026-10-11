@@ -20,6 +20,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.091654` | [Patchouli, queue empty seventeenth way, no build](20261011/20261011-091654_patchouli-queue-empty-seventeenth-no-build.kyri) | Rebase clean; net re-run; no build. |
 | `20261011.091551` | [Incense, baton declined, no build, lap 11348](20261011/20261011-091551_incense-baton-declined-no-build-lap-11348.kyri) | Round-open level with xy/main, claim board clear; lane waits on Keaton; no build. |
 | `20261011.091341` | [Grass, inner prompt regraded B+, no build](20261011/20261011-091341_grass-inner-regraded-no-build.kyri) | Inner prompt re-read at B+ (89); queue empty; no build. |
 | `20261011.090959` | [Runner digest survey, receipt key](20261011/20261011-090959_runner-digest-survey.kyri) | Digest folds HEAD in, so no peer matches; survey only, no build. |
