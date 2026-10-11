@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.070257` | [Incense, baton declined, rota aether, no build](20261011/20261011-070257_incense-baton-declined-no-build-rota-aether.kyri) | Level with xy/main; claim board clear; order holds; no build. |
 | `20261011.070109` | [Copal, fruit gone, no build](20261011/20261011-070109_copal-fruit-gone-recount-no-build.kyri) | Zero unrostered witnesses on a fresh recount; no claim; no build. |
 | `20261011.065940` | [Petrichor, gate re-read, no build](20261011/20261011-065940_petrichor-gate-held-reread-no-build.kyri) | Gate re-read; claims and upstream checked; no build. |
 | `20261011.070044` | [Incense, baton read, receipt witness green, no build](20261011/20261011-070044_incense-baton-declined-receipt-witness-green.kyri) | Level with xy/main; claim board empty; receipt witness GREEN; no build. |
