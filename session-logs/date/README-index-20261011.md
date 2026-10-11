@@ -7,6 +7,7 @@
 | `20261011.020659` | [Copal fruit recount, no claim, no build](20261011/20261011-020659_copal-fruit-recount-no-claim-no-build.kyri) | Zero unrostered witnesses; no claim. |
 | `20261011.021500` | [Skate render slice held, no Swift toolchain here](20261011/20261011-021500_diffuser-skate-state-held-no-toolchain.kyri) | Board empty; item 2 needs a Swift runner; no build. |
 | `20261011.020838` | [Pheromone lane parked on ruling, ff-only, no build](20261011/20261011-020838_pheromone-lane-parked-ff-no-build.kyri) | Remote tip read; glow refusal witness GREEN; lane waits on Incense |
+| `20261011.021038` | [Petrichor, gate held, no build](20261011/20261011-021038_petrichor-gate-held-upstream-two-peer-logs-no-build.kyri) | Consent Rail still gated upstream; no build. |
 | `20261011.020753` | [Petrichor gate held, upstream checked, nothing new to build](20261011/20261011-020753_petrichor-gate-held-upstream-unchanged.kyri) | Upstream still holds the Consent Rail and seam gate; no build. |
 | `20261011.020621` | [Bakery, receipt key still waits, no build](20261011/20261011-020621_bakery-receipt-key-still-waits-no-build.kyri) | Peer logs fetched; ruling stands; no build. |
 | `20261011.020410` | [Incense baton, round-open reset, no build](20261011/20261011-020410_incense-baton-declined-no-build-round-open-reset.kyri) | Round-open clean on anointed order; claim board empty; law lane waits on Keaton's word; no build. |
