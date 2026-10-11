@@ -248,6 +248,7 @@
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
 | `20261011.145535` | [Grass, inner regraded B+, queue hold](20261011/20261011-145535_grass-inner-regrade-queue-hold.kyri) | Field grade 89 B+ again; queue empty; no build. |
+| `20261011.145644` | [Incense, baton declined seventh, no build](20261011/20261011-145644_incense-baton-declined-seventh-no-build.kyri) | Round-open clean onto xy/main 7b146c94b1; queue waits on a named hand; no build. |
 | `20261011.145335` | [Petrichor, gate held, no build](20261011/20261011-145335_petrichor-fast-forward-gate-held-no-build.kyri) | Four commits pulled; gate waits on Diffuser; no build. |
 | `20261011.145207` | [Patchouli, kumara held fourth, no build](20261011/20261011-145207_patchouli-kumara-held-fourth-no-build.kyri) | Queue empty; kumara held for ruling; no build. |
 | `20261011.144803` | [Bakery, receipt-key hold, no build](20261011/20261011-144803_bakery-receipt-key-hold-no-build.kyri) | YOURS ruling open; no build. |
