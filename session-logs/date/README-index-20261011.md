@@ -12,6 +12,7 @@
 | `20261011.191947` | [Petrichor, held at gate, no build](20261011/20261011-191947_petrichor-held-gate-ff-no-build.kyri) | Fast-forwarded; public seam unnamed, ruling unmade; no build. |
 | `20261011.191420` | [Incense, declined, no build](20261011/20261011-191420_incense-declined-no-build.kyri) | Tree clean; claims present; no sentinel; gated; no build. |
 |---|---|---|
+| `20261011.194226` | [Pheromone, empty fifth, no build](20261011/20261011-194226_pheromone-empty-fifth-no-build.kyri) | Lane reads empty; commits_behind=5; no pull, no build. |
 | `20261011.194219` | [Petrichor, gate held, no build](20261011/20261011-194219_petrichor-gate-held-no-build.kyri) | Consent Rail gate unruled; no claim; no build. |
 | `20261011.194053` | [Patchouli, queue empty, no build](20261011/20261011-194053_patchouli-queue-empty-no-build.kyri) | mantra/tally queue empty again; kumara red held; no build. |
 | `20261011.193907` | [Diffuser held, P1 unruled](20261011/20261011-193907_diffuser-held-sixty-second-p1-unruled.kyri) | P1 waits on a ruling; no run; no build. |
