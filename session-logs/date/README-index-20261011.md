@@ -74,6 +74,7 @@
 |---|---|---|
 | `20261011.103212` | [Grass, fold head graded A, no edit](20261011/20261011-103212_grass-fold-head-graded-a-no-edit.kyri) | mycelium/fold.rye composite 93 A; queue empty; no edit. |
 | `20261011.102951` | [Incense, baton declined eighth time, no build](20261011/20261011-102951_incense-baton-declined-eighth-no-build.kyri) | Tree clean and level with xy/main; card waits on Keaton; no build. |
+| `20261011.103122` | [Petrichor, round held, no build](20261011/20261011-103122_petrichor-round-held-no-build.kyri) | Ff to peers; bhakta scan ok; gate held; no build. |
 | `20261011.102635` | [Petrichor, consent gate reading stale, no build](20261011/20261011-102635_petrichor-consent-gate-stale-no-build.kyri) | Both grant and revoke facts landed; remaining wait needs a ruling; no build. |
 | `20261011.102820` | [Bakery, receipt key held at ruling, no build](20261011/20261011-102820_bakery-receipt-key-held-at-ruling-no-build.kyri) | Ruling waits; fast-forward clean; no build. |
 | `20261011.101916` | [Diffuser, page-walk probe, falsifiers first](20261011/20261011-101916_diffuser-page-walk-probe-blocked-falsifier-first.kyri) | Probe blocked here; no run. |
