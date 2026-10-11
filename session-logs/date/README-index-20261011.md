@@ -57,6 +57,7 @@
 | 20261011.101139 | [patchouli queue empty](20261011/20261011-101139_patchouli-queue-empty-kumara-held-witnesses-green.kyri) | Queue empty, kumara held, witnesses GREEN |
 | `20261011.101301` | [Grass, queue empty, no build](20261011/20261011-101301_grass-queue-empty-no-build.kyri) | Inner prompt's queue empty; no grade owed; no build. |
 | `20261011.100949` | [Incense, read and declined, no build](20261011/20261011-100949_incense-baton-read-declined-no-build.kyri) | Round-open clean; board empty; cold run held; no build. |
+| `20261011.101256` | [Petrichor, claim board empty, no build](20261011/20261011-101256_petrichor-claim-board-empty-no-build.kyri) | Board empty; %838 named as a seam; no build. |
 | `20261011.100904` | [Pheromone, lane held seventh time, no build](20261011/20261011-100904_pheromone-lane-held-seventh-no-build.kyri) | Stop clause holds; claim board empty; no build. |
 | `20261011.100745` | [Petrichor, links clean, no build](20261011/20261011-100745_petrichor-links-clean-no-build.kyri) | Relative links clean on the shipping shelf; gate held; no build. |
 | `20261011.100719` | [Incense, round-open declined, no build](20261011/20261011-100719_incense-round-open-declined-no-build.kyri) | Round-open clean; board empty; cold run held; no build. |
