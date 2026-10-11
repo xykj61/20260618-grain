@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261011.051851` | [Copal, fruit spent, fourth look, no build](20261011/20261011-051851_copal-fruit-spent-fourth-look-no-build.kyri) | Path-line census re-run; zero unrostered witnesses; no build. |
 | `20261011.052530` | [Incense, round-open adopted, no build](20261011/20261011-052530_incense-baton-declined-no-build-round-open-claim-clear.kyri) | Round-open adopted petrichor; claim board clear; no build. |
+| `20261011.052406` | [Petrichor, vocabulary scan clean, held](20261011/20261011-052406_petrichor-vocabulary-scan-clean-held.kyri) | Retired-word scan over docs-geode reads zero; lane held on consent gate. |
 | `20261011.052050` | [Petrichor, held, no build](20261011/20261011-052050_petrichor-held-after-upstream-incense-decline-no-docs-geode.kyri) | ff to 008d0d04e2; no docs-geode path; no build. |
 | `20261011.051923` | [Pheromone, ff and held, no build](20261011/20261011-051923_pheromone-lane-held-ruling-still-awaited.kyri) | ff to 72de793339; no Incense ruling on remote; no build. |
 | `20261011.052440` | [Petrichor, held after upstream, no build](20261011/20261011-052440_petrichor-held-upstream-diffuser-no-docs-geode-no-build.kyri) | ff to cff617059a; no docs-geode change upstream; no build. |
