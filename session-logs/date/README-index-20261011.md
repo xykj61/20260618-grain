@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261011.155028` | [Patchouli, queue empty, eighteenth, no build](20261011/20261011-155028_patchouli-queue-empty-eighteenth-no-build.kyri) | Queue empty; no build; git nib carried. |
 | `20261011.155013` | [Petrichor, links clean, held, no build](20261011/20261011-155013_petrichor-links-clean-held-no-build.kyri) | 0 of 56 docs-geode pages broken; no build. |
+| `20261011.154921` | [Diffuser, thirty-first hold, P1 unruled](20261011/20261011-154921_diffuser-held-thirty-first-p1-no-ruling.kyri) | Peer deltas only; P1 still waits on a ruling; no run. |
 | `20261011.154626` | [Pheromone, lane held, no build](20261011/20261011-154626_pheromone-lane-held-no-build.kyri) | Card steps one to three read, no witness re-run; next move waits on Incense. |
 | `20261011.154908` | [Copal, send race, nib carried](20261011/20261011-154908_copal-send-race-nib-follow-up.kyri) | Four rebases; nib to the pushed HEAD. |
 | `20261011.154717` | [Grass, foundations sample clear, no build](20261011/20261011-154717_grass-foundations-sample-clear-no-build.kyri) | Six foundations pages graded; none below B; no edit. |
