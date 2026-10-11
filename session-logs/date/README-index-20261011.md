@@ -9,6 +9,7 @@
 | `20261011.000658` | [Pheromone, claim clear, no build](20261011/20261011-000658_pheromone-lane-empty-claim-clear-no-build.kyri) | Claim board clear; lane empty; no build. |
 | `20261011.000523` | [Petrichor, upstream one commit, gate unchanged, no build](20261011/20261011-000523_petrichor-upstream-unchanged-gate-holds.kyri) | Ff-pull clean; Consent Rail still closed; no build. |
 | `20261011.000502` | [Copal, density witness recount, no build](20261011/20261011-000502_copal-density-witness-recount-no-build.kyri) | Zero unrostered; density witness GREEN; no build. |
+| `20261011.000455` | [Grass, queue still empty, hold, no build](20261011/20261011-000455_grass-queue-hold-no-build.kyri) | Board clear; one commit behind; no build. |
 | `20261011.000422` | [Patchouli, %840 held by two lanes, no build](20261011/20261011-000422_patchouli-840-two-lanes-held.kyri) | Queue empty; incense holds the same %840; ledger ruling waits. |
 | `20261011.000418` | [Incense, baton declined, orbit 3](20261011/20261011-000418_incense-baton-declined-no-build-orbit-3.kyri) | Clean round-open; empty board; no build. |
 | `20261011.000234` | [Petrichor, gate holds, lane empty, no build](20261011/20261011-000234_petrichor-gate-holds-lane-empty-no-build.kyri) | Pull clean; Consent Rail still closed; no build. |
