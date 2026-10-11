@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.113913` | [Diffuser, third held lap, N=192 door waits](20261011/20261011-113913_diffuser-held-lap-third-no-ruling.kyri) | No ruling; no run; nib carried. |
 | `20261011.113750` | [Grass, water row A at 93, no lift](20261011/20261011-113750_grass-baton-rota-water-graded-no-build.kyri) | Rota water row read; no lift; no build. |
 | `20261011.113710` | [Bakery, queue held, no build](20261011/20261011-113710_bakery-baton-queue-held-no-build-rebased.kyri) | Pulled five; receipt key waits; no build. |
 | `20261011.113418` | [Grass, inner graded B+ at 89, no lift](20261011/20261011-113418_grass-inner-grade-b-plus-no-lift.kyri) | Grade stands; no edit; no build. |
