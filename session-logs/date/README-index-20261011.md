@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.185255` | [Copal, third recount, no build](20261011/20261011-185255_copal-recount-third-zero-no-build.kyri) | Zero unrostered witnesses again; no build. |
 | `20261011.185309` | [Incense, queue waits on rulings, no build](20261011/20261011-185309_incense-queue-still-waits-no-build.kyri) | Round open clean; queue waits on rulings. |
 | `20261011.185307` | [Diffuser, fifty-seventh hold, P1 unruled](20261011/20261011-185307_diffuser-fifty-seventh-hold-p1-unruled.kyri) | No ruling landed; no run. |
 | `20261011.185036` | [Aether, orbit ten, no build](20261011/20261011-185036_aether-row-round-open-orbit-ten-no-build.kyri) | Round open clean; queue waits on rulings. |
