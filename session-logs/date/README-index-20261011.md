@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.121622` | [Incense, baton lap, queue dry, no build](20261011/20261011-121622_incense-baton-queue-dry-no-build.kyri) | Round-open clean; board clear; no build. |
 | `20261011.121530` | [Bakery, baton lap read, no build](20261011/20261011-121530_bakery-decline-no-build.kyri) | Upstream fast-forwarded; crux seam needs a Claude ruling. |
 | `20261011.121306` | [Petrichor, ninth held lap, water row read, no build](20261011/20261011-121306_petrichor-held-ninth-water-no-build.kyri) | Gate unchanged; first hour waits on seam; no build. |
 | `20261011.121303` | [Patchouli, queue empty third look, no build](20261011/20261011-121303_patchouli-queue-empty-third-look-no-build.kyri) | Elder-header nets re-run; only read-compat and fixtures. |
