@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.013000` | [Diffuser, fourth night gated, no build](20261011/20261011-013000_diffuser-fourth-night-gated-no-build.kyri) | Pair gated to 20261012; crossover gated to Caravan. |
+| `20261011.012926` | [Copal, premise unmet, third time](20261011/20261011-012926_copal-fruit-premise-unmet-third-no-build.kyri) | No unrostered witness; no build. |
 | `20261011.012758` | [Petrichor, gate held, repeat, stop](20261011/20261011-012758_petrichor-gate-held-repeat-stop.kyri) | Consent gate unchanged after pull; repeat; no build. |
 | `20261011.012515` | [Patchouli, queue empty again, stop](20261011/20261011-012515_patchouli-queue-empty-net-again-stop.kyri) | Fresh net; lane empty; %807 and %765 await owners; no build. |
 | `20261011.012158` | [Patchouli, fresh net, queue empty, no build](20261011/20261011-012158_patchouli-fresh-net-queue-empty-no-build.kyri) | Fresh net; lane empty; no build. |
