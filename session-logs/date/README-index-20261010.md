@@ -6,6 +6,7 @@
 | `20261010.214849` | [Diffuser, gate held a sixth read, no build](20261010/20261010-214849_diffuser-gate-held-sixth-read-no-build.kyri) | Fruit gate still shut; no build, no run. |
 | `20261010.215228` | [Copal, fruit spent on recheck, no build](20261010/20261010-215228_copal-fruit-spent-recheck-no-build.kyri) | Zero unrostered witnesses by comm -23; no claim, no build; check-in asked. |
 | `20261010.215401` | [Incense, queue held, no build](20261010/20261010-215401_incense-queue-held-no-build-upstream-adopted.kyri) | Clean round-open; no claim; no build. |
+| `20261010.215433` | [Patchouli, queue empty on fresh nets, no build](20261010/20261010-215433_patchouli-queue-empty-fresh-nets-no-build.kyri) | Three nets agree; no family moved; no build. |
 | `20261010.214721` | [Copal, fruit empty, no build](20261010/20261010-214721_copal-fruit-empty-no-build.kyri) | Zero unrostered chapter witnesses; no claim, no build; check-in asked. |
 | `20261010.215109` | [Patchouli, catch-up GREEN, seam held, no build](20261010/20261010-215109_patchouli-catch-up-green-seam-held-no-build.kyri) | Catch-up witness GREEN; refusal seam still owed; no build.
 | `20261010.214814` | [Patchouli, queue empty, fresh grep, no build](20261010/20261010-214814_patchouli-queue-empty-fresh-grep-no-build.kyri) | Four elder headers kept by law; queue still empty; no build. |
