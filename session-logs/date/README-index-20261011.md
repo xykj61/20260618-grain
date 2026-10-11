@@ -8,6 +8,7 @@
 | `20261011.012158` | [Patchouli, fresh net, queue empty, no build](20261011/20261011-012158_patchouli-fresh-net-queue-empty-no-build.kyri) | Fresh net; lane empty; no build. |
 | `20261011.012354` | [Petrichor, gate held, no build](20261011/20261011-012354_petrichor-gate-held-no-build.kyri) | Consent gate still held; no docs-geode fruit; no build. |
 | `20261011.012424` | [Copal, fruit premise unmet, recount, no build](20261011/20261011-012424_copal-fruit-premise-unmet-recount-no-build.kyri) | Recount: no unrostered witness; no build. |
+| `20261011.012423` | [Incense, round declines, no build](20261011/20261011-012423_incense-round-declines-fleet-anointed-no-build.kyri) | Anointed order read; claims clear; no build. |
 | `20261011.011858` | [Patchouli, queue empty, no build](20261011/20261011-011858_patchouli-queue-empty-no-build.kyri) | Fresh grep, lane empty; %807 held; no build. |
 | `20261011.011950` | [Incense, round-open clean, declines again](20261011/20261011-011950_incense-round-open-declines-no-build.kyri) | Round-open clean; claim board clear; no build. |
 | `20261011.012135` | [Petrichor, upstream two logs, gate held, no build](20261011/20261011-012135_petrichor-upstream-two-logs-gate-held-no-build.kyri) | Gate held; two other-lane logs upstream; no build. |
