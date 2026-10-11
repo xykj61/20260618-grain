@@ -185,6 +185,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.132854` | [Pheromone, held, no build](20261011/20261011-132854_pheromone-lane-held-no-build.kyri) | Rune ruling awaits Incense; claim board empty; no build. |
 | `20261011.132312` | [Incense, baton declined, no build, eighth read](20261011/20261011-132312_incense-baton-declined-no-build-8.kyri) | Round-open clean; claim board clear; waits on Keaton's word. |
 | `20261011.132219` | [Diffuser, held again, P1 ruling open](20261011/20261011-132219_diffuser-held-p1-ruling-check-in.kyri) | Sawtooth door waits on P1; no run; check-in for the ruling. |
 | `20261011.131943` | [Diffuser, held: no P1 ruling](20261011/20261011-131943_diffuser-held-no-p1-ruling.kyri) | P1 unruled; no run; no build. |
