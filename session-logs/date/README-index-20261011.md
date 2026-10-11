@@ -240,6 +240,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.144758` | [Patchouli, kumara red re-proven a third time, held for ruling, no build](20261011/20261011-144758_patchouli-kumara-held-third-rerun-no-build.kyri) | Queue empty; kumara sign held for ruling; no build. |
 | `20261011.144702` | [Pheromone, Glow lane gated on a ruling, no build](20261011/20261011-144702_pheromone-glow-lane-gated-no-build.kyri) | Both lane witnesses GREEN; new ruling owed to Incense; no edit |
 | `20261011.144626` | [Copal fruit, sixth read, floor rostered by guard, no build](20261011/20261011-144626_copal-floor-witness-rostered-by-guard-no-build.kyri) | Floor script already rostered by its guard; ruling needed; no build. |
 | `20261011.144123` | [Grass, air row read, fence walked, no build](20261011/20261011-144123_grass-air-row-fence-held-no-build.kyri) | Row 1 read; inner prompt B+; queue empty; no build. |
