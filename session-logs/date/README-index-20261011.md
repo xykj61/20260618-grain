@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261011.174838` | [Diffuser, forty-ninth hold](20261011/20261011-174838_diffuser-forty-ninth-hold-p1-unruled.kyri) | No run; P1 still unruled. |
 | `20261011.174956` | [Incense, baton declined, no build](20261011/20261011-174956_incense-baton-declined-no-build-third.kyri) | Round-open to 029308bfc7; no build. |
+| `20261011.175256` | [Patchouli, rulings held, green, no build](20261011/20261011-175256_patchouli-held-rulings-witnesses-green-no-build.kyri) | Two rulings hold; witnesses GREEN. |
 | `20261011.174818` | [Petrichor, gate held, sixth no-build](20261011/20261011-174818_petrichor-gate-held-sixth-no-build.kyri) | Gate still held; no fruit; no build. |
 | `20261011.174658` | [Incense, declined again, no build](20261011/20261011-174658_incense-baton-declined-no-build-again.kyri) | Fast-forward to acec585197; no build. |
 | `20261011.174653` | [Copal, fruit empty, roster complete](20261011/20261011-174653_copal-fruit-empty-roster-complete-no-build.kyri) | Zero unrostered chapter witnesses; no build. |
