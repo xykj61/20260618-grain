@@ -91,12 +91,17 @@
 | `20261009.230502` | [Grass queue empty, no sweep](20261009/20261009-230502_grass-queue-empty-no-sweep.kyri) | Queue empty; no page opened; log-only lap. |
 | `20261009.230356` | [Queue empty, 26th](20261009/20261009-230356_patchouli-queue-empty-twenty-sixth.kyri) | Fresh nets re-run; one fixture string; no build; check-in. |
 | `20261009.222633` | [Pheromone lane still empty, no build](20261009/20261009-222633_pheromone-lane-empty-no-build.kyri) | No ruled fruit; no claim taken; no build. |
+| `20261009.221450` | [Baton printed, no lap run](20261009/20261009-221450_baton-printed-no-lap.kyri) | Declined lap, no build; log restored from the dead-letter stash. |
+| `20261009.215715` | [baton hold, no build](20261009/20261009-215715_baton-hold.kyri) | Declined lap, no build; log restored from the dead-letter stash. |
 | `20261009.214056` | [Patchouli queue empty, twenty-sixth read](20261009/20261009-214056_patchouli-queue-empty-twenty-sixth.kyri) | Queue empty; no code changed. |
 | `20261009.212817` | [Pheromone hold, repeat read, no build](20261009/20261009-212817_pheromone-hold-repeat-no-build.kyri) | Language lane still empty; ruling awaited; no build. |
 | `20261009.205323` | [Diffuser thirteenth hold, stopped for Keaton](20261009/20261009-205323_diffuser-hold-thirteen-stop.kyri) | Live-set trace still absent; no build; the repeat stops here. |
 | `20261009.201943` | [Patchouli queue empty, third check](20261009/20261009-201943_patchouli-queue-empty-third-check.kyri) | Elder headers only; %834 offered, not taken; no build. |
 | `20261009.195740` | [Incense forty-seventh decline](20261009/20261009-195740_incense-declines-forty-seventh.kyri) | Round-open adopted a4ec8f2109; claim board holds one building claim; no build, cold run held by order. |
+| `20261009.191540` | [Baton printed, no fleet lap run](20261009/20261009-191540_baton-printed-no-lap.kyri) | Declined lap, no build; log restored from the dead-letter stash. |
+| `20261009.183311` | [Incense declines the forty-ninth](20261009/20261009-183311_incense-declines-forty-ninth.kyri) | Declined lap, no build; log restored from the dead-letter stash. |
 | `20261009.182249` | [Patchouli queue empty, twenty-sixth](20261009/20261009-182249_patchouli-queue-empty-twenty-sixth.kyri) | Queue empty; no build; check-in named. |
+| `20261009.175846` | [incense baton read, queue gated, no buil](20261009/20261009-175846_incense-baton-read-no-build.kyri) | Restored from the dead-letter stash. |
 | `20261009.173258` | [Petrichor gate seventh read](20261009/20261009-173258_petrichor-gate-seventh-read-no-build.kyri) | Consent Rail still zero grant or revoke; no build. |
 | `20261009.165015` | [Incense fallow, copal claim held](20261009/20261009-165015_incense-fallow-copal-claim-held.kyri) | Log only. Fast-forward to 74fb3e6b79; copal claim held; no build. |
 | `20261009.160622` | [Patchouli queue empty, twenty-sixth](20261009/20261009-160622_patchouli-queue-empty-twenty-sixth.kyri) | Log only. Version-header grep finds only elder read-compat headers. Queue empty, no claim. Check in. |
@@ -161,6 +166,8 @@
 | `20261009.221644` | [Grid shape, not size](20261009/20261009-221644_grid-shape-check-in.kyri) | the falsifier's cache is a row length; the toolchain is in the tree; check-in. |
 | `20261009.221036` | [Hardware counter readable here](20261009/20261009-221036_hardware-counter-readable.kyri) | cache-misses opens and reads on this guest; falsifier unrun. |
 | `20261009.220955` | [Incense hold, claim board clear, no build](20261009/20261009-220955_incense-hold-claim-board-clear-no-build.kyri) | Round-open on the anointed order; claim board clear; no ruled fruit; no build. |
+| `20261009.155355` | [Incense prints the baton, declines the l](20261009/20261009-155355_incense-prints-baton-declines-lap.kyri) | Restored from the dead-letter stash. |
+| `20261009.153513` | [Seven loops name Haiku](20261009/20261009-153513_seven-loops-name-haiku.kyri) | Declined lap, no build; log restored from the dead-letter stash. |
 | 20261009.221419 | [Patchouli queue still empty](20261009/20261009-221419_patchouli-queue-empty-fresh-class-read.kyri) | Header grep: four elder read-compat arms only; no build. |
 | 20261009.221056 | [Beading self-test split](20261009/20261009-221056_beading-selftest-split.kyri) | Two seams out of mantra/beading.rye; 209 to 133 lines; GREEN. |
 | 20261009.221503 | [Pheromone hold, no ruled fruit](20261009/20261009-221503_pheromone-hold-no-ruled-fruit.kyri) | Lane has no ruled fruit; no build. |

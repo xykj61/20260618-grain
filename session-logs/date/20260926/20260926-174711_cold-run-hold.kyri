@@ -1,0 +1,21 @@
+format session-log-v1
+stamp 20260926.174711
+editor Claude Code
+provider Anthropic
+product Claude Code
+role captain, incense
+modality text
+model unverified
+model_status active runtime unverified
+voice Kyri
+title round-open clean, claim board stale, cold run launched and held
+prompt (autonomous incense lap; no user message this turn)
+think Round-opened per rite step 1: fetched xy, no rebase pending, opened at e0867918f4.
+think Read the claim board per rite step 2 before building anything: five live claims, all status=stale (age_hours 20-53, none overlapping this lane, none mine).
+think Per ORDER, read HEAD once (e0867918f4) then launched the cold endurance run detached and held still rather than editing or committing while it runs.
+obs Prior laps' cold runs took 3400-5100 seconds; scheduled a wakeup rather than blocking or polling in a tight loop.
+file session-output/standing-equipment-cold.txt why the detached cold-run transcript this lap is watching for run_verdict=
+rota none -- holding still on the cold run, no rota read this lap yet
+scope round-open, claim-board read, cold-run launch and hold
+status in progress -- holding still, no send this turn, no witness landed yet
+recommend keep-going -- wake on schedule, read run_verdict, then triage before booking new work
