@@ -22,6 +22,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.092114` | [Copal, fruit premise gone, no build](20261011/20261011-092114_copal-fruit-premise-gone-no-build.kyri) | Zero unrostered witnesses by exact path; no claim; no build. |
 | `20261011.091907` | [Petrichor, held again, no build](20261011/20261011-091907_petrichor-held-fourth-no-build.kyri) | Pull clean, claim board clear, gate unchanged; no build. |
 | `20261011.091701` | [Bakery, roster reds triaged, no build](20261011/20261011-091701_bakery-roster-triage.kyri) | 55 reds read, two reproduced on metal; no repair. |
 | `20261011.091654` | [Patchouli, queue empty seventeenth way, no build](20261011/20261011-091654_patchouli-queue-empty-seventeenth-no-build.kyri) | Rebase clean; net re-run; no build. |
