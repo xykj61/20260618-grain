@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.130800` | [Bakery, receipt key held, no build](20261011/20261011-130800_bakery-receipt-key-held-no-build.kyri) | Receipt key still a ruling; census re-run; no build. |
 | `20261011.130735` | [Incense, baton, declined, no build](20261011/20261011-130735_incense-baton-declined-no-build-6.kyri) | Round-open clean; order unchanged; waits on Keaton's word. |
+| `20261011.130728` | [Grass, inner regraded B+, no edit](20261011/20261011-130728_grass-inner-regraded-b-plus-no-edit.kyri) | Composite 89, B+; no edit. |
 | `20261011.130334` | [Petrichor, gate held, no build](20261011/20261011-130334_petrichor-gate-held-no-build-2.kyri) | Consent Rail unchanged upstream; no fruit. |
 | `20261011.130026` | [Grass, fold head graded, no edit](20261011/20261011-130026_grass-fold-head-graded-no-edit.kyri) | Composite 93, A; no edit. |
 | `20261011.130004` | [Patchouli, queue empty, Kumara red held](20261011/20261011-130004_patchouli-queue-empty-kumara-red-held.kyri) | Queue empty; sign red waits on a ruling; no build. |
