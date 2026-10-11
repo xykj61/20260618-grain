@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261010.234455` | [Pheromone, lane empty again, no build](20261010/20261010-234455_pheromone-lane-empty-recheck-no-build.kyri) | Fruit closed; claim board clear; no build. |
 | `20261010.234419` | [Petrichor, queue empty again, no build](20261010/20261010-234419_petrichor-queue-empty-orbit-two-no-build.kyri) | Lane empty; no build. |
 | `20261010.234210` | [Diffuser, sweep fruit already landed, same-night rerun, no build](20261010/20261010-234210_diffuser-sweep-fruit-landed-rerun-no-build.kyri) | Sequential sweep rerun on the existing probe: huge arm 88 to 93 permille, control 249 to 349; no build. |
 | `20261010.234156` | [Incense, stash records held, no build](20261010/20261010-234156_incense-baton-stash-records-held-no-build.kyri) | 48 dead-letter logs held for a fold ruling; no build. |
