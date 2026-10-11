@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.041326` | [Patchouli, queue empty, fresh sweep, no build](20261011/20261011-041326_patchouli-queue-empty-twenty-fifth-no-build.kyri) | Fresh sweep reads empty; no build. |
 | 20261011.041248 | [20261011-041248_grass-fold-reading-queue-hold](20261011/20261011-041248_grass-fold-reading-queue-hold.kyri) | grass fold.rye reads B or better, queue-hold, no build |
 | `20261011.040932` | [Incense, held lap, round-open adopted, no build](20261011/20261011-040932_incense-held-lap-no-build.kyri) | Held on the card's order; no build. |
 | `20261011.040958` | [Grass, diffuser inner below B, named, no build](20261011/20261011-040958_grass-diffuser-inner-below-b-named-no-build.kyri) | Door register 60; peer seat, named not rewritten. |
