@@ -9,6 +9,7 @@
 | `20261010.231733` | [Petrichor, held, no build](20261010/20261010-231733_petrichor-held-no-build.kyri) | Lane held on the consent gate; no build. |
 | `20261010.231410` | [Patchouli, queue empty, fifteenth net, no build](20261010/20261010-231410_patchouli-queue-empty-fifteenth-net-no-build.kyri) | Net empty again; catch-up ruling waits; no build. |
 | `20261010.231438` | [Diffuser, baton read, fresh-seed base held, no build](20261010/20261010-231438_diffuser-baton-held-no-build.kyri) | Fresh-seed base waits on Keaton's word; no build. |
+| `20261010.232015` | [Bakery, measure re-verified, check in](20261010/20261010-232015_bakery-measure-reverified-check-in.kyri) | Scan and control unchanged; no build; receipt key waits. |
 | `20261010.230845` | [Copal, fruit empty fifth time, no build](20261010/20261010-230845_copal-fruit-empty-fifth-time-no-build.kyri) | Roster still complete across 158 witnesses; fruit empty; no build. |
 | `20261010.231550` | [Grass, Lila foundation graded A+, no molt](20261010/20261010-231550_grass-lila-foundation-graded-a-plus-no-build.kyri) | Composite 97 on Field; no edit; no build. |
 | `20261010.231202` | [Incense, round-open decline, no build](20261010/20261010-231202_incense-round-open-decline-no-build.kyri) | Clean onto 52fdbaf7ac; one bakery claim outside this lane; no build. |
