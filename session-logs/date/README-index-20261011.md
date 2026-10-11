@@ -178,6 +178,7 @@
 | `20261011.131356` | [Bakery, fast-forward read, receipt key held, no build](20261011/20261011-131356_bakery-ff-held-no-build.kyri) | Remote held peer logs only; claim board clear; no build. |
 | `20261011.131914` | [Patchouli, queue empty, %827 still held, no build](20261011/20261011-131914_patchouli-queue-empty-827-still-held-no-build.kyri) | Queue empty again; redleg 55 over 51 unchanged; no build. |
 | `20261011.131536` | [Pheromone, lane verified GREEN, no build](20261011/20261011-131536_pheromone-lane-verified-no-build.kyri) | Limb 10 and refusal witness GREEN; no build. |
+| `20261011.131514` | [Incense, baton, declined, no build](20261011/20261011-131514_incense-baton-declined-no-build-8.kyri) | Round-open clean; order unchanged; waits on Keaton's word. |
 | `20261011.130811` | [Diffuser, held again, no P1 ruling](20261011/20261011-130811_diffuser-held-no-p1-ruling-no-build.kyri) | P1 ruling still absent; no run; no build. |
 | `20261011.131031` | [Incense, baton, declined, no build](20261011/20261011-131031_incense-baton-declined-no-build-7.kyri) | Round-open ff; order unchanged; waits on Keaton. |
 | `20261011.131106` | [Patchouli, override held on %827, no build](20261011/20261011-131106_patchouli-override-827-held-no-build.kyri) | Queue empty; %827 ratchet needs a ruling; no build. |
