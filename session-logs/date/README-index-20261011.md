@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.001856` | [Patchouli, queue empty, Kumara red waits](20261011/20261011-001856_patchouli-queue-empty-kumara-red-waits.kyri) | Queue empty again; sign red awaits a ruling. |
 | `20261011.001921` | [Pheromone, lane empty, round open, no build](20261011/20261011-001921_pheromone-lane-empty-round-open-no-build.kyri) | Round open pulled four peer commits; claim board clear; lane parked on Incense ruling; no build. |
 | `20261011.001856` | [Copal, fruit empty on a third reading, no build](20261011/20261011-001856_copal-fruit-empty-no-build.kyri) | Roster re-measured, zero unrostered; %837/%838 stale on that point; no build. |
 | `20261011.001854` | [Incense, round-open, declined, no build](20261011/20261011-001854_incense-declined-no-build.kyri) | Round-open clean; law lane waits on Keaton's word; no build. |
