@@ -22,5 +22,5 @@ file recursion-prompts/petrichor-inner.md why the gate and the no-repeat rule we
 file construction/ITINERARY.md why the Bhakta product path's stop line was checked against the card
 file construction/fleet-claims.kyri why the board was read for a clash before any build was considered
 scope read-only lap: gate re-read, upstream checked, one log and one day-index row, no docs-geode page changed
-status GREEN -- nothing to repair; the lane is held on the public seam, and no claim was needed
+status HELD -- nothing to build; the log landed GREEN, then a peer rebase moved the commit and the git nib witness read STALE (card names 66bda1faa2) -- left OPEN for the next work commit, no force
 recommend check in (either) -- Keaton picks the next lane door; the Consent Rail seam is still the gate
