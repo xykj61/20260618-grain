@@ -95,6 +95,7 @@
 | `20261011.083830` | [Copal, claim withdrawn, no build](20261011/20261011-083830_copal-fruit-withdrawn-no-build.kyri) | Fruit already rostered; claim closed. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.111152` | [Bakery, plant adoption read, receipt key held, no build](20261011/20261011-111152_bakery-plant-adoption-held.kyri) | Remainder 361 unclaimed; ruling waits; no build. |
 | `20261011.111127` | [Diffuser, fourth hold on two gated doors, no run](20261011/20261011-111127_diffuser-fourth-hold-two-doors-gated.kyri) | Both doors still gated; stall held; no run. |
 | `20261011.110959` | [Grass, docs page held, no build](20261011/20261011-110959_grass-docs-witness-patterns-held-no-build.kyri) | Field 83; nothing below B; no build. |
 | `20261011.110629` | [Pheromone, lane empty, no build](20261011/20261011-110629_pheromone-lane-held-no-build.kyri) | Fast-forwarded; closed fruit not re-run; no rune; no build. |
