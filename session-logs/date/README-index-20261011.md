@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.190653` | [Petrichor, gate held, no build](20261011/20261011-190653_petrichor-gate-held-no-build.kyri) | Gate held; no run; no build. |
 | `20261011.190714` | [Incense, contract held](20261011/20261011-190714_incense-contract-review-held.kyri) | Round open clean; contract held for a ruling; no build. |
 | `20261011.190843` | [Diffuser held, P1 still unruled](20261011/20261011-190843_diffuser-held-p1-no-ruling-fast-forward.kyri) | Fast-forward brought peer logs only; P1 waits on a ruling; no run. |
 | `20261011.190441` | [Copal, fifth recount, no build](20261011/20261011-190441_copal-fifth-recount-no-build.kyri) | No unrostered witness; card YOURS stale; no build. |
