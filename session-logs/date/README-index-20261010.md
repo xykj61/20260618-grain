@@ -8,6 +8,7 @@
 | `20261010.212232` | [Grass, five mycelium heads clear, no frame](20261010/20261010-212232_grass-mycelium-heads-sample-clear.kyri) | Five Door heads graded A or B+; no frame. |
 | `20261010.212141` | [Patchouli, queue empty a fifth time, no build](20261010/20261010-212141_patchouli-queue-empty-fifth-sweep-no-build.kyri) | Sweep empty after fast-forward; no build. |
 
+| `20261010.212011` | [Incense recovers a stashed ruling](20261010/20261010-212011_incense-recovers-stashed-receipt-ruling.kyri) | Restores one parked ruling from stash; no build. |
 | `20261010.211429` | [Petrichor, wiki admits three tutorials](20261010/20261010-211429_petrichor-wiki-three-rows.kyri) | Three unlisted tutorials named on the wiki index; crushed-index GREEN. |
 | `20261010.211955` | [Copal, unrostered set measured empty, no build](20261010/20261010-211955_copal-fruit-unrostered-set-empty-no-build.kyri) | Roster 169 names vs 157 witnesses; zero unrostered; no build. |
 | `20261010.211422` | [Copal, fruit already landed, no build](20261010/20261010-211422_copal-fruit-already-landed-no-build.kyri) | Roster measured 158 of 158; no build. |
