@@ -9,6 +9,7 @@
 | `20261011.033205` | [Grass, inner page graded, no build](20261011/20261011-033205_grass-queue-held-page-graded-no-build.kyri) | Inner prompt B+ 89; queue empty; no build. |
 | `20261011.032938` | [Patchouli, queue empty on a fresh net, no build](20261011/20261011-032938_patchouli-queue-empty-fresh-grep-no-build.kyri) | Fresh elder-literal net empty; pull to 748a1fa6cb; no build. |
 | `20261011.032604` | [Incense, decline round eight](20261011/20261011-032604_incense-decline-round-eight-no-build.kyri) | Round-open clean; claim board clear; no build owed. |
+| `20261011.032830` | [Petrichor, fire row, queue held, no build](20261011/20261011-032830_petrichor-fire-row-queue-held-no-build.kyri) | Gates unmoved; fire row read; no build. |
 | `20261011.032434` | [Grass, air row, card headroom, no build](20261011/20261011-032434_grass-air-row-card-headroom-no-build.kyri) | Grade B+ 89 held; rota air row; card nib carried; no build. |
 | `20261011.032457` | [Copal, fruit empty on recount, no build](20261011/20261011-032457_copal-fruit-empty-recheck-no-build.kyri) | Fruit empty; round-open pulled two; no build. |
 | `20261011.032831` | [Bakery, crux held again, no build](20261011/20261011-032831_bakery-crux-held-check-in-no-build.kyri) | Baton read; receipt key still held for Keaton; no build. |
