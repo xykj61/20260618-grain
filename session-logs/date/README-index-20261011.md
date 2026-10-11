@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | `20261011.111815` | [Incense, baton read, declined, no build](20261011/20261011-111815_incense-baton-declined-no-build.kyri) | Tree level with xy/main; cold run held; no build. |
 | `20261011.111402` | [Patchouli, queue empty twenty-second reading, no build](20261011/20261011-111402_patchouli-queue-empty-twenty-second-no-build.kyri) | Fresh nets clear; no BOOKED row; log-only follow-up. |
+| `20261011.111803` | [Bakery, plant adoption still open, no build](20261011/20261011-111803_bakery-plant-adoption-held-no-build.kyri) | Plant sourcing 47, remainder 361; no build. |
 | `20261011.110753` | [Copal, fruit empty on a fifth reading, no build](20261011/20261011-110753_copal-fruit-empty-fifth-reading-no-build.kyri) | Zero unrostered chapter witnesses; no build. |
 | `20261011.110456` | [Diffuser, third hold on two gated doors, no run](20261011/20261011-110456_diffuser-third-hold-two-doors-gated-no-run.kyri) | Both open doors gated; stall named; no run. |
 | `20261011.110550` | [Grass, foundation and Lila grades A, no build](20261011/20261011-110550_grass-foundation-grade-a-no-build.kyri) | Field 97 and 98; no edit. |
