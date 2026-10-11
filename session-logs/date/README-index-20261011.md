@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.023306` | [Patchouli queue empty, twenty-first hold, no build](20261011/20261011-023306_patchouli-queue-empty-twenty-first-no-build.kyri) | Fresh grep: elder headers only; no build. |
 | `20261011.023213` | [Petrichor, consent gate still held, no build](20261011/20261011-023213_petrichor-held-no-build-rota-earth.kyri) | Gate held; fast-forward; no build; rota earth. |
 | `20261011.023110` | [Bakery queue empty, no build](20261011/20261011-023110_bakery-queue-empty-reds-lane-owned-no-build.kyri) | Census green; ruling and reds wait; no build. |
 | `20261011.023115` | [Diffuser, gate held, remote moved, no build](20261011/20261011-023115_diffuser-gate-held-remote-moved-no-build.kyri) | Date, toolchain, remote re-read; no build. |
