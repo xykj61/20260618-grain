@@ -10,6 +10,7 @@
 | `20261010.200131` | [Petrichor, pulled, gate held](20261010/20261010-200131_petrichor-pulled-gate-held-no-build.kyri) | Clean pull; consent gate unchanged; no build. |
 | `20261010.200156` | [Incense, queue held, no build](20261010/20261010-200156_incense-queue-held-no-build.kyri) | Round-open clean; board clear; no keystone open; no build. |
 | `20261010.200324` | [Copal, second measure finds no unrostered witness](20261010/20261010-200324_copal-no-fruit-second-measure.kyri) | 156 witnesses, all rostered; no fruit; no build. |
+| `20261010.200645` | [Pheromone, queue held, third re-read](20261010/20261010-200645_pheromone-queue-held-third.kyri) | Queue held; nib carried; no build. |
 | `20261010.200000` | [Copal, no unrostered chapter witness](20261010/20261010-200000_copal-no-unrostered-chapter-witness.kyri) | 156 witnesses, all rostered; no fruit; no build. |
 | `20261010.200059` | [Bakery, compile-cache census held](20261010/20261010-200059_bakery-compile-cache-census-held.kyri) | Census holds 819/0; 3 of 6 mutations measured; receipt key held for ruling. |
 | `20261010.195917` | [Pheromone, queue held, no build](20261010/20261010-195917_pheromone-queue-held-no-build.kyri) | Queue held; nib carried; no build. |
