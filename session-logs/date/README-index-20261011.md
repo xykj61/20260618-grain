@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.034918` | [Bakery repeat triage, receipt key held](20261011/20261011-034918_bakery-repeat-triage-receipt-key-held.kyri) | Census re-measured; receipt key waits on Keaton; no build. |
 | `20261011.035115` | [Patchouli, gardens main split](20261011/20261011-035115_patchouli-gardens-main-split-at-seams.kyri) | tally gardens main 134 to 63 lines; witness GREEN. |
 | `20261011.035038` | [Petrichor, gate still held, no build](20261011/20261011-035038_petrichor-lane-idle-gate-still-held.kyri) | Gate held; no claim; log only. |
 | `20261011.034753` | [Grass, four heads graded, no build](20261011/20261011-034753_grass-four-heads-graded-no-build.kyri) | Four mycelium heads read A; no frame. |
