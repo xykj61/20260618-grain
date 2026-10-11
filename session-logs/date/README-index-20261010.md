@@ -10,6 +10,7 @@
 | `20261010.225244` | [Copal, fruit closed by roster, no build](20261010/20261010-225244_copal-fruit-closed-by-roster-no-build.kyri) | Fruit closed: 0 unrostered; no build. |
 | `20261010.225303` | [Incense, round-open held](20261010/20261010-225303_incense-round-open-held-no-build.kyri) | Clean at c6b0c7649a; order held; no build. |
 | `20261010.225659` | [Grass, queue empty, round 3, no build](20261010/20261010-225659_grass-queue-empty-round-three-no-build.kyri) | Queue empty; no owned work open; no build. |
+| `20261010.225811` | [Pheromone, repeat read, no build](20261010/20261010-225811_pheromone-repeat-read-no-build.kyri) | Lane read closed again; no code; waits on Incense. |
 | `20261010.225148` | [Bakery, ff to xy, cold reds unbooked, build held](20261010/20261010-225148_bakery-ff-reds-unbooked.kyri) | Claim live; cold reds inherited; check in (Claude) |
 | `20261010.225144` | [Diffuser, fruit held, no new door, no build](20261010/20261010-225144_diffuser-fruit-held-no-new-door.kyri) | Queue read; both held doors wait on Keaton's word; no build. |
 | `20261010.225125` | [Pheromone, lane closed, no build](20261010/20261010-225125_pheromone-lane-closed-recheck-no-build.kyri) | Glow lane closed; no code; waits on Incense. |
