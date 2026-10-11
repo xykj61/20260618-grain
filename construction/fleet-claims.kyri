@@ -52,9 +52,3 @@ format fleet-claims-v1
 # The board opens empty, and the first claim belongs to the next ship that opens a build. Seeding
 # it with this lap's own work would be a claim written after the fact, which is the one thing a
 # declaration may never be.
-claim bakery-shared-build-cache
-seat bakery
-stamp 20261011.114814
-epoch 1791733694
-paths tools/fixtures/s tools/s construction/standing-equipment-receipt.kyri
-what Survey and first bounded step for one shared build and cold-run cache across the eight checkouts (Bakery crux, 20261001).
