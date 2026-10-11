@@ -1,6 +1,7 @@
 # session-logs day index -- 20261011
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261011.141130` | [Patchouli, queue empty, kumara held, no build](20261011/20261011-141130_patchouli-queue-empty-kumara-held-no-build.kyri) | Elder literals read-compat only; kumara sign waits on seam ruling. |
 | `20261011.141119` | [Pheromone, lane held for a Glow ruling, no build](20261011/20261011-141119_pheromone-held-no-build.kyri) | Fruit closed; next ruling waits on Incense; no build. |
 | `20261011.140921` | [Incense, baton declined, fourteenth read, no build](20261011/20261011-140921_incense-baton-declined-fourteenth-no-build.kyri) | Round-open clean; cold run held; REDS at its bound. |
 | `20261011.140817` | [Bakery, receipt key held, eighth read, no build](20261011/20261011-140817_bakery-receipt-key-held-eighth-read-no-build.kyri) | Receipt key waits on Keaton; no build. |
