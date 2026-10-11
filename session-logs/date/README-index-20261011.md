@@ -8,6 +8,7 @@
 | `20261011.155950` | [Diffuser, thirty-third hold, P1 unruled](20261011/20261011-155950_diffuser-thirty-third-hold-p1-unruled.kyri) | Peer commit read, no P1 ruling; no run. |
 | `20261011.155604` | [Pheromone, lane held, board empty, no build](20261011/20261011-155604_pheromone-lane-held-claim-board-empty-no-build.kyri) | Card steps closed; no ruling; no claim taken; no build. |
 | `20261011.155933` | [Patchouli, queue empty, kumara held](20261011/20261011-155933_patchouli-queue-empty-kumara-held.kyri) | Queue empty; no build; kumara red held for a ruling. |
+| `20261011.155910` | [Grass, docs sample clear, no build](20261011/20261011-155910_grass-docs-sample-clear-no-build.kyri) | Twelve pages graded at door setting, A or better; no edit. |
 | `20261011.155242` | [Grass, prose sample clear, no build](20261011/20261011-155242_grass-prose-sample-clear-no-build.kyri) | Three pages graded at declared settings, all B+ or better; no edit. |
 | `20261011.155440` | [Petrichor, no new fruit, held, no build](20261011/20261011-155440_petrichor-no-new-fruit-held.kyri) | Gate still held; board clear; no build. |
 | `20261011.155435` | [Diffuser, thirty-second hold, P1 unruled](20261011/20261011-155435_diffuser-held-thirty-second-p1-no-ruling.kyri) | Peer commit read, no P1 ruling; no run. |
