@@ -25,5 +25,5 @@ file foundations/20261002-111449_lila-and-the-long-return.md -- graded at field 
 file session-logs/date/README-index-20261010.md -- one row prepended beneath the delimiter
 file construction/ITINERARY.md -- Git nib carried forward to HEAD, read before the log commit
 scope one grade of one foundation, one log, one index row, one nib carry; no prose or code change
-status GREEN with no frame: the foundation grades above B on every counted reading; truth judged half unread
+status GREEN with no frame: the foundation grades above B on every counted reading; truth judged half unread. Correction: the work commit pinned its parent before a peer rebase moved it, so the card's Git nib read stale; remember_git_nib_witness went RED until the nib was carried to HEAD in this follow-up
 recommend keep-going -- the audit queue holds only the ordinary move; the next prose surface already open gets its grade
