@@ -186,6 +186,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.133240` | [Petrichor, gate held, sixth hold](20261011/20261011-133240_petrichor-gate-held-sixth-hold-no-build.kyri) | Gate unchanged; no build. |
 | `20261011.132854` | [Pheromone, held, no build](20261011/20261011-132854_pheromone-lane-held-no-build.kyri) | Rune ruling awaits Incense; claim board empty; no build. |
 | `20261011.132845` | [Incense, baton declined, eighth read](20261011/20261011-132845_incense-baton-declined-no-build-8.kyri) | Round-open clean; order unchanged; waits on Keaton. |
 | `20261011.132312` | [Incense, baton declined, no build, eighth read](20261011/20261011-132312_incense-baton-declined-no-build-8.kyri) | Round-open clean; claim board clear; waits on Keaton's word. |
