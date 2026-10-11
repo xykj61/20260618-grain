@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.034607` | [Petrichor, fruit empty again, no build](20261011/20261011-034607_petrichor-fruit-empty-again-no-build.kyri) | Gate held; no claim; log only. |
 | `20261011.034602` | [Patchouli, alloc survey, queue empty](20261011/20261011-034602_patchouli-unbounded-alloc-survey-queue-empty.kyri) | diff.rye bounded; no red; no build. |
 | `20261011.034549` | [Bakery lap, receipt key held, no build](20261011/20261011-034549_bakery-receipt-key-held-no-build.kyri) | Queue gated on Keaton's word; no build; read only. |
 | `20261011.034455` | [Fine capacity grid off powers of two](20261011/20261011-034455_fine-capacity-grid-off-powers-of-two.kyri) | Modulo floor ratio 2.39 to 2.69 at N 64 to 256; coarse 4.00 was quantization. |
