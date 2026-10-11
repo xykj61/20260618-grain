@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.173735` | [Petrichor, gate held, fourth no-build](20261011/20261011-173735_petrichor-gate-held-fourth-no-build.kyri) | Seam still absent; no page; no build. |
 | `20261011.173437` | [Diffuser, forty-fifth hold](20261011/20261011-173437_diffuser-forty-fifth-hold-p1-unruled.kyri) | Fast-forward to aa18ff7c00; P1 unruled. |
 | `20261011.173425` | [Incense, declined, nib carried](20261011/20261011-173425_incense-baton-lap-declined-no-build-nib-carried.kyri) | Board clear; no build. |
 | `20261011.173341` | [Copal, fruit absent fourth lap, no build](20261011/20261011-173341_copal-fruit-absent-fourth-lap-no-build.kyri) | 159 witnesses, 0 unrostered; no build. |
