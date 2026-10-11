@@ -166,6 +166,7 @@
 | Stamp | Log | What it carried |
 | `20261011.124410` | [Bakery, baton repeat, no build](20261011/20261011-124410_bakery-baton-repeat-receipt-verified-no-build.kyri) | Control re-read green; no build. |
 |---|---|---|
+| `20261011.130320` | [Incense, round-open clean, board clear, no build](20261011/20261011-130320_incense-round-open-claim-board-clear-no-build.kyri) | Round-open clean; claim board clear; queue gated; no build. |
 | `20261011.130054` | [Bakery, rebased, crux held, no build](20261011/20261011-130054_bakery-rebased-receipt-key-held-no-build.kyri) | Clean rebase; board empty; ruling waits. |
 | `20261011.125743` | [Pheromone, lane empty, board clear, no build](20261011/20261011-125743_pheromone-lane-empty-no-build.kyri) | Queue empty; zero live claims; the next fruit waits on Incense. |
 | `20261011.125607` | [Patchouli, lane held on two rulings, no build](20261011/20261011-125607_patchouli-lane-held-no-build.kyri) | Catch-up witness GREEN; claims clear; no build. |
