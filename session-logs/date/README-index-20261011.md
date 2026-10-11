@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.032243` | [Line-size sweep, padding holds](20261011/20261011-032243_line-size-sweep-padded-rings.kyri) | Padding flat at 4, 8, 16 cells per line; none fired. |
 | `20261011.032403` | [Bakery, crux held, no build](20261011/20261011-032403_bakery-baton-crux-held-no-build-claim-board-clear.kyri) | Baton read; receipt key held for Keaton; no build. |
 | `20261011.032242` | [Incense, decline, no build](20261011/20261011-032242_incense-decline-no-build.kyri) | Round-open clean; claim board clear; no build. |
 | `20261011.032053` | [Pheromone, ruling waits, no build](20261011/20261011-032053_pheromone-ruling-waits-no-build.kyri) | Lane closed; board empty; Incense ruling open; no build. |
@@ -32,7 +33,6 @@
 | `20261011.030401` | [One radial access](20261011/20261011-030401_one-radial-neighbour-holds-the-ratio.kyri) | Falsifier first; ratio 2.00 at N=256; neither fired. |
 | `20261011.030604` | [Copal, roster re-measured](20261011/20261011-030604_copal-lap-roster-remeasured.kyri) | 158 of 158 rostered again; fruit empty; no claim, no build. |
 | `20261011.030608` | [Incense, round-open and decline](20261011/20261011-030608_incense-round-open-decline-no-build.kyri) | Copal's log fast-forwarded; claim board clear; no build. |
-| `20261011.030109` | [Incense, fast-forward and decline](20261011/20261011-030109_incense-fast-forward-decline-no-build.kyri) | Fast-forward clean; no build; held rows wait on Keaton. |
 | `20261011.030313` | [Copal, no unrostered witness](20261011/20261011-030313_copal-no-unrostered-chapter-witness.kyri) | 158 of 158 chapter witnesses rostered; no claim, no build. |
 | `20261011.030242` | [Petrichor fourth hold](20261011/20261011-030242_petrichor-fourth-hold-no-new-target.kyri) | Gate holds; no new target; no build. |
 | `20261011.025754` | [Patchouli, queue empty](20261011/20261011-025754_patchouli-queue-empty-fire-row-red-840-held.kyri) | Queue empty; red 840 held at pin bound; no build. |
