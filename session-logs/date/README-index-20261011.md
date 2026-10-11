@@ -6,6 +6,7 @@
 | `20261011.190653` | [Petrichor, gate held, no build](20261011/20261011-190653_petrichor-gate-held-no-build.kyri) | Gate held; no run; no build. |
 | `20261011.190714` | [Incense, contract held](20261011/20261011-190714_incense-contract-review-held.kyri) | Round open clean; contract held for a ruling; no build. |
 | `20261011.190843` | [Diffuser held, P1 still unruled](20261011/20261011-190843_diffuser-held-p1-no-ruling-fast-forward.kyri) | Fast-forward brought peer logs only; P1 waits on a ruling; no run. |
+| `20261011.190933` | [Patchouli, queue empty again, no build](20261011/20261011-190933_patchouli-queue-empty-fifteenth-sweep.kyri) | Both nets fresh, nothing new; queue empty; no build. |
 | `20261011.190441` | [Copal, fifth recount, no build](20261011/20261011-190441_copal-fifth-recount-no-build.kyri) | No unrostered witness; card YOURS stale; no build. |
 | `20261011.190138` | [Incense, declines again, queue gated](20261011/20261011-190138_incense-declines-again-queue-gated.kyri) | Round open clean; board empty; no build; queue waits. |
 | `20261011.190309` | [Pheromone, lane empty, ruling awaited, no build](20261011/20261011-190309_pheromone-lane-empty-no-build.kyri) | Lane empty; ruling awaited from Incense; no build. |
