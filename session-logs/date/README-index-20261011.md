@@ -10,6 +10,7 @@
 | `20261011.002315` | [Copal, unrostered recount, no build](20261011/20261011-002315_copal-unrostered-recount-no-build.kyri) | Fruit void, zero unrostered; no build. |
 | `20261011.002051` | [Diffuser, fourth-night band stated, no run](20261011/20261011-002051_diffuser-fourth-night-band-stated-no-run.kyri) | Band 2 to 4 pre-registered; run waits for 20261012; no build. |
 | `20261011.002044` | [Petrichor, gate hold after rebase, no build](20261011/20261011-002044_petrichor-gate-hold-no-build.kyri) | Consent Rail still closed; rebased, push pending; no build. |
+| `20261011.002329` | [Patchouli, kumara red held at pin bound](20261011/20261011-002329_patchouli-kumara-red-held-at-pin-bound-no-build.kyri) | Queue empty; %840 pin still 4 bytes under bound; rulings unchanged. |
 | `20261011.001856` | [Patchouli, queue empty, Kumara red waits](20261011/20261011-001856_patchouli-queue-empty-kumara-red-waits.kyri) | Queue empty again; sign red awaits a ruling. |
 | `20261011.001921` | [Pheromone, lane empty, round open, no build](20261011/20261011-001921_pheromone-lane-empty-round-open-no-build.kyri) | Round open pulled four peer commits; claim board clear; lane parked on Incense ruling; no build. |
 | `20261011.001856` | [Copal, fruit empty on a third reading, no build](20261011/20261011-001856_copal-fruit-empty-no-build.kyri) | Roster re-measured, zero unrostered; %837/%838 stale on that point; no build. |
