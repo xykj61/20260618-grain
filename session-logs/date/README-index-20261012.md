@@ -526,6 +526,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.195033 | [Diffuser P1 held, ff three, no run](20261012/20261012-195033_diffuser-p1-hold-ff-three-no-run.kyri) | P1 unruled; no run; check in (Claude). |
 | 20261012.194814 | [Incense declines after a fast-forward, no build](20261012/20261012-194814_incense-decline-ff-upstream-no-build.kyri) | Fast-forward to 9f8e12c82e; board clear; no build. |
 | 20261012.195033 | [Diffuser P1 held, ff three, no run](20261012/20261012-195033_diffuser-p1-hold-ff-three-no-run.kyri) | P1 unruled; no run; check in (Claude). |
 | 20261012.194559 | [Patchouli queue held by %841 ruling, no build](20261012/20261012-194559_patchouli-queue-held-841-ruling-no-build.kyri) | Sweep clean; REDS %841 ruling owed; no build. |
