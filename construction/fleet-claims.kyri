@@ -52,3 +52,9 @@ format fleet-claims-v1
 # The board opens empty, and the first claim belongs to the next ship that opens a build. Seeding
 # it with this lap's own work would be a claim written after the fact, which is the one thing a
 # declaration may never be.
+claim copal-tigerbeetle-static-alloc-roster
+seat copal
+stamp 20261011.201131
+epoch 1791763891
+paths tools/gen/chapter/tigerbeetle_static_alloc_census_witness.rish construction/standing-equipment.kyri
+what Roster tools/gen/chapter/tigerbeetle_static_alloc_census_witness.rish (the e33 static-alloc census), the last unrostered witness copal took, with its absent-clone skip proven from both sides.
