@@ -446,6 +446,15 @@ class or take a ruled item.
 count at `max_room_declarations`. The other is a comment. No unbounded recursion stands, so no red is
 booked. The next lap should widen to another class rather than repeat this one.
 
+**The function-length class, measured `20261012.020628`: ten production functions breach 70 lines.** A
+brace-depth read over the non-witness `.rye` files of `mantra/` and `tally/` finds ten. The largest is
+`apply` at 265 lines in `mantra/src/weave.rye`, the lane's central module, then `merge` at 118 and
+`from_v2` at 91 in the same file. Seven more are `run_selftest` harnesses in non-witness files. The
+split of `apply` crosses the weave seam and wants a claim and the module witnesses run before it lands,
+so this lap books it as the next candidate and builds nothing. The reading is rough, since an
+indent-matched brace can miss a body that closes on a shared line. Re-run it rather than trusting this
+paragraph.
+
 ## gates
 
 Keys, funds, provisioning, identity, and the public seed stay manual.
