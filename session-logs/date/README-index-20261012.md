@@ -14,6 +14,7 @@
 |---|---|---|
 | `20261012.054841` | [Grass, inner page B+, no build](20261012/20261012-054841_grass-inner-b-plus-no-build.kyri) | Inner page graded B+/89 at Field; queue empty; no build. |
 | `20261012.055010` | [Pheromone, lane empty, no build](20261012/20261012-055010_pheromone-lane-empty-no-build.kyri) | Lane and board empty; ff clean; card nib carried; no build. |
+| `20261012.054936` | [Bakery, witness GREEN, no build](20261012/20261012-054936_bakery-witness-green-check-in.kyri) | Shared-cache witness re-run GREEN; owed inputs still ruled; nib to HEAD; no build. |
 | `20261012.054408` | [Incense, baton declined, nib carried, no build](20261012/20261012-054408_incense-baton-declined-nib-carried.kyri) | Round-open clean, clock all in, card nib to HEAD; lane gated; no build. |
 | `20261012.054430` | [Patchouli, queue empty again, no build](20261012/20261012-054430_patchouli-queue-empty-no-build.kyri) | Fresh sweep empty; %807 and %765 await Keaton; no build. |
 | `20261012.054410` | [Copal, fruit exhausted, ninth, no build](20261012/20261012-054410_copal-fruit-ninth-reading-no-build.kyri) | Zero unrostered witnesses; the fruit needs a ruling. |
