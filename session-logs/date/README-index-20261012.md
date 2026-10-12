@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.051250` | [Diffuser, P1 hold, no run](20261012/20261012-051250_diffuser-p1-hold-no-run-check-in-claude.kyri) | ff to 8953a20995; no P1 ruling; check in (Claude). |
 | `20261012.051146` | [Copal, fruit rechecked, still spent, no build](20261012/20261012-051146_copal-fruit-rechecked-no-build.kyri) | 159 of 159 witnesses rostered by path; prin ticker GREEN; check in (Claude). |
 | `20261012.051106` | [Patchouli, send race, nib carried to HEAD](20261012/20261012-051106_patchouli-send-race-nib-carry.kyri) | Two rebases on peer pushes; card nib pinned to 1fb40152f6, the follow-up's parent. |
 | `20261012.050812` | [Diffuser, orbit 11, P1 unruled, no run](20261012/20261012-050812_diffuser-hold-p1-unruled-orbit-11-no-run.kyri) | ff to bb4708386b; no P1 ruling; check in (Claude). |
