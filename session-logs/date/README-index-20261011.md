@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261011.233339` | [Copal, fruit empty](20261011/20261011-233339_copal-fruit-empty-recount-rostered-witness-no-build.kyri) | Zero unrostered; witness GREEN; no build. |
 | `20261011.233407` | [Diffuser, P1 unruled, tree clean, no fruit, no run](20261011/20261011-233407_diffuser-hold-p1-unruled-no-fruit-no-run.kyri) | Read pass; P1 and Consent Rail unruled; no run. |
+| `20261011.233358` | [Patchouli, queue empty again, no build](20261011/20261011-233358_patchouli-queue-empty-thirteenth-net-no-build.kyri) | Fresh -v sweep, one test literal; no build. |
 | `20261011.233346` | [Incense, baton declined, no build](20261011/20261011-233346_incense-baton-declined-seventieth-no-build.kyri) | Board clear; reads only; no build. |
 | `20261011.233230` | [Grass grades pin B+, 20261006 shelf held](20261011/20261011-233230_grass-pin-grade-dead-shelf-held.kyri) | Pin B+; dead 20261006 link held for Keaton. |
 | `20261011.233015` | [Petrichor, gate held, no build](20261011/20261011-233015_petrichor-gate-held-no-build.kyri) | Gate unruled upstream; ff; no build. |
