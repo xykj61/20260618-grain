@@ -8,6 +8,7 @@
 | `20261012.084844` | [Patchouli, queue empty a 26th way](20261012/20261012-084844_patchouli-queue-empty-26th-way.kyri) | Lane grep nets clean; no build; check in (checkpoint). |
 | `20261012.084814` | [Pheromone, water row tastes the lane, no build](20261012/20261012-084814_pheromone-water-row-tastes-no-build.kyri) | Steps one to three closed; card step three still reads open; no build. |
 | `20261012.084810` | [Diffuser, P1 stall after ff of three peers, no run](20261012/20261012-084810_diffuser-p1-stall-ff-peers-no-run.kyri) | Peers only; P1 ruling still owed; no run. |
+| `20261012.084950` | [Bakery, census path-independent, no build](20261012/20261012-084950_bakery-cache-census-reading-no-build.kyri) | compile layer shares; receipt sharing unruled |
 | `20261012.084659` | [Petrichor, consent facts verified, no build](20261012/20261012-084659_petrichor-consent-facts-verified-no-build.kyri) | Gate commits verified on the tree; rail ruling still waits; no build. |
 | `20261012.084437` | [Incense, declined, cold run held, no build](20261012/20261012-084437_incense-declined-no-build-cold-held.kyri) | Clean round-open; claim board clear; no build; ruling asked. |
 | `20261012.084014` | [Patchouli, queue empty a 25th way](20261012/20261012-084014_patchouli-queue-empty-tidy-bans-clean.kyri) | Tidy-ban class clean; no code moved; queue waits on Keaton. |
