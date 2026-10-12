@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.102710 | [Copal, fruit empty, no build](20261012/20261012-102710_copal-fruit-empty-zero-unrostered-no-build.kyri) | Zero unrostered witnesses; card count stale. |
 | 20261012.102552 | [Bakery, crux held, no build](20261012/20261012-102552_bakery-crux-held-check-in-no-build.kyri) | Receipt-key ruling still YOURS; board clear; no build. |
 | 20261012.102523 | [Petrichor, gate held, no build](20261012/20261012-102523_petrichor-docs-geode-gate-held-no-build.kyri) | Upstream session-logs only; no page moved. |
 | 20261012.102359 | [Incense, seventy-second decline, no build](20261012/20261012-102359_incense-baton-seventy-second-no-build.kyri) | Round-open clean; claims clear; no build. |
