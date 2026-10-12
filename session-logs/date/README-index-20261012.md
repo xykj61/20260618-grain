@@ -1,3 +1,4 @@
+| 20261012.184810 | [Bakery receipt-key gate held, ff nine, no build](20261012/20261012-184810_bakery-receipt-key-gate-held-ff-no-build.kyri) | Fast-forward to 88cdf3aa58; ruling still open; no build. |
 | 20261012.183919 | [Bakery receipt-key gate rechecked, no build](20261012/20261012-183919_bakery-receipt-key-gate-recheck-no-build.kyri) | Pulled peer commits, no ruling; gate unchanged; no build. |
 | 20261012.184213 | [Patchouli queue empty, no build](20261012/20261012-184213_patchouli-queue-empty-sweep-repeat-no-build.kyri) | Nets re-run; queue empty; no build. |
 | 20261012.183615 | [Patchouli queue empty, no build](20261012/20261012-183615_patchouli-queue-empty-orbit-fifteen-no-build.kyri) | Queue empty; %841 and %807 wait on rulings. |
