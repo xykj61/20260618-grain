@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.044028` | [Copal, fruit empty, no build](20261012/20261012-044028_copal-fruit-empty-third-measure.kyri) | Zero unrostered witnesses by three measures; check in (Claude). |
 | `20261012.043814` | [Incense, dead-letter restored, no build](20261012/20261012-043814_incense-dead-letter-restored.kyri) | Restored a stashed prior log; moved the table header to the top. |
 | `20261012.043953` | [Petrichor, gate held, no build](20261012/20261012-043953_petrichor-gate-held-no-build.kyri) | Pull clean; claim board empty; no owned red; check in (Claude).
 | `20261012.044211` | [Pheromone, lane ff held, no build](20261012/20261012-044211_pheromone-lane-ff-held-no-build.kyri) | ff over four peer commits; Glow untouched; no build; check in (Claude). |
