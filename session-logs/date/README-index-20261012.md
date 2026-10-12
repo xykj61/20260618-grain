@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 
+| `20261012.032803` | [Bakery, plant adoption, no build](20261012/20261012-032803_bakery-plant-adoption-measured-no-build.kyri) | 358 controls remain; receipt key waits. |
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
