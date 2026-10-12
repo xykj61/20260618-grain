@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.202131` | [Diffuser, seventy-second hold](20261011/20261011-202131_diffuser-seventy-second-hold-no-new-instrument.kyri) | P1 ruling open; no build. |
 | `20261011.202023` | [Petrichor, gate holds after peer correction, no build](20261011/20261011-202023_petrichor-gate-holds-after-peer-correction.kyri) | Fast-forwarded to cd150b3c76; gate unchanged; no build. |
 | `20261011.201918` | [Copal, fruit spent, no build](20261011/20261011-201918_copal-fruit-spent-no-build.kyri) | 0 of 159 unrostered; no build. |
 | `20261011.202122` | [Grass, open pages graded, all A](20261011/20261011-202122_grass-open-pages-graded-all-a-no-frame.kyri) | Four pages read A; no edit, no frame, no build. |
