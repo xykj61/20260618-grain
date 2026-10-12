@@ -8,6 +8,7 @@
 | 20261012.094448 | [Patchouli, queue re-read empty, no build](20261012/20261012-094448_patchouli-queue-recheck-no-build.kyri) | Live red and pin headroom unchanged; no code moved. |
 | 20261012.094305 | [Pheromone, limb10 reconfirmed](20261012/20261012-094305_pheromone-limb10-reconfirmed-lane-empty.kyri) | Limb10 GREEN; lane empty; no build. |
 | 20261012.094250 | [Bakery, crux window held, no build](20261012/20261012-094250_bakery-crux-window-held-no-build.kyri) | Window still YOURS; cold plus hot exceeds 5,400 s; no build. |
+| 20261012.094243 | [Copal fruit third read, spent, no build](20261012/20261012-094243_copal-chapter-fruit-third-read-no-build.kyri) | No unrostered witness; no build. |
 | 20261012.094049 | [Incense, declined](20261012/20261012-094049_incense-declined-round-open-nib-carried-no-build.kyri) | Round-open clean at e319b8d143; board empty; nib carried; no build. |
 | 20261012.094048 | [Patchouli, queue empty again, no build](20261012/20261012-094048_patchouli-queue-empty-no-build.kyri) | Open lane rows await Keaton or other lanes; no code moved. |
 | 20261012.094022 | [Diffuser P1 owed, no run](20261012/20261012-094022_diffuser-p1-ruling-owed-restate-or-retire-no-run.kyri) | P1 unsatisfiable on 8-25; ruling owed; no run. |
