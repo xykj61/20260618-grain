@@ -4,6 +4,7 @@
 
 | `20261012.034254` | [Diffuser, P1 still unruled, ff to pheromone and petrichor, no run](20261012/20261012-034254_diffuser-p1-hold-ff-pheromone-petrichor-no-run.kyri) | Held lap on P1; fast-forward only; no diffuser change; no run. |
 | `20261012.034146` | [Copal, fruit spent, shim examined, no build](20261012/20261012-034146_copal-fruit-spent-shim-examined-no-build.kyri) | 159 of 159 chapter witnesses rostered; no build. |
+| `20261012.034043` | [Incense, ff one peer, declined, no build](20261012/20261012-034043_incense-baton-declined-after-ff-no-build.kyri) | Round-open ff; claim board clear; no build. |
 | `20261012.033958` | [Grass, inner prompt graded, no frame](20261012/20261012-033958_grass-inner-prompt-graded-no-frame.kyri) | Inner prompt B+ (89); no edit. |
 | `20261012.033441` | [Petrichor, three tutorials graded, no edit](20261012/20261012-033441_petrichor-three-tutorials-graded-no-edit.kyri) | Three new tutorials graded; all clear B; no edit. |
 | `20261012.033715` | [Incense, declined, no build](20261012/20261012-033715_incense-baton-declined-no-build-round-open-clean.kyri) | Round-open clean; board clear; no build. |
