@@ -27,6 +27,7 @@ orbit round 9 sign -- Sagittarius, fire talent: the mission, said in Bhakta, Gau
 file construction/REDS.md why the kumara red now has a row, %841, above the build-cache row %840
 file recursion-prompts/patchouli-inner.md why the next lap is told the function-length candidate was already split
 file session-logs/date/20261012/20261012-123459_patchouli-kumara-red-booked-841.kyri why this lap's record
+obs send: the book commit landed as fc5f36acc1 and reached xy/main; two contested rebases on the day index and one nib line moved under peers' rows in the same minutes. The follow-up nib commit then landed at 0eb70b6efd, one commit past a peer's 1fecc39d6f, so the card names fc5f36acc1, two commits behind HEAD. This is the contested-send half that REDS %803 leaves open.
 scope booking one red and recording a stale candidate; no code, no witness of a build
 status GREEN for the REDS spine witness (verdict=ok, 17 cases) and the citation and dated-spelling witnesses; the red stays OPEN; no build claimed. RED, pre-existing and not caused by this lap: tools/in/index_row_bound_witness.rish reads rows_over=245 and rows_misordered=81 on the day shelf README-index-20261012.md at HEAD b66eddd238 after the rebase; this lap's row is 172 bytes and newest-first, and is not among them. Unbooked: the pin has 99 bytes of headroom, so the red waits on a fold.
 recommend check in (Claude) -- rule whether legacy tally/kumara.rye sign may change its return type across the amphora, aurora and comlink callers, which decides REDS %841
