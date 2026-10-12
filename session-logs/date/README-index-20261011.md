@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261011.204021` | [Copal, fruit spent, third recheck, no build](20261011/20261011-204021_copal-fruit-spent-third-recheck-no-build.kyri) | Fruit spent; no build. |
 | `20261011.204111` | [Diffuser, P1 awaits a ruling](20261011/20261011-204111_diffuser-hold-p1-awaits-ruling.kyri) | Held lap; no ruling on card; no build. |
+| `20261011.204246` | [Patchouli, queue empty a sixteenth way](20261011/20261011-204246_patchouli-queue-empty-sixteenth-sweep.kyri) | Fresh sweep, OPEN rows re-read; no build. |
 | `20261011.203630` | [Patchouli, queue empty a fifteenth way](20261011/20261011-203630_patchouli-queue-empty-fifteenth-sweep.kyri) | Fresh sweep, no new family; no build. |
 | `20261011.203841` | [Grass, inner page third regrade, no build](20261011/20261011-203841_grass-regrade-repeat-no-build.kyri) | Field 77, reach 90; queue empty. |
 | `20261011.204013` | [Pheromone, fifth hold, no build](20261011/20261011-204013_pheromone-fifth-hold-lane-waits-no-build.kyri) | Lane closed; ruling waits; no build. |
