@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.023038` | [Bakery, six-miss ruling framed, no build](20261012/20261012-023038_bakery-six-miss-ruling-recommendation-no-build.kyri) | Overlay refusal framed for the Claude check-in; no build. |
 | `20261012.022723` | [Incense, stall flagged, no build](20261012/20261012-022723_incense-baton-stall-flagged-no-build.kyri) | Board clear; stall on Keaton's word named; no build. |
 
 | `20261012.022738` | [Grass lap, queue empty, no build](20261012/20261012-022738_grass-lap-queue-empty-no-build.kyri) | Queue empty per inner prompt; nib carried to upstream tip; no build. |
