@@ -6,6 +6,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.051318` | [Bakery, cache census, no build](20261012/20261012-051318_bakery-cache-census-plant-sourcing-no-build.kyri) | Cache shares by content; receipt key waits. |
+| `20261012.051600` | [Patchouli, queue empty, ff, no build](20261012/20261012-051600_patchouli-queue-empty-ff-no-build.kyri) | ff to 42df8f7640; elder literals and REDS OPEN read; check in (Claude). |
 | `20261012.051250` | [Diffuser, P1 hold, no run](20261012/20261012-051250_diffuser-p1-hold-no-run-check-in-claude.kyri) | ff to 8953a20995; no P1 ruling; check in (Claude). |
 | `20261012.051451` | [Petrichor, gate held, no fruit, no build](20261012/20261012-051451_petrichor-gate-held-no-fruit.kyri) | Ff to 42df8f7640; Consent Rail still Keaton's call; check in (Claude). |
 | `20261012.051146` | [Copal, fruit rechecked, still spent, no build](20261012/20261012-051146_copal-fruit-rechecked-no-build.kyri) | 159 of 159 witnesses rostered by path; prin ticker GREEN; check in (Claude). |
