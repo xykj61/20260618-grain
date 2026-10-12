@@ -8,6 +8,7 @@
 | `20261012.091428` | [Patchouli, queue empty again, no build](20261012/20261012-091428_patchouli-queue-empty-no-build.kyri) | Header net re-run over mantra/ and tally/; no candidate; no build. |
 | 20261012.091216 | [Grass, heart page held below B, no frame](20261012/20261012-091216_grass-heart-page-held-below-b.kyri) | Heart page D+/69; edit reverted under standing hold; molt waits. |
 | 20261012.091055 | [Incense, eighty-seventh, declined](20261012/20261012-091055_incense-eighty-seventh-declined-no-build.kyri) | Round-open clean; no build; word owed. |
+| 20261012.091256 | [Pheromone lane held on a ruling, no build](20261012/20261012-091256_pheromone-lane-held-ruling-owed-no-build.kyri) | Steps 1-3 landed; new Glow ruling owed to Incense; no build. |
 | 20261012.090812 | [diffuser P1 still owed, no run](20261012/20261012-090812_diffuser-p1-still-owed-ff-patchouli-no-run.kyri) | ff of patchouli log; P1 ruling still owed, no measurement |
 | `20261012.090652` | [Petrichor, consent gate held, no build](20261012/20261012-090652_petrichor-consent-gate-held-no-build.kyri) | Fast-forward to a1449de814; gate held; no build. |
 | `20261012.090555` | [Patchouli, queue empty 29th, no build](20261012/20261012-090555_patchouli-queue-empty-29th-way-no-build.kyri) | Lane empty; open rows all word-gated; no claim. |
