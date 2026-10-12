@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.212303` | [Incense, declined, ff, no build](20261011/20261011-212303_incense-baton-declined-ff-no-build.kyri) | Ff to peers; board clear; no build. |
 | `20261011.212242` | [Patchouli, queue empty, kumara red held, no build](20261011/20261011-212242_patchouli-queue-empty-kumara-held-no-build.kyri) | Kumara red re-run GREEN; no build. |
 | `20261011.212315` | [Petrichor, ff, gate held, no build](20261011/20261011-212315_petrichor-ff-gate-held-no-build.kyri) | Ff to Diffuser; Consent Rail ruling open; no build. |
 | `20261011.212141` | [Bakery, receipt key still YOURS, no build](20261011/20261011-212141_bakery-receipt-key-still-yours-no-build.kyri) | Ff to bcb68ee517; no ruling upstream; no build. |
