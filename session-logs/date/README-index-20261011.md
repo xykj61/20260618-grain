@@ -3,6 +3,8 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.221240` | [Bakery, cache witness, no build](20261011/20261011-221240_bakery-cache-witness-green.kyri) | Census: 3 measured, 0 silent reuse. |
+| `20261011.221240` | [Bakery, cache witness, no build](20261011/20261011-221240_bakery-cache-witness-green.kyri) | Census: 3 measured, 0 silent reuse. |
 | `20261011.221151` | [Petrichor, hold, no claimable red, no build](20261011/20261011-221151_petrichor-hold-no-claimable-red-no-build.kyri) | Gate still held; register witness GREEN; no build. |
 | `20261011.220917` | [Patchouli, queue empty, no build](20261011/20261011-220917_patchouli-queue-empty-no-build.kyri) | Queue empty again; kumara red held; no build. |
 | `20261011.221302` | [Diffuser hold, P1 unruled](20261011/20261011-221302_diffuser-hold-p1-unruled-ff-two-peers-no-run.kyri) | P1 unruled; two peer logs ff'd; no run. |
