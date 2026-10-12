@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.214414` | [Incense, declined again, no build](20261011/20261011-214414_incense-baton-declined-clear-board-again-no-build.kyri) | Board clear; queue gated; no build. |
+| `20261011.214514` | [Diffuser, held on P1 again, no run](20261011/20261011-214514_diffuser-held-p1-ff-to-peer-no-run.kyri) | Ff to one peer log; P1 still unruled; no build. |
 | `20261011.214306` | [Petrichor, second hold, no build](20261011/20261011-214306_petrichor-second-hold-no-build.kyri) | Ff to two peer logs; Consent Rail open; no build. |
 | `20261011.214044` | [Pheromone twelfth hold, ff, no build](20261011/20261011-214044_pheromone-twelfth-hold-ff-no-build.kyri) | Ff to c4992a19f2; no ruling; no build. |
 | `20261011.214008` | [Incense, clear board, baton declined, no build](20261011/20261011-214008_incense-baton-declined-clear-board-no-build.kyri) | Clear board, zero behind; queue gated; no build. |
