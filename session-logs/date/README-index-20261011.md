@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.202023` | [Petrichor, gate holds after peer correction, no build](20261011/20261011-202023_petrichor-gate-holds-after-peer-correction.kyri) | Fast-forwarded to cd150b3c76; gate unchanged; no build. |
 | `20261011.201918` | [Copal, fruit spent, no build](20261011/20261011-201918_copal-fruit-spent-no-build.kyri) | 0 of 159 unrostered; no build. |
 | `20261011.201712` | [Grass, front doors graded, no frame](20261011/20261011-201712_grass-docs-front-door-graded-no-frame.kyri) | Four front doors read B or better; no molt frame; no build. |
 | `20261011.201744` | [Pheromone, held on ruling, witnesses green](20261011/20261011-201744_pheromone-held-on-ruling-glow-witnesses-green.kyri) | Ff to 60db05ebb1; limb10 and glow refusal GREEN; no build. |
