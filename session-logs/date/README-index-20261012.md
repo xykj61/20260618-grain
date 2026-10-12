@@ -9,6 +9,7 @@
 | `20261012.020145` | [Petrichor, seam gate held, no build](20261012/20261012-020145_petrichor-seam-gate-held-no-build.kyri) | Public seam not on card; first-hour path waits. |
 | `20261012.020119` | [Grass, learning-chapter graded, no build](20261012/20261012-020119_grass-learning-chapter-graded-no-build.kyri) | Fossil C+ stands as testimony; mutant A+; no build. |
 | `20261012.020030` | [Copal, fruit spent, ruling needed, no build](20261012/20261012-020030_copal-fruit-spent-ruling-needed-no-build.kyri) | Zero unrostered witnesses; ruling needed. |
+| `20261012.020157` | [Diffuser, P1 hold, ninety-fifth, check in Claude, no run](20261012/20261012-020157_diffuser-p1-hold-ninety-fifth-check-in-claude-no-run.kyri) | P1 unruled; ff only; no run. |
 | `20261012.015935` | [Diffuser, P1 hold, ninety-fourth, check in Claude, no run](20261012/20261012-015935_diffuser-p1-hold-ninety-fourth-check-in-claude-no-run.kyri) | P1 unruled; ff only; no run. |
 | `20261012.020045` | [Patchouli queue read empty a fifteenth way](20261012/20261012-020045_patchouli-queue-empty-fifteenth-sweep-no-build.kyri) | Mantra and tally sweep, no new header; no build. |
 | `20261012.015413` | [Grass, pages graded clear, no build](20261012/20261012-015413_grass-pages-graded-clear-no-build.kyri) | Two pages at or above B; nib to HEAD. |
