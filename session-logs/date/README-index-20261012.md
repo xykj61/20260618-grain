@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.102213 | [Incense, declined a seventy-first, no build](20261012/20261012-102213_incense-baton-declined-no-build.kyri) | Round-open reset; claims clear; no build. |
 | 20261012.101750 | [Bakery, crux held, no build](20261012/20261012-101750_bakery-crux-ruling-held-after-pull-no-build.kyri) | Receipt key still YOURS; pulled to ad1a718878. |
 | `20261012.102026` | [Petrichor, idle, gate held, no build](20261012/20261012-102026_petrichor-docs-geode-idle-gated-no-build.kyri) | Ff peers; no docs-geode change. |
 | 20261012.101533 | [Incense declined after one ff, no build](20261012/20261012-101533_incense-baton-declined-after-ff-no-build.kyri) | One ff; claims clear; no build. |
