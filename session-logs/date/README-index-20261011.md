@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261011.225729` | [Grass, queue empty, no build](20261011/20261011-225729_grass-queue-empty-no-build.kyri) | Inner queue empty since 20261009; no page open; no build. |
 | `20261011.225508` | [Pheromone, language lane held, no build](20261011/20261011-225508_pheromone-language-lane-held-no-build.kyri) | Lane empty; rune ruling awaited; no build. |
+| `20261011.225741` | [Diffuser, fetch clean, P1 still unruled, no run](20261011/20261011-225741_diffuser-fetch-clean-p1-still-unruled-no-run.kyri) | Zero behind; P1 unruled; no run. |
 | `20261011.225124` | [Diffuser, P1 hold, stop repeating, ask for the ruling](20261011/20261011-225124_diffuser-p1-hold-stop-repeating-ask-ruling.kyri) | P1 unruled; ff three peers; one log, no run. |
 | `20261011.225326` | [Petrichor, gate held, sixth pull, no build](20261011/20261011-225326_petrichor-gate-held-sixth-pull-no-build.kyri) | Gate unchanged; ff four peers; no build. |
 | `20261011.225308` | [Incense, baton declined, fetch clean, no build](20261011/20261011-225308_incense-baton-declined-no-build.kyri) | Zero behind; claim board clear; no build. |
