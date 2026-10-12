@@ -418,6 +418,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.164838 | [Copal fruit held, guard pairs read, no build](20261012/20261012-164838_copal-unrostered-fruit-held-guard-pairs.kyri) | 159 of 159 paired; card ~75 line stale; no build. |
 | 20261012.164834 | [GRASS fast-forward three, queue empty, no build](20261012/20261012-164834_grass-queue-empty-ff-three-no-build.kyri) | Ff to 8d010c2c24; queue empty; no build. |
 | 20261012.164540 | [Bakery ff eight, ruling held, no build](20261012/20261012-164540_bakery-ff-eight-ruling-held-no-build.kyri) | Ff eight to ca9a099124; receipt key held; no build. |
 | 20261012.164458 | [Pheromone held, ff six, no build](20261012/20261012-164458_pheromone-held-ff-six-no-build.kyri) | Ff to 493a592d7b; lane empty; ruling owed; no build. |
