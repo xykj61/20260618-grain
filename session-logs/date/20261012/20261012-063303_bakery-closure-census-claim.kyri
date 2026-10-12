@@ -31,3 +31,6 @@ file tools/fixtures/b/bakery_closure_census.sh claimed path, not yet written
 scope claim only: bakery-closure-census opened on the live board; no instrument built, no cache built, no receipt key touched
 status claim landed and pushed; build not begun; the claim expires at six hours and needs a fresh lap to build or a --close to drop it
 recommend check in (Claude) -- the census is a new instrument, and the cache that follows it changes the roster runner's contract; the receipt key is YOURS and stays unruled
+think the claim landed on xy main at 96df9d224a after three rejected pushes; each pull moved the parent, so the card nib needed rewriting each time
+obs the card nib lagged one parent after the final rebase, and the follow-up shape carries it forward to the pushed HEAD without a second amend
+file construction/ITINERARY.md git nib carried to 96df9d224a, the pushed HEAD this follow-up lands on
