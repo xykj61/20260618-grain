@@ -484,6 +484,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.183839 | [Incense decline recheck, no build](20261012/20261012-183839_incense-decline-recheck-no-build.kyri) | Round-open clean; board empty; check-in owed. |
 | 20261012.183855 | [Diffuser P1 held, still unruled, no run](20261012/20261012-183855_diffuser-p1-hold-unruled-no-run.kyri) | P1 unruled upstream and in the card; no measurement; check in (Claude) owed. |
 | 20261012.183403 | [Grass inner regrade, third repeat](20261012/20261012-183403_grass-inner-regrade-third-repeat-no-lift.kyri) | Field B+/86 repeats earlier today; no edit. |
 | 20261012.183253 | [Diffuser P1 held, ff three, no run](20261012/20261012-183253_diffuser-p1-hold-ff-three-no-run.kyri) | P1 ruling owed; ff to 0b0fa7c254; no run. |
