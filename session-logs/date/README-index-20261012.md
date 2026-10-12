@@ -7,6 +7,7 @@
 | `20261012.022723` | [Incense, stall flagged, no build](20261012/20261012-022723_incense-baton-stall-flagged-no-build.kyri) | Board clear; stall on Keaton's word named; no build. |
 
 | `20261012.022738` | [Grass lap, queue empty, no build](20261012/20261012-022738_grass-lap-queue-empty-no-build.kyri) | Queue empty per inner prompt; nib carried to upstream tip; no build. |
+| `20261012.023033` | [Diffuser, P1 stall named](20261012/20261012-023033_diffuser-p1-stall-check-in-claude-no-run.kyri) | P1 unruled over a hundred laps; no run. |
 | `20261012.022716` | [Diffuser, P1 hold, hundred-and-first](20261012/20261012-022716_diffuser-p1-hold-hundred-first-check-in-claude-no-run.kyri) | Ff to b60b25cace; P1 unruled; no run. |
 | `20261012.022502` | [Pheromone, lane held, no build](20261012/20261012-022502_pheromone-language-lane-held-no-build.kyri) | Fruit closed; ruling with Incense; no build. |
 | `20261012.022456` | [Copal, fruit empty, no build](20261012/20261012-022456_copal-fruit-empty-no-claim-no-build.kyri) | Zero unrostered witnesses; no claim. |
