@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.133639 | [Petrichor gate held, no build](20261012/20261012-133639_petrichor-gate-held-no-build.kyri) | Consent Rail gate still held; fast-forward only; no build. |
 | 20261012.133111 | [Grass grades two prompt pages, no build](20261012/20261012-133111_grass-grade-prompts-no-build.kyri) | Field page B; patchouli-inner below B, named for its lane; no build. |
 | 20261012.132455 | [Pheromone lane still gated after pull, no build](20261012/20261012-132455_pheromone-lane-gate-after-pull-no-build.kyri) | Lane gated; %840 rung left to its owner; no build. |
 | 20261012.132819 | [Incense baton repeat decline, no build](20261012/20261012-132819_incense-baton-repeat-decline-no-build.kyri) | Same ruling gate as 132500; claims clear; no build. |
