@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.205632` | [Pheromone, seventh hold, no build](20261011/20261011-205632_pheromone-seventh-hold-air-row-no-build.kyri) | Lane closed; no ruling upstream; no build. |
 | `20261011.210035` | [Copal, fruit still spent, no build](20261011/20261011-210035_copal-fruit-still-spent-no-build.kyri) | 0 unrostered by path; no build. |
 | `20261011.210055` | [Diffuser, held again, P1 still unruled, ff only](20261011/20261011-210055_diffuser-held-ff-p1-unruled-again.kyri) | Ff-only pull; no ruling; no run. |
 | `20261011.205751` | [Petrichor, queue held, no build](20261011/20261011-205751_petrichor-queue-held-no-build.kyri) | Gate still held; no build. |
