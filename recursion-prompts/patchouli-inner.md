@@ -459,6 +459,17 @@ paragraph.
 
 **The queue reads empty again, `20261012.031016`, and the fire row sees the held red.** The council row for this lap is fire, which sees. What it sees is the kumara red from `20261010.152007`: `tally/kumara.rye:36` still reads `return kp.sign(message, noise) catch unreachable`, the legacy `sign` a caller can reach with a mismatched pair. That red is real and not yet in `construction/REDS.md`. The ledger pin already stands at 65,532 bytes, and a booked row there means folding shared rows, which eight ships read. So the row stays held for Keaton's ruling on headroom and on the legacy return type, as the `20261010` entry says. No new candidate turned up in `mantra/` or `tally/`.
 
+**A fresh class with a live fault, `20261012.070214`: a silent error swallow in the source loop.**
+`mantra/recall_subscribe_poll_delivery.rye` `run_source_loop_with_catalog` wrapped its receive in
+`catch continue`, which swallowed every error, not only the normal idle timeout. Measured on metal:
+with the source port held by another socket, the old binary burned 2.79 CPU-seconds in 3 seconds,
+printed nothing, and never exited. The catch now continues only on `error.RecvFailed` and returns
+every other error. The occupied-port run exits 1 with `BindFailed`. Five Caravan and four mantra
+subscribe-poll witnesses read GREEN. The matching REDS row is held, since the pin reads 65,532 of
+65,536 bytes; the three fields are in the `20261012.070214` session log for the ruling. The next lap
+should check `run_source_loop` in `recall_catch_up_delivery.rye` and `snapshot_export_delivery.rye`
+for the same shape.
+
 ## gates
 
 Keys, funds, provisioning, identity, and the public seed stay manual.

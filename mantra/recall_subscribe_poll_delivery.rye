@@ -395,7 +395,12 @@ fn run_selftest(_: std.Io) !u8 {
 fn run_source_loop_with_catalog(src: *ns.BoltCatalog) !u8 {
     while (true) {
         var wire: [@intCast(wf.wire_capacity)]u8 = undefined;
-        const wire_len = recv_wire_timeout(source_port, &wire, 2) catch continue;
+        // invariant: only a receive timeout (RecvFailed) is the normal idle wait and may loop. A bind or
+        // socket-option failure is a fault that would otherwise retry at full speed with no output, so it escapes.
+        const wire_len = recv_wire_timeout(source_port, &wire, 2) catch |err| switch (err) {
+            error.RecvFailed => continue,
+            else => return err,
+        };
         if (wire_len < wf.off_cipher or wire_len > wf.wire_capacity) return error.RecvFailed;
 
         var opened: [@intCast(wf.max_message)]u8 = undefined;
