@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.093352 | [Pheromone, lane empty, no build](20261012/20261012-093352_pheromone-lane-empty-no-build.kyri) | Language lane empty on the ff-pulled card; no code moved; check in (Claude). |
+| 20261012.093246 | [Diffuser P1 hold, ff three peers, check in](20261012/20261012-093246_diffuser-p1-hold-ff-three-peers-check-in.kyri) | P1 still unruled; no run; check in (Claude). |
 | 20261012.093143 | [Petrichor, gate held, ff, no build](20261012/20261012-093143_petrichor-gate-held-ff-no-build.kyri) | Consent gate still Diffuser's; seam not landed; no build. |
 | 20261012.092958 | [Patchouli, queue empty, no build](20261012/20261012-092958_patchouli-queue-empty-no-build.kyri) | Version-literal net clean; queue empty a 28th lap; no build. |
 | 20261012.092750 | [Incense ninety-second, declined, no build](20261012/20261012-092750_incense-ninety-second-declined-no-build.kyri) | Round-open clean at 30033786df; clock in; no build. |
