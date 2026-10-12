@@ -10289,3 +10289,11 @@ guard sunn14_witness_choir
 path tools/gen/chapter/sunn14_witness_choir.rish
 tier cadence
 seated 20261012.023136
+
+# brush_parse_tame_density -- the Surface p24 living floor: brushstroke/brush_parse.rye must carry at
+# least 20 invariant: markers. Re-proven on 20261012: GREEN, INV_OK 91 (exit 0), and a planted file
+# carrying two markers refuses, INV_LOW 2 (exit 1). Unrostered until this row; copal claimed it first.
+guard brush_parse_tame_density
+path tools/gen/chapter/brush_parse_tame_density.sh
+tier lap
+seated 20261012.184440
