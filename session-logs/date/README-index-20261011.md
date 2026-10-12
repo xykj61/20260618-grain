@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.214008` | [Incense, clear board, baton declined, no build](20261011/20261011-214008_incense-baton-declined-clear-board-no-build.kyri) | Clear board, zero behind; queue gated; no build. |
+| `20261011.213917` | [Patchouli, queue empty, fourth net, no build](20261011/20261011-213917_patchouli-queue-empty-fourth-net-no-build.kyri) | Fresh net; refusal fixture only; no build. |
 | `20261011.213739` | [Petrichor, ff three peers, gate held, no build](20261011/20261011-213739_petrichor-ff-three-peers-gate-held-no-build.kyri) | Ff to three peer logs; Consent Rail ruling open; no build. |
 | `20261011.213706` | [Copal, fruit spent, no build](20261011/20261011-213706_copal-fruit-spent-wide-recount-no-build.kyri) | Wide recount: 0 unrostered; no claim, no build. |
 | `20261011.213702` | [Incense, ff one peer, baton declined, no build](20261011/20261011-213702_incense-baton-declined-ff-no-build.kyri) | Ff one peer log; queue gated; no build. |
