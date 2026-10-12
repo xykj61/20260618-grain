@@ -323,7 +323,7 @@ The interface uses ASCII as structure, linen as material, and motion as a bounde
 Brushstroke declares each component's grid, role, state, tokens, and motion profile. Skate renders the fixed frame and bounded events. A correspondence witness forces meaning, description, and behavior to change together.
 
 ## Now -- the eight sailing ship itineraries
-**Git nib:** `4f5d84208a`
+**Git nib:** `406bfe5a44`
 
 
 ### Incense -- product captain
