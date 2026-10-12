@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+
 | `20261012.045108` | [Bakery, no build, plant held](20261012/20261012-045108_bakery-no-build-plant-remainder-held.kyri) | Read-only pass, no build; receipt key waits. |
 | `20261012.044948` | [Pheromone, lane empty, no build](20261012/20261012-044948_pheromone-lane-empty-ff-no-build.kyri) | ff six peers; Glow queue empty, no rune question; check in (Claude). |
 | `20261012.045118` | [Incense, round-open decline, no build](20261012/20261012-045118_incense-round-open-decline-no-build.kyri) | Reset to anointed order; card read; check in (either). |
