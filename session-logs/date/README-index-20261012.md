@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.162650 | [Petrichor gate held, ff four, no build](20261012/20261012-162650_petrichor-gate-held-ff-four-no-build.kyri) | Ff to d2aa99631b; gate unchanged upstream; no build. |
 | 20261012.162242 | [Patchouli queue empty again, no build](20261012/20261012-162242_patchouli-queue-empty-held-no-build.kyri) | Ff to 120250b91a; queue empty; %807 and %841 ruling-held; no build. |
 | 20261012.162543 | [Pheromone lane empty, ff, no build](20261012/20261012-162543_pheromone-lane-empty-ff-no-build.kyri) | Ff to e74dd677ce; steps closed on card; Incense ruling owed; no build. |
 | 20261012.161827 | [Pheromone held after ff, no build](20261012/20261012-161827_pheromone-held-upstream-ff-no-build.kyri) | Ff to 94cee0ed32; no Glow change; Incense ruling owed. |
