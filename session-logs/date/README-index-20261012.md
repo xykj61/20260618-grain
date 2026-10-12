@@ -10,6 +10,7 @@
 |---|---|---|
 | 20261012.114244 | [Recall-by-mark selftest split under seventy](20261012/20261012-114244_patchouli-recall-by-mark-selftest-split.kyri) | Three helpers; selftest output byte-identical. |
 | 20261012.114537 | [Diffuser P1 check-in, no run](20261012/20261012-114537_diffuser-p1-check-in-no-run.kyri) | Fast-forward only; P1 unruled; no run, no hold row. |
+| 20261012.114415 | [Petrichor citation sweep, clean](20261012/20261012-114415_petrichor-docs-citation-sweep-no-break.kyri) | ff; 164 paths read; no living break; no build. |
 | 20261012.114243 | [Bakery crux held, no build](20261012/20261012-114243_bakery-crux-held-no-build.kyri) | Shared cache absent; claim owed; cold run held; no build. |
 | 20261012.114057 | [Diffuser P1 earth lap, check in](20261012/20261012-114057_diffuser-p1-earth-check-in-no-run.kyri) | ff to 29964ad275; P1 still owed; no run. |
 | 20261012.114026 | [Pheromone baton, ff and hold, no build](20261012/20261012-114026_pheromone-baton-hold-ff-no-build.kyri) | Lane held at closed fruit; ff to xy; no build. |
