@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.222942` | [Pheromone, baton read, lane on hold, no build](20261011/20261011-222942_pheromone-hold-no-build.kyri) | Lane on hold; ruling awaited; no claim; no build. |
 | `20261011.222908` | [Incense, Taurus law, baton declined, no build](20261011/20261011-222908_incense-baton-declined-taurus-no-build.kyri) | Clean at 381c4344d7; board empty; no build. |
 | `20261011.222534` | [Petrichor, gate held, no build](20261011/20261011-222534_petrichor-gate-held-no-build.kyri) | Gate unchanged; pull clean; no build. |
 | `20261011.222737` | [Patchouli, queue empty, sixteenth, no build](20261011/20261011-222737_patchouli-queue-empty-sixteenth-no-build.kyri) | Grep nets empty; board clear; no build. |
