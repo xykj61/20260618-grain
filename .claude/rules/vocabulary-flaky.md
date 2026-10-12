@@ -13,9 +13,9 @@ tree was *flap*, and it retires from living prose.
 
 ## Why the industry word wins here
 
-**This tree rejects an industry standard when it holds a word carrying MORE.** *Red* books an
-allocation and enters the ledger where *bug* trivialises; *first resident* says who lives in the
-house where *dogfooding* says nothing. Both are seated rules, and both replaced industry words that
+**This tree adopts an industry standard only when the tree holds no word carrying MORE.** *Red* books an
+allocation and enters the ledger, while *bug* only trivialises the thing. *First resident* names who lives in the
+house, and *dogfooding* names only the act. Both are seated rules, and both replaced industry words that
 were **poor**.
 
 *Flaky test* is a **good** industry word -- accurate, instantly clear, and known to everyone who has
@@ -25,15 +25,15 @@ this on `20260915`.
 
 **The noun changes, because this tree keeps guards rather than tests.** It has guards, witnesses,
 scans, and controls.
-So the industry ADJECTIVE rides our own NOUN: *a flaky guard*, never *a flaky test*.
+So the industry ADJECTIVE rides our own NOUN: *a flaky guard*, and *a flaky test* stays with the suites that keep tests.
 
 ## The one cost, named rather than hidden
 
 **`flake` is a load-bearing noun here** -- `nixos/flake.nix`, the cloud pier flake, the kexec guide
 -- standing at **240 tracked uses** against 13 of the test sense, measured `20260915`. A reader
 grepping `flak` gets two unrelated subjects. That is a real hit on the third test, and it was taken
-deliberately: the collision is at grep level rather than comprehension level, since nobody confuses
-*a flaky guard* with `flake.nix`. **Run the count rather than trusting this line** -- both figures
+on purpose: the collision sits at grep level, and comprehension sets it aside, since readers tell
+*a flaky guard* with `flake.nix`. **Run the count to read the current figures** -- both figures
 are free:
 
 ```
@@ -42,11 +42,9 @@ git grep -ohiE '\bflak(e[sd]?|y|iness)\b' | sort | uniq -c
 
 ## What a flaky reading is, and why it earns a word
 
-A **red** says something is wrong. A **flaky** guard says *this instrument cannot tell you whether
-anything is wrong* -- and it is the worse of the two, because a red books work while a flaky reading
-gets re-run until it passes and then forgotten. REDS `%700` stood a fortnight that way, at one red
-in fifteen runs. The ledger's three fields have no shape for it either: *what went wrong* answers
-**sometimes nothing at all**.
+A **red** says *something is broken*. A **flaky** guard says *this instrument gives different answers on the same bytes*, and it is the worse of the two, because a red books work while a flaky reading gets re-run until it passes and then gets forgotten. REDS `%700` stood a fortnight that way, at one red
+in fifteen runs. The ledger's three fields have a gap for it too: *what went wrong* may read
+**nothing reproduced**.
 
 **Name the cause when it is known.** `%700` wore two at once -- a port shared across checkouts, and a
 build path shared within one -- so *contended* is the precise diagnosis for a race-shaped flaky
@@ -57,7 +55,7 @@ reading and belongs inside a row, where *flaky* names the class.
 - **Dated testimony and commit history keep every word they wrote.** Session logs, dated design
   essays, and folded shelves saying *flap* stay exactly as written.
 - **`construction/REDS.md` keeps its rows' prose**, since a ledger row records what was found when it
-  was found, and the ledger's own first law is that a row is never edited. The rows say *flap*; this
+  was found, and the ledger's own first law is that a row stays exactly as written. The rows say *flap*; this
   page is where a reader learns the living word.
 - **Nix flakes keep their name** -- it is Nix's own noun and never ours to move.
 - **Ordinary English about a pastry or a snowflake** is untouched.
@@ -69,7 +67,7 @@ Swept in the working tree on Keaton's word `20260915`: **12 living files**, thre
 `tools/m/mantra_query_wire_flakiness_witness.rish` -- with `construction/standing-equipment.kyri`
 repointed in the same commit. **The emitted field moved with them**: the scan writes `flaky=yes|no`
 and `verdict=flaky` where it wrote `flap=`, and the control reads that key back by name, so emitter
-and reader moved together or the guard would have broken silently. Both witnesses GREEN on metal
+and reader moved together, and the guard stayed whole. Both witnesses GREEN on metal
 after the move, and the three files kept mode `100755` through the rename.
 
 **A working-tree sweep, rather than a deep debride.** A history rewrite costs every clone a
