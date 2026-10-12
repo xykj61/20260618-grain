@@ -21,7 +21,7 @@ Strand-count erratum `20260907.062544` -- the count is stated here and derived b
 
 Wood has a grain: the direction its fibers already run, set long before any tool touches it. Cut with the grain and the work is clean and strong; cut against it and the board tears, however sharp the blade. **Rye OS has a grain in exactly this sense -- the standing commitments that were true before tonight's idea arrived and will be true after it, which together decide the only directions a new idea can be cut to fit.**
 
-The grain is not a mood. It is a short, nameable set of strands, each already canon somewhere in this tree:
+The grain is a concrete thing. It is a short, nameable set of strands, each already canon somewhere in this tree:
 
 - **The five primitives** -- keypair, signed event, append-only log, pure fold, capability; every state a fold, every change a fact.
 - **The TAME order** -- safety first, performance second, the joy of the craft third; when strands pull, this settles it.
@@ -44,7 +44,7 @@ A pattern "fits our grain" when its restatement leans only on these strands. A p
 
 **The doorway -- separation.** Before anything crosses, the insight is separated from its scaffolding: the transferable truth on one side; the proper nouns, the original phrasing, the incidental structure on the other. What cannot be separated is not yet understood, and stays in room one until it is.
 
-**Room two -- the clean room.** The insight is restated in `active-designing/` (or `foundations/`, when it is a why rather than a how) using only our names and our strands: each claim rewritten so it *leans on a strand of the grain* -- the pier's double-boot hazard becomes a continuity **fact on the log**; a supervision suite's readiness becomes a **signed fact Caravan folds**; an overlay combinator becomes **one override producing a new whole value beside the old**. Admission is earned, not assumed: the restated pattern enters only if it makes the design safer first, then faster, then kinder to work in -- the TAME order applied at the door.
+**Room two -- the clean room.** The insight is restated in `active-designing/` (or `foundations/`, when it is a why rather than a how) using only our names and our strands: each claim rewritten so it *leans on a strand of the grain* -- the pier's double-boot hazard becomes a continuity **fact on the log**; a supervision suite's readiness becomes a **signed fact Caravan folds**; an overlay combinator becomes **one override producing a new whole value beside the old**. Admission is earned by proof: the restated pattern enters only if it makes the design safer first, then faster, then kinder to work in -- the TAME order applied at the door.
 
 **The registration.** A completed crossing lands as a companion pair -- the named study and the siloed brief -- each registered in its own index and pointing at the other, so a future reader can walk the passage in either direction. Gratitude stays in its own room, explicit and warm.
 
@@ -52,7 +52,7 @@ A pattern "fits our grain" when its restatement leans only on these strands. A p
 
 Three strands earned their place in the month since the sameness strand, each proven the hard way before it was written down, and Keaton's word seats them today beside the elders.
 
-**The content address is the wall.** A crossing is proven by its digest, never by its header. The season learned this from a torn bundle that smiled through `git bundle verify` and died in the clone: verify reads the header, never the pack. So every resin and every bundle now travels with a sha3 manifest, bead by bead, and the receiving bench trusts the digest before it trusts a single byte -- the wall stands at the content address, with the clone as the second wall behind it (REDS row 58; the negative witness holds four plants).
+**The content address is the wall.** A crossing is proven by its digest; its header is only a label. The season learned this from a torn bundle that smiled through `git bundle verify` and died in the clone: verify reads the header, never the pack. So every resin and every bundle now travels with a sha3 manifest, bead by bead, and the receiving bench trusts the digest before it trusts a single byte -- the wall stands at the content address, with the clone as the second wall behind it (REDS row 58; the negative witness holds four plants).
 
 **A guard that cannot red guards nothing.** Five custody bars of the enclosure witness passed vacuously for their whole lives -- literal quote characters where tests should have been -- and the day they got teeth, the jail was tested truly for the first time. The strand generalizes the witness law the grain already held: it is not enough that a witness runs green; every guard must be *proven able to red*, by a plant that the toothed form bites and the vacuous form would have waved through (REDS row 59, the vacuum row beside row 9's leak).
 
@@ -75,7 +75,7 @@ typed and wrong by the following month, which is what
 [`stamp-and-name`](../.claude/rules/stamp-and-name.md) rule 3 names -- **count, never number.** A
 total written into a sentence stays at whatever it was when somebody typed it; a total derived from
 the page it describes moves when the page does. Seat a fourteenth strand here and the reading follows
-it, with no pointer to chase.
+it, with the pointer already in place.
 
 ## The Test
 
