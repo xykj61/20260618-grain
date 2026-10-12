@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.132834 | [Copal fruit landed, no build](20261012/20261012-132834_copal-fruit-already-landed-no-build.kyri) | Zero unrostered witnesses; no claim; no build. |
 | 20261012.132500 | [Incense baton declined, no build](20261012/20261012-132500_incense-baton-round-open-no-build.kyri) | Round opened clean; claims clear; gated; no build. |
 | 20261012.132331 | [Patchouli queue empty, kumara red held for ruling, no build](20261012/20261012-132331_patchouli-kumara-841-ruling-held-no-build.kyri) | %841 retype waits on a Claude ruling; no build. |
 | 20261012.132501 | [Petrichor held at the gate, no build](20261012/20261012-132501_petrichor-held-at-gate-no-build.kyri) | Fruit waits on a word; upstream touched no docs-geode; no build. |
