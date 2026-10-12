@@ -471,6 +471,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.181601` | [Copal fruit empty, measured, no build](20261012/20261012-181601_copal-fruit-empty-measured-no-build.kyri) | Zero unrostered chapter witnesses by comm; no claim; no build. |
 | 20261012.181209 | [Pheromone lane held, no build, count 13990](20261012/20261012-181209_pheromone-lane-held-no-build-count-13990.kyri) | Stop clause; Incense ruling owed; no build. |
 | 20261012.181244 | [Incense round-open decline, no build](20261012/20261012-181244_incense-round-open-decline-no-build.kyri) | Clear board; gates unchanged; no build; check-in owed. |
 | 20261012.180811 | [Copal roster repeat, fruit empty, no build](20261012/20261012-180811_copal-roster-repeat-no-build.kyri) | Zero unrostered witnesses again; card line stale; nib carried. |
