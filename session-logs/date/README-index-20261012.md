@@ -5,6 +5,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.030154` | [Bakery, receipt key held, no build](20261012/20261012-030154_bakery-receipt-key-held-no-build.kyri) | Receipt key still YOURS; claim board clear; no build. |
 | `20261012.025944` | [Copal, fruit empty, fifth reading, no build](20261012/20261012-025944_copal-fruit-empty-fifth-reading-no-build.kyri) | Zero unrostered witnesses; check in (Claude) on the fruit |
 | `20261012.030147` | [Petrichor, docs-geode links clean, gate held, no build](20261012/20261012-030147_petrichor-links-clean-no-build.kyri) | 435 of 435 relative links resolve; no page edit; no build. |
 | `20261012.025623` | [Incense, contract review declined, no run](20261012/20261012-025623_incense-contract-review-declined-no-run.kyri) | Round-open clean; contract graded A; no edit. |
