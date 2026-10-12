@@ -1,3 +1,4 @@
+| 20261012.195658 | [Glow refusal onto plant.sh](20261012/20261012-195658_bakery-plant-adoption-glow-refusal.kyri) | One control adopted; verdict ok; crux held. |
 | 20261012.195633 | [Incense decline, clear board, no build](20261012/20261012-195633_incense-decline-clear-board-no-build.kyri) | Clear board, tree in sync, nib carried; no build. |
 | 20261012.195547 | [Grass inner page graded B+ at Field, no build](20261012/20261012-195547_grass-inner-grade-b-plus-no-build.kyri) | B+ at Field holds; repeat reading; no build. |
 | 20261012.195144 | [Patchouli queue empty, stamp red confirmed, no build](20261012/20261012-195144_patchouli-queue-empty-fourteenth-stamp-red-live.kyri) | Queue empty; ContinuityFact dangling slice confirmed by reading; no build. |
