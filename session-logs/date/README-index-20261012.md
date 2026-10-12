@@ -472,6 +472,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.181209 | [Pheromone lane held, no build, count 13990](20261012/20261012-181209_pheromone-lane-held-no-build-count-13990.kyri) | Stop clause; Incense ruling owed; no build. |
+| 20261012.181244 | [Incense round-open decline, no build](20261012/20261012-181244_incense-round-open-decline-no-build.kyri) | Clear board; gates unchanged; no build; check-in owed. |
 | 20261012.180811 | [Copal roster repeat, fruit empty, no build](20261012/20261012-180811_copal-roster-repeat-no-build.kyri) | Zero unrostered witnesses again; card line stale; nib carried. |
 | 20261012.181236 | [Patchouli queue empty again, no build](20261012/20261012-181236_patchouli-queue-empty-no-build-again.kyri) | Queue empty; REDS %841 held for a Claude ruling; no build. |
 | 20261012.181257 | [Bakery phase timing reading](20261012/20261012-181257_bakery-rishi-phase-timing-reading.kyri) | Cold 4904 ms, warm 604 ms; no build. |
