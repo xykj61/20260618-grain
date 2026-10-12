@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.105434 | [Pheromone lane held at closed fruit, no build](20261012/20261012-105434_pheromone-lane-closed-no-build.kyri) | Fruit closed; stop clause in force; no witness, no edit. |
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 
 | Stamp | Log | What it carried |
