@@ -1,3 +1,4 @@
+| 20261012.185428 | [Diffuser P1 held, ff four peers, no run](20261012/20261012-185428_diffuser-p1-hold-ff-four-peers-no-run.kyri) | P1 ruling owed; no run; no inner-prompt row added. |
 | 20261012.185316 | [Copal claim closed, no new roster](20261012/20261012-185316_copal-brush-parse-claim-closed.kyri) | Stale claim closed; witness re-proven; none left unrostered. |
 | 20261012.185346 | [Petrichor gate held after ff, no build](20261012/20261012-185346_petrichor-gate-held-ff-five-no-build-recheck.kyri) | Consent Rail unchanged upstream; no build. |
 | 20261012.184754 | [Incense decline, nib carried](20261012/20261012-184754_incense-decline-nib-carried-no-build.kyri) | Clean round-open; nib carried; no build. |
