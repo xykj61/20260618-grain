@@ -427,6 +427,18 @@ the recital does not hold. The row's three fields live in the lap's session log 
 arrives on two things: the pin's headroom, and whether the legacy `sign` may change its return type
 across the `amphora/`, `aurora/` and `comlink/` callers. Neither is this lane's to decide alone.
 
+**The width class, measured `20261012.013720`: `usize` outside the seam.** The earlier nets read version
+literals, asserts, `unreachable`, and unbounded loops, and none read the explicit-width rule. A
+`git grep -nw usize` over the production `.rye` of `mantra/` and `tally/` (witnesses and controls
+read past) finds **38 lines**. Every one is either a `@as(usize, @intCast(...))` seam cast at a
+Zig slice, socket, or `ArrayListUnmanaged` boundary, which TAME's seam clause permits, or a comment
+naming that clause. Two shapes look like candidates and are not: `tally/gardens.rye` and
+`tally/region.rye` cast a `u32` count into a local `usize` only to index a slice, and no `usize` sits
+in a struct field, parameter, or return type. **Zero candidates, so no red and no sweep.** The
+figure is free: re-run `git grep -nw usize -- 'mantra/*.rye' 'mantra/**/*.rye' 'tally/*.rye'` rather
+than trusting 38. The queue still reads empty for this class, so the next lap should widen to another
+class or take a ruled item.
+
 ## gates
 
 Keys, funds, provisioning, identity, and the public seed stay manual.
