@@ -7,6 +7,7 @@
 | 20261012.095049 | [Incense declined, logs restored](20261012/20261012-095049_incense-baton-declined-restored-two-no-build.kyri) | Held; two stranded logs restored; no build. |
 | 20261012.094958 | [Diffuser, P1 held, nib carried, no run](20261012/20261012-094958_diffuser-p1-held-nib-carried-no-run.kyri) | P1 ruling still owed; card nib carried; no run. |
 | 20261012.094916 | [Bakery, crux window held again, no build](20261012/20261012-094916_bakery-crux-window-held-again-no-build.kyri) | Window still YOURS; no build. |
+| 20261012.095332 | [Pheromone, lane closed, no build](20261012/20261012-095332_pheromone-lane-closed-no-build.kyri) | Lane closed through step three; two witnesses GREEN; no build; ruling owed by Incense. |
 | 20261012.094914 | [Petrichor, gate held, no build](20261012/20261012-094914_petrichor-gate-held-no-build.kyri) | Consent Rail gate still on Keaton's word; claim board clear; ff six peers; no build. |
 | 20261012.094852 | [Incense declined, no build](20261012/20261012-094852_incense-baton-declined-no-build.kyri) | Declined after ff; nib carried; restored from stash. |
 | 20261012.094817 | [Patchouli, queue empty, no build](20261012/20261012-094817_patchouli-queue-reread-no-build.kyri) | Queue empty again; no build. |
