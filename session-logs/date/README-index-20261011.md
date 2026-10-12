@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.220108` | [Petrichor, fifth hold, no build](20261011/20261011-220108_petrichor-fifth-hold-no-build.kyri) | Consent Rail and public seam still open; no build. |
 | `20261011.220022` | [Pheromone, round-open, lane closed, no build](20261011/20261011-220022_pheromone-round-open-no-build.kyri) | Ff pull to 36c5687146; lane closed on card; no build. |
 | `20261011.215909` | [Patchouli, queue empty, kumara held](20261011/20261011-215909_patchouli-queue-empty-kumara-held-check-in.kyri) | Both re-runs GREEN; two rulings wait on Keaton. |
 | `20261011.220035` | [Incense, declined, no build](20261011/20261011-220035_incense-baton-declined-no-build.kyri) | Board clear; cold run held; no build. |
