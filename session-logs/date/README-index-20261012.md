@@ -35,6 +35,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.125116 | [Bakery held again at the receipt ruling](20261012/20261012-125116_bakery-held-no-claim-no-build.kyri) | Claim board clear; receipt key unruled; no build. |
 | 20261012.124720 | [Grass four foundations, no build](20261012/20261012-124720_grass-four-foundations-b-or-better-no-build.kyri) | Four foundations graded B or better. |
 | 20261012.124852 | [Incense held at lap 13605, no build](20261012/20261012-124852_incense-held-lap-13605-no-build.kyri) | Round 15 held; claim board clear; no build. |
 | 20261012.124310 | [Diffuser held on P1, four peers in, no run](20261012/20261012-124310_diffuser-p1-held-ff-four-peers-no-run.kyri) | P1 still unruled; no run; check in (Claude). |
