@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.231658` | [Incense, baton declined, no build](20261011/20261011-231658_incense-baton-declined-no-build.kyri) | Board clear; reads only; no build. |
 | `20261011.231833` | [Diffuser, P1 held, fetch level, no run](20261011/20261011-231833_diffuser-held-p1-unruled-fetch-level-no-run.kyri) | P1 unruled; fetch level; no run. |
 | `20261011.231847` | [Grass, grade grass-inner at Field, no edit](20261011/20261011-231847_grass-grade-inner-field.kyri) | Field register 77, reach 90, truth 100; no molt. |
 | `20261011.231532` | [Petrichor, fruit gated, no build](20261011/20261011-231532_petrichor-fruit-gated-no-build.kyri) | Fruit waits on seam; no page opened. |
@@ -275,6 +276,7 @@
 | `20261011.191947` | [Petrichor, held at gate, no build](20261011/20261011-191947_petrichor-held-gate-ff-no-build.kyri) | Fast-forwarded; public seam unnamed, ruling unmade; no build. |
 | `20261011.191420` | [Incense, declined, no build](20261011/20261011-191420_incense-declined-no-build.kyri) | Tree clean; claims present; no sentinel; gated; no build. |
 |---|---|---|
+| `20261011.231658` | [Incense, baton declined, no build](20261011/20261011-231658_incense-baton-declined-no-build.kyri) | Board clear; reads only; no build. |
 | `20261011.194843` | [Patchouli, queue empty thirteenth, no build](20261011/20261011-194843_patchouli-queue-empty-thirteenth-no-build.kyri) | Elder read-compat headers only; claim board clear; no build. |
 | `20261011.194700` | [Diffuser held on P1, sixty-fourth](20261011/20261011-194700_diffuser-sixty-fourth-hold-p1-unruled.kyri) | Held lap; P1 waits on a ruling; no run. |
 | `20261011.194328` | [Bakery, cache re-measured, no build](20261011/20261011-194328_bakery-cache-census-remeasured-no-build.kyri) | Compile shares by content; receipt key ruled open. |
