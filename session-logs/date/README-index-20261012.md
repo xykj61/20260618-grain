@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.065238` | [Grass, three pages graded, all B or better, no build](20261012/20261012-065238_grass-three-pages-graded-all-b-no-build.kyri) | Door reads 84, 94, 96; no lift. |
 | `20261012.065021` | [Petrichor, queue empty, gate held, no build](20261012/20261012-065021_petrichor-queue-empty-gate-held-no-build.kyri) | Fruit landed; gate held by Diffuser; no build. |
 | `20261012.065007` | [Copal, fruit empty a tenth read, no build](20261012/20261012-065007_copal-fruit-tenth-read-no-build.kyri) | Fruit premise stale; 158 witnesses rostered; no build. |
 | `20261012.064942` | [Patchouli, queue empty, kumara held, no build](20261012/20261012-064942_patchouli-queue-empty-kumara-held-no-build.kyri) | Kumara red held for ruling; no build. |
