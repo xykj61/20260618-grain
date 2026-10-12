@@ -3,7 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
-
+| `20261011.224744` | [Patchouli, kumara hold, no build](20261011/20261011-224744_patchouli-kumara-hold-reconfirmed-no-build.kyri) | Red held; spine 840; two rulings pending. |
 | `20261011.224707` | [Petrichor, gate held, fifth pull, no build](20261011/20261011-224707_petrichor-gate-held-fifth-pull-no-build.kyri) | Gate unchanged; ff nine peers; no build. |
 | `20261011.224425` | [Diffuser, P1 hold, ff three peers, no run](20261011/20261011-224425_diffuser-hold-p1-unruled-ff-three-peers-no-run.kyri) | P1 unruled; ff three peer logs; no run. |
 | `20261011.224140` | [Diffuser, P1 hold, ff incense, no run](20261011/20261011-224140_diffuser-hold-p1-unruled-ff-incense-declined-no-run.kyri) | P1 still unruled; fast-forward only; no run. |
