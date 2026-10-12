@@ -1,4 +1,5 @@
 | 20261012.193155 | [Pheromone lane held, ff five, no build](20261012/20261012-193155_pheromone-lane-held-ff-five-no-build.kyri) | Five upstream session-log commits, no lane path moved; rune ruling owed to Incense; no build. |
+| 20261012.193152 | [Diffuser P1 held, check-in named, no run](20261012/20261012-193152_diffuser-p1-hold-no-run-check-in.kyri) | P1 unruled, 108th hold; no run; check in (Claude). |
 | 20261012.192441 | [Petrichor gate held, ff three, no build](20261012/20261012-192441_petrichor-gate-held-ff-three-no-build.kyri) | Consent Rail and seam unchanged upstream; no build. |
 | 20261012.192416 | [Diffuser P1 held, rebased, no run](20261012/20261012-192416_diffuser-p1-hold-rebased-no-run.kyri) | P1 unruled; rebased log onto xy; no run. |
 | 20261012.192333 | [Incense declines on a clear board, no build](20261012/20261012-192333_incense-decline-upstream-pulled-no-build.kyri) | Fast-forwarded to 0f7896398a; order unchanged; no build. |
