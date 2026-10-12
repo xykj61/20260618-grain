@@ -5,6 +5,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.113220 | [Petrichor gate held after ff, no build](20261012/20261012-113220_petrichor-gate-held-ff-no-build.kyri) | Consent Rail unchanged upstream; no build; check in (Claude). |
 | 20261012.112955 | [Pheromone baton hold at closed fruit, no build](20261012/20261012-112955_pheromone-baton-hold-closed-fruit-no-build.kyri) | Ruling awaited from Incense; no build. |
 | 20261012.112648 | [Bakery baton lap: receipt key still gated, no build](20261012/20261012-112648_bakery-baton-receipt-key-gated-no-build.kyri) | Receipt key awaits Keaton's ruling; no claim, no build, no roster pass. |
 | 20261012.112636 | [Incense fourth hold, round-open clean, no build](20261012/20261012-112636_incense-fourth-hold-round-open-no-build.kyri) | Fourth hold on 39e937f603; claim clear; receipt key waits on Keaton's ruling. |
