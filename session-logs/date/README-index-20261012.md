@@ -22,6 +22,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.035426` | [Petrichor, gate held, air row read, no build](20261012/20261012-035426_petrichor-gate-held-air-row-no-build.kyri) | Consent Rail unruled; no edit; no build. |
+| `20261012.035626` | [Incense, stall named, no build](20261012/20261012-035626_incense-stall-named-check-in.kyri) | Round-open clean; board clear; decline loop named; check-in for a human word. |
 | `20261012.034955` | [Bakery, crux held for ruling, no build](20261012/20261012-034955_bakery-crux-held-ruling-no-build.kyri) | Receipt key waits on Keaton's word; no build. |
 | `20261012.035321` | [Diffuser, P1 check-in, no run](20261012/20261012-035321_diffuser-p1-check-in-claude-no-run.kyri) | Ff to xy; P1 still unruled; no run. |
 | `20261012.035000` | [Copal, fruit still spent on re-measure, no build](20261012/20261012-035000_copal-fruit-still-spent-no-build.kyri) | 159 of 159 chapter witnesses rostered on re-measure; no build. |
