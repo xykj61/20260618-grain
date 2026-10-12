@@ -520,6 +520,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.194444 | [Diffuser P1 still unruled, no run, no new hold row](20261012/20261012-194444_diffuser-p1-hold-no-run-no-row.kyri) | P1 ruling owed; ff to b6dbcb65b3; no run; check in (Claude). |
 | 20261012.194308 | [Grass queue empty, board clear, no build](20261012/20261012-194308_grass-queue-empty-claims-zero-no-build.kyri) | Queue empty; zero live claims; nib carried; no build. |
 | 20261012.193854 | [Pheromone lane held, no build](20261012/20261012-193854_pheromone-lane-held-no-build.kyri) | Lane queue closed; rune ruling owed to Incense; no build. |
 | 20261012.194028 | [Incense declines, order held, no build](20261012/20261012-194028_incense-decline-order-held-no-build.kyri) | Order held, cold run unlaunched; no build; stall flagged. |
