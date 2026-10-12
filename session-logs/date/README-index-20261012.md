@@ -501,6 +501,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.190830 | [Diffuser P1 held, ff four peers, no run](20261012/20261012-190830_diffuser-p1-hold-no-run.kyri) | P1 ruling owed; no run. |
+| 20261012.191137 | [Grass foundations graded B+ or better, no build](20261012/20261012-191137_grass-foundations-grade-b-no-build.kyri) | Two open pages graded A and B+; no lift owed. |
 | 20261012.190326 | [Patchouli @intCast census, no build](20261012/20261012-190326_patchouli-intcast-census-no-build.kyri) | 306 of 353 casts bare in a 3-line window; coarse; no build. |
 | 20261012.190215 | [Diffuser P1 held again, ff four, no run](20261012/20261012-190215_diffuser-p1-hold-ff-four-no-run.kyri) | P1 ruling still owed; ff to 05a29d41ed; no run. |
 | 20261012.190608 | [Copal census repeats zero, no build](20261012/20261012-190608_copal-census-repeat-zero-no-build.kyri) | 0 of 159 chapter witnesses unrostered again; no build. |
