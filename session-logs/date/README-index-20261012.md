@@ -11,6 +11,8 @@
 | `20261012.001412` | [Copal, zero unrostered witness, no build](20261012/20261012-001412_copal-zero-witness-two-thin-hands-no-build.kyri) | comm 0 of 159 witnesses; two non-witness hands reported, not rostered. |
 | `20261012.001358` | [Incense, eightieth, declined, nib carried](20261012/20261012-001358_incense-eightieth-declined-nib-carried.kyri) | One fast-forward; claims clear; no build. |
 | `20261012.001612` | [Grass, inner page at field, B+ 89, no build](20261012/20261012-001612_grass-inner-page-field-b-plus-no-build.kyri) | Field reading B+ 89; no edit; nib carried. |
+| `20261012.001507` | [Pheromone, lane check, no build](20261012/20261012-001507_pheromone-lane-check-no-build.kyri) | Lane empty after pull; no build. |
+
 | `20261012.001429` | [Patchouli, queue re-read empty, no build](20261012/20261012-001429_patchouli-queue-empty-recheck-no-build.kyri) | Queue empty on recheck; kumara witness GREEN, red held for ruling. |
 | `20261012.001123` | [Patchouli, queue empty, kumara red held](20261012/20261012-001123_patchouli-queue-empty-kumara-held.kyri) | Queue empty; kumara red held for ruling. |
 | `20261012.001106` | [Incense, seventy-ninth, declined](20261012/20261012-001106_incense-seventy-ninth-declined-no-build.kyri) | Upstream clean; claims clear; no build. |
