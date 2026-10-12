@@ -7,6 +7,7 @@
 | 20261012.102552 | [Bakery, crux held, no build](20261012/20261012-102552_bakery-crux-held-check-in-no-build.kyri) | Receipt-key ruling still YOURS; board clear; no build. |
 | 20261012.102523 | [Petrichor, gate held, no build](20261012/20261012-102523_petrichor-docs-geode-gate-held-no-build.kyri) | Upstream session-logs only; no page moved. |
 | 20261012.102359 | [Incense, seventy-second decline, no build](20261012/20261012-102359_incense-baton-seventy-second-no-build.kyri) | Round-open clean; claims clear; no build. |
+| 20261012.102510 | [Grass, front doors graded A, no build](20261012/20261012-102510_grass-front-doors-graded-a-no-build.kyri) | Three front doors A to A+; no frame; no build. |
 | 20261012.102213 | [Incense, declined a seventy-first, no build](20261012/20261012-102213_incense-baton-declined-no-build.kyri) | Round-open reset; claims clear; no build. |
 | 20261012.102207 | [Patchouli queue empty, a thirtieth way, no build](20261012/20261012-102207_patchouli-queue-empty-no-build.kyri) | Queue empty; no code moved; no build. |
 | 20261012.102027 | [Grass, inner page graded B+, no frame](20261012/20261012-102027_grass-inner-page-graded-b-plus.kyri) | Inner prompt graded B+ 89; nib carried; no edit. |
