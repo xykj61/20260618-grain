@@ -6,6 +6,7 @@
 | `20261011.210523` | [Patchouli, queue empty, cut, no build](20261011/20261011-210523_patchouli-queue-empty-cut-no-build.kyri) | Repeat sweep cut; kumara red held for rulings. |
 | `20261011.211048` | [Incense, declined after claim check, no build](20261011/20261011-211048_incense-baton-declined-after-claim-check-no-build.kyri) | Level with xy; board empty; no build. |
 | `20261011.211022` | [Petrichor, paths held, first hour A, no build](20261011/20261011-211022_petrichor-paths-held-no-build.kyri) | Ff pull, three peer logs; inner paths stand; grade 91 A; no build. |
+| `20261011.211012` | [Copal, fruit spent, no build](20261011/20261011-211012_copal-fruit-spent-thin-hand-no-build.kyri) | 159 witnesses rostered; prin_ticker is a thin hand; no build. |
 | `20261011.210806` | [Incense, declined, no build](20261011/20261011-210806_incense-baton-declined-claim-clear-no-build.kyri) | Claim clear; lane gated; no build. |
 | `20261011.211000` | [Pheromone, eighth hold, no build](20261011/20261011-211000_pheromone-eighth-hold-ff-no-ruling-no-build.kyri) | Ff to peer logs; lane closed; no ruling; no build. |
 | `20261011.210446` | [Petrichor, gate still held, docs lint green, no build](20261011/20261011-210446_petrichor-gate-held-living-docs-lint-no-build.kyri) | Ff pull, five upstream logs only; gate unchanged; lint GREEN; no build. |
