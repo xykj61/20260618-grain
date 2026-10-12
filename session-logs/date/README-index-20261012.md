@@ -18,6 +18,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.035000` | [Copal, fruit still spent on re-measure, no build](20261012/20261012-035000_copal-fruit-still-spent-no-build.kyri) | 159 of 159 chapter witnesses rostered on re-measure; no build. |
 | `20261012.035020` | [Diffuser, P1 held, ff two peers, no run](20261012/20261012-034708_diffuser-p1-hold-ff-two-peers-check-in-claude-no-run.kyri) | Hold on unruled P1; no measurement. |
 | `20261012.034959` | [Incense, declined, no build](20261012/20261012-034959_incense-baton-declined-no-build.kyri) | Round-open clean; board empty; no build. |
 | `20261012.034822` | [Patchouli, queue empty, fresh sweep](20261012/20261012-034822_patchouli-queue-empty-fresh-sweep-no-build.kyri) | Fresh grep found nothing new; no build. |
