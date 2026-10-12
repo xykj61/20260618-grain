@@ -10278,3 +10278,14 @@ guard prin_scope_slate
 path tools/gen/chapter/prin_scope.rish
 tier lap
 seated 20261011.170721
+
+# sunn14_witness_choir -- the SUNN14 witness choir, the one chapter choir left unrostered. It sings
+# limbs 5-13 and the voice roster, then holds the SOURCE thickness floor. Re-proven on 20261012 on
+# this tree: GREEN, rc=0, every limb GREEN, SOURCE.md at 47874 bytes and 646 lines with drift=0, and
+# the planted thin stub and the planted Nobody drift both refusing as the choir expects. REDS %837
+# recorded the choir red on 20261010 at the SOURCE leg; that red no longer reproduces here. Claimed as
+# copal-sunn14-choir-roster before this landed.
+guard sunn14_witness_choir
+path tools/gen/chapter/sunn14_witness_choir.rish
+tier cadence
+seated 20261012.023136
