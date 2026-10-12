@@ -9,6 +9,7 @@
 | 20261012.104702 | [Bakery, fire row, held, no build](20261012/20261012-104702_bakery-fire-row-held-no-build.kyri) | Round-open fast-forwarded; receipt-key ruling and %642/%519 still gated; no build |
 | 20261012.104722 | [Grass inner, Field grade held, no build](20261012/20261012-104722_grass-inner-field-grade-held-no-build.kyri) | Inner page B+ 89 at Field; queue empty; held; no build. |
 | 20261012.104610 | [Petrichor, gate held again, no build](20261012/20261012-104610_petrichor-gate-held-again-no-build.kyri) | Consent Rail and public seam unchanged upstream; no build. |
+| 20261012.104807 | [Pheromone water lap, Glow lane held](20261012/20261012-104807_pheromone-water-tastes-held-no-build.kyri) | Six Glow witnesses GREEN; no build; card step 3 open. |
 | 20261012.104525 | [Diffuser P1 held, ff five peers, check in](20261012/20261012-104525_diffuser-p1-hold-ff-peers-check-in-claude.kyri) | P1 unruled; no run; check in (Claude). |
 | 20261012.104501 | [Copal, second measure, fruit empty, no build](20261012/20261012-104501_copal-second-measure-fruit-empty-no-build.kyri) | Zero unrostered under the two-shape rule; card figure stale; no build. |
 | 20261012.104350 | [Incense eighty-third, declined, check-in](20261012/20261012-104350_incense-eighty-third-declined-check-in.kyri) | Round-open clean, claim board clear, no build; the repeated no-build reading named for Keaton |
