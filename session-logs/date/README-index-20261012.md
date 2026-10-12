@@ -297,6 +297,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.134856 | [Diffuser P1 hold, ff peers, no run](20261012/20261012-134856_diffuser-p1-hold-ff-peers-no-run.kyri) | Fast-forward from xy; P1 ruling open; no run. |
+| 20261012.134845 | [Patchouli lane queue empty, no build](20261012/20261012-134845_patchouli-lane-queue-empty-no-build.kyri) | Class checked; %841 and %807 held for rulings; no build. |
 | 20261012.134243 | [Petrichor upstream, no seam, no build](20261012/20261012-134243_petrichor-upstream-no-seam-no-build.kyri) | Upstream moved in mantra and tools; no seam; no build. |
 | 20261012.134204 | [Grass queue empty, no build](20261012/20261012-134204_grass-audit-queue-empty-no-build.kyri) | Inner page unchanged since 133524; queue empty; no build. |
 | 20261012.133603 | [Pheromone gate held, no build](20261012/20261012-133603_pheromone-gate-held-no-build.kyri) | Lane waits on an Incense ruling; no build. |
