@@ -1,3 +1,4 @@
+| 20261012.183022 | [Grass inner regrade repeat, no lift](20261012/20261012-183022_grass-inner-regrade-repeat-no-lift.kyri) | Field reading B+/89 repeats d936016; no edit; no build. |
 | 20261012.182519 | [Incense decline, no build, recheck](20261012/20261012-182519_incense-decline-no-build-recheck.kyri) | Round-open clean; no build; day shelf 1351 past 768; check-in owed. |
 | 20261012.182416 | [Grass inner grade held, no lift](20261012/20261012-182416_grass-inner-grade-held-no-lift.kyri) | Inner prompt graded B+/89; no edit; no build. |
 | 20261012.182309 | [Pheromone lane held at stop clause, no build](20261012/20261012-182309_pheromone-lane-held-stop-clause-no-build.kyri) | Two Glow witnesses GREEN; ruling owed to Incense; no build. |
