@@ -8,6 +8,7 @@
 | `20261012.015555` | [Diffuser, P1 hold, ninety-third, check in Claude, no run](20261012/20261012-015555_diffuser-p1-hold-ninety-third-check-in-claude-no-run.kyri) | P1 unruled; ff only; no run. |
 | `20261012.015808` | [Patchouli, version-literal scan clean, no build](20261012/20261012-015808_patchouli-version-literals-clean-no-build.kyri) | Counted headers only as elder readers; no build. |
 | `20261012.015247` | [Patchouli, recursion class clean, no build](20261012/20261012-015247_patchouli-recursion-class-clean-no-build.kyri) | Self-calls depth- or type-bounded; no build. |
+| `20261012.015823` | [Petrichor, lint pass, gate held, no build](20261012/20261012-015823_petrichor-lint-stale-pin-gate-held-no-build.kyri) | Docs-geode lint zero; stale pin reported; no build. |
 | `20261012.015144` | [Copal, fruit reread after pull, no build](20261012/20261012-015144_copal-fruit-reread-no-build.kyri) | Fruit still empty; 173 of 173 rostered; no build. |
 | `20261012.015233` | [Bakery pre-push control adopts plant law](20261012/20261012-015233_bakery-pre-push-spine-plant-adoption.kyri) | Rebinding plant named; control 12 of 12; remainder 358. |
 | `20261012.015128` | [Diffuser, P1 hold, check in Claude, no run](20261012/20261012-015128_diffuser-p1-hold-ninety-second-check-in-claude-no-run.kyri) | P1 unruled; ff only; no run. |
