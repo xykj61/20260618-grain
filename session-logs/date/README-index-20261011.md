@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.234140` | [Bakery, queue gated, no build](20261011/20261011-234140_bakery-queue-gated-air-row-no-build.kyri) | Queue waits on Keaton's word; no build. |
 | `20261011.234144` | [Copal, fruit empty, fifth recount](20261011/20261011-234144_copal-fruit-empty-fifth-recount-no-build.kyri) | Zero unrostered witnesses; no build. |
 | `20261011.234009` | [Patchouli, queue empty again, no build](20261011/20261011-234009_patchouli-queue-empty-again-no-build.kyri) | Elder-header nets clean; claim board empty; no build. |
 | `20261011.234119` | [Incense, seventy-second, no build](20261011/20261011-234119_incense-baton-declined-seventy-second-no-build.kyri) | Round-open clean; board clear; no build. |
