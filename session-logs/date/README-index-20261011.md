@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.205751` | [Petrichor, queue held, no build](20261011/20261011-205751_petrichor-queue-held-no-build.kyri) | Gate still held; no build. |
 | `20261011.205800` | [Bakery, queue gated, read-only, no build](20261011/20261011-205800_bakery-queue-gated-read-only-no-build.kyri) | Ff pull; board empty; plant meter ok; no build. |
 | `20261011.205546` | [Incense, baton read, declined, no build](20261011/20261011-205546_incense-baton-read-declined-no-build.kyri) | Baton read; claim scan no path; no build. |
 | `20261011.205439` | [Diffuser, held again, P1 unruled, ff only](20261011/20261011-205439_diffuser-held-ff-no-p1-ruling-third.kyri) | Ff-only pull; no ruling; no run. |
