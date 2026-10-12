@@ -1,3 +1,4 @@
+| 20261012.194605 | [Pheromone hold, fifth same-day, no build](20261012/20261012-194605_pheromone-hold-redundant-no-build.kyri) | Queue closed; rune ruling owed; no build. |
 | 20261012.194454 | [Copal roster exhausted, no build](20261012/20261012-194454_copal-chapter-roster-exhausted-no-build.kyri) | 0 of 159 chapter witnesses unrostered; no build. |
 | 20261012.194216 | [Incense declines, 195 on shelf, no build](20261012/20261012-194216_incense-decline-195-shelf-no-build.kyri) | Order held; board clear; stall named; no build. |
 | 20261012.194410 | [Petrichor gate held, shelf gap found, no build](20261012/20261012-194410_petrichor-gate-held-shelf-gap-no-build.kyri) | Consent Rail unchanged upstream; lint finds 20261006 index with no day folder; reported; no build. |
