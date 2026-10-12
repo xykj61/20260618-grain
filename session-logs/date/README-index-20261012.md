@@ -4,6 +4,7 @@
 | 20261012.161701 | [Petrichor lint clean, gate held, no build](20261012/20261012-161701_petrichor-lint-clean-gate-held-no-build.kyri) | Docs-geode lint clean; gate held; no build. |
 | 20261012.161811 | [Copal fruit empty, no build](20261012/20261012-161811_copal-fruit-empty-no-build.kyri) | Exact-path read: 158 of 158 chapter witnesses rostered; no build. |
 | 20261012.161546 | [Patchouli queue empty, ff, no build](20261012/20261012-161546_patchouli-queue-empty-ff-no-build.kyri) | Ff to 6e73018f54; queue empty; %841 ruling-held; no build. |
+| 20261012.161657 | [Incense held, no build, Scorpio round](20261012/20261012-161657_incense-held-no-build-scorpio-round.kyri) | Nib carried to 8391adc070; witness GREEN; fold and gates held; no build. |
 | 20261012.161209 | [Pheromone held, ff, no build](20261012/20261012-161209_pheromone-upstream-logs-held-no-build.kyri) | Ff to 04f0aec1e5; no Glow change; Incense ruling owed. |
 | 20261012.161045 | [Bakery shared cache, no build](20261012/20261012-161045_bakery-shared-cache-witnessed-no-build.kyri) | Cache witnesses GREEN; sharing is a seam ruling. |
 | 20261012.161200 | [Incense gates-only, no build](20261012/20261012-161200_incense-gates-only-no-build.kyri) | Round-open clean on 59aedf3d63; queue gated on Keaton's word; no build. |
