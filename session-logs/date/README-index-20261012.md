@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.010759` | [Bakery, mutation census three unmeasured, no build](20261012/20261012-010759_bakery-mutation-census-three-unmeasured-no-build.kyri) | Census: 3 changed, 0 silent, 3 unmeasured; receipt key YOURS; no build. |
 | `20261012.010702` | [Incense, baton held, round-open clean, no build](20261012/20261012-010702_incense-baton-held-no-build-round-open.kyri) | Round-open clean; board clear; no build. |
 | `20261012.010957` | [Copal, fruit already met, no build](20261012/20261012-010957_copal-chapter-roster-fruit-already-met-no-build.kyri) | Zero unrostered witnesses; card's ~75 is stale; no build. |
 | `20261012.010843` | [Petrichor, Consent Rail still held, no build](20261012/20261012-010843_petrichor-no-build.kyri) | Round-open clean; gate unchanged; no build |
