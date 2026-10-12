@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.222949` | [Diffuser, P1 hold, ff patchouli, no run](20261011/20261011-222949_diffuser-hold-p1-unruled-ff-patchouli-no-run.kyri) | P1 still unruled; fast-forward only; no run. |
 | 20261011.223120 | [Petrichor, gate still held, second pull, no build](20261011/20261011-223120_petrichor-gate-held-second-pull-no-build.kyri) | Petrichor gate still held after a second pull; no build. |
 | `20261011.223228` | [Incense, round-open clean, declined, no build](20261011/20261011-223228_incense-baton-declined-no-build-ff-clean.kyri) | Clean at a5c7336419; board empty; no build; nib carried. |
 | `20261011.223119` | [Patchouli, kumara held, GREEN, no build](20261011/20261011-223119_patchouli-kumara-held-witnesses-green-no-build.kyri) | Witnesses re-run GREEN; no build. |
