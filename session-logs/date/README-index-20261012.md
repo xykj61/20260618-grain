@@ -9,6 +9,7 @@
 | `20261012.081530` | [Diffuser, held on P1, check in (Claude), no run](20261012/20261012-081530_diffuser-p1-hold-no-run-check-in-claude.kyri) | P1 still unruled; no build; check in (Claude) to restate or retire. |
 | `20261012.081421` | [Pheromone, lane empty, stop clause held, no build](20261012/20261012-081421_pheromone-lane-empty-held-no-build.kyri) | Language lane empty on its stop clause; no rune ruling in hand; no build. |
 | `20261012.081241` | [Bakery held again, receipt basis foreign, no build](20261012/20261012-081241_bakery-receipt-basis-reread-held.kyri) | Fast-forwarded six peers; receipt still foreign_head; waits on Keaton. |
+| `20261012.081238` | [Incense, declined again, no build](20261012/20261012-081238_incense-baton-declined-repeat-no-build.kyri) | Repeat decline; board clear; law lane waits on Keaton. |
 | `20261012.081051` | [Petrichor, gate held after ff, no build](20261012/20261012-081051_petrichor-gate-held-ff-no-build.kyri) | Consent Rail gate unchanged; no fruit; no build. |
 | `20261012.081035` | [Copal, fruit empty, held](20261012/20261012-081035_copal-fruit-empty-strict-measure-no-build.kyri) | Strict measure: zero unrostered witnesses; no build. |
 | `20261012.081114` | [Diffuser, held again on P1, no run](20261012/20261012-081114_diffuser-p1-hold-check-in-claude.kyri) | P1 still unruled; fast-forward only; check in (Claude) to restate or retire. |
