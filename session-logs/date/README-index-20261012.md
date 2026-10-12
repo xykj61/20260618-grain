@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 
+| `20261012.055904` | [Incense, baton declined, no build](20261012/20261012-055904_incense-baton-declined-no-build.kyri) | Round-open clean, board read; cold run held; no build.
 | `20261012.055800` | [Patchouli, queue held, kumara red awaits ruling, no build](20261012/20261012-055800_patchouli-queue-held-no-build.kyri) | Inner queue held; kumara witness GREEN; red waits on a ruling; no build. |
 | `20261012.055426` | [Incense, baton declined, stall carried, no build](20261012/20261012-055426_incense-baton-declined-stall-carried-no-build.kyri) | Round-open clean, board clear; nib carried forward; no build. |
 | `20261012.055243` | [Copal, fruit spent, no build](20261012/20261012-055243_copal-fruit-spent-no-build.kyri) | No unrostered chapter witness left by measurement; ruling owed to Keaton; no build. |
