@@ -8,6 +8,7 @@
 |---|---|---|
 | `20261012.053259` | [Copal, fruit empty, no build](20261012/20261012-053259_copal-fruit-empty-seventh-no-build.kyri) | Zero unrostered witnesses again; no build. |
 | `20261012.053139` | [Diffuser, P1 hold, ff two peers, no run](20261012/20261012-053139_diffuser-p1-hold-ff-stale-capture-no-run.kyri) | P1 unruled; two peer logs in; no run. |
+| `20261012.053355` | [Petrichor, gate held after ff, no build](20261012/20261012-053355_petrichor-gate-held-no-build.kyri) | Consent Rail still Keaton's call; ff to 8c29a186c3; no fruit. |
 | `20261012.052859` | [Incense, baton declined, no build](20261012/20261012-052859_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; cold run held; no build. |
 | `20261012.052751` | [Bakery, capture candidates stale, no build](20261012/20261012-052751_bakery-capture-candidate-stale-no-build.kyri) | Both preserved patches fail git apply on HEAD; no build. |
 | `20261012.053036` | [Pheromone, ff, lane empty, no build](20261012/20261012-053036_pheromone-ff-lane-empty-no-build.kyri) | Fast-forwarded five peer commits; language lane empty; no build. |
