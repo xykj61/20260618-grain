@@ -6,6 +6,7 @@
 | `20261012.051537` | [Pheromone, lane recheck, no build](20261012/20261012-051508_pheromone-lane-recheck-no-build.kyri) | Lane and board empty; %765 %807 await Keaton; no build. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.053259` | [Copal, fruit empty, no build](20261012/20261012-053259_copal-fruit-empty-seventh-no-build.kyri) | Zero unrostered witnesses again; no build. |
 | `20261012.053139` | [Diffuser, P1 hold, ff two peers, no run](20261012/20261012-053139_diffuser-p1-hold-ff-stale-capture-no-run.kyri) | P1 unruled; two peer logs in; no run. |
 | `20261012.052859` | [Incense, baton declined, no build](20261012/20261012-052859_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; cold run held; no build. |
 | `20261012.052751` | [Bakery, capture candidates stale, no build](20261012/20261012-052751_bakery-capture-candidate-stale-no-build.kyri) | Both preserved patches fail git apply on HEAD; no build. |
