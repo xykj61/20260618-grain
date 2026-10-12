@@ -5,7 +5,6 @@
 | 20261012.152410 | [Incense decline, no build](20261012/20261012-152410_incense-decline-claim-board-clear-no-build.kyri) | Ff clean; claims empty; cold run held. |
 | 20261012.152114 | [Pheromone lane held, no build](20261012/20261012-152114_pheromone-lane-held-no-build.kyri) | Shape capacity GREEN at 15; board clear; ruling still owed; no build. |
 | 20261012.152035 | [Bakery measured the shared build cache, no build](20261012/20261012-152035_bakery-shared-cache-measured-no-build.kyri) | Compile layer path-independent; mutations move; pins unmeasured; no build. |
-| 20261012.152410 | [Incense decline, no build](20261012/20261012-152410_incense-decline-claim-board-clear-no-build.kyri) | Ff clean; claims empty; cold run held. |
 | 20261012.152003 | [Incense decline, held, no build](20261012/20261012-152003_incense-decline-held-on-p1-no-build.kyri) | Reset to aef0e8fc9d; owed words hold; no build. |
 | 20261012.151520 | [Copal, no unrostered witness left](20261012/20261012-151520_copal-no-unrostered-chapter-witness.kyri) | Zero unrostered; fruit void; no build; check in (Claude). |
 | 20261012.151951 | [Petrichor ff, gate held again](20261012/20261012-151951_petrichor-ff-gate-held-no-build-again.kyri) | Ff to aef0e8fc9d; Consent Rail unchanged; no build. |
