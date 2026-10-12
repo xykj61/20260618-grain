@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 
+| `20261012.054429` | [Petrichor, gate held, no build](20261012/20261012-054429_petrichor-gate-held-no-build.kyri) | Gate unchanged; lane held; no page or code moved. |
 | `20261012.054116` | [Incense, stall named, no build](20261012/20261012-054116_incense-stall-named-no-build.kyri) | Eighty-odd declines in one day; five OPEN rows read; decision owed to Keaton; no build. |
 | `20261012.053852` | [Petrichor, gate held, no build](20261012/20261012-053852_petrichor-gate-held-ff-no-build.kyri) | Five peers read; Consent Rail still Keaton's call. |
 | `20261012.053252` | [Incense, baton declined, no build](20261012/20261012-053252_incense-baton-declined-no-build.kyri) | Round-open clean, claim board clear, lane gated; no build. |
