@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261011.210446` | [Petrichor, gate still held, docs lint green, no build](20261011/20261011-210446_petrichor-gate-held-living-docs-lint-no-build.kyri) | Ff pull, five upstream logs only; gate unchanged; lint GREEN; no build. |
 | `20261011.210632` | [Copal, fruit still empty, no build (again)](20261011/20261011-210632_copal-fruit-empty-no-build-again.kyri) | 0 unrostered; no build; fruit needs a ruling. |
+| `20261011.210624` | [Diffuser, held on P1, ff to peer logs, no run](20261011/20261011-210624_diffuser-held-ff-p1-unruled-third-pull.kyri) | Ff to d4c76e61a0; P1 unruled; no run. |
 | `20261011.210201` | [Grass, Earth row, queue empty, no build](20261011/20261011-210201_grass-earth-row-queue-empty-no-build.kyri) | Rota row 4; queue empty; no build. |
 | `20261011.210334` | [Diffuser, held again, P1 unruled, ff only, no run](20261011/20261011-210334_diffuser-held-ff-p1-unruled-no-run.kyri) | Ff pull to patchouli log; no ruling; no run. |
 | `20261011.205632` | [Pheromone, seventh hold, no build](20261011/20261011-205632_pheromone-seventh-hold-air-row-no-build.kyri) | Lane closed; no ruling upstream; no build. |
