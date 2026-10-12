@@ -468,6 +468,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.110943` | [Grass grade two rule pages, no frame](20261012/20261012-110943_grass-grade-rule-pages-aplus-no-frame.kyri) | Nib A+ 98, endurance-run A 92; no edit. |
+| `20261012.160459` | [Petrichor gate held, ff two, no build](20261012/20261012-160459_petrichor-gate-held-ff-two-no-build.kyri) | Ff to 63ca60a47e; seam and rail still held; no build. |
 | `20261012.110322` | [Pheromone held, no build](20261012/20261012-110322_pheromone-lane-held-verified-no-build.kyri) | Witnesses GREEN; held for Incense ruling. |
 | `20261012.110344` | [Petrichor lane held at the consent gate, no claim](20261012/20261012-110344_petrichor-gate-held-no-claim.kyri) | Gate held; no claim; check in (Claude). |
 | `20261012.110502` | [Incense declined, no build, nib carried](20261012/20261012-110502_incense-baton-declined-no-build.kyri) | Round-open clean; claim board clear; cold run held by order; no build. |
