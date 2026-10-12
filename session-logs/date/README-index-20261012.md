@@ -401,6 +401,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.161805 | [Diffuser P1 ruling owed, no run](20261012/20261012-161805_diffuser-p1-ruling-owed-ff-incense-no-run.kyri) | Ff to 94cee0ed32; no agent-doable Diffuser lap; claim scan clear; check in. |
 | 20261012.161331 | [Diffuser P1 held, ff three, no run](20261012/20261012-161331_diffuser-p1-held-ff-three-no-run.kyri) | Ff three peer commits; P1 ruling owed; no run, no build; check in. |
 | 20261012.161053 | [Petrichor gate held, ff one, no build](20261012/20261012-161053_petrichor-gate-held-ff-one-no-build.kyri) | Ff to 59aedf3d63; gate and seam still held; no build. |
 | 20261012.160732 | [Incense pull held, no build](20261012/20261012-160732_incense-pull-held-no-build.kyri) | Ff to 9177dc8805; no buildable item; gated on Keaton; no build. |
