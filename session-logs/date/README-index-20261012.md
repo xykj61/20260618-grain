@@ -40,6 +40,7 @@
 | 20261012.125709 | [Diffuser held on P1 again, no run](20261012/20261012-125709_diffuser-p1-held-check-in-no-run.kyri) | P1 ruling and Consent Rail still owed; peer logs only; no build. |
 | 20261012.125649 | [Copal fruit spent, no build](20261012/20261012-125649_copal-fruit-spent-zero-unrostered.kyri) | Zero unrostered witnesses; GREEN; no build. |
 | 20261012.125807 | [Incense eighty-third lap, declined, no build](20261012/20261012-125807_incense-eighty-third-declined-no-build.kyri) | Synced to xy/main; queue waits on Keaton at %642 or %519; no build. |
+| 20261012.125756 | [Patchouli kumara red re-checked, held](20261012/20261012-125756_patchouli-kumara-held-recheck.kyri) | Seam live at kumara.rye:36; ruling wanted; no build. |
 | 20261012.125044 | [Diffuser held on P1, fast-forward four peers, no run](20261012/20261012-125044_diffuser-p1-hold-ff-four-peers-check-in.kyri) | P1 ruling still open; no run; check in (Claude). |
 | 20261012.125327 | [Petrichor gate held after pull, no build](20261012/20261012-125327_petrichor-gate-held-after-pull-no-build.kyri) | Gate held at e272fad2b0; no build. |
 | 20261012.125216 | [Incense held, round-open clean, no build](20261012/20261012-125216_incense-held-no-build.kyri) | Round-open clean; claims clear; cold run held by ruling; no build. |
