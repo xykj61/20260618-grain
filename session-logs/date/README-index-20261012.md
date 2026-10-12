@@ -6,6 +6,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.030612` | [Copal, fruit empty, sixth reading](20261012/20261012-030612_copal-no-unrostered-witness-no-build.kyri) | Zero unrostered witnesses; ruling asked. |
+| `20261012.030414` | [Diffuser, P1 hold, ff copal fruit, no run](20261012/20261012-030414_diffuser-p1-hold-ff-copal-no-run.kyri) | P1 unruled; ff clean; no run. |
 | `20261012.030306` | [Incense, round-open, earth row, no build](20261012/20261012-030306_incense-round-open-earth-row-declined-no-build.kyri) | Round-open clean; board clear; no build. |
 | `20261012.030154` | [Bakery, receipt key held, no build](20261012/20261012-030154_bakery-receipt-key-held-no-build.kyri) | Receipt key still YOURS; claim board clear; no build. |
 | `20261012.025944` | [Copal, fruit empty, fifth reading, no build](20261012/20261012-025944_copal-fruit-empty-fifth-reading-no-build.kyri) | Zero unrostered witnesses; check in (Claude) on the fruit |
