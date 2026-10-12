@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.151951 | [Petrichor ff, gate held again](20261012/20261012-151951_petrichor-ff-gate-held-no-build-again.kyri) | Ff to aef0e8fc9d; Consent Rail unchanged; no build. |
 | 20261012.151342 | [Incense ff to upstream, declined, no build](20261012/20261012-151342_incense-declined-ff-mantra-no-build.kyri) | Ff to 03daf49952; no build; cold run held. |
 | 20261012.151413 | [Petrichor ff, gate held, no build](20261012/20261012-151413_petrichor-ff-gate-held-no-build.kyri) | Ff to 33c59e3e4e; Consent Rail unchanged; gate held; no build. |
 | 20261012.151421 | [Patchouli push recovery](20261012/20261012-151421_patchouli-push-recovery-follow-up.kyri) | Amend hit a peer commit; reset to xy; nib carried. |
