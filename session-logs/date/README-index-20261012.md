@@ -5,6 +5,7 @@
 | `20261012.051537` | [Pheromone, lane recheck, no build](20261012/20261012-051508_pheromone-lane-recheck-no-build.kyri) | Lane and board empty; %765 %807 await Keaton; no build. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.051746` | [Copal, roster zero again, fire row, no build](20261012/20261012-051746_copal-roster-zero-fire-row-no-build.kyri) | Zero unrostered witnesses at f36a1038f4; fruit empty; no build. |
 | `20261012.051318` | [Bakery, cache census, no build](20261012/20261012-051318_bakery-cache-census-plant-sourcing-no-build.kyri) | Cache shares by content; receipt key waits. |
 | `20261012.051600` | [Patchouli, queue empty, ff, no build](20261012/20261012-051600_patchouli-queue-empty-ff-no-build.kyri) | ff to 42df8f7640; elder literals and REDS OPEN read; check in (Claude). |
 | `20261012.051250` | [Diffuser, P1 hold, no run](20261012/20261012-051250_diffuser-p1-hold-no-run-check-in-claude.kyri) | ff to 8953a20995; no P1 ruling; check in (Claude). |
