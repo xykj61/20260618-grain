@@ -11,6 +11,7 @@
 | 20261012.112824 | [Grass re-grade, water row, held, no build](20261012/20261012-112824_grass-inner-regrade-water-tastes-held.kyri) | Field B+; queue closed; no frame, no edit. |
 | 20261012.112431 | [Diffuser P1 hold: ruling recommendation, no run](20261012/20261012-112431_diffuser-p1-hold-ruling-recommendation-no-run.kyri) | P1 still owed to Claude or Keaton; no run, no pin edit. |
 | 20261012.112203 | [Patchouli beading selftest split under seventy](20261012/20261012-112203_beading-selftest-split-under-seventy.kyri) | Three phases, output byte-identical; witness GREEN. |
+| 20261012.112943 | [Copal chapter recount, no build](20261012/20261012-112943_copal-chapter-recount-no-build.kyri) | 0 unrostered witnesses, exact path; no claim, no edit. |
 | 20261012.112408 | [Incense third hold, same HEAD, no build](20261012/20261012-112408_incense-third-hold-same-head.kyri) | Third hold on e5e1dff3e6; no build, no cold run. |
 | 20261012.112318 | [Grass mycelium sample clear, no lift, no build](20261012/20261012-112318_grass-mycelium-sample-clear-no-build.kyri) | Fold reads A 93; queue closed at its sample; held, no edit. |
 | 20261012.112355 | [Pheromone held at closed fruit, round one, no build](20261012/20261012-112355_pheromone-held-round-one-no-build.kyri) | Lane empty; new rune waits on Incense; no witness, no edit. |
