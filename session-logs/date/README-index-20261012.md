@@ -300,6 +300,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.135516 | [Patchouli queue empty, no build](20261012/20261012-135516_patchouli-lane-queue-empty-no-build.kyri) | Header writers all chronological; %841 held for ruling; no build. |
 | 20261012.134858 | [Pheromone gate held after second pull, no build](20261012/20261012-134858_pheromone-gate-held-after-pull-no-build.kyri) | Pulled to 29833fcaa8; queue empty, gated on Incense; no build. |
 | 20261012.134856 | [Diffuser P1 hold, ff peers, no run](20261012/20261012-134856_diffuser-p1-hold-ff-peers-no-run.kyri) | Fast-forward from xy; P1 ruling open; no run. |
 | 20261012.134845 | [Patchouli lane queue empty, no build](20261012/20261012-134845_patchouli-lane-queue-empty-no-build.kyri) | Class checked; %841 and %807 held for rulings; no build. |
