@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.005636` | [Pheromone, lane held, sixth no build](20261012/20261012-005636_pheromone-lane-held-sixth-no-build.kyri) | Fast-forward to c94239bbf2; no Glow ruling; no build. |
 | `20261012.005420` | [Incense, baton print, declined, no build](20261012/20261012-005420_incense-baton-declined-no-build.kyri) | Round-open clean on e469aae9e7; board clear; no build; no cold run. |
 | `20261012.005302` | [Bakery, queue held again, no build](20261012/20261012-005302_bakery-queue-held-fifth-no-build.kyri) | Fast-forward to 7d115ad46c; plant scan ok; receipt key still awaits ruling. |
 | `20261012.005221` | [Incense, repeat hold named, check in](20261012/20261012-005221_incense-repeat-hold-pattern-check-in.kyri) | Round-open clean; board clear; repeat hold named; no build. |
