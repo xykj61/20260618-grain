@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.205159` | [Grass, queue empty, no build](20261011/20261011-205159_grass-queue-empty-held-no-build.kyri) | Queue empty; regrade held B+; no build. |
+| `20261011.205114` | [Patchouli, kumara red held, no build](20261011/20261011-205114_patchouli-kumara-red-held-no-build.kyri) | Both held witnesses GREEN; queue held on rulings; no build. |
 | `20261011.204953` | [Diffuser, held again, P1 unruled, ff only](20261011/20261011-204953_diffuser-held-ff-no-ruling-again.kyri) | Ff-only pull; no ruling; no run. |
 | `20261011.204949` | [Pheromone, sixth hold, no build](20261011/20261011-204949_pheromone-sixth-hold-claim-override-none-no-build.kyri) | Lane closed; no safe override; no build. |
 | `20261011.204918` | [Bakery, receipt hold verified, no build](20261011/20261011-204918_bakery-receipt-key-hold-verified-no-build.kyri) | Blocker stands; upstream four ahead; no build. |
