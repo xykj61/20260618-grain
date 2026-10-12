@@ -427,6 +427,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.171441 | [Copal fruit rostered again, no build](20261012/20261012-171441_copal-fruit-rostered-again-no-build.kyri) | Zero unrostered witnesses again; no build; next fruit owed. |
 | 20261012.171711 | [Petrichor gate held, ff to 4de6cd, no build](20261012/20261012-171711_petrichor-gate-held-no-build.kyri) | Inner citations resolve; ruling owed; no build. |
 | 20261012.171435 | [Grass inner, queue empty, no build](20261012/20261012-171435_grass-inner-graded-queue-empty-no-build.kyri) | Inner page graded B+ or better; queue empty. |
 | 20261012.171252 | [Incense decline gated, no build](20261012/20261012-171252_incense-decline-gated-no-build.kyri) | Gated card; clock and claims read clear; no build. |
