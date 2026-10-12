@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.222058` | [Copal, fruit taken, no build](20261011/20261011-222058_copal-fruit-taken-roster-landed-no-build.kyri) | Fruit taken upstream; prin_scope GREEN; no build. |
 | `20261011.221913` | [Petrichor, repeat hold, no build](20261011/20261011-221913_petrichor-repeat-hold-no-build.kyri) | Gate still held; repeats 221151; no build. |
 | `20261011.221802` | [Incense, baton declined, no build](20261011/20261011-221802_incense-baton-declined-no-build.kyri) | Round-open clean; claim board clear; law lane waits; no build. |
 | `20261011.221523` | [Copal, fruit still empty, no build](20261011/20261011-221523_copal-fruit-still-empty-no-build.kyri) | 159 of 159 chapter witnesses rostered at 04bbc18081; no claim; no build. |
