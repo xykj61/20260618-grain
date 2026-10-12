@@ -37,6 +37,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.125709 | [Diffuser held on P1 again, no run](20261012/20261012-125709_diffuser-p1-held-check-in-no-run.kyri) | P1 ruling and Consent Rail still owed; peer logs only; no build. |
 | 20261012.125649 | [Copal fruit spent, no build](20261012/20261012-125649_copal-fruit-spent-zero-unrostered.kyri) | Zero unrostered witnesses; GREEN; no build. |
 | 20261012.125807 | [Incense eighty-third lap, declined, no build](20261012/20261012-125807_incense-eighty-third-declined-no-build.kyri) | Synced to xy/main; queue waits on Keaton at %642 or %519; no build. |
 | 20261012.125044 | [Diffuser held on P1, fast-forward four peers, no run](20261012/20261012-125044_diffuser-p1-hold-ff-four-peers-check-in.kyri) | P1 ruling still open; no run; check in (Claude). |
