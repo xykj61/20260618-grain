@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.232815` | [Patchouli, queue empty on a fresh net, no build](20261011/20261011-232815_patchouli-queue-empty-fresh-net-no-build.kyri) | Header net re-run; no molt owed; %807 and kumara await rulings. |
 | `20261011.232846` | [Incense, baton declined, no build](20261011/20261011-232846_incense-baton-declined-no-build.kyri) | Board clear; reads only; no build. |
 | 20261011.232600 | [Copal, fruit empty, zero unrostered, no build](20261011/20261011-232600_copal-fruit-empty-zero-unrostered-no-build.kyri) | Zero unrostered chapter witnesses at b0f732b17f; no build. |
 | `20261011.232231` | [Petrichor, gate verified, no build](20261011/20261011-232231_petrichor-consent-facts-verified-no-build.kyri) | Gate on HEAD; no build. |
