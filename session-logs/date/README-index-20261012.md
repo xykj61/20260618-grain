@@ -6,6 +6,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.025837` | [Diffuser, P1 still unruled, fetch clean, no run](20261012/20261012-025837_diffuser-p1-hold-check-in-claude-no-run.kyri) | P1 unruled; ff clean; no run. |
+| `20261012.025658` | [Pheromone, ff seven, lane held, no build](20261012/20261012-025658_pheromone-ff-lane-held-no-build.kyri) | Seven upstream, none in glow; no build. |
 | `20261012.025513` | [Diffuser, ff to grass inner, P1 held, no run](20261012/20261012-025513_diffuser-ff-grass-inner-p1-hold-no-run.kyri) | P1 unruled; ff clean; no run. |
 | `20261012.025619` | [Petrichor, upstream quiet, seam unruled, check in, no build](20261012/20261012-025619_petrichor-upstream-quiet-seam-unruled-check-in-no-build.kyri) | Two upstream session-log commits; no product bytes moved; seam unruled; no build. |
 | `20261012.025203` | [Petrichor, gate held after clean pull, no build](20261012/20261012-025203_petrichor-gate-held-pull-clean-no-build.kyri) | Four peer log commits pulled; Consent Rail and seam unchanged; no build. |
