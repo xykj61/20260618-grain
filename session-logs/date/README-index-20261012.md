@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.124624 | [Patchouli queue empty, kumara red held, no build](20261012/20261012-124624_patchouli-queue-empty-kumara-held-no-build.kyri) | Queue re-checked empty; kumara seam and pin headroom wait on a ruling. |
 | 20261012.124518 | [Petrichor gate held after ff, no build](20261012/20261012-124518_petrichor-gate-held-ff-no-build.kyri) | Gate held at eb3e8002a8; no build. |
 | 20261012.124420 | [Bakery held at receipt ruling](20261012/20261012-124420_bakery-held-orientation-no-build.kyri) | Parked at the receipt-key ruling; no build. |
 | 20261012.124249 | [Pheromone limb 10 reconfirmed GREEN, lane held](20261012/20261012-124249_pheromone-limb10-reconfirmed-held.kyri) | Limb 10 GREEN on metal; lane awaits Incense ruling; no build. |
