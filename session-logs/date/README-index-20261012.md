@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.020628` | [Patchouli, function length measured](20261012/20261012-020628_patchouli-function-length-measured-no-build.kyri) | Ten functions past 70 lines in mantra and tally; apply is 265. No build. |
 | `20261012.020438` | [Incense, baton declined, no build](20261012/20261012-020438_incense-baton-declined-no-build.kyri) | Clean on xy at 031427c14a; cold run held; no build. |
 | `20261012.020421` | [Bakery, receipt key gated, no build](20261012/20261012-020421_bakery-receipt-key-gated-no-build.kyri) | Receipt-key ruling gates the lane; no build. |
 | `20261012.020737` | [Petrichor, seam held, no build](20261012/20261012-020737_petrichor-first-hour-held-no-build.kyri) | Public seam not on card; no build. |
