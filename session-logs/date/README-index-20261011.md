@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.212034` | [Diffuser, fast-forward, P1 still unruled, no run](20261011/20261011-212034_diffuser-ff-p1-still-unruled-no-run.kyri) | Peers fast-forwarded, no diffuser path; P1 ruling still open; no run. |
 | `20261011.211522` | [Petrichor, gate held, no build](20261011/20261011-211522_petrichor-gate-held-ff-upstream-no-build.kyri) | Ff to upstream; Consent Rail gate unchanged. |
 | `20261011.211646` | [Diffuser, P1 hold, no run](20261011/20261011-211646_diffuser-p1-hold-no-run.kyri) | P1 ruling still open; no run. |
 | `20261011.211637` | [Grass, inner prompt B+, no frame](20261011/20261011-211637_grass-inner-graded-b-plus-no-frame-no-build.kyri) | 89 at Field; repeated lean flagged; no build. |
