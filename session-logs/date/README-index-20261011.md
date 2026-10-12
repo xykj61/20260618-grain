@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.223228` | [Incense, round-open clean, declined, no build](20261011/20261011-223228_incense-baton-declined-no-build-ff-clean.kyri) | Clean at a5c7336419; board empty; no build; nib carried. |
 | `20261011.223119` | [Patchouli, kumara held, GREEN, no build](20261011/20261011-223119_patchouli-kumara-held-witnesses-green-no-build.kyri) | Witnesses re-run GREEN; no build. |
 | `20261011.222942` | [Pheromone, baton read, lane on hold, no build](20261011/20261011-222942_pheromone-hold-no-build.kyri) | Lane on hold; ruling awaited; no claim; no build. |
 | `20261011.222908` | [Incense, Taurus law, baton declined, no build](20261011/20261011-222908_incense-baton-declined-taurus-no-build.kyri) | Clean at 381c4344d7; board empty; no build. |
