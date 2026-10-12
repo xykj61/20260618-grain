@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.071019` | [Patchouli, catch-up bind fault escapes](20261012/20261012-071019_patchouli-catch-up-source-loop-bind-fault.kyri) | Bind fault exits 1; GREEN; REDS held. |
 | `20261012.071043` | [Petrichor, gate reread, no build](20261012/20261012-071043_petrichor-gate-reread-no-build.kyri) | Grant and revoke on main; seam unseen; no build. |
 | `20261012.070528` | [Pheromone, tend rechecked, no build](20261012/20261012-070528_pheromone-tend-rechecked-no-build.kyri) | Three witnesses GREEN; next step awaits a ruling. |
 | `20261012.070533` | [Grass, civic policy pages A or better, no build](20261012/20261012-070533_grass-civic-policy-front-doors-graded-no-build.kyri) | Four civic pages graded A or better; queue empty; no build. |

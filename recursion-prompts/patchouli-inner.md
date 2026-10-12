@@ -470,6 +470,18 @@ subscribe-poll witnesses read GREEN. The matching REDS row is held, since the pi
 should check `run_source_loop` in `recall_catch_up_delivery.rye` and `snapshot_export_delivery.rye`
 for the same shape.
 
+**The same shape, in the catch-up source loop, `20261012.071019`.** `recall_catch_up_delivery.rye`
+ended its `source-loop` receive with `catch break`, which swallowed a bind fault and fell through to
+`print` and `return 0` -- a success report on a port it never bound. Measured on metal before the
+edit: with the source port held by a UDP socket, the pre-fix build printed `source loop answered
+catch-up requests` and exited 0. The catch now breaks only on `error.RecvFailed`, the idle wait, and
+returns every other error; the same occupied-port run exits 1 with `BindFailed`. Selftest and demo
+stay GREEN. A grep of `mantra/` and `tally/` for `catch continue`, `catch break`, and `catch return`
+finds no other receive-path swallow; `snapshot_export_delivery.rye` reads its receive with `try`, and
+`recall_batch_delivery.rye` carries no `catch` on its receive. The remaining `catch unreachable` sites
+wrap `bufPrint` into a buffer sized for its own output, which is an assertion rather than a swallow.
+The matching REDS row is held for the same pin headroom as `%840`'s, and no row was booked.
+
 ## gates
 
 Keys, funds, provisioning, identity, and the public seed stay manual.
