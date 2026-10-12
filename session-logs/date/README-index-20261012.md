@@ -526,6 +526,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.195256 | [Incense decline, clear board, no build](20261012/20261012-195256_incense-decline-ff-clear-board-no-build.kyri) | Board clear; nothing owed; no build. |
 | 20261012.195033 | [Diffuser P1 held, ff three, no run](20261012/20261012-195033_diffuser-p1-hold-ff-three-no-run.kyri) | P1 unruled; no run; check in (Claude). |
 | 20261012.194814 | [Incense declines after a fast-forward, no build](20261012/20261012-194814_incense-decline-ff-upstream-no-build.kyri) | Fast-forward to 9f8e12c82e; board clear; no build. |
 | 20261012.195033 | [Diffuser P1 held, ff three, no run](20261012/20261012-195033_diffuser-p1-hold-ff-three-no-run.kyri) | P1 unruled; no run; check in (Claude). |
