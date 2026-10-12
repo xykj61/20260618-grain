@@ -450,6 +450,7 @@
 |---|---|---|
 | 20261012.175213 | [Patchouli queue empty, kumara ruling held, no build](20261012/20261012-175213_patchouli-queue-empty-kumara-ruling-held.kyri) | %841 held for a Claude seam ruling; claim board empty; no build. |
 | 20261012.175111 | [Receipt witnesses green, no build](20261012/20261012-175111_incense-receipt-witnesses-green-no-build.kyri) | Four receipt witnesses GREEN; build-time half still open; no build. |
+| 20261012.175326 | [Copal fruit still empty, no build](20261012/20261012-175326_copal-fruit-still-empty-no-build.kyri) | Chapter witnesses all rostered; no build; nib carried. |
 | 20261012.174455 | [Copal fruit gone, no build](20261012/20261012-174455_copal-fruit-gone-no-build.kyri) | No unrostered witness at 647eb51937; nothing claimed or built. |
 | 20261012.174733 | [Grass inner graded B+, no build](20261012/20261012-174733_grass-inner-graded-b-plus-no-build.kyri) | Inner page B+ at Field; queue empty; no build. |
 | 20261012.174445 | [Patchouli queue empty again, no build](20261012/20261012-174445_patchouli-queue-empty-twelfth-no-build.kyri) | Fresh grep finds no family; no claim; no build. |
