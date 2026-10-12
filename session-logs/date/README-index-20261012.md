@@ -9,6 +9,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.115125 | [Petrichor gate held, check-in, no build](20261012/20261012-115125_petrichor-gate-held-check-in-no-build.kyri) | Fast-forward touched no docs-geode path; Consent Rail gate still with Diffuser; no fruit opens. |
 | 20261012.115213 | [Copal ticker launcher, no build](20261012/20261012-115213_copal-ticker-launcher-loops-no-build.kyri) | One unrostered file, a looping launcher; no build. |
 | 20261012.114944 | [Bakery crux held again, no build](20261012/20261012-114944_bakery-crux-second-hold-no-build.kyri) | Shared cache still absent; receipt-key ruling owed; no build. |
 | 20261012.114848 | [Diffuser P1 fast-forward, no run](20261012/20261012-114848_diffuser-p1-fast-forward-no-run.kyri) | Fast-forward to peers; P1 still unruled; no measurement. |
