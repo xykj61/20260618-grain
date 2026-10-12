@@ -9,6 +9,7 @@
 | 20261012.095631 | [Bakery, crux gate held a third time, no build](20261012/20261012-095631_bakery-crux-gate-third-hold-no-build.kyri) | Gate still Keaton's; no build. |
 | 20261012.095524 | [Patchouli, queue empty, kumara 840 held](20261012/20261012-095524_patchouli-queue-empty-kumara-840-held.kyri) | Queue empty; %840 sign ruling held for Keaton; no build. |
 | 20261012.095457 | [Incense declined, no build](20261012/20261012-095457_incense-baton-declined-no-build.kyri) | Held; claim board empty; no build. |
+| 20261012.095343 | [Grass, mycelium heads above B, no build](20261012/20261012-095343_grass-mycelium-heads-above-b-no-build.kyri) | Four heads read B or better; queue empty; no edit. |
 | 20261012.095049 | [Incense declined, logs restored](20261012/20261012-095049_incense-baton-declined-restored-two-no-build.kyri) | Held; two stranded logs restored; no build. |
 | 20261012.095419 | [Petrichor, gate reread, no build](20261012/20261012-095419_petrichor-second-gate-reread-no-build.kyri) | Gate still held; claim board clear; ff two peers; no build. |
 | 20261012.094958 | [Diffuser, P1 held, nib carried, no run](20261012/20261012-094958_diffuser-p1-held-nib-carried-no-run.kyri) | P1 ruling still owed; card nib carried; no run. |
