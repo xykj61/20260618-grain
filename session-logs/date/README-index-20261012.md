@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.015128` | [Diffuser, P1 hold, check in Claude, no run](20261012/20261012-015128_diffuser-p1-hold-ninety-second-check-in-claude-no-run.kyri) | P1 unruled; ff only; no run. |
 | `20261012.014856` | [Grass, inner regraded B+, no build](20261012/20261012-014856_grass-regrade-round-14-wildcard-no-build.kyri) | Field B+ 89 again; nib to HEAD. |
 | `20261012.014945` | [Incense, baton declined after fast-forward, no build](20261012/20261012-014945_incense-baton-declined-after-ff-pull.kyri) | Round-opened, two peer logs fast-forwarded; claim board clear; lane gated; no build. |
 | `20261012.014718` | [Petrichor, gate held, rota water, no build](20261012/20261012-014718_petrichor-gate-held-rota-water-no-build.kyri) | Seam not on the tree; gate held; no build. |
