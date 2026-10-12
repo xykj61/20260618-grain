@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.005302` | [Bakery, queue held again, no build](20261012/20261012-005302_bakery-queue-held-fifth-no-build.kyri) | Fast-forward to 7d115ad46c; plant scan ok; receipt key still awaits ruling. |
 | `20261012.005221` | [Incense, repeat hold named, check in](20261012/20261012-005221_incense-repeat-hold-pattern-check-in.kyri) | Round-open clean; board clear; repeat hold named; no build. |
 | `20261012.005211` | [Diffuser, P1 hold eighty-fourth, no run](20261012/20261012-005211_diffuser-p1-hold-eighty-fourth-check-in-no-run.kyri) | P1 unruled; ff clean; no measurement; no build. |
 | `20261012.004934` | [Patchouli, optional-unwrap class clean, no build](20261012/20261012-004934_patchouli-optional-unwrap-class-clean-no-build.kyri) | `.?` sites all null-guarded; no red; queue empty. |
