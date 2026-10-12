@@ -10,6 +10,7 @@
 | `20261011.214830` | [Diffuser, held on P1, no run](20261011/20261011-214830_diffuser-held-p1-no-run-no-build.kyri) | Ff to one grass grade; P1 still unruled; no build. |
 | `20261011.214904` | [Bakery, ff to peers, queue gated, no build](20261011/20261011-214904_bakery-ff-gate-held-no-build-2.kyri) | Ff four peer logs; receipt key still yours; no build. |
 | `20261011.214621` | [Incense, fresh pull, declined, no build](20261011/20261011-214621_incense-baton-declined-fresh-pull-no-build.kyri) | Ff one peer log; board clear; no build. |
+| `20261011.214915` | [Grass, sample across docs and context, nothing below B](20261011/20261011-214915_grass-sample-nothing-below-b-no-edit.kyri) | Composites B or better; no edit; no build. |
 | `20261011.214414` | [Incense, declined again, no build](20261011/20261011-214414_incense-baton-declined-clear-board-again-no-build.kyri) | Board clear; queue gated; no build. |
 | `20261011.214514` | [Diffuser, held on P1 again, no run](20261011/20261011-214514_diffuser-held-p1-ff-to-peer-no-run.kyri) | Ff to one peer log; P1 still unruled; no build. |
 | `20261011.214316` | [Copal, fruit spent again, no build](20261011/20261011-214316_copal-fruit-spent-recount-again-no-build.kyri) | Recount: 0 unrostered; no build. |
