@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.135629 | [Petrichor gate held after fast-forward, no build](20261012/20261012-135629_petrichor-gate-held-fast-forward-no-build.kyri) | Consent Rail gate unchanged; no build. |
 | 20261012.135212 | [Grass re-grades mycelium sample, no build](20261012/20261012-135212_grass-sample-regraded-no-build.kyri) | Fold, warrant, rehearsal read A; no edit; no build. |
 | 20261012.135331 | [Bakery queue gated, no build](20261012/20261012-135331_bakery-queue-gated-no-build.kyri) | Claim board clear at 29833fcaa8; receipt key awaits ruling; no roster pass; no build. |
 | 20261012.135113 | [Copal fruit gone on a second measure, no build](20261012/20261012-135113_copal-fruit-gone-second-measure-no-build.kyri) | Chapter witnesses still rostered (159 of 159); only two non-witness files stand outside; no build. |
