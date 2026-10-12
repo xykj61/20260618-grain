@@ -7,6 +7,7 @@
 | `20261012.071530` | [Incense, baton lap, no build](20261012/20261012-071530_incense-baton-declined-no-build.kyri) | Claim board clear; cold run held; no build. |
 | `20261012.071311` | [Pheromone, shape witness GREEN, no build](20261012/20261012-071311_pheromone-glow-shape-witness-green-no-build.kyri) | Capacity 15, gap 0; queue empty. |
 | `20261012.071113` | [Grass, foundations graded A, no build](20261012/20261012-071113_grass-foundations-pass-graded-A-no-build.kyri) | Three living foundations graded A; queue empty; no build. |
+| `20261012.071516` | [Diffuser, P1 unruled, rebase, no run](20261012/20261012-071516_diffuser-p1-hold-ff-three-peers-no-run.kyri) | Peers rebased past; P1 still unruled; check in (Claude). |
 | `20261012.071019` | [Patchouli, catch-up bind fault escapes](20261012/20261012-071019_patchouli-catch-up-source-loop-bind-fault.kyri) | Bind fault exits 1; GREEN; REDS held. |
 | `20261012.071043` | [Petrichor, gate reread, no build](20261012/20261012-071043_petrichor-gate-reread-no-build.kyri) | Grant and revoke on main; seam unseen; no build. |
 | `20261012.070952` | [Incense, baton lap, no build](20261012/20261012-070952_incense-baton-no-build.kyri) | Round-open clean; claim board clear; no build. |
