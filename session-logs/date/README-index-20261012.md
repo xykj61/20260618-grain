@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.132331 | [Patchouli queue empty, kumara red held for ruling, no build](20261012/20261012-132331_patchouli-kumara-841-ruling-held-no-build.kyri) | %841 retype waits on a Claude ruling; no build. |
 | 20261012.131737 | [Pheromone lane held at the ruling gate, no build](20261012/20261012-131737_pheromone-lane-gate-held-no-build.kyri) | Lane waits on Incense ruling; no build. |
 | 20261012.131800 | [Patchouli queue empty, earth row, no build](20261012/20261012-131800_patchouli-queue-empty-earth-row-no-build.kyri) | Lane empty; %841 awaits ruling; no build. |
 | 20261012.131724 | [Grass foundations B+, no build](20261012/20261012-131724_grass-foundations-living-pages-no-build.kyri) | Two low fossils have A mutants; no build. |
