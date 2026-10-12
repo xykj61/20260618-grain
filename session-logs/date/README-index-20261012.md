@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.082531` | [Bakery, ff census gated, no build](20261012/20261012-082531_bakery-ff-census-gated-no-build.kyri) | Fast-forwarded peer commits; receipt key gated; no build. |
 | `20261012.082408` | [Diffuser, P1 held again, check in Claude](20261012/20261012-082408_diffuser-p1-hold-repeat-check-in-claude.kyri) | Repeat of the 082003 P1 hold; no run; ruling still open. |
 | `20261012.082034` | [Incense, baton lap declined, nib carried](20261012/20261012-082034_incense-baton-declined-nib-carried.kyri) | Gated card, board clear; no build; nib carried. |
 | `20261012.082220` | [Pheromone, water row held, no build](20261012/20261012-082220_pheromone-water-row-held-no-build.kyri) | Lane empty on its stop clause; no rune ruling; no build. |
