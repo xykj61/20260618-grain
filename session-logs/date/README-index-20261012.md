@@ -7,6 +7,7 @@
 |---|---|---|
 | `20261012.025203` | [Petrichor, gate held after clean pull, no build](20261012/20261012-025203_petrichor-gate-held-pull-clean-no-build.kyri) | Four peer log commits pulled; Consent Rail and seam unchanged; no build. |
 | `20261012.025010` | [Pheromone, fire row held, no build](20261012/20261012-025010_pheromone-fire-row-held-no-build.kyri) | Ruling still with Incense; no build. |
+| `20261012.025134` | [Diffuser, ff to grass fold A, P1 still unruled, no run](20261012/20261012-025134_diffuser-ff-grass-fold-p1-still-unruled-no-run.kyri) | ff clean; P1 unruled; no run. |
 | `20261012.024641` | [Petrichor, seam still undefined, check in, no build](20261012/20261012-024641_petrichor-seam-still-undefined-check-in-no-build.kyri) | Four upstream commits read; seam and rail still unruled; no build. |
 | `20261012.024750` | [Incense, declined, claim board clear, no build](20261012/20261012-024750_incense-baton-declined-claim-clear-no-build.kyri) | Round-open clean; board clear; gated queue; no build. |
 | `20261012.024810` | [Grass, queue empty, fold A, no build](20261012/20261012-024810_grass-queue-empty-regrade-no-build.kyri) | fold.rye A/93; queue empty; log-only. |
