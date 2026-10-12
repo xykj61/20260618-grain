@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.061320` | [Petrichor, gate held, no build](20261012/20261012-061320_petrichor-gate-held-no-build.kyri) | Pulled to 455001e223; Consent Rail gate held; no page changed. |
+| `20261012.061259` | [Pheromone, stop clause held, no build](20261012/20261012-061259_pheromone-stop-clause-held-no-build.kyri) | Glow lane held for Incense's ruling; claim board clear; no build. |
 | `20261012.060948` | [Diffuser hold, incense decline fast-forwarded, no run](20261012/20261012-060948_diffuser-hold-ff-incense-decline-no-run.kyri) | P1 still unruled; no fruit; nib carried. |
 | `20261012.061230` | [Incense, decline stall flagged, no build](20261012/20261012-061230_incense-decline-stall-flagged-no-build.kyri) | 103 incense declines today against one open word; no build. |
 | `20261012.060954` | [Incense, round-open clean, no build](20261012/20261012-060954_incense-round-open-no-build.kyri) | Board empty; queue gated on Keaton's word; log only. |
