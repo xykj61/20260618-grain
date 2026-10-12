@@ -25,7 +25,7 @@ loom witness=fleet_claim_scan wall_ms=0 claims_live=0 board=upstream
 file session-logs/date/20261011/20261011-223228_incense-baton-declined-no-build-ff-clean.kyri why this record, the decline with its reasons
 file construction/ITINERARY.md why the git nib carries forward to a5c7336419, HEAD read before this follow-up commit
 product_nib a5c7336419 -- the anointed order this lap rested on
-git_nib a5c7336419
+git_nib bfde8017c7 -- rebased onto 9cc26d6966 and pushed; the follow-up carries the nib to this parent
 scope round-open, clock report, claim board read, stash list read; no build, nib carry only
 status GREEN -- no witness owed, no code touched; the lap declined on the card's own order and says so
 recommend keep-going -- the lane waits on a human word at %642 or %519, so the next lap reads the board and declines again unless a word lands
