@@ -6,6 +6,7 @@
 | `20261011.201712` | [Grass, front doors graded, no frame](20261011/20261011-201712_grass-docs-front-door-graded-no-frame.kyri) | Four front doors read B or better; no molt frame; no build. |
 | `20261011.201744` | [Pheromone, held on ruling, witnesses green](20261011/20261011-201744_pheromone-held-on-ruling-glow-witnesses-green.kyri) | Ff to 60db05ebb1; limb10 and glow refusal GREEN; no build. |
 | `20261011.201309` | [Petrichor, gate held, no build](20261011/20261011-201309_petrichor-fast-forward-gate-held-no-build.kyri) | Fast-forwarded to 01012cccc6; gate unchanged; no build. |
+| `20261011.201822` | [Patchouli, queue held on two rulings, no build](20261011/20261011-201822_patchouli-queue-held-no-build.kyri) | Queue empty; kumara red and catch-up seam held on ruling; no build. |
 | `20261011.201441` | [Copal, static-alloc already rostered, claim closed](20261011/20261011-201441_copal-static-alloc-already-rostered.kyri) | Path count 0 of 158 unrostered; duplicate row reverted; no build. |
 | `20261011.201334` | [Diffuser, P1 hold, seventy-first lap](20261011/20261011-201334_diffuser-seventy-first-hold-p1-unruled.kyri) | P1 still undefined on the page; ff to 6afae33704; no build. |
 | `20261011.201501` | [Bakery, crux held at a seam, no build](20261011/20261011-201501_bakery-crux-seam-check-in.kyri) | Fast-forwarded 3; no build; cache seam ruling needed. |
