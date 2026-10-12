@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261011.231532` | [Petrichor, fruit gated, no build](20261011/20261011-231532_petrichor-fruit-gated-no-build.kyri) | Fruit waits on seam; no page opened. |
 | `20261011.231707` | [Bakery, first proof re-witnessed, held](20261011/20261011-231707_bakery-first-proof-rewitnessed-receipt-key-held-no-build.kyri) | Cache GREEN 24 legs; receipt YOURS. |
+| `20261011.231909` | [Patchouli, queue empty, fresh net, no build](20261011/20261011-231909_patchouli-queue-empty-no-build.kyri) | Lane empty; %807 and %765 await rulings; no build. |
 | `20261011.231409` | [Patchouli, queue empty, net re-run, no build](20261011/20261011-231409_patchouli-queue-empty-net-rerun-no-build.kyri) | Elder headers gone; only kept test strings; no build. |
 | `20261011.231510` | [Diffuser, P1 held, unruled, fetch level, no run](20261011/20261011-231510_diffuser-held-p1-unruled-no-run.kyri) | P1 unruled; fetch level; no run. |
 | `20261011.231237` | [Incense, baton declined, dead-letter noted, no build](20261011/20261011-231237_incense-baton-declined-dead-letter-noted-no-build.kyri) | Board clear; 8 peer stash records reported; no build. |
