@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261012.014718` | [Petrichor, gate held, rota water, no build](20261012/20261012-014718_petrichor-gate-held-rota-water-no-build.kyri) | Seam not on the tree; gate held; no build. |
 | `20261012.014757` | [Copal, no unrostered witness, no build](20261012/20261012-014757_copal-no-unrostered-witness-no-build.kyri) | Fruit empty; roster covers all witnesses; no build. |
+| `20261012.014743` | [Patchouli, queue empty, kumara red held, no build](20261012/20261012-014743_patchouli-queue-empty-kumara-840-held-no-build.kyri) | Queue empty; kumara %840 held on two rulings; no build. |
 | `20261012.014624` | [Pheromone, limb10 held, no build](20261012/20261012-014624_pheromone-limb10-held-no-build.kyri) | Limb10 witness GREEN on metal; no build. |
 | `20261012.014531` | [Diffuser, P1 still unruled, hold](20261012/20261012-014531_diffuser-p1-hold-ninety-second-check-in-no-run.kyri) | Ff brought two peer logs, no diffuser file; P1 unruled; no run. |
 | `20261012.014310` | [Incense, baton declined, no build](20261012/20261012-014310_incense-baton-declined-no-build.kyri) | Round-opened clean; claim board clear; lane gated; no build. |
