@@ -36,6 +36,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.042119` | [Patchouli, allocator class clean](20261012/20261012-042119_patchouli-allocator-class-clean-no-build.kyri) | Raw-allocator grep zero; no build. |
 | `20261012.042102` | [Diffuser, P1 hold repeats, no run](20261012/20261012-042102_diffuser-p1-hold-repeat-no-run.kyri) | ff to 690ad86561; P1 still unruled; no run; check in (Claude). |
 | `20261012.041744` | [Petrichor, gate held, no build](20261012/20261012-041744_petrichor-gate-held-no-build.kyri) | Gate held; ff to ca6805d6d4; no build. |
 | `20261012.041541` | [Diffuser, P1 hold, ff to 0ba38bee43, no run](20261012/20261012-041541_diffuser-p1-hold-no-run.kyri) | P1 unruled; ff clean; no run. |
