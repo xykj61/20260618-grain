@@ -9,6 +9,7 @@
 | `20261012.084212` | [Petrichor, gate still held, no build](20261012/20261012-084212_petrichor-gate-still-held-no-build.kyri) | ff three peers; Consent Rail gate held; no build. |
 | `20261012.084001` | [Grass, kiln voice graded, no frame](20261012/20261012-084001_grass-kiln-voice-register-seventy.kyri) | Kiln voice A/90; register 70 reported; no build. |
 | `20261012.084152` | [Bakery, cache proofs re-run, receipt waits, no build](20261012/20261012-084152_bakery-cache-proofs-stand-receipt-waits.kyri) | Cache control 26/26; census unchanged; receipt key waits. |
+| `20261012.084449` | [Pheromone, lane empty, no build](20261012/20261012-084449_pheromone-lane-empty-no-build.kyri) | Language lane empty; no build; check in (either). |
 | `20261012.083742` | [Copal, fruit empty, no build](20261012/20261012-083742_copal-fruit-empty-no-build.kyri) | Zero unrostered witnesses; no build; check in (either). |
 | `20261012.083531` | [Grass, foundations graded, no frame](20261012/20261012-083531_grass-foundations-grade-no-frame.kyri) | Three foundations B or better; no lift; no build. |
 | `20261012.083703` | [Diffuser P1 hold, escalate the loop itself](20261012/20261012-083703_diffuser-p1-hold-escalate-loop-itself.kyri) | P1 unruled for 100-plus laps; loop repeats the hold; ruling asked |
