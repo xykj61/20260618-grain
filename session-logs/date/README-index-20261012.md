@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.161045 | [Bakery shared cache, no build](20261012/20261012-161045_bakery-shared-cache-witnessed-no-build.kyri) | Cache witnesses GREEN; sharing is a seam ruling. |
 | 20261012.160418 | [Pheromone lane held, ff, no build](20261012/20261012-160418_pheromone-lane-held-no-build.kyri) | Ff to 3cae5f7ab9; steps closed; Incense ruling owed; no build. |
 | 20261012.160546 | [Diffuser P1 undefined, ff two, no run](20261012/20261012-160546_diffuser-p1-undefined-ff-two-no-run.kyri) | Ff to 63ca60a47e; P1 still has no definition; no run, no paper; check in. |
 | 20261012.160349 | [Incense nib carry, declined, no build](20261012/20261012-160349_incense-nib-carry-declined-no-build.kyri) | Round-open clean; card nib carried to 63ca60a47e; claim board clear; no build. |
