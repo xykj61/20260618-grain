@@ -1284,35 +1284,7 @@ pub const Weave = struct {
         // and the bound just checked is what makes the cast safe.
         const row_count: u32 = @intCast(record.rows.len);
 
-        var seen_any = false;
-        var previous: Place = .{ .run = 0, .site = 0, .pos = 0, .ord = 0 };
-        for (record.rows) |row| {
-            if (row.gen == 0) return WeaveError.V2GenerationBelowOne;
-            if (row.pos >= record.next_pos) return WeaveError.V2CounterBelowLine;
-            if (row.run >= record.next_run) return WeaveError.V2CounterBelowLine;
-            if (seen_any and !previous.less_than(row.place())) {
-                return WeaveError.V2PlaceOrderNotRising;
-            }
-            previous = row.place();
-            seen_any = true;
-        }
-
-        // The names are read on their own order, because place order reads the
-        // run first and two rows may therefore rise strictly while carrying one
-        // identity between them.
-        const names = try allocator.alloc(LineId, record.rows.len);
-        defer allocator.free(names);
-        for (record.rows, 0..) |row, i| names[i] = row.id();
-        std.mem.sort(LineId, names, {}, struct {
-            fn less_than(_: void, a: LineId, b: LineId) bool {
-                return a.less_than(b);
-            }
-        }.less_than);
-        for (names, 0..) |name, i| {
-            if (i + 1 < names.len and name.eq(names[i + 1])) {
-                return WeaveError.V2IdentityRepeated;
-            }
-        }
+        try check_v2_rows(allocator, record);
 
         var restored: Weave = .{
             .lines = .empty,
@@ -1358,6 +1330,52 @@ pub const Weave = struct {
         }
 
         return restored;
+    }
+
+    /// Refuse a v2 record whose rows break the place-order or identity rules,
+    /// by name, before `from_v2` restores anything. Split out of `from_v2` so
+    /// the constructor reads as its edge checks and then its restore.
+    /// Precondition:  the caller has bounded the row count at the edge.
+    /// Postcondition: every row carries a generation of one or more, a place
+    ///   under both counters, and rises strictly in place order, and no two rows
+    ///   name one line -- or a named refusal is returned.
+    fn check_v2_rows(allocator: std.mem.Allocator, record: V2Record) !void {
+        // invariant: the row count was bounded by `from_v2` before this call
+        // invariant: record.rows.len <= max_weave_lines
+        assert(record.rows.len <= max_weave_lines);
+
+        var seen_any = false;
+        var previous: Place = .{ .run = 0, .site = 0, .pos = 0, .ord = 0 };
+        for (record.rows) |row| {
+            if (row.gen == 0) return WeaveError.V2GenerationBelowOne;
+            if (row.pos >= record.next_pos) return WeaveError.V2CounterBelowLine;
+            if (row.run >= record.next_run) return WeaveError.V2CounterBelowLine;
+            if (seen_any and !previous.less_than(row.place())) {
+                return WeaveError.V2PlaceOrderNotRising;
+            }
+            previous = row.place();
+            seen_any = true;
+        }
+
+        // The names are read on their own order, because place order reads the
+        // run first and two rows may therefore rise strictly while carrying one
+        // identity between them.
+        const names = try allocator.alloc(LineId, record.rows.len);
+        defer allocator.free(names);
+        // invariant: one name is sorted for each row the record carries
+        // invariant: names.len == record.rows.len
+        assert(names.len == record.rows.len);
+        for (record.rows, 0..) |row, i| names[i] = row.id();
+        std.mem.sort(LineId, names, {}, struct {
+            fn less_than(_: void, a: LineId, b: LineId) bool {
+                return a.less_than(b);
+            }
+        }.less_than);
+        for (names, 0..) |name, i| {
+            if (i + 1 < names.len and name.eq(names[i + 1])) {
+                return WeaveError.V2IdentityRepeated;
+            }
+        }
     }
 
     /// Advance the weave by one diff. Deletes remove lines by toggling their
