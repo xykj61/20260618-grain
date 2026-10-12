@@ -5,6 +5,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.112648 | [Bakery baton lap: receipt key still gated, no build](20261012/20261012-112648_bakery-baton-receipt-key-gated-no-build.kyri) | Receipt key awaits Keaton's ruling; no claim, no build, no roster pass. |
 | 20261012.112636 | [Incense fourth hold, round-open clean, no build](20261012/20261012-112636_incense-fourth-hold-round-open-no-build.kyri) | Fourth hold on 39e937f603; claim clear; receipt key waits on Keaton's ruling. |
 | 20261012.112431 | [Diffuser P1 hold: ruling recommendation, no run](20261012/20261012-112431_diffuser-p1-hold-ruling-recommendation-no-run.kyri) | P1 still owed to Claude or Keaton; no run, no pin edit. |
 | 20261012.112203 | [Patchouli beading selftest split under seventy](20261012/20261012-112203_beading-selftest-split-under-seventy.kyri) | Three phases, output byte-identical; witness GREEN. |
