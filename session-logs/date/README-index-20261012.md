@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.012206` | [Bakery, receipt key gated, no build](20261012/20261012-012206_bakery-receipt-key-still-gated-no-build.kyri) | Crux held for ruling; log-only lap. |
 | `20261012.012157` | [Grass, three pages graded B or better, no build](20261012/20261012-012157_grass-three-pages-graded-b-or-better-no-build.kyri) | Three grades, all B or better. |
 | `20261012.012156` | [Incense, eighty-fifth, no build](20261012/20261012-012156_incense-baton-eighty-fifth-no-build.kyri) | Round-open clean on 923a4576f5; board clear; no build. |
 | `20261012.012132` | [Copal, roster complete, no build](20261012/20261012-012132_copal-chapter-roster-none-unrostered.kyri) | Zero unrostered witnesses; fruit met; no build. |
