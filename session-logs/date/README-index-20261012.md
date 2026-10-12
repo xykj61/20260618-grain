@@ -7,6 +7,7 @@
 | `20261012.063613` | [Diffuser, P1 held a hundred and fifth time, no run](20261012/20261012-063613_diffuser-p1-hold-hundred-fifth-check-in-no-run.kyri) | P1 unruled; peers ff; nib carried. |
 | `20261012.063341` | [Pheromone, lane held at stop clause, no build](20261012/20261012-063341_pheromone-lane-held-stop-clause-no-build.kyri) | Glow lane held; claim board clear; nib carried. |
 | `20261012.063311` | [Petrichor, lane gated, no build](20261012/20261012-063311_petrichor-gated-no-build.kyri) | Walkthrough waits on the public seam; log and nib only. |
+| `20261012.063556` | [Patchouli, queue empty, kumara held](20261012/20261012-063556_patchouli-queue-empty-kumara-held-no-build.kyri) | Grep empty; kumara red held. |
 | `20261012.063214` | [Patchouli, queue empty again, no build](20261012/20261012-063214_patchouli-queue-empty-no-build.kyri) | Fresh grep empty; kumara red held for ruling; no build. |
 | `20261012.063359` | [Copal, fruit empty a seventh read, no build](20261012/20261012-063359_copal-fruit-seventh-read-no-build.kyri) | 159 witnesses rostered; no build; ruling asked. |
 | `20261012.063303` | [Bakery, closure-census claim, opened not built](20261012/20261012-063303_bakery-closure-census-claim.kyri) | Claim landed on board; census not built; check in. |
