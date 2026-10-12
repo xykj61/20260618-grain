@@ -4,6 +4,25 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.073827` | [Patchouli, queue empty, no build](20261012/20261012-073827_patchouli-queue-empty-no-build.kyri) | Lane queue read empty; no claim; no build. |
+| `20261012.072503` | [Patchouli, queue empty, no build](20261012/20261012-072503_patchouli-queue-empty-no-build.kyri) | Lane empty; claim-as-override surveyed; log only. |
+| `20261012.063214` | [Patchouli, queue empty again, no build](20261012/20261012-063214_patchouli-queue-empty-no-build.kyri) | Fresh grep empty; kumara red held for ruling; no build. |
+| `20261012.062021` | [Patchouli, queue empty, no build](20261012/20261012-062021_patchouli-queue-empty-no-build.kyri) | Two greps and the claim board read clear; no code moved. |
+| `20261012.054430` | [Patchouli, queue empty again, no build](20261012/20261012-054430_patchouli-queue-empty-no-build.kyri) | Fresh sweep empty; %807 and %765 await Keaton; no build. |
+| `20261012.053643` | [Patchouli, queue empty, no build](20261012/20261012-053643_patchouli-queue-empty-no-build.kyri) | Mantra and tally sweep finds no new header to molt; %807 and %765 await Keaton; no build. |
+| `20261012.040825` | [Patchouli, queue empty again, no build](20261012/20261012-040825_patchouli-queue-empty-no-build.kyri) | Fresh sweep agrees; ledger rows await ruling; no build; check in.
+| `20261012.030348` | [Patchouli, queue empty again, no build](20261012/20261012-030348_patchouli-queue-empty-no-build.kyri) | Queue empty; held items unchanged; no build. |
+| `20261012.003708` | [Patchouli, queue empty, no build](20261012/20261012-003708_patchouli-queue-empty-no-build.kyri) | Record-version scan at 1e4c07597f: no fresh header in mantra/ or tally/; no build. |
+| `20261012.000707` | [Patchouli, queue empty, no build](20261012/20261012-000707_patchouli-queue-empty-no-build.kyri) | Queue empty on a fresh sweep of mantra/ and tally/; kumara red held for ruling; no build. |
+| `20261012.072503` | [Patchouli, queue empty, no build](20261012/20261012-072503_patchouli-queue-empty-no-build.kyri) | Lane empty; claim-as-override surveyed; log only. |
+| `20261012.063214` | [Patchouli, queue empty again, no build](20261012/20261012-063214_patchouli-queue-empty-no-build.kyri) | Fresh grep empty; kumara red held for ruling; no build. |
+| `20261012.062021` | [Patchouli, queue empty, no build](20261012/20261012-062021_patchouli-queue-empty-no-build.kyri) | Two greps and the claim board read clear; no code moved. |
+| `20261012.054430` | [Patchouli, queue empty again, no build](20261012/20261012-054430_patchouli-queue-empty-no-build.kyri) | Fresh sweep empty; %807 and %765 await Keaton; no build. |
+| `20261012.053643` | [Patchouli, queue empty, no build](20261012/20261012-053643_patchouli-queue-empty-no-build.kyri) | Mantra and tally sweep finds no new header to molt; %807 and %765 await Keaton; no build. |
+| `20261012.040825` | [Patchouli, queue empty again, no build](20261012/20261012-040825_patchouli-queue-empty-no-build.kyri) | Fresh sweep agrees; ledger rows await ruling; no build; check in.
+| `20261012.030348` | [Patchouli, queue empty again, no build](20261012/20261012-030348_patchouli-queue-empty-no-build.kyri) | Queue empty; held items unchanged; no build. |
+| `20261012.003708` | [Patchouli, queue empty, no build](20261012/20261012-003708_patchouli-queue-empty-no-build.kyri) | Record-version scan at 1e4c07597f: no fresh header in mantra/ or tally/; no build. |
+| `20261012.000707` | [Patchouli, queue empty, no build](20261012/20261012-000707_patchouli-queue-empty-no-build.kyri) | Queue empty on a fresh sweep of mantra/ and tally/; kumara red held for ruling; no build. |
 | `20261012.073831` | [Diffuser, P1 still unruled, ff of three peers, no run](20261012/20261012-073831_diffuser-p1-hold-ff-no-diffuser-change-no-run.kyri) | Held pass on P1; no diffuser file changed; no run. |
 | `20261012.073656` | [Incense, baton declined, no build](20261012/20261012-073656_incense-baton-declined-no-build.kyri) | Declined lap; claim board clear; no movement. |
 | `20261012.073646` | [Petrichor, gate held, fast-forward to peers, no build](20261012/20261012-073646_petrichor-gate-held-ff-peers-no-build.kyri) | Consent Rail gate still held; no fruit; no build. |
