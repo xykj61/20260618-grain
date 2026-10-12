@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.233524` | [Pheromone, lane empty, no build](20261011/20261011-233524_pheromone-lane-empty-witnesses-green-no-build.kyri) | Queue empty; witnesses GREEN. |
 | `20261011.233532` | [Petrichor, gate facts re-read, no build](20261011/20261011-233532_petrichor-gate-facts-reread-no-build.kyri) | Consent facts on HEAD; ff two peers; no build. |
 | `20261011.233339` | [Copal, fruit empty](20261011/20261011-233339_copal-fruit-empty-recount-rostered-witness-no-build.kyri) | Zero unrostered; witness GREEN; no build. |
 | `20261011.233407` | [Diffuser, P1 unruled, tree clean, no fruit, no run](20261011/20261011-233407_diffuser-hold-p1-unruled-no-fruit-no-run.kyri) | Read pass; P1 and Consent Rail unruled; no run. |
