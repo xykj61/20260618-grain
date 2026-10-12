@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.131200 | [Pheromone lane held at ruling gate, no build](20261012/20261012-131200_pheromone-lane-held-ruling-no-build.kyri) | Lane awaits Incense ruling; claims board empty; no build. |
 | 20261012.131000 | [Grass roster drift, red held, no build](20261012/20261012-131000_grass-roster-drift-red-held-no-build.kyri) | Roster witness drift; 20261006 red held; no build. |
 | 20261012.130833 | [Incense eighty-sixth, declined, no build](20261012/20261012-130833_incense-eighty-sixth-declined-no-build.kyri) | Synced to dfafb2ccff; queue empty; no build. |
 | 20261012.130828 | [Copal roster gap already closed](20261012/20261012-130828_copal-roster-gap-closed-no-build.kyri) | Zero unrostered witnesses; no build. |
