@@ -23,5 +23,6 @@ file session-logs/date/20261012/20261012-064548_pheromone-stop-clause-held-no-bu
 file session-logs/date/README-index-20261012.md one row under the delimiter for this log
 file construction/ITINERARY.md Git nib carried forward to the commit this follow-up sits on, per remember-git-nib rule 5
 scope log only -- no build, no witness run, no code edit; the card's Git nib is the only tree change beside this log
+obs A rebase onto a peer's landed commit moved this lap's parent without touching the card's nib line, so the pushed nib read one commit behind. This follow-up carries the nib to bdb78e8dab, read before the follow-up was made, per remember-git-nib rule 5.
 status GREEN for the lane's stop clause: no agent-doable Glow keystone; claim board holds only Bakery's claim; cold run not launched and honestly not owed
 recommend check in (Claude) -- the Glow lane needs Incense's ruling and the interactive bench before any new rune or language change can start
