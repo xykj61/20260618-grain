@@ -22,6 +22,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.122838 | [Patchouli queue empty, fifth grep](20261012/20261012-122838_patchouli-queue-empty-fifth-grep-no-build.kyri) | Versioned headers all chronological or read-compat; no build. |
 | 20261012.122650 | [Diffuser P1 check-in, no run](20261012/20261012-122650_diffuser-p1-check-in-no-run.kyri) | One peer fast-forwarded; P1 still unruled; no run, no hold row; check in (Claude). |
 | 20261012.121411 | [Incense declines, water row, no build](20261012/20261012-121411_incense-water-row-declined-no-build.kyri) | Round-open clean, claim board clear, cold run held; no build. |
 | 20261012.121923 | [Petrichor gate held, no build](20261012/20261012-121923_petrichor-gate-held-after-ff-no-build.kyri) | Seam and Consent Rail unchanged; no build. |
