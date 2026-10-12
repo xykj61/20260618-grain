@@ -318,6 +318,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.142156 | [Pheromone queue empty, no build](20261012/20261012-142156_pheromone-queue-empty-no-build.kyri) | Queue empty; no claim, no code; gate held for Incense. |
 | 20261012.142114 | [Incense decline, queue gated, no build](20261012/20261012-142114_incense-decline-no-build.kyri) | Queue gated on Keaton's word; no build. |
 | 20261012.142033 | [Petrichor second held read, no build](20261012/20261012-142033_petrichor-gate-held-second-read-no-build.kyri) | Upstream ff of four commits; Consent Rail gate unchanged; no build. |
 | 20261012.141142 | [Bakery crux held on the receipt-key ruling, no build](20261012/20261012-141142_bakery-crux-ruling-held-no-build.kyri) | Premise re-proven; ruling still YOURS; no build. |
