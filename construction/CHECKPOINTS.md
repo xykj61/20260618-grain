@@ -1,5 +1,11 @@
 # Checkpoints -- the walk-back markers before every debride
 
+**Checkpoint `20261012.071617` -- walk-back nib `0c465952b8`.** Petrichor molts `docs/CRYPTO.md` in
+place (W2 shape, `quality-assurance.md`). Its composite read 78 (C+) at Door with service 70, reach
+grade 12 against a ceiling of 9, because a dozen sentences ran past the grade. The rewrite shortens
+those sentences and keeps every path, witness name, and claim. The elder page stays one
+`git show 0c465952b8:docs/CRYPTO.md` away.
+
 **Checkpoint `20261003.153853` -- walk-back nib `afb6ef04f1`.** The living remote
 roster stops naming a GitHub remote called debrided. Personal push is xy.
 The public seed door is ww. grain-os/grain is a one-commit pointer. Dated
