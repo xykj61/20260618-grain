@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 
+| `20261012.034728` | [Incense, declined, no build](20261012/20261012-034728_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; cold run held; no build. |
 | `20261012.034254` | [Diffuser, P1 still unruled, ff to pheromone and petrichor, no run](20261012/20261012-034254_diffuser-p1-hold-ff-pheromone-petrichor-no-run.kyri) | Held lap on P1; fast-forward only; no diffuser change; no run. |
 | `20261012.034146` | [Copal, fruit spent, shim examined, no build](20261012/20261012-034146_copal-fruit-spent-shim-examined-no-build.kyri) | 159 of 159 chapter witnesses rostered; no build. |
 | `20261012.034043` | [Incense, ff one peer, declined, no build](20261012/20261012-034043_incense-baton-declined-after-ff-no-build.kyri) | Round-open ff; claim board clear; no build. |
