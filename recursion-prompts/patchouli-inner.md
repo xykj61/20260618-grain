@@ -504,6 +504,9 @@ escapes every fault, catch-up carries last lap's fix, batch has no catch on its 
 snapshot export reads with `try`. The one live site, `tally/kumara.rye:36`, is the legacy `sign`
 behind `%840`, which waits on Keaton's ruling. The next lap should not repeat this net.
 
+**The queue reads empty a twenty-fifth way, `20261012.083922`, by the TAME tidy bans on the lane's own sources.** The width class was measured `20261012.013720` and the catch class `20261012.071550`, so this lap took the bans the tidy rules name and no earlier lap listed. A `git grep` over `mantra/` and `tally/` finds one `@memcpy(` call, at `tally/copy.rye:40`, the one site the rules permit inside `copy_disjoint`. One compound `assert(a and b)` shape matches, at `mantra/src/weave.rye:2146`, and it is a doc comment naming the banned form rather than a call. Bare `std.debug.assert(` stands at zero. One Rye source lacks the `const assert` import, `tally/maybe.rye`, whose own header says it asserts nothing; the legacy tidy scan names it as an exemption. No new candidate turned up, and no code changed. The `%807` ruling and the `%840` legacy `sign` ruling still wait on Keaton. The next lap should widen to a class this list does not yet name, or say the queue is empty and stop.
+
 ## gates
 
 Keys, funds, provisioning, identity, and the public seed stay manual.
+
