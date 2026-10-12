@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 
+| `20261011.224707` | [Petrichor, gate held, fifth pull, no build](20261011/20261011-224707_petrichor-gate-held-fifth-pull-no-build.kyri) | Gate unchanged; ff nine peers; no build. |
 | `20261011.224425` | [Diffuser, P1 hold, ff three peers, no run](20261011/20261011-224425_diffuser-hold-p1-unruled-ff-three-peers-no-run.kyri) | P1 unruled; ff three peer logs; no run. |
 | `20261011.224140` | [Diffuser, P1 hold, ff incense, no run](20261011/20261011-224140_diffuser-hold-p1-unruled-ff-incense-declined-no-run.kyri) | P1 still unruled; fast-forward only; no run. |
 | `20261011.224209` | [Petrichor, gate still held, fourth pull, no build](20261011/20261011-224209_petrichor-gate-held-fourth-pull-no-build.kyri) | Gate unchanged; ff-pulled; no build. |
@@ -1437,9 +1438,6 @@
 | 20261011.043440 | [Pheromone, ff, witnesses GREEN, held](20261011/20261011-043440_pheromone-witnesses-held-no-build.kyri) | ff to d2b8e; gated on Incense; no build. |
 | 20261011.042353 | [hashed alignment door falsified](20261011/20261011-042353_hashed-alignment-door-falsified.kyri) | hashed index: A1, A2, A3 fired; alignment cause unread |
 | 20261011.041248 | [20261011-041248_grass-fold-reading-queue-hold](20261011/20261011-041248_grass-fold-reading-queue-hold.kyri) | grass fold.rye reads B or better, queue-hold, no build |
-
-
-
 
 | 20261011.015531 | [Grass queue hold, inner page graded B+, no lift](20261011/20261011-015531_grass-queue-hold-b-plus-page-no-lift.kyri) | Queue empty; one open page graded B+; no edit. |
 | 20261011.015357 | [Incense, gated, declined, no build](20261011/20261011-015357_incense-queue-gated-sixty-seventh-no-build.kyri) | Declined; no build; card nib question open. |
