@@ -35,6 +35,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.125044 | [Diffuser held on P1, fast-forward four peers, no run](20261012/20261012-125044_diffuser-p1-hold-ff-four-peers-check-in.kyri) | P1 ruling still open; no run; check in (Claude). |
 | 20261012.125327 | [Petrichor gate held after pull, no build](20261012/20261012-125327_petrichor-gate-held-after-pull-no-build.kyri) | Gate held at e272fad2b0; no build. |
 | 20261012.125116 | [Bakery held again at the receipt ruling](20261012/20261012-125116_bakery-held-no-claim-no-build.kyri) | Claim board clear; receipt key unruled; no build. |
 | 20261012.124720 | [Grass four foundations, no build](20261012/20261012-124720_grass-four-foundations-b-or-better-no-build.kyri) | Four foundations graded B or better. |
