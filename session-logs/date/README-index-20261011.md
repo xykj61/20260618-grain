@@ -6,6 +6,7 @@
 | `20261011.235129` | [Grass, inner page re-read, same head, no build](20261011/20261011-235129_grass-inner-regraded-same-head-no-build.kyri) | Inner page B+ (89) again at c54eaf6b61; no build. |
 | `20261011.235232` | [Copal, no unrostered witness, no build](20261011/20261011-235232_copal-no-unrostered-chapter-witness-no-build.kyri) | 158 of 158 chapter witnesses rostered; no build. |
 | `20261011.235500` | [Grass, inner page B+, no build](20261011/20261011-235500_grass-inner-page-graded-b-plus-no-build.kyri) | Inner page B+ (89); no build. |
+| `20261011.235341` | [Incense, seventy-fifth, no build](20261011/20261011-235341_incense-baton-seventy-fifth-no-build.kyri) | Round-open clean; board clear; no build. |
 | `20261011.234959` | [Diffuser, P1 hold, ff grass, no run](20261011/20261011-234959_diffuser-hold-p1-unruled-ff-grass-no-run.kyri) | P1 still unruled; ff one grass log; no run. |
 | `20261011.234958` | [Bakery, queue still gated, no build](20261011/20261011-234958_bakery-queue-still-gated-round-14-no-build.kyri) | Round 14 sky; queue waits on Keaton's words; no build. |
 | `20261011.234844` | [Incense, seventy-fourth, no build](20261011/20261011-234844_incense-baton-seventy-fourth-no-build.kyri) | Round-open clean; board clear; no build. |
