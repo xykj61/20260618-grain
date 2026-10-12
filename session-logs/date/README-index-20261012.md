@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.013504` | [Copal, fruit met again, check in](20261012/20261012-013504_copal-fruit-met-again-check-in-no-build.kyri) | Zero unrostered witnesses; no build; check in (Claude). |
 | `20261012.013412` | [Diffuser P1 hold, ninety-first](20261012/20261012-013412_diffuser-p1-hold-ninety-first-check-in-no-run.kyri) | P1 unruled; no diffuser file; no run. |
 | `20261012.013300` | [Patchouli, kumara red held, no build](20261012/20261012-013300_patchouli-kumara-red-held-witness-green-no-build.kyri) | Queue empty again; kumara red re-confirmed, held for ruling. |
 | `20261012.013227` | [Pheromone, queue empty, no build](20261012/20261012-013227_pheromone-queue-empty-no-build.kyri) | Language lane queue empty; ruling awaited; no build. |
