@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.082408` | [Diffuser, P1 held again, check in Claude](20261012/20261012-082408_diffuser-p1-hold-repeat-check-in-claude.kyri) | Repeat of the 082003 P1 hold; no run; ruling still open. |
 | `20261012.082034` | [Incense, baton lap declined, nib carried](20261012/20261012-082034_incense-baton-declined-nib-carried.kyri) | Gated card, board clear; no build; nib carried. |
 | `20261012.082220` | [Pheromone, water row held, no build](20261012/20261012-082220_pheromone-water-row-held-no-build.kyri) | Lane empty on its stop clause; no rune ruling; no build. |
 | `20261012.082258` | [Petrichor, upstream ff, gate still held, no build](20261012/20261012-082258_petrichor-upstream-ff-gate-still-held.kyri) | Four peers ff; no unblocked item; check in Claude on the Consent Rail gate. |
