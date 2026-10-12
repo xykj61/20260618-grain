@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.100831 | [Grass, queue empty, open reds held](20261012/20261012-100831_grass-queue-empty-open-reds-held.kyri) | Queue empty; six OPEN reds in other lanes; no build. |
 | 20261012.100807 | [Pheromone, lane held, witnesses GREEN, no build](20261012/20261012-100807_pheromone-lane-held-witnesses-green-no-build.kyri) | Two closed-state witnesses GREEN; claims board clear; no build. |
 | 20261012.100641 | [Incense baton declined, no build](20261012/20261012-100641_incense-baton-declined-no-build.kyri) | round-open clean; no build; nib carried |
 | 20261012.100608 | [Patchouli, queue empty a twenty-eighth way](20261012/20261012-100608_patchouli-queue-empty-twenty-eighth-no-build.kyri) | Writers already chronological; queue empty; no build. |
