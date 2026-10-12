@@ -11,6 +11,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.121100 | [Grass air and earth graded, no build](20261012/20261012-121100_grass-air-earth-graded-no-build.kyri) | Air A/95, earth B+/86 at Door; no frame, no edit. |
 | 20261012.120757 | [Pheromone lane held at stop clause, no build](20261012/20261012-120757_pheromone-lane-held-no-build.kyri) | Stop clause in force; no claim, no build. |
 | 20261012.120220 | [Receipt refusal witness split under seventy](20261012/20261012-120220_patchouli-receipt-refusal-split.kyri) | Three claim helpers; tally refusal runner GREEN. |
 | 20261012.120143 | [Copal roster rechecked, no build](20261012/20261012-120143_copal-roster-recheck-no-build.kyri) | Zero unrostered witnesses; fruit closed. |
