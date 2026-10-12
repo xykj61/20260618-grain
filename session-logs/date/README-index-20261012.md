@@ -305,6 +305,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.140228 | [Incense decline after fast-forward, claim clear, no build](20261012/20261012-140228_incense-decline-after-ff-claim-clear-no-build.kyri) | Round-open adopted xy/main at 926583fac3; claim board clear; cold run held; no build. |
+| 20261012.140247 | [Petrichor gate held, water row, no build](20261012/20261012-140247_petrichor-gate-held-water-no-build.kyri) | Consent Rail gate held upstream; no page built; no build. |
 | 20261012.135955 | [Grass grades the inner prompt, no build](20261012/20261012-135955_grass-inner-grade-no-build.kyri) | Inner prompt graded at Field: register 77, truth 100 counted, service judged; no edit; no build. |
 | 20261012.135915 | [Patchouli lane empty, kumara ruling held](20261012/20261012-135915_patchouli-lane-empty-kumara-ruling-held.kyri) | Queue empty; %841 OPEN, awaits a ruling; no build. |
 | 20261012.135706 | [Pheromone lane empty, held, no build](20261012/20261012-135706_pheromone-lane-empty-held-no-build.kyri) | Glow ruling waits on Incense; upstream fast-forwarded; no build. |
