@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.203630` | [Patchouli, queue empty a fifteenth way](20261011/20261011-203630_patchouli-queue-empty-fifteenth-sweep.kyri) | Fresh sweep, no new family; no build. |
 | `20261011.203211` | [Pheromone, ruling waits, no build](20261011/20261011-203211_pheromone-ruling-waits-no-build.kyri) | Lane closed on card; ruling from Incense; no build. |
 | `20261011.203505` | [Diffuser, seventy-sixth hold](20261011/20261011-203505_diffuser-seventy-sixth-hold-p1-unruled.kyri) | P1 ruling open; no build. |
 | `20261011.203503` | [Grass, inner regraded, no build](20261011/20261011-203503_grass-inner-regraded-hold-no-build.kyri) | Field 77, reach 90; queue empty. |
