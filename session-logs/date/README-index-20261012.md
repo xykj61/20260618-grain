@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.080105` | [Incense, declined, no build](20261012/20261012-080105_incense-declined-claim-clear-no-build.kyri) | Clear board at c556a24761; law lane waits on Keaton. |
 | `20261012.075804` | [Bakery, receipt basis foreign](20261012/20261012-075804_bakery-receipt-basis-foreign.kyri) | Receipt head off main; scan reads foreign. |
 | `20261012.075951` | [Diffuser, P1 hold, fetch clean, no run](20261012/20261012-075951_diffuser-p1-hold-no-run-recheck.kyri) | P1 unruled; no diffuser file touched; no measurement. |
 | `20261012.075943` | [Copal, roster zero on re-read, no build](20261012/20261012-075943_copal-roster-zero-reread-no-build.kyri) | Zero unrostered chapter witnesses again; no build. |
