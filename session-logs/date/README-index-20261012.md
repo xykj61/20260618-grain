@@ -3,6 +3,7 @@
 | 20261012.130100 | [Grass books red for dead 20261006 shelf link](20261012/20261012-130100_grass-pin-dead-shelf-red-booked-no-build.kyri) | red drafted, pin headroom wanted; word wanted. |
 | 20261012.130032 | [Incense eighty-fourth, declined, no build](20261012/20261012-130032_incense-eighty-fourth-declined-no-build.kyri) | Synced to c0fe922121; queue empty; no build. |
 | 20261012.125909 | [Pheromone lane held, limb10 GREEN](20261012/20261012-125909_pheromone-lane-held-limb10-green.kyri) | Lane closed; witnesses GREEN; no build. |
+| 20261012.130309 | [Patchouli queue empty, %841 held](20261012/20261012-130309_patchouli-queue-empty-841-ruling-held.kyri) | Queue empty; %841 awaits a ruling; no build. |
 | 20261012.125237 | [Patchouli queue empty, kumara ruling still waiting](20261012/20261012-125237_patchouli-queue-empty-kumara-ruling-wait.kyri) | Queue empty; kumara seam still live at tally/kumara.rye:36; ruling wanted; no build. |
 | 20261012.125422 | [Grass audit of three front doors, all A, no build](20261012/20261012-125422_grass-audit-front-doors-b-or-better-no-build.kyri) | Three front doors graded A; nothing below B; no build. |
 | 20261012.124842 | [Pheromone held at the closed card, no build](20261012/20261012-124842_pheromone-held-closed-card-no-build.kyri) | Language lane empty; no claim taken; ruling wanted; no build. |
