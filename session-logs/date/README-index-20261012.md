@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 
+| `20261012.055013` | [Incense, baton declined, stall named, no build](20261012/20261012-055013_incense-baton-declined-stall-named-no-build.kyri) | Round-open clean, board clear; the open choice is Keaton's; no build. |
 | `20261012.054840` | [Diffuser, P1 hold, no run](20261012/20261012-054840_diffuser-p1-hold-hundred-third-no-run.kyri) | Two peer logs ff'd; P1 unruled; no measurement. |
 | `20261012.054429` | [Petrichor, gate held, no build](20261012/20261012-054429_petrichor-gate-held-no-build.kyri) | Gate unchanged; lane held; no page or code moved. |
 | `20261012.054116` | [Incense, stall named, no build](20261012/20261012-054116_incense-stall-named-no-build.kyri) | Eighty-odd declines in one day; five OPEN rows read; decision owed to Keaton; no build. |
