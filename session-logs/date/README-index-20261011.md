@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.235827` | [Bakery, first proof stands, no build](20261011/20261011-235827_bakery-receipt-key-proofs-stand-no-build.kyri) | Cache proof 24/24; receipt key waits. |
 | `20261011.235709` | [Grass, KYRI page A/96, no build](20261011/20261011-235709_grass-kyri-grade-a-no-build.kyri) | Voice page A/96; queue empty; no build. |
 | `20261011.235513` | [Diffuser, P1 hold seventy-fourth, check-in, no run](20261011/20261011-235513_diffuser-p1-hold-check-in-no-run.kyri) | P1 still unruled; ff two peer logs; no run. |
 | `20261011.235741` | [Copal, exact-path roster zero, no build](20261011/20261011-235741_copal-chapter-roster-exact-path-zero-no-build.kyri) | 159 of 159 chapter witnesses rostered by exact path; no build. |
