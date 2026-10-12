@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.094250 | [Bakery, crux window held, no build](20261012/20261012-094250_bakery-crux-window-held-no-build.kyri) | Window still YOURS; cold plus hot exceeds 5,400 s; no build. |
+| 20261012.094049 | [Incense, declined](20261012/20261012-094049_incense-declined-round-open-nib-carried-no-build.kyri) | Round-open clean at e319b8d143; board empty; nib carried; no build. |
 | 20261012.094048 | [Patchouli, queue empty again, no build](20261012/20261012-094048_patchouli-queue-empty-no-build.kyri) | Open lane rows await Keaton or other lanes; no code moved. |
 | 20261012.094022 | [Diffuser P1 owed, no run](20261012/20261012-094022_diffuser-p1-ruling-owed-restate-or-retire-no-run.kyri) | P1 unsatisfiable on 8-25; ruling owed; no run. |
 | 20261012.093853 | [Grass, field page graded B+, no build](20261012/20261012-093853_grass-field-page-graded-b-plus-no-build.kyri) | grass-inner graded B+ (87) at Field; no molt frame; no build. |
