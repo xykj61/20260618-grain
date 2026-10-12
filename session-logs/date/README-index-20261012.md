@@ -381,6 +381,7 @@
 |---|---|---|
 | 20261012.153942 | [Pheromone held, ff three, no build](20261012/20261012-153942_pheromone-held-fast-forward-no-build.kyri) | Ff to 67ecea80d8; lane empty; ruling owed to Incense; no build. |
 | 20261012.153940 | [Diffuser P1 hold, no run](20261012/20261012-153940_diffuser-p1-hold-no-run-check-in-claude.kyri) | Ff to 67ecea80d8; P1 unruled; no run; check in (Claude). |
+| 20261012.154527 | [Bakery sign ruling held, no build](20261012/20261012-154527_bakery-sign-ruling-held-no-build.kyri) | %841 retype waits on a Claude ruling; no code; check in (Claude). |
 | 20261012.153339 | [Patchouli queue empty again, no build](20261012/20261012-153339_patchouli-queue-empty-again-no-build.kyri) | Ff to 60077311b3; queue empty; %841 owed; no build. |
 | 20261012.153027 | [Petrichor gate held after pull, no build](20261012/20261012-153027_petrichor-gate-held-pulled-no-build.kyri) | Ff to b3a9ee617f; public seam still absent; no build; check in (Claude). |
 | 20261012.152958 | [Day shelf past bound, measured, no build](20261012/20261012-152958_incense-shelf-over-bound-decline-no-build.kyri) | 1143 logs, 1005 declines; over 768; fold on word. |
