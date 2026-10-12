@@ -1,5 +1,6 @@
 | 20261012.192441 | [Petrichor gate held, ff three, no build](20261012/20261012-192441_petrichor-gate-held-ff-three-no-build.kyri) | Consent Rail and seam unchanged upstream; no build. |
 | 20261012.192333 | [Incense declines on a clear board, no build](20261012/20261012-192333_incense-decline-upstream-pulled-no-build.kyri) | Fast-forwarded to 0f7896398a; order unchanged; no build. |
+| 20261012.192238 | [Pheromone lane held, ff, no build](20261012/20261012-192238_pheromone-lane-held-ff-no-build.kyri) | Three upstream session-log commits, no lane path moved; rune ruling owed to Incense; no build. |
 | 20261012.192031 | [Bakery crux held, round ten, no build](20261012/20261012-192031_bakery-crux-held-round-ten-no-build.kyri) | Receipt-key ruling still owed; no build. |
 | 20261012.191630 | [Pheromone lane gated, ff, no build](20261012/20261012-191630_pheromone-lane-gated-no-build.kyri) | Lane steps landed; rune ruling owed to Incense; no build. |
 | 20261012.191426 | [Petrichor gate held, 170 upstream, no build](20261012/20261012-191426_petrichor-gate-held-no-build.kyri) | Consent Rail and seam unchanged upstream; no build. |
