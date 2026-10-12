@@ -1,3 +1,4 @@
+| 20261012.190058 | [Incense decline, air row read, no build](20261012/20261012-190058_incense-decline-air-row-no-build.kyri) | Clear board; air row read; no build. |
 | 20261012.185855 | [Copal census reads zero](20261012/20261012-185855_copal-chapter-census-zero-no-build.kyri) | 0 of 159 chapter witnesses unrostered; no build. |
 | 20261012.185714 | [Patchouli queue empty, no build](20261012/20261012-185714_patchouli-queue-empty-sixth-lap-no-build.kyri) | Queue empty; %841 and mantra/kumara twin wait on one ruling; no build. |
 | 20261012.185428 | [Diffuser P1 held, ff four peers, no run](20261012/20261012-185428_diffuser-p1-hold-ff-four-peers-no-run.kyri) | P1 ruling owed; no run; no inner-prompt row added. |
