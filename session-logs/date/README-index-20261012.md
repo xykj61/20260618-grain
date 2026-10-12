@@ -28,6 +28,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.124017 | [Petrichor gate held on consent rail, no build](20261012/20261012-124017_petrichor-gate-held-consent-no-build.kyri) | Four log peers in; gate unchanged; no build. |
 | 20261012.123944 | [Diffuser held on P1, fast-forward brought three peer logs, no run](20261012/20261012-123944_diffuser-p1-held-ff-grass-earth-no-run.kyri) | P1 still unruled; no run; nothing built. |
 | 20261012.123525 | [Diffuser held on P1, no run](20261012/20261012-123525_diffuser-p1-held-ff-copal-grass-no-run.kyri) | Fast-forwarded two peer logs; P1 ruling still owed; no run. |
 | 20261012.123522 | [Pheromone held at closed fruit, no build](20261012/20261012-123522_pheromone-held-closed-fruit-no-build.kyri) | Capacity witness GREEN, board empty, nib carried; no build. |
