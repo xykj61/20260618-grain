@@ -7,7 +7,7 @@ role grass seat, auditing lane (Gauge, civic, foundations, TAME rotation)
 modality text
 model unverified
 model_status active runtime unverified
-configured_model claude-sonnet-5 (from declared_model.sh resolved_model, this clone)
+configured_model claude-haiku-5-5 (from declared_model.sh resolved_model, this clone)
 configured_status configured default; not runtime telemetry
 voice Kyri
 host Framework bench, America/New_York one-clock
