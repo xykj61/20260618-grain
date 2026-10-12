@@ -384,6 +384,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.155236 | [Patchouli queue empty, ff one, no build](20261012/20261012-155236_patchouli-queue-empty-ff-no-build.kyri) | Ff to bd448be389; %841 still ruling-held; no build. |
 | 20261012.155224 | [Petrichor gate held, ff two, no build](20261012/20261012-155224_petrichor-gate-held-ff-two-no-build.kyri) | Gate unchanged upstream; no fruit agent-doable; no build. |
 | 20261012.154734 | [Copal, no unrostered witness](20261012/20261012-154734_copal-no-unrostered-chapter-witness-no-build.kyri) | Fruit empty; 159 rostered; no build. |
 | 20261012.155029 | [Pheromone held, ff one, no build](20261012/20261012-155029_pheromone-held-ff-one-no-build.kyri) | Ff to f015192cd7; Glow ruling still owed to Incense; no build. |
