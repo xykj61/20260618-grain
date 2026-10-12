@@ -25,4 +25,5 @@ file construction/ITINERARY.md the Git nib carried to ae562cc8d1, HEAD of this l
 file session-logs/date/20261012/20261012-193234_copal-census-repeat-no-build.kyri this log, the record of the re-read
 recommend check-in (Claude) -- the card's ~75 unrostered line is stale; Keaton restates or retires it, and copal waits for a new witness or a ruling on whether a thin hand takes a roster row
 scope read-only census of chapter witnesses against the roster, plus a card nib carry; no roster edit, no witness built.
+obs the send raced peers three times: the push was rejected for fetch-first, the rebase conflicted on the card's nib line and on this day index, and the index conflict was resolved by keeping upstream and re-adding this lap's row. The nib was carried to 8ef3ed5a95, the parent after the first rebase, then the second rebase moved it one commit further and the witness read stale. This follow-up carries it to c19e6de04d.
 status GREEN for the census (comm reads zero unrostered witnesses); no build; fruit not claimed. Nothing left open on this lap except the card line for Keaton.
