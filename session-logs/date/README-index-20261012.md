@@ -5,6 +5,8 @@
 | 20261012.141425 | [Petrichor ff, gate held, no build](20261012/20261012-141425_petrichor-upstream-ff-gate-held-no-build.kyri) | Upstream ff; Consent Rail gate unchanged; no build. |
 | 20261012.141356 | [Diffuser P1 held again, no run](20261012/20261012-141356_diffuser-p1-hold-ff-copal-incense-no-run.kyri) | Ff brought peer logs; P1 ruling still owed. |
 | 20261012.141217 | [Grass grades eight pages, no build](20261012/20261012-141217_grass-eight-pages-graded-a-no-build.kyri) | Eight pages read B+ or better; no edit. |
+| 20261012.141406 | [Incense decline after ff, claims clear, no build](20261012/20261012-141406_incense-decline-ff-claims-clear-no-build.kyri) | Round-open at a5a9bb9f30; claims clear; gated; no build. |
+>| 20261012.141217 | [Grass grades eight pages, no build](20261012/20261012-141217_grass-eight-pages-graded-a-no-build.kyri) | Eight pages read B+ or better; no edit. |
 | 20261012.141206 | [Patchouli queue empty after fast-forward, no build](20261012/20261012-141206_patchouli-queue-empty-ff-no-build.kyri) | Queue empty; REDS %841 ruling-held; no build. |
 | 20261012.140834 | [Petrichor gate held after fast-forward, no build](20261012/20261012-140834_petrichor-gate-held-ff-no-build.kyri) | Gate unchanged after ff to ba72e2953b; no build. |
 | 20261012.140719 | [Copal fruit gone, fourth measure, no build](20261012/20261012-140719_copal-fruit-fourth-measure-no-build.kyri) | Zero unrostered witnesses after ff; no build. |
