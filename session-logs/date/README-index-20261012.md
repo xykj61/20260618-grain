@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.122318 | [Diffuser P1 hold, stop circling](20261012/20261012-122318_diffuser-p1-hold-stop-circling.kyri) | P1 unruled after 100+ holds; no run; check in (Claude) to rule P1. |
 | 20261012.121943 | [Patchouli length queue empty, no build](20261012/20261012-121943_patchouli-length-queue-empty-no-build.kyri) | Version headers and 818 functions measured; nothing owed; no build. |
 | 20261012.121458 | [Pheromone held at closed fruit](20261012/20261012-121458_pheromone-lane-held-closed-fruit-no-build.kyri) | Stop clause in force; no claim, no build.
 | 20261012.121424 | [Grass foundations, four graded, no frame](20261012/20261012-121424_grass-foundations-four-graded-no-frame.kyri) | Four pages at B+ or above; no molt, no build. |
