@@ -1,6 +1,7 @@
 # session-logs day index -- 20261012
 **Language:** EN
 | 20261012.121210 | [Diffuser P1 hold, three peers in, no run](20261012/20261012-121210_diffuser-p1-hold-ff-three-peers-no-run.kyri) | P1 still unruled; three log-and-card peers in, no diffuser file; check in (Claude). |
+| 20261012.121025 | [Copal fruit void, no build](20261012/20261012-121025_copal-fruit-void-no-build.kyri) | Zero unrostered chapter witnesses; no claim; no build. |
 | 20261012.120554 | [Petrichor held at the water row, no build](20261012/20261012-120554_petrichor-water-row-held-no-build.kyri) | Gate unchanged at f6975f780a; upstream log-only; no build. |
 | 20261012.120546 | [Diffuser P1 stall, fast-forwarded, no run](20261012/20261012-120546_diffuser-p1-stall-ff-no-run.kyri) | P1 still unruled; two log-only peers in; check in (Claude). |
 | 20261012.115100 | [Pheromone lane empty, claims board clear, no build](20261012/20261012-115100_pheromone-lane-empty-no-build.kyri) | Pulled to 1c5fa35ee8; lane closed; no claim, no build. |
@@ -12,7 +13,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
-| 20261012.121025 | [Copal fruit void, no build](20261012/20261012-121025_copal-fruit-void-no-build.kyri) | Zero unrostered chapter witnesses; no claim; no build. |
+| 20261012.121215 | [Petrichor gate held, fast-forwarded, no build](20261012/20261012-121215_petrichor-gate-held-no-build.kyri) | Gate held on Keaton; fast-forward clean; no build. |
 | 20261012.121100 | [Grass air and earth graded, no build](20261012/20261012-121100_grass-air-earth-graded-no-build.kyri) | Air A/95, earth B+/86 at Door; no frame, no edit. |
 | 20261012.120757 | [Pheromone lane held at stop clause, no build](20261012/20261012-120757_pheromone-lane-held-no-build.kyri) | Stop clause in force; no claim, no build. |
 | 20261012.120419 | [Incense eighty-sixth declined, fast-forwarded, no build](20261012/20261012-120419_incense-eighty-sixth-declined-no-build.kyri) | Fast-forward to 121ded99c2; claim clear; cold run held; no build. |
