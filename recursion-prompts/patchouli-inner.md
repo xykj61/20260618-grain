@@ -516,6 +516,8 @@ behind `%840`, which waits on Keaton's ruling. The next lap should not repeat th
 
 **The beading selftest is split, `20261012.112203`.** The prior lap's named candidate, `run_spool_selftest`, was already split (`d2fcf5eea9`), so this lap measured fresh instead. Three selftest harnesses stood past seventy lines by the indentation-matched brace: `run_beading_selftest` at 134, `run_batch_selftest` at 104, and `run_selftest` in `recall_by_mark.rye` at 82. `run_beading_selftest` now runs three phase helpers and a result struct, each under seventy lines, and the longest function in `mantra/beading.rye` is `bead` at 66. Its output matched the saved baseline byte for byte, and `tools/m/mantra_beading.rish` and `tools/m/mantra_beading_dedup_ratio_witness.rish` both read GREEN. The next candidate is `run_batch_selftest` in `mantra/resin_batch.rye` at 104 lines, measured fresh before any lap names it.
 
+**The batch selftest is split, `20261012.113215`.** The candidate above was measured fresh and stood at 104 lines. It now runs `run_first_sync_selftest` (one signed batch to a peer holding one of three digests, plus the recall checks) and `run_resync_and_refusal_selftest` (the second sync and three unwelcome batches), under an orchestrator that keeps the five closing prints. The selftest's output matched the saved baseline byte for byte, and `tools/m/mantra_resin_batch.rish` and `tools/m/mantra_recall_batch_wire.rish` both read GREEN. The longest production function in `mantra/` and `tally/` is now `run_selftest` in `mantra/recall_by_mark.rye` at 82 lines, the next candidate, measured fresh before any lap names it.
+
 ## gates
 
 Keys, funds, provisioning, identity, and the public seed stay manual.

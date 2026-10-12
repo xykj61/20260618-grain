@@ -352,15 +352,13 @@ fn append_entries(
     }
 }
 
-fn run_batch_selftest(_: std.Io) !u8 {
-    const signer_seed = [_]u8{0x60} ** kumara.seed_length;
-    const signer = kumara.keypair_from_seed(&signer_seed);
+// Each phase of the batch selftest asserts its own claims and returns only the numbers the
+// summary lines name. Splitting the harness keeps every function under the 70-line bound, and
+// the orchestrator still prints the same five lines in the same order.
+const FirstSync = struct { len: u32, report: BatchReport };
 
-    var src: ns.BoltCatalog = .empty();
-    try src.append_leaf("peerB", "b", 1, "a.txt", "alpha", "plain-text");
-    try src.append_leaf("peerB", "b", 1, "b.txt", "beta", "plain-text");
-    try src.append_leaf("peerB", "b", 1, "c.txt", "gamma", "plain-text");
-
+// Phase 1: one signed batch crosses to a peer that already holds one of three digests.
+fn run_first_sync_selftest(signer: kumara.KeyPair, src: *ns.BoltCatalog, buf: *[max_batch_bytes]u8) !FirstSync {
     var dest: ns.BoltCatalog = .empty();
     try dest.append_leaf("peerA", "seed", 1, "x", "alpha", "plain-text");
 
@@ -368,8 +366,7 @@ fn run_batch_selftest(_: std.Io) !u8 {
     digest_hex_of("alpha", &alpha_digest);
     const held_one = [_][64]u8{alpha_digest};
 
-    var buf: [max_batch_bytes]u8 = undefined;
-    const built = try build_batch(&src, "peerB", "b", 1, &held_one, signer, &buf);
+    const built = try build_batch(src, "peerB", "b", 1, &held_one, signer, buf);
     assert(built.report.total == 3);
     assert(built.report.had_already == 1);
     assert(built.report.needed == 2);
@@ -391,25 +388,32 @@ fn run_batch_selftest(_: std.Io) !u8 {
     const rc = try dest.recall(nc, &out);
     assert(std.mem.eql(u8, out[0..rc.len], "gamma"));
 
+    return .{ .len = built.len, .report = built.report };
+}
+
+// Phase 2: a second sync moves zero payload bytes, and three unwelcome batches each refuse whole.
+fn run_resync_and_refusal_selftest(signer: kumara.KeyPair, src: *ns.BoltCatalog, buf: *const [max_batch_bytes]u8, len: u32) !void {
     // Second sync: dest now holds every digest; the batch moves zero payload bytes.
+    var alpha_digest: [64]u8 = undefined;
+    digest_hex_of("alpha", &alpha_digest);
     var beta_digest: [64]u8 = undefined;
     digest_hex_of("beta", &beta_digest);
     var gamma_digest: [64]u8 = undefined;
     digest_hex_of("gamma", &gamma_digest);
     const held_all = [_][64]u8{ alpha_digest, beta_digest, gamma_digest };
     var buf2: [max_batch_bytes]u8 = undefined;
-    const rebuilt = try build_batch(&src, "peerB", "b", 1, &held_all, signer, &buf2);
+    const rebuilt = try build_batch(src, "peerB", "b", 1, &held_all, signer, &buf2);
     assert(rebuilt.report.needed == 0);
     assert(rebuilt.report.payload_bytes == 0);
 
     // Unwelcome: a bad batch signature refuses the whole crossing.
     {
         var bad: [max_batch_bytes]u8 = undefined;
-        tally_copy.copy_disjoint(u8, bad[0..built.len], buf[0..built.len]);
+        tally_copy.copy_disjoint(u8, bad[0..len], buf[0..len]);
         bad[3] = if (bad[3] == 'z') 'y' else bad[3] + 1;
         var dest_bad: ns.BoltCatalog = .empty();
         try dest_bad.append_leaf("peerA", "seed", 1, "x", "alpha", "plain-text");
-        if (apply_batch(&dest_bad, bad[0..built.len], signer.public_key)) |_| {
+        if (apply_batch(&dest_bad, bad[0..len], signer.public_key)) |_| {
             return error.BadSignature;
         } else |err| {
             assert(err == error.BadSignature);
@@ -419,11 +423,11 @@ fn run_batch_selftest(_: std.Io) !u8 {
     // Unwelcome: a tampered payload refuses by digest; the manifest signature still verifies.
     {
         var bad: [max_batch_bytes]u8 = undefined;
-        tally_copy.copy_disjoint(u8, bad[0..built.len], buf[0..built.len]);
-        bad[built.len - 1] = if (bad[built.len - 1] == 'z') 'y' else bad[built.len - 1] + 1;
+        tally_copy.copy_disjoint(u8, bad[0..len], buf[0..len]);
+        bad[len - 1] = if (bad[len - 1] == 'z') 'y' else bad[len - 1] + 1;
         var dest_bad: ns.BoltCatalog = .empty();
         try dest_bad.append_leaf("peerA", "seed", 1, "x", "alpha", "plain-text");
-        if (apply_batch(&dest_bad, bad[0..built.len], signer.public_key)) |_| {
+        if (apply_batch(&dest_bad, bad[0..len], signer.public_key)) |_| {
             return error.DigestMismatch;
         } else |err| {
             assert(err == error.DigestMismatch);
@@ -443,12 +447,26 @@ fn run_batch_selftest(_: std.Io) !u8 {
             assert(err == error.UnknownTilak);
         }
     }
+}
+
+fn run_batch_selftest(_: std.Io) !u8 {
+    const signer_seed = [_]u8{0x60} ** kumara.seed_length;
+    const signer = kumara.keypair_from_seed(&signer_seed);
+
+    var src: ns.BoltCatalog = .empty();
+    try src.append_leaf("peerB", "b", 1, "a.txt", "alpha", "plain-text");
+    try src.append_leaf("peerB", "b", 1, "b.txt", "beta", "plain-text");
+    try src.append_leaf("peerB", "b", 1, "c.txt", "gamma", "plain-text");
+
+    var buf: [max_batch_bytes]u8 = undefined;
+    const first = try run_first_sync_selftest(signer, &src, &buf);
+    try run_resync_and_refusal_selftest(signer, &src, &buf, first.len);
 
     print("batch: {d} resins under one signature; had {d}, need {d}, {d} bytes\n", .{
-        built.report.total,
-        built.report.had_already,
-        built.report.needed,
-        built.report.payload_bytes,
+        first.report.total,
+        first.report.had_already,
+        first.report.needed,
+        first.report.payload_bytes,
     });
     print("batch: second sync moved zero payload bytes; have-already dividend GREEN\n", .{});
     print("batch: bad signature, tampered payload, unknown Tilak refused whole GREEN\n", .{});
