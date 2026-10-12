@@ -7,6 +7,7 @@
 | 20261012.101533 | [Incense declined after one ff, no build](20261012/20261012-101533_incense-baton-declined-after-ff-no-build.kyri) | One ff; claims clear; no build. |
 | 20261012.101611 | [Copal, fruit spent, no unrostered witness](20261012/20261012-101611_copal-unrostered-fruit-spent.kyri) | 158 of 158 witnesses rostered; no build. |
 | 20261012.101354 | [Diffuser, P1 held a sixteenth time, no run](20261012/20261012-101354_diffuser-p1-held-sixteenth-no-run.kyri) | P1 unruled; no run; loop named; nib carried. |
+| 20261012.101429 | [Pheromone, index reds unbooked, no build](20261012/20261012-101429_pheromone-index-red-booked-no-build.kyri) | Two open-shelf reds read; ledger at bound.
 | 20261012.101212 | [Patchouli, queue empty a twenty-ninth way, no build](20261012/20261012-101212_patchouli-queue-empty-twenty-ninth-no-build.kyri) | Tidy bans clear in mantra/ and tally/; queue empty; no build. |
 | 20261012.101148 | [Bakery, crux held for ruling, no build](20261012/20261012-101148_bakery-crux-held-ruling-pending-no-build.kyri) | Receipt key is YOURS; no mechanical lap; no build. |
 | 20261012.100804 | [Diffuser, P1 held a fifteenth time, no run](20261012/20261012-100804_diffuser-p1-held-round-15-stop-hold-loop.kyri) | P1 still unruled; hold loop named; no build. |
