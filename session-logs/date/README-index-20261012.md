@@ -6,6 +6,7 @@
 | `20261012.051537` | [Pheromone, lane recheck, no build](20261012/20261012-051508_pheromone-lane-recheck-no-build.kyri) | Lane and board empty; %765 %807 await Keaton; no build. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.052449` | [Diffuser, P1 hold, ff peers, no run](20261012/20261012-052449_diffuser-p1-hold-ff-peers-no-run.kyri) | P1 unruled; peers ff'd; no run. |
 | `20261012.052226` | [Copal, fruit empty, fifth reading, no build](20261012/20261012-052226_copal-fruit-empty-fifth-reading-no-build.kyri) | Zero unrostered; fruit empty; no build. |
 | `20261012.052101` | [Patchouli, held red, no build](20261012/20261012-052101_patchouli-swallowed-error-held-no-build.kyri) | BadSignature reads Truncated; held for ruling. |
 | `20261012.052000` | [Petrichor, gate rechecked after ff, no build](20261012/20261012-052000_petrichor-gate-rechecked-after-ff-no-build.kyri) | ff to f8d894a40a; Consent Rail still Keaton's call; no fruit. |
