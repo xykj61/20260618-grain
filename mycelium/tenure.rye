@@ -3,36 +3,43 @@
 //! Chapter D (Kresfa & Mycelium) - Mycelium consensus - Journey rung r1 -- the crux.
 //! Design read: active-designing/date/20260813/20260813-060935_mycelium-tenure-contested-name-exploration.md
 //!
-//! A name's *tenure* is the term on which it is held -- who holds it, and by what
-//! right. A supply total forgives every order (issue then tax, or tax then issue,
-//! one number); a name forgives only one holder. So when two keepers each sign a
-//! reservation for the same star at the same round, the ledger must pick one, and
-//! every honest node must pick the SAME one. The Cord already derives one total
-//! order from the mesh regardless of arrival; the Tenure reads that order as the
-//! namespace's verdict -- the first reservation of a name in the agreed order holds
-//! it, and every later reservation is recorded as a contested loss.
+//! A name's *tenure* is the term on which it is held. It answers two questions:
+//! who holds it, and by what right.
 //!
-//! The honest distinction is the whole crux. `fold.fold_log` declines the WHOLE
-//! log on a taken star, which suits a hand-built log yet exposes a mesh: a
-//! hostile node could claim the ledger for itself by front-running a name. So the
-//! Tenure walks the committed facts one at a time through `fold.fold_fact` and
-//! treats a name-contest loss (`StarTaken`) as a lawful standstill -- the loser's
-//! signed fact is set aside by the order, folding continues, the ledger stays
-//! unbroken. Every other fold exception -- a forged signature, an unknown kind, an
-//! overdraw for a FREE name -- stays poison, since those mark genuine corruption
-//! rather than a fairly decided race. `fold.fold_fact` already checks
-//! taken-before-affordable, so a contestant's reservation is settled against the
-//! name's holder before the ledger asks whether it could pay.
+//! A supply total forgives every order. Issue then tax, or tax then issue, gives
+//! one number. A name forgives only one holder. So when two keepers each sign a
+//! reservation for the same star at the same round, the ledger must pick one.
+//! Every honest node must pick the SAME one.
 //!
-//! Composes cord.rye + fold.rye public API only, leaving their storage, bounds,
-//! and code exactly as they stand. Siloed and dev-only, the whole scene runs on
-//! demo seeds alone, leaving a real key, real funds, a real network, and real
-//! custody for a served arc to one day carry.
+//! The Cord already derives one total order from the mesh, whatever the arrival
+//! order. The Tenure reads that order as the namespace's verdict. The first
+//! reservation of a name in the agreed order holds it. Every later reservation is
+//! recorded as a contested loss.
 //!
-//! Named horizon (a later arc): a double-spend contestant (an `Overdraw` whose
-//! reservation would have succeeded had it arrived first, rather than one that
-//! lacked funds at any order) treated as a lawful standstill -- kept out on
-//! purpose so the name-contest verdict stays legible.
+//! The honest distinction is the whole crux. `fold.fold_log` declines the whole
+//! log on a taken star. That suits a hand-built log, but it exposes a mesh: a
+//! hostile node could claim the ledger for itself by front-running a name.
+//!
+//! So the Tenure walks the committed facts one at a time through
+//! `fold.fold_fact`. It treats a name-contest loss (`StarTaken`) as a lawful
+//! standstill. The loser's signed fact is set aside by the order, folding
+//! continues, and the ledger stays unbroken.
+//!
+//! Every other fold exception stays poison: a forged signature, an unknown kind,
+//! and an overdraw for a FREE name. Those mark genuine corruption, not a fairly
+//! decided race. `fold.fold_fact` already checks taken-before-affordable. So a
+//! contestant's reservation is settled against the name's holder before the
+//! ledger asks whether it could pay.
+//!
+//! It composes `cord.rye` and `fold.rye` through their public API only. Their
+//! storage, bounds, and code stay exactly as they stand. The scene is siloed and
+//! dev-only, and it runs on demo seeds alone. A real key, real funds, a real
+//! network, and real custody wait for a served arc to carry one day.
+//!
+//! Named horizon, for a later arc: treat a double-spend contestant as a lawful
+//! standstill too. That contestant is an `Overdraw` whose reservation would have
+//! succeeded had it arrived first. This arc keeps it out on purpose, so the
+//! name-contest verdict stays legible.
 //!
 //!   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye run mycelium/tenure.rye
 

@@ -9,6 +9,7 @@
 | `20261012.084345` | [Diffuser P1 stall](20261012/20261012-084345_diffuser-p1-stall-no-run-check-in-claude.kyri) | P1 unruled, no run; check in (Claude). |
 | `20261012.084155` | [Incense, declined on a clear board, no build](20261012/20261012-084155_incense-declined-board-clear-no-build.kyri) | Board clear; queue waits on Keaton's word; no build. |
 | `20261012.084212` | [Petrichor, gate still held, no build](20261012/20261012-084212_petrichor-gate-still-held-no-build.kyri) | ff three peers; Consent Rail gate held; no build. |
+| `20261012.084503` | [Grass, tenure head lifts to A](20261012/20261012-084503_grass-tenure-head-door-lift.kyri) | Tenure head reach 60 to 100; four witnesses GREEN; comment-only. |
 | `20261012.084001` | [Grass, kiln voice graded, no frame](20261012/20261012-084001_grass-kiln-voice-register-seventy.kyri) | Kiln voice A/90; register 70 reported; no build. |
 | `20261012.084152` | [Bakery, cache proofs re-run, receipt waits, no build](20261012/20261012-084152_bakery-cache-proofs-stand-receipt-waits.kyri) | Cache control 26/26; census unchanged; receipt key waits. |
 | `20261012.084449` | [Pheromone, lane empty, no build](20261012/20261012-084449_pheromone-lane-empty-no-build.kyri) | Language lane empty; no build; check in (either). |
