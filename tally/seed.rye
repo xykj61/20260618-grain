@@ -98,6 +98,7 @@ pub fn main(init: std.process.Init) !u8 {
     // Old and new allocations do not overlap across a clear -- the cursor reset.
     assert(region.remaining() == 48);
 
-    stdout.writeStreamingAll(io, "tally seed: all facts held.\n") catch {};
+    // invariant: a failed write to stdout is an error, not a silent success.
+    try stdout.writeStreamingAll(io, "tally seed: all facts held.\n");
     return 0;
 }
