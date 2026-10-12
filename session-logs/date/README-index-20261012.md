@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.091337 | [diffuser P1 hold, no run](20261012/20261012-091337_diffuser-p1-hold-no-run-check-in-claude.kyri) | No diffuser change upstream; P1 ruling still owed; no run. |
 | `20261012.091428` | [Patchouli, queue empty again, no build](20261012/20261012-091428_patchouli-queue-empty-no-build.kyri) | Header net re-run over mantra/ and tally/; no candidate; no build. |
 | 20261012.091216 | [Grass, heart page held below B, no frame](20261012/20261012-091216_grass-heart-page-held-below-b.kyri) | Heart page D+/69; edit reverted under standing hold; molt waits. |
 | 20261012.091055 | [Incense, eighty-seventh, declined](20261012/20261012-091055_incense-eighty-seventh-declined-no-build.kyri) | Round-open clean; no build; word owed. |
