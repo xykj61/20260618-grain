@@ -42,6 +42,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.043751` | [Diffuser, P1 hold, check in, no run](20261012/20261012-043751_diffuser-p1-hold-ff-peers-check-in-claude-no-run.kyri) | ff to c28bad19fb; no diffuser file; no P1 ruling; check in (Claude). |
 | `20261012.043253` | [Petrichor, gate held after ff, no build](20261012/20261012-043253_petrichor-gate-held-ff-no-build.kyri) | Gate held; ff to 0e660adc84; no build; check in. |
 | `20261012.043332` | [Diffuser, P1 still unruled, no run](20261012/20261012-043332_diffuser-p1-hold-no-run-check-in-claude.kyri) | Tree clean at xy/main; no P1 ruling; check in (Claude). |
 | `20261012.043721` | [Copal, fruit empty again, no build](20261012/20261012-043721_copal-fruit-empty-no-build.kyri) | Zero unrostered chapter witnesses by comm -23; no build; check in (Claude). |
