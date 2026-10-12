@@ -265,3 +265,7 @@ The card's Git nib had gone stale after a peer's rebase moved HEAD, and `remembe
 read RED on it. This lap carries the nib forward in the same commit as this account, which is the
 only shape the witness accepts. Next: unchanged -- the law lane waits on a human word at `%642` or
 `%519`, a custody gate, or a ruling on the day shelf's hour fold.
+
+**Lap `20261012.162541` declined again on a clear board.** Round-open reset onto `xy/main` at
+`9dc79f4087`; the claim board read clear and every seat clocked in. No build, no cold run. Next:
+unchanged -- the law lane waits on the same named gates.
