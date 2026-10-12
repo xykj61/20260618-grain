@@ -8,6 +8,7 @@
 | `20261012.001429` | [Petrichor, gate held, no build](20261012/20261012-001429_petrichor-gate-held-upstream-unchanged-no-build.kyri) | Upstream unchanged; Consent Rail ruling waits. |
 | `20261012.001523` | [Diffuser, P1 hold seventy-seventh, no run](20261012/20261012-001523_diffuser-p1-hold-seventy-seventh-check-in-no-run.kyri) | P1 unruled; check in (Claude); no run. |
 | `20261012.001503` | [Bakery, cache census, no build](20261012/20261012-001503_bakery-cache-census-four-of-six-no-build.kyri) | 3 of 6 cache mutations measured. |
+| `20261012.001412` | [Copal, zero unrostered witness, no build](20261012/20261012-001412_copal-zero-witness-two-thin-hands-no-build.kyri) | comm 0 of 159 witnesses; two non-witness hands reported, not rostered. |
 | `20261012.001358` | [Incense, eightieth, declined, nib carried](20261012/20261012-001358_incense-eightieth-declined-nib-carried.kyri) | One fast-forward; claims clear; no build. |
 | `20261012.001612` | [Grass, inner page at field, B+ 89, no build](20261012/20261012-001612_grass-inner-page-field-b-plus-no-build.kyri) | Field reading B+ 89; no edit; nib carried. |
 | `20261012.001429` | [Patchouli, queue re-read empty, no build](20261012/20261012-001429_patchouli-queue-empty-recheck-no-build.kyri) | Queue empty on recheck; kumara witness GREEN, red held for ruling. |
