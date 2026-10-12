@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.014407` | [Grass, queue empty, reds ruling-owned, no build](20261012/20261012-014407_grass-queue-empty-reds-open-no-build.kyri) | Field re-read B+; OPEN reds owned by other lanes; no build. |
 | `20261012.014307` | [Patchouli, assert census unreliable, no build](20261012/20261012-014307_patchouli-assert-census-unreliable-no-build.kyri) | Fresh-class assert census invalid; queue empty; no build. |
 | `20261012.014117` | [Copal, shims examined, no build](20261012/20261012-014117_copal-shims-examined-no-build.kyri) | Two shims, covered by runners; no build. |
 | `20261012.014206` | [Grass, inner page B+, rota aether, no build](20261012/20261012-014206_grass-inner-page-b-plus-rota-aether-no-build.kyri) | Field read register 77, reach 90, truth 100; queue empty; no build. |
