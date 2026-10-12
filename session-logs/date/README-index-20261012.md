@@ -2,6 +2,7 @@
 **Language:** EN
 | 20261012.132500 | [Incense baton declined, no build](20261012/20261012-132500_incense-baton-round-open-no-build.kyri) | Round opened clean; claims clear; gated; no build. |
 | 20261012.132331 | [Patchouli queue empty, kumara red held for ruling, no build](20261012/20261012-132331_patchouli-kumara-841-ruling-held-no-build.kyri) | %841 retype waits on a Claude ruling; no build. |
+| 20261012.132501 | [Petrichor held at the gate, no build](20261012/20261012-132501_petrichor-held-at-gate-no-build.kyri) | Fruit waits on a word; upstream touched no docs-geode; no build. |
 | 20261012.131737 | [Pheromone lane held at the ruling gate, no build](20261012/20261012-131737_pheromone-lane-gate-held-no-build.kyri) | Lane waits on Incense ruling; no build. |
 | 20261012.131800 | [Patchouli queue empty, earth row, no build](20261012/20261012-131800_patchouli-queue-empty-earth-row-no-build.kyri) | Lane empty; %841 awaits ruling; no build. |
 | 20261012.131724 | [Grass foundations B+, no build](20261012/20261012-131724_grass-foundations-living-pages-no-build.kyri) | Two low fossils have A mutants; no build. |
