@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.073239` | [Diffuser, P1 still unruled, fast-forward past two peer logs, no run](20261012/20261012-073239_diffuser-p1-hold-ff-peers-no-run-3.kyri) | Held pass on P1; no ruling landed; no run. |
 | `20261012.072944` | [Pheromone, queue empty, claim board clear, no build](20261012/20261012-072944_pheromone-queue-empty-claim-board-clear-no-build.kyri) | Glow capacity GREEN; lane empty; no claim taken. |
 | `20261012.072943` | [Diffuser, P1 unruled, fast-forward past three peers, no run](20261012/20261012-072943_diffuser-p1-hold-ff-three-peers-no-run-2.kyri) | P1 still has no ruling; the lane holds without a measurement. |
 | `20261012.072921` | [Patchouli, queue empty again, no build](20261012/20261012-072921_patchouli-queue-empty-again-no-build.kyri) | Seventeenth empty sweep; elder headers only; log and nib. |
