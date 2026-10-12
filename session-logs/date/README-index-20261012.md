@@ -3,6 +3,7 @@
 | 20261012.135036 | [Petrichor gate held, Earth rota, no build](20261012/20261012-135036_petrichor-gate-held-earth-no-build.kyri) | Gate unchanged upstream; Earth row read; no build. |
 | 20261012.134652 | [Grass queue empty, no build](20261012/20261012-134652_grass-queue-empty-no-build.kyri) | Ledger and gate read clear; no page open; no build. |
 | 20261012.134534 | [Copal fruit already gone, no build](20261012/20261012-134534_copal-unrostered-witness-already-gone-no-build.kyri) | Every chapter witness rostered (159 of 159); no claim, no build. |
+| 20261012.134757 | [Incense decline, no build](20261012/20261012-134757_incense-decline-no-build.kyri) | Round-open clean at xy; claim board clear; lane waits on Keaton; no build |
 | 20261012.134308 | [Incense claim recheck, no build](20261012/20261012-134308_incense-claim-recheck-no-build.kyri) | Round-open clean at xy; claim board clear; card and ledger hold headroom; no build. |
 | 20261012.134516 | [Diffuser P1 hold, open ruling, no run](20261012/20261012-134516_diffuser-p1-hold-no-run.kyri) | Clean tree at 8c59af0b42; P1 ruling still open; no run. |
 | 20261012.133919 | [Incense orbit three, decline, no build](20261012/20261012-133919_incense-orbit-three-decline-no-build.kyri) | Round-open adopted xy; cold run held; no build. |
