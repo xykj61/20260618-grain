@@ -31,6 +31,7 @@
 | 20261012.123944 | [Diffuser held on P1, fast-forward brought three peer logs, no run](20261012/20261012-123944_diffuser-p1-held-ff-grass-earth-no-run.kyri) | P1 still unruled; no run; nothing built. |
 | 20261012.123525 | [Diffuser held on P1, no run](20261012/20261012-123525_diffuser-p1-held-ff-copal-grass-no-run.kyri) | Fast-forwarded two peer logs; P1 ruling still owed; no run. |
 | 20261012.123522 | [Pheromone held at closed fruit, no build](20261012/20261012-123522_pheromone-held-closed-fruit-no-build.kyri) | Capacity witness GREEN, board empty, nib carried; no build. |
+| 20261012.123459 | [Kumara red booked as REDS %841](20261012/20261012-123459_patchouli-kumara-red-booked-841.kyri) | Red OPEN on a Claude ruling; spine GREEN; no build. |
 | 20261012.123335 | [Grass inner regraded B+, repeat, no change](20261012/20261012-123335_grass-inner-regraded-b-plus-repeat.kyri) | Repeats 122352: inner prompt B+/89; no change, no build. |
 | 20261012.122814 | [Pheromone held at closed fruit, no build](20261012/20261012-122814_pheromone-held-closed-fruit-no-build.kyri) | Lane closed; no claim, no build. |
 | 20261012.122838 | [Patchouli queue empty, fifth grep](20261012/20261012-122838_patchouli-queue-empty-fifth-grep-no-build.kyri) | Versioned headers all chronological or read-compat; no build. |
