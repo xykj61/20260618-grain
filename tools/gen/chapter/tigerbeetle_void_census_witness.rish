@@ -36,7 +36,7 @@ assert guide.ok else "tb-void-census: held-guide witness went RED"
 assert guide.out contains "CLONE=present" else "tb-void-census: guide witness must see clone present"
 
 let almanac = run ["sh" "tools/equinox/almanac/equinox_tigerbeetle_void_census_almanac.sh"]
-assert almanac.ok else "tb-void-census: almanac append failed"
 say almanac.out
+assert almanac.ok else "tb-void-census: almanac append failed"
 
 say "GREEN: tb-void-census — clone present · void density ok · guide still GREEN · almanac seat 24"

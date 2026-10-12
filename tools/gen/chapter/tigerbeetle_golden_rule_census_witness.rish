@@ -36,7 +36,7 @@ let elder = run ["rishi/bin/rishi" "run" "tools/gen/chapter/tigerbeetle_control_
 assert elder.ok else "tb-golden-rule: control-plane elder went RED"
 
 let almanac = run ["sh" "tools/equinox/almanac/equinox_tigerbeetle_golden_rule_almanac.sh"]
-assert almanac.ok else "tb-golden-rule: almanac append failed"
 say almanac.out
+assert almanac.ok else "tb-golden-rule: almanac append failed"
 
 say "GREEN: tb-golden-rule — guide·TAME·maybe triad ok · control elder GREEN · almanac seat 27"

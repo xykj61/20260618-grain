@@ -21,12 +21,12 @@ let verb = ""
 if length args != 0 then let verb = args[0]
 
 let m = run ["sh" "tools/fixtures/s/sundial.sh" verb]
+say m.out
 assert m.ok else "sundial REFUSE or measure failed — see stderr"
 assert m.out contains "GREEN: sundial" else "sundial missing GREEN line"
 assert m.out contains "sundial=" else "sundial missing score"
 assert m.out contains "band=" else "sundial missing color band"
 assert m.out contains "witness:sundial GREEN" else "sundial witness missing"
-say m.out
 
 let refuse = run ["sh" "tools/fixtures/s/sundial.sh" "shred"]
 assert (refuse.ok == false) else "sundial refuse-walk broken: shred must exit RED"
