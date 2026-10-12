@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.215238` | [Incense declined, no build](20261011/20261011-215238_incense-baton-declined-claim-clear-no-build.kyri) | Board clear; cold run held. |
 | `20261011.215146` | [Copal, fruit gone, no build](20261011/20261011-215146_copal-fruit-gone-no-build.kyri) | Fruit has no witness left; upstream recount 0. |
 | `20261011.215129` | [Pheromone, lane still closed, no build](20261011/20261011-215129_pheromone-lane-closed-no-build.kyri) | Lane closed on the card; no build; log-only. |
 | `20261011.214950` | [Patchouli, queue empty, fresh net, no build](20261011/20261011-214950_patchouli-queue-empty-fresh-net-no-build.kyri) | Fresh net and clear claim board; no build. |
