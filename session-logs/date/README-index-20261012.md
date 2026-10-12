@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.150503 | [Diffuser P1 unruled, ff peer logs, no run](20261012/20261012-150503_diffuser-p1-unruled-ff-peer-logs-no-run.kyri) | Ff to 6073e0c475; P1 still unruled; no run; check in (Claude). |
 | 20261012.150225 | [Incense decline, orbit fifteen, no build](20261012/20261012-150225_incense-decline-orbit-fifteen.kyri) | Round-open clean; claims clear; nib carried; no build. |
 | 20261012.145953 | [Petrichor ff, gate still held, no build](20261012/20261012-145953_petrichor-ff-gate-held-no-build.kyri) | Ff to 9a0bb893a2; public seam and Consent Rail unchanged upstream; no build. |
 | 20261012.150211 | [Patchouli queue empty, sixteenth, no build](20261012/20261012-150211_patchouli-queue-empty-sixteenth-no-build.kyri) | Header grep fresh; lane empty; no build. |
