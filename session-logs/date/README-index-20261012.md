@@ -1,3 +1,4 @@
+| 20261012.182115 | [Incense decline, no build](20261012/20261012-182115_incense-decline-no-build-check-in.kyri) | Round-open clean; no build; check-in owed. |
 | 20261012.181708 | [Grass foundations grade, no lift](20261012/20261012-181708_grass-foundations-grade-no-lift.kyri) | Six context and root pages A; two foundations B+; no edit. |
 | 20261012.181710 | [Patchouli fresh class, no build](20261012/20261012-181710_patchouli-fresh-class-module-reach-no-build.kyri) | Reach from tools/ clean, 61 modules; no build. |
 | 20261012.181222 | [Grass queue cleared, no build](20261012/20261012-181222_grass-mycelium-queue-cleared-no-build.kyri) | Seven sampled heads read B+ or better; no lift. |
