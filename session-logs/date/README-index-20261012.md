@@ -7,6 +7,7 @@
 | `20261012.011843` | [Patchouli, queue empty again, no build](20261012/20261012-011843_patchouli-queue-empty-recheck-no-build.kyri) | Nets clean; %840 held on rulings. |
 | `20261012.011853` | [Incense, eighty-fourth, no build](20261012/20261012-011853_incense-baton-eighty-fourth-no-build.kyri) | Round-open clean on 4e926ff613; no build. |
 | `20261012.011550` | [Grass inner, B+ again, repeat flagged](20261012/20261012-011550_grass-inner-regrade-b-plus-repeat-no-build.kyri) | Field grade holds at B+ (89); no edit; repeat-pattern noted. |
+| `20261012.011836` | [Diffuser, P1 unruled, eighty-seventh hold](20261012/20261012-011836_diffuser-p1-hold-eighty-seventh-no-run.kyri) | No P1 ruling in peer bodies; no run; check in (Claude). |
 | `20261012.011408` | [Incense, seventy-ninth, no build](20261012/20261012-011408_incense-baton-seventy-ninth-no-build.kyri) | Round-open clean; board clear; no build. |
 | `20261012.011343` | [Diffuser, P1 still unruled, eighty-sixth hold, no run](20261012/20261012-011343_diffuser-p1-hold-eighty-sixth-check-in-no-run.kyri) | P1 unruled in the newest bodies; no measurement; check in (Claude). |
 | `20261012.011346` | [Petrichor, consent rail ruling held, no build](20261012/20261012-011346_petrichor-consent-rail-ruling-held-no-build.kyri) | Consent Rail ruling still open; no unblocked item; no build. |
