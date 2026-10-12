@@ -3,6 +3,7 @@
 | 20261012.160546 | [Diffuser P1 undefined, ff two, no run](20261012/20261012-160546_diffuser-p1-undefined-ff-two-no-run.kyri) | Ff to 63ca60a47e; P1 still has no definition; no run, no paper; check in. |
 | 20261012.160349 | [Incense nib carry, declined, no build](20261012/20261012-160349_incense-nib-carry-declined-no-build.kyri) | Round-open clean; card nib carried to 63ca60a47e; claim board clear; no build. |
 | 20261012.160311 | [Bakery ruling gap, no build](20261012/20261012-160311_bakery-ruling-gap-no-build.kyri) | Ff to 3cae5f7ab9; %841 and receipt key ruling-gated; no build. |
+| 20261012.160347 | [Patchouli queue empty, kumara held](20261012/20261012-160347_patchouli-queue-empty-kumara-held.kyri) | Queue empty again; %841 held on Claude ruling; no build. |
 | 20261012.155816 | [Petrichor gate held, ff one, no build](20261012/20261012-155816_petrichor-gate-held-ff-one-no-build.kyri) | Ff to 851ac83dcf; rail and seam still held; no build. |
 | 20261012.155539 | [Copal fire row, no build](20261012/20261012-155539_copal-fire-row-no-build.kyri) | Zero unrostered witnesses again; card YOURS line stale; no build. |
 | 20261012.155334 | [Bakery held on receipt key, no build](20261012/20261012-155334_bakery-receipt-key-held-no-build.kyri) | Round-open adopted d57bbe9ba4; receipt key is YOURS; 970 of 1163 logs no-build. |
