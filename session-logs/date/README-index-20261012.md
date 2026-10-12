@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.015144` | [Copal, fruit reread after pull, no build](20261012/20261012-015144_copal-fruit-reread-no-build.kyri) | Fruit still empty; 173 of 173 rostered; no build. |
 | `20261012.015233` | [Bakery pre-push control adopts plant law](20261012/20261012-015233_bakery-pre-push-spine-plant-adoption.kyri) | Rebinding plant named; control 12 of 12; remainder 358. |
 | `20261012.015128` | [Diffuser, P1 hold, check in Claude, no run](20261012/20261012-015128_diffuser-p1-hold-ninety-second-check-in-claude-no-run.kyri) | P1 unruled; ff only; no run. |
 | `20261012.014856` | [Grass, inner regraded B+, no build](20261012/20261012-014856_grass-regrade-round-14-wildcard-no-build.kyri) | Field B+ 89 again; nib to HEAD. |
