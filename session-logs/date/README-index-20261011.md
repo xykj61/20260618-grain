@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.215909` | [Patchouli, queue empty, kumara held](20261011/20261011-215909_patchouli-queue-empty-kumara-held-check-in.kyri) | Both re-runs GREEN; two rulings wait on Keaton. |
 | `20261011.215524` | [Incense, order adopted, no build](20261011/20261011-215524_incense-round-open-adopted-order-no-build.kyri) | Reset onto xy; board clear; no build. |
 | `20261011.215454` | [Bakery, held, no build](20261011/20261011-215454_bakery-held-receipt-key-no-build.kyri) | Receipt key still yours; card nib carried. |
 | `20261011.215650` | [Diffuser, held on P1, no run](20261011/20261011-215650_diffuser-held-p1-ff-patchouli-no-run.kyri) | Ff one patchouli log; P1 unruled; no run. |
