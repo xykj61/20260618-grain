@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.105300` | [Diffuser, P1 hold, ff four peer logs, no run](20261012/20261012-105300_diffuser-p1-hold-ff-four-peers-no-run.kyri) | P1 still unruled; fast-forward only; no measurement; no build |
+| `20261012.105541` | [Copal chapter-witness roster, zero unrostered, no build](20261012/20261012-105541_copal-zero-unrostered.kyri) | 159 witnesses checked, zero absent; fruit empty. |
 | `20261012.105021` | [Copal, zero unrostered witness again, no build](20261012/20261012-105021_copal-no-unrostered-witness-remeasured-no-build.kyri) | path comm 0 of 170 runners; two non-witness hands reported, not rostered. |
 | 20261012.105019 | [Grass inner re-read, B+ holds, nib carried](20261012/20261012-105019_grass-inner-reread-confirms-held-no-build.kyri) | Re-read confirms 104722; nib to b961c37958; no build. |
 | 20261012.104738 | [Incense eighty-fourth, declined, check-in](20261012/20261012-104738_incense-eighty-fourth-declined-check-in.kyri) | Round-open clean, claim board empty, no build; the repetition named again |
@@ -208,7 +209,6 @@
 | `20261012.080654` | [Bakery, held, no build](20261012/20261012-080654_bakery-receipt-basis-held-no-build.kyri) | Receipt basis still foreign; ledger full; waits on Keaton. |
 | `20261012.080548` | [Diffuser, P1 floor re-derived, zero-offset arm](20261012/20261012-080548_diffuser-p1-floor-rederived-zero-arm.kyri) | Cited table is the zero-offset arm; reproduced; ruling still owed. |
 | `20261012.080611` | [Incense, stuck, declined](20261012/20261012-080611_incense-baton-stuck-declined-nib-carried.kyri) | Clear board; law lane waits on Keaton. |
-| `20261012.080553` | [Petrichor, gate unchanged, no build](20261012/20261012-080553_petrichor-gate-unchanged-no-build.kyri) | Consent Rail gate unchanged; no fruit; no build. |
 | `20261012.080417` | [Incense, declined again, nib carried](20261012/20261012-080417_incense-decline-nib-carried.kyri) | Clear board at cd6dff37d0; law lane waits on Keaton. |
 | `20261012.080114` | [Pheromone, held for Incense, no claim, no build](20261012/20261012-080114_pheromone-held-no-claim-no-build.kyri) | Lane held on its stop clause; board read; no claim, no build. |
 | `20261012.080105` | [Incense, declined, no build](20261012/20261012-080105_incense-declined-claim-clear-no-build.kyri) | Clear board at c556a24761; law lane waits on Keaton. |
@@ -254,15 +254,6 @@
 | `20261012.030348` | [Patchouli, queue empty again, no build](20261012/20261012-030348_patchouli-queue-empty-no-build.kyri) | Queue empty; held items unchanged; no build. |
 | `20261012.003708` | [Patchouli, queue empty, no build](20261012/20261012-003708_patchouli-queue-empty-no-build.kyri) | Record-version scan at 1e4c07597f: no fresh header in mantra/ or tally/; no build. |
 | `20261012.000707` | [Patchouli, queue empty, no build](20261012/20261012-000707_patchouli-queue-empty-no-build.kyri) | Queue empty on a fresh sweep of mantra/ and tally/; kumara red held for ruling; no build. |
-| `20261012.072503` | [Patchouli, queue empty, no build](20261012/20261012-072503_patchouli-queue-empty-no-build.kyri) | Lane empty; claim-as-override surveyed; log only. |
-| `20261012.063214` | [Patchouli, queue empty again, no build](20261012/20261012-063214_patchouli-queue-empty-no-build.kyri) | Fresh grep empty; kumara red held for ruling; no build. |
-| `20261012.062021` | [Patchouli, queue empty, no build](20261012/20261012-062021_patchouli-queue-empty-no-build.kyri) | Two greps and the claim board read clear; no code moved. |
-| `20261012.054430` | [Patchouli, queue empty again, no build](20261012/20261012-054430_patchouli-queue-empty-no-build.kyri) | Fresh sweep empty; %807 and %765 await Keaton; no build. |
-| `20261012.053643` | [Patchouli, queue empty, no build](20261012/20261012-053643_patchouli-queue-empty-no-build.kyri) | Mantra and tally sweep finds no new header to molt; %807 and %765 await Keaton; no build. |
-| `20261012.040825` | [Patchouli, queue empty again, no build](20261012/20261012-040825_patchouli-queue-empty-no-build.kyri) | Fresh sweep agrees; ledger rows await ruling; no build; check in.
-| `20261012.030348` | [Patchouli, queue empty again, no build](20261012/20261012-030348_patchouli-queue-empty-no-build.kyri) | Queue empty; held items unchanged; no build. |
-| `20261012.003708` | [Patchouli, queue empty, no build](20261012/20261012-003708_patchouli-queue-empty-no-build.kyri) | Record-version scan at 1e4c07597f: no fresh header in mantra/ or tally/; no build. |
-| `20261012.000707` | [Patchouli, queue empty, no build](20261012/20261012-000707_patchouli-queue-empty-no-build.kyri) | Queue empty on a fresh sweep of mantra/ and tally/; kumara red held for ruling; no build. |
 | `20261012.073831` | [Diffuser, P1 still unruled, ff of three peers, no run](20261012/20261012-073831_diffuser-p1-hold-ff-no-diffuser-change-no-run.kyri) | Held pass on P1; no diffuser file changed; no run. |
 | `20261012.073656` | [Incense, baton declined, no build](20261012/20261012-073656_incense-baton-declined-no-build.kyri) | Declined lap; claim board clear; no movement. |
 | `20261012.073646` | [Petrichor, gate held, fast-forward to peers, no build](20261012/20261012-073646_petrichor-gate-held-ff-peers-no-build.kyri) | Consent Rail gate still held; no fruit; no build. |
@@ -284,7 +275,6 @@
 | `20261012.072441` | [Pheromone, capacity rechecked, no build](20261012/20261012-072441_pheromone-capacity-rechecked-no-build.kyri) | Witness GREEN on new HEAD; lane at its stop; no claim. |
 | `20261012.072530` | [Incense, seventy-eighth, no build](20261012/20261012-072530_incense-baton-seventy-eighth-no-build.kyri) | Fetch level with xy/main; claim board clear; no build. |
 | `20261012.072359` | [Bakery, crux held, no build](20261012/20261012-072359_bakery-crux-held-no-build.kyri) | Peers fast-forwarded; board empty; ruling waits. |
-| `20261012.072503` | [Patchouli, queue empty, no build](20261012/20261012-072503_patchouli-queue-empty-no-build.kyri) | Lane empty; claim-as-override surveyed; log only. |
 | `20261012.071848` | [Petrichor, crypto front door reaches Door](20261012/20261012-071848_petrichor-crypto-front-door-reach-molt.kyri) | Composite 78 to 86 at Door; one page; GREEN. |
 | `20261012.072045` | [Incense, baton seventy-eighth, no build](20261012/20261012-072045_incense-baton-seventy-eighth-no-build.kyri) | Round-open ff; board clear; cold run held; no build. |
 | `20261012.071705` | [Copal, fruit already complete, no build](20261012/20261012-071705_copal-unrostered-witness-none.kyri) | Zero unrostered chapter witnesses; no claim; check in. |
@@ -345,7 +335,6 @@
 | `20261012.063341` | [Pheromone, lane held at stop clause, no build](20261012/20261012-063341_pheromone-lane-held-stop-clause-no-build.kyri) | Glow lane held; claim board clear; nib carried. |
 | `20261012.063311` | [Petrichor, lane gated, no build](20261012/20261012-063311_petrichor-gated-no-build.kyri) | Walkthrough waits on the public seam; log and nib only. |
 | `20261012.063556` | [Patchouli, queue empty, kumara held](20261012/20261012-063556_patchouli-queue-empty-kumara-held-no-build.kyri) | Grep empty; kumara red held. |
-| `20261012.063214` | [Patchouli, queue empty again, no build](20261012/20261012-063214_patchouli-queue-empty-no-build.kyri) | Fresh grep empty; kumara red held for ruling; no build. |
 | `20261012.063359` | [Copal, fruit empty a seventh read, no build](20261012/20261012-063359_copal-fruit-seventh-read-no-build.kyri) | 159 witnesses rostered; no build; ruling asked. |
 | `20261012.063303` | [Bakery, closure-census claim, opened not built](20261012/20261012-063303_bakery-closure-census-claim.kyri) | Claim landed on board; census not built; check in. |
 | `20261012.062952` | [Grass, field reach re-read, no build](20261012/20261012-062952_grass-field-reach-reread-no-build.kyri) | Field reach 90, grade 12 over 11; no edit, log only. |
@@ -361,7 +350,6 @@
 | `20261012.062628` | [Grass, queue empty, no build](20261012/20261012-062628_grass-queue-empty-no-build.kyri) | Mycelium sample all B or better; fold.rye A; no edit. |
 | 20261012.062324 | [bakery crux witness rerun](20261012/20261012-062324_bakery-crux-witness-rerun-check-in.kyri) | single-tree witness GREEN again; cross-checkout seam held |
 | `20261012.062100` | [Incense, seventy-ninth, no build](20261012/20261012-062100_incense-seventy-ninth-no-build.kyri) | Order unchanged; board clear; nib carried. |
-| `20261012.062021` | [Patchouli, queue empty, no build](20261012/20261012-062021_patchouli-queue-empty-no-build.kyri) | Two greps and the claim board read clear; no code moved. |
 | `20261012.062050` | [Diffuser hold, ff three peers, no run](20261012/20261012-062050_diffuser-p1-hold-ff-three-peers-no-run.kyri) | P1 unruled, no definition in the inner prompt; no run. |
 | `20261012.061958` | [Petrichor, citations hold, no build](20261012/20261012-061958_petrichor-citations-hold-no-build.kyri) | Citations resolve; docs-geode links clean; nib carried. |
 | `20261012.061929` | [Pheromone, lane held at stop clause, no build](20261012/20261012-061929_pheromone-lane-held-stop-clause-no-build.kyri) | Glow lane closed on the card; ruling awaits Incense; no build. |
@@ -407,7 +395,6 @@
 | `20261012.054936` | [Bakery, witness GREEN, no build](20261012/20261012-054936_bakery-witness-green-check-in.kyri) | Shared-cache witness re-run GREEN; owed inputs still ruled; nib to HEAD; no build. |
 | `20261012.054841` | [Grass, inner page B+, no build](20261012/20261012-054841_grass-inner-b-plus-no-build.kyri) | Inner page graded B+/89 at Field; queue empty; no build. |
 | `20261012.054840` | [Diffuser, P1 hold, no run](20261012/20261012-054840_diffuser-p1-hold-hundred-third-no-run.kyri) | Two peer logs ff'd; P1 unruled; no measurement. |
-| `20261012.054430` | [Patchouli, queue empty again, no build](20261012/20261012-054430_patchouli-queue-empty-no-build.kyri) | Fresh sweep empty; %807 and %765 await Keaton; no build. |
 | `20261012.054429` | [Petrichor, gate held, no build](20261012/20261012-054429_petrichor-gate-held-no-build.kyri) | Gate unchanged; lane held; no page or code moved. |
 | `20261012.054410` | [Copal, fruit exhausted, ninth, no build](20261012/20261012-054410_copal-fruit-ninth-reading-no-build.kyri) | Zero unrostered witnesses; the fruit needs a ruling. |
 | `20261012.054408` | [Incense, baton declined, nib carried, no build](20261012/20261012-054408_incense-baton-declined-nib-carried.kyri) | Round-open clean, clock all in, card nib to HEAD; lane gated; no build. |
@@ -420,7 +407,6 @@
 | `20261012.053852` | [Petrichor, gate held, no build](20261012/20261012-053852_petrichor-gate-held-ff-no-build.kyri) | Five peers read; Consent Rail still Keaton's call. |
 | `20261012.053810` | [Copal, fruit exhausted, no build](20261012/20261012-053810_copal-fruit-exhausted-no-build.kyri) | Zero unrostered witnesses, eighth reading; the fruit needs a ruling; no build. |
 | `20261012.053712` | [Incense, baton declined, no build](20261012/20261012-053712_incense-baton-declined-no-build.kyri) | Round-open adopted anointed order, claim board empty, lane gated; no build. |
-| `20261012.053643` | [Patchouli, queue empty, no build](20261012/20261012-053643_patchouli-queue-empty-no-build.kyri) | Mantra and tally sweep finds no new header to molt; %807 and %765 await Keaton; no build. |
 | `20261012.053635` | [Bakery, cache witness GREEN, no build](20261012/20261012-053635_bakery-shared-cache-witness-green-no-build.kyri) | Witness GREEN; sharing awaits a ruling. |
 | `20261012.053607` | [Grass, inner page B+ 89, no build](20261012/20261012-053607_grass-inner-page-b-plus-no-build.kyri) | Inner page graded B+; no edit. |
 | `20261012.053355` | [Petrichor, gate held after ff, no build](20261012/20261012-053355_petrichor-gate-held-no-build.kyri) | Consent Rail still Keaton's call; ff to 8c29a186c3; no fruit. |
@@ -523,7 +509,6 @@
 | `20261012.041131` | [Incense, baton declined, no build](20261012/20261012-041131_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; no build; check in. |
 | `20261012.041005` | [Copal, chapter-witness fruit spent again, no build](20261012/20261012-041005_copal-fruit-spent-no-build.kyri) | 158 of 158 witnesses rostered by exact path; no build. |
 | `20261012.040847` | [Incense, repeat decline, pattern named](20261012/20261012-040847_incense-baton-declined-check-in-pattern.kyri) | Round-open clean; claim board clear; no build; check in named. |
-| `20261012.040825` | [Patchouli, queue empty again, no build](20261012/20261012-040825_patchouli-queue-empty-no-build.kyri) | Fresh sweep agrees; ledger rows await ruling; no build; check in.
 | `20261012.040825` | [Diffuser, P1 hold, ff to grass, no run](20261012/20261012-040825_diffuser-p1-hold-ff-grass-no-run.kyri) | P1 unruled; ff clean; no run. |
 | `20261012.040625` | [Petrichor, gate held, no build](20261012/20261012-040625_petrichor-gate-held-grant-revoke-no-build.kyri) | Gate held; grant and revoke read; no build. |
 | `20261012.040554` | [Grass, inner regraded, no build](20261012/20261012-040554_grass-inner-regrade-no-build.kyri) | Field B+ 89 holds; claims empty; no edit. |
@@ -606,7 +591,6 @@
 | `20261012.030612` | [Copal, fruit empty, sixth reading](20261012/20261012-030612_copal-no-unrostered-witness-no-build.kyri) | Zero unrostered witnesses; ruling asked. |
 | `20261012.030414` | [Diffuser, P1 hold, ff copal fruit, no run](20261012/20261012-030414_diffuser-p1-hold-ff-copal-no-run.kyri) | P1 unruled; ff clean; no run. |
 | `20261012.030400` | [Grass, kyri page to B at Door, one register fix](20261012/20261012-030400_grass-kyri-page-b-plus-no-build.kyri) | Register 73 to 91; three sentences; no build. |
-| `20261012.030348` | [Patchouli, queue empty again, no build](20261012/20261012-030348_patchouli-queue-empty-no-build.kyri) | Queue empty; held items unchanged; no build. |
 | `20261012.030306` | [Incense, round-open, earth row, no build](20261012/20261012-030306_incense-round-open-earth-row-declined-no-build.kyri) | Round-open clean; board clear; no build. |
 | `20261012.030154` | [Bakery, receipt key held, no build](20261012/20261012-030154_bakery-receipt-key-held-no-build.kyri) | Receipt key still YOURS; claim board clear; no build. |
 | `20261012.030147` | [Petrichor, docs-geode links clean, gate held, no build](20261012/20261012-030147_petrichor-links-clean-no-build.kyri) | 435 of 435 relative links resolve; no page edit; no build. |
@@ -807,7 +791,6 @@
 | `20261012.003917` | [Petrichor, docs-geode link sweep, no build](20261012/20261012-003917_petrichor-docs-link-sweep-no-build.kyri) | 439 docs-geode links resolve, 0 missing; no page edited; no build. |
 | `20261012.003914` | [Copal, fruit repeat, no build](20261012/20261012-003914_copal-fruit-repeat-no-build.kyri) | Zero unrostered again by guard path; no build; the fruit repeats and YOURS waits for Keaton. |
 | `20261012.003759` | [Diffuser, P1 hold eightieth](20261012/20261012-003759_diffuser-p1-hold-eightieth-check-in-no-run.kyri) | P1 still unruled; no run; check in (Claude) |
-| `20261012.003708` | [Patchouli, queue empty, no build](20261012/20261012-003708_patchouli-queue-empty-no-build.kyri) | Record-version scan at 1e4c07597f: no fresh header in mantra/ or tally/; no build. |
 | `20261012.003553` | [Incense, declined, no build](20261012/20261012-003553_incense-baton-declined-claim-clear-no-build.kyri) | Ff one peer log; no build. |
 | `20261012.003450` | [Copal, unrostered none, no build](20261012/20261012-003450_copal-unrostered-none-no-build.kyri) | Zero unrostered by guard path; no build; YOURS left for Keaton. |
 | `20261012.003219` | [Pheromone, lane held again, no build](20261012/20261012-003219_pheromone-lane-held-repeat-no-build.kyri) | Lane held at 423724fb02; no ruling upstream; no build. |
@@ -843,7 +826,6 @@
 | `20261012.000809` | [Copal, no unrostered witness, no build](20261012/20261012-000809_copal-no-unrostered-witness-no-build.kyri) | comm reads 0 of 159; amphora none; no build. |
 | `20261012.000753` | [Incense, seventy-eighth, declined](20261012/20261012-000753_incense-seventy-eighth-declined-nib-carried.kyri) | Upstream 0 behind; claims clear; no build. |
 | `20261012.000750` | [Bakery, witnesses re-run, receipt key gated, no build](20261012/20261012-000750_bakery-witnesses-rerun-receipt-gated-no-build.kyri) | Both read-only witnesses green at 843314d66a; receipt key awaits ruling. |
-| `20261012.000707` | [Patchouli, queue empty, no build](20261012/20261012-000707_patchouli-queue-empty-no-build.kyri) | Queue empty on a fresh sweep of mantra/ and tally/; kumara red held for ruling; no build. |
 | `20261012.000654` | [Petrichor, gate still held, no build](20261012/20261012-000654_petrichor-gate-still-held-no-build.kyri) | Five peer commits, none on the rail; gate held; no build. |
 | `20261012.000318` | [Patchouli, queue empty, REDS %840 held, check-in](20261012/20261012-000318_patchouli-queue-empty-840-held-check-in.kyri) | Queue empty; kumara red fixed in code, unbooked; pin 4 bytes under bound; no build. |
 | `20261012.000205` | [Pheromone, lane empty, no build](20261012/20261012-000205_pheromone-lane-empty-no-build.kyri) | Lane reads empty at 404ca9402e; no rune, no build. |
