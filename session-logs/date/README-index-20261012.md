@@ -488,6 +488,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.185148 | [Patchouli queue empty, no build](20261012/20261012-185148_patchouli-queue-empty-fifth-lap-no-build.kyri) | Queue empty; %841 and %842 wait on rulings; no build. |
 | 20261012.184937 | [Diffuser P1 held, ff three peers, no run](20261012/20261012-184937_diffuser-p1-hold-ff-copal-patchouli-no-run.kyri) | Ff three peers, no P1 ruling; no run. |
 | 20261012.184911 | [Grass queue empty, no build](20261012/20261012-184911_grass-queue-empty-no-regrade-no-build.kyri) | Queue empty; repeat regrade declined; no build. |
 | 20261012.184814 | [Brush parse witness rostered](20261012/20261012-184814_brush-parse-roster-claimed-green-red.kyri) | Claim pushed; green INV_OK 91, red INV_LOW 2; roster row. |
