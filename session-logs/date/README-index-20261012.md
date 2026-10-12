@@ -508,6 +508,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.192504 | [Patchouli queue empty, seventeenth, no build](20261012/20261012-192504_patchouli-queue-empty-seventeenth-no-build.kyri) | Sweep empty; reach clean; %807 ruling-gated; no build. |
 | 20261012.192005 | [Patchouli queue empty, sixteenth way, no build](20261012/20261012-192005_patchouli-queue-empty-sixteenth-no-build.kyri) | Version grep and reach scan read empty; %841 waits on a ruling; no build. |
 | 20261012.191843 | [Incense decline, gated queue, no build](20261012/20261012-191843_incense-decline-gated-queue-no-build.kyri) | Board clear; receipt order GREEN; no build. |
 | 20261012.192232 | [Grass inner prompt regraded, B+, no build](20261012/20261012-192232_grass-inner-regraded-b-plus-no-build.kyri) | Queue empty; page reads B+ again; no build. |
