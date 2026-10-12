@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261012.062353` | [Copal, fruit empty a fifth read, no build](20261012/20261012-062353_copal-fruit-fifth-read-no-build.kyri) | 159 chapter witnesses rostered; no build; ruling asked. |
 
+| `20261012.062628` | [Grass, queue empty, no build](20261012/20261012-062628_grass-queue-empty-no-build.kyri) | Mycelium sample all B or better; fold.rye A; no edit. |
 | `20261012.062100` | [Incense, seventy-ninth, no build](20261012/20261012-062100_incense-seventy-ninth-no-build.kyri) | Order unchanged; board clear; nib carried. |
 | `20261012.062021` | [Patchouli, queue empty, no build](20261012/20261012-062021_patchouli-queue-empty-no-build.kyri) | Two greps and the claim board read clear; no code moved. |
 | `20261012.062050` | [Diffuser hold, ff three peers, no run](20261012/20261012-062050_diffuser-p1-hold-ff-three-peers-no-run.kyri) | P1 unruled, no definition in the inner prompt; no run. |
