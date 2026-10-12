@@ -14,23 +14,23 @@ let have = run ["test" "-f" guide]
 assert have.ok else "tigerstyle-void: TIGER_STYLE.md missing from gratitude/"
 
 let rank = run ["sh" "-c" "grep -n 'as a return type' gratitude/TIGER_STYLE.md | grep -F 'trumps'"]
+say rank.out
 assert rank.ok else "tigerstyle-void: void-trumps-bool ladder line missing"
 assert rank.out contains "trumps" else "tigerstyle-void: want trumps in ladder line"
 assert rank.out contains "void" else "tigerstyle-void: want void in ladder line"
 assert rank.out contains "bool" else "tigerstyle-void: want bool in ladder line"
-say rank.out
 
 let examples = run ["sh" "-c" "grep -n '!void' gratitude/TIGER_STYLE.md | head -10"]
+say examples.out
 assert examples.ok else "tigerstyle-void: !void examples missing"
 assert examples.out contains "!void" else "tigerstyle-void: want !void in examples"
-say examples.out
 
 let clone = run ["sh" "-c" "if test -d gratitude/tigerbeetle; then echo CLONE=present; else echo CLONE=ABSENT; fi"]
 say clone.out
 assert clone.out contains "CLONE=" else "tigerstyle-void: clone status scan failed"
 
 let almanac = run ["sh" "tools/equinox/almanac/equinox_tigerstyle_void_almanac.sh"]
-assert almanac.ok else "tigerstyle-void: almanac append failed"
 say almanac.out
+assert almanac.ok else "tigerstyle-void: almanac append failed"
 
 say "GREEN: tigerstyle-void — held guide teaches void · !void examples · clone status named · almanac seat 23"

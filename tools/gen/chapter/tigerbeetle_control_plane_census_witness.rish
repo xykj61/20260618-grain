@@ -36,7 +36,7 @@ let elder = run ["rishi/bin/rishi" "run" "tools/gen/chapter/tigerbeetle_assert_c
 assert elder.ok else "tb-control-plane: assert census elder went RED"
 
 let almanac = run ["sh" "tools/equinox/almanac/equinox_tigerbeetle_control_plane_almanac.sh"]
-assert almanac.ok else "tb-control-plane: almanac append failed"
 say almanac.out
+assert almanac.ok else "tb-control-plane: almanac append failed"
 
 say "GREEN: tb-control-plane — guide·arch·verify·TAME bridge ok · assert elder GREEN · almanac seat 26"
