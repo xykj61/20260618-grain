@@ -364,6 +364,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.151858 | [Patchouli queue empty, kumara red held](20261012/20261012-151858_patchouli-queue-empty-kumara-held.kyri) | Queue empty again; %841 held for a seam ruling; no build. |
 | 20261012.151644 | [Diffuser P1 hold, no run](20261012/20261012-151644_diffuser-p1-hold-ff-two-peers-no-run.kyri) | Ff to 03daf49952; P1 unruled; check in (Claude). |
 | 20261012.150226 | [Pheromone ff, lane held on ruling, no build](20261012/20261012-150226_pheromone-held-round-15-no-build.kyri) | ff to 3b4736931d; lane held; no build. |
 | 20261012.145627 | [Pheromone ff, lane held, no build](20261012/20261012-145627_pheromone-ff-held-no-build.kyri) | Ff to 126450519e; no open Glow fruit; no build. |
