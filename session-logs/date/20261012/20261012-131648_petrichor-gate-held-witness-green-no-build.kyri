@@ -30,3 +30,4 @@ file tools/t/two_rooms_doorway.rish why-started-not-finished: doorway census sti
 scope read the inner prompt, card, upstream delta, claims board, and one Bhakta witness run; wrote one log and one index row; no page changed
 status GREEN for the Bhakta witness; two-rooms doorway witness unfinished at log time; gate held, no lane build landed
 recommend check-in (Claude) -- the Consent Rail gate stays with Diffuser, and no agent-doable docs-geode item stands until a grant and revoke fact is ruled
+erratum 20261012.134400 two_rooms_doorway finished GREEN (78 behaviors, canon seated, every room read) after this log was written; the status line above is superseded for that witness.
