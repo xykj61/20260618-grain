@@ -86,12 +86,21 @@ pub fn recall_by_mark(
     return catalog.recall(name, out);
 }
 
-fn run_selftest(_: std.Io) !u8 {
-    var cat: recall_lap1.BoltCatalog = .empty();
+// Seed the selftest catalog: three leaves in one bolt revision, two of them sharing a mark.
+fn build_selftest_catalog(cat: *recall_lap1.BoltCatalog) !void {
+    // invariant: the selftest starts from an empty catalog, so the three leaves below are the only ones.
+    assert(cat.leaf_count == 0);
     try cat.append_leaf("peerB", "b", 1, "notes.txt", "alpha notes", "plain-text");
     try cat.append_leaf("peerB", "b", 1, "data.bin", "beta bytes", "plain-bytes");
     try cat.append_leaf("peerB", "b", 1, "config.toml", "gamma cfg", "plain-text");
+    // invariant: each append above landed exactly one leaf.
+    assert(cat.leaf_count == 3);
+}
 
+// Mark reads: unique resolves, shared refuses without a hint, a hint narrows, an absent mark answers never.
+fn selftest_mark_reads(cat: *recall_lap1.BoltCatalog) !void {
+    // invariant: the catalog arrives seeded by build_selftest_catalog.
+    assert(cat.leaf_count == 3);
     var buf: [recall_lap1.max_resin_bytes]u8 = undefined;
 
     // Unique mark resolves without a path.
@@ -101,7 +110,7 @@ fn run_selftest(_: std.Io) !u8 {
         .revision = 1,
         .tilak = "plain-bytes",
     };
-    const r_bytes = try recall_by_mark(&cat, q_bytes, &buf);
+    const r_bytes = try recall_by_mark(cat, q_bytes, &buf);
     assert(r_bytes.outcome == .here);
     assert(std.mem.eql(u8, buf[0..r_bytes.len], "beta bytes"));
     assert(std.mem.eql(u8, r_bytes.tilak, "plain-bytes"));
@@ -113,7 +122,7 @@ fn run_selftest(_: std.Io) !u8 {
         .revision = 1,
         .tilak = "plain-text",
     };
-    if (recall_by_mark(&cat, q_ambig, &buf)) |_| {
+    if (recall_by_mark(cat, q_ambig, &buf)) |_| {
         return error.MarkAmbiguous;
     } else |err| {
         assert(err == error.MarkAmbiguous);
@@ -128,7 +137,7 @@ fn run_selftest(_: std.Io) !u8 {
         .tilak = "plain-text",
         .path_hint = "notes.txt",
     };
-    const r_hint = try recall_by_mark(&cat, q_hint, &buf);
+    const r_hint = try recall_by_mark(cat, q_hint, &buf);
     assert(std.mem.eql(u8, buf[0..r_hint.len], "alpha notes"));
     const by_name = try cat.recall(.{
         .peer = "peerB",
@@ -145,23 +154,46 @@ fn run_selftest(_: std.Io) !u8 {
         .revision = 1,
         .tilak = "bead-index",
     };
-    const r_missing = try recall_by_mark(&cat, q_missing, &buf);
+    const r_missing = try recall_by_mark(cat, q_missing, &buf);
     assert(r_missing.outcome == .never);
+}
 
-    // Digest mismatch on a mark-selected leaf refuses whole.
+// Digest refusal: a mark-selected leaf whose digest no longer matches its bytes refuses whole.
+fn selftest_digest_refusal(cat: *recall_lap1.BoltCatalog) !void {
+    // invariant: the catalog arrives seeded, three leaves, before the digest is corrupted.
+    assert(cat.leaf_count == 3);
+    var buf: [recall_lap1.max_resin_bytes]u8 = undefined;
+    const q_bytes = MarkReadQuery{
+        .peer = "peerB",
+        .bolt = "b",
+        .revision = 1,
+        .tilak = "plain-bytes",
+    };
+
+    var planted = false;
     var i: u32 = 0;
     while (i < cat.leaf_count) : (i += 1) {
         if (std.mem.eql(u8, cat.leaves[i].path[0..cat.leaves[i].path_len], "data.bin")) {
             cat.leaves[i].digest_hex[0] = if (cat.leaves[i].digest_hex[0] == 'a') 'b' else 'a';
+            planted = true;
             break;
         }
     }
-    if (recall_by_mark(&cat, q_bytes, &buf)) |_| {
+    // invariant: the plant landed on data.bin, so the refusal below tests a real mismatch.
+    assert(planted);
+    if (recall_by_mark(cat, q_bytes, &buf)) |_| {
         return error.DigestMismatch;
     } else |err| {
         assert(err == error.DigestMismatch);
     }
     print("ns-mark: digest mismatch refused whole -- GREEN unwelcome path\n", .{});
+}
+
+fn run_selftest(_: std.Io) !u8 {
+    var cat: recall_lap1.BoltCatalog = .empty();
+    try build_selftest_catalog(&cat);
+    try selftest_mark_reads(&cat);
+    try selftest_digest_refusal(&cat);
 
     print("ns-mark: unique mark, path hint, and name recall agree -- marks-on-read GREEN\n", .{});
     print("ns-mark: version {s}\n", .{recall_by_mark_version});
