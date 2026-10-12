@@ -419,6 +419,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.165246 | [Grass mycelium queue already lifted, no molt](20261012/20261012-165246_grass-mycelium-queue-already-lifted-no-molt.kyri) | Nine mycelium heads graded B or better; no molt.
 | 20261012.164838 | [Copal fruit held, guard pairs read, no build](20261012/20261012-164838_copal-unrostered-fruit-held-guard-pairs.kyri) | 159 of 159 paired; card ~75 line stale; no build. |
 | 20261012.165055 | [Petrichor gate held, ff one, no build](20261012/20261012-165055_petrichor-gate-held-ff-one-no-build.kyri) | Ff to 735dbe38b0; gate unchanged upstream. |
 | 20261012.164834 | [GRASS fast-forward three, queue empty, no build](20261012/20261012-164834_grass-queue-empty-ff-three-no-build.kyri) | Ff to 8d010c2c24; queue empty; no build. |
