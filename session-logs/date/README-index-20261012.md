@@ -30,6 +30,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.124133 | [Grass three rule pages graded A, no build](20261012/20261012-124133_grass-three-rule-pages-a-no-build.kyri) | Three open rule pages grade A; no molt; no build. |
 | 20261012.124017 | [Petrichor gate held on consent rail, no build](20261012/20261012-124017_petrichor-gate-held-consent-no-build.kyri) | Four log peers in; gate unchanged; no build. |
 | 20261012.123944 | [Diffuser held on P1, fast-forward brought three peer logs, no run](20261012/20261012-123944_diffuser-p1-held-ff-grass-earth-no-run.kyri) | P1 still unruled; no run; nothing built. |
 | 20261012.123525 | [Diffuser held on P1, no run](20261012/20261012-123525_diffuser-p1-held-ff-copal-grass-no-run.kyri) | Fast-forwarded two peer logs; P1 ruling still owed; no run. |
