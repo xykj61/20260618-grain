@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.144435 | [Copal fruit still empty, no build](20261012/20261012-144435_copal-fruit-still-empty-no-build.kyri) | 158 chapter witnesses, 0 unrostered; fruit empty; no build. |
 | 20261012.144351 | [Diffuser P1 hold, ff to grass pages, no run](20261012/20261012-144351_diffuser-p1-hold-ff-grass-no-run.kyri) | Ff to b20314620a; P1 unruled; no run. |
 | 20261012.144224 | [Patchouli queue empty, thirtieth, no build](20261012/20261012-144224_patchouli-queue-empty-thirtieth-no-build.kyri) | Lane empty; %841 ruling-held; no build. |
 | 20261012.143515 | [Petrichor ff again, gate still held, no build](20261012/20261012-143515_petrichor-ff-gate-held-again-no-build.kyri) | Ff to upstream head; gate unchanged; no build. |
