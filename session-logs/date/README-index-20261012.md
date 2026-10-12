@@ -9,6 +9,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.120220 | [Receipt refusal witness split under seventy](20261012/20261012-120220_patchouli-receipt-refusal-split.kyri) | Three claim helpers; tally refusal runner GREEN. |
 | 20261012.120143 | [Copal roster rechecked, no build](20261012/20261012-120143_copal-roster-recheck-no-build.kyri) | Zero unrostered witnesses; fruit closed. |
 | 20261012.115942 | [Pheromone lane held at stop clause, rebased, no build](20261012/20261012-115942_pheromone-lane-held-rebased-no-build.kyri) | Stop clause in force; rebase onto upstream; no build. |
 | 20261012.115936 | [Grass queue empty, no build](20261012/20261012-115936_grass-queue-empty-no-build.kyri) | Inner prompt queue empty; no page touched; one log, no build. |

@@ -61,9 +61,9 @@ fn agrees(fact: receipt.ReceiptOfferFact, encoded_len: u32, signature_valid: boo
     assert(writable.offer == null);
 }
 
-pub fn main(_: std.process.Init) !u8 {
-    const fact = fixture();
-
+/// Every admission refusal the contract names: each field refuses under its own name,
+/// and a ceiling refusal states all five things the contract asks for.
+fn claim_admission_refusals(fact: receipt.ReceiptOfferFact) void {
     // A ceiling refusal names all five things the contract asks for.
     var bad = fact;
     bad.purpose = "x" ** (bounds.max_purpose_bytes + 1);
@@ -114,7 +114,11 @@ pub fn main(_: std.process.Init) !u8 {
     bad.purpose = "habitat\xffplanning";
     refusal_line(bad, 512, true, "field=purpose reason=non-ascii");
     agrees(bad, 512, true, error.NonAscii);
+}
 
+/// The record's own refusals: an accepted fact refuses nothing, an empty log names
+/// the missing offer, and a second fact refuses by count.
+fn claim_log_refusals(fact: receipt.ReceiptOfferFact) !void {
     // An accepted fact refuses nothing, and the second one refuses by count.
     var log = receipt.Log{};
     assert(log.refusal(fact, 512, true) == null);
@@ -128,13 +132,24 @@ pub fn main(_: std.process.Init) !u8 {
     const second = log.refusal(fact, 512, true) orelse unreachable;
     const rendered = try second.render(&line_buffer);
     assert(std.mem.eql(u8, rendered, "field=receipt_facts value=2 ceiling=1 unit=fact reason=too-many-facts"));
+}
 
+/// The published line refuses what it cannot render: a field name past its bound,
+/// and a line past the buffer it is written into.
+fn claim_render_refusals() void {
     // The record refuses a field name it cannot render inside its published line.
     const wide: refusal.Refusal = .{ .field = "n" ** (refusal.max_field_name_bytes + 1), .reason = .empty };
     if (wide.render(&line_buffer)) |_| unreachable else |err| assert(err == error.FieldNameTooLong);
     var narrow: [8]u8 = undefined;
     const ordinary: refusal.Refusal = .{ .field = "purpose", .reason = .empty };
     if (ordinary.render(&narrow)) |_| unreachable else |err| assert(err == error.LineTooLong);
+}
+
+pub fn main(_: std.process.Init) !u8 {
+    const fact = fixture();
+    claim_admission_refusals(fact);
+    try claim_log_refusals(fact);
+    claim_render_refusals();
 
     print("GREEN: receipt refusal -- every admission refusal names its field, and renders one stable line.\n", .{});
     return 0;
