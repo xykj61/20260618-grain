@@ -7,6 +7,7 @@
 | `20261012.062021` | [Patchouli, queue empty, no build](20261012/20261012-062021_patchouli-queue-empty-no-build.kyri) | Two greps and the claim board read clear; no code moved. |
 | `20261012.062050` | [Diffuser hold, ff three peers, no run](20261012/20261012-062050_diffuser-p1-hold-ff-three-peers-no-run.kyri) | P1 unruled, no definition in the inner prompt; no run. |
 | `20261012.061958` | [Petrichor, citations hold, no build](20261012/20261012-061958_petrichor-citations-hold-no-build.kyri) | Citations resolve; docs-geode links clean; nib carried. |
+| `20261012.061929` | [Pheromone, lane held at stop clause, no build](20261012/20261012-061929_pheromone-lane-held-stop-clause-no-build.kyri) | Glow lane closed on the card; ruling awaits Incense; no build. |
 | `20261012.061758` | [Copal, fruit spent a third read, no build](20261012/20261012-061758_copal-fruit-spent-third-read-no-build.kyri) | 159 chapter witnesses rostered; no build. |
 | `20261012.061729` | [Grass, inner page B+, no build](20261012/20261012-061729_grass-inner-page-graded-b-plus-no-build.kyri) | Inner page graded B+ (88 shadow); Git nib repaired. |
 | `20261012.061540` | [Incense, seventy-eighth, no build](20261012/20261012-061540_incense-seventy-eighth-no-build.kyri) | Order unchanged; claim board clear; nib carried; no build. |
