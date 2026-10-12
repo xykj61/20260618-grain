@@ -1,3 +1,4 @@
+| 20261012.172326 | [Patchouli queue empty, kumara held, read no build](20261012/20261012-172326_patchouli-queue-empty-kumara-held-read-no-build.kyri) | Queue empty; REDS %841 and %807 held for rulings; no build. |
 | 20261012.172320 | [Copal fruit already rostered](20261012/20261012-172320_copal-fruit-already-rostered-no-build.kyri) | 158 of 158 witnesses rostered; no build. |
 | 20261012.172234 | [Grass queue empty, no build](20261012/20261012-172234_grass-queue-empty-regrade-no-build.kyri) | Queue empty; no page open for another reason; no lift; nib carried. |
 | 20261012.172038 | [Diffuser P1 held, ff three, no run](20261012/20261012-172038_diffuser-p1-hold-ff-patchouli-no-run.kyri) | Ff to 4902fdb015; P1 ruling still owed; no run. |
