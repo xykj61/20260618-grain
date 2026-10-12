@@ -9,6 +9,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.115619 | [Copal chapter roster exhausted, no build](20261012/20261012-115619_copal-chapter-roster-exhausted-no-build.kyri) | Zero unrostered chapter witnesses by comm; fruit closed; no build. |
 | 20261012.115310 | [Diffuser P1 stall, check-in owed, no run](20261012/20261012-115310_diffuser-p1-stall-check-in-no-run.kyri) | P1 still unruled; ff to upstream; no run. |
 | 20261012.115125 | [Petrichor gate held, check-in, no build](20261012/20261012-115125_petrichor-gate-held-check-in-no-build.kyri) | Fast-forward touched no docs-geode path; Consent Rail gate still with Diffuser; no fruit opens. |
 | 20261012.115514 | [Grass foundation sample graded A, no build](20261012/20261012-115514_grass-foundation-sample-a-no-build.kyri) | Three foundations at A; nothing below B; no build. |
