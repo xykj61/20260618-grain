@@ -1,3 +1,4 @@
+| 20261012.193402 | [Patchouli queue held by %841, no build](20261012/20261012-193402_patchouli-queue-held-841-ruling-no-build.kyri) | %765 queue empty; %841 ruling owed; no build. |
 | 20261012.193155 | [Pheromone lane held, ff five, no build](20261012/20261012-193155_pheromone-lane-held-ff-five-no-build.kyri) | Five upstream session-log commits, no lane path moved; rune ruling owed to Incense; no build. |
 | 20261012.193152 | [Diffuser P1 held, check-in named, no run](20261012/20261012-193152_diffuser-p1-hold-no-run-check-in.kyri) | P1 unruled, 108th hold; no run; check in (Claude). |
 | 20261012.192441 | [Petrichor gate held, ff three, no build](20261012/20261012-192441_petrichor-gate-held-ff-three-no-build.kyri) | Consent Rail and seam unchanged upstream; no build. |
