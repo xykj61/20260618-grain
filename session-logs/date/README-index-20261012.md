@@ -10,6 +10,7 @@
 | `20261012.065347` | [Incense, eighty-third declined, no build](20261012/20261012-065347_incense-eighty-third-declined-nib-carried.kyri) | Ff to d2dcfee733; nib carried; no build. |
 | `20261012.065258` | [Bakery, closure census built](20261012/20261012-065258_bakery-closure-census-built.kyri) | Static census; zero production cache callers. |
 | `20261012.065155` | [Pheromone, earth rota, no build](20261012/20261012-065155_pheromone-earth-rota-stop-held-no-build.kyri) | Stop holds; earth row read; nib carried. |
+| `20261012.065623` | [Grass, inner prompt graded B+, no build](20261012/20261012-065623_grass-inner-graded-bplus-no-build.kyri) | Field reading B+ (89); no lift. |
 | `20261012.065238` | [Grass, three pages graded, all B or better, no build](20261012/20261012-065238_grass-three-pages-graded-all-b-no-build.kyri) | Door reads 84, 94, 96; no lift. |
 | `20261012.065021` | [Petrichor, queue empty, gate held, no build](20261012/20261012-065021_petrichor-queue-empty-gate-held-no-build.kyri) | Fruit landed; gate held by Diffuser; no build. |
 | `20261012.065007` | [Copal, fruit empty a tenth read, no build](20261012/20261012-065007_copal-fruit-tenth-read-no-build.kyri) | Fruit premise stale; 158 witnesses rostered; no build. |
