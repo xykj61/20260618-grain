@@ -4,7 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261011.232330 | [20261011-232330_diffuser-hold-p1-falsifier-failed-ff-no-run](20261011/20261011-232330_diffuser-hold-p1-falsifier-failed-ff-no-run.kyri) | Held lap on a failed P1 falsifier, ff to remote, no run |
-| 20261011.232330 | [20261011-232330_diffuser-hold-p1-falsifier-failed-ff-no-run](20261011/20261011-232330_diffuser-hold-p1-falsifier-failed-ff-no-run.kyri) | Held lap on a failed P1 falsifier, ff to remote, no run |
+| `20261011.232236` | [Grass, earth row, queue empty, no build](20261011/20261011-232236_grass-earth-queue-empty-no-build.kyri) | Queue empty; grass-inner re-graded; no edit. |
 | `20261011.231833` | [Diffuser, P1 held, fetch level, no run](20261011/20261011-231833_diffuser-held-p1-unruled-fetch-level-no-run.kyri) | P1 unruled; fetch level; no run. |
 | `20261011.231847` | [Grass, grade grass-inner at Field, no edit](20261011/20261011-231847_grass-grade-inner-field.kyri) | Field register 77, reach 90, truth 100; no molt. |
 | `20261011.231532` | [Petrichor, fruit gated, no build](20261011/20261011-231532_petrichor-fruit-gated-no-build.kyri) | Fruit waits on seam; no page opened. |
