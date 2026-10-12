@@ -4,8 +4,9 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
-| `20261012.002218` | [Copal, third zero reading, no build](20261012/20261012-002218_copal-zero-unrostered-third-reading-no-build.kyri) | Still zero of 158; nib to 2bdbd03800. |
 | `20261012.002513` | [Pheromone, lane held, no build](20261012/20261012-002513_pheromone-lane-held-no-build.kyri) | Lane held at 79cafd9e74; no build. |
+| `20261012.002507` | [Incense, eighty-third, repeat, no build](20261012/20261012-002507_incense-eighty-third-repeat-no-build.kyri) | Round open clean; claims clear; the repeat named; no build. |
+| `20261012.002218` | [Copal, third zero reading, no build](20261012/20261012-002218_copal-zero-unrostered-third-reading-no-build.kyri) | Still zero of 158; nib to 2bdbd03800. |
 | `20261012.002102` | [Incense, eighty-second, repeat named, no build](20261012/20261012-002102_incense-eighty-second-repeat-named-no-build.kyri) | Round open clean; claims clear; the repeat named; no build. |
 | `20261012.001840` | [Grass, inner page B+ at Field, held, no build](20261012/20261012-001840_grass-inner-page-b-plus-held-no-build.kyri) | Inner page B+ at Field; nib already current at 224e9a9d2d. |
 | `20261012.001955` | [Bakery, held, no build](20261012/20261012-001955_bakery-fast-forward-receipt-key-held-no-build.kyri) | Six pulled; claims clear; receipt key waits. |
