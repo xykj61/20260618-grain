@@ -419,6 +419,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.165505 | [Copal unrostered fruit empty, held, no build](20261012/20261012-165505_copal-unrostered-fruit-empty-held-no-build.kyri) | Zero unrostered chapter witnesses on a row-aware pairing; held; no build. |
 | 20261012.165731 | [Grass inner regraded B+, no edit](20261012/20261012-165731_grass-inner-regraded-b-plus-no-edit.kyri) | Same page B+ 89 at a new HEAD; queue empty; no edit. |
 | 20261012.165409 | [Bakery ff six, ruling held, no build](20261012/20261012-165409_bakery-ff-six-held-no-build.kyri) | Ff to c675e53f83; receipt key held; no build. |
 | 20261012.165318 | [Incense lap declined, Git nib carried](20261012/20261012-165318_incense-lap-declined-nib-carried.kyri) | Clear board; card nib carried forward; no build. |
