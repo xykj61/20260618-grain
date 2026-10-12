@@ -90,12 +90,21 @@ pub fn main() void { std.debug.print("mutation census $UNIQ {s}\n", .{overlay.ta
 EOF
 probe overlay "$M3" "overlay-marker"
 
-# 4. Executable bit: a mode change on the same bytes. Zig reads content, not mode, so an identical
-#    binary is the correct answer AT THIS LAYER. The Bakery receipt key is where the mode must force
-#    a miss; this fixture cannot prove that, so it reports the mode as read here and leaves it there.
+# 4. Executable bit: a mode change on the same bytes. Zig reads content, not mode, so the binary is
+#    identical AT THIS LAYER and that is correct. The receipt key owns the mode: it folds the file
+#    mode into the key, so a chmod must MOVE the key or a hit would reuse silently. Measured there,
+#    where the mode is read; a key that did not move is a silent reuse like any other.
 M4="$PEN/m4"; mkdir -p "$M4"; cp "$BASE/x.zig" "$M4/"; chmod +x "$M4/x.zig"
-echo "mutation=executable_bit result=unmeasured reason=zig_reads_content_not_mode_receipt_key_owns_it"
-unmeasured=$((unmeasured + 1))
+KEY_WRITER="$ROOT/tools/b/build_receipt_key.sh"
+k_plain=$(sh "$KEY_WRITER" "$BASE/x.zig" "" - census | tail -n 1)
+k_exec=$(sh "$KEY_WRITER" "$M4/x.zig" "" - census | tail -n 1)
+if [ -n "$k_plain" ] && [ "$k_plain" != "$k_exec" ]; then
+    echo "mutation=executable_bit result=changed layer=receipt_key key=moved binary=identical_at_zig"
+    changed=$((changed + 1))
+else
+    echo "mutation=executable_bit result=silent_reuse layer=receipt_key key=identical"
+    silent=$((silent + 1))
+fi
 
 # 5. Compiler pin: a different compiler binary. One toolchain is vendored on this pier.
 echo "mutation=compiler_pin result=unmeasured reason=one_vendored_toolchain_on_this_pier"
@@ -110,5 +119,5 @@ if [ "$silent" -gt 0 ]; then
     echo "verdict=silent_reuse silent=$silent"
     exit 1
 fi
-echo "verdict=every_measured_mutation_changes_the_binary unmeasured=$unmeasured"
+echo "verdict=every_measured_mutation_moves_its_layer unmeasured=$unmeasured"
 exit 0
