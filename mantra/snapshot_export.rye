@@ -271,6 +271,54 @@ fn decode_identity_hex(identity_hex: *const [64]u8) SnapshotError![32]u8 {
     return pk_bytes;
 }
 
+/// The fields a head record carries, filled line by line before validation.
+/// invariant: every buffer is sized to its wire field, and every length stays within its buffer.
+const HeadRecordFields = struct {
+    head_digest_hex: [128]u8 = undefined,
+    have_head_digest: bool = false,
+    identity_epoch: u64 = 0,
+    continuity_epoch: u64 = 0,
+    continuity_kind: ContinuityKind = .export_kind,
+    continuity_parent: [64]u8 = [_]u8{'0'} ** 64,
+    continuity_stamp: [64]u8 = undefined,
+    continuity_stamp_len: u32 = 0,
+    identity_hex: [64]u8 = [_]u8{'0'} ** 64,
+    parity_claim: [64]u8 = undefined,
+    parity_claim_len: u32 = 0,
+};
+
+/// Scan each `key:value` line of a head record into `fields`; unknown keys are skipped.
+fn scan_head_record_lines(content: []const u8, fields: *HeadRecordFields) SnapshotError!void {
+    var lines = std.mem.splitScalar(u8, content, '\n');
+    while (lines.next()) |line| {
+        if (line.len == 0) continue;
+        if (std.mem.startsWith(u8, line, "head-digest-sha3-512:")) {
+            const hex = line["head-digest-sha3-512:".len..];
+            if (hex.len != 128) return error.Truncated;
+            tally_copy.copy_disjoint(u8, fields.head_digest_hex[0..128], hex);
+            fields.have_head_digest = true;
+        } else if (std.mem.startsWith(u8, line, "identity-epoch:")) {
+            fields.identity_epoch = tally_parse_int.parse_int(u64, line["identity-epoch:".len..], .{}) catch return error.Truncated;
+        } else if (std.mem.startsWith(u8, line, "parity-claim:")) {
+            fields.parity_claim_len = try copy_bounded(fields.parity_claim[0..], line["parity-claim:".len..]);
+        } else if (std.mem.startsWith(u8, line, "continuity-identity:")) {
+            const hex = line["continuity-identity:".len..];
+            if (hex.len != 64) return error.Truncated;
+            tally_copy.copy_disjoint(u8, fields.identity_hex[0..64], hex);
+        } else if (std.mem.startsWith(u8, line, "continuity-epoch:")) {
+            fields.continuity_epoch = tally_parse_int.parse_int(u64, line["continuity-epoch:".len..], .{}) catch return error.Truncated;
+        } else if (std.mem.startsWith(u8, line, "continuity-kind:")) {
+            fields.continuity_kind = try parse_continuity_kind(line["continuity-kind:".len..]);
+        } else if (std.mem.startsWith(u8, line, "continuity-parent:")) {
+            const hex = line["continuity-parent:".len..];
+            if (hex.len != 64) return error.Truncated;
+            tally_copy.copy_disjoint(u8, fields.continuity_parent[0..64], hex);
+        } else if (std.mem.startsWith(u8, line, "continuity-stamp:")) {
+            fields.continuity_stamp_len = try copy_bounded(fields.continuity_stamp[0..], line["continuity-stamp:".len..]);
+        }
+    }
+}
+
 fn parse_head_record_content(content: []const u8) SnapshotError!struct {
     head_digest_hex: [128]u8,
     identity_epoch: u64,
@@ -278,73 +326,33 @@ fn parse_head_record_content(content: []const u8) SnapshotError!struct {
     parity_claim: [64]u8,
     parity_claim_len: u32,
 } {
-    var head_digest_hex: [128]u8 = undefined;
-    var identity_epoch: u64 = 0;
-    var continuity_epoch: u64 = 0;
-    var continuity_kind: ContinuityKind = .export_kind;
-    var continuity_parent: [64]u8 = undefined;
-    @memset(&continuity_parent, '0');
-    var continuity_stamp: [64]u8 = undefined;
-    var continuity_stamp_len: u32 = 0;
-    var identity_hex: [64]u8 = undefined;
-    @memset(&identity_hex, '0');
-    var parity_claim: [64]u8 = undefined;
-    var parity_claim_len: u32 = 0;
-    var have_head_digest = false;
-
-    var lines = std.mem.splitScalar(u8, content, '\n');
-    while (lines.next()) |line| {
-        if (line.len == 0) continue;
-        if (std.mem.startsWith(u8, line, "head-digest-sha3-512:")) {
-            const hex = line["head-digest-sha3-512:".len..];
-            if (hex.len != 128) return error.Truncated;
-            tally_copy.copy_disjoint(u8, head_digest_hex[0..128], hex);
-            have_head_digest = true;
-        } else if (std.mem.startsWith(u8, line, "identity-epoch:")) {
-            identity_epoch = tally_parse_int.parse_int(u64, line["identity-epoch:".len..], .{}) catch return error.Truncated;
-        } else if (std.mem.startsWith(u8, line, "parity-claim:")) {
-            parity_claim_len = try copy_bounded(parity_claim[0..], line["parity-claim:".len..]);
-        } else if (std.mem.startsWith(u8, line, "continuity-identity:")) {
-            const hex = line["continuity-identity:".len..];
-            if (hex.len != 64) return error.Truncated;
-            tally_copy.copy_disjoint(u8, identity_hex[0..64], hex);
-        } else if (std.mem.startsWith(u8, line, "continuity-epoch:")) {
-            continuity_epoch = tally_parse_int.parse_int(u64, line["continuity-epoch:".len..], .{}) catch return error.Truncated;
-        } else if (std.mem.startsWith(u8, line, "continuity-kind:")) {
-            continuity_kind = try parse_continuity_kind(line["continuity-kind:".len..]);
-        } else if (std.mem.startsWith(u8, line, "continuity-parent:")) {
-            const hex = line["continuity-parent:".len..];
-            if (hex.len != 64) return error.Truncated;
-            tally_copy.copy_disjoint(u8, continuity_parent[0..64], hex);
-        } else if (std.mem.startsWith(u8, line, "continuity-stamp:")) {
-            continuity_stamp_len = try copy_bounded(continuity_stamp[0..], line["continuity-stamp:".len..]);
-        }
-    }
+    var fields: HeadRecordFields = .{};
+    try scan_head_record_lines(content, &fields);
 
     // invariant: copy_bounded refuses any input longer than its buffer, so both lengths stay within their 64-byte fields.
-    assert(parity_claim_len <= parity_claim.len);
-    assert(continuity_stamp_len <= continuity_stamp.len);
+    assert(fields.parity_claim_len <= fields.parity_claim.len);
+    assert(fields.continuity_stamp_len <= fields.continuity_stamp.len);
 
-    if (!have_head_digest or continuity_epoch == 0) return error.Truncated;
+    if (!fields.have_head_digest or fields.continuity_epoch == 0) return error.Truncated;
 
     // invariant: the early return above guarantees a head digest was seen and the continuity epoch is nonzero.
-    assert(have_head_digest);
-    assert(continuity_epoch != 0);
+    assert(fields.have_head_digest);
+    assert(fields.continuity_epoch != 0);
 
-    const pk_bytes = try decode_identity_hex(&identity_hex);
+    const pk_bytes = try decode_identity_hex(&fields.identity_hex);
 
     return .{
-        .head_digest_hex = head_digest_hex,
-        .identity_epoch = identity_epoch,
+        .head_digest_hex = fields.head_digest_hex,
+        .identity_epoch = fields.identity_epoch,
         .continuity = .{
             .identity = kumara.PublicKey.fromBytes(pk_bytes) catch return error.Truncated,
-            .epoch = continuity_epoch,
-            .kind = continuity_kind,
-            .parent_hex = continuity_parent,
-            .stamp = continuity_stamp[0..continuity_stamp_len],
+            .epoch = fields.continuity_epoch,
+            .kind = fields.continuity_kind,
+            .parent_hex = fields.continuity_parent,
+            .stamp = fields.continuity_stamp[0..fields.continuity_stamp_len],
         },
-        .parity_claim = parity_claim,
-        .parity_claim_len = parity_claim_len,
+        .parity_claim = fields.parity_claim,
+        .parity_claim_len = fields.parity_claim_len,
     };
 }
 
