@@ -10,6 +10,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.115213 | [Copal ticker launcher, no build](20261012/20261012-115213_copal-ticker-launcher-loops-no-build.kyri) | One unrostered file, a looping launcher; no build. |
+| 20261012.114944 | [Bakery crux held again, no build](20261012/20261012-114944_bakery-crux-second-hold-no-build.kyri) | Shared cache still absent; receipt-key ruling owed; no build. |
 | 20261012.114848 | [Diffuser P1 fast-forward, no run](20261012/20261012-114848_diffuser-p1-fast-forward-no-run.kyri) | Fast-forward to peers; P1 still unruled; no measurement. |
 | 20261012.114348 | [Copal fruit re-measured, no build](20261012/20261012-114348_copal-fruit-remeasured-no-build.kyri) | Zero unrostered chapter witnesses at 6a387f6d44; no claim, no build. |
 | 20261012.114244 | [Recall-by-mark selftest split under seventy](20261012/20261012-114244_patchouli-recall-by-mark-selftest-split.kyri) | Three helpers; selftest output byte-identical. |
