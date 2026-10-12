@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.155101 | [Diffuser P1 held, rebased, no run](20261012/20261012-155101_diffuser-p1-hold-rebased-no-run.kyri) | Rebased own log; nib carried; P1 unruled; check in (Claude). |
 | 20261012.155016 | [Incense nib carry, no build](20261012/20261012-155016_incense-nib-carry-no-build.kyri) | Ff to f015192cd7; card nib carried; witness GREEN; no build. |
 | 20261012.154637 | [Patchouli queue empty, no build](20261012/20261012-154637_patchouli-queue-empty-no-build.kyri) | Broad net finds no header family; %807 and %765 owed; no build. |
 | 20261012.154550 | [Diffuser P1 held, ff two, no run](20261012/20261012-154550_diffuser-p1-hold-ff-two-no-run.kyri) | Ff to d9e84f244c; P1 unruled; no run; check in (Claude). |
