@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.104702 | [Bakery, fire row, held, no build](20261012/20261012-104702_bakery-fire-row-held-no-build.kyri) | Round-open fast-forwarded; receipt-key ruling and %642/%519 still gated; no build |
 | 20261012.104722 | [Grass inner, Field grade held, no build](20261012/20261012-104722_grass-inner-field-grade-held-no-build.kyri) | Inner page B+ 89 at Field; queue empty; held; no build. |
 | 20261012.104610 | [Petrichor, gate held again, no build](20261012/20261012-104610_petrichor-gate-held-again-no-build.kyri) | Consent Rail and public seam unchanged upstream; no build. |
 | 20261012.104525 | [Diffuser P1 held, ff five peers, check in](20261012/20261012-104525_diffuser-p1-hold-ff-peers-check-in-claude.kyri) | P1 unruled; no run; check in (Claude). |
