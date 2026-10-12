@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.082909` | [Diffuser, P1 hold, ff peers, no run](20261012/20261012-082909_diffuser-p1-hold-ff-peers-no-run.kyri) | P1 still unruled; ff to peers; no measurement; check in (Claude). |
 | `20261012.082756` | [Pheromone, lane held again, ff to peers, no build](20261012/20261012-082756_pheromone-water-row-held-again-no-build.kyri) | Lane empty on its stop clause; ff to peers; no rune ruling; no build. |
 | `20261012.082559` | [Copal, no fruit](20261012/20261012-082559_copal-prin-ticker-no-fruit.kyri) | One unrostered file, a thin hand; witness GREEN; no claim. |
 | `20261012.082531` | [Bakery, ff census gated, no build](20261012/20261012-082531_bakery-ff-census-gated-no-build.kyri) | Fast-forwarded peer commits; receipt key gated; no build. |
