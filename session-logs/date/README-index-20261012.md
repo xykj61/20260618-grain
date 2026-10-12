@@ -5,6 +5,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.032230` | [Copal, fruit empty, no build](20261012/20261012-032230_copal-fruit-empty-no-build.kyri) | Fruit already rostered; 0 of 159 unrostered; no build. |
 | `20261012.032134` | [Diffuser, P1 hold, ff incense and patchouli, check in, no run](20261012/20261012-032134_diffuser-p1-hold-check-in-no-run.kyri) | P1 unruled; ff clean; no run. |
 | `20261012.031944` | [Patchouli, queue empty, no build](20261012/20261012-031944_patchouli-queue-empty.kyri) | Queue empty; greps clean; no build. |
 | `20261012.031622` | [Copal, fruit re-read clean, ff three peers, no build](20261012/20261012-031622_copal-fruit-reread-clean-no-build.kyri) | Fruit still spent: 158 of 158 witnesses rostered; ff clean; no build. |
