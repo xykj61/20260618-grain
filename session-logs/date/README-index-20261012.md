@@ -1,6 +1,7 @@
 | 20261012.181222 | [Grass queue cleared, no build](20261012/20261012-181222_grass-mycelium-queue-cleared-no-build.kyri) | Seven sampled heads read B+ or better; no lift. |
 | 20261012.180825 | [Diffuser P1 held, no run, no edit](20261012/20261012-180825_diffuser-p1-hold-no-run-no-edit.kyri) | P1 ruling still owed; no run; no inner-prompt row added. |
 | 20261012.180642 | [Incense dead-letter recovered, no build](20261012/20261012-180642_incense-dead-letter-recovered-no-build.kyri) | Twelve stashed logs restored; no build; check-in owed. |
+| 20261012.181131 | [Petrichor link lint, no build](20261012/20261012-181131_petrichor-link-lint-no-build.kyri) | Lint break outside lane held; no build. |
 | 20261012.180317 | [Petrichor gate held, ff five, no build](20261012/20261012-180317_petrichor-gate-held-ff-five-no-build.kyri) | Gate unchanged upstream; docs-geode links clean; no build. |
 | 20261012.180524 | [Pheromone lane held, ff, no build](20261012/20261012-180524_pheromone-lane-held-fast-forward-no-build.kyri) | Lane at stop clause; ruling owed to Incense; nib carried; no build. |
 | 20261012.180206 | [Diffuser P1 held again, ff four, no run](20261012/20261012-180206_diffuser-p1-hold-ff-four-no-run.kyri) | P1 ruling owed; no run; nib carried. |
