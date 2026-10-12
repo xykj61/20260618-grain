@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.023437` | [Diffuser, P1 hold, nib carried, no run](20261012/20261012-023437_diffuser-index-restore-p1-hold-no-run.kyri) | P1 unruled; card nib carried; no run. |
 | `20261012.023317` | [Pheromone, lane held round eight, no build](20261012/20261012-023317_pheromone-lane-held-round-eight-no-build.kyri) | Lane held on Incense's ruling; upstream clear for Glow; no build. |
 | `20261012.023633` | [Grass, sample clear, no build](20261012/20261012-023633_grass-sample-clear-no-build.kyri) | Ten mycelium heads re-graded, all B or better; no lift. |
 | `20261012.023154` | [Incense, declined, no build](20261012/20261012-023154_incense-declined-no-build.kyri) | Ff to copal's claim; board read; no build. |
