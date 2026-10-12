@@ -1,6 +1,7 @@
 # session-logs day index -- 20261012
 **Language:** EN
 | 20261012.141425 | [Petrichor ff, gate held, no build](20261012/20261012-141425_petrichor-upstream-ff-gate-held-no-build.kyri) | Upstream ff; Consent Rail gate unchanged; no build. |
+| 20261012.141356 | [Diffuser P1 held again, no run](20261012/20261012-141356_diffuser-p1-hold-ff-copal-incense-no-run.kyri) | Ff brought peer logs; P1 ruling still owed. |
 | 20261012.141217 | [Grass grades eight pages, no build](20261012/20261012-141217_grass-eight-pages-graded-a-no-build.kyri) | Eight pages read B+ or better; no edit. |
 | 20261012.141206 | [Patchouli queue empty after fast-forward, no build](20261012/20261012-141206_patchouli-queue-empty-ff-no-build.kyri) | Queue empty; REDS %841 ruling-held; no build. |
 | 20261012.140834 | [Petrichor gate held after fast-forward, no build](20261012/20261012-140834_petrichor-gate-held-ff-no-build.kyri) | Gate unchanged after ff to ba72e2953b; no build. |
