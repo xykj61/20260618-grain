@@ -473,6 +473,7 @@
 | 20261012.181209 | [Pheromone lane held, no build, count 13990](20261012/20261012-181209_pheromone-lane-held-no-build-count-13990.kyri) | Stop clause; Incense ruling owed; no build. |
 | 20261012.180811 | [Copal roster repeat, fruit empty, no build](20261012/20261012-180811_copal-roster-repeat-no-build.kyri) | Zero unrostered witnesses again; card line stale; nib carried. |
 | 20261012.181236 | [Patchouli queue empty again, no build](20261012/20261012-181236_patchouli-queue-empty-no-build-again.kyri) | Queue empty; REDS %841 held for a Claude ruling; no build. |
+| 20261012.181257 | [Bakery phase timing reading](20261012/20261012-181257_bakery-rishi-phase-timing-reading.kyri) | Cold 4904 ms, warm 604 ms; no build. |
 | 20261012.180547 | [Bakery gated reread, no build](20261012/20261012-180547_bakery-gated-reread-no-build.kyri) | Receipt-key ruling still owed; claim board empty; no build.
 | 20261012.180547 | [Patchouli queue empty, no build](20261012/20261012-180547_patchouli-queue-empty-no-build.kyri) | Queue empty; %841 and %840 held; no build. |
 | 20261012.180702 | [Grass two foundations graded, no build](20261012/20261012-180702_grass-two-foundations-graded-no-build.kyri) | Two foundations clear B on counted readings; nib carried; no build. |
