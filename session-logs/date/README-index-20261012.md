@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.044426` | [Patchouli, apply_inserts split](20261012/20261012-044426_patchouli-apply-inserts-split.kyri) | Weave.apply_inserts split into two helpers; weave witnesses GREEN. |
 | `20261012.044546` | [Petrichor, gate held, no build](20261012/20261012-044546_petrichor-gate-held-rebased-no-build.kyri) | Rebased onto xy at 857b01592f; Consent Rail gate still held; no build. |
 | `20261012.044050` | [Bakery, proofs re-stand, receipt key waits, no build](20261012/20261012-044050_bakery-cache-proofs-restand-receipt-key-waits-no-build.kyri) | Cache proofs GREEN on 33961e1264; receipt key waits. |
 | `20261012.044434` | [Incense, claim held, no build](20261012/20261012-044434_incense-baton-declined-claim-held-no-build.kyri) | Board held by patchouli; card gated; no build; check in. |
