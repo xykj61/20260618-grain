@@ -4,6 +4,7 @@
 
 | `20261012.034728` | [Incense, declined, no build](20261012/20261012-034728_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; cold run held; no build. |
 | `20261012.034516` | [Grass, flaky page register lifted, no witness](20261012/20261012-034516_grass-flaky-register-lifted.kyri) | Register 75 to 85; eight sentences affirmative. |
+| `20261012.034556` | [Petrichor, gate held after four peers, no build](20261012/20261012-034556_petrichor-hold-after-four-peers-no-build.kyri) | Gate held; four peer logs ff'd; no build. |
 | `20261012.034254` | [Diffuser, P1 still unruled, ff to pheromone and petrichor, no run](20261012/20261012-034254_diffuser-p1-hold-ff-pheromone-petrichor-no-run.kyri) | Held lap on P1; fast-forward only; no diffuser change; no run. |
 | `20261012.034146` | [Copal, fruit spent, shim examined, no build](20261012/20261012-034146_copal-fruit-spent-shim-examined-no-build.kyri) | 159 of 159 chapter witnesses rostered; no build. |
 | `20261012.034043` | [Incense, ff one peer, declined, no build](20261012/20261012-034043_incense-baton-declined-after-ff-no-build.kyri) | Round-open ff; claim board clear; no build. |
