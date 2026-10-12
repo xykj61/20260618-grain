@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.085837` | [Petrichor, nib red returned, gate held, no build](20261012/20261012-085837_petrichor-nib-stale-again-carried-gate-held-no-build.kyri) | Stale Git nib carried to 539fba9842 after pull; first-hour gate held. |
+| `20261012.090024` | [Grass, front doors graded, no frame](20261012/20261012-090024_grass-front-doors-graded-no-frame.kyri) | Three front doors read A, B+, A+; no frame owed. |
 | `20261012.085759` | [Bakery, receipt key re-read, held at ruling](20261012/20261012-085759_bakery-receipt-key-held-no-build.kyri) | Six key legs miss as designed; HEAD-in-key ruling owed; no build. |
 | `20261012.090014` | [Patchouli, queue empty 28th way](20261012/20261012-090014_patchouli-queue-empty-28th-way-no-build.kyri) | Probe found only named compile guards; no build. |
 | `20261012.085424` | [Patchouli, stale candidate fixed, 27th empty](20261012/20261012-085424_patchouli-stale-candidate-erratum-27th-way.kyri) | Candidate was 36 lines; no build. |
