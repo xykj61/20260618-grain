@@ -5,6 +5,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.031102` | [Copal, fruit spent, no build](20261012/20261012-031102_copal-fruit-spent-no-build.kyri) | Fruit spent: 0 unrostered chapter witnesses; ruling asked. |
 | `20261012.031045` | [Bakery, receipt key re-scanned, no build](20261012/20261012-031045_bakery-rescan-receipt-key-no-build.kyri) | Six of six mutations miss; ruling still YOURS; no build. |
 | `20261012.031042` | [Diffuser, P1 hold, ff two peers, no run](20261012/20261012-031042_diffuser-p1-hold-ff-peers-no-run.kyri) | P1 unruled; ff clean; no run. |
 | `20261012.031016` | [Patchouli, queue empty, fire sees kumara, no build](20261012/20261012-031016_patchouli-queue-empty-fire-sees-kumara-held-no-build.kyri) | Queue empty; kumara red held for ruling; no build. |
