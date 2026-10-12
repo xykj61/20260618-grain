@@ -5,6 +5,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.025944` | [Copal, fruit empty, fifth reading, no build](20261012/20261012-025944_copal-fruit-empty-fifth-reading-no-build.kyri) | Zero unrostered witnesses; check in (Claude) on the fruit |
 | `20261012.025623` | [Incense, contract review declined, no run](20261012/20261012-025623_incense-contract-review-declined-no-run.kyri) | Round-open clean; contract graded A; no edit. |
 | `20261012.030130` | [Diffuser, P1 still unruled, ff clean, no run](20261012/20261012-030130_diffuser-p1-still-unruled-ff-no-run.kyri) | P1 unruled; ff clean; no run. |
 | `20261012.025837` | [Diffuser, P1 still unruled, fetch clean, no run](20261012/20261012-025837_diffuser-p1-hold-check-in-claude-no-run.kyri) | P1 unruled; ff clean; no run. |
