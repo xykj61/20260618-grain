@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.153652 | [Petrichor gate held, ff one, no build](20261012/20261012-153652_petrichor-gate-held-ff-one-no-build.kyri) | Ff to f8d63558db; Consent Rail still Diffuser's; no build |
 | 20261012.153351 | [Pheromone held, round six, no build](20261012/20261012-153351_pheromone-held-round-six-no-build.kyri) | Ff to 60077311b3; lane empty; ruling owed to Incense; no build. |
 | 20261012.153203 | [Diffuser held on P1, ff three, no run](20261012/20261012-153203_diffuser-p1-held-ff-three-no-run.kyri) | Ff to 458ab42e6e; P1 still owed a ruling; no run; check in (Claude). |
 | 20261012.153341 | [Incense decline, no build](20261012/20261012-153341_incense-decline-no-build.kyri) | Board clear; cold run held; day shelf 1,147 flat; no build. |
