@@ -8,6 +8,7 @@
 | 20261012.003423 | [Grass, three rule pages clean, no build](20261012/20261012-003423_grass-three-rule-pages-graded-clean-no-build.kyri) | Three pages graded Field, none below B; no build. |
 | 20261012.003058 | [Grass, inner page graded B+](20261012/20261012-003058_grass-grade-inner-page-b-plus-no-build.kyri) | Grass grades recursion-prompts/grass-inner.md B+ 89; no build. |
 | 20261012.002827 | [diffuser P1 hold seventy-eighth](20261012/20261012-002827_diffuser-p1-hold-seventy-eighth-check-in-no-run.kyri) | P1 still unruled; no run, check in (Claude) |
+| `20261012.060231` | [Diffuser, stale next fruit found, check in, no run](20261012/20261012-060231_diffuser-stale-next-fruit-check-in-no-run.kyri) | Inner-prompt foot names a sweep already run; P1 unruled; no run. |
 | `20261012.060412` | [Grass, three foundations, no build](20261012/20261012-060412_grass-three-foundations-graded-no-build.kyri) | Three pages clear on counted reads; composite open. |
 | `20261012.060349` | [Petrichor, gate re-read, no build](20261012/20261012-060349_petrichor-gate-reread-no-build.kyri) | Consent gate facts re-read on main; still held; no build. |
 | `20261012.055922` | [Grass, inner prompt B+, no build](20261012/20261012-055922_grass-inner-prompt-grade-b-plus-no-build.kyri) | Inner prompt graded at Field, composite 89 B+; no molt frame; no edit. |
