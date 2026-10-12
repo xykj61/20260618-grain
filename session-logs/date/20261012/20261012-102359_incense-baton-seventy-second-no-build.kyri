@@ -29,3 +29,4 @@ file session-logs/date/README-index-20261012.md one row prepended under the deli
 scope round-open, card read, inner page read, claim board read, rota and orbit recorded; no build, no cold run, no send beyond this follow-up commit
 status GREEN for the decline itself: round-open clean, claim board clear, nib carried; no build taken, no witness run beyond the claim scan and the absence scan
 recommend check-in (either) -- the law lane waits on a word from Keaton at %642 or %519, or a custody gate; the cold run stays unlaunched until he asks for it
+obs The first push was refused as a non-fast-forward, and a second remote move during the rebase took the rebase's own nib carry one commit behind the parent. The follow-up pins the nib to the HEAD it lands on, so the witness reads parent again.
