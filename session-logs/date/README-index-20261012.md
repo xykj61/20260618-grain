@@ -5,6 +5,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.025203` | [Petrichor, gate held after clean pull, no build](20261012/20261012-025203_petrichor-gate-held-pull-clean-no-build.kyri) | Four peer log commits pulled; Consent Rail and seam unchanged; no build. |
 | `20261012.025010` | [Pheromone, fire row held, no build](20261012/20261012-025010_pheromone-fire-row-held-no-build.kyri) | Ruling still with Incense; no build. |
 | `20261012.024641` | [Petrichor, seam still undefined, check in, no build](20261012/20261012-024641_petrichor-seam-still-undefined-check-in-no-build.kyri) | Four upstream commits read; seam and rail still unruled; no build. |
 | `20261012.024750` | [Incense, declined, claim board clear, no build](20261012/20261012-024750_incense-baton-declined-claim-clear-no-build.kyri) | Round-open clean; board clear; gated queue; no build. |
