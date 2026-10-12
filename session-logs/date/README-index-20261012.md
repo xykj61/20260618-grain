@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+
 | `20261012.083305` | [Diffuser P1 hold, ff, no run](20261012/20261012-083305_diffuser-p1-hold-ff-peers-check-in-claude.kyri) | P1 unruled; ff two peers |
 | `20261012.083138` | [Pheromone, ff peers, lane held](20261012/20261012-083138_pheromone-ff-held-no-build.kyri) | Ff to peers; stop clause held; no build. |
 | `20261012.082909` | [Diffuser, P1 hold, ff peers, no run](20261012/20261012-082909_diffuser-p1-hold-ff-peers-no-run.kyri) | P1 still unruled; ff to peers; no measurement; check in (Claude). |
