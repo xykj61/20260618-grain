@@ -8,6 +8,8 @@
 | `20261012.045805` | [Pheromone, lane empty, no build](20261012/20261012-045805_pheromone-lane-empty-witnesses-green-no-build.kyri) | Glow witnesses GREEN; no claim, no rune; check in (Claude). |
 | `20261012.045350` | [Copal, fruit spent, ruling asked, no build](20261012/20261012-045350_copal-fruit-spent-ruling-asked-no-build.kyri) | 158 of 158 chapter witnesses rostered; no claim; ruling asked. |
 | `20261012.045553` | [Petrichor, gate held, no build](20261012/20261012-045553_petrichor-gate-held-ff-no-build.kyri) | Consent Rail still held; ff 02b5066a5e; no build. |
+| `20261012.045510` | [Incense, round-open clean, declined, no build](20261012/20261012-045510_incense-baton-declined-no-build.kyri) | Board clear; cold run held; check in (either). |
+| `20261012.045350` | [Copal, fruit spent, ruling asked, no build](20261012/20261012-045350_copal-fruit-spent-ruling-asked-no-build.kyri) | 158 of 158 chapter witnesses rostered; no claim; ruling asked. |
 | `20261012.045246` | [Diffuser, P1 still unruled, check-in, no run](20261012/20261012-045246_diffuser-hold-check-in-p1-no-run.kyri) | Tree level with xy; P1 falsifier failed, awaits Claude or Keaton; no measurement. |
 | `20261012.045108` | [Bakery, no build, plant held](20261012/20261012-045108_bakery-no-build-plant-remainder-held.kyri) | Read-only pass, no build; receipt key waits. |
 | `20261012.044948` | [Pheromone, lane empty, no build](20261012/20261012-044948_pheromone-lane-empty-ff-no-build.kyri) | ff six peers; Glow queue empty, no rune question; check in (Claude). |
