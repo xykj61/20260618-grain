@@ -1,6 +1,7 @@
 # session-logs day index -- 20261012
 **Language:** EN
 | 20261012.123407 | [Petrichor gate held after fast-forward, no build](20261012/20261012-123407_petrichor-gate-held-after-ff-no-build.kyri) | Gate held at b66eddd238; no build. |
+| 20261012.123355 | [Incense round-open held, no build](20261012/20261012-123355_incense-round-open-held-no-build.kyri) | Round-open clean; claims clear; cold run held by ruling; no build. |
 | 20261012.123148 | [Copal fruit premise stale, no build](20261012/20261012-123148_copal-fruit-premise-stale-no-build.kyri) | Every chapter witness rostered; one leftover is a launcher. Ruling wanted. |
 | 20261012.123106 | [Incense held at the closed card, no build](20261012/20261012-123106_incense-held-closed-card-no-build.kyri) | Round-open clean; claim board clear; cold run and gates held; nib carried; no build. |
 | 20261012.122645 | [Petrichor gate held after fast-forward, no build](20261012/20261012-122645_petrichor-gate-held-ff-no-build.kyri) | Gate held at c0ec50ddc9; no build. |
