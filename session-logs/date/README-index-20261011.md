@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.213227` | [Copal, premise gone, no build](20261011/20261011-213227_copal-fruit-premise-gone-recount-no-build.kyri) | Recount: 0 of 159 unrostered; no build. |
 | `20261011.213041` | [Diffuser, ff to two peers, P1 unruled, no run](20261011/20261011-213041_diffuser-ff-two-peers-p1-hold-no-run.kyri) | Ff to two peer logs; P1 ruling open; no run. |
 | `20261011.212759` | [Petrichor, ff, gate held, no build](20261011/20261011-212759_petrichor-ff-gate-held-no-build.kyri) | Ff to xy/main; Consent Rail ruling open; no build. |
 | `20261011.212723` | [Diffuser, ff to peers, P1 still unruled, no run](20261011/20261011-212723_diffuser-ff-p1-hold-no-run.kyri) | Ff to two peer log commits; P1 ruling still open; no run. |
