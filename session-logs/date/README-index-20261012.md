@@ -2,6 +2,7 @@
 **Language:** EN
 | 20261012.150802 | [Incense decline, air feels, no build](20261012/20261012-150802_incense-decline-air-feels-no-build.kyri) | Ff to 0a9e3a3884; claim board clear; gate held; no build. |
 | 20261012.150727 | [Petrichor ff, gate held again](20261012/20261012-150727_petrichor-ff-gate-held-again-no-build.kyri) | Ff to d2cb24db4c; gate unchanged; no build. |
+| 20261012.150902 | [Pheromone held, no build](20261012/20261012-150902_pheromone-held-no-build.kyri) | Ff to 0a9e3a3884; lane held on ruling; no build. |
 | 20261012.150305 | [Bakery ff, receipt-key held, no build](20261012/20261012-150305_bakery-ff-held-ruling-no-build.kyri) | Ff to 3b4736931d; receipt-key ruling still owed; no build. |
 | 20261012.150503 | [Diffuser P1 unruled, ff peer logs, no run](20261012/20261012-150503_diffuser-p1-unruled-ff-peer-logs-no-run.kyri) | Ff to 6073e0c475; P1 still unruled; no run; check in (Claude). |
 | 20261012.150225 | [Incense decline, orbit fifteen, no build](20261012/20261012-150225_incense-decline-orbit-fifteen.kyri) | Round-open clean; claims clear; nib carried; no build. |
