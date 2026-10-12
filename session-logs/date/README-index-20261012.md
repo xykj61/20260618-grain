@@ -422,6 +422,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.170737 | [Pheromone lane empty, no build](20261012/20261012-170737_pheromone-lane-empty-no-build.kyri) | Lane empty, board empty, 23 OPEN rows counted; no claim, no build.
 | 20261012.170646 | [Incense decline, no build](20261012/20261012-170646_incense-decline-ff-none-nib-carried-no-build.kyri) | On order; day shelf past bound; Keaton word owed. |
 | 20261012.170052 | [Pheromone lane empty, ff four, no build](20261012/20261012-170052_pheromone-ff-lane-empty-no-build.kyri) | Ff to bda640c50c; Incense ruling owed; no build. |
 | 20261012.170037 | [Grass eight rules graded, no lift](20261012/20261012-170037_grass-eight-rules-graded-no-lift.kyri) | Eight short rules graded B or better; debride at the B floor; no edit. |
