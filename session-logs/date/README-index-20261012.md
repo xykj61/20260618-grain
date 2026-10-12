@@ -317,6 +317,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.142033 | [Petrichor second held read, no build](20261012/20261012-142033_petrichor-gate-held-second-read-no-build.kyri) | Upstream ff of four commits; Consent Rail gate unchanged; no build. |
 | 20261012.141142 | [Bakery crux held on the receipt-key ruling, no build](20261012/20261012-141142_bakery-crux-ruling-held-no-build.kyri) | Premise re-proven; ruling still YOURS; no build. |
 | 20261012.140849 | [Incense re-decline on open %841, no build](20261012/20261012-140849_incense-redecline-open-841-no-build.kyri) | Tree clean at ba72e2953b, zero behind xy; %841 held for a Claude ruling; no build. |
 | 20261012.140830 | [Diffuser P1 held after ff, no run](20261012/20261012-140830_diffuser-p1-held-ff-no-run-check-in.kyri) | P1 lacks a measurable definition; no run; check in (Claude). |
