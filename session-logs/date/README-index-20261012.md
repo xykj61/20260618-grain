@@ -1,4 +1,5 @@
 | 20261012.190558 | [Incense air row read, queue ruling-gated, no build](20261012/20261012-190558_incense-air-row-hold-no-build.kyri) | Board read; queue ruling-gated; no build. |
+| 20261012.190407 | [Grass MIND scan, no candidate](20261012/20261012-190407_grass-mind-scan-no-eligible-candidate.kyri) | No conversion eligible; .sh booking ruling owed; no build. |
 | 20261012.190058 | [Incense decline, air row read, no build](20261012/20261012-190058_incense-decline-air-row-no-build.kyri) | Clear board; air row read; no build. |
 | 20261012.185855 | [Copal census reads zero](20261012/20261012-185855_copal-chapter-census-zero-no-build.kyri) | 0 of 159 chapter witnesses unrostered; no build. |
 | 20261012.185714 | [Patchouli queue empty, no build](20261012/20261012-185714_patchouli-queue-empty-sixth-lap-no-build.kyri) | Queue empty; %841 and mantra/kumara twin wait on one ruling; no build. |
