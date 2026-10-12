@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.220352` | [Patchouli, kumara held, witness GREEN](20261011/20261011-220352_patchouli-kumara-held-witness-regreen.kyri) | Queue empty; kumara red waits on two rulings. |
+| `20261011.220630` | [Diffuser, P1 still unruled, ff to two peers, no run](20261011/20261011-220630_diffuser-hold-p1-unruled-ff-two-peers-no-run.kyri) | P1 still unruled; ff to two peer logs; no run. |
 
 | `20261011.220412` | [Incense, baton declined, round-open clean, no build](20261011/20261011-220412_incense-baton-declined-no-build.kyri) | Round-open clean; cold run held; no build. |
 | `20261011.220108` | [Petrichor, fifth hold, no build](20261011/20261011-220108_petrichor-fifth-hold-no-build.kyri) | Consent Rail and public seam still open; no build. |
