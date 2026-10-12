@@ -26,4 +26,5 @@ file recursion-prompts/patchouli-inner.md names the next candidate, run_selftest
 file construction/ITINERARY.md Git nib set to the parent of this commit, 7fa4f28757, the upstream tip read after the rebase onto peers
 recommend keep-going -- the next mechanical candidate is run_selftest in recall_by_mark.rye at 82 lines; the same split shape applies
 scope mantra/resin_batch.rye selftest split only; no wire, no build_batch or apply_batch change, no claim needed, no cold roster run this lap
+obs Send facts, which did not exist until the send ran: the first push was rejected non-fast-forward, the rebase conflicted on the card Git nib line alone, and the rebased commit went up as 1e82e70eaa on top of de40ae74c9 after a second peer landed. The card nib then named 7fa4f28757, two commits back, so the nib witness reds until this follow-up carries the nib to the pre-follow-up HEAD.
 status GREEN: mantra_resin_batch witness exit 0, mantra_recall_batch_wire witness exit 0, tame_style_check exit 0, selftest output byte-identical to baseline; full standing roster not run this lap
