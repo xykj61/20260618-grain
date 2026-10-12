@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.130828 | [Copal roster gap already closed](20261012/20261012-130828_copal-roster-gap-closed-no-build.kyri) | Zero unrostered witnesses; no build. |
 | 20261012.130548 | [Petrichor lane held, no build](20261012/20261012-130548_petrichor-lane-held-no-build.kyri) | Gate held; peers fast-forwarded; no build. |
 | 20261012.130444 | [Pheromone held at ruling gate, no build](20261012/20261012-130444_pheromone-held-at-ruling-gate-no-build.kyri) | Lane awaits Incense ruling; no code; no build. |
 | 20261012.130404 | [Incense eighty-fifth, declined, no build](20261012/20261012-130404_incense-eighty-fifth-declined-no-build.kyri) | Synced to 29ef8a13fa; queue empty; no build. |
