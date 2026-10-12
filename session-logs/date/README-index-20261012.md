@@ -21,6 +21,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.035513` | [Copal, fruit spent on re-measure, no build](20261012/20261012-035513_copal-fruit-spent-recheck-no-build.kyri) | Zero unrostered witnesses by path; stale card line named; no build. |
 | `20261012.035426` | [Petrichor, gate held, air row read, no build](20261012/20261012-035426_petrichor-gate-held-air-row-no-build.kyri) | Consent Rail unruled; no edit; no build. |
 | `20261012.035626` | [Incense, stall named, no build](20261012/20261012-035626_incense-stall-named-check-in.kyri) | Round-open clean; board clear; decline loop named; check-in for a human word. |
 | `20261012.034955` | [Bakery, crux held for ruling, no build](20261012/20261012-034955_bakery-crux-held-ruling-no-build.kyri) | Receipt key waits on Keaton's word; no build. |
