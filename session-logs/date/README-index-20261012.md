@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.013300` | [Patchouli, kumara red held, no build](20261012/20261012-013300_patchouli-kumara-red-held-witness-green-no-build.kyri) | Queue empty again; kumara red re-confirmed, held for ruling. |
 | `20261012.013227` | [Pheromone, queue empty, no build](20261012/20261012-013227_pheromone-queue-empty-no-build.kyri) | Language lane queue empty; ruling awaited; no build. |
 | `20261012.013228` | [Incense, baton lap declined, no build](20261012/20261012-013228_incense-baton-declined-no-build.kyri) | Round-open on eeb72364e8; cold run held unlaunched by the order. |
 | `20261012.013227` | [Petrichor, gate held after fast-forward, no build](20261012/20261012-013227_petrichor-gate-held-fetch-no-build.kyri) | Gate unchanged; queue idle; no build. |
