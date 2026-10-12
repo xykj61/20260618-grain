@@ -1,3 +1,4 @@
+| 20261012.173247 | [Diffuser P1 ruling still owed, no run](20261012/20261012-173247_diffuser-p1-ruling-still-owed-no-run.kyri) | P1 ruling owed to Keaton or Claude; no run; nib carried. |
 | 20261012.172941 | [Patchouli queue empty, no build](20261012/20261012-172941_patchouli-queue-empty-ff-no-build.kyri) | Queue empty; %841 held for a ruling. |
 | 20261012.172851 | [Plant adoption measured, no build](20261012/20261012-172851_bakery-rota-read-no-build.kyri) | Remainder 358 read; receipt key held; no build. |
 | 20261012.172638 | [Pheromone lane closed on the card, no build](20261012/20261012-172638_pheromone-lane-closed-no-build.kyri) | Items 1-3 closed; ruling owed to Incense; no build. |
