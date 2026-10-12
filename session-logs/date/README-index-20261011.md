@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.213041` | [Diffuser, ff to two peers, P1 unruled, no run](20261011/20261011-213041_diffuser-ff-two-peers-p1-hold-no-run.kyri) | Ff to two peer logs; P1 ruling open; no run. |
 | `20261011.212759` | [Petrichor, ff, gate held, no build](20261011/20261011-212759_petrichor-ff-gate-held-no-build.kyri) | Ff to xy/main; Consent Rail ruling open; no build. |
 | `20261011.212759` | [Petrichor, ff, gate held, no build](20261011/20261011-212759_petrichor-ff-gate-held-no-build.kyri) | Ff to xy/main; Consent Rail ruling open; no build. |
 | `20261011.212457` | [Grass sample graded, no frame, no build](20261011/20261011-212457_grass-sample-graded-no-frame-no-build.kyri) | Nine rule pages graded; all B or better; no build. |
