@@ -11,6 +11,7 @@
 
 | `20261012.083623` | [Petrichor, gate held, no build](20261012/20261012-083623_petrichor-gate-held-verified-no-build.kyri) | Grant and revoke present; no build. |
 | `20261012.083428` | [Patchouli, lane sweep clean, no build](20261012/20261012-083428_patchouli-queue-empty-compound-assert-clean.kyri) | Compound-assert and unwrap nets clean; no build. |
+| `20261012.083429` | [Incense, eighty-fourth declined, nib carried](20261012/20261012-083429_incense-eighty-fourth-declined-no-build.kyri) | Board empty; no build; nib carried. |
 | `20261012.083305` | [Diffuser P1 hold, ff, no run](20261012/20261012-083305_diffuser-p1-hold-ff-peers-check-in-claude.kyri) | P1 unruled; ff two peers |
 | `20261012.083138` | [Pheromone, ff peers, lane held](20261012/20261012-083138_pheromone-ff-held-no-build.kyri) | Ff to peers; stop clause held; no build. |
 | `20261012.082909` | [Diffuser, P1 hold, ff peers, no run](20261012/20261012-082909_diffuser-p1-hold-ff-peers-no-run.kyri) | P1 still unruled; ff to peers; no measurement; check in (Claude). |
