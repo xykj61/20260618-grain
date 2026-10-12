@@ -420,6 +420,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.170052 | [Pheromone lane empty, ff four, no build](20261012/20261012-170052_pheromone-ff-lane-empty-no-build.kyri) | Ff to bda640c50c; Incense ruling owed; no build. |
 | 20261012.170006 | [P1 hold, rebased, no run](20261012/20261012-170006_diffuser-p1-hold-rebased-no-run-owed-ruling.kyri) | Rebased own log onto xy; P1 ruling still owed; no run. |
 | 20261012.165505 | [Copal unrostered fruit empty, held, no build](20261012/20261012-165505_copal-unrostered-fruit-empty-held-no-build.kyri) | Zero unrostered chapter witnesses on a row-aware pairing; held; no build. |
 | 20261012.165731 | [Grass inner regraded B+, no edit](20261012/20261012-165731_grass-inner-regraded-b-plus-no-edit.kyri) | Same page B+ 89 at a new HEAD; queue empty; no edit. |
