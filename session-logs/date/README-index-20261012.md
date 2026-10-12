@@ -6,6 +6,9 @@
 |---|---|---|
 | `20261012.074549` | [Diffuser, P1 unruled, ff of three, no run](20261012/20261012-074549_diffuser-p1-hold-no-run.kyri) | P1 unruled; no diffuser file touched; no measurement. |
 | `20261012.074447` | [Incense, baton declined, round opened, no build](20261012/20261012-074447_incense-baton-declined-no-build.kyri) | Declined lap; claim board clear; no build. |
+| `20261012.074856` | [Incense, stash logs recovered, index row red at baseline](20261012/20261012-074856_incense-stash-logs-recovered.kyri) | Two stash logs restored; row witness red before and after. |
+| `20261012.072736` | [Incense, seventy-ninth, no build](20261012/20261012-072736_incense-baton-prin-recur-no-build.kyri) | Card and inner prompt read; queue held; no build. |
+| `20261012.070906` | [Incense, baton orientation, read-only](20261012/20261012-070906_incense-baton-orientation.kyri) | Card and board read; no build. |
 | `20261012.074346` | [Pheromone, queue closed](20261012/20261012-074346_pheromone-queue-closed.kyri) | Three items landed; Incense ruling awaited; no build. |
 | `20261012.074621` | [Patchouli, queue empty, no build](20261012/20261012-074621_patchouli-queue-empty-seventeenth-no-build.kyri) | Lane empty a seventeenth way; no claim; log only. |
 | `20261012.075109` | [Petrichor, gate held, open reds named, check in](20261012/20261012-075109_petrichor-open-reds-named-check-in.kyri) | Gate held; OPEN reds named for a ruling; no claim, no build. |
