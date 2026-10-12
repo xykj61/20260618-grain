@@ -1,6 +1,7 @@
 | 20261012.191426 | [Petrichor gate held, 170 upstream, no build](20261012/20261012-191426_petrichor-gate-held-no-build.kyri) | Consent Rail and seam unchanged upstream; no build. |
-| 20261012.191045 | [Copal fruit gone, zero unrostered witnesses, no build](20261012/20261012-191045_copal-no-unrostered-witness-no-build.kyri) | Census reads zero; no build.
+| 20261012.191419 | [Patchouli queue empty, fifteenth way, no build](20261012/20261012-191419_patchouli-queue-empty-fifteenth-no-build.kyri) | Version grep and reach scan read empty; %841 waits on a ruling; no build. |
 | 20261012.191403 | [Bakery crux held, no build](20261012/20261012-191403_bakery-fusion-crux-held-ruling-owed-no-build.kyri) | Receipt-key ruling owed; read only. |
+| 20261012.191045 | [Copal fruit gone, zero unrostered witnesses, no build](20261012/20261012-191045_copal-no-unrostered-witness-no-build.kyri) | Census reads zero; no build.
 | 20261012.190736 | [Incense nib carry, queue ruling-gated, no build](20261012/20261012-190736_incense-nib-carry-no-build.kyri) | Nib carried to 7860d01667; queue gated; no build. |
 | 20261012.190904 | [Patchouli queue empty, thirteenth sweep, no build](20261012/20261012-190904_patchouli-queue-empty-thirteenth-no-build.kyri) | Queue scan empty again; no build. |
 | 20261012.190747 | [Petrichor gate held, ff one, no build](20261012/20261012-190747_petrichor-gate-held-ff-one-no-build.kyri) | Consent Rail and seam unchanged upstream; no build. |
