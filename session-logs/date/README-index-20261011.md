@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261011.223304` | [Copal, fruit empty, no build](20261011/20261011-223304_copal-roster-reread-fruit-empty-no-build.kyri) | Zero unrostered; no claim; no build. |
 | `20261011.223507` | [Grass, queue empty, ff, no build](20261011/20261011-223507_grass-queue-empty-no-build.kyri) | Queue empty; ff-pulled; no build. |
+| `20261011.223453` | [Patchouli, queue empty, no build](20261011/20261011-223453_patchouli-queue-empty-no-build.kyri) | Fresh header grep: writers already stamped; no build. |
 | `20261011.222949` | [Diffuser, P1 hold, ff patchouli, no run](20261011/20261011-222949_diffuser-hold-p1-unruled-ff-patchouli-no-run.kyri) | P1 still unruled; fast-forward only; no run. |
 | 20261011.223120 | [Petrichor, gate still held, second pull, no build](20261011/20261011-223120_petrichor-gate-held-second-pull-no-build.kyri) | Petrichor gate still held after a second pull; no build. |
 | `20261011.223228` | [Incense, round-open clean, declined, no build](20261011/20261011-223228_incense-baton-declined-no-build-ff-clean.kyri) | Clean at a5c7336419; board empty; no build; nib carried. |
