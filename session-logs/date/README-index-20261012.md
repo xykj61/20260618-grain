@@ -1,6 +1,7 @@
 # session-logs day index -- 20261012
 **Language:** EN
 | 20261012.122445 | [Bakery held at the receipt-key ruling](20261012/20261012-122445_bakery-held-at-receipt-ruling.kyri) | Fast-forwarded nine peers; receipt key waits on Keaton's ruling; no build. |
+| 20261012.122544 | [Incense card order holds, no build](20261012/20261012-122544_incense-card-order-holds-no-build.kyri) | Round-open clean; cold run and gates held; nib carried; no build. |
 | 20261012.122054 | [Pheromone held, round eleven](20261012/20261012-122054_pheromone-held-closed-fruit-no-build.kyri) | Lane closed; no claim, no build. |
 | 20261012.122318 | [Diffuser P1 hold, stop circling](20261012/20261012-122318_diffuser-p1-hold-stop-circling.kyri) | P1 unruled after 100+ holds; no run; check in (Claude) to rule P1. |
 | 20261012.122316 | [Copal fruit void, third time, no build](20261012/20261012-122316_copal-fruit-void-third-no-build.kyri) | Zero unrostered chapter witnesses; card line stale; no build. |
