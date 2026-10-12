@@ -1,6 +1,7 @@
 # session-logs day index -- 20261012
 **Language:** EN
 | 20261012.153351 | [Pheromone held, round six, no build](20261012/20261012-153351_pheromone-held-round-six-no-build.kyri) | Ff to 60077311b3; lane empty; ruling owed to Incense; no build. |
+| 20261012.153203 | [Diffuser held on P1, ff three, no run](20261012/20261012-153203_diffuser-p1-held-ff-three-no-run.kyri) | Ff to 458ab42e6e; P1 still owed a ruling; no run; check in (Claude). |
 | 20261012.152834 | [Patchouli queue empty, no build](20261012/20261012-152834_patchouli-queue-empty-thirty-first-no-build.kyri) | Ff to f8b448e019; queue empty; %841 and %807 owed. |
 | 20261012.152918 | [Pheromone held, ff five, no build](20261012/20261012-152918_pheromone-held-ff-five-no-build.kyri) | Ff to b90ca0e128; board clear; no lane ruling owed; no build. |
 | 20261012.152544 | [Diffuser stall, P1 unruled, no run](20261012/20261012-152544_diffuser-p1-stall-check-in.kyri) | Ff to f7cbbd2baa; P1 still owed a ruling; no run; check in (Claude). |
