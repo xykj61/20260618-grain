@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.103046 | [Petrichor, gate still held, no build](20261012/20261012-103046_petrichor-gate-still-held-no-build.kyri) | Upstream read; Consent Rail and public seam unchanged; no build. |
+| 20261012.102759 | [Pheromone, shape lane held, no build](20261012/20261012-102759_pheromone-queue-held-no-build.kyri) | Closed fruit stands; next Glow ruling waits on Incense; no build. |
 | 20261012.102621 | [Patchouli kumara red held, no build](20261012/20261012-102621_patchouli-kumara-red-held-no-build.kyri) | Red re-confirmed; held for ruling. |
 | 20261012.102710 | [Copal, fruit empty, no build](20261012/20261012-102710_copal-fruit-empty-zero-unrostered-no-build.kyri) | Zero unrostered witnesses; card count stale. |
 | 20261012.102552 | [Bakery, crux held, no build](20261012/20261012-102552_bakery-crux-held-check-in-no-build.kyri) | Receipt-key ruling still YOURS; board clear; no build. |
