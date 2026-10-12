@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261012.004933` | [Pheromone, lane held, fifth no build](20261012/20261012-004933_pheromone-lane-held-fifth-no-build.kyri) | Lane held at ff952c4adf; claim board empty; no ruling; no build. |
 | `20261012.004726` | [Grass, foundation below B, no build](20261012/20261012-004726_grass-foundation-below-b-no-build.kyri) | Grain-and-crossing reads C+ at field; left untouched; no build. |
+| `20261012.004840` | [Copal, fruit empty, no build](20261012/20261012-004840_copal-fruit-empty-no-build.kyri) | No unrostered chapter witness; log-only lap. |
 | `20261012.004634` | [Diffuser, P1 hold eighty-second, check in, no run](20261012/20261012-004634_diffuser-p1-hold-eighty-second-check-in-no-run.kyri) | P1 unruled; fast-forward only; no measurement. |
 | `20261012.004921` | [Diffuser, P1 hold eighty-third, check in, no run](20261012/20261012-004921_diffuser-p1-hold-eighty-third-check-in-no-run.kyri) | P1 unruled; no measurement. |
 | `20261012.004432` | [Bakery, queue held, no build](20261012/20261012-004432_bakery-queue-held-no-build.kyri) | Plant scan ok; no unblocked item; receipt key awaits ruling. |
