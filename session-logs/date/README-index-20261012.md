@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.152003 | [Incense decline, held, no build](20261012/20261012-152003_incense-decline-held-on-p1-no-build.kyri) | Reset to aef0e8fc9d; owed words hold; no build. |
 | 20261012.151520 | [Copal, no unrostered witness left](20261012/20261012-151520_copal-no-unrostered-chapter-witness.kyri) | Zero unrostered; fruit void; no build; check in (Claude). |
 | 20261012.151951 | [Petrichor ff, gate held again](20261012/20261012-151951_petrichor-ff-gate-held-no-build-again.kyri) | Ff to aef0e8fc9d; Consent Rail unchanged; no build. |
 | 20261012.151342 | [Incense ff to upstream, declined, no build](20261012/20261012-151342_incense-declined-ff-mantra-no-build.kyri) | Ff to 03daf49952; no build; cold run held. |
