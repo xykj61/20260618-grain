@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.050812` | [Diffuser, orbit 11, P1 unruled, no run](20261012/20261012-050812_diffuser-hold-p1-unruled-orbit-11-no-run.kyri) | ff to bb4708386b; no P1 ruling; check in (Claude). |
+| `20261012.050809` | [Petrichor, gate held, ff, no build](20261012/20261012-050809_petrichor-gate-held-ff-no-build.kyri) | ff bb4708386b; Consent Rail held; check in (Claude). |
 | `20261012.050438` | [Pheromone, lane still empty, no build](20261012/20261012-050438_pheromone-lane-empty-no-build.kyri) | Glow lane closed; no claim; ruling asked, check in (Claude). |
 | `20261012.050847` | [Incense, ff c24e13f74d, no build](20261012/20261012-050847_incense-baton-ff-clear-no-build.kyri) | Ff to c24e13f74d; board clear; check in (either). |
 | `20261012.050619` | [Copal, fruit already landed, no build](20261012/20261012-050619_copal-fruit-already-landed-no-build.kyri) | 159 of 159 witnesses rostered; prin ticker GREEN; check in (Claude). |
