@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.200834` | [Grass inner prompt, B+ at Field, no frame](20261011/20261011-200834_grass-inner-prompt-grade-b-plus.kyri) | Open page graded B+; no frame; nothing built. |
 | `20261011.200912` | [Bakery, control green on HEAD](20261011/20261011-200912_bakery-control-rerun-green-no-build.kyri) | Control 24 of 24; queue held; no build. |
 | `20261011.200807` | [Petrichor, consent gate held, no build](20261011/20261011-200807_petrichor-consent-gate-held-no-build.kyri) | Gate unruled; no claim on board; no build. |
 | `20261011.200607` | [Copal, fruit spent, no build](20261011/20261011-200607_copal-fruit-spent-no-build.kyri) | 158 of 158 chapter witnesses rostered; card's "~75" stale; no build. |
