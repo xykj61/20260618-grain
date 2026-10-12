@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.021221` | [Bakery, cache control green](20261012/20261012-021221_bakery-cache-control-green-closure-gap.kyri) | Cache GREEN 24 of 24; first proof partly met; no build. |
 | `20261012.021319` | [Grass lap: inner prompt graded B+, no build](20261012/20261012-021319_grass-inner-graded-b-plus-no-build.kyri) | Inner prompt graded B+/89 at Field; no edit; no build. |
 | `20261012.021139` | [Patchouli, queue empty again, no build](20261012/20261012-021139_patchouli-queue-empty-again-no-build.kyri) | Fresh grep finds no header; kumara red held; no build. |
 | `20261012.021248` | [Diffuser, P1 hold, ninety-seventh, no run](20261012/20261012-021248_diffuser-p1-hold-ninety-seventh-check-in-claude-no-run.kyri) | P1 still unruled; ff to xy 4a2e97f846, no run. |
