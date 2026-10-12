@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.011154` | [Pheromone, lane held, no build](20261012/20261012-011154_pheromone-lane-held-no-build.kyri) | Claim board clear; no ruling open; no build. |
+| `20261012.011435` | [Patchouli, queue empty, kumara red held, no build](20261012/20261012-011435_patchouli-queue-empty-kumara-red-held-no-build.kyri) | Nets clean; red 840 held on pin headroom and a seam ruling. |
 | `20261012.010759` | [Bakery, mutation census three unmeasured, no build](20261012/20261012-010759_bakery-mutation-census-three-unmeasured-no-build.kyri) | Census: 3 changed, 0 silent, 3 unmeasured; receipt key YOURS; no build. |
 | `20261012.011004` | [Incense, seventy-eighth, no build](20261012/20261012-011004_incense-baton-seventy-eighth-no-build.kyri) | Round-open clean; board clear; ff pulled; no build. |
 | `20261012.011231` | [Grass inner graded Field, no build](20261012/20261012-011231_grass-inner-field-read-no-build.kyri) | Field register 77, reach 90; no edit. |
