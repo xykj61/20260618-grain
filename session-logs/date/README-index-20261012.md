@@ -2,6 +2,7 @@
 **Language:** EN
 | 20261012.155016 | [Incense nib carry, no build](20261012/20261012-155016_incense-nib-carry-no-build.kyri) | Ff to f015192cd7; card nib carried; witness GREEN; no build. |
 | 20261012.154637 | [Patchouli queue empty, no build](20261012/20261012-154637_patchouli-queue-empty-no-build.kyri) | Broad net finds no header family; %807 and %765 owed; no build. |
+| 20261012.154550 | [Diffuser P1 held, ff two, no run](20261012/20261012-154550_diffuser-p1-hold-ff-two-no-run.kyri) | Ff to d9e84f244c; P1 unruled; no run; check in (Claude). |
 | 20261012.154416 | [Petrichor gate held, ff four, no build](20261012/20261012-154416_petrichor-gate-held-ff-four-no-build.kyri) | Ff to d6c235a1ac; Consent Rail still Diffuser's; no build. |
 | 20261012.154137 | [Copal roster complete, no build](20261012/20261012-154137_copal-roster-complete-no-build.kyri) | Zero unrostered chapter witnesses; card YOURS line stale; no build. |
 | 20261012.154021 | [Patchouli queue empty, no build](20261012/20261012-154021_patchouli-queue-empty-no-build.kyri) | Ff to 4bb1d95837; queue empty; %841 and %807 owed; no build. |
