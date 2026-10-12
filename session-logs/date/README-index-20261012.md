@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.131737 | [Pheromone lane held at the ruling gate, no build](20261012/20261012-131737_pheromone-lane-gate-held-no-build.kyri) | Lane waits on Incense ruling; no build. |
 | 20261012.131800 | [Patchouli queue empty, earth row, no build](20261012/20261012-131800_patchouli-queue-empty-earth-row-no-build.kyri) | Lane empty; %841 awaits ruling; no build. |
 | 20261012.131235 | [Patchouli queue empty, receipt main nine lines](20261012/20261012-131235_patchouli-queue-empty-receipt-main-measured-small.kyri) | Candidate stale at nine lines; no class over 70; no build. |
 | 20261012.131200 | [Pheromone lane held at ruling gate, no build](20261012/20261012-131200_pheromone-lane-held-ruling-no-build.kyri) | Lane awaits Incense ruling; claims board empty; no build. |
