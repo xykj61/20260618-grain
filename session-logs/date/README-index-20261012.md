@@ -11,6 +11,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.034057` | [Pheromone, lane held, no build](20261012/20261012-034057_pheromone-lane-held-round-open-ff-no-build.kyri) | Stop clause held; ff clean; no build. |
+| `20261012.034050` | [Petrichor, gate held, no build](20261012/20261012-034050_petrichor-gate-held-no-build.kyri) | Consent gate held; no page; no build. |
 | `20261012.033758` | [Diffuser, P1 unruled, two peers, no run](20261012/20261012-033758_diffuser-p1-hold-ff-petrichor-incense-no-run.kyri) | P1 unruled; no run. |
 | `20261012.033711` | [Patchouli, queue empty sixteenth](20261012/20261012-033711_patchouli-queue-empty-sixteenth-no-build.kyri) | Queue empty; no build. |
 | `20261012.033500` | [Grass, foundations graded, no frame owed](20261012/20261012-033500_grass-foundations-graded-no-frame.kyri) | Living foundations B or better; no edit. |
