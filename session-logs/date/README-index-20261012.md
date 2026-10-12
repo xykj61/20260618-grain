@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.073656` | [Incense, baton declined, no build](20261012/20261012-073656_incense-baton-declined-no-build.kyri) | Declined lap; claim board clear; no movement. |
+| `20261012.073646` | [Petrichor, gate held, fast-forward to peers, no build](20261012/20261012-073646_petrichor-gate-held-ff-peers-no-build.kyri) | Consent Rail gate still held; no fruit; no build. |
 | `20261012.073636` | [Grass, queue empty, no build, log-only](20261012/20261012-073636_grass-queue-empty-no-build.kyri) | Queue empty, claim board clear; no surface opened, no grade taken. |
 | `20261012.073518` | [Pheromone, queue empty, witness GREEN, no build](20261012/20261012-073518_pheromone-lane-empty-witness-green-no-build.kyri) | Glow capacity GREEN at 15; lane empty; no claim; no build. |
 | `20261012.073623` | [Copal, fruit closed, every chapter witness rostered, no build](20261012/20261012-073623_copal-fruit-closed-no-build.kyri) | Exact-path roster reads 0 unrostered witnesses; no build. |
