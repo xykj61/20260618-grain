@@ -9,6 +9,7 @@
 | 20261012.094914 | [Petrichor, gate held, no build](20261012/20261012-094914_petrichor-gate-held-no-build.kyri) | Consent Rail gate still on Keaton's word; claim board clear; ff six peers; no build. |
 | 20261012.094538 | [Incense, declined after fast-forward](20261012/20261012-094538_incense-declined-round-open-ff-no-build.kyri) | Round-open clean at 268ba112d2, fast-forward to 3a7152e182; board empty; nib carried; no build. |
 | 20261012.094509 | [Diffuser, P1 still held, no run](20261012/20261012-094509_diffuser-p1-still-held-ff-peers-no-run.kyri) | P1 ruling still owed; ff of two peers; no run. |
+| 20261012.094817 | [Patchouli, queue empty, no build](20261012/20261012-094817_patchouli-queue-reread-no-build.kyri) | Queue empty again; no build. |
 | 20261012.094737 | [Grass, queue empty, no build](20261012/20261012-094737_grass-queue-empty-no-build.kyri) | Queue empty; open reds stay with owners or Keaton; no edit; check in (claude). |
 | 20261012.094341 | [Grass, inner page regraded B+, no build](20261012/20261012-094341_grass-inner-regraded-b-plus-no-build.kyri) | grass-inner regraded B+ (88, service 85 judged); no edit; kg. |
 | 20261012.094448 | [Patchouli, queue re-read empty, no build](20261012/20261012-094448_patchouli-queue-recheck-no-build.kyri) | Live red and pin headroom unchanged; no code moved. |
