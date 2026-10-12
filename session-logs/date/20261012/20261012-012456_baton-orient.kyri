@@ -1,0 +1,19 @@
+format session-log-v1
+stamp 20261012.012456
+editor product interface Claude Code
+provider model provider Anthropic
+product product name Claude Code
+role repository role incense captain
+modality text-or-voice
+model unverified
+model_status active runtime unverified
+voice Kyri
+title baton orientation, no lap run
+prompt baton pasted with terse "ty every1 baton prin recur"; read card and inner prompt, no claim, no build
+think tree clean and in sync with xy/main at HEAD d170caa504 (behind=0), count 12701
+think inner prompt next section says a cold run stays unlaunched until Keaton asks to hold for one; the baton says launch one at the front of a lap. They disagree.
+think whether to launch a lap (claim push, cold run, build, push) is outward-facing and fleet-visible; not taken on a terse prompt
+obs no commit, no push, no claim written; the only write is this log
+rota none -- orientation pass only, no deep read this lap
+file session-logs/date/20261012/20261012-012456_baton-orient.kyri orientation record, uncommitted
+recommend check-in (Claude) -- confirm whether to run a full lap, and whether the cold run waits per inner next
