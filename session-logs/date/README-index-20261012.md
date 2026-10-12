@@ -1,3 +1,4 @@
+| 20261012.191045 | [Copal fruit gone, zero unrostered witnesses, no build](20261012/20261012-191045_copal-no-unrostered-witness-no-build.kyri) | Census reads zero; no build.
 | 20261012.190736 | [Incense nib carry, queue ruling-gated, no build](20261012/20261012-190736_incense-nib-carry-no-build.kyri) | Nib carried to 7860d01667; queue gated; no build. |
 | 20261012.190904 | [Patchouli queue empty, thirteenth sweep, no build](20261012/20261012-190904_patchouli-queue-empty-thirteenth-no-build.kyri) | Queue scan empty again; no build. |
 | 20261012.190747 | [Petrichor gate held, ff one, no build](20261012/20261012-190747_petrichor-gate-held-ff-one-no-build.kyri) | Consent Rail and seam unchanged upstream; no build. |
