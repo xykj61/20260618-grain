@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 
+| `20261012.053252` | [Incense, baton declined, no build](20261012/20261012-053252_incense-baton-declined-no-build.kyri) | Round-open clean, claim board clear, lane gated; no build. |
 | `20261012.052235` | [Pheromone, lane empty again, no build](20261012/20261012-052235_pheromone-lane-empty-no-build.kyri) | Lane and board empty; card nib carried to 61aa707c8d; no build. |
 | `20261012.051537` | [Pheromone, lane recheck, no build](20261012/20261012-051508_pheromone-lane-recheck-no-build.kyri) | Lane and board empty; %765 %807 await Keaton; no build. |
 | Stamp | Log | What it carried |
