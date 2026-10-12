@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.060910` | [Pheromone, stop clause, no build](20261012/20261012-060910_pheromone-glow-lane-stop-clause-no-build.kyri) | Glow lane held; ruling owed by Incense. |
+| `20261012.060849` | [Grass, queue empty, no build](20261012/20261012-060849_grass-queue-empty-no-build.kyri) | Inner queue empty; no build; no edit. |
 | `20261012.060414` | [Incense, baton declined, no build](20261012/20261012-060414_incense-baton-declined-no-build.kyri) | Adopted xy/main; board clear; cold run held. |
 | `20261012.060601` | [Patchouli, weave apply split, GREEN](20261012/20261012-060601_patchouli-weave-apply-split.kyri) | apply 83 to 51 lines; two helpers; witnesses GREEN. |
 | 20261012.013938 | [diffuser P1 floor is capacity](20261012/20261012-013938_diffuser-p1-floor-capacity-not-length.kyri) | P1 cannot clear by trace length; the ruling is on the precondition |
