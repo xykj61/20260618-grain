@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.095953 | [Diffuser, P1 held, round 13, no run](20261012/20261012-095953_diffuser-p1-held-round-13-no-run.kyri) | P1 still unruled; no build, no run. |
 | 20261012.095804 | [Incense declined, ff one peer, no build](20261012/20261012-095804_incense-baton-declined-ff-no-build.kyri) | Held; claim board empty; ff one peer; no build. |
 | 20261012.095549 | [Copal, fruit empty](20261012/20261012-095549_copal-no-unrostered-witness.kyri) | Zero unrostered witnesses; no claim; nib carried. |
 | 20261012.095631 | [Bakery, crux gate held a third time, no build](20261012/20261012-095631_bakery-crux-gate-third-hold-no-build.kyri) | Gate still Keaton's; no build. |
