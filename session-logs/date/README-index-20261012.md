@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.062021` | [Patchouli, queue empty, no build](20261012/20261012-062021_patchouli-queue-empty-no-build.kyri) | Two greps and the claim board read clear; no code moved. |
 | `20261012.062050` | [Diffuser hold, ff three peers, no run](20261012/20261012-062050_diffuser-p1-hold-ff-three-peers-no-run.kyri) | P1 unruled, no definition in the inner prompt; no run. |
 | `20261012.061958` | [Petrichor, citations hold, no build](20261012/20261012-061958_petrichor-citations-hold-no-build.kyri) | Citations resolve; docs-geode links clean; nib carried. |
 | `20261012.061758` | [Copal, fruit spent a third read, no build](20261012/20261012-061758_copal-fruit-spent-third-read-no-build.kyri) | 159 chapter witnesses rostered; no build. |
