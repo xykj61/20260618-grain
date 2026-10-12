@@ -26,3 +26,4 @@ status HELD, no build. Ruling on the receipt key still wanted before any cache r
 file construction/ITINERARY.md Git nib carried to dc8a98e1e7 in the same commit
 file session-logs/date/README-index-20261012.md shelf row for this log
 recommend check in (Claude) -- rule whether the shared build cache may take HEAD out of tree_digest's watched inputs; the next Bakery rung waits on that seam.
+erratum 20261012.134500 -- the scope and file lines above name the card's nib as dc8a98e1e7. That was the nib before the rebase onto xy main. After the rebase the card names 9bfcc78ee5, its parent at the work commit c0b60a9e89 (pushed). The work commit's body repeats the old nib and cannot be edited after the push.
