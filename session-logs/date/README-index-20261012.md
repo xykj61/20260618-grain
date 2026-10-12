@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.105300` | [Diffuser, P1 hold, ff four peer logs, no run](20261012/20261012-105300_diffuser-p1-hold-ff-four-peers-no-run.kyri) | P1 still unruled; fast-forward only; no measurement; no build |
 | `20261012.105021` | [Copal, zero unrostered witness again, no build](20261012/20261012-105021_copal-no-unrostered-witness-remeasured-no-build.kyri) | path comm 0 of 170 runners; two non-witness hands reported, not rostered. |
 | 20261012.105019 | [Grass inner re-read, B+ holds, nib carried](20261012/20261012-105019_grass-inner-reread-confirms-held-no-build.kyri) | Re-read confirms 104722; nib to b961c37958; no build. |
 | 20261012.104738 | [Incense eighty-fourth, declined, check-in](20261012/20261012-104738_incense-eighty-fourth-declined-check-in.kyri) | Round-open clean, claim board empty, no build; the repetition named again |
