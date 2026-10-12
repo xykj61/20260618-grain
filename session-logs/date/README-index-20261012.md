@@ -5,6 +5,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.105523 | [Patchouli, recall batch selftest split](20261012/20261012-105523_patchouli-recall-batch-selftest-split.kyri) | Selftest split into three phases; witness GREEN; no queue empty |
 | `20261012.105413` | [Petrichor gate held, no build](20261012/20261012-105413_petrichor-gate-held-repeat-check-in.kyri) | Gate unchanged upstream; repeat named; check in. |
 | `20261012.105611` | [Grass fruit graded at field, no edit](20261012/20261012-105611_grass-fruit-graded-no-edit-judged-half-open.kyri) | Fruit graded at Field, no edit; composite still judged. |
 | 20261012.105423 | [Bakery, receipt key held, no build](20261012/20261012-105423_bakery-receipt-key-held-no-build.kyri) | Gate stands; no build; check in (Claude) |
