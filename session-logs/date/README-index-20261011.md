@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.204721` | [Petrichor, fruit gate held, no build](20261011/20261011-204721_petrichor-gate-held-no-build.kyri) | Gate still held; no build. |
 | `20261011.204542` | [Incense, baton read, queue gated, no build](20261011/20261011-204542_incense-baton-declined-no-build.kyri) | Clear board; queue gated; no build. |
 | `20261011.204520` | [Diffuser, held, no P1 ruling upstream](20261011/20261011-204520_diffuser-held-p1-no-ruling-upstream.kyri) | Ff-only pull; no ruling; no run. |
 | `20261011.204349` | [Incense, product queue gated, no build](20261011/20261011-204349_incense-queue-gated-no-build.kyri) | Round-open clean; no product item safe to take alone; no build. |
