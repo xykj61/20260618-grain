@@ -269,3 +269,5 @@ only shape the witness accepts. Next: unchanged -- the law lane waits on a human
 **Lap `20261012.162541` declined again on a clear board.** Round-open reset onto `xy/main` at
 `9dc79f4087`; the claim board read clear and every seat clocked in. No build, no cold run. Next:
 unchanged -- the law lane waits on the same named gates.
+
+**Lap `20261012.175604` declined on a clear board, and carried the nib twice.** Round-open reset onto `xy/main` at `152b2367f8`; the claim board read clear and every seat clocked in. No build, no cold run. The decline account and its day-shelf row went out as `6e97c55cb0`, after two rebases moved the parent, so the nib carry lands here, where a work commit can hold it. Next: unchanged -- the law lane waits on the receipt key ruling, `%642` or `%519`, or the day-shelf hour fold.
