@@ -6,6 +6,7 @@
 | `20261011.201334` | [Diffuser, P1 hold, seventy-first lap](20261011/20261011-201334_diffuser-seventy-first-hold-p1-unruled.kyri) | P1 still undefined on the page; ff to 6afae33704; no build. |
 | `20261011.201056` | [Pheromone, held on ruling, no build](20261011/20261011-201056_pheromone-lane-held-on-ruling-no-build.kyri) | Tree at 37aa38e520; queue held on Incense ruling; no build. |
 | `20261011.201239` | [Grass inner prompt regrade, no build](20261011/20261011-201239_grass-inner-prompt-regrade-no-build.kyri) | Counted readings clear B; repeats 200834; no build. |
+| `20261011.201449` | [Patchouli, queue held, kumara red awaiting ruling](20261011/20261011-201449_patchouli-queue-held-kumara-red-no-build.kyri) | Queue empty; red held on ruling; no build. |
 | `20261011.200834` | [Grass inner prompt, B+ at Field, no frame](20261011/20261011-200834_grass-inner-prompt-grade-b-plus.kyri) | Open page graded B+; no frame; nothing built. |
 | `20261011.200912` | [Bakery, control green on HEAD](20261011/20261011-200912_bakery-control-rerun-green-no-build.kyri) | Control 24 of 24; queue held; no build. |
 | `20261011.200807` | [Petrichor, consent gate held, no build](20261011/20261011-200807_petrichor-consent-gate-held-no-build.kyri) | Gate unruled; no claim on board; no build. |
