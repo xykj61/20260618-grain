@@ -334,6 +334,7 @@
 |---|---|---|
 | 20261012.143951 | [Copal fruit stale, no build](20261012/20261012-143951_copal-fruit-stale-unrostered-set-empty-no-build.kyri) | 0 unrostered by comm; card line stale. |
 | 20261012.143921 | [Diffuser P1 hold, no run, check in Claude](20261012/20261012-143921_diffuser-p1-hold-no-run-hundred-plus.kyri) | Fetch level with xy; P1 unruled; no run. |
+| 20261012.143628 | [Grass five rule pages graded, pointer below B left unframed](20261012/20261012-143628_grass-five-rule-pages-graded-pointer-no-frame.kyri) | Five rule pages graded; pointer C/73 is structural; no frame, no edit. |
 | 20261012.143533 | [Diffuser P1 hold, check-in, no run](20261012/20261012-143533_diffuser-p1-hold-check-in-no-run.kyri) | P1 unruled; no run; check in (Claude). |
 | 20261012.142907 | [Pheromone queue empty, claims clear, no build](20261012/20261012-142907_pheromone-queue-empty-no-claim-no-build.kyri) | Lane queue empty; claims board clear; no build. |
 | 20261012.142728 | [Diffuser P1 hold, no run](20261012/20261012-142728_diffuser-p1-hold-no-run.kyri) | Three peer commits ff; P1 unruled; no run. |
