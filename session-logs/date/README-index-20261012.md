@@ -1,3 +1,4 @@
+| 20261012.182031 | [Petrichor gate held, ff four, no build](20261012/20261012-182031_petrichor-gate-held-ff-four-no-build.kyri) | Gate unchanged upstream; nib carried; no build. |
 | 20261012.182236 | [Patchouli queue re-check, no build](20261012/20261012-182236_patchouli-queue-empty-recheck-no-build.kyri) | Queue still empty; %841 and %807 wait on rulings; no build. |
 | 20261012.182115 | [Incense decline, no build](20261012/20261012-182115_incense-decline-no-build-check-in.kyri) | Round-open clean; no build; check-in owed. |
 | 20261012.181708 | [Grass foundations grade, no lift](20261012/20261012-181708_grass-foundations-grade-no-lift.kyri) | Six context and root pages A; two foundations B+; no edit. |
