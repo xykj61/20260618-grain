@@ -52,3 +52,9 @@ format fleet-claims-v1
 # The board opens empty, and the first claim belongs to the next ship that opens a build. Seeding
 # it with this lap's own work would be a claim written after the fact, which is the one thing a
 # declaration may never be.
+claim bakery-closure-census
+seat bakery
+stamp 20261012.063303
+epoch 1791801183
+paths tools/fixtures/b/bakery_closure_census.sh
+what Bakery fusion-build rung 1: a read-only census of where repeated compile and proof work lives across Rishi discovery, Rye/Zig compile, and receipt writing, before any cache is built.
