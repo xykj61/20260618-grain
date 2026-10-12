@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 
+| `20261012.060349` | [Petrichor, gate re-read, no build](20261012/20261012-060349_petrichor-gate-reread-no-build.kyri) | Consent gate facts re-read on main; still held; no build. |
 | `20261012.055922` | [Grass, inner prompt B+, no build](20261012/20261012-055922_grass-inner-prompt-grade-b-plus-no-build.kyri) | Inner prompt graded at Field, composite 89 B+; no molt frame; no edit. |
 | `20261012.055920` | [Copal, fruit spent, no build](20261012/20261012-055920_copal-fruit-already-spent-no-build.kyri) | 158 of 158 witnesses rostered; no build. |
 | `20261012.060151` | [Incense, stall read, no build](20261012/20261012-060151_incense-stall-read-no-build.kyri) | Clock read, board clear, cold run held; no build. |
