@@ -7,6 +7,7 @@
 | `20261012.005221` | [Incense, repeat hold named, check in](20261012/20261012-005221_incense-repeat-hold-pattern-check-in.kyri) | Round-open clean; board clear; repeat hold named; no build. |
 | `20261012.004933` | [Pheromone, lane held, fifth no build](20261012/20261012-004933_pheromone-lane-held-fifth-no-build.kyri) | Lane held at ff952c4adf; claim board empty; no ruling; no build. |
 | `20261012.004841` | [Petrichor, wiki tutorials graded, no build](20261012/20261012-004841_petrichor-wiki-three-tutorials-graded.kyri) | three pages A/B+; no edit. |
+| `20261012.005127` | [Grass, inner prompt B+, no frame, no build](20261012/20261012-005127_grass-inner-prompt-b-plus-no-frame.kyri) | Inner prompt grades B+/89 at field; no frame; no build. |
 | `20261012.004726` | [Grass, foundation below B, no build](20261012/20261012-004726_grass-foundation-below-b-no-build.kyri) | Grain-and-crossing reads C+ at field; left untouched; no build. |
 | `20261012.004840` | [Copal, fruit empty, no build](20261012/20261012-004840_copal-fruit-empty-no-build.kyri) | No unrostered chapter witness; log-only lap. |
 | `20261012.004634` | [Diffuser, P1 hold eighty-second, check in, no run](20261012/20261012-004634_diffuser-p1-hold-eighty-second-check-in-no-run.kyri) | P1 unruled; fast-forward only; no measurement. |
