@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.082909` | [Diffuser, P1 hold, ff peers, no run](20261012/20261012-082909_diffuser-p1-hold-ff-peers-no-run.kyri) | P1 still unruled; ff to peers; no measurement; check in (Claude). |
+| `20261012.082917` | [Petrichor, ff three peers, gate held, no build](20261012/20261012-082917_petrichor-ff-three-peers-gate-held-no-build.kyri) | Three peers ff; Consent Rail still unruled; no build. |
 | `20261012.082756` | [Pheromone, lane held again, ff to peers, no build](20261012/20261012-082756_pheromone-water-row-held-again-no-build.kyri) | Lane empty on its stop clause; ff to peers; no rune ruling; no build. |
 | `20261012.082616` | [Patchouli, selftest unwelcome split](20261012/20261012-082616_patchouli-recall-selftest-unwelcome-split.kyri) | selftest 84 to 63 lines; wire witness GREEN. |
 | `20261012.082559` | [Copal, no fruit](20261012/20261012-082559_copal-prin-ticker-no-fruit.kyri) | One unrostered file, a thin hand; witness GREEN; no claim. |
