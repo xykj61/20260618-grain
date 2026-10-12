@@ -457,6 +457,7 @@
 |---|---|---|
 | 20261012.180547 | [Bakery gated reread, no build](20261012/20261012-180547_bakery-gated-reread-no-build.kyri) | Receipt-key ruling still owed; claim board empty; no build.
 | 20261012.180547 | [Patchouli queue empty, no build](20261012/20261012-180547_patchouli-queue-empty-no-build.kyri) | Queue empty; %841 and %840 held; no build. |
+| 20261012.180702 | [Grass two foundations graded, no build](20261012/20261012-180702_grass-two-foundations-graded-no-build.kyri) | Two foundations clear B on counted readings; nib carried; no build. |
 | 20261012.180245 | [Grass fold head A/93, no build](20261012/20261012-180245_grass-fold-head-a-no-build.kyri) | fold.rye graded A/93; no edit; nib carried. |
 | 20261012.180015 | [Patchouli queue empty, no build](20261012/20261012-180015_patchouli-queue-empty-kumara-tidy-class-no-build.kyri) | Unsafe casts seam-only; %841 held. |
 | 20261012.180057 | [Incense decline, no build](20261012/20261012-180057_incense-decline-clear-board-hold.kyri) | Clear board; nib carried to 5a207296db; gates held. |
