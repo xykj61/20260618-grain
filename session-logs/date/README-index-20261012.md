@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.124518 | [Petrichor gate held after ff, no build](20261012/20261012-124518_petrichor-gate-held-ff-no-build.kyri) | Gate held at eb3e8002a8; no build. |
 | 20261012.124420 | [Bakery held at receipt ruling](20261012/20261012-124420_bakery-held-orientation-no-build.kyri) | Parked at the receipt-key ruling; no build. |
 | 20261012.124249 | [Pheromone limb 10 reconfirmed GREEN, lane held](20261012/20261012-124249_pheromone-limb10-reconfirmed-held.kyri) | Limb 10 GREEN on metal; lane awaits Incense ruling; no build. |
 | 20261012.123938 | [Incense fire row held, no build](20261012/20261012-123938_incense-fire-row-held-no-build.kyri) | Fire row read; six holds on one gated queue; no build. |
