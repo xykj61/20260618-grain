@@ -10,6 +10,7 @@
 | `20261012.051451` | [Petrichor, gate held, no fruit, no build](20261012/20261012-051451_petrichor-gate-held-no-fruit.kyri) | Ff to 42df8f7640; Consent Rail still Keaton's call; check in (Claude). |
 | `20261012.051146` | [Copal, fruit rechecked, still spent, no build](20261012/20261012-051146_copal-fruit-rechecked-no-build.kyri) | 159 of 159 witnesses rostered by path; prin ticker GREEN; check in (Claude). |
 | `20261012.051106` | [Patchouli, send race, nib carried to HEAD](20261012/20261012-051106_patchouli-send-race-nib-carry.kyri) | Two rebases on peer pushes; card nib pinned to 1fb40152f6, the follow-up's parent. |
+| `20261012.051231` | [Incense, held decline, no build](20261012/20261012-051231_incense-held-decline-no-build.kyri) | Round-open clean on 8953a20995; board empty; queue waits on Keaton; check in (either). |
 | `20261012.050812` | [Diffuser, orbit 11, P1 unruled, no run](20261012/20261012-050812_diffuser-hold-p1-unruled-orbit-11-no-run.kyri) | ff to bb4708386b; no P1 ruling; check in (Claude). |
 | `20261012.050809` | [Petrichor, gate held, ff, no build](20261012/20261012-050809_petrichor-gate-held-ff-no-build.kyri) | ff bb4708386b; Consent Rail held; check in (Claude). |
 | `20261012.050438` | [Pheromone, lane still empty, no build](20261012/20261012-050438_pheromone-lane-empty-no-build.kyri) | Glow lane closed; no claim; ruling asked, check in (Claude). |
