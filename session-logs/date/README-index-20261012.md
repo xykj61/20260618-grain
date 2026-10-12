@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.045108` | [Bakery, no build, plant held](20261012/20261012-045108_bakery-no-build-plant-remainder-held.kyri) | Read-only pass, no build; receipt key waits. |
 | `20261012.044948` | [Pheromone, lane empty, no build](20261012/20261012-044948_pheromone-lane-empty-ff-no-build.kyri) | ff six peers; Glow queue empty, no rune question; check in (Claude). |
 | `20261012.044617` | [Incense, orbit one, no build](20261012/20261012-044617_incense-baton-declined-orbit-one-no-build.kyri) | Round-open clean; board clear; cold run held; check in (either). |
 | `20261012.045101` | [Petrichor, upstream gate still held, no build](20261012/20261012-045101_petrichor-upstream-gate-still-held-no-build.kyri) | Three upstream commits moved no Petrichor gate; Consent Rail still held; no build. |
