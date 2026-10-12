@@ -8,6 +8,7 @@
 | `20261012.074447` | [Incense, baton declined, round opened, no build](20261012/20261012-074447_incense-baton-declined-no-build.kyri) | Declined lap; claim board clear; no build. |
 | `20261012.074346` | [Pheromone, queue closed](20261012/20261012-074346_pheromone-queue-closed.kyri) | Three items landed; Incense ruling awaited; no build. |
 | `20261012.074621` | [Patchouli, queue empty, no build](20261012/20261012-074621_patchouli-queue-empty-seventeenth-no-build.kyri) | Lane empty a seventeenth way; no claim; log only. |
+| `20261012.075109` | [Petrichor, gate held, open reds named, check in](20261012/20261012-075109_petrichor-open-reds-named-check-in.kyri) | Gate held; OPEN reds named for a ruling; no claim, no build. |
 | `20261012.074205` | [Diffuser, P1 still unruled, ff of two peers, no run](20261012/20261012-074205_diffuser-p1-hold-ff-peers-no-run.kyri) | P1 unruled; no diffuser file touched; no measurement. |
 | `20261012.073952` | [Incense, baton declined, stall named, no build](20261012/20261012-073952_incense-baton-declined-stall-named-no-build.kyri) | Declined lap; stall named for Keaton; no movement. |
 | `20261012.074255` | [Petrichor, gate held, no build](20261012/20261012-074255_petrichor-gate-held-no-build.kyri) | Consent gate unchanged; no page opened; no build. |
