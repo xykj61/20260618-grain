@@ -8,6 +8,7 @@
 | `20261012.023932` | [Grass, pin held, dead shelf, no build](20261012/20261012-023932_grass-pin-dead-shelf-held-no-build.kyri) | Inner-prompt page clears B; pin's dead 20261006 link held. |
 | `20261012.023908` | [Copal, fruit empty, fifth reading](20261012/20261012-023908_copal-fruit-empty-fifth-reading-no-build.kyri) | Zero unrostered witnesses; no claim; ruling asked. |
 | `20261012.023901` | [Incense, declined, claim board empty](20261012/20261012-023901_incense-declined-claim-board-empty.kyri) | Board empty; upstream pulled; no build. |
+| `20261012.024156` | [Petrichor, public seam undefined, check in, no build](20261012/20261012-024156_petrichor-public-seam-undefined-check-in-no-build.kyri) | Seam named nowhere on the tree; Consent Rail still held; no build. |
 | `20261012.023823` | [Petrichor, gate held, check in, no build](20261012/20261012-023823_petrichor-gate-held-check-in-no-build.kyri) | Gate unmoved; no repeat sweep; no build. |
 | `20261012.023437` | [Diffuser, P1 hold, nib carried, no run](20261012/20261012-023437_diffuser-index-restore-p1-hold-no-run.kyri) | P1 unruled; card nib carried; no run. |
 | `20261012.023317` | [Pheromone, lane held round eight, no build](20261012/20261012-023317_pheromone-lane-held-round-eight-no-build.kyri) | Lane held on Incense's ruling; upstream clear for Glow; no build. |
