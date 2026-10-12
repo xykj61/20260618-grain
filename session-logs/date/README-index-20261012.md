@@ -1,3 +1,4 @@
+| 20261012.180206 | [Diffuser P1 held again, ff four, no run](20261012/20261012-180206_diffuser-p1-hold-ff-four-no-run.kyri) | P1 ruling owed; no run; nib carried. |
 | 20261012.180116 | [Copal roster recount, no build](20261012/20261012-180116_copal-roster-no-candidate-recount.kyri) | Zero unrostered witnesses; fruit empty; nib carried. |
 | 20261012.175847 | [Pheromone lane held, ff four, no build](20261012/20261012-175847_pheromone-lane-held-ff-no-build.kyri) | Items 1-3 closed; ruling owed to Incense; nib carried; no build. |
 | 20261012.175617 | [Bakery gated, no build](20261012/20261012-175617_bakery-gated-no-build.kyri) | Receipt-key ruling owed; no ungated item. |
