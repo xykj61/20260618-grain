@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.085759` | [Bakery, receipt key re-read, held at ruling](20261012/20261012-085759_bakery-receipt-key-held-no-build.kyri) | Six key legs miss as designed; HEAD-in-key ruling owed; no build. |
 | `20261012.085424` | [Patchouli, stale candidate fixed, 27th empty](20261012/20261012-085424_patchouli-stale-candidate-erratum-27th-way.kyri) | Candidate was 36 lines; no build. |
 | `20261012.085343` | [Pheromone, round five re-check, no build](20261012/20261012-085343_pheromone-round-five-recheck-no-build.kyri) | Glow refusal and limb 10 re-run GREEN; queue empty; no build. |
 | `20261012.085426` | [Copal, fruit gone, roster holds, no build](20261012/20261012-085426_copal-fruit-gone-roster-holds-no-build.kyri) | No unrostered witness stands; YOURS ~75 line stale; ruling asked. |
