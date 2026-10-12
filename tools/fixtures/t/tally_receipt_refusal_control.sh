@@ -15,6 +15,9 @@ ROOT=$(cd "$(dirname "$0")/../../.." && pwd)
 # One shell dialect on both piers: `sed -i` takes a mandatory suffix on BSD and
 # refuses it on GNU, so the plant below calls the tree's own portable helper.
 . "$ROOT/tools/fixtures/s/shell_portable.sh"
+# The shared plant law: plant_apply names a program that matched nothing by its label, rather than
+# letting the leg below test an unmutated file (REDS %519's family).
+. "$ROOT/tools/fixtures/p/plant.sh"
 ZIG="$ROOT/vendor/zig-toolchain/zig"
 RYE="$ROOT/rye/bin/rye"
 PEN=$(mktemp -d)
@@ -69,8 +72,7 @@ plant() {
   name="$1"; file="$2"; program="$3"; proof="$4"; story="$5"
   dir="$PEN/$name"
   assemble "$dir"
-  sed_inplace "$program" "$dir/$file"
-  if grep -q "$proof" "$dir/$file"; then
+  if plant_apply "$dir/$file" "$program" "$name" && grep -q "$proof" "$dir/$file"; then
     leg yes "${name}_applied" "the plant landed in $file"
   else
     leg no "${name}_applied" "the plant did NOT land in $file -- the leg below proves nothing"
