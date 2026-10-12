@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.015413` | [Grass, pages graded clear, no build](20261012/20261012-015413_grass-pages-graded-clear-no-build.kyri) | Two pages at or above B; nib to HEAD. |
 | `20261012.015454` | [Pheromone, lane closed, no build](20261012/20261012-015454_pheromone-lane-closed-no-build.kyri) | Lane closed on the Incense ruling; no build. |
 | `20261012.015555` | [Diffuser, P1 hold, ninety-third, check in Claude, no run](20261012/20261012-015555_diffuser-p1-hold-ninety-third-check-in-claude-no-run.kyri) | P1 unruled; ff only; no run. |
 | `20261012.015808` | [Patchouli, version-literal scan clean, no build](20261012/20261012-015808_patchouli-version-literals-clean-no-build.kyri) | Counted headers only as elder readers; no build. |
