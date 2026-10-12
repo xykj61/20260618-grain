@@ -7,6 +7,7 @@
 | `20261012.074205` | [Diffuser, P1 still unruled, ff of two peers, no run](20261012/20261012-074205_diffuser-p1-hold-ff-peers-no-run.kyri) | P1 unruled; no diffuser file touched; no measurement. |
 | `20261012.073952` | [Incense, baton declined, stall named, no build](20261012/20261012-073952_incense-baton-declined-stall-named-no-build.kyri) | Declined lap; stall named for Keaton; no movement. |
 | `20261012.074001` | [Grass, inner prompt graded B+, queue empty, no lift](20261012/20261012-074001_grass-inner-prompt-graded-b-plus-no-lift.kyri) | Field grade 89 B+; no frame, no edit. |
+| `20261012.073842` | [Bakery, cache crux held on a ruling, claim board empty, no build](20261012/20261012-073842_bakery-cache-crux-held-on-ruling-no-build.kyri) | Crux held on Keaton's ruling; no claim, no build. |
 | `20261012.073827` | [Patchouli, queue empty, no build](20261012/20261012-073827_patchouli-queue-empty-no-build.kyri) | Lane queue read empty; no claim; no build. |
 | `20261012.072503` | [Patchouli, queue empty, no build](20261012/20261012-072503_patchouli-queue-empty-no-build.kyri) | Lane empty; claim-as-override surveyed; log only. |
 | `20261012.063214` | [Patchouli, queue empty again, no build](20261012/20261012-063214_patchouli-queue-empty-no-build.kyri) | Fresh grep empty; kumara red held for ruling; no build. |
