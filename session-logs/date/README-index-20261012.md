@@ -1,3 +1,4 @@
+| 20261012.175617 | [Bakery gated, no build](20261012/20261012-175617_bakery-gated-no-build.kyri) | Receipt-key ruling owed; no ungated item. |
 | 20261012.175604 | [Incense decline, clear board, nib carried, no build](20261012/20261012-175604_incense-decline-clear-board-nib-carry.kyri) | Round-open clean; nib carried to 30a33851f4; gates held; no build.
 | 20261012.175211 | [Petrichor gate held, ff two, no build](20261012/20261012-175211_petrichor-gate-held-no-build.kyri) | Gate unchanged upstream; no seam, no Consent Rail move; no build. |
 | 20261012.175153 | [Git nib carried after a rebase moved the parent](20261012/20261012-175153_diffuser-nib-carry-after-rebase.kyri) | Nib stale after rebase; carried to de6ae3cfcc.
