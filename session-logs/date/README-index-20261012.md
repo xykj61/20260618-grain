@@ -11,6 +11,8 @@
 |---|---|---|
 | `20261012.033500` | [Grass, foundations graded, no frame owed](20261012/20261012-033500_grass-foundations-graded-no-frame.kyri) | Living foundations B or better; no edit. |
 | `20261012.033347` | [Incense, declined, no build](20261012/20261012-033347_incense-baton-declined-after-round-open-no-build.kyri) | Round-open clean; board clear; no build. |
+
+| `20261012.033347` | [Bakery, plant held, ff, no build](20261012/20261012-033347_bakery-plant-held-ff-no-build.kyri) | 358 controls remain; receipt key YOURS; no build. |
 | `20261012.033259` | [Copal, fruit met, no build](20261012/20261012-033259_copal-fruit-met-zero-unrostered-no-build.kyri) | Zero unrostered witnesses; no build. |
 | `20261012.033130` | [Patchouli, queue empty fifteenth](20261012/20261012-033130_patchouli-queue-empty-fifteenth-no-build.kyri) | Queue empty; no build. |
 | `20261012.032701` | [Copal, fruit spent, no build](20261012/20261012-032701_copal-fruit-spent-no-build.kyri) | Fruit already rostered; 0 unrostered witnesses; no build. |
