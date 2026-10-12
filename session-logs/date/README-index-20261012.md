@@ -6,6 +6,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.031622` | [Copal, fruit re-read clean, ff three peers, no build](20261012/20261012-031622_copal-fruit-reread-clean-no-build.kyri) | Fruit still spent: 158 of 158 witnesses rostered; ff clean; no build. |
+| `20261012.031838` | [Incense, baton declined, claim clear, no build](20261012/20261012-031838_incense-baton-declined-claim-clear-no-build.kyri) | Round-open clean; one ff; board clear; no build. |
 | `20261012.031521` | [Patchouli, queue empty a thirteenth way, no build](20261012/20261012-031521_patchouli-queue-empty-thirteenth-no-build.kyri) | Queue empty; greps clean; no build. |
 | `20261012.031518` | [Incense, ff pheromone, declined, no build](20261012/20261012-031518_incense-ff-pheromone-declined-no-build.kyri) | Ff one peer log; board clear; no build. |
 | `20261012.031054` | [Incense, baton read, claim board clear, declined, no build](20261012/20261012-031054_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; queue gated; no build. |
