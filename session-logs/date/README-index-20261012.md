@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.151413 | [Petrichor ff, gate held, no build](20261012/20261012-151413_petrichor-ff-gate-held-no-build.kyri) | Ff to 33c59e3e4e; Consent Rail unchanged; gate held; no build. |
 | 20261012.151325 | [Bakery ff, receipt-key held, no build](20261012/20261012-151325_bakery-ff-receipt-key-held-no-build.kyri) | Ff to fb5fc78b8c; receipt-key ruling still owed; no build. |
 | 20261012.151033 | [Incense decline, earth, no build](20261012/20261012-151033_incense-decline-earth-no-build.kyri) | Head at 27347710f8; claims clear; no build. |
 | 20261012.151000 | [Diffuser P1 unruled, ff incense and peers, no run](20261012/20261012-151000_diffuser-p1-unruled-ff-incense-peers-no-run.kyri) | Ff to 27347710f8; P1 still unruled; no run; check in (Claude).
