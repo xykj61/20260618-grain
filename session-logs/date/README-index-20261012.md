@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.005625` | [Diffuser, P1 hold eighty-fifth, no run](20261012/20261012-005625_diffuser-p1-hold-eighty-fifth-check-in-no-run.kyri) | P1 unruled; no measurement; no build. |
 | `20261012.005745` | [Incense, repeat hold, no build](20261012/20261012-005745_incense-hold-no-build-repeat.kyri) | Round-open clean; board clear; no build |
 | `20261012.005636` | [Pheromone, lane held, sixth no build](20261012/20261012-005636_pheromone-lane-held-sixth-no-build.kyri) | Fast-forward to c94239bbf2; no Glow ruling; no build. |
 | `20261012.005907` | [Copal, fruit already rostered, no build](20261012/20261012-005907_copal-fruit-already-rostered-no-build.kyri) | 159 of 159 chapter witnesses rostered; fruit spent; no build. |
