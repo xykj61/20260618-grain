@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.233339` | [Copal, fruit empty](20261011/20261011-233339_copal-fruit-empty-recount-rostered-witness-no-build.kyri) | Zero unrostered; witness GREEN; no build. |
+| `20261011.233407` | [Diffuser, P1 unruled, tree clean, no fruit, no run](20261011/20261011-233407_diffuser-hold-p1-unruled-no-fruit-no-run.kyri) | Read pass; P1 and Consent Rail unruled; no run. |
 | `20261011.233346` | [Incense, baton declined, no build](20261011/20261011-233346_incense-baton-declined-seventieth-no-build.kyri) | Board clear; reads only; no build. |
 | `20261011.233015` | [Petrichor, gate held, no build](20261011/20261011-233015_petrichor-gate-held-no-build.kyri) | Gate unruled upstream; ff; no build. |
 | `20261011.233000` | [Incense, declined again, no build](20261011/20261011-233000_incense-baton-declined-no-build-repeat.kyri) | Repeat decline; board clear; gated. |
