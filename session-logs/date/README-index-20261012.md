@@ -7,6 +7,7 @@
 | 20261012.104030 | [Pheromone, fire lap, Glow lane held, no build](20261012/20261012-104030_pheromone-fire-sees-held-no-build.kyri) | Fire row read; Incense ruling still the open door; no build. |
 | 20261012.104004 | [Petrichor, rebase held, no build](20261012/20261012-104004_petrichor-rebase-held-no-build.kyri) | Rebased one log; Consent Rail held; no build. |
 | 20261012.104214 | [Grass, inner prompt regraded B+](20261012/20261012-104214_grass-inner-regraded-b-plus-no-build.kyri) | Inner prompt B+ 89 stands; no edit; no build. |
+| 20261012.104229 | [Patchouli queue empty, thirteenth reading, no build](20261012/20261012-104229_patchouli-queue-empty-thirteenth-no-build.kyri) | Queue empty; claim board clear; no build. |
 | 20261012.103823 | [Grass, five surfaces graded, no build](20261012/20261012-103823_grass-door-grades-five-no-build.kyri) | Five open pages read B or better; no edit; no build. |
 | 20261012.103815 | [Copal, fruit empty, no build](20261012/20261012-103815_copal-fruit-empty-no-build.kyri) | No unrostered witness; no build. |
 | 20261012.103745 | [Incense, seventy-fourth held lap, no build](20261012/20261012-103745_incense-baton-seventy-fourth-no-build.kyri) | Round-open clean; claims clear; no build. |
