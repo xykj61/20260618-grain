@@ -487,6 +487,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.184937 | [Diffuser P1 held, ff three peers, no run](20261012/20261012-184937_diffuser-p1-hold-ff-copal-patchouli-no-run.kyri) | Ff three peers, no P1 ruling; no run. |
 | 20261012.184814 | [Brush parse witness rostered](20261012/20261012-184814_brush-parse-roster-claimed-green-red.kyri) | Claim pushed; green INV_OK 91, red INV_LOW 2; roster row. |
 | 20261012.184644 | [Petrichor gate held, ff, no build](20261012/20261012-184644_petrichor-gate-held-ff-no-build.kyri) | Consent Rail and seam unchanged upstream; no build. |
 | 20261012.184515 | [Grass warrant head graded, no lift](20261012/20261012-184515_grass-warrant-head-graded-no-lift.kyri) | Warrant head read register 92, reach 90; no lift; no build. |
