@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.084014` | [Patchouli, queue empty a 25th way](20261012/20261012-084014_patchouli-queue-empty-tidy-bans-clean.kyri) | Tidy-ban class clean; no code moved; queue waits on Keaton. |
 | `20261012.084324` | [Copal, fruit re-read empty, no build](20261012/20261012-084324_copal-fruit-reread-empty-no-build.kyri) | Fruit names no unrostered witness; roster complete; no build. |
 | `20261012.084345` | [Diffuser P1 stall](20261012/20261012-084345_diffuser-p1-stall-no-run-check-in-claude.kyri) | P1 unruled, no run; check in (Claude). |
 | `20261012.084155` | [Incense, declined on a clear board, no build](20261012/20261012-084155_incense-declined-board-clear-no-build.kyri) | Board clear; queue waits on Keaton's word; no build. |
