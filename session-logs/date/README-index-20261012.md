@@ -6,6 +6,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.025623` | [Incense, contract review declined, no run](20261012/20261012-025623_incense-contract-review-declined-no-run.kyri) | Round-open clean; contract graded A; no edit. |
+| `20261012.030130` | [Diffuser, P1 still unruled, ff clean, no run](20261012/20261012-030130_diffuser-p1-still-unruled-ff-no-run.kyri) | P1 unruled; ff clean; no run. |
 | `20261012.025837` | [Diffuser, P1 still unruled, fetch clean, no run](20261012/20261012-025837_diffuser-p1-hold-check-in-claude-no-run.kyri) | P1 unruled; ff clean; no run. |
 | `20261012.025658` | [Pheromone, ff seven, lane held, no build](20261012/20261012-025658_pheromone-ff-lane-held-no-build.kyri) | Seven upstream, none in glow; no build. |
 | `20261012.025759` | [Patchouli, merge split, GREEN](20261012/20261012-025759_patchouli-merge-postconditions-split.kyri) | merge 118 to 58 lines; seven weave witnesses GREEN. |
