@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.014206` | [Grass, inner page B+, rota aether, no build](20261012/20261012-014206_grass-inner-page-b-plus-rota-aether-no-build.kyri) | Field read register 77, reach 90, truth 100; queue empty; no build. |
 | `20261012.013945` | [Pheromone, air boundary held, no build](20261012/20261012-013945_pheromone-air-boundary-held-no-build.kyri) | Air rota row; fifteen-field ceiling read direct and held; no build. |
 | 20261012.013938 | [diffuser P1 floor is capacity](20261012/20261012-013938_diffuser-p1-floor-capacity-not-length.kyri) | P1 cannot clear by trace length; the ruling is on the precondition |
 | `20261012.013720` | [Patchouli, usize width class clean, no build](20261012/20261012-013720_patchouli-usize-width-class-clean-no-build.kyri) | 38 usize lines, all seam casts; zero candidates. |
