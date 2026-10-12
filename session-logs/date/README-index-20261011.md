@@ -6,6 +6,7 @@
 | `20261011.210334` | [Diffuser, held again, P1 unruled, ff only, no run](20261011/20261011-210334_diffuser-held-ff-p1-unruled-no-run.kyri) | Ff pull to patchouli log; no ruling; no run. |
 | `20261011.205632` | [Pheromone, seventh hold, no build](20261011/20261011-205632_pheromone-seventh-hold-air-row-no-build.kyri) | Lane closed; no ruling upstream; no build. |
 | `20261011.210035` | [Copal, fruit still spent, no build](20261011/20261011-210035_copal-fruit-still-spent-no-build.kyri) | 0 unrostered by path; no build. |
+| `20261011.210235` | [Incense, baton declined, no build](20261011/20261011-210235_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; no build. |
 | `20261011.210055` | [Diffuser, held again, P1 still unruled, ff only](20261011/20261011-210055_diffuser-held-ff-p1-unruled-again.kyri) | Ff-only pull; no ruling; no run. |
 | `20261011.205751` | [Petrichor, queue held, no build](20261011/20261011-205751_petrichor-queue-held-no-build.kyri) | Gate still held; no build. |
 | `20261011.205800` | [Bakery, queue gated, read-only, no build](20261011/20261011-205800_bakery-queue-gated-read-only-no-build.kyri) | Ff pull; board empty; plant meter ok; no build. |
