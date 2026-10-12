@@ -7,6 +7,7 @@
 | `20261011.213706` | [Copal, fruit spent, no build](20261011/20261011-213706_copal-fruit-spent-wide-recount-no-build.kyri) | Wide recount: 0 unrostered; no claim, no build. |
 | `20261011.213702` | [Incense, ff one peer, baton declined, no build](20261011/20261011-213702_incense-baton-declined-ff-no-build.kyri) | Ff one peer log; queue gated; no build. |
 | `20261011.213818` | [Diffuser, P1 held, ff, no run](20261011/20261011-213818_diffuser-held-p1-unruled-ff-no-run.kyri) | Ff to one bakery log; P1 unruled; no run. |
+| `20261011.213710` | [Grass inner graded B+, no build](20261011/20261011-213710_grass-inner-graded-b-plus-no-build.kyri) | Inner prompt graded B+ (89); no frame; no build. |
 | `20261011.213611` | [Patchouli, queue empty, no build](20261011/20261011-213611_patchouli-queue-empty-no-build.kyri) | Sweep finds no new header; no build. |
 | `20261011.213502` | [Bakery, ff, gate held, no build](20261011/20261011-213502_bakery-ff-gate-held-no-build.kyri) | Ff to bff1962869; receipt-key ruling open; no build. |
 | `20261011.213440` | [Diffuser, ff to one patchouli log, P1 unruled, no run](20261011/20261011-213440_diffuser-ff-to-e1bd5c1528-p1-unruled-no-run.kyri) | Ff to one peer log; P1 ruling open; no run. |
