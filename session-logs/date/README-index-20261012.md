@@ -372,6 +372,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.152958 | [Day shelf past bound, measured, no build](20261012/20261012-152958_incense-shelf-over-bound-decline-no-build.kyri) | 1143 logs, 1005 declines; over 768; fold on word. |
 | 20261012.152411 | [Patchouli queue empty, thirtieth, no build](20261012/20261012-152411_patchouli-queue-empty-thirtieth-no-build.kyri) | Ff to 62eea39d4e; queue empty; no build. |
 | 20261012.152156 | [Diffuser held on P1, ff three peers, no run](20261012/20261012-152156_diffuser-ff-p1-held-no-run.kyri) | Ff to d7e05631c2; P1 unruled; no run; check in (Claude). |
 | 20261012.151858 | [Patchouli queue empty, kumara red held](20261012/20261012-151858_patchouli-queue-empty-kumara-held.kyri) | Queue empty again; %841 held for a seam ruling; no build. |
