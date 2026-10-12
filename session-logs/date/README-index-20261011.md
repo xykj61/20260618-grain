@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.232846` | [Incense, baton declined, no build](20261011/20261011-232846_incense-baton-declined-no-build.kyri) | Board clear; reads only; no build. |
 | `20261011.232231` | [Petrichor, gate verified, no build](20261011/20261011-232231_petrichor-consent-facts-verified-no-build.kyri) | Gate on HEAD; no build. |
 | `20261011.231658` | [Incense, baton declined, no build](20261011/20261011-231658_incense-baton-declined-no-build.kyri) | Board clear; reads only; no build. |
 | `20261011.232650` | [Diffuser, P1 held, ff three peers, no run](20261011/20261011-232650_diffuser-hold-p1-ff-three-peers-no-run.kyri) | P1 unruled after failure; ff to xy; no run. |
