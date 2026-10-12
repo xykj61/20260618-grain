@@ -8,7 +8,7 @@
 | `20261012.012156` | [Incense, eighty-fifth, no build](20261012/20261012-012156_incense-baton-eighty-fifth-no-build.kyri) | Round-open clean on 923a4576f5; board clear; no build. |
 | `20261012.012132` | [Copal, roster complete, no build](20261012/20261012-012132_copal-chapter-roster-none-unrostered.kyri) | Zero unrostered witnesses; fruit met; no build. |
 | `20261012.011843` | [Patchouli, queue empty again, no build](20261012/20261012-011843_patchouli-queue-empty-recheck-no-build.kyri) | Nets clean; %840 held on rulings. |
-| `20261012.012156` | [Incense, eighty-fifth, no build](20261012/20261012-012156_incense-baton-eighty-fifth-no-build.kyri) | Round-open clean on 923a4576f5; board clear; no build. |
+| `20261012.012138` | [Petrichor, consent gate unchanged, no build](20261012/20261012-012138_petrichor-consent-gate-unchanged-no-build.kyri) | Gate held; no build. |
 | `20261012.011853` | [Incense, eighty-fourth, no build](20261012/20261012-011853_incense-baton-eighty-fourth-no-build.kyri) | Round-open clean on 4e926ff613; no build. |
 | `20261012.011550` | [Grass inner, B+ again, repeat flagged](20261012/20261012-011550_grass-inner-regrade-b-plus-repeat-no-build.kyri) | Field grade holds at B+ (89); no edit; repeat-pattern noted. |
 | `20261012.011836` | [Diffuser, P1 unruled, eighty-seventh hold](20261012/20261012-011836_diffuser-p1-hold-eighty-seventh-no-run.kyri) | No P1 ruling in peer bodies; no run; check in (Claude). |
