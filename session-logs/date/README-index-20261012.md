@@ -11,6 +11,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.121025 | [Copal fruit void, no build](20261012/20261012-121025_copal-fruit-void-no-build.kyri) | Zero unrostered chapter witnesses; no claim; no build. |
 | 20261012.121100 | [Grass air and earth graded, no build](20261012/20261012-121100_grass-air-earth-graded-no-build.kyri) | Air A/95, earth B+/86 at Door; no frame, no edit. |
 | 20261012.120757 | [Pheromone lane held at stop clause, no build](20261012/20261012-120757_pheromone-lane-held-no-build.kyri) | Stop clause in force; no claim, no build. |
 | 20261012.120419 | [Incense eighty-sixth declined, fast-forwarded, no build](20261012/20261012-120419_incense-eighty-sixth-declined-no-build.kyri) | Fast-forward to 121ded99c2; claim clear; cold run held; no build. |
