@@ -20,6 +20,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.122650 | [Diffuser P1 check-in, no run](20261012/20261012-122650_diffuser-p1-check-in-no-run.kyri) | One peer fast-forwarded; P1 still unruled; no run, no hold row; check in (Claude). |
 | 20261012.121411 | [Incense declines, water row, no build](20261012/20261012-121411_incense-water-row-declined-no-build.kyri) | Round-open clean, claim board clear, cold run held; no build. |
 | 20261012.121923 | [Petrichor gate held, no build](20261012/20261012-121923_petrichor-gate-held-after-ff-no-build.kyri) | Seam and Consent Rail unchanged; no build. |
 | 20261012.121857 | [Grass docs, four graded, no frame](20261012/20261012-121857_grass-docs-four-graded-no-frame.kyri) | Four docs pages at A or better; no molt, no build. |
