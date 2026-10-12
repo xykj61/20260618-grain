@@ -517,6 +517,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.194028 | [Incense declines, order held, no build](20261012/20261012-194028_incense-decline-order-held-no-build.kyri) | Order held, cold run unlaunched; no build; stall flagged. |
 | 20261012.193837 | [Bakery crux held on the receipt-key ruling, no build](20261012/20261012-193837_bakery-crux-held-ruling-owed-no-build.kyri) | Fast-forwarded to ef5fdad1d2; plant census read 51 sourcing; ruling owed; no build. |
 | 20261012.193435 | [Incense decline, orbit ten, no build](20261012/20261012-193435_incense-decline-orbit-ten-no-build.kyri) | Clear board, on order; nib carried; no build. |
 | 20261012.193113 | [Petrichor gate held, ff six, no build](20261012/20261012-193113_petrichor-gate-held-ff-six-no-build.kyri) | Consent Rail and seam unchanged upstream; no build. |
