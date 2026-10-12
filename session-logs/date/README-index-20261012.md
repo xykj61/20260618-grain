@@ -5,6 +5,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.111425 | [Diffuser P1 still unruled after ff of three peer logs, no run](20261012/20261012-111425_diffuser-p1-hold-no-ruling-no-run.kyri) | P1 owed to Keaton or a Claude hand; fast-forward only; no run. |
 | 20261012.111300 | [Patchouli spool split under seventy lines](20261012/20261012-111300_patchouli-spool-selftest-split.kyri) | Five phases, same output; spool witness re-pinned. |
 | 20261012.111016 | [Bakery plant ratchet re-read, no build](20261012/20261012-111016_bakery-ratchet-read-no-build.kyri) | Fast-forward; plant scan verdict=ok, sourcing 51 vs card 44; no build. |
 | 20261012.110854 | [Incense next fold, no build](20261012/20261012-110854_incense-next-fold-held-no-build.kyri) | Six accounts folded; bound verb; rota aether |
