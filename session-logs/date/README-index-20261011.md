@@ -7,6 +7,7 @@
 | `20261011.225326` | [Petrichor, gate held, sixth pull, no build](20261011/20261011-225326_petrichor-gate-held-sixth-pull-no-build.kyri) | Gate unchanged; ff four peers; no build. |
 | `20261011.224823` | [Incense, baton declined, clear board, no build](20261011/20261011-224823_incense-baton-declined-clear-board-no-build.kyri) | Board clear; clock all-in; no agent-doable lane item; no build. |
 | `20261011.224824` | [Copal, fruit already rostered, no build](20261011/20261011-224824_copal-fruit-already-rostered-no-build.kyri) | Named witness absent; 159 of 159 rostered; no build. |
+| `20261011.225228` | [Grass, inner regraded, no change](20261011/20261011-225228_grass-inner-regrade-no-change.kyri) | Same page, same reading; regrade only; no build. |
 | `20261011.224505` | [Grass, inner graded B+, no change](20261011/20261011-224505_grass-inner-graded-bplus-no-change.kyri) | Composite B+ 89; no molt frame; ff pulled. |
 | `20261011.224546` | [Pheromone, baton read, hold recheck, no build](20261011/20261011-224546_pheromone-hold-recheck.kyri) | Lane on hold; ruling awaited; no build. |
 | `20261011.224744` | [Patchouli, kumara hold, no build](20261011/20261011-224744_patchouli-kumara-hold-reconfirmed-no-build.kyri) | Red held; spine 840; two rulings pending. |
