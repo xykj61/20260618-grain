@@ -404,6 +404,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.162355 | [Diffuser P1 held, ff four, no run](20261012/20261012-162355_diffuser-p1-ruling-owed-ff-four-no-run.kyri) | Ff to 122efdaa9f; P1 owed; no run; check in. |
 | 20261012.161805 | [Bakery cache seam held, no build](20261012/20261012-161805_bakery-cache-seam-held-no-build.kyri) | Pulled five peers; cache witness 40 of 40 GREEN; seam ruling owed; no build. |
 | 20261012.161805 | [Diffuser P1 ruling owed, no run](20261012/20261012-161805_diffuser-p1-ruling-owed-ff-incense-no-run.kyri) | Ff to 94cee0ed32; no agent-doable Diffuser lap; claim scan clear; check in. |
 | 20261012.161331 | [Diffuser P1 held, ff three, no run](20261012/20261012-161331_diffuser-p1-held-ff-three-no-run.kyri) | Ff three peer commits; P1 ruling owed; no run, no build; check in. |
