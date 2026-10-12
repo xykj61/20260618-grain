@@ -28,4 +28,5 @@ file tools/g/gism_spool_witness.rish why stale 6/12 resin pins and em dash repla
 file session-logs/date/README-index-20261012.md why the day shelf gains this lap's row under the delimiter
 scope mantra/spool.rye and its GISM witness; no other module touched
 status GREEN: gism_spool_witness (was RED on baseline, now exit 0), gism_spool_cloth_witness exit 0, mantra_spool_dedup_ratio_witness exit 0, tame_style_check GREEN on its scan roster, selftest prints the same ten lines. Send: pull --rebase onto xy/main (3 behind), then push xy main; nib follows on a follow-up commit.
+obs send record: the first push was refused by a peer that landed first; the rebase conflicted twice on the day index, both times between peer rows and this row, and both were resolved keeping every row. Pushed as d2fcf5eea9, signed. The git nib lagged one follow-up and was carried after the push.
 recommend kg -- the next over-seventy candidates, measured fresh, are run_beading_selftest, run_batch_selftest and run_selftest in recall_by_mark.rye; the %807 and %840 rulings still wait on Keaton.
