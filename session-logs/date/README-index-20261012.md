@@ -5,6 +5,9 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.094509 | [Diffuser, P1 still held, no run](20261012/20261012-094509_diffuser-p1-still-held-ff-peers-no-run.kyri) | P1 ruling still owed; ff of two peers; no run. |
+| 20261012.094341 | [Grass, inner page regraded B+, no build](20261012/20261012-094341_grass-inner-regraded-b-plus-no-build.kyri) | grass-inner regraded B+ (88, service 85 judged); no edit; kg. |
+| 20261012.094448 | [Patchouli, queue re-read empty, no build](20261012/20261012-094448_patchouli-queue-recheck-no-build.kyri) | Live red and pin headroom unchanged; no code moved. |
+| 20261012.094305 | [Pheromone, limb10 reconfirmed](20261012/20261012-094305_pheromone-limb10-reconfirmed-lane-empty.kyri) | Limb10 GREEN; lane empty; no build. |
 | 20261012.094250 | [Bakery, crux window held, no build](20261012/20261012-094250_bakery-crux-window-held-no-build.kyri) | Window still YOURS; cold plus hot exceeds 5,400 s; no build. |
 | 20261012.094243 | [Copal fruit third read, spent, no build](20261012/20261012-094243_copal-chapter-fruit-third-read-no-build.kyri) | No unrostered witness; no build. |
 | 20261012.094049 | [Incense, declined](20261012/20261012-094049_incense-declined-round-open-nib-carried-no-build.kyri) | Round-open clean at e319b8d143; board empty; nib carried; no build. |
