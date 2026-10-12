@@ -94,10 +94,33 @@ pub fn main(init: std.process.Init) !u8 {
     defer pen.close(io);
 
     var pens_made: u32 = 0;
+    pens_made += try claim_blob_round_trip(io, pen, garden);
+    pens_made += try claim_ceiling_edges(io, pen, garden);
+    pens_made += try claim_head_states(io, pen, garden);
 
+    // ---- Claim 8 -- the ceiling has a reason.
+    // 128 MiB over a weave at its own line ceiling is 128 bytes a row, which
+    // stands at roughly twice this tree's own 50.3 bytes a line.
+    const bytes_per_row: u64 = store_mod.max_blob_bytes / weave.max_weave_lines;
+    assert(bytes_per_row == 128);
+    // invariant: the ceiling stands above the 4 MiB the CLI shipped, so naming
+    // one number raised the capacity rather than lowering it
+    assert(store_mod.max_blob_bytes > 4 * 1024 * 1024);
+    print("store: max_blob_bytes is 128 bytes a row at the weave's own line ceiling -- GREEN\n", .{});
+
+    // postcondition: every pen this witness opened is one it named
+    assert(pens_made <= max_pen_dirs);
+    assert(pens_made == 3);
+
+    print("GREEN: store witness {s} -- eight claims, three refusals by name, the ceiling read at its own boundary from the refusing side.\n", .{witness_version});
+    return 0;
+}
+
+/// Claims 1 to 4, in pen "one": a blob round-trips, is write-once, and is
+/// refused by name when altered or truncated on disk. Returns the pens opened.
+fn claim_blob_round_trip(io: std.Io, pen: Dir, garden: std.mem.Allocator) !u32 {
     // ---- Claim 1 -- a blob comes back whole, under a 64-character name.
     const dir_one = try open_pen(io, pen, "one");
-    pens_made += 1;
     const store_one = try store_mod.Store.open(io, dir_one);
     const name = try store_one.write_blob(garden, io, sample_text);
     assert(name.len == Sha3.digest_length * 2);
@@ -129,9 +152,15 @@ pub fn main(init: std.process.Init) !u8 {
     try expect_store_error(store_one, garden, io, name, store_mod.StoreError.BlobNameMismatch);
     print("store: a blob truncated on disk is refused BlobNameMismatch -- GREEN\n", .{});
 
+    return 1;
+}
+
+/// Claims 5 and 6, in pen "two": data one byte past the ceiling is refused at
+/// the write edge, and a file one byte past it is refused at the read edge.
+/// Returns the pens opened.
+fn claim_ceiling_edges(io: std.Io, pen: Dir, garden: std.mem.Allocator) !u32 {
     // ---- Claim 5 -- past the ceiling at the WRITE edge, before a byte lands.
     const dir_two = try open_pen(io, pen, "two");
-    pens_made += 1;
     const store_two = try store_mod.Store.open(io, dir_two);
     const over: usize = @intCast(store_mod.max_blob_bytes + 1);
     const too_big = try garden.alloc(u8, over);
@@ -150,20 +179,32 @@ pub fn main(init: std.process.Init) !u8 {
     // Written straight into the blob directory under a well-formed name, since
     // `write_blob` now refuses to put it there at all.
     const planted_name = "0" ** (Sha3.digest_length * 2);
+    // invariant: the planted name is well-formed, so the refusal below is the
+    // read edge's own reading rather than a malformed request
+    assert(planted_name.len == Sha3.digest_length * 2);
     try store_two.blobs_dir.writeFile(io, .{ .sub_path = planted_name, .data = too_big });
     try expect_store_error(store_two, garden, io, planted_name, store_mod.StoreError.BlobTooLarge);
     print("store: a file one byte past max_blob_bytes is refused BlobTooLarge at the read edge -- GREEN\n", .{});
 
+    return 1;
+}
+
+/// Claims 7 and 7b, in pen "three": HEAD round-trips in its absent, written,
+/// and mis-sized states, and a HEAD name of the wrong length is refused at the
+/// write edge with HEAD left untouched. Returns the pens opened.
+fn claim_head_states(io: std.Io, pen: Dir, garden: std.mem.Allocator) !u32 {
     // ---- Claim 7 -- HEAD, in its three states.
     const dir_three = try open_pen(io, pen, "three");
-    pens_made += 1;
     const store_three = try store_mod.Store.open(io, dir_three);
     const absent = try store_three.read_head(garden, io);
     assert(absent == null);
-    try store_three.write_head(io, name);
+    // invariant: HEAD takes a well-formed 64-character name; the bytes need not
+    // be a real blob here, since HEAD only stores and returns the name it is given
+    const head_name = "0" ** (Sha3.digest_length * 2);
+    try store_three.write_head(io, head_name);
     const head_back = try store_three.read_head(garden, io);
     assert(head_back != null);
-    assert(std.mem.eql(u8, head_back.?, name));
+    assert(std.mem.eql(u8, head_back.?, head_name));
     try store_three.mantra_dir.writeFile(io, .{ .sub_path = "HEAD", .data = "short\n" });
     const corrupt = try store_three.read_head(garden, io);
     assert(corrupt == null);
@@ -181,22 +222,7 @@ pub fn main(init: std.process.Init) !u8 {
     assert(std.mem.eql(u8, head_now, "short\n"));
     print("store: a HEAD name one character short or long is refused HeadNameLength, and HEAD is left untouched -- GREEN\n", .{});
 
-    // ---- Claim 8 -- the ceiling has a reason.
-    // 128 MiB over a weave at its own line ceiling is 128 bytes a row, which
-    // stands at roughly twice this tree's own 50.3 bytes a line.
-    const bytes_per_row: u64 = store_mod.max_blob_bytes / weave.max_weave_lines;
-    assert(bytes_per_row == 128);
-    // invariant: the ceiling stands above the 4 MiB the CLI shipped, so naming
-    // one number raised the capacity rather than lowering it
-    assert(store_mod.max_blob_bytes > 4 * 1024 * 1024);
-    print("store: max_blob_bytes is 128 bytes a row at the weave's own line ceiling -- GREEN\n", .{});
-
-    // postcondition: every pen this witness opened is one it named
-    assert(pens_made <= max_pen_dirs);
-    assert(pens_made == 3);
-
-    print("GREEN: store witness {s} -- eight claims, three refusals by name, the ceiling read at its own boundary from the refusing side.\n", .{witness_version});
-    return 0;
+    return 1;
 }
 
 /// Open (creating if absent) one named pen directory under `parent`.

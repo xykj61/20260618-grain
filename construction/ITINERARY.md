@@ -238,7 +238,7 @@ witnesses re-run GREEN; no code line moved. **`20261010` re-read at judged servi
 
 **DIFFUSER -- THE SIMULATED POPULATION EXPLAINS MOST OF THE GAP; CHURN IS THE LARGEST FACTOR.** The mixed-lifetime chain stands in [the mixed-lifetime essay](../active-designing/date/20261003/20261003-102318_the-mixed-lifetime-cost-is-space-not-time.md). Landed `20261009.174149`: the simulated paper's own population reproduces its table on a real glibc buffer to within 10 percent, and matching the churn to the real probe closes about 82 percent of the gap at W=10,000 (2,105 per seed against 1,696). The falsifier did not fire. The size mix ran at `20261009.174910` and closed the residual to the seed spread, so that Next is done. Next waits on a real caller's live-set trace, which the tracked tree does not hold: the `20261009.183640` read opened the two matches the `175814` log left unopened, and neither is a trace. The old account is shelved at [construction/archive/20261009-174149_diffuser-card-account-shelved.md](archive/20261009-174149_diffuser-card-account-shelved.md).
 
-**PATCHOULI -- THE LANE'S ACCOUNTS, SHELVED WHOLE.** [Account shelved](archive/date/20261012/20261012-081818_itinerary-patchouli-head-record-split-account.md) -- `snapshot_export.rye`'s head-record parse split under the 70-line bound, six snapshot witnesses GREEN (log `20261012.081818`). **YOURS:** a held red, not booked (the pin reads 65,532 of 65,536, so no row can enter): `ContinuityFact.stamp` returns a slice into a local buffer, a use-after-return shape the split kept unchanged. The fix changes a public struct type, so it waits on your word. The family queue reads empty again on `20261012` (log `20261012.045759`). **YOURS:** two rulings, both gating `%840` (`tally/kumara.rye:36`, legacy `sign` under `catch unreachable`, reproduced `20261010.174431`). The ledger is deadlocked (`reds_pin_capacity_scan.sh`: `pin_deadlocked=1`, `rows_that_fit=0`, no foldable row), so the row waits off the pin. Then: the legacy `sign` seam (`amphora/`, `aurora/`, `comlink/` callers) to `sign_checked`, or keep it.
+**PATCHOULI -- THE LANE'S ACCOUNTS, SHELVED WHOLE.** [Account shelved](archive/date/20261012/20261012-115038_itinerary-patchouli-store-witness-split-account.md) -- `store_witness.rye`'s main split under seventy into three claim helpers, eight claims GREEN (log `20261012.115038`). **YOURS:** the held red `ContinuityFact.stamp` (use-after-return, waits on your word, the pin at 65,532 of 65,536). **YOURS:** the two rulings gating `%840` (`tally/kumara.rye:36`, legacy `sign`), and the legacy `sign` seam to `sign_checked`, or keep it.
 
 **EVERY SHIP OWES ITS `rishi` BINARY A REBUILD** (`20260915.223610`, `%746`). `rishi/bin/rishi` is
 untracked, so a checkout carries whatever it last built, and a stale one answers `NoSuchField` on a
@@ -323,7 +323,7 @@ The interface uses ASCII as structure, linen as material, and motion as a bounde
 Brushstroke declares each component's grid, role, state, tokens, and motion profile. Skate renders the fixed frame and bounded events. A correspondence witness forces meaning, description, and behavior to change together.
 
 ## Now -- the eight sailing ship itineraries
-**Git nib:** `94fc6aa91a`
+**Git nib:** `109675a8d6`
 
 
 ### Incense -- product captain
