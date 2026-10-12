@@ -439,6 +439,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.174347 | [Bakery queue gated, no build](20261012/20261012-174347_bakery-queue-gated-no-build.kyri) | Queue gated on rulings; ff five; no build. |
 | 20261012.173920 | [Patchouli queue empty, %841 held, no build](20261012/20261012-173920_patchouli-queue-empty-841-held-no-build.kyri) | Queue empty; REDS %841 held for a ruling; no build.
 | 20261012.174012 | [Grass inner page graded at Field, no build](20261012/20261012-174012_grass-inner-grade-no-build.kyri) | Inner page graded: register 77, reach 90, truth 100; no build |
 | 20261012.173942 | [Diffuser P1 held, ff three, no run](20261012/20261012-173942_diffuser-p1-hold-ff-three-no-run.kyri) | Ff to 5acf2c7e58; P1 ruling still owed; no run. |
