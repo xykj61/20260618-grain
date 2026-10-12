@@ -1,6 +1,7 @@
 # session-logs day index -- 20261012
 **Language:** EN
 | 20261012.134308 | [Incense claim recheck, no build](20261012/20261012-134308_incense-claim-recheck-no-build.kyri) | Round-open clean at xy; claim board clear; card and ledger hold headroom; no build. |
+| 20261012.134516 | [Diffuser P1 hold, open ruling, no run](20261012/20261012-134516_diffuser-p1-hold-no-run.kyri) | Clean tree at 8c59af0b42; P1 ruling still open; no run. |
 | 20261012.133919 | [Incense orbit three, decline, no build](20261012/20261012-133919_incense-orbit-three-decline-no-build.kyri) | Round-open adopted xy; cold run held; no build. |
 | 20261012.134146 | [Pheromone gate held after pull, no build](20261012/20261012-134146_pheromone-gate-held-after-pull-no-build.kyri) | Fast-forwarded four peer commits; lane still gated on Incense; no build.
 | 20261012.133639 | [Petrichor gate held, no build](20261012/20261012-133639_petrichor-gate-held-no-build.kyri) | Consent Rail gate still held; fast-forward only; no build. |
