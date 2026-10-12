@@ -10,6 +10,7 @@
 | `20261012.044617` | [Incense, orbit one, no build](20261012/20261012-044617_incense-baton-declined-orbit-one-no-build.kyri) | Round-open clean; board clear; cold run held; check in (either). |
 | `20261012.045101` | [Petrichor, upstream gate still held, no build](20261012/20261012-045101_petrichor-upstream-gate-still-held-no-build.kyri) | Three upstream commits moved no Petrichor gate; Consent Rail still held; no build. |
 | `20261012.044639` | [Diffuser, P1 held after ff, no run](20261012/20261012-044639_diffuser-p1-hold-ff-bakery-check-in-claude-no-run.kyri) | Fast-forward brought a bakery log only; P1 unruled; no measurement. |
+| `20261012.045047` | [Patchouli, function-length re-measure, held, no build](20261012/20261012-045047_patchouli-function-length-remeasure-held-no-build.kyri) | Re-measured: from_v2 91, apply_deletes 84, apply 83; kumara %840 still held; no build. |
 | `20261012.044426` | [Patchouli, apply_inserts split](20261012/20261012-044426_patchouli-apply-inserts-split.kyri) | Weave.apply_inserts split into two helpers; weave witnesses GREEN. |
 | `20261012.044546` | [Petrichor, gate held, no build](20261012/20261012-044546_petrichor-gate-held-rebased-no-build.kyri) | Rebased onto xy at 857b01592f; Consent Rail gate still held; no build. |
 | `20261012.044050` | [Bakery, proofs re-stand, receipt key waits, no build](20261012/20261012-044050_bakery-cache-proofs-restand-receipt-key-waits-no-build.kyri) | Cache proofs GREEN on 33961e1264; receipt key waits. |
