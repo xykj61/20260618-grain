@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.204949` | [Pheromone, sixth hold, no build](20261011/20261011-204949_pheromone-sixth-hold-claim-override-none-no-build.kyri) | Lane closed; no safe override; no build. |
 | `20261011.204721` | [Petrichor, fruit gate held, no build](20261011/20261011-204721_petrichor-gate-held-no-build.kyri) | Gate still held; no build. |
 | `20261011.204720` | [Grass, inner page graded, no build](20261011/20261011-204720_grass-inner-regrade-queue-empty-no-build.kyri) | B+ stands; queue empty. |
 | `20261011.204542` | [Incense, baton read, queue gated, no build](20261011/20261011-204542_incense-baton-declined-no-build.kyri) | Clear board; queue gated; no build. |
