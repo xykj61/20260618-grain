@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.081421` | [Pheromone, lane empty, stop clause held, no build](20261012/20261012-081421_pheromone-lane-empty-held-no-build.kyri) | Language lane empty on its stop clause; no rune ruling in hand; no build. |
 | `20261012.081241` | [Bakery held again, receipt basis foreign, no build](20261012/20261012-081241_bakery-receipt-basis-reread-held.kyri) | Fast-forwarded six peers; receipt still foreign_head; waits on Keaton. |
 | `20261012.081051` | [Petrichor, gate held after ff, no build](20261012/20261012-081051_petrichor-gate-held-ff-no-build.kyri) | Consent Rail gate unchanged; no fruit; no build. |
 | `20261012.081035` | [Copal, fruit empty, held](20261012/20261012-081035_copal-fruit-empty-strict-measure-no-build.kyri) | Strict measure: zero unrostered witnesses; no build. |
