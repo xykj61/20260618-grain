@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.122054 | [Pheromone held, round eleven](20261012/20261012-122054_pheromone-held-closed-fruit-no-build.kyri) | Lane closed; no claim, no build. |
 | 20261012.122318 | [Diffuser P1 hold, stop circling](20261012/20261012-122318_diffuser-p1-hold-stop-circling.kyri) | P1 unruled after 100+ holds; no run; check in (Claude) to rule P1. |
 | 20261012.121943 | [Patchouli length queue empty, no build](20261012/20261012-121943_patchouli-length-queue-empty-no-build.kyri) | Version headers and 818 functions measured; nothing owed; no build. |
 | 20261012.121458 | [Pheromone held at closed fruit](20261012/20261012-121458_pheromone-lane-held-closed-fruit-no-build.kyri) | Stop clause in force; no claim, no build.
