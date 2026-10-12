@@ -60,10 +60,14 @@ if [ "$found" != "1" ]; then
   exit 3
 fi
 
-# `sed -i` is spelled differently on each pier, so the tree's own helper carries the dialect.
-. tools/fixtures/s/shell_portable.sh
-sed_inplace 's/scan_ident_span(src, i + 1, "tag", slot)/scan_ident_span(src, i + 1, "ident", slot)/' \
-  "$pen/glow/tokens.rye"
+# The plant is applied by the one proven implementation (REDS %519). A plant that matches nothing
+# refuses by name, so a sed that lands on no line can never run the unmutated tokens and read green.
+. tools/fixtures/p/plant.sh
+if ! plant_apply "$pen/glow/tokens.rye" 's/scan_ident_span(src, i + 1, "tag", slot)/scan_ident_span(src, i + 1, "ident", slot)/' glow_tag_kind; then
+  echo "detail: the tag-kind plant matched nothing in the pen"
+  echo "verdict=plant_absent"
+  exit 3
+fi
 
 if ! env RYE_ZIG="$root/$zig" sh tools/fixtures/r/rye_build.sh \
     "$pen/glow/refusal_witness.rye" -femit-bin="$pen/w" >/dev/null 2>&1; then
