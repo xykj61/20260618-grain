@@ -510,6 +510,8 @@ behind `%840`, which waits on Keaton's ruling. The next lap should not repeat th
 
 **The queue reads empty a twenty-eighth way, `20261012.100608`.** The version-literal net was run fresh over `mantra/` and `tally/`, and this time it asked which strings the live writers emit rather than which strings exist. `mantra/main.rye:235` writes `mantra-weave-20260916.101910` and `mantra/main.rye:569` writes `mantra-commit-20261001.233015`, both chronological. The elder `mantra-weave-v1`/`-v2` and `mantra-commit-v1`/`-v2` appear only in read dispatch and comments, which the law keeps readable forever. `weave.rye` emits no header literal of its own. No writer emits an elder record version, so no candidate books. The lane says the queue is empty and stops here.
 
+**The queue reads empty a twenty-ninth way, `20261012.101212`, by the tidy bans no earlier lap listed.** `git grep -nF` over `mantra/` and `tally/` for `Self = @This()`, `usingnamespace`, `!comptime`, `FIXME`, `dbg(`, `) == error.` and `) != error.` finds zero of each. `copyForwards` and `copyBackwards` each appear once, in `tally/README.md:77`, where the page names the ban rather than calling it. No production site breaks a tidy ban. The next lap should not repeat this net either.
+
 ## gates
 
 Keys, funds, provisioning, identity, and the public seed stay manual.
