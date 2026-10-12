@@ -1468,16 +1468,62 @@ pub const Weave = struct {
         // the side that cannot be searched: `merge` returns its lines in PLACE
         // order, and place order is not identity order, so the side put in
         // identity order is the small one the caller handed in.
-        if (diff.deletes.len > 0) {
+        try self.apply_deletes(allocator, diff.deletes);
+
+        // Process inserts: each new line enters at generation 1 (first appearance,
+        // present). Position is assigned from the monotone counter, and the whole
+        // run of them carries ONE run number -- read before the loop, so every
+        // line this edit adds sorts as one block rather than each line taking its
+        // chances against the other side's lines separately.
+        try self.apply_inserts(allocator, diff);
+
+
+        // The run counter advances once for the whole edit, and only when the
+        // edit actually placed a line. A delete-only diff leaves it alone: it
+        // stamped nothing, so burning a number would open a gap that a
+        // concurrent edit on the other side could never be compared against.
+        if (diff.inserts.len > 0) self.next_run += 1;
+
+        // Postcondition: every line in the weave has a valid, assigned position.
+        for (self.lines.items) |line| {
+            // invariant: a line carries a real generation and a position inside the weave's own
+            // counter, so neither ordering nor identity is left to the caller
+            // invariant: line.gen >= 1
+            assert(line.gen >= 1);
+            // invariant: line.pos < self.next_pos
+            assert(line.pos < self.next_pos);
+            // invariant: a line's run stands under the weave's own run counter, so the next
+            // edit is handed a number no line already carries -- which is what makes two
+            // sides' concurrent runs comparable rather than merely different
+            // invariant: line.run < self.next_run
+            assert(line.run < self.next_run);
+        }
+    }
+
+    /// Mark each named line gone, by raising its generation to even.
+    ///
+    /// Split out of `apply` so the delete half reads on its own. The refusals
+    /// are unchanged, and each one is still read before a generation moves, so
+    /// a refused delete leaves the weave exactly as it arrived.
+    fn apply_deletes(self: *Weave, allocator: std.mem.Allocator, deletes: []const LineId) !void {
+        // invariant: the weave stands inside its ceiling on entry, since the walk
+        // below reads every line it holds
+        // invariant: self.lines.items.len <= max_weave_lines
+        assert(self.lines.items.len <= max_weave_lines);
+        // invariant: the delete list is no longer than the ceiling, since every
+        // target names one of the weave's own lines
+        // invariant: deletes.len <= max_weave_lines
+        assert(deletes.len <= max_weave_lines);
+        if (deletes.len > 0) {
             // invariant: a diff names no more lines than the weave can hold, since
             // every target must name a line this weave already carries -- and this is
             // the bound the scratch slice just below is sized by
-            // invariant: diff.deletes.len <= max_weave_lines
-            assert(diff.deletes.len <= max_weave_lines);
+            // invariant: deletes.len <= max_weave_lines
+            assert(deletes.len <= max_weave_lines);
 
-            const targets = try allocator.alloc(LineId, diff.deletes.len);
+            const targets = try allocator.alloc(LineId, deletes.len);
             defer allocator.free(targets);
-            for (targets, diff.deletes) |*into, from| into.* = from;
+            for (targets, deletes) |*into, from| into.* = from;
             std.mem.sort(LineId, targets, {}, struct {
                 fn less_than(_: void, a: LineId, b: LineId) bool {
                     return a.less_than(b);
@@ -1500,7 +1546,7 @@ pub const Weave = struct {
             // loop is what raises a generation, so a refusal leaves the weave
             // exactly as it arrived -- where a walk that bumped as it went would
             // leave half a diff applied and a named error to explain it.
-            const marks = try allocator.alloc(u32, diff.deletes.len);
+            const marks = try allocator.alloc(u32, deletes.len);
             defer allocator.free(marks);
 
             var hits: u32 = 0;
@@ -1528,7 +1574,7 @@ pub const Weave = struct {
             // Every delete must name a line the weave holds, since deleting one that is
             // not there would report success for a change that never happened. The
             // targets are distinct, so one hit apiece is exactly this count.
-            if (hits != @as(u32, @intCast(diff.deletes.len))) {
+            if (hits != @as(u32, @intCast(deletes.len))) {
                 return WeaveError.DeleteNamesNoLine;
             }
 
@@ -1542,12 +1588,23 @@ pub const Weave = struct {
                 self.lines.items[at].gen += 1;       // odd -> even: mark gone
             }
         }
+    }
 
-        // Process inserts: each new line enters at generation 1 (first appearance,
-        // present). Position is assigned from the monotone counter, and the whole
-        // run of them carries ONE run number -- read before the loop, so every
-        // line this edit adds sorts as one block rather than each line taking its
-        // chances against the other side's lines separately.
+    /// Place each new line at its position, carrying the run and order key
+    /// that its anchor or replacement dictates.
+    ///
+    /// Split out of `apply` so the insert half reads on its own. The run and
+    /// the floor are read here, before the first line is added, as they were
+    /// in `apply`.
+    fn apply_inserts(self: *Weave, allocator: std.mem.Allocator, diff: Diff) !void {
+        // invariant: the weave stands inside its ceiling on entry, since the
+        // placement walk below reads every line it holds
+        // invariant: self.lines.items.len <= max_weave_lines
+        assert(self.lines.items.len <= max_weave_lines);
+        // invariant: the position counter stands inside the same ceiling, which
+        // the floor read below and every new position rely on
+        // invariant: self.next_pos <= max_weave_lines
+        assert(self.next_pos <= max_weave_lines);
         const run = self.next_run;
         // The floor every identity this edit hands out stands above, read once
         // before a line is added. Positions come off a counter that only rises,
@@ -1658,27 +1715,6 @@ pub const Weave = struct {
             }
             try self.lines.insert(allocator, at, line);
             self.next_pos += 1;
-        }
-
-        // The run counter advances once for the whole edit, and only when the
-        // edit actually placed a line. A delete-only diff leaves it alone: it
-        // stamped nothing, so burning a number would open a gap that a
-        // concurrent edit on the other side could never be compared against.
-        if (diff.inserts.len > 0) self.next_run += 1;
-
-        // Postcondition: every line in the weave has a valid, assigned position.
-        for (self.lines.items) |line| {
-            // invariant: a line carries a real generation and a position inside the weave's own
-            // counter, so neither ordering nor identity is left to the caller
-            // invariant: line.gen >= 1
-            assert(line.gen >= 1);
-            // invariant: line.pos < self.next_pos
-            assert(line.pos < self.next_pos);
-            // invariant: a line's run stands under the weave's own run counter, so the next
-            // edit is handed a number no line already carries -- which is what makes two
-            // sides' concurrent runs comparable rather than merely different
-            // invariant: line.run < self.next_run
-            assert(line.run < self.next_run);
         }
     }
 
