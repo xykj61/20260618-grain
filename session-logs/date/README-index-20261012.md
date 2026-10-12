@@ -451,6 +451,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.180015 | [Patchouli queue empty, no build](20261012/20261012-180015_patchouli-queue-empty-kumara-tidy-class-no-build.kyri) | Unsafe casts seam-only; %841 held. |
 | 20261012.175834 | [Grass queue empty, no build](20261012/20261012-175834_grass-queue-empty-no-build.kyri) | Queue empty; claims board present; no regrade; no build. |
 | 20261012.175704 | [Diffuser P1 held, ff two, no run](20261012/20261012-175704_diffuser-p1-hold-ff-pheromone-grass-no-run.kyri) | P1 ruling still owed; no run; nib carried. |
 | 20261012.175213 | [Patchouli queue empty, kumara ruling held, no build](20261012/20261012-175213_patchouli-queue-empty-kumara-ruling-held.kyri) | %841 held for a Claude seam ruling; claim board empty; no build. |
