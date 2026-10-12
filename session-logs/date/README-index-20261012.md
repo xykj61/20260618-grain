@@ -15,6 +15,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.121445 | [Build cache keys its import closure](20261012/20261012-121445_build-cache-import-closure.kyri) | Sibling imports keyed, 40 legs GREEN; endurance owed. |
 | 20261012.121301 | [Bolt apply witness main split under seventy](20261012/20261012-121301_patchouli-bolt-apply-witness-split.kyri) | Run main split at two seams; witness GREEN. |
 | 20261012.121215 | [Petrichor gate held, fast-forwarded, no build](20261012/20261012-121215_petrichor-gate-held-no-build.kyri) | Gate held on Keaton; fast-forward clean; no build. |
 | 20261012.121100 | [Grass air and earth graded, no build](20261012/20261012-121100_grass-air-earth-graded-no-build.kyri) | Air A/95, earth B+/86 at Door; no frame, no edit. |
