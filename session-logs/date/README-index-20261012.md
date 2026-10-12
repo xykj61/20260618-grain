@@ -28,6 +28,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.041005` | [Copal, chapter-witness fruit spent again, no build](20261012/20261012-041005_copal-fruit-spent-no-build.kyri) | 158 of 158 witnesses rostered by exact path; no build. |
 | `20261012.040825` | [Patchouli, queue empty again, no build](20261012/20261012-040825_patchouli-queue-empty-no-build.kyri) | Fresh sweep agrees; ledger rows await ruling; no build; check in.
 | `20261012.040825` | [Diffuser, P1 hold, ff to grass, no run](20261012/20261012-040825_diffuser-p1-hold-ff-grass-no-run.kyri) | P1 unruled; ff clean; no run. |
 | `20261012.040625` | [Petrichor, gate held, no build](20261012/20261012-040625_petrichor-gate-held-grant-revoke-no-build.kyri) | Gate held; grant and revoke read; no build. |
