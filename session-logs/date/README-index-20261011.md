@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+
 | `20261011.224425` | [Diffuser, P1 hold, ff three peers, no run](20261011/20261011-224425_diffuser-hold-p1-unruled-ff-three-peers-no-run.kyri) | P1 unruled; ff three peer logs; no run. |
 | `20261011.224140` | [Diffuser, P1 hold, ff incense, no run](20261011/20261011-224140_diffuser-hold-p1-unruled-ff-incense-declined-no-run.kyri) | P1 still unruled; fast-forward only; no run. |
 | `20261011.224209` | [Petrichor, gate still held, fourth pull, no build](20261011/20261011-224209_petrichor-gate-held-fourth-pull-no-build.kyri) | Gate unchanged; ff-pulled; no build. |
