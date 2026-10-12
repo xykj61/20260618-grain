@@ -1,3 +1,4 @@
+| 20261012.183615 | [Patchouli queue empty, no build](20261012/20261012-183615_patchouli-queue-empty-orbit-fifteen-no-build.kyri) | Queue empty; %841 and %807 wait on rulings. |
 | 20261012.183438 | [Petrichor gate held, ff five, no build](20261012/20261012-183438_petrichor-gate-held-ff-upstream-no-build.kyri) | Consent Rail gate unchanged upstream; grade re-read A; no build. |
 | 20261012.182944 | [Bakery gate held, no build](20261012/20261012-182944_bakery-gate-held-upstream-no-build.kyri) | Receipt-key ruling still open; no build. |
 | 20261012.183022 | [Grass inner regrade repeat, no lift](20261012/20261012-183022_grass-inner-regrade-repeat-no-lift.kyri) | Field reading B+/89 repeats d936016; no edit; no build. |
