@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.213739` | [Petrichor, ff three peers, gate held, no build](20261011/20261011-213739_petrichor-ff-three-peers-gate-held-no-build.kyri) | Ff to three peer logs; Consent Rail ruling open; no build. |
+| `20261011.213706` | [Copal, fruit spent, no build](20261011/20261011-213706_copal-fruit-spent-wide-recount-no-build.kyri) | Wide recount: 0 unrostered; no claim, no build. |
 | `20261011.213702` | [Incense, ff one peer, baton declined, no build](20261011/20261011-213702_incense-baton-declined-ff-no-build.kyri) | Ff one peer log; queue gated; no build. |
 | `20261011.213611` | [Patchouli, queue empty, no build](20261011/20261011-213611_patchouli-queue-empty-no-build.kyri) | Sweep finds no new header; no build. |
 | `20261011.213502` | [Bakery, ff, gate held, no build](20261011/20261011-213502_bakery-ff-gate-held-no-build.kyri) | Ff to bff1962869; receipt-key ruling open; no build. |
