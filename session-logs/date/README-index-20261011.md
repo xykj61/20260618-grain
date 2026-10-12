@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.204542` | [Incense, baton read, queue gated, no build](20261011/20261011-204542_incense-baton-declined-no-build.kyri) | Clear board; queue gated; no build. |
 | `20261011.204349` | [Incense, product queue gated, no build](20261011/20261011-204349_incense-queue-gated-no-build.kyri) | Round-open clean; no product item safe to take alone; no build. |
 | `20261011.204021` | [Copal, fruit spent, third recheck, no build](20261011/20261011-204021_copal-fruit-spent-third-recheck-no-build.kyri) | Fruit spent; no build. |
 | `20261011.204111` | [Diffuser, P1 awaits a ruling](20261011/20261011-204111_diffuser-hold-p1-awaits-ruling.kyri) | Held lap; no ruling on card; no build. |
