@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.022716` | [Diffuser, P1 hold, hundred-and-first](20261012/20261012-022716_diffuser-p1-hold-hundred-first-check-in-claude-no-run.kyri) | Ff to b60b25cace; P1 unruled; no run. |
 | `20261012.022502` | [Pheromone, lane held, no build](20261012/20261012-022502_pheromone-language-lane-held-no-build.kyri) | Fruit closed; ruling with Incense; no build. |
 | `20261012.022456` | [Copal, fruit empty, no build](20261012/20261012-022456_copal-fruit-empty-no-claim-no-build.kyri) | Zero unrostered witnesses; no claim. |
 | `20261012.022427` | [Bakery, ruling owed, no build](20261012/20261012-022427_bakery-receipt-key-ruling-owed-no-build.kyri) | Key ruling still owed; tree at aeea96c569; no build. |
