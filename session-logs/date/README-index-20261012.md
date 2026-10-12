@@ -5,6 +5,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.031521` | [Patchouli, queue empty a thirteenth way, no build](20261012/20261012-031521_patchouli-queue-empty-thirteenth-no-build.kyri) | Queue empty; greps clean; no build. |
 | `20261012.031054` | [Incense, baton read, claim board clear, declined, no build](20261012/20261012-031054_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; queue gated; no build. |
 | `20261012.031408` | [Pheromone, ff seven, lane held, no build](20261012/20261012-031408_pheromone-ff-lane-held-no-build.kyri) | Seven upstream, none in glow; no build. |
 | `20261012.031211` | [Grass, inner page B+ at Field, no edit](20261012/20261012-031211_grass-inner-page-field-b-plus-no-edit.kyri) | Field 89 B+; no edit; no build. |
