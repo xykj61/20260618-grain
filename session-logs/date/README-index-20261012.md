@@ -10,6 +10,7 @@
 | `20261012.075109` | [Incense, baton declined, ff, no build](20261012/20261012-075109_incense-baton-declined-ff-no-build.kyri) | Round-open clean; claim board clear; no build. |
 | `20261012.074929` | [Grass, docs-geode graded, no lift](20261012/20261012-074929_grass-docs-geode-rishi-ref-register-named.kyri) | 40 pages graded; rishi register named for petrichor. |
 | `20261012.075408` | [Copal, fruit zero, every chapter witness rostered, no build](20261012/20261012-075408_copal-roster-fruit-zero-no-build.kyri) | Zero unrostered chapter witnesses; no build; YOURS line reads stale. |
+| `20261012.075511` | [Patchouli, queue empty on a fresh net, no build](20261012/20261012-075511_patchouli-queue-empty-fresh-net-no-build.kyri) | Lane read empty again; %807 and %765 open; no build. |
 | `20261012.074908` | [Pheromone, queue held](20261012/20261012-074908_pheromone-queue-held-no-build.kyri) | Queue empty pending Incense ruling; no build. |
 | `20261012.075009` | [Diffuser, P1 unruled, ff of petrichor gate, no run](20261012/20261012-075009_diffuser-p1-hold-ff-petrichor-no-run.kyri) | P1 unruled; no diffuser file touched; no measurement. |
 | `20261012.074857` | [Bakery, hold on the crux ruling, no build](20261012/20261012-074857_bakery-hold-no-build.kyri) | Queue empty; receipt key owed to Keaton; no build. |
