@@ -39,6 +39,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.125824 | [Bakery crux held, no build](20261012/20261012-125824_bakery-crux-held-ruling-wait-no-build.kyri) | Receipt-key ruling wanted; log-only. |
 | 20261012.125805 | [Petrichor front door B+](20261012/20261012-125805_petrichor-front-door-b-plus-no-build.kyri) | Root README B+ at 89; no molt; gate held. |
 | 20261012.125709 | [Diffuser held on P1 again, no run](20261012/20261012-125709_diffuser-p1-held-check-in-no-run.kyri) | P1 ruling and Consent Rail still owed; peer logs only; no build. |
 | 20261012.125649 | [Copal fruit spent, no build](20261012/20261012-125649_copal-fruit-spent-zero-unrostered.kyri) | Zero unrostered witnesses; GREEN; no build. |
