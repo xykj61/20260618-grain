@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261012.070216` | [Grass, Lila foundation A+, no build](20261012/20261012-070216_grass-foundation-lila-graded-a-no-build.kyri) | Composite 97; queue empty; no edit. |
 | `20261012.070220` | [Diffuser, P1 unruled, remote level, no run](20261012/20261012-070220_diffuser-p1-hold-no-ruling-no-run.kyri) | P1 still unruled; remote level; no run, check in (Claude). |
+| `20261012.070008` | [Incense, declined after ff, no build](20261012/20261012-070008_incense-baton-declined-round-open-ff-no-build.kyri) | Ff to a9a118f1b4; claims empty; no build. |
 | `20261012.065715` | [Petrichor, link scan clean, no build](20261012/20261012-065715_petrichor-link-text-scan-clean-no-build.kyri) | Anchor scan clean; no build. |
 | `20261012.065935` | [Diffuser, P1 held a hundred and eighth time, no run](20261012/20261012-065935_diffuser-p1-hold-hundred-eighth-no-run.kyri) | P1 still undefined on the card; no run, check in (Claude). |
 | `20261012.065734` | [Incense, baton prin recur, no build](20261012/20261012-065734_incense-baton-prin-recur-no-build.kyri) | Card's next order holds; clock all in; no build. |
