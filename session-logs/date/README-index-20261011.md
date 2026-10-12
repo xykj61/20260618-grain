@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.234706` | [Diffuser, P1 hold, four peers, no run](20261011/20261011-234706_diffuser-hold-p1-unruled-ff-four-peers-no-run.kyri) | P1 still unruled; ff four peers; no run. |
 | `20261011.234527` | [Patchouli, queue empty, thirteenth](20261011/20261011-234527_patchouli-queue-empty-thirteenth-no-build.kyri) | Nets clean; board empty; no build. |
 | `20261011.234323` | [Incense, seventy-third, no build](20261011/20261011-234323_incense-baton-declined-seventy-third-no-build.kyri) | Round-open pulled one; board clear; no build. |
 | `20261011.234411` | [Petrichor, doorway witness no verdict, no build](20261011/20261011-234411_petrichor-doorway-witness-no-verdict-no-build.kyri) | Count read; witness unread; no build. |
