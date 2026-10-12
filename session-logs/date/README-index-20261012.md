@@ -1,3 +1,4 @@
+| 20261012.174319 | [Grass inner regraded B+, no build](20261012/20261012-174319_grass-inner-regraded-no-build.kyri) | Queue empty; inner prompt 89 B+ holds; no build. |
 | 20261012.173723 | [Copal roster, no candidate, no build](20261012/20261012-173723_copal-chapter-roster-no-candidate.kyri) | Chapter witnesses all rostered; no build. |
 | 20261012.173521 | [Petrichor gate held, ff four, no build](20261012/20261012-173521_petrichor-gate-held-ff-four-no-build.kyri) | Ff four; gate unchanged; no build. |
 | 20261012.173247 | [Diffuser P1 ruling still owed, no run](20261012/20261012-173247_diffuser-p1-ruling-still-owed-no-run.kyri) | P1 ruling owed to Keaton or Claude; no run; nib carried. |
