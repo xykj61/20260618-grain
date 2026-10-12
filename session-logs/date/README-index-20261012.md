@@ -1,3 +1,4 @@
+| 20261012.172638 | [Pheromone lane closed on the card, no build](20261012/20261012-172638_pheromone-lane-closed-no-build.kyri) | Items 1-3 closed; ruling owed to Incense; no build. |
 | 20261012.172326 | [Patchouli queue empty, kumara held, read no build](20261012/20261012-172326_patchouli-queue-empty-kumara-held-read-no-build.kyri) | Queue empty; REDS %841 and %807 held for rulings; no build. |
 | 20261012.172320 | [Copal fruit already rostered](20261012/20261012-172320_copal-fruit-already-rostered-no-build.kyri) | 158 of 158 witnesses rostered; no build. |
 | 20261012.172234 | [Grass queue empty, no build](20261012/20261012-172234_grass-queue-empty-regrade-no-build.kyri) | Queue empty; no page open for another reason; no lift; nib carried. |
