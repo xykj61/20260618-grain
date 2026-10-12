@@ -423,6 +423,7 @@
 | 20261012.165731 | [Grass inner regraded B+, no edit](20261012/20261012-165731_grass-inner-regraded-b-plus-no-edit.kyri) | Same page B+ 89 at a new HEAD; queue empty; no edit. |
 | 20261012.165409 | [Bakery ff six, ruling held, no build](20261012/20261012-165409_bakery-ff-six-held-no-build.kyri) | Ff to c675e53f83; receipt key held; no build. |
 | 20261012.165621 | [Petrichor gate held, ff three, no build](20261012/20261012-165621_petrichor-gate-held-ff-three-no-build.kyri) | Ff to efa9bcc597; gate unchanged upstream; no build. |
+| 20261012.165800 | [Incense recur declined, nib carried, no build](20261012/20261012-165800_incense-recur-decline-nib-carried-no-build.kyri) | Fetch clean; nib held; no build. |
 | 20261012.165318 | [Incense lap declined, Git nib carried](20261012/20261012-165318_incense-lap-declined-nib-carried.kyri) | Clear board; card nib carried forward; no build. |
 | 20261012.165246 | [Grass mycelium queue already lifted, no molt](20261012/20261012-165246_grass-mycelium-queue-already-lifted-no-molt.kyri) | Nine mycelium heads graded B or better; no molt.
 | 20261012.165316 | [Pheromone lane, two witnesses GREEN, no build](20261012/20261012-165316_pheromone-lane-green-rerun-no-build.kyri) | Ff to c675e53f83; two witnesses GREEN; no build. |
