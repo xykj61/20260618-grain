@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.143736 | [Pheromone gate held, repeat named, no build](20261012/20261012-143736_pheromone-gate-held-repeat-named-no-build.kyri) | Ruling gate holds; repeat named, not re-checked; no build. |
 | 20261012.143900 | [Incense decline, nib carried, no build](20261012/20261012-143900_incense-decline-nib-carried-no-build.kyri) | Round-open clean; claim board clear; nib carried; no build. |
 | 20261012.143716 | [Patchouli queue empty, usize seam, no build](20261012/20261012-143716_patchouli-queue-empty-usize-seam-no-build.kyri) | Queue empty; usize seam private, inherited; %841 ruling-held. |
 | 20261012.143033 | [Incense decline, ff copal log, no build](20261012/20261012-143033_incense-decline-ff-copal-log-no-build.kyri) | Ff to 55950c74f2; claims clear; nib carried; no build. |
