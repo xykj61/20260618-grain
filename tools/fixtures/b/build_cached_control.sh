@@ -115,6 +115,15 @@ build "$pen/a/none.zig" "" - zig-0.16 "$store" || true
 expect "a missing source refuses with exit 2" "$RC" 2
 expect "the refusal names the missing source" "$(printf '%s\n' "$ERR" | sed -n 's/^error=\([a-z_]*\).*/\1/p')" source_missing
 
+# leg 11: a relative store still publishes a runnable binary. The compile runs inside a scratch
+# directory, so a relative store used to resolve against that directory and publish a cell with no prog.
+here_cwd=$(pwd -P)
+cd "$pen"
+build "$pen/a/x.zig" "" - zig-0.16 rel-store
+cd "$here_cwd"
+expect "a relative store misses first" "$(field "$OUT" cache)" miss
+expect "a relative store proves its binary" "$(field "$OUT" verdict)" proved
+
 echo "control_legs=$legs"
 echo "control_failed=$failed"
 if [ "$failed" -eq 0 ]; then
