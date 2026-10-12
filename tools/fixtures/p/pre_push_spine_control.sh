@@ -144,8 +144,11 @@ fi
 
 # Case 6 -- a REBINDING: upstream binds %12 to one stamp, this tree rewrites it to another.
 before="$(remote_head)"
-sed -i.bak 's/`20260101\.030303`/`20260101.040404`/' construction/REDS.md
-rm -f construction/REDS.md.bak
+# The plant goes through the shared plant law, so a program that matches nothing is refused by
+# name rather than leaving the row unchanged and the case reading green on a no-op.
+. "$root/tools/fixtures/p/plant.sh"
+plant_apply construction/REDS.md 's/`20260101\.030303`/`20260101.040404`/' pre_push_rebinding \
+  || no "the rebinding plant did not apply"
 git add -A
 git commit --quiet -m "pen: rebind a published number to a different stamp"
 set +e
