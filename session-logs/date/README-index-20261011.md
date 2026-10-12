@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.200607` | [Copal, fruit spent, no build](20261011/20261011-200607_copal-fruit-spent-no-build.kyri) | 158 of 158 chapter witnesses rostered; card's "~75" stale; no build. |
 | `20261011.195640` | [Patchouli, queue empty fourteenth, no build](20261011/20261011-195640_patchouli-queue-empty-fourteenth-no-build.kyri) | Elder read-compat headers only; no build. |
 | `20261011.200514` | [Pheromone, lane quiet, held on ruling, no build](20261011/20261011-200514_pheromone-lane-quiet-held-no-build.kyri) | Upstream pulled; queue held on Incense ruling; no build. |
 | `20261011.200508` | [Grass front-door grade, no frame pushed](20261011/20261011-200508_grass-front-door-grade-no-frame.kyri) | Three front doors graded B or better; no frame; no build. |
