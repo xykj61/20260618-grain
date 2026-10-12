@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.094048 | [Patchouli, queue empty again, no build](20261012/20261012-094048_patchouli-queue-empty-no-build.kyri) | Open lane rows await Keaton or other lanes; no code moved. |
 | 20261012.093853 | [Grass, field page graded B+, no build](20261012/20261012-093853_grass-field-page-graded-b-plus-no-build.kyri) | grass-inner graded B+ (87) at Field; no molt frame; no build. |
 | 20261012.093823 | [log](20261012/20261012-093823_pheromone-lane-empty-overrides-held-no-build.kyri) | pheromone lane empty; ff to 7725244265; override held, no build |
 | 20261012.093810 | [Incense, ninety-fourth, declined, no build](20261012/20261012-093810_incense-ninety-fourth-declined-no-build.kyri) | Round-open at 7725244265; claim board clear; no build. |
