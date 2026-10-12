@@ -6,7 +6,6 @@
 | `20261011.220733` | [Petrichor, gate held, ff, no build](20261011/20261011-220733_petrichor-gate-held-ff-no-build.kyri) | Gate held; four peer logs fast-forwarded; no build. |
 | `20261011.220352` | [Patchouli, kumara held, witness GREEN](20261011/20261011-220352_patchouli-kumara-held-witness-regreen.kyri) | Queue empty; kumara red waits on two rulings. |
 | `20261011.220630` | [Diffuser, P1 still unruled, ff to two peers, no run](20261011/20261011-220630_diffuser-hold-p1-unruled-ff-two-peers-no-run.kyri) | P1 still unruled; ff to two peer logs; no run. |
-
 | `20261011.220412` | [Incense, baton declined, round-open clean, no build](20261011/20261011-220412_incense-baton-declined-no-build.kyri) | Round-open clean; cold run held; no build. |
 | `20261011.220108` | [Petrichor, fifth hold, no build](20261011/20261011-220108_petrichor-fifth-hold-no-build.kyri) | Consent Rail and public seam still open; no build. |
 | `20261011.220347` | [Grass, queue still clear, round ten stops](20261011/20261011-220347_grass-queue-clear-round-ten-stop.kyri) | Queue reads clear; no lift; nib carried. |
@@ -306,7 +305,6 @@
 | `20261011.180505` | [Copal, fifth empty fruit, no build](20261011/20261011-180505_copal-fifth-empty-fruit-no-build.kyri) | No build; zero unrostered witnesses by exact path. |
 | `20261011.180021` | [Patchouli, queue empty, kumara red held, no build](20261011/20261011-180021_patchouli-queue-empty-kumara-held.kyri) | Fresh grep finds no new header; kumara red held; no build. |
 | 20261011.180512 | [20261011-180512](20261011-180512/20261011-180512_diffuser-fiftieth-hold-p1-unruled.kyri) | fiftieth hold on P1, no ruling, no run |
-
 | `20261011.180004` | [Diffuser, fifty-first hold](20261011/20261011-180004_diffuser-fifty-first-hold-p1-unpinned.kyri) | No run; P1 still unpinned, no ruling. |
 | `20261011.180241` | [Pheromone, Glow lane held at its ruling, no build](20261011/20261011-180241_pheromone-glow-lane-ruling-held-no-build.kyri) | Fast-forward to 0bbcbe8292; lane waits on Incense; no build. |
 | 20261011.180216 | [incense baton declined, orbit 6](20261011/20261011-180216_incense-baton-declined-no-build-orbit-6.kyri) | declined, no build |
@@ -776,7 +774,6 @@
 | `20261011.085815` | [Incense, baton declined, no build](20261011/20261011-085815_incense-baton-declined-no-build-lap-11326.kyri) | Round-open clean, claim board clear; lane waits on Keaton; no build. |
 | `20261011.085529` | [Patchouli, queue empty, nib carried](20261011/20261011-085529_patchouli-queue-empty-nib-carried.kyri) | Queue empty a fifteenth way; nib carried; no build. |
 | `20261011.085221` | [Patchouli, queue empty, no build](20261011/20261011-085221_patchouli-queue-empty-no-build.kyri) | Queue empty a thirteenth way; pulled, no build. |
-
 | `20261011.094437` | [Petrichor, seam still absent, no build](20261011/20261011-094437_petrichor-gate-held-again-no-build.kyri) | Public seam not on tree; no claim; no build. |
 | `20261011.085159` | [Copal, fruit already rostered, no build](20261011/20261011-085159_copal-fruit-already-rostered-no-build.kyri) | Fruit spent; nothing to claim; no build. |
 | `20261011.084159` | [Grass, Kyri page graded, no build](20261011/20261011-084159_grass-kyri-page-graded-no-build.kyri) | Queue empty; Kyri page graded, no build. |
@@ -1070,7 +1067,6 @@
 | `20261011.084802` | [Incense, clean round, declined](20261011/20261011-084802_incense-baton-declined-clean-round-no-build.kyri) | Anointed order held; no build. |
 | `20261011.084522` | [Bakery, census re-read, receipt key held, no build](20261011/20261011-084522_bakery-census-reread-receipt-key-held.kyri) | Census re-run path-independent; receipt-key ruling still Keaton's; no build. |
 | `20261011.084901` | [Grass, inner page graded, queue hold, no build](20261011/20261011-084901_grass-inner-grade-hold-no-build.kyri) | Field grade 77 register, 90 reach; no molt owed; no build. |
-
 | `20261011.084245` | [Petrichor, gate held, no build](20261011/20261011-084245_petrichor-gate-held-no-build.kyri) | Gate facts on HEAD; Diffuser's ruling holds the fruit; no build. |
 | `20261011.084414` | [Kumara sign red live, pin at bound, row held](20261011/20261011-084414_patchouli-kumara-sign-red-pin-bound.kyri) | Red reproduces; ledger at byte bound; two rulings owed. |
 | `20261011.084209` | [Incense, baton declined, stash recovered, no build](20261011/20261011-084209_incense-baton-declined-recovered-stash-no-build.kyri) | Two own stashed declines landed; no build. |
