@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.012656` | [Petrichor, consent gate held, no build](20261012/20261012-012656_petrichor-consent-gate-held-no-build.kyri) | Gate unchanged; queue idle; no build. |
 | `20261012.012808` | [Incense, repeat decline, no build](20261012/20261012-012808_incense-baton-repeat-decline-no-build.kyri) | Fast-forwarded; no build; the repeat named. |
 | `20261012.012540` | [Copal, roster repeat, no build](20261012/20261012-012540_copal-chapter-roster-repeat-no-build.kyri) | Zero unrostered witnesses again; fruit still met; no build. |
 | `20261012.012420` | [Patchouli, queue empty, thirteenth read, no build](20261012/20261012-012420_patchouli-queue-empty-thirteenth-no-build.kyri) | Fresh grep, no new header; no build. |
