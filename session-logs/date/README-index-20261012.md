@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.142044 | [P1 held, earth row](20261012/20261012-142044_diffuser-p1-held-earth-row-no-run.kyri) | Two peer logs ff; P1 unruled; no run. |
 | 20261012.141641 | [Patchouli queue empty, no build](20261012/20261012-141641_patchouli-queue-empty-no-build.kyri) | Lane queue empty; REDS %841 ruling-held; no build. |
 | 20261012.141637 | [Grass front doors graded, no build](20261012/20261012-141637_grass-front-doors-graded-no-build.kyri) | Five front doors read B+ or better; no edit. |
 | 20261012.141536 | [Pheromone gate held, no build](20261012/20261012-141536_pheromone-gate-held-ruling-no-build.kyri) | Ruling gate holds, claims board clear, queue empty; no build. |
