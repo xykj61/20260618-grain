@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.074929` | [Grass, docs-geode graded, no lift](20261012/20261012-074929_grass-docs-geode-rishi-ref-register-named.kyri) | 40 pages graded; rishi register named for petrichor. |
 | `20261012.074908` | [Pheromone, queue held](20261012/20261012-074908_pheromone-queue-held-no-build.kyri) | Queue empty pending Incense ruling; no build. |
 | `20261012.075009` | [Diffuser, P1 unruled, ff of petrichor gate, no run](20261012/20261012-075009_diffuser-p1-hold-ff-petrichor-no-run.kyri) | P1 unruled; no diffuser file touched; no measurement. |
 | `20261012.074857` | [Bakery, hold on the crux ruling, no build](20261012/20261012-074857_bakery-hold-no-build.kyri) | Queue empty; receipt key owed to Keaton; no build. |
