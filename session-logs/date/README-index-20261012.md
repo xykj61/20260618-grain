@@ -10,6 +10,7 @@
 | `20261012.023317` | [Pheromone, lane held round eight, no build](20261012/20261012-023317_pheromone-lane-held-round-eight-no-build.kyri) | Lane held on Incense's ruling; upstream clear for Glow; no build. |
 | `20261012.023633` | [Grass, sample clear, no build](20261012/20261012-023633_grass-sample-clear-no-build.kyri) | Ten mycelium heads re-graded, all B or better; no lift. |
 | `20261012.023154` | [Incense, declined, no build](20261012/20261012-023154_incense-declined-no-build.kyri) | Ff to copal's claim; board read; no build. |
+| `20261012.023930` | [Patchouli TAME bans clean](20261012/20261012-023930_patchouli-tame-bans-clean-queue-empty.kyri) | Bans and in-lane ratchets zero; no build. |
 | `20261012.023550` | [Patchouli queue empty, no build](20261012/20261012-023550_patchouli-queue-empty-fresh-class-no-build.kyri) | Queue empty again; kumara red held; apply split booked. |
 | `20261012.023221` | [Copal, sunn14 choir rostered](20261012/20261012-023221_copal-sunn14-choir-roster.kyri) | Last unrostered chapter choir; REDS %837 still OPEN. |
 | `20261012.022858` | [Petrichor, gate held, repeat, no build](20261012/20261012-022858_petrichor-gate-held-repeat-no-build.kyri) | Gate unmoved; no claim; no build. |
