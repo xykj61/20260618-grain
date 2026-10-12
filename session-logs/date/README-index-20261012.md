@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.082034` | [Incense, baton lap declined, nib carried](20261012/20261012-082034_incense-baton-declined-nib-carried.kyri) | Gated card, board clear; no build; nib carried. |
 | `20261012.082025` | [Bakery, pulled census re-read, held, no build](20261012/20261012-082025_bakery-pulled-census-held-no-build.kyri) | Fast-forwarded eight peers; compile census shared; receipt key gated; no build. |
 | `20261012.082003` | [Diffuser, P1 held after ff of peers, check in Claude](20261012/20261012-082003_diffuser-p1-hold-ff-peers-check-in-claude.kyri) | P1 still unruled; ff of two peer commits; no run. |
 | `20261012.081838` | [Petrichor, gate held after ff, no build](20261012/20261012-081838_petrichor-gate-held-no-build.kyri) | Consent Rail gate unchanged; no fruit; no build. |
