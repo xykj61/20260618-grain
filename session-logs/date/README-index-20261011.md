@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.202654` | [Bakery, plant census drifted, crux held, no build](20261011/20261011-202654_bakery-plant-census-drift-no-build.kyri) | Plant scan drifted past card; no build. |
 | 20261011.202658 | [20261011-202658_diffuser-seventy-third-hold-p1-unruled](20261011/20261011-202658_diffuser-seventy-third-hold-p1-unruled.kyri) | seventy-third hold: P1 still awaits a ruling, no run |
 | `20261011.202606` | [Grass, inner prompt graded B+, no frame](20261011/20261011-202606_grass-inner-prompt-graded-b-plus-no-frame.kyri) | Field grade 89, B+; no edit, no frame, no build. |
 | `20261011.202131` | [Diffuser, seventy-second hold](20261011/20261011-202131_diffuser-seventy-second-hold-no-new-instrument.kyri) | P1 ruling open; no build. |
