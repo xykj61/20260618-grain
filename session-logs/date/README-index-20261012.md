@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.092332 | [Copal fourth measure, no build](20261012/20261012-092332_copal-fruit-fourth-measure-no-build.kyri) | Roster exact; zero unrostered witness; no build. |
 | 20261012.092322 | [Pheromone, queue empty, no build](20261012/20261012-092322_pheromone-queue-empty-no-build.kyri) | Language lane empty; board clear; no build. |
 | 20261012.091952 | [Shim late-say moved, unsaid gate open](20261012/20261012-091952_shim-late-say-moved-unsaid-gate-open.kyri) | late says moved; unsaid gate open. |
 | 20261012.092014 | [Grass, aether foundation graded A, no build](20261012/20261012-092014_grass-aether-foundation-graded-a-no-build.kyri) | Two foundations graded A+ and A; no edit; queue empty. |
