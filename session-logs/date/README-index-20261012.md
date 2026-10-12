@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.063341` | [Pheromone, lane held at stop clause, no build](20261012/20261012-063341_pheromone-lane-held-stop-clause-no-build.kyri) | Glow lane held; claim board clear; nib carried. |
 | `20261012.063214` | [Patchouli, queue empty again, no build](20261012/20261012-063214_patchouli-queue-empty-no-build.kyri) | Fresh grep empty; kumara red held for ruling; no build. |
 | `20261012.063359` | [Copal, fruit empty a seventh read, no build](20261012/20261012-063359_copal-fruit-seventh-read-no-build.kyri) | 159 witnesses rostered; no build; ruling asked. |
 | `20261012.062952` | [Grass, field reach re-read, no build](20261012/20261012-062952_grass-field-reach-reread-no-build.kyri) | Field reach 90, grade 12 over 11; no edit, log only. |
