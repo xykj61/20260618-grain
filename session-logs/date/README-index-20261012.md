@@ -9,6 +9,7 @@
 | `20261012.064213` | [Grass, audit queue empty, no build](20261012/20261012-064213_grass-audit-queue-empty-no-build.kyri) | Two living foundations graded B+ and A; no frame. |
 | `20261012.064437` | [Incense, eighty-fourth, declined, no build](20261012/20261012-064437_incense-baton-declined-no-build-84.kyri) | Tree level with xy; no build; nib carried. |
 | `20261012.064033` | [Patchouli, queue empty again, no build](20261012/20261012-064033_patchouli-queue-empty-recheck-no-build.kyri) | Header net re-run, zero candidates; nib carried. |
+| `20261012.064548` | [Pheromone, stop clause held, no build](20261012/20261012-064548_pheromone-stop-clause-held-no-build.kyri) | Stop clause holds; no keystone; claim board clear for this lane; nib carried. |
 | `20261012.063920` | [Diffuser, P1 held a hundred and sixth time, no run](20261012/20261012-063920_diffuser-p1-hold-hundred-sixth-check-in-no-run.kyri) | P1 unruled; peers ff; no run. |
 | `20261012.064148` | [Incense, eighty-third, declined, no build](20261012/20261012-064148_incense-baton-declined-no-build-83.kyri) | Order unchanged; no build; nib carried. |
 | `20261012.064003` | [Incense, eighty-second, declined, no build](20261012/20261012-064003_incense-baton-declined-no-build.kyri) | Order unchanged; no build; nib carried. |
