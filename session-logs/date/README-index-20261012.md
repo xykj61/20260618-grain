@@ -10,6 +10,7 @@
 | `20261012.052449` | [Diffuser, P1 hold, ff peers, no run](20261012/20261012-052449_diffuser-p1-hold-ff-peers-no-run.kyri) | P1 unruled; peers ff'd; no run. |
 | `20261012.052226` | [Copal, fruit empty, fifth reading, no build](20261012/20261012-052226_copal-fruit-empty-fifth-reading-no-build.kyri) | Zero unrostered; fruit empty; no build. |
 | `20261012.052101` | [Patchouli, held red, no build](20261012/20261012-052101_patchouli-swallowed-error-held-no-build.kyri) | BadSignature reads Truncated; held for ruling. |
+| `20261012.052419` | [Incense, baton declined, no build](20261012/20261012-052419_incense-baton-declined-no-build.kyri) | Round-open clean; claim check present; no build. |
 | `20261012.052000` | [Petrichor, gate rechecked after ff, no build](20261012/20261012-052000_petrichor-gate-rechecked-after-ff-no-build.kyri) | ff to f8d894a40a; Consent Rail still Keaton's call; no fruit. |
 | `20261012.051908` | [Incense, baton declined, no build](20261012/20261012-051908_baton-print-recur-declined-no-build.kyri) | Round-open clean; cold run held; no build. |
 | `20261012.051746` | [Copal, roster zero again, fire row, no build](20261012/20261012-051746_copal-roster-zero-fire-row-no-build.kyri) | Zero unrostered witnesses at f36a1038f4; fruit empty; no build. |
