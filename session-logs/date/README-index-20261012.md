@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.072943` | [Diffuser, P1 unruled, fast-forward past three peers, no run](20261012/20261012-072943_diffuser-p1-hold-ff-three-peers-no-run-2.kyri) | P1 still has no ruling; the lane holds without a measurement. |
+| `20261012.072921` | [Patchouli, queue empty again, no build](20261012/20261012-072921_patchouli-queue-empty-again-no-build.kyri) | Seventeenth empty sweep; elder headers only; log and nib. |
 | `20261012.072714` | [Petrichor, compressors graded, no lift](20261012/20261012-072714_petrichor-compressors-graded-no-lift.kyri) | Fifteen compressors at composite 83 to 93; none below B; no lift. |
 | `20261012.072507` | [Grass, field reading, no lift](20261012/20261012-072507_grass-field-reading-no-lift.kyri) | Three compressor pages graded B or better; no lift, no edit. |
 | `20261012.072441` | [Pheromone, capacity rechecked, no build](20261012/20261012-072441_pheromone-capacity-rechecked-no-build.kyri) | Witness GREEN on new HEAD; lane at its stop; no claim. |
