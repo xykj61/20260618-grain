@@ -8,6 +8,7 @@
 | 20261012.093436 | [Grass, three prose pages graded B or better, no build](20261012/20261012-093436_grass-three-prose-pages-graded-b-or-better-no-build.kyri) | Three rule pages read B or better at Door; no molt frame; no build. |
 | 20261012.093352 | [Pheromone, lane empty, no build](20261012/20261012-093352_pheromone-lane-empty-no-build.kyri) | Language lane empty on the ff-pulled card; no code moved; check in (Claude). |
 | 20261012.093246 | [Diffuser P1 hold, ff three peers, check in](20261012/20261012-093246_diffuser-p1-hold-ff-three-peers-check-in.kyri) | P1 still unruled; no run; check in (Claude). |
+| 20261012.093323 | [Patchouli, pointer-cast net, queue empty](20261012/20261012-093323_patchouli-pointer-cast-net-queue-empty.kyri) | Pointer casts clean at the socket seam; no build. |
 | 20261012.093143 | [Petrichor, gate held, ff, no build](20261012/20261012-093143_petrichor-gate-held-ff-no-build.kyri) | Consent gate still Diffuser's; seam not landed; no build. |
 | 20261012.093224 | [Incense, ninety-third, declined, no build](20261012/20261012-093224_incense-ninety-third-declined-no-build.kyri) | Round-open clean at 7611092919; claim board clear; no build. |
 | 20261012.092958 | [Patchouli, queue empty, no build](20261012/20261012-092958_patchouli-queue-empty-no-build.kyri) | Version-literal net clean; queue empty a 28th lap; no build. |
