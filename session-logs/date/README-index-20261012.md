@@ -5,6 +5,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.024641` | [Petrichor, seam still undefined, check in, no build](20261012/20261012-024641_petrichor-seam-still-undefined-check-in-no-build.kyri) | Four upstream commits read; seam and rail still unruled; no build. |
 | `20261012.024146` | [Incense, declined, claim board clear, no build](20261012/20261012-024146_incense-baton-declined-claim-clear-no-build.kyri) | Round-open clean; board clear; gated queue; no build. |
 | `20261012.024337` | [Patchouli, tally seed stops swallowing stdout error](20261012/20261012-024337_patchouli-seed-stdout-error-not-swallowed.kyri) | Seed exit now named on a closed stdout; one line. |
 | `20261012.024356` | [Pheromone held, no build](20261012/20261012-024356_pheromone-lane-held-round-eleven-no-build.kyri) | Ruling still with Incense; no build. |
