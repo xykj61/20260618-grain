@@ -9,6 +9,7 @@
 |---|---|---|
 | `20261012.032701` | [Copal, fruit spent, no build](20261012/20261012-032701_copal-fruit-spent-no-build.kyri) | Fruit already rostered; 0 unrostered witnesses; no build. |
 | `20261012.032737` | [Patchouli, queue empty fourteenth, no build](20261012/20261012-032737_patchouli-queue-empty-fourteenth-no-build.kyri) | Queue empty; greps clean; no build. |
+| `20261012.032652` | [Grass, front doors graded, no frame owed](20261012/20261012-032652_grass-front-doors-graded.kyri) | Three front doors graded; SOURCE.md register over Door; no edit. |
 | `20261012.032539` | [Diffuser, P1 hold, stop the loop, no run](20261012/20261012-032539_diffuser-p1-hold-stop-the-loop-no-run.kyri) | P1 unruled; ff clean; no run. |
 | `20261012.033004` | [Petrichor, links clean, no build](20261012/20261012-033004_petrichor-links-clean-no-build.kyri) | Relative links in docs-geode resolve; no page changed. |
 | `20261012.032433` | [Petrichor, fruit held, no build](20261012/20261012-032433_petrichor-fruit-held-no-build.kyri) | Consent Rail gate held; no page touched; no build. |
