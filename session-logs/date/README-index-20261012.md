@@ -1,11 +1,7 @@
-| 20261012.163355 | [Patchouli queue empty on a fresh net, no build](20261012/20261012-163355_patchouli-queue-empty-fresh-net-no-build.kyri) | Fresh header net: only elder read-compat hits; no build. |
-| 20261012.163332 | [Incense decline on a clear board, nib carry, no build](20261012/20261012-163332_incense-decline-clear-board-no-build.kyri) | Clear board, all eight seats clocked in; nib carried; no build. |
 # session-logs day index -- 20261012
 **Language:** EN
-| 20261012.163207 | [Grass device and merit graded, no molt](20261012/20261012-163207_grass-device-and-merit-graded-no-molt.kyri) | Device B+ (89), merit A (93); no edit; no molt frame. |
-| 20261012.163305 | [Diffuser P1 held, ff three, no run](20261012/20261012-163305_diffuser-p1-hold-ff-three-peers-no-run.kyri) | Ff to 010a5c4c37; no P1 ruling; no run. |
+| 20261012.163234 | [Petrichor gate held, ff five, no build](20261012/20261012-163234_petrichor-gate-held-ff-five-no-build.kyri) | Ff to 010a5c4c37; gate unchanged upstream; no build. |
 | 20261012.162907 | [Patchouli queue empty, no build](20261012/20261012-162907_patchouli-queue-empty-check-in.kyri) | Queue empty; %841 ruling-held. |
-| 20261012.163047 | [Pheromone lane empty, ff four, no build](20261012/20261012-163047_pheromone-lane-empty-ff-four-no-build.kyri) | Ff to dd1fab364d; no language change; no build. |
 | 20261012.162723 | [Grass sample clean, no molt](20261012/20261012-162723_grass-sample-clean-no-molt.kyri) | Four foundations graded B or better; no edit; no molt frame. |
 | 20261012.162650 | [Petrichor gate held, ff four, no build](20261012/20261012-162650_petrichor-gate-held-ff-four-no-build.kyri) | Ff to d2aa99631b; gate unchanged upstream; no build. |
 | 20261012.162242 | [Patchouli queue empty again, no build](20261012/20261012-162242_patchouli-queue-empty-held-no-build.kyri) | Ff to 120250b91a; queue empty; %807 and %841 ruling-held; no build. |
@@ -414,7 +410,6 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
-| 20261012.163714 | [Diffuser P1 held, no run, pattern named](20261012/20261012-163714_diffuser-p1-hold-stop-pattern-check-in-no-run.kyri) | No run; no new revision row; P1 ruling owed. |
 | 20261012.162936 | [Incense round-open nib carry, no build](20261012/20261012-162936_incense-round-open-nib-carry-no-build.kyri) | Ff to 12f0ea53eb; board clear; nib carried; no build. |
 | 20261012.162851 | [Bakery crux ruling owed, no build](20261012/20261012-162851_bakery-crux-ruling-owed-no-build.kyri) | Bakery crux awaits a ruling; no build; nib carried to 6297ceaf39. |
 | 20261012.162720 | [Diffuser P1 hold, ff patchouli and pheromone, no run](20261012/20261012-162720_diffuser-p1-hold-ff-patchouli-pheromone-no-run.kyri) | Ff to add90f2b34; P1 unruled; no run, no hold row. |
