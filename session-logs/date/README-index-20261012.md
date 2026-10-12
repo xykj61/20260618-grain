@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.050124` | [Diffuser, P1 still unruled, ff bakery, no run](20261012/20261012-050124_diffuser-p1-hold-ff-bakery-no-run.kyri) | ff to b1b525f7ae; no P1 ruling; check in (Claude) to restate or retire P1. |
 | `20261012.045859` | [Diffuser, P1 still unruled, ff peers, no run](20261012/20261012-045859_diffuser-hold-ff-peers-p1-unruled-no-run.kyri) | ff e024f6c206; no P1 ruling in peer bodies; check in (Claude). |
 | `20261012.045818` | [Bakery, ff six peers, no build](20261012/20261012-045818_bakery-ff-no-build-receipt-key-waits.kyri) | ff to 315f3912e0; queue empty; receipt key waits. |
 | `20261012.045805` | [Pheromone, lane empty, no build](20261012/20261012-045805_pheromone-lane-empty-witnesses-green-no-build.kyri) | Glow witnesses GREEN; no claim, no rune; check in (Claude). |
