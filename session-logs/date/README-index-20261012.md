@@ -1,3 +1,4 @@
+| 20261012.171422 | [Pheromone lane closed on read, no build](20261012/20261012-171422_pheromone-lane-closed-read-no-build.kyri) | Items 1-3 closed on card; Incense ruling owed; no build. |
 | 20261012.170801 | [Copal fruit spent, held, no build](20261012/20261012-170801_copal-fruit-spent-no-build.kyri) | Zero unrostered witnesses; no build; Keaton names the next fruit. |
 | 20261012.170734 | [Grass grades four pages, no build](20261012/20261012-170734_grass-four-pages-graded-no-build.kyri) | Four open pages at B+ or above; no lift; nib carried. |
 | 20261012.165531 | [P1 hold, decision owed, no run](20261012/20261012-165531_diffuser-p1-hold-no-run-decision-owed.kyri) | HOLD; no run; P1 ruling owed to Claude or Keaton. |
