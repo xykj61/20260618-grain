@@ -7,6 +7,7 @@
 | `20261012.074908` | [Pheromone, queue held](20261012/20261012-074908_pheromone-queue-held-no-build.kyri) | Queue empty pending Incense ruling; no build. |
 | `20261012.075009` | [Diffuser, P1 unruled, ff of petrichor gate, no run](20261012/20261012-075009_diffuser-p1-hold-ff-petrichor-no-run.kyri) | P1 unruled; no diffuser file touched; no measurement. |
 | `20261012.074857` | [Bakery, hold on the crux ruling, no build](20261012/20261012-074857_bakery-hold-no-build.kyri) | Queue empty; receipt key owed to Keaton; no build. |
+| `20261012.075000` | [Patchouli, queue empty, %840 rulings held, check in](20261012/20261012-075000_patchouli-queue-empty-840-rulings-check-in.kyri) | Lane read empty; %840 rulings Keaton's; no build. |
 | `20261012.074549` | [Diffuser, P1 unruled, ff of three, no run](20261012/20261012-074549_diffuser-p1-hold-no-run.kyri) | P1 unruled; no diffuser file touched; no measurement. |
 | `20261012.074447` | [Incense, baton declined, round opened, no build](20261012/20261012-074447_incense-baton-declined-no-build.kyri) | Declined lap; claim board clear; no build. |
 | `20261012.074856` | [Incense, stash logs recovered, index row red at baseline](20261012/20261012-074856_incense-stash-logs-recovered.kyri) | Two stash logs restored; row witness red before and after. |
