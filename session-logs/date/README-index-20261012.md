@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.002902` | [Copal, density already rostered, no build](20261012/20261012-002902_copal-brush-density-already-rostered-no-build.kyri) | Zero unrostered; claim closed as duplicate. |
 | `20261012.002833` | [Incense, declined, no build](20261012/20261012-002833_incense-baton-declined-claim-clear-no-build.kyri) | Round-open clean; board clear; no build. |
 | 20261012.002827 | [diffuser P1 hold seventy-eighth](20261012/20261012-002827_diffuser-p1-hold-seventy-eighth-check-in-no-run.kyri) | P1 still unruled; no run, check in (Claude) |
 | `20261012.002652` | [Petrichor, gate unchanged, no build](20261012/20261012-002652_petrichor-gate-unchanged-fast-forward-no-build.kyri) | Fast-forward to e3066f9663; gate unmade; no build. |
