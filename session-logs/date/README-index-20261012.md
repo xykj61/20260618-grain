@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.085933` | [Incense, eighty-fifth lap, declined, nib carried](20261012/20261012-085933_incense-eighty-fifth-declined-nib-carried.kyri) | Tree current at xy/main; no build; ruling asked. |
 | `20261012.085837` | [Petrichor, nib red returned, gate held, no build](20261012/20261012-085837_petrichor-nib-stale-again-carried-gate-held-no-build.kyri) | Stale Git nib carried to 539fba9842 after pull; first-hour gate held. |
 | `20261012.090024` | [Grass, front doors graded, no frame](20261012/20261012-090024_grass-front-doors-graded-no-frame.kyri) | Three front doors read A, B+, A+; no frame owed. |
 | `20261012.085759` | [Bakery, receipt key re-read, held at ruling](20261012/20261012-085759_bakery-receipt-key-held-no-build.kyri) | Six key legs miss as designed; HEAD-in-key ruling owed; no build. |
