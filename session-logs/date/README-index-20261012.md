@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.140142 | [Copal fruit gone, third measure, no build](20261012/20261012-140142_copal-fruit-third-measure-no-build.kyri) | Zero unrostered witnesses; density GREEN; no build. |
 | 20261012.135629 | [Petrichor gate held after fast-forward, no build](20261012/20261012-135629_petrichor-gate-held-fast-forward-no-build.kyri) | Consent Rail gate unchanged; no build. |
 | 20261012.135212 | [Grass re-grades mycelium sample, no build](20261012/20261012-135212_grass-sample-regraded-no-build.kyri) | Fold, warrant, rehearsal read A; no edit; no build. |
 | 20261012.135524 | [Incense decline after ff, no build](20261012/20261012-135524_incense-decline-upstream-ff-no-build.kyri) | Ff to xy at 91fc11ae8a; claim board clear; law lane waits on Keaton; no build. |
