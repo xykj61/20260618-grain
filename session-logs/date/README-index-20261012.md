@@ -425,6 +425,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.171252 | [Incense decline gated, no build](20261012/20261012-171252_incense-decline-gated-no-build.kyri) | Gated card; clock and claims read clear; no build. |
 | 20261012.171041 | [Bakery census re-read, no build](20261012/20261012-171041_bakery-census-air-round-eleven-no-build.kyri) | Census 819/0; receipt key waits. |
 | 20261012.171054 | [Petrichor gate held, ff two, no build](20261012/20261012-171054_petrichor-gate-held-ff-two-no-build.kyri) | Ff to fb033e20a4; gate unchanged upstream; no build. |
 | 20261012.170737 | [Pheromone lane empty, no build](20261012/20261012-170737_pheromone-lane-empty-no-build.kyri) | Lane empty, board empty, 23 OPEN rows counted; no claim, no build.
