@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 
+| `20261012.051537` | [Pheromone, lane recheck, no build](20261012/20261012-051508_pheromone-lane-recheck-no-build.kyri) | Lane and board empty; %765 %807 await Keaton; no build. |
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.051250` | [Diffuser, P1 hold, no run](20261012/20261012-051250_diffuser-p1-hold-no-run-check-in-claude.kyri) | ff to 8953a20995; no P1 ruling; check in (Claude). |
