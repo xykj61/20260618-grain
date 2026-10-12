@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.205439` | [Diffuser, held again, P1 unruled, ff only](20261011/20261011-205439_diffuser-held-ff-no-p1-ruling-third.kyri) | Ff-only pull; no ruling; no run. |
+| `20261011.205425` | [Copal, fruit spent third read, no build](20261011/20261011-205425_copal-fruit-spent-third-read-no-build.kyri) | 0 of 158 witnesses unrostered; ruling needed; no build. |
 | `20261011.204904` | [Incense, baton declined, no build](20261011/20261011-204904_incense-baton-declined-claim-clear-no-build.kyri) | Ff pull; board clear; no build. |
 | `20261011.205443` | [Grass, inner page regraded, queue empty, no build](20261011/20261011-205443_grass-inner-regraded-queue-empty-no-build.kyri) | Field reading above B; queue empty; no build. |
 | `20261011.205159` | [Grass, queue empty, no build](20261011/20261011-205159_grass-queue-empty-held-no-build.kyri) | Queue empty; regrade held B+; no build. |
