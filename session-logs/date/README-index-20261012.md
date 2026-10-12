@@ -16,6 +16,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.121411 | [Incense declines, water row, no build](20261012/20261012-121411_incense-water-row-declined-no-build.kyri) | Round-open clean, claim board clear, cold run held; no build. |
 | 20261012.121923 | [Petrichor gate held, no build](20261012/20261012-121923_petrichor-gate-held-after-ff-no-build.kyri) | Seam and Consent Rail unchanged; no build. |
 | 20261012.121857 | [Grass docs, four graded, no frame](20261012/20261012-121857_grass-docs-four-graded-no-frame.kyri) | Four docs pages at A or better; no molt, no build. |
 | 20261012.121627 | [Copal fruit void again, no build](20261012/20261012-121627_copal-fruit-void-again-no-build.kyri) | No unrostered chapter witness; prin_ticker is a thin hand; check in (Claude). |
