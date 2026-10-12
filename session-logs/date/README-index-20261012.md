@@ -9,6 +9,7 @@
 | 20261012.110928 | [Petrichor, gate held, no build](20261012/20261012-110928_petrichor-docs-geode-gate-held-no-build.kyri) | Consent Rail still held; bhakta scan ok; no edit. |
 | `20261012.110943` | [Grass grade two rule pages, no frame](20261012/20261012-110943_grass-grade-rule-pages-aplus-no-frame.kyri) | Nib A+ 98, endurance-run A 92; no edit. |
 | 20261012.110938 | [Diffuser P1 held again, unruled, no run](20261012/20261012-110938_diffuser-p1-hold-unruled-no-run.kyri) | P1 still unruled; tree clean; no run; check in (Claude). |
+| 20261012.111104 | [Pheromone held after round-open pull, no build](20261012/20261012-111104_pheromone-lane-held-round-open-no-build.kyri) | Fruit closed; pulled one commit; no witness run; check in (Claude). |
 | 20261012.110252 | [Patchouli, queue empty, no build](20261012/20261012-110252_patchouli-queue-empty-no-build.kyri) | Version-literal grep: no elder header written; queue empty. |
 | `20261012.110322` | [Pheromone held, no build](20261012/20261012-110322_pheromone-lane-held-verified-no-build.kyri) | Witnesses GREEN; held for Incense ruling. |
 | 20261012.110943 | [Copal fruit empty again, no build](20261012/20261012-110943_copal-fruit-empty-no-build.kyri) | 158 of 158 rostered; no build; nib carried. |
