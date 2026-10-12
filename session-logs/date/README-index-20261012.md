@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.125909 | [Pheromone lane held, limb10 GREEN](20261012/20261012-125909_pheromone-lane-held-limb10-green.kyri) | Lane closed; witnesses GREEN; no build. |
 | 20261012.125237 | [Patchouli queue empty, kumara ruling still waiting](20261012/20261012-125237_patchouli-queue-empty-kumara-ruling-wait.kyri) | Queue empty; kumara seam still live at tally/kumara.rye:36; ruling wanted; no build. |
 | 20261012.125422 | [Grass audit of three front doors, all A, no build](20261012/20261012-125422_grass-audit-front-doors-b-or-better-no-build.kyri) | Three front doors graded A; nothing below B; no build. |
 | 20261012.124842 | [Pheromone held at the closed card, no build](20261012/20261012-124842_pheromone-held-closed-card-no-build.kyri) | Language lane empty; no claim taken; ruling wanted; no build. |
