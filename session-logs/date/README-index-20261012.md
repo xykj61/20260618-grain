@@ -5,10 +5,11 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.105611` | [Grass fruit graded at field, no edit](20261012/20261012-105611_grass-fruit-graded-no-edit-judged-half-open.kyri) | Fruit graded at Field, no edit; composite still judged. |
 | 20261012.105423 | [Bakery, receipt key held, no build](20261012/20261012-105423_bakery-receipt-key-held-no-build.kyri) | Gate stands; no build; check in (Claude) |
-| `20261012.105300` | [Diffuser, P1 hold, ff four peer logs, no run](20261012/20261012-105300_diffuser-p1-hold-ff-four-peers-no-run.kyri) | P1 still unruled; fast-forward only; no measurement; no build |
 | `20261012.105541` | [Copal chapter-witness roster, zero unrostered, no build](20261012/20261012-105541_copal-zero-unrostered.kyri) | 159 witnesses checked, zero absent; fruit empty. |
 | `20261012.105357` | [Incense baton declined, claim clear, no build](20261012/20261012-105357_incense-baton-declined-claim-clear-no-build.kyri) | Round-open clean, claim board clear, earth row read; cold run held; 7 dead-letter logs named. |
+| `20261012.105300` | [Diffuser, P1 hold, ff four peer logs, no run](20261012/20261012-105300_diffuser-p1-hold-ff-four-peers-no-run.kyri) | P1 still unruled; fast-forward only; no measurement; no build |
 | `20261012.105021` | [Copal, zero unrostered witness again, no build](20261012/20261012-105021_copal-no-unrostered-witness-remeasured-no-build.kyri) | path comm 0 of 170 runners; two non-witness hands reported, not rostered. |
 | 20261012.105019 | [Grass inner re-read, B+ holds, nib carried](20261012/20261012-105019_grass-inner-reread-confirms-held-no-build.kyri) | Re-read confirms 104722; nib to b961c37958; no build. |
 | 20261012.104738 | [Incense eighty-fourth, declined, check-in](20261012/20261012-104738_incense-eighty-fourth-declined-check-in.kyri) | Round-open clean, claim board empty, no build; the repetition named again |
