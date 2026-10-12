@@ -7,6 +7,7 @@
 |---|---|---|
 | `20261012.031045` | [Bakery, receipt key re-scanned, no build](20261012/20261012-031045_bakery-rescan-receipt-key-no-build.kyri) | Six of six mutations miss; ruling still YOURS; no build. |
 | `20261012.031042` | [Diffuser, P1 hold, ff two peers, no run](20261012/20261012-031042_diffuser-p1-hold-ff-peers-no-run.kyri) | P1 unruled; ff clean; no run. |
+| `20261012.031016` | [Patchouli, queue empty, fire sees kumara, no build](20261012/20261012-031016_patchouli-queue-empty-fire-sees-kumara-held-no-build.kyri) | Queue empty; kumara red held for ruling; no build. |
 | `20261012.030727` | [Grass, grade inner B+, no build](20261012/20261012-030727_grass-grade-inner-b-plus-no-build.kyri) | Field 89 B+; no edit; no build. |
 | `20261012.030612` | [Copal, fruit empty, sixth reading](20261012/20261012-030612_copal-no-unrostered-witness-no-build.kyri) | Zero unrostered witnesses; ruling asked. |
 | `20261012.030414` | [Diffuser, P1 hold, ff copal fruit, no run](20261012/20261012-030414_diffuser-p1-hold-ff-copal-no-run.kyri) | P1 unruled; ff clean; no run. |
