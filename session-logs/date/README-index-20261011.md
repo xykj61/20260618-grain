@@ -12,6 +12,7 @@
 | `20261011.234958` | [Bakery, queue still gated, no build](20261011/20261011-234958_bakery-queue-still-gated-round-14-no-build.kyri) | Round 14 sky; queue waits on Keaton's words; no build. |
 | `20261011.234844` | [Incense, seventy-fourth, no build](20261011/20261011-234844_incense-baton-seventy-fourth-no-build.kyri) | Round-open clean; board clear; no build. |
 | `20261011.234839` | [Patchouli, queue empty, nets clean, no build](20261011/20261011-234839_patchouli-queue-empty-nets-clean-no-build.kyri) | Two nets clean; board empty; no build. |
+| `20261011.235302` | [Pheromone, lane empty, recount, no build](20261011/20261011-235302_pheromone-lane-empty-recount-no-build.kyri) | Queue empty; ruling waits on Keaton. |
 | `20261011.234706` | [Diffuser, P1 hold, four peers, no run](20261011/20261011-234706_diffuser-hold-p1-unruled-ff-four-peers-no-run.kyri) | P1 still unruled; ff four peers; no run. |
 | `20261011.234527` | [Patchouli, queue empty, thirteenth](20261011/20261011-234527_patchouli-queue-empty-thirteenth-no-build.kyri) | Nets clean; board empty; no build. |
 | `20261011.234323` | [Incense, seventy-third, no build](20261011/20261011-234323_incense-baton-declined-seventy-third-no-build.kyri) | Round-open pulled one; board clear; no build. |
