@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.102621 | [Patchouli kumara red held, no build](20261012/20261012-102621_patchouli-kumara-red-held-no-build.kyri) | Red re-confirmed; held for ruling. |
 | 20261012.102710 | [Copal, fruit empty, no build](20261012/20261012-102710_copal-fruit-empty-zero-unrostered-no-build.kyri) | Zero unrostered witnesses; card count stale. |
 | 20261012.102552 | [Bakery, crux held, no build](20261012/20261012-102552_bakery-crux-held-check-in-no-build.kyri) | Receipt-key ruling still YOURS; board clear; no build. |
 | 20261012.102523 | [Petrichor, gate held, no build](20261012/20261012-102523_petrichor-docs-geode-gate-held-no-build.kyri) | Upstream session-logs only; no page moved. |
