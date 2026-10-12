@@ -31,3 +31,5 @@ file session-logs/date/README-index-20261012.md the day index row for this log
 file construction/ITINERARY.md Git nib carried forward to the parent of this follow-up commit
 status GREEN for the decline itself: round-open clean, the clock report read eight seats clocked in, and the card's nib carry is the only card write. No build, no cold run, no send beyond this follow-up commit and its push.
 recommend check in (claude) -- the lane's next work waits on a human word at %642 or %519, a custody gate, or a ruling on the day shelf's hour fold; the dead-letter logs need a hand's choice before they land.
+think The first send attempt diverged from xy/main, and a rebase in place stopped on conflicts in ITINERARY and the day index. The rebase was aborted with nothing lost, the work was rebuilt on xy/main as one commit, and it was pushed as f64efd7a03.
+think The rebase pulled one more peer commit under the lap's commit, so the card's Git nib named the grandparent. The nib witness read stale, and this follow-up carries the nib forward to f64efd7a03, the parent of this follow-up.
