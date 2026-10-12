@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.102523 | [Petrichor, gate held, no build](20261012/20261012-102523_petrichor-docs-geode-gate-held-no-build.kyri) | Upstream session-logs only; no page moved. |
 | 20261012.102213 | [Incense, declined a seventy-first, no build](20261012/20261012-102213_incense-baton-declined-no-build.kyri) | Round-open reset; claims clear; no build. |
 | 20261012.102207 | [Patchouli queue empty, a thirtieth way, no build](20261012/20261012-102207_patchouli-queue-empty-no-build.kyri) | Queue empty; no code moved; no build. |
 | 20261012.102027 | [Grass, inner page graded B+, no frame](20261012/20261012-102027_grass-inner-page-graded-b-plus.kyri) | Inner prompt graded B+ 89; nib carried; no edit. |
