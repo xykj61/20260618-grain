@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 
 | `20261012.035154` | [Incense, declined, no build](20261012/20261012-035154_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; no build. |
+| `20261012.035221` | [Patchouli, queue empty, no build](20261012/20261012-035221_patchouli-queue-empty-fresh-sweep-no-build.kyri) | Fresh sweep empty; no build. |
 | `20261012.034728` | [Incense, declined, no build](20261012/20261012-034728_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; cold run held; no build. |
 | `20261012.034516` | [Grass, flaky page register lifted, no witness](20261012/20261012-034516_grass-flaky-register-lifted.kyri) | Register 75 to 85; eight sentences affirmative. |
 | `20261012.034556` | [Petrichor, gate held after four peers, no build](20261012/20261012-034556_petrichor-hold-after-four-peers-no-build.kyri) | Gate held; four peer logs ff'd; no build. |
