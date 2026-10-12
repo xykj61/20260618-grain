@@ -1,6 +1,7 @@
 # session-logs day index -- 20261012
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261012.043503` | [Incense, baton declined, no build](20261012/20261012-043503_incense-baton-declined-no-build.kyri) | Round-open clean; claim board read; no build; check in. |
 | `20261012.043416` | [Pheromone, lane held, no build](20261012/20261012-043416_pheromone-lane-held-no-build.kyri) | ff to 7f774977b0; queue empty; no build; check in (checkpoint). |
 | `20261012.042819` | [Diffuser, P1 still unruled, no run](20261012/20261012-042819_diffuser-p1-hold-ff-incense-mantra-no-run.kyri) | ff to 9636c96d4a; no diffuser file; check in (Claude). |
 | `20261012.042714` | [Copal, sunn14 choir rostered twice, no build](20261012/20261012-042714_copal-sunn14-duplicate-row.kyri) | Fruit spent upstream; duplicate row awaits a tier ruling. |
