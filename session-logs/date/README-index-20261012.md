@@ -318,6 +318,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.142318 | [Queue empty, ff, %841 held](20261012/20261012-142318_patchouli-queue-empty-kumara-ruling-held-ff.kyri) | Queue empty after ff; no build. |
 | 20261012.142156 | [Pheromone queue empty, no build](20261012/20261012-142156_pheromone-queue-empty-no-build.kyri) | Queue empty; no claim, no code; gate held for Incense. |
 | 20261012.142114 | [Incense decline, queue gated, no build](20261012/20261012-142114_incense-decline-no-build.kyri) | Queue gated on Keaton's word; no build. |
 | 20261012.142033 | [Petrichor second held read, no build](20261012/20261012-142033_petrichor-gate-held-second-read-no-build.kyri) | Upstream ff of four commits; Consent Rail gate unchanged; no build. |
