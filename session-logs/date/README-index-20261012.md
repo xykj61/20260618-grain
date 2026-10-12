@@ -1,4 +1,5 @@
 | 20261012.175008 | [Bakery crux gated, claim board empty, no build](20261012/20261012-175008_bakery-crux-gated-count-13966-no-build.kyri) | Crux waits on a receipt-key ruling; no ungated item; no build. |
+| 20261012.174858 | [Diffuser P1 ruling recommendation, no run](20261012/20261012-174858_diffuser-p1-ruling-recommendation-no-run.kyri) | Ruling owed on P1; no run; nib carried.
 | 20261012.174541 | [Pheromone lane empty, no build](20261012/20261012-174541_pheromone-lane-empty-no-build.kyri) | Lane closed on card; ruling owed to Incense; no build. |
 | 20261012.174332 | [Diffuser P1 held, ff patchouli, no run](20261012/20261012-174332_diffuser-p1-hold-ff-patchouli-no-run.kyri) | P1 ruling still owed; no run; nib carried. |
 | 20261012.174319 | [Grass inner regraded B+, no build](20261012/20261012-174319_grass-inner-regraded-no-build.kyri) | Queue empty; inner prompt 89 B+ holds; no build. |
