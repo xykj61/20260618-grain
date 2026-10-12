@@ -1,10 +1,9 @@
 # session-logs day index -- 20261012
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261012.040554` | [Grass, inner regraded, no build](20261012/20261012-040554_grass-inner-regrade-no-build.kyri) | Field B+ 89 holds; claims empty; no edit. |
 | `20261012.040549` | [Incense, baton declined, no build](20261012/20261012-040549_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; no build. |
 | `20261012.040220` | [Incense, declined, no build](20261012/20261012-040220_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; no build. |
-
-| `20261012.040554` | [Grass, inner regraded, no build](20261012/20261012-040554_grass-inner-regrade-no-build.kyri) | Field B+ 89 holds; claims empty; no edit. |
 | `20261012.040009` | [Petrichor, gate held, no build](20261012/20261012-040009_petrichor-gate-held-no-build.kyri) | Gate held; ff to f6768418d8; no build. |
 | `20261012.035858` | [Bakery, receipt key held, rescan, no build](20261012/20261012-035858_bakery-receipt-key-held-rescan-no-build.kyri) | Census 819/0 and HEAD read re-measured; ruling owed; no build. |
 | `20261012.035721` | [Pheromone, lane empty, no build](20261012/20261012-035721_pheromone-language-lane-empty-no-build.kyri) | Glow witnesses GREEN; no build. |
