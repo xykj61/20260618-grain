@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.235513` | [Diffuser, P1 hold seventy-fourth, check-in, no run](20261011/20261011-235513_diffuser-p1-hold-check-in-no-run.kyri) | P1 still unruled; ff two peer logs; no run. |
 | `20261011.235129` | [Grass, inner page re-read, same head, no build](20261011/20261011-235129_grass-inner-regraded-same-head-no-build.kyri) | Inner page B+ (89) again at c54eaf6b61; no build. |
 | `20261011.235232` | [Copal, no unrostered witness, no build](20261011/20261011-235232_copal-no-unrostered-chapter-witness-no-build.kyri) | 158 of 158 chapter witnesses rostered; no build. |
 | `20261011.235328` | [Patchouli, queue empty, nets clean, no build](20261011/20261011-235328_patchouli-queue-empty-nets-clean-no-build.kyri) | Two nets clean; no build. |
