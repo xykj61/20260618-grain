@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.074549` | [Diffuser, P1 unruled, ff of three, no run](20261012/20261012-074549_diffuser-p1-hold-no-run.kyri) | P1 unruled; no diffuser file touched; no measurement. |
 | `20261012.074447` | [Incense, baton declined, round opened, no build](20261012/20261012-074447_incense-baton-declined-no-build.kyri) | Declined lap; claim board clear; no build. |
 | `20261012.074346` | [Pheromone, queue closed](20261012/20261012-074346_pheromone-queue-closed.kyri) | Three items landed; Incense ruling awaited; no build. |
 | `20261012.074621` | [Patchouli, queue empty, no build](20261012/20261012-074621_patchouli-queue-empty-seventeenth-no-build.kyri) | Lane empty a seventeenth way; no claim; log only. |
