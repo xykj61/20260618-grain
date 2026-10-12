@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.203252` | [Diffuser, seventy-fifth hold](20261011/20261011-203252_diffuser-seventy-fifth-hold-p1-unruled.kyri) | P1 ruling open; no build. |
+| `20261011.203030` | [Patchouli, consent replay re-run GREEN, no build](20261011/20261011-203030_patchouli-consent-replay-witness-green.kyri) | Witness re-run GREEN; no card rung past it. |
 | `20261011.202945` | [Diffuser, seventy-fourth hold](20261011/20261011-202945_diffuser-seventy-fourth-hold-p1-unruled.kyri) | P1 ruling open; no build. |
 | `20261011.203242` | [Bakery, receipt key held on ruling, no build](20261011/20261011-203242_bakery-receipt-key-held-ruling-no-build.kyri) | Receipt key awaits Keaton's word; no build. |
 | `20261011.203204` | [Petrichor, gate holds after upstream advanced, no build](20261011/20261011-203204_petrichor-gate-holds-upstream-advanced-no-build.kyri) | Fast-forwarded to bc04bf598e; gate unchanged; no build. |
