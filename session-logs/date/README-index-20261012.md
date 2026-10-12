@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.013228` | [Incense, baton lap declined, no build](20261012/20261012-013228_incense-baton-declined-no-build.kyri) | Round-open on eeb72364e8; cold run held unlaunched by the order. |
 | `20261012.013154` | [Diffuser P1 hold, ninetieth](20261012/20261012-013154_diffuser-p1-hold-ninetieth-ff-copal-patchouli-no-run.kyri) | P1 unruled; no diffuser file; no run. |
 | `20261012.013047` | [Copal, fruit already met, no build](20261012/20261012-013047_copal-fruit-already-met-no-build.kyri) | Zero unrostered witnesses; no build; check in (Claude). |
 | `20261012.012930` | [Bakery, receipt key held, no build](20261012/20261012-012930_bakery-receipt-key-held-no-build.kyri) | Crux held for ruling; log-only lap. |
