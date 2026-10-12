@@ -6,6 +6,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.113606 | [Round-open hold, no build](20261012/20261012-113606_incense-round-open-hold-no-build.kyri) | Reset to xy/main; board clear; cold run held; no build. |
 | 20261012.113449 | [Pheromone baton, repeat hold, no build](20261012/20261012-113449_pheromone-baton-no-build-repeat-hold.kyri) | Lane empty; no claim, no build; log only. |
 | 20261012.113511 | [Diffuser P1 hold, stalled lap, no run](20261012/20261012-113511_diffuser-p1-hold-stalled-check-in-no-run.kyri) | Fast-forward clean; P1 ruling owed; no build, no claim. |
 | 20261012.113220 | [Petrichor gate held after ff, no build](20261012/20261012-113220_petrichor-gate-held-ff-no-build.kyri) | Consent Rail unchanged upstream; no build; check in (Claude). |
