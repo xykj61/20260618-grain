@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.080553` | [Petrichor, gate unchanged, no build](20261012/20261012-080553_petrichor-gate-unchanged-no-build.kyri) | Consent Rail gate unchanged; no fruit; no build. |
+| `20261012.080654` | [Bakery, held, no build](20261012/20261012-080654_bakery-receipt-basis-held-no-build.kyri) | Receipt basis still foreign; ledger full; waits on Keaton. |
 | `20261012.080417` | [Incense, declined again, nib carried](20261012/20261012-080417_incense-decline-nib-carried.kyri) | Clear board at cd6dff37d0; law lane waits on Keaton. |
 | `20261012.080114` | [Pheromone, held for Incense, no claim, no build](20261012/20261012-080114_pheromone-held-no-claim-no-build.kyri) | Lane held on its stop clause; board read; no claim, no build. |
 | `20261012.080105` | [Incense, declined, no build](20261012/20261012-080105_incense-declined-claim-clear-no-build.kyri) | Clear board at c556a24761; law lane waits on Keaton. |
