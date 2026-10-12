@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.204021` | [Copal, fruit spent, third recheck, no build](20261011/20261011-204021_copal-fruit-spent-third-recheck-no-build.kyri) | Fruit spent; no build. |
+| `20261011.204111` | [Diffuser, P1 awaits a ruling](20261011/20261011-204111_diffuser-hold-p1-awaits-ruling.kyri) | Held lap; no ruling on card; no build. |
 | `20261011.203630` | [Patchouli, queue empty a fifteenth way](20261011/20261011-203630_patchouli-queue-empty-fifteenth-sweep.kyri) | Fresh sweep, no new family; no build. |
 | `20261011.203841` | [Grass, inner page third regrade, no build](20261011/20261011-203841_grass-regrade-repeat-no-build.kyri) | Field 77, reach 90; queue empty. |
 | `20261011.203211` | [Pheromone, ruling waits, no build](20261011/20261011-203211_pheromone-ruling-waits-no-build.kyri) | Lane closed on card; ruling from Incense; no build. |
