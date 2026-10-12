@@ -1433,30 +1433,9 @@ pub const Weave = struct {
         // invariant: self.next_run <= max_weave_lines
         assert(self.next_run <= max_weave_lines);
 
-        // The weave grows by exactly the diff's inserts, so the sum is what the
-        // ceiling reads -- at the edge, before a single line is appended.
-        if (self.lines.items.len + diff.inserts.len > max_weave_lines) {
-            return WeaveError.TooManyLines;
-        }
-
-        // The COUNT is bounded above; the two counters are bounded here, and
-        // the pair is one bound said in two units. A weave lifted from a sparse
-        // record holds fewer lines than its counter has spent, so the line
-        // reading above can pass while the position reading below refuses --
-        // which is the case the elder bound could not see, and the one that
-        // reached `next_pos += 1` at the u32 ceiling as a panic.
-        //
-        // Written as a subtraction rather than a sum on purpose: both counters
-        // stand at or under `max_weave_lines` by the weave's own invariant, so
-        // the difference is a real number where the sum is what overflows.
-        if (diff.inserts.len > max_weave_lines - self.next_pos) {
-            return WeaveError.CounterPastCeiling;
-        }
-        // The run counter rises once for the whole edit, and only when the edit
-        // places a line -- so it is read under exactly that condition.
-        if (diff.inserts.len > 0 and self.next_run >= max_weave_lines) {
-            return WeaveError.CounterPastCeiling;
-        }
+        // Every refusal of the capacity edge is read before a line moves, in
+        // `check_capacity`, so a refused diff leaves the weave as it arrived.
+        try self.check_capacity(diff);
 
         // Process deletes first: bump each named line's gen to even. Identity
         // rather than position, since a position alone names a line in one
@@ -1485,6 +1464,53 @@ pub const Weave = struct {
         if (diff.inserts.len > 0) self.next_run += 1;
 
         // Postcondition: every line in the weave has a valid, assigned position.
+        // Read by `assert_positions`, split out so `apply` reads as its steps.
+        self.assert_positions();
+    }
+
+    /// The capacity refusals `apply` reads before any line moves.
+    ///
+    /// Split out of `apply` to keep that function under the 70-line bar. The
+    /// refusals and their order are unchanged.
+    fn check_capacity(self: *const Weave, diff: Diff) WeaveError!void {
+        // invariant: the weave stands inside its own ceiling before the edit is read
+        assert(self.lines.items.len <= max_weave_lines);
+        // invariant: the position counter stands inside the same ceiling, which is
+        // what makes the subtraction below a real number rather than a wrap
+        assert(self.next_pos <= max_weave_lines);
+
+        // The weave grows by exactly the diff's inserts, so the sum is what the
+        // ceiling reads -- at the edge, before a single line is appended.
+        if (self.lines.items.len + diff.inserts.len > max_weave_lines) {
+            return WeaveError.TooManyLines;
+        }
+
+        // The COUNT is bounded above; the two counters are bounded here, and
+        // the pair is one bound said in two units. A weave lifted from a sparse
+        // record holds fewer lines than its counter has spent, so the line
+        // reading above can pass while the position reading below refuses --
+        // which is the case the elder bound could not see, and the one that
+        // reached `next_pos += 1` at the u32 ceiling as a panic.
+        //
+        // Written as a subtraction rather than a sum on purpose: both counters
+        // stand at or under `max_weave_lines` by the weave's own invariant, so
+        // the difference is a real number where the sum is what overflows.
+        if (diff.inserts.len > max_weave_lines - self.next_pos) {
+            return WeaveError.CounterPastCeiling;
+        }
+        // The run counter rises once for the whole edit, and only when the edit
+        // places a line -- so it is read under exactly that condition.
+        if (diff.inserts.len > 0 and self.next_run >= max_weave_lines) {
+            return WeaveError.CounterPastCeiling;
+        }
+    }
+
+    /// Postcondition of `apply`: every line carries a real generation and a
+    /// position inside the weave's own counters.
+    ///
+    /// Split out of `apply` to keep that function under the 70-line bar. The
+    /// asserts are unchanged, and they still run on every successful edit.
+    fn assert_positions(self: *const Weave) void {
         for (self.lines.items) |line| {
             // invariant: a line carries a real generation and a position inside the weave's own
             // counter, so neither ordering nor identity is left to the caller
