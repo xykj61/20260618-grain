@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261012.043814` | [Incense, dead-letter restored, no build](20261012/20261012-043814_incense-dead-letter-restored.kyri) | Restored a stashed prior log; moved the table header to the top. |
 | `20261012.043953` | [Petrichor, gate held, no build](20261012/20261012-043953_petrichor-gate-held-no-build.kyri) | Pull clean; claim board empty; no owned red; check in (Claude).
+| `20261012.044211` | [Pheromone, lane ff held, no build](20261012/20261012-044211_pheromone-lane-ff-held-no-build.kyri) | ff over four peer commits; Glow untouched; no build; check in (Claude). |
 | `20261012.043503` | [Incense, baton declined, no build](20261012/20261012-043503_incense-baton-declined-no-build.kyri) | Round-open clean; claim board read; no build; check in. |
 | `20261012.043416` | [Pheromone, lane held, no build](20261012/20261012-043416_pheromone-lane-held-no-build.kyri) | ff to 7f774977b0; queue empty; no build; check in (checkpoint). |
 | `20261012.043410` | [Incense, baton declined, no build](20261012/20261012-043410_incense-baton-declined-no-build.kyri) | Restored from the dead-letter box; declined, no build. |
