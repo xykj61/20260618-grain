@@ -140,6 +140,37 @@ fn build_held_request(fetcher: *const ns.BoltCatalog) sw.WireError!sw.SyncReques
     return req;
 }
 
+// The two unwelcome paths refuse the whole response: a tampered resin digest,
+// and a corrupted Comlink seal. `sealed` is the response as the source sent it.
+fn refuse_unwelcome_sync(decoded_resp: *const sw.SyncResponse, sealed: []const u8) !void {
+    // invariant: a sealed response is never empty and fits the wire capacity.
+    assert(sealed.len > 0);
+    assert(sealed.len <= @as(usize, @intCast(wf.wire_capacity)));
+
+    // Unwelcome: tampered resin in response refuses whole.
+    var bad_resp = decoded_resp.*;
+    bad_resp.entries[1].digest_hex[0] = if (bad_resp.entries[1].digest_hex[0] == 'a') 'b' else 'a';
+    var dest_bad: ns.BoltCatalog = .empty();
+    try init_witness_fetcher(&dest_bad);
+    if (sw.apply_sync_response(&dest_bad, &bad_resp)) |_| {
+        return error.DigestMismatch;
+    } else |err| {
+        assert(err == error.DigestMismatch);
+    }
+    assert(dest_bad.leaf_count == 1); // only seed leaf remains
+
+    // Unwelcome: bad Comlink seal refuses whole.
+    var corrupt_wire: [@intCast(wf.wire_capacity)]u8 = undefined;
+    tally_copy.copy_disjoint(u8, corrupt_wire[0..sealed.len], sealed);
+    corrupt_wire[sealed.len - 1] ^= 0xff;
+    var junk: [@intCast(wf.max_message)]u8 = undefined;
+    if (open_wire(corrupt_wire[0..sealed.len], &junk)) |_| {
+        return error.VerifyFailed;
+    } else |_| {
+        print("nsw1: bad Comlink seal refused -- GREEN unwelcome path\n", .{});
+    }
+}
+
 fn run_selftest(_: std.Io) !u8 {
     var src: ns.BoltCatalog = undefined;
     try init_witness_source(&src);
@@ -195,28 +226,7 @@ fn run_selftest(_: std.Io) !u8 {
     assert(std.mem.eql(u8, da[0..ra.len], sa[0..src_ra.len]));
     assert(std.mem.eql(u8, db[0..rb.len], sb[0..src_rb.len]));
 
-    // Unwelcome: tampered resin in response refuses whole.
-    var bad_resp = decoded_resp;
-    bad_resp.entries[1].digest_hex[0] = if (bad_resp.entries[1].digest_hex[0] == 'a') 'b' else 'a';
-    var dest_bad: ns.BoltCatalog = .empty();
-    try init_witness_fetcher(&dest_bad);
-    if (sw.apply_sync_response(&dest_bad, &bad_resp)) |_| {
-        return error.DigestMismatch;
-    } else |err| {
-        assert(err == error.DigestMismatch);
-    }
-    assert(dest_bad.leaf_count == 1); // only seed leaf remains
-
-    // Unwelcome: bad Comlink seal refuses whole.
-    var corrupt_wire: [@intCast(wf.wire_capacity)]u8 = undefined;
-    tally_copy.copy_disjoint(u8, corrupt_wire[0..@intCast(resp_wire_len)], resp_wire[0..@intCast(resp_wire_len)]);
-    corrupt_wire[@intCast(resp_wire_len - 1)] ^= 0xff;
-    var junk: [@intCast(wf.max_message)]u8 = undefined;
-    if (open_wire(corrupt_wire[0..@intCast(resp_wire_len)], &junk)) |_| {
-        return error.VerifyFailed;
-    } else |_| {
-        print("nsw1: bad Comlink seal refused -- GREEN unwelcome path\n", .{});
-    }
+    try refuse_unwelcome_sync(&decoded_resp, resp_wire[0..@intCast(resp_wire_len)]);
 
     print("nsw1: bolt synced over wire -- had-already {d}, need-resin {d}; recall identical on both peers\n", .{ report.had_already, report.needed });
     print("nsw1: tampered resin refused whole -- GREEN unwelcome path\n", .{});
