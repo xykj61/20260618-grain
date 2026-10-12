@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.231237` | [Incense, baton declined, dead-letter noted, no build](20261011/20261011-231237_incense-baton-declined-dead-letter-noted-no-build.kyri) | Board clear; 8 peer stash records reported; no build. |
 | `20261011.231219` | [Diffuser, P1 held, unruled, ff three peers, no run](20261011/20261011-231219_diffuser-held-p1-unruled-ff-three-peers-no-run.kyri) | P1 unruled; ff three peers; no run. |
 | `20261011.231213` | [Copal, fruit absent, no build](20261011/20261011-231213_copal-fruit-absent-no-build.kyri) | 158 of 158 witnesses rostered; prin_ticker is a delegated hand; no build. |
 | `20261011.230819` | [Diffuser, P1 held, 170 revisions, no run](20261011/20261011-230819_diffuser-hold-p1-unruled-no-run-170-revisions.kyri) | P1 unruled; no peer diffuser file; no run. |
