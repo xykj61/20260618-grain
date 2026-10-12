@@ -8,6 +8,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.114348 | [Copal fruit re-measured, no build](20261012/20261012-114348_copal-fruit-remeasured-no-build.kyri) | Zero unrostered chapter witnesses at 6a387f6d44; no claim, no build. |
 | 20261012.114244 | [Recall-by-mark selftest split under seventy](20261012/20261012-114244_patchouli-recall-by-mark-selftest-split.kyri) | Three helpers; selftest output byte-identical. |
 | 20261012.114537 | [Diffuser P1 check-in, no run](20261012/20261012-114537_diffuser-p1-check-in-no-run.kyri) | Fast-forward only; P1 unruled; no run, no hold row. |
 | 20261012.114415 | [Petrichor citation sweep, clean](20261012/20261012-114415_petrichor-docs-citation-sweep-no-break.kyri) | ff; 164 paths read; no living break; no build. |
