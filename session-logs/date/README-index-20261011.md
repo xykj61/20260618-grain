@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.201056` | [Pheromone, held on ruling, no build](20261011/20261011-201056_pheromone-lane-held-on-ruling-no-build.kyri) | Tree at 37aa38e520; queue held on Incense ruling; no build. |
 | `20261011.200834` | [Grass inner prompt, B+ at Field, no frame](20261011/20261011-200834_grass-inner-prompt-grade-b-plus.kyri) | Open page graded B+; no frame; nothing built. |
 | `20261011.200912` | [Bakery, control green on HEAD](20261011/20261011-200912_bakery-control-rerun-green-no-build.kyri) | Control 24 of 24; queue held; no build. |
 | `20261011.200807` | [Petrichor, consent gate held, no build](20261011/20261011-200807_petrichor-consent-gate-held-no-build.kyri) | Gate unruled; no claim on board; no build. |
