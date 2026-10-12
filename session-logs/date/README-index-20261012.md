@@ -1,6 +1,7 @@
 # session-logs day index -- 20261012
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261012.042819` | [Diffuser, P1 still unruled, no run](20261012/20261012-042819_diffuser-p1-hold-ff-incense-mantra-no-run.kyri) | ff to 9636c96d4a; no diffuser file; check in (Claude). |
 | `20261012.042203` | [Incense, baton declined after ff, no build](20261012/20261012-042203_incense-baton-declined-ff-no-build.kyri) | Round-open ff clean; board empty; no build; check in. |
 | `20261012.042740` | [Petrichor, docs-geode links resolve, no build](20261012/20261012-042740_petrichor-docs-links-resolve-no-build.kyri) | 435 links, 56 pages, none broken; no build. |
 | `20261012.042010` | [Copal, chapter-witness fruit rechecked, no build](20261012/20261012-042010_copal-chapter-witness-fruit-rechecked-no-build.kyri) | Zero unrostered witnesses; premise empty; no build. |
