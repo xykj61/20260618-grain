@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261011.234527` | [Patchouli, queue empty, thirteenth](20261011/20261011-234527_patchouli-queue-empty-thirteenth-no-build.kyri) | Nets clean; board empty; no build. |
 | `20261011.234323` | [Incense, seventy-third, no build](20261011/20261011-234323_incense-baton-declined-seventy-third-no-build.kyri) | Round-open pulled one; board clear; no build. |
+| `20261011.234411` | [Petrichor, doorway witness no verdict, no build](20261011/20261011-234411_petrichor-doorway-witness-no-verdict-no-build.kyri) | Count read; witness unread; no build. |
 | `20261011.234140` | [Bakery, queue gated, no build](20261011/20261011-234140_bakery-queue-gated-air-row-no-build.kyri) | Queue waits on Keaton's word; no build. |
 | `20261011.234144` | [Copal, fruit empty, fifth recount](20261011/20261011-234144_copal-fruit-empty-fifth-recount-no-build.kyri) | Zero unrostered witnesses; no build. |
 | `20261011.234009` | [Patchouli, queue empty again, no build](20261011/20261011-234009_patchouli-queue-empty-again-no-build.kyri) | Elder-header nets clean; claim board empty; no build. |
