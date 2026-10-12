@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.103043 | [Diffuser, P1 held an eighteenth time](20261012/20261012-103043_diffuser-p1-held-eighteenth-no-run.kyri) | Ff from xy, no P1 ruling; hold, no run. |
 | 20261012.103046 | [Petrichor, gate still held, no build](20261012/20261012-103046_petrichor-gate-still-held-no-build.kyri) | Upstream read; Consent Rail and public seam unchanged; no build. |
 | 20261012.102759 | [Pheromone, shape lane held, no build](20261012/20261012-102759_pheromone-queue-held-no-build.kyri) | Closed fruit stands; next Glow ruling waits on Incense; no build. |
 | 20261012.102621 | [Patchouli kumara red held, no build](20261012/20261012-102621_patchouli-kumara-red-held-no-build.kyri) | Red re-confirmed; held for ruling. |
