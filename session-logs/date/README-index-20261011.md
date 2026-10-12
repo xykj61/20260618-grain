@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.203211` | [Pheromone, ruling waits, no build](20261011/20261011-203211_pheromone-ruling-waits-no-build.kyri) | Lane closed on card; ruling from Incense; no build. |
+| `20261011.203505` | [Diffuser, seventy-sixth hold](20261011/20261011-203505_diffuser-seventy-sixth-hold-p1-unruled.kyri) | P1 ruling open; no build. |
 | `20261011.203252` | [Diffuser, seventy-fifth hold](20261011/20261011-203252_diffuser-seventy-fifth-hold-p1-unruled.kyri) | P1 ruling open; no build. |
 | `20261011.203030` | [Patchouli, consent replay re-run GREEN, no build](20261011/20261011-203030_patchouli-consent-replay-witness-green.kyri) | Witness re-run GREEN; no card rung past it. |
 | `20261011.202945` | [Diffuser, seventy-fourth hold](20261011/20261011-202945_diffuser-seventy-fourth-hold-p1-unruled.kyri) | P1 ruling open; no build. |
