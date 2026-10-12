@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.070210` | [Copal, fruit void a twelfth read, no build](20261012/20261012-070210_copal-fruit-void-twelfth-read-no-build.kyri) | Zero unrostered witnesses; no build. |
 | `20261012.070216` | [Grass, Lila foundation A+, no build](20261012/20261012-070216_grass-foundation-lila-graded-a-no-build.kyri) | Composite 97; queue empty; no edit. |
 | `20261012.070220` | [Diffuser, P1 unruled, remote level, no run](20261012/20261012-070220_diffuser-p1-hold-no-ruling-no-run.kyri) | P1 still unruled; remote level; no run, check in (Claude). |
 | `20261012.070008` | [Incense, declined after ff, no build](20261012/20261012-070008_incense-baton-declined-round-open-ff-no-build.kyri) | Ff to a9a118f1b4; claims empty; no build. |
