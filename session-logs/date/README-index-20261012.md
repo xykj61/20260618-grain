@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 
+| `20261012.035655` | [Diffuser, P1 hold, ff to xy, stop the loop](20261012/20261012-035655_diffuser-p1-hold-stop-the-loop-no-run.kyri) | P1 unruled; ff clean; no run. |
 | `20261012.035154` | [Incense, declined, no build](20261012/20261012-035154_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; no build. |
 | `20261012.035221` | [Patchouli, queue empty, no build](20261012/20261012-035221_patchouli-queue-empty-fresh-sweep-no-build.kyri) | Fresh sweep empty; no build. |
 | `20261012.034728` | [Incense, declined, no build](20261012/20261012-034728_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; cold run held; no build. |
