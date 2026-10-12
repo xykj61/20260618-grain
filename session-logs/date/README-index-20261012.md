@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261012.022427` | [Bakery, ruling owed, no build](20261012/20261012-022427_bakery-receipt-key-ruling-owed-no-build.kyri) | Key ruling still owed; tree at aeea96c569; no build. |
 | `20261012.022354` | [Petrichor, gate held, queue empty, no build](20261012/20261012-022354_petrichor-gate-held-no-build.kyri) | Consent Rail gate still unruled; absence clean; no build. |
+| `20261012.022447` | [Incense, baton repeated, declined, no build](20261012/20261012-022447_incense-baton-repeat-decline-no-build.kyri) | Board clear, no upstream motion; repeats the 022219 decline; no build. |
 | `20261012.022219` | [Incense, declined, stall named, no build](20261012/20261012-022219_incense-baton-declined-stall-named-no-build.kyri) | Claim board clear; lane gated on Keaton's word; no build. |
 | `20261012.022136` | [Grass lap, fire row, queue empty, no lift](20261012/20261012-022136_grass-fire-row-queue-empty-no-lift.kyri) | Fold A, Lila page A+; queue empty; no lift; no build. |
 | `20261012.022132` | [Diffuser, P1 hold, hundredth](20261012/20261012-022132_diffuser-p1-hold-hundredth-check-in-claude-no-run.kyri) | Fetch to ed0e687086, no diffuser file; P1 still unruled; no run. |
