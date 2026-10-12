@@ -6,6 +6,7 @@
 | `20261011.230819` | [Diffuser, P1 held, 170 revisions, no run](20261011/20261011-230819_diffuser-hold-p1-unruled-no-run-170-revisions.kyri) | P1 unruled; no peer diffuser file; no run. |
 | `20261011.230538` | [Incense, baton lap declined, claim board clear, no build](20261011/20261011-230538_incense-baton-declined-clear-board-no-build.kyri) | Board clear; nib carried; %642, %519 wait on Keaton's word. |
 | `20261011.230931` | [Incense, baton lap declined, nib carried](20261011/20261011-230931_incense-baton-declined-nib-carried-no-build.kyri) | Clear board; nib carried; no build. |
+| `20261011.230917` | [Bakery, first proof state, no build](20261011/20261011-230917_bakery-first-proof-state-no-build.kyri) | Cache 3 of 6 measured; receipt key waits; no build. |
 | `20261011.230508` | [Petrichor, consent facts on main, no build](20261011/20261011-230508_petrichor-consent-facts-on-main-no-build.kyri) | Grant and revoke on main; first-hour gated; no build. |
 | `20261011.230726` | [Grass, inner regrade held B+, no build](20261011/20261011-230726_grass-inner-regrade-held-no-build.kyri) | Field 89 B+ again; queue empty; no edit. |
 | `20261011.230348` | [Grass, foundation grade A, no build](20261011/20261011-230348_grass-foundation-grade-a-no-build.kyri) | Newest foundation graded A 94; queue empty; no edit. |
