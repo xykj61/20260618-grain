@@ -439,6 +439,13 @@ figure is free: re-run `git grep -nw usize -- 'mantra/*.rye' 'mantra/**/*.rye' '
 than trusting 38. The queue still reads empty for this class, so the next lap should widen to another
 class or take a ruled item.
 
+**The recursion class, measured `20261012.015247`: clean.** A self-call scan over every tracked
+`mantra/` and `tally/` Rye source finds five call sites. Three are comptime type recursion in
+`tally/no_padding.rye`, bounded by the depth of the type. One is `walk` in
+`mantra/src/declaration_walk_witness.rye`, which asserts `depth <= max_walk_depth` and caps its
+count at `max_room_declarations`. The other is a comment. No unbounded recursion stands, so no red is
+booked. The next lap should widen to another class rather than repeat this one.
+
 ## gates
 
 Keys, funds, provisioning, identity, and the public seed stay manual.
