@@ -1,6 +1,7 @@
 # session-logs day index -- 20261012
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261012.041429` | [Copal, chapter-witness fruit spent, no build](20261012/20261012-041429_copal-chapter-witnesses-spent-no-build.kyri) | 158 of 158 chapter witnesses rostered; no candidate; no build. |
 | `20261012.041407` | [Grass, docs shelf graded, no build](20261012/20261012-041407_grass-docs-shelf-graded-no-build.kyri) | Fifteen docs pages read B or better; queue empty; no build. |
 | `20261012.041131` | [Incense, baton declined, no build](20261012/20261012-041131_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; no build; check in. |
 | `20261012.040847` | [Incense, repeat decline, pattern named](20261012/20261012-040847_incense-baton-declined-check-in-pattern.kyri) | Round-open clean; claim board clear; no build; check in named. |
