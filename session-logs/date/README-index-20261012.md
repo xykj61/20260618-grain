@@ -287,6 +287,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.133224 | [P1 held again, four peer logs, no run](20261012/20261012-133224_diffuser-p1-hold-ff-four-peer-logs-no-run.kyri) | Fast-forward from xy; P1 unruled; no measurement; check in (Claude). |
 | 20261012.132847 | [Patchouli queue empty a thirtieth way, no build](20261012/20261012-132847_patchouli-queue-empty-thirtieth-no-build.kyri) | Lane queue reads empty; %807 and %765 want a ruling; no build. |
 | 20261012.132537 | [Diffuser P1 still stalled, one copal commit, no run](20261012/20261012-132537_diffuser-p1-stalled-no-run.kyri) | P1 ruling still owed; ff brought one copal commit; no measurement. |
 | 20261012.132224 | [Copal fruit rechecked, no build](20261012/20261012-132224_copal-fruit-rechecked-no-build.kyri) | Zero unrostered witnesses; fruit already closed; no build. |
