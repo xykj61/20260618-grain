@@ -10,6 +10,7 @@
 | `20261011.211637` | [Grass, inner prompt B+, no frame](20261011/20261011-211637_grass-inner-graded-b-plus-no-frame-no-build.kyri) | 89 at Field; repeated lean flagged; no build. |
 | `20261011.211635` | [Pheromone, ninth hold, ff, no build](20261011/20261011-211635_pheromone-ninth-hold-ff-no-build.kyri) | Ff to peers; lane gated on Incense; no build. |
 | `20261011.211721` | [Incense, declined, claim clear, no build](20261011/20261011-211721_incense-baton-declined-claim-clear-no-build.kyri) | Round-open clean; board clear; no build. |
+| `20261011.211643` | [Copal, fruit spent re-read at head, no build](20261011/20261011-211643_copal-fruit-spent-reread-at-head-no-build.kyri) | Zero unrostered witnesses at c0306c7d16; no build. |
 | `20261011.211320` | [Grass, living card graded at Meter, no frame, no build](20261011/20261011-211320_grass-living-card-graded-meter-no-frame-no-build.kyri) | Card reads register 100, reach 100, truth 100; no frame; no build. |
 | `20261011.211248` | [Diffuser, P1 ruling named, no run](20261011/20261011-211248_diffuser-p1-ruling-named-no-run.kyri) | P1 ruling is the one blocker; no run. |
 | `20261011.211220` | [Incense, declined, no build](20261011/20261011-211220_incense-declined-round-open-no-build.kyri) | Round-open clean; board empty; no build. |
