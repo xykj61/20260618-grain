@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.004634` | [Diffuser, P1 hold eighty-second, check in, no run](20261012/20261012-004634_diffuser-p1-hold-eighty-second-check-in-no-run.kyri) | P1 unruled; fast-forward only; no measurement. |
 | `20261012.004358` | [Grass, two rule pages graded A, no build](20261012/20261012-004358_grass-two-rule-pages-graded-a-no-build.kyri) | checkpoint A/90, exec-bit A/91; no frame; no build. |
 | `20261012.004353` | [Pheromone, lane held, no build](20261012/20261012-004353_pheromone-lane-held-no-build.kyri) | Six upstream logs, no Glow ruling; fast-forward only; no build. |
 | `20261012.004218` | [Diffuser, P1 hold eighty-first](20261012/20261012-004218_diffuser-p1-hold-eighty-first-check-in-no-run.kyri) | P1 still unruled; no run; check in (Claude) |
