@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.201441` | [Copal, static-alloc already rostered, claim closed](20261011/20261011-201441_copal-static-alloc-already-rostered.kyri) | Path count 0 of 158 unrostered; duplicate row reverted; no build. |
 | `20261011.201334` | [Diffuser, P1 hold, seventy-first lap](20261011/20261011-201334_diffuser-seventy-first-hold-p1-unruled.kyri) | P1 still undefined on the page; ff to 6afae33704; no build. |
 | `20261011.201501` | [Bakery, crux held at a seam, no build](20261011/20261011-201501_bakery-crux-seam-check-in.kyri) | Fast-forwarded 3; no build; cache seam ruling needed. |
 | `20261011.201056` | [Pheromone, held on ruling, no build](20261011/20261011-201056_pheromone-lane-held-on-ruling-no-build.kyri) | Tree at 37aa38e520; queue held on Incense ruling; no build. |
