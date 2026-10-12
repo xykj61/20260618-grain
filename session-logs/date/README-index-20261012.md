@@ -488,6 +488,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.184937 | [Diffuser P1 held, ff three peers, no run](20261012/20261012-184937_diffuser-p1-hold-ff-copal-patchouli-no-run.kyri) | Ff three peers, no P1 ruling; no run. |
+| 20261012.184911 | [Grass queue empty, no build](20261012/20261012-184911_grass-queue-empty-no-regrade-no-build.kyri) | Queue empty; repeat regrade declined; no build. |
 | 20261012.184814 | [Brush parse witness rostered](20261012/20261012-184814_brush-parse-roster-claimed-green-red.kyri) | Claim pushed; green INV_OK 91, red INV_LOW 2; roster row. |
 | 20261012.184829 | [Pheromone lap, lane empty, no open red, no build](20261012/20261012-184829_pheromone-lap-claim-override-none-no-build.kyri) | Lane empty at stop clause; no open Glow red to claim; no build. |
 | 20261012.184644 | [Petrichor gate held, ff, no build](20261012/20261012-184644_petrichor-gate-held-ff-no-build.kyri) | Consent Rail and seam unchanged upstream; no build. |
