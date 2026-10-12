@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.141206 | [Patchouli queue empty after fast-forward, no build](20261012/20261012-141206_patchouli-queue-empty-ff-no-build.kyri) | Queue empty; REDS %841 ruling-held; no build. |
 | 20261012.140834 | [Petrichor gate held after fast-forward, no build](20261012/20261012-140834_petrichor-gate-held-ff-no-build.kyri) | Gate unchanged after ff to ba72e2953b; no build. |
 | 20261012.140719 | [Copal fruit gone, fourth measure, no build](20261012/20261012-140719_copal-fruit-fourth-measure-no-build.kyri) | Zero unrostered witnesses after ff; no build. |
 | 20261012.140420 | [Diffuser P1 held again, no run](20261012/20261012-140420_diffuser-p1-hold-no-run-check-in.kyri) | Inner prompt 180 KB of P1 holds; no row added, no run; check in (Claude). |
