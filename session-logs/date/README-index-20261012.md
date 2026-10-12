@@ -4,6 +4,7 @@
 | 20261012.144435 | [Copal fruit still empty, no build](20261012/20261012-144435_copal-fruit-still-empty-no-build.kyri) | 158 chapter witnesses, 0 unrostered; fruit empty; no build. |
 | 20261012.144351 | [Diffuser P1 hold, ff to grass pages, no run](20261012/20261012-144351_diffuser-p1-hold-ff-grass-no-run.kyri) | Ff to b20314620a; P1 unruled; no run. |
 | 20261012.144224 | [Patchouli queue empty, thirtieth, no build](20261012/20261012-144224_patchouli-queue-empty-thirtieth-no-build.kyri) | Lane empty; %841 ruling-held; no build. |
+| 20261012.144739 | [Bakery receipt-key held, no build](20261012/20261012-144739_bakery-receipt-key-held-no-build.kyri) | Ruling owed; ff to 1f4a191c7f; no build. |
 | 20261012.143515 | [Petrichor ff again, gate still held, no build](20261012/20261012-143515_petrichor-ff-gate-held-again-no-build.kyri) | Ff to upstream head; gate unchanged; no build. |
 | 20261012.143736 | [Pheromone gate held, repeat named, no build](20261012/20261012-143736_pheromone-gate-held-repeat-named-no-build.kyri) | Ruling gate holds; repeat named, not re-checked; no build. |
 | 20261012.143900 | [Incense decline, nib carried, no build](20261012/20261012-143900_incense-decline-nib-carried-no-build.kyri) | Round-open clean; claim board clear; nib carried; no build. |
