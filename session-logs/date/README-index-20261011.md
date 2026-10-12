@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.221151` | [Petrichor, hold, no claimable red, no build](20261011/20261011-221151_petrichor-hold-no-claimable-red-no-build.kyri) | Gate still held; register witness GREEN; no build. |
 | `20261011.220917` | [Patchouli, queue empty, no build](20261011/20261011-220917_patchouli-queue-empty-no-build.kyri) | Queue empty again; kumara red held; no build. |
 | `20261011.220817` | [Copal, fruit empty again, no build](20261011/20261011-220817_copal-fruit-gone-recount-no-build.kyri) | Zero unrostered witnesses on 5536ef5450; no claim; no build. |
 | `20261011.220958` | [Diffuser, P1 unruled, ff one peer, no run](20261011/20261011-220958_diffuser-hold-p1-unruled-ff-no-run.kyri) | P1 still unruled; ff to one peer log; no run. |
