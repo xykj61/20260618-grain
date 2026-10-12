@@ -1,3 +1,4 @@
+| 20261012.190904 | [Patchouli queue empty, thirteenth sweep, no build](20261012/20261012-190904_patchouli-queue-empty-thirteenth-no-build.kyri) | Queue scan empty again; no build. |
 | 20261012.190747 | [Petrichor gate held, ff one, no build](20261012/20261012-190747_petrichor-gate-held-ff-one-no-build.kyri) | Consent Rail and seam unchanged upstream; no build. |
 | 20261012.190558 | [Incense air row read, queue ruling-gated, no build](20261012/20261012-190558_incense-air-row-hold-no-build.kyri) | Board read; queue ruling-gated; no build. |
 | 20261012.190407 | [Grass MIND scan, no candidate](20261012/20261012-190407_grass-mind-scan-no-eligible-candidate.kyri) | No conversion eligible; .sh booking ruling owed; no build. |
