@@ -414,6 +414,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.163714 | [Diffuser P1 held, no run, pattern named](20261012/20261012-163714_diffuser-p1-hold-stop-pattern-check-in-no-run.kyri) | No run; no new revision row; P1 ruling owed. |
 | 20261012.162936 | [Incense round-open nib carry, no build](20261012/20261012-162936_incense-round-open-nib-carry-no-build.kyri) | Ff to 12f0ea53eb; board clear; nib carried; no build. |
 | 20261012.162851 | [Bakery crux ruling owed, no build](20261012/20261012-162851_bakery-crux-ruling-owed-no-build.kyri) | Bakery crux awaits a ruling; no build; nib carried to 6297ceaf39. |
 | 20261012.162720 | [Diffuser P1 hold, ff patchouli and pheromone, no run](20261012/20261012-162720_diffuser-p1-hold-ff-patchouli-pheromone-no-run.kyri) | Ff to add90f2b34; P1 unruled; no run, no hold row. |
