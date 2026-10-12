@@ -1,7 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
 | 20261012.121943 | [Patchouli length queue empty, no build](20261012/20261012-121943_patchouli-length-queue-empty-no-build.kyri) | Version headers and 818 functions measured; nothing owed; no build. |
-| 20261012.121923 | [Petrichor gate held, no build](20261012/20261012-121923_petrichor-gate-held-after-ff-no-build.kyri) | Seam and Consent Rail unchanged; no build. |
 | 20261012.121458 | [Pheromone held at closed fruit](20261012/20261012-121458_pheromone-lane-held-closed-fruit-no-build.kyri) | Stop clause in force; no claim, no build.
 | 20261012.121424 | [Grass foundations, four graded, no frame](20261012/20261012-121424_grass-foundations-four-graded-no-frame.kyri) | Four pages at B+ or above; no molt, no build. |
 | 20261012.121210 | [Diffuser P1 hold, three peers in, no run](20261012/20261012-121210_diffuser-p1-hold-ff-three-peers-no-run.kyri) | P1 still unruled; three log-and-card peers in, no diffuser file; check in (Claude). |
@@ -17,6 +16,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.121923 | [Petrichor gate held, no build](20261012/20261012-121923_petrichor-gate-held-after-ff-no-build.kyri) | Seam and Consent Rail unchanged; no build. |
 | 20261012.121857 | [Grass docs, four graded, no frame](20261012/20261012-121857_grass-docs-four-graded-no-frame.kyri) | Four docs pages at A or better; no molt, no build. |
 | 20261012.121627 | [Copal fruit void again, no build](20261012/20261012-121627_copal-fruit-void-again-no-build.kyri) | No unrostered chapter witness; prin_ticker is a thin hand; check in (Claude). |
 | 20261012.121625 | [Diffuser P1 hold, one peer in, no run](20261012/20261012-121625_diffuser-p1-hold-ff-petrichor-no-run.kyri) | P1 still unruled; petrichor gate peer in; check in (Claude). |
