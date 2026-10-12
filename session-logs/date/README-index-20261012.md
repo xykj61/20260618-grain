@@ -5,6 +5,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.032321` | [Patchouli, queue empty again, no build](20261012/20261012-032321_patchouli-queue-empty-again-no-build.kyri) | Queue empty; greps clean; no build. |
 | `20261012.032230` | [Copal, fruit empty, no build](20261012/20261012-032230_copal-fruit-empty-no-build.kyri) | Fruit already rostered; 0 of 159 unrostered; no build. |
 | `20261012.032134` | [Diffuser, P1 hold, ff incense and patchouli, check in, no run](20261012/20261012-032134_diffuser-p1-hold-check-in-no-run.kyri) | P1 unruled; ff clean; no run. |
 | `20261012.032152` | [Incense, baton seventy-ninth, ff, two stashed logs flagged, no build](20261012/20261012-032152_incense-baton-seventy-ninth-no-build.kyri) | Ff patchouli's queue log; two stash logs unlanded; no build. |
