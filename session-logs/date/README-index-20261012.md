@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.072714` | [Petrichor, compressors graded, no lift](20261012/20261012-072714_petrichor-compressors-graded-no-lift.kyri) | Fifteen compressors at composite 83 to 93; none below B; no lift. |
 | `20261012.072507` | [Grass, field reading, no lift](20261012/20261012-072507_grass-field-reading-no-lift.kyri) | Three compressor pages graded B or better; no lift, no edit. |
 | `20261012.072441` | [Pheromone, capacity rechecked, no build](20261012/20261012-072441_pheromone-capacity-rechecked-no-build.kyri) | Witness GREEN on new HEAD; lane at its stop; no claim. |
 | `20261012.072530` | [Incense, seventy-eighth, no build](20261012/20261012-072530_incense-baton-seventy-eighth-no-build.kyri) | Fetch level with xy/main; claim board clear; no build. |
