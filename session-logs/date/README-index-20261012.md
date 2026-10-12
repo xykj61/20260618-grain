@@ -9,6 +9,7 @@
 | 20261012.112318 | [Grass mycelium sample clear, no lift, no build](20261012/20261012-112318_grass-mycelium-sample-clear-no-build.kyri) | Fold reads A 93; queue closed at its sample; held, no edit. |
 | 20261012.111900 | [Grass re-grades the inner prompt; a peer already did, no frame](20261012/20261012-111900_grass-inner-prompt-repeat-grade-no-frame.kyri) | Register 77, truth 100 counted; the 111407 peer reading stands; no edit. |
 | 20261012.111929 | [Incense repeat hold, same HEAD, no build](20261012/20261012-111929_incense-repeat-hold-same-head.kyri) | Second hold on the anointed order; no build. |
+| 20261012.112339 | [Copal, chapter witness fruit already rostered, no build](20261012/20261012-112339_copal-chapter-witness-fruit-already-rostered-no-build.kyri) | Fruit empty; roster 159 of 159; no build. |
 | 20261012.111800 | [Pheromone held after fruit check, no build](20261012/20261012-111800_pheromone-lane-held-no-build.kyri) | Fruit closed; no claim, no build; check in (Claude). |
 | 20261012.111844 | [Diffuser P1 hold, ff clean, no ruling, no run](20261012/20261012-111844_diffuser-p1-hold-no-ruling-no-run.kyri) | P1 owed to Keaton or a Claude hand; ff only; no run. |
 | 20261012.111407 | [Grass grades its inner prompt, B+ 89, no frame](20261012/20261012-111407_grass-inner-prompt-bplus-no-frame.kyri) | Register 77, reach 90, truth 100 counted; no edit. |
