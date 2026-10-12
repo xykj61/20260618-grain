@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.015233` | [Bakery pre-push control adopts plant law](20261012/20261012-015233_bakery-pre-push-spine-plant-adoption.kyri) | Rebinding plant named; control 12 of 12; remainder 358. |
 | `20261012.015128` | [Diffuser, P1 hold, check in Claude, no run](20261012/20261012-015128_diffuser-p1-hold-ninety-second-check-in-claude-no-run.kyri) | P1 unruled; ff only; no run. |
 | `20261012.014856` | [Grass, inner regraded B+, no build](20261012/20261012-014856_grass-regrade-round-14-wildcard-no-build.kyri) | Field B+ 89 again; nib to HEAD. |
 | `20261012.014945` | [Incense, baton declined after fast-forward, no build](20261012/20261012-014945_incense-baton-declined-after-ff-pull.kyri) | Round-opened, two peer logs fast-forwarded; claim board clear; lane gated; no build. |
