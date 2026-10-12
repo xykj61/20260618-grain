@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.143329 | [Bakery receipt-key ruling held, no build](20261012/20261012-143329_bakery-receipt-key-ruling-held-no-build.kyri) | Ff to 2889b682ce; witness GREEN; ruling owed. |
 | 20261012.143144 | [Diffuser P1 hold, ff to bakery and incense, no run](20261012/20261012-143144_diffuser-p1-hold-ff-bakery-no-run.kyri) | Ff to 252594a6a3; P1 unruled; no run. |
 | 20261012.142840 | [Patchouli queue empty, seventeenth, no build](20261012/20261012-142840_patchouli-queue-empty-seventeenth-no-build.kyri) | Lane empty; %841 ruling-held. |
 | 20261012.143021 | [Grass air round, queue empty, no build](20261012/20261012-143021_grass-air-round-queue-empty-no-build.kyri) | Ff to 55950c74f2; queue empty; nothing graded; no build. |
