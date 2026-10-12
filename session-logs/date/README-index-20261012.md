@@ -13,6 +13,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.034259` | [Bakery, receipt key still gated, no build](20261012/20261012-034259_bakery-receipt-key-held-no-build.kyri) | Receipt-key ruling owed; queue held; no build. |
 | `20261012.034057` | [Pheromone, lane held, no build](20261012/20261012-034057_pheromone-lane-held-round-open-ff-no-build.kyri) | Stop clause held; ff clean; no build. |
 | `20261012.034050` | [Petrichor, gate held, no build](20261012/20261012-034050_petrichor-gate-held-no-build.kyri) | Consent gate held; no page; no build. |
 | `20261012.033758` | [Diffuser, P1 unruled, two peers, no run](20261012/20261012-033758_diffuser-p1-hold-ff-petrichor-incense-no-run.kyri) | P1 unruled; no run. |
