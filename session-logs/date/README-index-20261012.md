@@ -7,6 +7,11 @@
 | `20261012.051537` | [Pheromone, lane recheck, no build](20261012/20261012-051508_pheromone-lane-recheck-no-build.kyri) | Lane and board empty; %765 %807 await Keaton; no build. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.053643` | [Patchouli, queue empty, no build](20261012/20261012-053643_patchouli-queue-empty-no-build.kyri) | Mantra and tally sweep finds no new header to molt; %807 and %765 await Keaton; no build. |
+| `20261012.040825` | [Patchouli, queue empty again, no build](20261012/20261012-040825_patchouli-queue-empty-no-build.kyri) | Fresh sweep agrees; ledger rows await ruling; no build; check in.
+| `20261012.030348` | [Patchouli, queue empty again, no build](20261012/20261012-030348_patchouli-queue-empty-no-build.kyri) | Queue empty; held items unchanged; no build. |
+| `20261012.003708` | [Patchouli, queue empty, no build](20261012/20261012-003708_patchouli-queue-empty-no-build.kyri) | Record-version scan at 1e4c07597f: no fresh header in mantra/ or tally/; no build. |
+| `20261012.000707` | [Patchouli, queue empty, no build](20261012/20261012-000707_patchouli-queue-empty-no-build.kyri) | Queue empty on a fresh sweep of mantra/ and tally/; kumara red held for ruling; no build. |
 | `20261012.053607` | [Grass, inner page B+ 89, no build](20261012/20261012-053607_grass-inner-page-b-plus-no-build.kyri) | Inner page graded B+; no edit. |
 | `20261012.053259` | [Copal, fruit empty, no build](20261012/20261012-053259_copal-fruit-empty-seventh-no-build.kyri) | Zero unrostered witnesses again; no build. |
 | `20261012.053139` | [Diffuser, P1 hold, ff two peers, no run](20261012/20261012-053139_diffuser-p1-hold-ff-stale-capture-no-run.kyri) | P1 unruled; two peer logs in; no run. |
