@@ -554,7 +554,21 @@ fn selftest_deletion(content_p: []const u8) !DedupPair {
     return .{ .cdc = br.report.beads_deduped, .fixed = fr.report.beads_deduped };
 }
 
-fn run_beading_selftest(_: std.Io) !u8 {
+// Each phase of the beading selftest asserts its own claims and returns only the numbers
+// the summary lines name. Splitting the harness keeps every function under the 70-line
+// bound, and the orchestrator still prints the same ten lines in the same order.
+const FixedRing = struct { beads: u32, deposited: u32 };
+const ShiftRing = struct {
+    beads: u32,
+    shift_deduped: u32,
+    fixed_deduped: u32,
+    len: u32,
+    round_len: u32,
+    whole_digest: [32]u8,
+};
+
+// Phase 1: the fixed-size ring, its aligned dedup dividend, and the named refusals.
+fn run_fixed_ring_selftest() !FixedRing {
     // A 400-byte resin: 256 bytes of 'A', then 144 bytes of 'B'. At a 256-byte bead
     // size it beads into two: a full 'A' bead and a 144-byte 'B' bead.
     var content_c: [400]u8 = undefined;
@@ -596,16 +610,17 @@ fn run_beading_selftest(_: std.Io) !u8 {
     // Unwelcome resins refuse whole, one named refusal each: see selftest_refusals.
     try selftest_refusals(&store, content_c[0..], idx_c[0..bc.len]);
 
-    // Content-defined beading: the next ring. Boundaries follow the content, so an edit
-    // shifts only nearby beads and the rest dedup. Prove the round-trip, then the shift.
-    var content_p: [480]u8 = undefined;
-    pattern_fill(content_p[0..], 12345);
-    var store_cdc: BeadStore = .empty();
-    var idx_p: [max_resin_bytes]u8 = undefined;
-    const bp = try bead_content_defined(&store_cdc, content_p[0..], &idx_p);
+    return .{ .beads = bc.report.bead_count, .deposited = bd.report.beads_deposited };
+}
+
+// Phase 2: content-defined beading. Boundaries follow the content, so an edit shifts
+// only nearby beads and the rest dedup. Prove the round-trip, then the shift, then the
+// fixed-size contrast on the same pair.
+fn run_shift_selftest(store_cdc: *BeadStore, content_p: []const u8, idx_p: []u8) !ShiftRing {
+    const bp = try bead_content_defined(store_cdc, content_p[0..], idx_p);
     assert(bp.report.bead_count >= 2);
     var out_p: [max_resin_bytes]u8 = undefined;
-    const re_p = try reassemble(&store_cdc, tilak_bead_index, idx_p[0..bp.len], &out_p);
+    const re_p = try reassemble(store_cdc, tilak_bead_index, idx_p[0..bp.len], &out_p);
     assert(std.mem.eql(u8, out_p[0..re_p.len], content_p[0..]));
 
     // Q is P with three bytes inserted after offset 40; the long tail is unchanged.
@@ -616,9 +631,9 @@ fn run_beading_selftest(_: std.Io) !u8 {
     content_q[42] = 'Z';
     tally_copy.copy_disjoint(u8, content_q[43..483], content_p[40..480]);
     var idx_q: [max_resin_bytes]u8 = undefined;
-    const bq = try bead_content_defined(&store_cdc, content_q[0..], &idx_q);
+    const bq = try bead_content_defined(store_cdc, content_q[0..], &idx_q);
     var out_q: [max_resin_bytes]u8 = undefined;
-    const re_q = try reassemble(&store_cdc, tilak_bead_index, idx_q[0..bq.len], &out_q);
+    const re_q = try reassemble(store_cdc, tilak_bead_index, idx_q[0..bq.len], &out_q);
     assert(std.mem.eql(u8, out_q[0..re_q.len], content_q[0..]));
 
     // Contrast: fixed-size beading of the same pair. The insertion shifts every fixed
@@ -634,52 +649,90 @@ fn run_beading_selftest(_: std.Io) !u8 {
     assert(bq.report.beads_deduped >= 1);
     assert(bq.report.beads_deduped > fq.report.beads_deduped);
 
+    return .{
+        .beads = bp.report.bead_count,
+        .shift_deduped = bq.report.beads_deduped,
+        .fixed_deduped = fq.report.beads_deduped,
+        .len = bp.len,
+        .round_len = re_p.len,
+        .whole_digest = bp.whole_digest,
+    };
+}
+
+// Phase 3: the name is the content address, and the bounded-memory verify agrees with
+// reassembly. Both rings name the same bytes, so the digest comes in from phase 2.
+fn run_name_and_verify_selftest(
+    store_cdc: *const BeadStore,
+    content_p: []const u8,
+    idx_p: []const u8,
+    whole_digest: [32]u8,
+    round_len: u32,
+) !u32 {
     // The name is the content address, unchanged by beading. Both rings return the
     // resin's own digest, identical to the unbeaded content digest and to each other.
     var direct_p: [32]u8 = undefined;
-    digest_raw(content_p[0..], &direct_p);
+    digest_raw(content_p, &direct_p);
     var store_np: BeadStore = .empty();
     var fixed_p: [max_resin_bytes]u8 = undefined;
-    const fp = try bead(&store_np, content_p[0..], 128, &fixed_p);
+    const fp = try bead(&store_np, content_p, 128, &fixed_p);
     assert(std.mem.eql(u8, &fp.whole_digest, &direct_p));
-    assert(std.mem.eql(u8, &bp.whole_digest, &direct_p));
+    assert(std.mem.eql(u8, &whole_digest, &direct_p));
 
     // Bounded-memory verify agrees with reassembly and holds no output buffer.
-    const vp = try verify_bead_index(&store_cdc, tilak_bead_index, idx_p[0..bp.len]);
-    assert(vp.len == re_p.len);
-    assert(std.mem.eql(u8, &vp.whole_digest, &bp.whole_digest));
+    const vp = try verify_bead_index(store_cdc, tilak_bead_index, idx_p);
+    assert(vp.len == round_len);
+    assert(std.mem.eql(u8, &vp.whole_digest, &whole_digest));
     {
         // A tampered index fails verify, the same as it fails reassembly.
         var bad: [max_resin_bytes]u8 = undefined;
-        tally_copy.copy_disjoint(u8, bad[0..bp.len], idx_p[0..bp.len]);
+        tally_copy.copy_disjoint(u8, bad[0..idx_p.len], idx_p);
         bad[0] +%= 1; // corrupt the recorded whole digest
-        if (verify_bead_index(&store_cdc, tilak_bead_index, bad[0..bp.len])) |_| {
+        if (verify_bead_index(store_cdc, tilak_bead_index, bad[0..idx_p.len])) |_| {
             return error.DigestMismatch;
         } else |err| {
             assert(err == error.DigestMismatch);
         }
     }
+    return vp.len;
+}
+
+fn run_beading_selftest(_: std.Io) !u8 {
+    const fixed = try run_fixed_ring_selftest();
+
+    // The 480-byte pattern the content-defined ring and its deletion probe both read.
+    var content_p: [480]u8 = undefined;
+    pattern_fill(content_p[0..], 12345);
+    var store_cdc: BeadStore = .empty();
+    var idx_p: [max_resin_bytes]u8 = undefined;
+    const shift = try run_shift_selftest(&store_cdc, content_p[0..], idx_p[0..]);
+    const verify_len = try run_name_and_verify_selftest(
+        &store_cdc,
+        content_p[0..],
+        idx_p[0..shift.len],
+        shift.whole_digest,
+        shift.round_len,
+    );
 
     // A deletion re-syncs too: content-defined beading dedups across it, fixed-size does not.
     const del = try selftest_deletion(content_p[0..]);
 
     print("beading: fixed-size ring beaded {d} beads, reassembled to the byte\n", .{
-        bc.report.bead_count,
+        fixed.beads,
     });
     print("beading: aligned dedup; a second fixed resin deposited {d} new bead\n", .{
-        bd.report.beads_deposited,
+        fixed.deposited,
     });
     print("beading: content-defined ring beaded {d} beads; a shift re-synced {d}, fixed {d}\n", .{
-        bp.report.bead_count,
-        bq.report.beads_deduped,
-        fq.report.beads_deduped,
+        shift.beads,
+        shift.shift_deduped,
+        shift.fixed_deduped,
     });
     print("beading: a deletion re-synced {d} beads, fixed {d}\n", .{
         del.cdc,
         del.fixed,
     });
     print("beading: bounded-memory verify confirmed the whole in one-bead space, len {d}\n", .{
-        vp.len,
+        verify_len,
     });
     print("beading: missing bead, tampered bead, tampered index refused whole GREEN\n", .{});
     print("beading: non-bead-index Tilak and over-count refused whole GREEN\n", .{});
