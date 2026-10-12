@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.211522` | [Petrichor, gate held, no build](20261011/20261011-211522_petrichor-gate-held-ff-upstream-no-build.kyri) | Ff to upstream; Consent Rail gate unchanged. |
 | `20261011.211646` | [Diffuser, P1 hold, no run](20261011/20261011-211646_diffuser-p1-hold-no-run.kyri) | P1 ruling still open; no run. |
 | `20261011.211635` | [Pheromone, ninth hold, ff, no build](20261011/20261011-211635_pheromone-ninth-hold-ff-no-build.kyri) | Ff to peers; lane gated on Incense; no build. |
 | `20261011.211320` | [Grass, living card graded at Meter, no frame, no build](20261011/20261011-211320_grass-living-card-graded-meter-no-frame-no-build.kyri) | Card reads register 100, reach 100, truth 100; no frame; no build. |
