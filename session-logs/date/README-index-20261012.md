@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.074857` | [Bakery, hold on the crux ruling, no build](20261012/20261012-074857_bakery-hold-no-build.kyri) | Queue empty; receipt key owed to Keaton; no build. |
 | `20261012.074549` | [Diffuser, P1 unruled, ff of three, no run](20261012/20261012-074549_diffuser-p1-hold-no-run.kyri) | P1 unruled; no diffuser file touched; no measurement. |
 | `20261012.074447` | [Incense, baton declined, round opened, no build](20261012/20261012-074447_incense-baton-declined-no-build.kyri) | Declined lap; claim board clear; no build. |
 | `20261012.074856` | [Incense, stash logs recovered, index row red at baseline](20261012/20261012-074856_incense-stash-logs-recovered.kyri) | Two stash logs restored; row witness red before and after. |
