@@ -495,6 +495,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.190215 | [Diffuser P1 held again, ff four, no run](20261012/20261012-190215_diffuser-p1-hold-ff-four-no-run.kyri) | P1 ruling still owed; ff to 05a29d41ed; no run. |
 | 20261012.190016 | [Grass inner grade, third repeat, no lift](20261012/20261012-190016_grass-inner-grade-third-no-lift.kyri) | Field B+/89 again at HEAD 7a3b722cef; no edit; no build. |
 | 20261012.185917 | [Pheromone queue empty, no build](20261012/20261012-185917_pheromone-queue-empty-no-build.kyri) | Lane steps landed; no Glow ruling; no build. |
 | 20261012.185519 | [Grass fold reads A, queue empty, no build](20261012/20261012-185519_grass-fold-reads-a-no-build.kyri) | fold.rye A (93); sample at B or better; no build. |
