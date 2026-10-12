@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 
 | `20261012.033441` | [Petrichor, three tutorials graded, no edit](20261012/20261012-033441_petrichor-three-tutorials-graded-no-edit.kyri) | Three new tutorials graded; all clear B; no edit. |
+| `20261012.033715` | [Incense, declined, no build](20261012/20261012-033715_incense-baton-declined-no-build-round-open-clean.kyri) | Round-open clean; board clear; no build. |
 | `20261012.033007` | [Diffuser, P1 hold, ff to bakery plant, no run](20261012/20261012-033007_diffuser-p1-hold-ff-bakery-plant-no-run.kyri) | P1 unruled; ff clean; no run. |
 | `20261012.032803` | [Bakery, plant adoption, no build](20261012/20261012-032803_bakery-plant-adoption-measured-no-build.kyri) | 358 controls remain; receipt key waits. |
 | `20261012.032646` | [Incense, recovered two orphaned logs, no build](20261012/20261012-032646_incense-baton-recovered-two-orphans.kyri) | Two stashed accounts restored; no build. |
