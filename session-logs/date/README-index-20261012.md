@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.154021 | [Patchouli queue empty, no build](20261012/20261012-154021_patchouli-queue-empty-no-build.kyri) | Ff to 4bb1d95837; queue empty; %841 and %807 owed; no build. |
 | 20261012.154016 | [Incense decline, aether listened, no build](20261012/20261012-154016_incense-decline-aether-listen-no-build.kyri) | Clean; claims clear; nib carried; no build. |
 | 20261012.153652 | [Petrichor gate held, ff one, no build](20261012/20261012-153652_petrichor-gate-held-ff-one-no-build.kyri) | Ff to f8d63558db; Consent Rail still Diffuser's; no build |
 | 20261012.153351 | [Pheromone held, round six, no build](20261012/20261012-153351_pheromone-held-round-six-no-build.kyri) | Ff to 60077311b3; lane empty; ruling owed to Incense; no build. |
