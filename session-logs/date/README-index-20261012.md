@@ -13,8 +13,9 @@
 | `20261012.030348` | [Patchouli, queue empty again, no build](20261012/20261012-030348_patchouli-queue-empty-no-build.kyri) | Queue empty; held items unchanged; no build. |
 | `20261012.003708` | [Patchouli, queue empty, no build](20261012/20261012-003708_patchouli-queue-empty-no-build.kyri) | Record-version scan at 1e4c07597f: no fresh header in mantra/ or tally/; no build. |
 | `20261012.000707` | [Patchouli, queue empty, no build](20261012/20261012-000707_patchouli-queue-empty-no-build.kyri) | Queue empty on a fresh sweep of mantra/ and tally/; kumara red held for ruling; no build. |
-| `20261012.053607` | [Grass, inner page B+ 89, no build](20261012/20261012-053607_grass-inner-page-b-plus-no-build.kyri) | Inner page graded B+; no edit. |
+| `20261012.053712` | [Incense, baton declined, no build](20261012/20261012-053712_incense-baton-declined-no-build.kyri) | Round-open adopted anointed order, claim board empty, lane gated; no build. |
 | `20261012.053259` | [Copal, fruit empty, no build](20261012/20261012-053259_copal-fruit-empty-seventh-no-build.kyri) | Zero unrostered witnesses again; no build. |
+| `20261012.053607` | [Grass, inner page B+ 89, no build](20261012/20261012-053607_grass-inner-page-b-plus-no-build.kyri) | Inner page graded B+; no edit. |
 | `20261012.053139` | [Diffuser, P1 hold, ff two peers, no run](20261012/20261012-053139_diffuser-p1-hold-ff-stale-capture-no-run.kyri) | P1 unruled; two peer logs in; no run. |
 | `20261012.053355` | [Petrichor, gate held after ff, no build](20261012/20261012-053355_petrichor-gate-held-no-build.kyri) | Consent Rail still Keaton's call; ff to 8c29a186c3; no fruit. |
 | `20261012.052859` | [Incense, baton declined, no build](20261012/20261012-052859_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; cold run held; no build. |
