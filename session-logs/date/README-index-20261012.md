@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.075549` | [Pheromone, queue held, fire row, no build](20261012/20261012-075549_pheromone-queue-held-fire-row-no-build.kyri) | Queue held for Incense; no claim, no build. |
 | `20261012.075331` | [Diffuser, P1 hold, ff of patchouli, no run](20261012/20261012-075331_diffuser-p1-hold-ff-patchouli-no-run.kyri) | P1 unruled; no diffuser file touched; no measurement. |
 | `20261012.075317` | [Petrichor, gate held, ff of five, no build](20261012/20261012-075317_petrichor-gate-held-ff-no-build.kyri) | Gate held after ff; no claim, no build. |
 | `20261012.075109` | [Incense, baton declined, ff, no build](20261012/20261012-075109_incense-baton-declined-ff-no-build.kyri) | Round-open clean; claim board clear; no build. |
