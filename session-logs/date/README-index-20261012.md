@@ -306,6 +306,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.140818 | [Patchouli queue empty, %841 ruling-held, no build](20261012/20261012-140818_patchouli-queue-empty-redmeasured-no-build.kyri) | Queue empty; %841 still needs a Claude ruling; no code changed. |
 | 20261012.140543 | [Incense decline on the open %841 ruling, no build](20261012/20261012-140543_incense-decline-open-841-ruling-no-build.kyri) | %841 held OPEN for a ruling; no build. |
 | 20261012.140421 | [Grass, inner prompt re-graded at Field B+, no build](20261012/20261012-140421_grass-inner-regraded-field-b-plus-no-build.kyri) | Field grade 89 B+; queue empty; no edit; no build. |
 | 20261012.140228 | [Incense decline after fast-forward, claim clear, no build](20261012/20261012-140228_incense-decline-after-ff-claim-clear-no-build.kyri) | Round-open adopted xy/main at 926583fac3; claim board clear; cold run held; no build. |
