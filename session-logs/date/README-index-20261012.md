@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.095524 | [Patchouli, queue empty, kumara 840 held](20261012/20261012-095524_patchouli-queue-empty-kumara-840-held.kyri) | Queue empty; %840 sign ruling held for Keaton; no build. |
 | 20261012.095457 | [Incense declined, no build](20261012/20261012-095457_incense-baton-declined-no-build.kyri) | Held; claim board empty; no build. |
 | 20261012.095049 | [Incense declined, logs restored](20261012/20261012-095049_incense-baton-declined-restored-two-no-build.kyri) | Held; two stranded logs restored; no build. |
 | 20261012.095419 | [Petrichor, gate reread, no build](20261012/20261012-095419_petrichor-second-gate-reread-no-build.kyri) | Gate still held; claim board clear; ff two peers; no build. |
