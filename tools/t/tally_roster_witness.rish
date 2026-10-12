@@ -70,7 +70,7 @@ assert receipt_refusal_proof.ok else "tally-roster: the refusal record's owned w
 let live = run ["sh" "tools/fixtures/t/tally_roster_scan.sh"]
 assert live.ok else "tally-roster: the room must read whole -- ${live.out_brief}"
 assert live.out contains "verdict=ok" else "tally-roster: want the live verdict ok -- ${live.out_brief}"
-assert live.out contains "modules_total=16" else "tally-roster: the roster moved -- re-read the census before trusting the ceiling: ${live.out_brief}"
+assert live.out contains "modules_total=17" else "tally-roster: the roster moved -- re-read the census before trusting the ceiling: ${live.out_brief}"
 assert live.out contains "covered=13" else "tally-roster: the covered count moved -- a change here is a change to name, not to absorb silently: ${live.out_brief}"
 assert live.out contains "uncovered=0" else "tally-roster: the whole roster moved -- a newborn arrives with its check: ${live.out_brief}"
 assert live.out contains "heard=13" else "tally-roster: every covered module's proof must be one this row actually calls -- ${live.out_brief}"
