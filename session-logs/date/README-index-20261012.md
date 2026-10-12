@@ -486,6 +486,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.184333 | [Pheromone queue empty, no build](20261012/20261012-184333_pheromone-queue-empty-stop-clause-no-build.kyri) | Lane queue empty; scope question waits on Incense. |
 | 20261012.184205 | [Incense baton decline, no build](20261012/20261012-184205_incense-baton-decline-no-build.kyri) | Round-open clean; claim board empty; no build; check-in owed. |
 | 20261012.184103 | [Petrichor gate held, no build](20261012/20261012-184103_petrichor-gate-held-upstream-three-no-build.kyri) | Gate reread; Consent Rail unchanged; no build. |
 | 20261012.184102 | [Grass water row, no edit](20261012/20261012-184102_grass-water-row-no-edit-stash-noted.kyri) | Water row read; front doors B+ and A+; queue empty; no edit. |
