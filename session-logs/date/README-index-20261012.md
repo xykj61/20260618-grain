@@ -7,6 +7,7 @@
 | 20261012.090812 | [diffuser P1 still owed, no run](20261012/20261012-090812_diffuser-p1-still-owed-ff-patchouli-no-run.kyri) | ff of patchouli log; P1 ruling still owed, no measurement |
 | `20261012.090555` | [Patchouli, queue empty 29th, no build](20261012/20261012-090555_patchouli-queue-empty-29th-way-no-build.kyri) | Lane empty; open rows all word-gated; no claim. |
 | `20261012.090542` | [Grass, inner page graded B+, no frame](20261012/20261012-090542_grass-inner-page-graded-b-plus-no-frame.kyri) | Inner prompt reads B+ (89); queue empty; no build. |
+| `20261012.090443` | [Incense, eighty-sixth lap, declined, no build](20261012/20261012-090443_incense-eighty-sixth-declined-no-build.kyri) | Tree current at xy/main; claim board clear; no build; ruling still owed. |
 | `20261012.085933` | [Incense, eighty-fifth lap, declined, nib carried](20261012/20261012-085933_incense-eighty-fifth-declined-nib-carried.kyri) | Tree current at xy/main; no build; ruling asked. |
 | `20261012.085837` | [Petrichor, nib red returned, gate held, no build](20261012/20261012-085837_petrichor-nib-stale-again-carried-gate-held-no-build.kyri) | Stale Git nib carried to 539fba9842 after pull; first-hour gate held. |
 | `20261012.090027` | [Diffuser P1 hold, ff of incense and bakery, no run](20261012/20261012-090027_diffuser-p1-hold-ff-incense-bakery-no-run.kyri) | Peer commits only; P1 still unruled; no run. |
