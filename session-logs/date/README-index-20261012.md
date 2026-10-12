@@ -333,6 +333,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.144449 | [Pheromone lane held, witness GREEN, no build](20261012/20261012-144449_pheromone-lane-held-witness-green-no-build.kyri) | Lane empty; refusal witness GREEN; ruling owed. |
 | 20261012.143951 | [Copal fruit stale, no build](20261012/20261012-143951_copal-fruit-stale-unrostered-set-empty-no-build.kyri) | 0 unrostered by comm; card line stale. |
 | 20261012.143921 | [Diffuser P1 hold, no run, check in Claude](20261012/20261012-143921_diffuser-p1-hold-no-run-hundred-plus.kyri) | Fetch level with xy; P1 unruled; no run. |
 | 20261012.143628 | [Grass five rule pages graded, pointer below B left unframed](20261012/20261012-143628_grass-five-rule-pages-graded-pointer-no-frame.kyri) | Five rule pages graded; pointer C/73 is structural; no frame, no edit. |
