@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 
+| `20261012.055426` | [Incense, baton declined, stall carried, no build](20261012/20261012-055426_incense-baton-declined-stall-carried-no-build.kyri) | Round-open clean, board clear; nib carried forward; no build. |
 | `20261012.055243` | [Copal, fruit spent, no build](20261012/20261012-055243_copal-fruit-spent-no-build.kyri) | No unrostered chapter witness left by measurement; ruling owed to Keaton; no build. |
 | `20261012.055331` | [Petrichor, shelf link named, no build](20261012/20261012-055331_petrichor-broken-shelf-link-no-build.kyri) | Dead link to a never-written 20261006 shelf; left open. |
 | `20261012.055013` | [Incense, baton declined, stall named, no build](20261012/20261012-055013_incense-baton-declined-stall-named-no-build.kyri) | Round-open clean, board clear; the open choice is Keaton's; no build. |
