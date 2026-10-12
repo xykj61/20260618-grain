@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.141536 | [Pheromone gate held, no build](20261012/20261012-141536_pheromone-gate-held-ruling-no-build.kyri) | Ruling gate holds, claims board clear, queue empty; no build. |
 | 20261012.141425 | [Petrichor ff, gate held, no build](20261012/20261012-141425_petrichor-upstream-ff-gate-held-no-build.kyri) | Upstream ff; Consent Rail gate unchanged; no build. |
 | 20261012.141356 | [Diffuser P1 held again, no run](20261012/20261012-141356_diffuser-p1-hold-ff-copal-incense-no-run.kyri) | Ff brought peer logs; P1 ruling still owed. |
 | 20261012.141217 | [Grass grades eight pages, no build](20261012/20261012-141217_grass-eight-pages-graded-a-no-build.kyri) | Eight pages read B+ or better; no edit. |
