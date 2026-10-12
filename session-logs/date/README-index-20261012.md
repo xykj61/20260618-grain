@@ -9,6 +9,7 @@
 | 20261012.110526 | [Copal zero unrostered, no build](20261012/20261012-110526_copal-zero-unrostered-no-build.kyri) | Fruit empty: 158 witnesses, all rostered; no build. |
 | `20261012.110344` | [Petrichor lane held at the consent gate, no claim](20261012/20261012-110344_petrichor-gate-held-no-claim.kyri) | Gate held; no claim; check in (Claude). |
 | `20261012.110502` | [Incense declined, no build, nib carried](20261012/20261012-110502_incense-baton-declined-no-build.kyri) | Round-open clean; claim board clear; cold run held by order; no build. |
+| `20261012.110506` | [Grass grade, inner prompt B+, no frame](20261012/20261012-110506_grass-grade-inner-prompt-bplus-no-frame.kyri) | Open inner-prompt page graded B+ (89); no edit, no frame. |
 | `20261012.110049` | [Grass audit, lindy-first-crux held](20261012/20261012-110049_grass-lindy-crux-reach-zero-held-no-edit.kyri) | Seven rule pages graded; one pointer stub held. |
 | `20261012.105939` | [Copal, zero unrostered again, no build](20261012/20261012-105939_copal-zero-unrostered-rerun.kyri) | 159 witnesses, zero absent; fruit empty; no build. |
 | `20261012.105913` | [Incense declined after reset, no build](20261012/20261012-105913_incense-declined-reset-no-build.kyri) | Reset to 3ade7fd968; claim clear; air row read; no build. |
