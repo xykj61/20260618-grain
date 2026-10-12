@@ -481,6 +481,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.182703 | [Patchouli fn-length exhausted, no build](20261012/20261012-182703_patchouli-long-function-class-exhausted-no-build.kyri) | No mantra or tally function past 70; no build. |
+| 20261012.182759 | [Petrichor gate held, ff four, no build](20261012/20261012-182759_petrichor-gate-held-ff-four-no-build.kyri) | Gate unchanged upstream; nib carried; no build. |
 | 20261012.182536 | [Diffuser P1 held, ff five peers, no run](20261012/20261012-182536_diffuser-p1-hold-ff-five-peers-no-run.kyri) | P1 still unruled; fast-forward clean; no run; check in (Claude). |
 | 20261012.182218 | [Copal roster recount, fruit empty](20261012/20261012-182218_copal-roster-recount-fruit-empty-no-build.kyri) | Zero unrostered witnesses by path; no build.
 | 20261012.181832 | [Incense decline, no build](20261012/20261012-181832_incense-decline-clear-board-no-build.kyri) | Clear board on 5c600fff08; gates held; no build. |
