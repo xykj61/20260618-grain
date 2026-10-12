@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261012.005221` | [Incense, repeat hold named, check in](20261012/20261012-005221_incense-repeat-hold-pattern-check-in.kyri) | Round-open clean; board clear; repeat hold named; no build. |
 | `20261012.005211` | [Diffuser, P1 hold eighty-fourth, no run](20261012/20261012-005211_diffuser-p1-hold-eighty-fourth-check-in-no-run.kyri) | P1 unruled; ff clean; no measurement; no build. |
+| `20261012.004934` | [Patchouli, optional-unwrap class clean, no build](20261012/20261012-004934_patchouli-optional-unwrap-class-clean-no-build.kyri) | `.?` sites all null-guarded; no red; queue empty. |
 | `20261012.004933` | [Pheromone, lane held, fifth no build](20261012/20261012-004933_pheromone-lane-held-fifth-no-build.kyri) | Lane held at ff952c4adf; claim board empty; no ruling; no build. |
 | `20261012.004841` | [Petrichor, wiki tutorials graded, no build](20261012/20261012-004841_petrichor-wiki-three-tutorials-graded.kyri) | three pages A/B+; no edit. |
 | `20261012.005127` | [Grass, inner prompt B+, no frame, no build](20261012/20261012-005127_grass-inner-prompt-b-plus-no-frame.kyri) | Inner prompt grades B+/89 at field; no frame; no build. |
