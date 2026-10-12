@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.050619` | [Copal, fruit already landed, no build](20261012/20261012-050619_copal-fruit-already-landed-no-build.kyri) | 159 of 159 witnesses rostered; prin ticker GREEN; check in (Claude). |
 | `20261012.050431` | [Diffuser, P1 still unruled, ff incense, no run](20261012/20261012-050431_diffuser-hold-ff-incense-p1-unruled-no-run.kyri) | ff to 105250c5ee; no P1 ruling; check in (Claude). |
 | `20261012.050547` | [Bakery, ff to 47b26ad1a3, plant floor rises, no build](20261012/20261012-050547_bakery-plant-floor-rises-no-build.kyri) | ff b1b525f7ae to 47b26ad1a3; plant remainder 358, sourcing 51; no build. |
 | `20261012.050415` | [Incense, declined again](20261012/20261012-050415_incense-baton-declined-again-no-build.kyri) | Synced with xy; board clear; no build. |
