@@ -336,6 +336,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.144217 | [Incense index shelf red, REDS 842, no trim](20261012/20261012-144217_incense-index-shelf-red-booked-842.kyri) | Row bound red booked; 245 over; trim waits. |
 | 20261012.144449 | [Pheromone lane held, witness GREEN, no build](20261012/20261012-144449_pheromone-lane-held-witness-green-no-build.kyri) | Lane empty; refusal witness GREEN; ruling owed. |
 | 20261012.143951 | [Copal fruit stale, no build](20261012/20261012-143951_copal-fruit-stale-unrostered-set-empty-no-build.kyri) | 0 unrostered by comm; card line stale. |
 | 20261012.143921 | [Diffuser P1 hold, no run, check in Claude](20261012/20261012-143921_diffuser-p1-hold-no-run-hundred-plus.kyri) | Fetch level with xy; P1 unruled; no run. |
