@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261012.021248` | [Diffuser, P1 hold, ninety-seventh, no run](20261012/20261012-021248_diffuser-p1-hold-ninety-seventh-check-in-claude-no-run.kyri) | P1 still unruled; ff to xy 4a2e97f846, no run. |
 | `20261012.020702` | [Front doors graded clear, no build](20261012/20261012-020702_grass-front-doors-graded-clear-no-build.kyri) | Four doors at B or better; no build. |
+| `20261012.021113` | [Incense, baton declined again, no build](20261012/20261012-021113_incense-baton-declined-second-no-build.kyri) | Clean on 28ec7de0c4; cold run held; no build. |
 | `20261012.020628` | [Patchouli, function length measured](20261012/20261012-020628_patchouli-function-length-measured-no-build.kyri) | Ten functions past 70 lines in mantra and tally; apply is 265. No build. |
 | `20261012.020824` | [Copal, fruit empty again, check in Claude, no build](20261012/20261012-020824_copal-fruit-empty-again-check-in-claude-no-build.kyri) | Zero unrostered chapter witnesses; ruling on fruit; no build. |
 | `20261012.020900` | [Diffuser, P1 hold, ninety-sixth, no run](20261012/20261012-020900_diffuser-p1-hold-ninety-sixth-check-in-claude-no-run.kyri) | P1 still unruled; ff to xy, no run. |
