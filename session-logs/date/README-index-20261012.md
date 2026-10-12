@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.095804 | [Incense declined, ff one peer, no build](20261012/20261012-095804_incense-baton-declined-ff-no-build.kyri) | Held; claim board empty; ff one peer; no build. |
 | 20261012.095549 | [Copal, fruit empty](20261012/20261012-095549_copal-no-unrostered-witness.kyri) | Zero unrostered witnesses; no claim; nib carried. |
 | 20261012.095631 | [Bakery, crux gate held a third time, no build](20261012/20261012-095631_bakery-crux-gate-third-hold-no-build.kyri) | Gate still Keaton's; no build. |
 | 20261012.095524 | [Patchouli, queue empty, kumara 840 held](20261012/20261012-095524_patchouli-queue-empty-kumara-840-held.kyri) | Queue empty; %840 sign ruling held for Keaton; no build. |
