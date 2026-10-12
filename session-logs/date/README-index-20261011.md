@@ -5,6 +5,7 @@
 |---|---|---|
 | `20261011.223745` | [Pheromone, baton read, lane still on hold, no build](20261011/20261011-223745_pheromone-hold-no-build.kyri) | Lane on hold; ruling awaited; no build. |
 | `20261011.223736` | [Petrichor, gate still held, third pull, no build](20261011/20261011-223736_petrichor-gate-held-third-pull-no-build.kyri) | Gate still held; third fast-forward; no build. |
+| `20261011.223816` | [Incense, declined, no build](20261011/20261011-223816_incense-declined-no-build-nib-carried.kyri) | Adopted 9f4510704a; board clear; nib carried; no build. |
 | `20261011.223304` | [Copal, fruit empty, no build](20261011/20261011-223304_copal-roster-reread-fruit-empty-no-build.kyri) | Zero unrostered; no claim; no build. |
 | `20261011.223507` | [Grass, queue empty, ff, no build](20261011/20261011-223507_grass-queue-empty-no-build.kyri) | Queue empty; ff-pulled; no build. |
 | `20261011.223453` | [Patchouli, queue empty, no build](20261011/20261011-223453_patchouli-queue-empty-no-build.kyri) | Fresh header grep: writers already stamped; no build. |
