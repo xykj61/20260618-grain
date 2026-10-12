@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.083742` | [Copal, fruit empty, no build](20261012/20261012-083742_copal-fruit-empty-no-build.kyri) | Zero unrostered witnesses; no build; check in (either). |
 | `20261012.083531` | [Grass, foundations graded, no frame](20261012/20261012-083531_grass-foundations-grade-no-frame.kyri) | Three foundations B or better; no lift; no build. |
 | `20261012.083703` | [Diffuser P1 hold, escalate the loop itself](20261012/20261012-083703_diffuser-p1-hold-escalate-loop-itself.kyri) | P1 unruled for 100-plus laps; loop repeats the hold; ruling asked |
 | `20261012.083215` | [Bakery, ff five, gated, no build](20261012/20261012-083215_bakery-ff-five-held-no-build.kyri) | Fast-forwarded five peer commits; receipt key gated. |
