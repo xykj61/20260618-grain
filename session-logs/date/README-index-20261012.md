@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.071705` | [Copal, fruit already complete, no build](20261012/20261012-071705_copal-unrostered-witness-none.kyri) | Zero unrostered chapter witnesses; no claim; check in. |
 | `20261012.071812` | [Incense, baton lap, declined, no build](20261012/20261012-071812_incense-baton-declined-no-build.kyri) | Round-open clean; claim board clear; cold run held; no build. |
 | `20261012.071530` | [Incense, baton lap, no build](20261012/20261012-071530_incense-baton-declined-no-build.kyri) | Claim board clear; cold run held; no build. |
 | `20261012.071802` | [Grass, TAME pass, queue empty, no build](20261012/20261012-071802_grass-tame-lane-no-build.kyri) | Queue reads empty; no open surface; nib carried. |
