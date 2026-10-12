@@ -484,6 +484,7 @@
 |---|---|---|
 | 20261012.183253 | [Diffuser P1 held, ff three, no run](20261012/20261012-183253_diffuser-p1-hold-ff-three-no-run.kyri) | P1 ruling owed; ff to 0b0fa7c254; no run. |
 | 20261012.183147 | [Patchouli kumara red held, no build](20261012/20261012-183147_patchouli-kumara-red-held-no-build.kyri) | %841 reads true; ruling owed; no build. |
+| 20261012.183432 | [Copal fruit empty again, no build](20261012/20261012-183432_copal-fruit-empty-repeat-no-build.kyri) | Zero unrostered chapter witnesses; repeat reading; no build; check-in owed. |
 | 20261012.182923 | [Copal fruit already rostered, no build](20261012/20261012-182923_copal-fruit-already-rostered-no-build.kyri) | Zero unrostered; card line stale; no build. |
 | 20261012.182906 | [Incense decline, clean board](20261012/20261012-182906_incense-decline-clean-board-no-build.kyri) | Clean, in sync, board empty; no build. |
 | 20261012.182956 | [Pheromone lane held, recheck, no build](20261012/20261012-182956_pheromone-lane-held-stop-clause-recheck.kyri) | Stop clause holds; scope ruling owed to Incense; no build. |
