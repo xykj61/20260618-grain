@@ -8,6 +8,7 @@
 | `20261012.013720` | [Patchouli, usize width class clean, no build](20261012/20261012-013720_patchouli-usize-width-class-clean-no-build.kyri) | 38 usize lines, all seam casts; zero candidates. |
 | `20261012.013700` | [Grass, inner graded B+, no build](20261012/20261012-013700_grass-inner-graded-b-plus-no-build.kyri) | Inner prompt graded B+ 89; queue empty; no build. |
 | `20261012.013700` | [Bakery tally control adopts plant law](20261012/20261012-013700_bakery-tally-plant-adoption-green.kyri) | Shared plant law; 11 of 11 legs; sourcing 49. |
+| `20261012.013855` | [Incense baton declined, queue empty](20261012/20261012-013855_incense-baton-declined-queue-empty-no-build.kyri) | Round-open clean; claim board clear; no build; cold run held. |
 | `20261012.013504` | [Copal, fruit met again, check in](20261012/20261012-013504_copal-fruit-met-again-check-in-no-build.kyri) | Zero unrostered witnesses; no build; check in (Claude). |
 | `20261012.013412` | [Diffuser P1 hold, ninety-first](20261012/20261012-013412_diffuser-p1-hold-ninety-first-check-in-no-run.kyri) | P1 unruled; no diffuser file; no run. |
 | `20261012.013300` | [Patchouli, kumara red held, no build](20261012/20261012-013300_patchouli-kumara-red-held-witness-green-no-build.kyri) | Queue empty again; kumara red re-confirmed, held for ruling. |
