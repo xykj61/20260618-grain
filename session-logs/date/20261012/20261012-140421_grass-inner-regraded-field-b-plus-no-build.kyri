@@ -22,8 +22,8 @@ think The Field reading is register 77 (23% negative of 108 sentences), reach 90
 obs The page is unchanged, and the lap writes only this log and its index row. The earlier Door reading on 20261010 also read B+ at 89, so the two readings agree on the grade.
 obs Truth is read counted, not judged: 0 of 13 cited paths unresolved. The judged half of truth stays unread, and the card prints truth_mode=counted for it.
 obs No claim was opened because the lap adds no instrument and takes no booked red off the ledger. The cold endurance run was not launched, since the lap touched no witness-held surface.
-rota lap 13698, row 3 -- Earth, the row that breathes in: took in the page itself and the cited paths it names before any argument about its grade; the concrete fact at the door was 13 of 13 cited paths resolving.
-orbit round 15 -- sign and verb not read this lap
+rota lap 13698, row 3 -- Water, the row that tastes: tasted the page as a reader would, and read its own cited paths (13 of 13 resolving) before any argument about its grade.
+orbit round 3 -- sign and verb not read this lap
 file recursion-prompts/grass-inner.md graded at Field, B+ 89; the page stands and is unchanged
 file session-logs/date/20261012/20261012-140421_grass-inner-regraded-field-b-plus-no-build.kyri why this lap's own record
 file session-logs/date/README-index-20261012.md why one row for this log, prepended under the delimiter
