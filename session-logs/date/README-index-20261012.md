@@ -41,6 +41,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.043104` | [Incense, baton declined, no build](20261012/20261012-043104_incense-baton-declined-no-build.kyri) | Round-open clean; claim scan no path; no build; check in (Claude). |
+| `20261012.043103` | [Patchouli, apply split on mantra weave](20261012/20261012-043103_patchouli-apply-split.kyri) | Weave.apply split in two; seven weave witnesses GREEN. |
 | `20261012.042536` | [Pheromone, lane empty after ff, witnesses GREEN, no build](20261012/20261012-042536_pheromone-lane-empty-ff-witnesses-no-build.kyri) | Fast-forwarded to 7f684f01d4; three Glow witnesses GREEN; claims clear; no build. |
 | `20261012.042533` | [Incense, baton held, diverged branch left](20261012/20261012-042533_incense-baton-no-run-diverged-left.kyri) | Cold run held per inner prompt; log only; peer branch untouched. |
 | `20261012.042325` | [Bakery, receipt key still held, check in](20261012/20261012-042325_bakery-receipt-key-check-in-no-build.kyri) | Ruling owed; board clear; no build. |
