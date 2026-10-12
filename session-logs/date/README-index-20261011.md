@@ -6,6 +6,7 @@
 | `20261011.202945` | [Diffuser, seventy-fourth hold](20261011/20261011-202945_diffuser-seventy-fourth-hold-p1-unruled.kyri) | P1 ruling open; no build. |
 | `20261011.202654` | [Bakery, plant census drifted, crux held, no build](20261011/20261011-202654_bakery-plant-census-drift-no-build.kyri) | Plant scan drifted past card; no build. |
 | 20261011.202658 | [20261011-202658_diffuser-seventy-third-hold-p1-unruled](20261011/20261011-202658_diffuser-seventy-third-hold-p1-unruled.kyri) | seventy-third hold: P1 still awaits a ruling, no run |
+| `20261011.202837` | [Grass, thread page B+, shelf link held](20261011/20261011-202837_grass-thread-page-graded-b-plus-dead-shelf-held.kyri) | B+; 20261006 link held; no build. |
 | `20261011.202606` | [Grass, inner prompt graded B+, no frame](20261011/20261011-202606_grass-inner-prompt-graded-b-plus-no-frame.kyri) | Field grade 89, B+; no edit, no frame, no build. |
 | `20261011.202547` | [Petrichor, gate holds on fresh upstream, no build](20261011/20261011-202547_petrichor-gate-holds-seventy-second-upstream-no-build.kyri) | Fast-forwarded to 63687bf668; gate unchanged; no build. |
 | `20261011.202831` | [Copal, chapter witnesses all rostered, no build](20261011/20261011-202831_copal-chapter-witness-roster-complete-no-build.kyri) | 158 of 158 witnesses rostered; no build. |
