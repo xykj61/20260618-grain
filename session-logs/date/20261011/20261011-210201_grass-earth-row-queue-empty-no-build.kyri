@@ -30,3 +30,4 @@ file construction/ITINERARY.md why the Git nib line moves to HEAD for this follo
 scope log only; no code, no witness, no build, no claim, no roster pass
 status GREEN for the reading only: queue empty, tree clean at start, orbit and rota arithmetic checked against SPELLBOOK; no work claimed as landed
 recommend keep-going -- queue remains empty; the next lap reads the next rota row and takes an unopened file only if a reading comes back below B
+note rebased twice onto xy before the push landed; the nib now names the log commit d4c76e61a0, read before this follow-up was made
