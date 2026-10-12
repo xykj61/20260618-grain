@@ -1,3 +1,4 @@
+| 20261012.194216 | [Incense declines, 195 on shelf, no build](20261012/20261012-194216_incense-decline-195-shelf-no-build.kyri) | Order held; board clear; stall named; no build. |
 | 20261012.194410 | [Petrichor gate held, shelf gap found, no build](20261012/20261012-194410_petrichor-gate-held-shelf-gap-no-build.kyri) | Consent Rail unchanged upstream; lint finds 20261006 index with no day folder; reported; no build. |
 | 20261012.194100 | [Patchouli queue empty a thirteenth way, no build](20261012/20261012-194100_patchouli-queue-empty-thirteenth-no-build.kyri) | Fresh grep finds only elder read-compat strings; nothing to molt; no build. |
 | 20261012.193625 | [Diffuser P1 rebase and push, no run](20261012/20261012-193625_diffuser-p1-rebase-push-no-run.kyri) | P1 unruled; rebased over three peers; pushed; no run. |
