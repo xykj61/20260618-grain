@@ -455,6 +455,8 @@ so this lap books it as the next candidate and builds nothing. The reading is ro
 indent-matched brace can miss a body that closes on a shared line. Re-run it rather than trusting this
 paragraph.
 
+**The assert-density class, measured `20261012.022438`: 418 of 618 functions carry fewer than two `assert(` lines.** The reading covers the 62 non-witness `.rye` files of `mantra/` and `tally/`, with the same brace-depth walk as the function-length class. Of the 418, 171 run ten lines or longer, 188 run four to nine, and 60 run under four, so the thin set is not a set of one-liners. The gap is in the tree's own rule, which asks at least two asserts per function. No guard reads it: `tame_style_check` gates whether a file holds any `assert(` at all, which reads zero, and says nothing about the density inside it. The spot check at `mantra/recall_tablecloth_query_wire.rye:109` holds up. `encode_request` is 41 lines with one assert and no `// invariant:` comment. This lap books the class as a ratchet and builds nothing. The reading is a scratch awk walk, so re-run it rather than trusting this paragraph.
+
 ## gates
 
 Keys, funds, provisioning, identity, and the public seed stay manual.
