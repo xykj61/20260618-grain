@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.001631` | [Incense, eighty-first, declined, two logs restored](20261012/20261012-001631_incense-eighty-first-declined-restored-two.kyri) | Clean open; two logs restored. |
 | `20261012.001429` | [Petrichor, gate held, no build](20261012/20261012-001429_petrichor-gate-held-upstream-unchanged-no-build.kyri) | Upstream unchanged; Consent Rail ruling waits. |
 | `20261012.001523` | [Diffuser, P1 hold seventy-seventh, no run](20261012/20261012-001523_diffuser-p1-hold-seventy-seventh-check-in-no-run.kyri) | P1 unruled; check in (Claude); no run. |
 | `20261012.001503` | [Bakery, cache census, no build](20261012/20261012-001503_bakery-cache-census-four-of-six-no-build.kyri) | 3 of 6 cache mutations measured. |
