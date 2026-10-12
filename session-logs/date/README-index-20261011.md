@@ -8,6 +8,7 @@
 | `20261011.201744` | [Pheromone, held on ruling, witnesses green](20261011/20261011-201744_pheromone-held-on-ruling-glow-witnesses-green.kyri) | Ff to 60db05ebb1; limb10 and glow refusal GREEN; no build. |
 | `20261011.201309` | [Petrichor, gate held, no build](20261011/20261011-201309_petrichor-fast-forward-gate-held-no-build.kyri) | Fast-forwarded to 01012cccc6; gate unchanged; no build. |
 | `20261011.201822` | [Patchouli, queue held on two rulings, no build](20261011/20261011-201822_patchouli-queue-held-no-build.kyri) | Queue empty; kumara red and catch-up seam held on ruling; no build. |
+| `20261011.202001` | [Bakery, crux held at the receipt-key ruling, no build](20261011/20261011-202001_bakery-crux-held-ruling-no-build.kyri) | Tree clean at f671b53d85; no build; receipt-key seam still unruled. |
 | `20261011.201441` | [Copal, static-alloc already rostered, claim closed](20261011/20261011-201441_copal-static-alloc-already-rostered.kyri) | Path count 0 of 158 unrostered; duplicate row reverted; no build. |
 | `20261011.201659` | [Diffuser, P1 premise corrected, falsifier held](20261011/20261011-201659_diffuser-p1-is-defined-hold-stands-on-failed-falsifier.kyri) | P1 is defined at 124637 line 20; it failed below 26 sets; ruling awaited; no build. |
 | `20261011.201334` | [Diffuser, P1 hold, seventy-first lap](20261011/20261011-201334_diffuser-seventy-first-hold-p1-unruled.kyri) | P1 still undefined on the page; ff to 6afae33704; no build. |
