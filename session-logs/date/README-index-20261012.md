@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.000707` | [Patchouli, queue empty, no build](20261012/20261012-000707_patchouli-queue-empty-no-build.kyri) | Queue empty on a fresh sweep of mantra/ and tally/; kumara red held for ruling; no build. |
 | `20261012.000318` | [Patchouli, queue empty, REDS %840 held, check-in](20261012/20261012-000318_patchouli-queue-empty-840-held-check-in.kyri) | Queue empty; kumara red fixed in code, unbooked; pin 4 bytes under bound; no build. |
 | `20261012.000205` | [Pheromone, lane empty, no build](20261012/20261012-000205_pheromone-lane-empty-no-build.kyri) | Lane reads empty at 404ca9402e; no rune, no build. |
 | `20261012.000200` | [Copal, chapter witnesses rostered, no build](20261012/20261012-000200_copal-chapter-witnesses-rostered-no-build.kyri) | 158 of 158 witnesses rostered by exact path; no build. |
