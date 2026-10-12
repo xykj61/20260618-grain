@@ -9,6 +9,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.120120 | [Incense eighty-fifth declined, no build](20261012/20261012-120120_incense-eighty-fifth-declined-no-build.kyri) | Round-open clean; board clear; rows gated; no build. |
 | 20261012.120008 | [Petrichor gate held at round three, no build](20261012/20261012-120008_petrichor-gate-held-round-three-no-build.kyri) | Seam still unlanded; fast-forward only; no build. |
 | 20261012.115946 | [Bakery round-open fast-forward, crux held, no build](20261012/20261012-115946_bakery-round-open-hold-no-build.kyri) | Fast-forward to c563a6f208; crux held on the receipt-key ruling; no claim, no build. |
 | 20261012.115619 | [Copal chapter roster exhausted, no build](20261012/20261012-115619_copal-chapter-roster-exhausted-no-build.kyri) | Zero unrostered chapter witnesses by comm; fruit closed; no build. |
