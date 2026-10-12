@@ -9,6 +9,7 @@
 | `20261011.222604` | [Diffuser, P1 unruled, ff peers, no run](20261011/20261011-222604_diffuser-hold-p1-unruled-ff-peer-logs-no-run.kyri) | Peer logs fast-forwarded; P1 unruled; no run. |
 | `20261011.221942` | [Patchouli, queue empty, fifteenth reading, no build](20261011/20261011-221942_patchouli-queue-empty-fifteenth-no-build.kyri) | Fresh grep empty; claim board clear; %807 wants a ruling; no build. |
 | `20261011.222254` | [Pheromone, ruling awaited, no build](20261011/20261011-222254_pheromone-ruling-awaited-no-build.kyri) | Fruit closed; next needs an Incense ruling; no build. |
+| `20261011.222650` | [Copal, fruit empty upstream, no build](20261011/20261011-222650_copal-fruit-empty-upstream-no-build.kyri) | Zero unrostered witnesses at 84ef4cec26; prin_ticker not a witness; no build. |
 | `20261011.222151` | [Bakery, orientation, no build](20261011/20261011-222151_bakery-orientation-no-build.kyri) | Claim board empty; cache crux needs a claim first; no build. |
 | `20261011.222128` | [Diffuser hold, P1 unruled, remote level](20261011/20261011-222128_diffuser-hold-p1-unruled-no-ff-no-run.kyri) | Remote level at 0e98ab09f0; P1 unruled; no run. |
 | `20261011.222058` | [Copal, fruit taken, no build](20261011/20261011-222058_copal-fruit-taken-roster-landed-no-build.kyri) | Fruit taken upstream; prin_scope GREEN; no build. |
