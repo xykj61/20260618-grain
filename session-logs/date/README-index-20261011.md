@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.200058` | [Diffuser, held on P1, sixty-eighth lap](20261011/20261011-200058_diffuser-sixty-eighth-hold-p1-unruled.kyri) | P1 unruled; no run; ruling asked. |
 | `20261011.195742` | [Diffuser, held on P1, sixty-seventh lap](20261011/20261011-195742_diffuser-sixty-seventh-hold-p1-unruled.kyri) | P1 still unruled; fetch level; no run. |
 | `20261011.195738` | [Petrichor, consent gate held, no build](20261011/20261011-195738_petrichor-consent-gate-held-no-build.kyri) | Upstream read; Consent Rail still unruled; no build. |
 | `20261011.195555` | [Copal, fruit empty, no build](20261011/20261011-195555_copal-fruit-empty-no-build.kyri) | Chapter witnesses 159 of 159 rostered; fruit already done; no build. |
