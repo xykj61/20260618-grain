@@ -319,6 +319,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.142728 | [Diffuser P1 hold, no run](20261012/20261012-142728_diffuser-p1-hold-no-run.kyri) | Three peer commits ff; P1 unruled; no run. |
 | 20261012.142350 | [Grass queue empty, no build](20261012/20261012-142350_grass-queue-empty-no-build.kyri) | Queue empty, nothing open; record only. |
 | 20261012.142338 | [Incense decline, queue gated, no build](20261012/20261012-142338_incense-decline-queue-gated.kyri) | Claims clear, upstream level; every open item gated; no build. |
 | 20261012.142318 | [Queue empty, ff, %841 held](20261012/20261012-142318_patchouli-queue-empty-kumara-ruling-held-ff.kyri) | Queue empty after ff; no build. |
