@@ -1,3 +1,4 @@
+| 20261012.182309 | [Pheromone lane held at stop clause, no build](20261012/20261012-182309_pheromone-lane-held-stop-clause-no-build.kyri) | Two Glow witnesses GREEN; ruling owed to Incense; no build. |
 | 20261012.182031 | [Petrichor gate held, ff four, no build](20261012/20261012-182031_petrichor-gate-held-ff-four-no-build.kyri) | Gate unchanged upstream; nib carried; no build. |
 | 20261012.182236 | [Patchouli queue re-check, no build](20261012/20261012-182236_patchouli-queue-empty-recheck-no-build.kyri) | Queue still empty; %841 and %807 wait on rulings; no build. |
 | 20261012.182115 | [Incense decline, no build](20261012/20261012-182115_incense-decline-no-build-check-in.kyri) | Round-open clean; no build; check-in owed. |
