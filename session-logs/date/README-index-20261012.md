@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.083531` | [Grass, foundations graded, no frame](20261012/20261012-083531_grass-foundations-grade-no-frame.kyri) | Three foundations B or better; no lift; no build. |
 | `20261012.083215` | [Bakery, ff five, gated, no build](20261012/20261012-083215_bakery-ff-five-held-no-build.kyri) | Fast-forwarded five peer commits; receipt key gated. |
 
 | `20261012.083428` | [Patchouli, lane sweep clean, no build](20261012/20261012-083428_patchouli-queue-empty-compound-assert-clean.kyri) | Compound-assert and unwrap nets clean; no build. |
