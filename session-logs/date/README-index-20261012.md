@@ -5,9 +5,10 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.014757` | [Copal, no unrostered witness, no build](20261012/20261012-014757_copal-no-unrostered-witness-no-build.kyri) | Fruit empty; roster covers all witnesses; no build. |
+| `20261012.014531` | [Diffuser, P1 still unruled, hold](20261012/20261012-014531_diffuser-p1-hold-ninety-second-check-in-no-run.kyri) | Ff brought two peer logs, no diffuser file; P1 unruled; no run. |
 | `20261012.014310` | [Incense, baton declined, no build](20261012/20261012-014310_incense-baton-declined-no-build.kyri) | Round-opened clean; claim board clear; lane gated; no build. |
-| `20261012.014323` | [Bakery reds-first control adopts plant law](20261012/20261012-014323_bakery-reds-first-plant-adoption.kyri) | Shared plant law; control green; floor held. |
 | `20261012.014407` | [Grass, queue empty, reds ruling-owned, no build](20261012/20261012-014407_grass-queue-empty-reds-open-no-build.kyri) | Field re-read B+; OPEN reds owned by other lanes; no build. |
+| `20261012.014323` | [Bakery reds-first control adopts plant law](20261012/20261012-014323_bakery-reds-first-plant-adoption.kyri) | Shared plant law; control green; floor held. |
 | `20261012.014307` | [Patchouli, assert census unreliable, no build](20261012/20261012-014307_patchouli-assert-census-unreliable-no-build.kyri) | Fresh-class assert census invalid; queue empty; no build. |
 | `20261012.014117` | [Copal, shims examined, no build](20261012/20261012-014117_copal-shims-examined-no-build.kyri) | Two shims, covered by runners; no build. |
 | `20261012.014206` | [Grass, inner page B+, rota aether, no build](20261012/20261012-014206_grass-inner-page-b-plus-rota-aether-no-build.kyri) | Field read register 77, reach 90, truth 100; queue empty; no build. |
