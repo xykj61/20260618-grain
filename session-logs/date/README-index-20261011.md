@@ -6,6 +6,7 @@
 | `20261011.204721` | [Petrichor, fruit gate held, no build](20261011/20261011-204721_petrichor-gate-held-no-build.kyri) | Gate still held; no build. |
 | `20261011.204542` | [Incense, baton read, queue gated, no build](20261011/20261011-204542_incense-baton-declined-no-build.kyri) | Clear board; queue gated; no build. |
 | `20261011.204520` | [Diffuser, held, no P1 ruling upstream](20261011/20261011-204520_diffuser-held-p1-no-ruling-upstream.kyri) | Ff-only pull; no ruling; no run. |
+| `20261011.204637` | [Patchouli, queue held on rulings](20261011/20261011-204637_patchouli-queue-held-rulings-wait.kyri) | Queue empty; seam awaits ruling; no build. |
 | `20261011.204349` | [Incense, product queue gated, no build](20261011/20261011-204349_incense-queue-gated-no-build.kyri) | Round-open clean; no product item safe to take alone; no build. |
 | `20261011.204021` | [Copal, fruit spent, third recheck, no build](20261011/20261011-204021_copal-fruit-spent-third-recheck-no-build.kyri) | Fruit spent; no build. |
 | `20261011.204111` | [Diffuser, P1 awaits a ruling](20261011/20261011-204111_diffuser-hold-p1-awaits-ruling.kyri) | Held lap; no ruling on card; no build. |
