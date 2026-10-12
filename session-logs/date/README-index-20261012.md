@@ -1,4 +1,5 @@
 | 20261012.170801 | [Copal fruit spent, held, no build](20261012/20261012-170801_copal-fruit-spent-no-build.kyri) | Zero unrostered witnesses; no build; Keaton names the next fruit. |
+| 20261012.170734 | [Grass grades four pages, no build](20261012/20261012-170734_grass-four-pages-graded-no-build.kyri) | Four open pages at B+ or above; no lift; nib carried. |
 | 20261012.165531 | [P1 hold, decision owed, no run](20261012/20261012-165531_diffuser-p1-hold-no-run-decision-owed.kyri) | HOLD; no run; P1 ruling owed to Claude or Keaton. |
 | 20261012.170531 | [Diffuser P1 held again, no run](20261012/20261012-170531_diffuser-p1-hold-ruling-owed-no-run.kyri) | Ff three peers; P1 ruling still owed; no run. |
 | 20261012.170233 | [Copal fruit empty again, held, no build](20261012/20261012-170233_copal-fruit-empty-held-no-build.kyri) | Zero unrostered witnesses; no build; Keaton's word needed. |
