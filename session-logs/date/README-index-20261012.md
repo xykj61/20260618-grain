@@ -503,6 +503,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.191454 | [Diffuser P1 held, ff grass grade, no run](20261012/20261012-191454_diffuser-p1-hold-ff-grass-no-run.kyri) | P1 unruled; ff one peer; no run. |
 | 20261012.190830 | [Diffuser P1 held, ff four peers, no run](20261012/20261012-190830_diffuser-p1-hold-no-run.kyri) | P1 ruling owed; no run. |
 | 20261012.191137 | [Grass foundations graded B+ or better, no build](20261012/20261012-191137_grass-foundations-grade-b-no-build.kyri) | Two open pages graded A and B+; no lift owed. |
 | 20261012.190326 | [Patchouli @intCast census, no build](20261012/20261012-190326_patchouli-intcast-census-no-build.kyri) | 306 of 353 casts bare in a 3-line window; coarse; no build. |
