@@ -18,6 +18,7 @@ think a fetch showed two upstream commits ahead, one ITINERARY change that moves
 think the first fruit step still reads "after the public seam lands", and the public seed publish is a manual custody gate this lane may not run, so the gate reading stands.
 think the follow-up rule applies here: this log commit lands on top of the work, so the card's git nib is rewritten to the pre-commit HEAD rather than left at its old value.
 obs no product build: nothing buildable is open for Petrichor until Keaton rules on the public seam or on whether Petrichor takes its next fruit.
+obs a misfire on this lap: the first commit was refused by the message hook, HEAD stayed on a peer's grass commit, and the retry's --amend rewrote that peer commit locally. Recovered before any push by resetting to the upstream tip and re-applying the three changes as a new commit; the grass commit is intact upstream. Nothing was pushed in the bad state.
 obs orbit round 8 Scorpio, fixed water, aesthetics -- the verb is to hold the picture whole, so this lap reads the gate and adds nothing to it.
 rota lap 12359, row 2 -- fire sees; the reading surfaced that the Petrichor gate text is unchanged upstream and the one ITINERARY change is a nib pin only.
 orbit round 8 Scorpio -- hold the picture whole
