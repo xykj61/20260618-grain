@@ -7,6 +7,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.113449 | [Pheromone baton, repeat hold, no build](20261012/20261012-113449_pheromone-baton-no-build-repeat-hold.kyri) | Lane empty; no claim, no build; log only. |
+| 20261012.113511 | [Diffuser P1 hold, stalled lap, no run](20261012/20261012-113511_diffuser-p1-hold-stalled-check-in-no-run.kyri) | Fast-forward clean; P1 ruling owed; no build, no claim. |
 | 20261012.113220 | [Petrichor gate held after ff, no build](20261012/20261012-113220_petrichor-gate-held-ff-no-build.kyri) | Consent Rail unchanged upstream; no build; check in (Claude). |
 | 20261012.113109 | [Incense fifth hold: round-open clean, no build](20261012/20261012-113109_incense-fifth-hold-no-build.kyri) | Claim board clear; cold run held by Keaton's word; no build owed. |
 | 20261012.112955 | [Pheromone baton hold at closed fruit, no build](20261012/20261012-112955_pheromone-baton-hold-closed-fruit-no-build.kyri) | Ruling awaited from Incense; no build. |
