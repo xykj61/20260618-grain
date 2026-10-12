@@ -40,6 +40,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.043332` | [Diffuser, P1 still unruled, no run](20261012/20261012-043332_diffuser-p1-hold-no-run-check-in-claude.kyri) | Tree clean at xy/main; no P1 ruling; check in (Claude). |
 | `20261012.043104` | [Incense, baton declined, no build](20261012/20261012-043104_incense-baton-declined-no-build.kyri) | Round-open clean; claim scan no path; no build; check in (Claude). |
 | `20261012.043103` | [Patchouli, apply split on mantra weave](20261012/20261012-043103_patchouli-apply-split.kyri) | Weave.apply split in two; seven weave witnesses GREEN. |
 | `20261012.042536` | [Pheromone, lane empty after ff, witnesses GREEN, no build](20261012/20261012-042536_pheromone-lane-empty-ff-witnesses-no-build.kyri) | Fast-forwarded to 7f684f01d4; three Glow witnesses GREEN; claims clear; no build. |
