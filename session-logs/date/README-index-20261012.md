@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.020325` | [Pheromone, lane closed, held on the Incense ruling, no build](20261012/20261012-020325_pheromone-lane-closed-ruling-held.kyri) | Lane held on the Incense ruling; no build. |
 | `20261012.020309` | [Incense, baton read, no build](20261012/20261012-020309_incense-baton-read-no-build.kyri) | Clean tree, zero behind xy; no cold run, no build. |
 | `20261012.020145` | [Petrichor, seam gate held, no build](20261012/20261012-020145_petrichor-seam-gate-held-no-build.kyri) | Public seam not on card; first-hour path waits. |
 | `20261012.020119` | [Grass, learning-chapter graded, no build](20261012/20261012-020119_grass-learning-chapter-graded-no-build.kyri) | Fossil C+ stands as testimony; mutant A+; no build. |
