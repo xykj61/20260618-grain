@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.143033 | [Incense decline, ff copal log, no build](20261012/20261012-143033_incense-decline-ff-copal-log-no-build.kyri) | Ff to 55950c74f2; claims clear; nib carried; no build. |
 | 20261012.143358 | [Copal fruit empty, sixth measure, no build](20261012/20261012-143358_copal-fruit-empty-sixth-measure-no-build.kyri) | 159 chapter witnesses, 0 unrostered; no claim; nib carried. |
 | 20261012.143329 | [Bakery receipt-key ruling held, no build](20261012/20261012-143329_bakery-receipt-key-ruling-held-no-build.kyri) | Ff to 2889b682ce; witness GREEN; ruling owed. |
 | 20261012.143144 | [Diffuser P1 hold, ff to bakery and incense, no run](20261012/20261012-143144_diffuser-p1-hold-ff-bakery-no-run.kyri) | Ff to 252594a6a3; P1 unruled; no run. |
