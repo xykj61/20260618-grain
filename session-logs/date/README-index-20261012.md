@@ -1,3 +1,4 @@
+| 20261012.191630 | [Pheromone lane gated, ff, no build](20261012/20261012-191630_pheromone-lane-gated-no-build.kyri) | Lane steps landed; rune ruling owed to Incense; no build. |
 | 20261012.191426 | [Petrichor gate held, 170 upstream, no build](20261012/20261012-191426_petrichor-gate-held-no-build.kyri) | Consent Rail and seam unchanged upstream; no build. |
 | 20261012.191419 | [Patchouli queue empty, fifteenth way, no build](20261012/20261012-191419_patchouli-queue-empty-fifteenth-no-build.kyri) | Version grep and reach scan read empty; %841 waits on a ruling; no build. |
 | 20261012.191403 | [Bakery crux held, no build](20261012/20261012-191403_bakery-fusion-crux-held-ruling-owed-no-build.kyri) | Receipt-key ruling owed; read only. |
