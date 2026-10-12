@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261012.072441` | [Pheromone, capacity rechecked, no build](20261012/20261012-072441_pheromone-capacity-rechecked-no-build.kyri) | Witness GREEN on new HEAD; lane at its stop; no claim. |
 | `20261012.072359` | [Bakery, crux held, no build](20261012/20261012-072359_bakery-crux-held-no-build.kyri) | Peers fast-forwarded; board empty; ruling waits. |
+| `20261012.072503` | [Patchouli, queue empty, no build](20261012/20261012-072503_patchouli-queue-empty-no-build.kyri) | Lane empty; claim-as-override surveyed; log only. |
 | `20261012.071848` | [Petrichor, crypto front door reaches Door](20261012/20261012-071848_petrichor-crypto-front-door-reach-molt.kyri) | Composite 78 to 86 at Door; one page; GREEN. |
 | `20261012.072045` | [Incense, baton seventy-eighth, no build](20261012/20261012-072045_incense-baton-seventy-eighth-no-build.kyri) | Round-open ff; board clear; cold run held; no build. |
 | `20261012.071705` | [Copal, fruit already complete, no build](20261012/20261012-071705_copal-unrostered-witness-none.kyri) | Zero unrostered chapter witnesses; no claim; check in. |
