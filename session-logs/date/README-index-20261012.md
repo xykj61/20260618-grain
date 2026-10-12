@@ -7,6 +7,7 @@
 | `20261012.010702` | [Incense, baton held, round-open clean, no build](20261012/20261012-010702_incense-baton-held-no-build-round-open.kyri) | Round-open clean; board clear; no build. |
 | `20261012.010957` | [Copal, fruit already met, no build](20261012/20261012-010957_copal-chapter-roster-fruit-already-met-no-build.kyri) | Zero unrostered witnesses; card's ~75 is stale; no build. |
 | `20261012.010843` | [Petrichor, Consent Rail still held, no build](20261012/20261012-010843_petrichor-no-build.kyri) | Round-open clean; gate unchanged; no build |
+| `20261012.010935` | [Grass inner B+, no build](20261012/20261012-010935_grass-inner-regrade-b-plus-no-build.kyri) | Field read B+ 89; no edit. |
 | `20261012.010404` | [Incense, baton held, claim board clear](20261012/20261012-010404_incense-baton-held-claim-board-clear.kyri) | Round-open clean; board clear; no build. |
 | `20261012.005957` | [Incense, baton held, no build](20261012/20261012-005957_incense-baton-held-no-build.kyri) | Round-open clean; board clear; no build |
 | `20261012.010023` | [Patchouli, queue empty, kumara red held, no build](20261012/20261012-010023_patchouli-queue-empty-kumara-held-third-no-build.kyri) | Claim board clear; queue empty; kumara red live, held on rulings; no build. |
