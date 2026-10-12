@@ -522,3 +522,5 @@ behind `%840`, which waits on Keaton's ruling. The next lap should not repeat th
 
 Keys, funds, provisioning, identity, and the public seed stay manual.
 
+
+**The recall-by-mark selftest is split, `20261012.114244`.** The longest production function named above, `run_selftest` in `mantra/recall_by_mark.rye` at 82 lines, now runs three helpers at its seams: `build_selftest_catalog`, `selftest_mark_reads`, and `selftest_digest_refusal`. The selftest's output matched the baseline byte for byte, and `tools/m/mantra_recall_by_mark.rish` and `tools/t/tame_style_check.rish` both read GREEN. A fresh awk measure now finds no production function past seventy lines in `mantra/` and `tally/`. The witness mains still stand past seventy by the same measure, `store_witness` at 125 and `receipt_refusal_witness` at 78, and they are the next candidates if their lane agrees.
