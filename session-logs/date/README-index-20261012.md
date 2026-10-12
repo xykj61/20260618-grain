@@ -4,9 +4,10 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
-| 20261012.103725 | [Patchouli queue empty, twelfth reading, no build](20261012/20261012-103725_patchouli-queue-empty-twelfth-no-build.kyri) | Queue empty again; claim board clear for this lane; no build. |
 | 20261012.103823 | [Grass, five surfaces graded, no build](20261012/20261012-103823_grass-door-grades-five-no-build.kyri) | Five open pages read B or better; no edit; no build. |
+| 20261012.103815 | [Copal, fruit empty, no build](20261012/20261012-103815_copal-fruit-empty-no-build.kyri) | No unrostered witness; no build. |
 | 20261012.103745 | [Incense, seventy-fourth held lap, no build](20261012/20261012-103745_incense-baton-seventy-fourth-no-build.kyri) | Round-open clean; claims clear; no build. |
+| 20261012.103725 | [Patchouli queue empty, twelfth reading, no build](20261012/20261012-103725_patchouli-queue-empty-twelfth-no-build.kyri) | Queue empty again; claim board clear for this lane; no build. |
 | 20261012.103603 | [Pheromone, Glow lane held, no build](20261012/20261012-103603_pheromone-glow-lane-held-no-build.kyri) | Closed fruit stands; Incense ruling still open; no build. |
 | 20261012.103508 | [Diffuser, P1 held a nineteenth time](20261012/20261012-103508_diffuser-p1-held-nineteenth-no-run.kyri) | Hold, no run; P1 still awaits a Claude ruling. |
 | 20261012.103220 | [Patchouli queue empty, no build](20261012/20261012-103220_patchouli-queue-empty-no-build.kyri) | Queue empty; kumara red held. |
