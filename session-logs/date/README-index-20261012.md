@@ -9,6 +9,7 @@
 | `20261012.030154` | [Bakery, receipt key held, no build](20261012/20261012-030154_bakery-receipt-key-held-no-build.kyri) | Receipt key still YOURS; claim board clear; no build. |
 | `20261012.025944` | [Copal, fruit empty, fifth reading, no build](20261012/20261012-025944_copal-fruit-empty-fifth-reading-no-build.kyri) | Zero unrostered witnesses; check in (Claude) on the fruit |
 | `20261012.030147` | [Petrichor, docs-geode links clean, gate held, no build](20261012/20261012-030147_petrichor-links-clean-no-build.kyri) | 435 of 435 relative links resolve; no page edit; no build. |
+| `20261012.030348` | [Patchouli, queue empty again, no build](20261012/20261012-030348_patchouli-queue-empty-no-build.kyri) | Queue empty; held items unchanged; no build. |
 | `20261012.025623` | [Incense, contract review declined, no run](20261012/20261012-025623_incense-contract-review-declined-no-run.kyri) | Round-open clean; contract graded A; no edit. |
 | `20261012.030130` | [Diffuser, P1 still unruled, ff clean, no run](20261012/20261012-030130_diffuser-p1-still-unruled-ff-no-run.kyri) | P1 unruled; ff clean; no run. |
 | `20261012.030400` | [Grass, kyri page to B at Door, one register fix](20261012/20261012-030400_grass-kyri-page-b-plus-no-build.kyri) | Register 73 to 91; three sentences; no build. |
