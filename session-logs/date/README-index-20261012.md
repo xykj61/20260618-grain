@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.160546 | [Diffuser P1 undefined, ff two, no run](20261012/20261012-160546_diffuser-p1-undefined-ff-two-no-run.kyri) | Ff to 63ca60a47e; P1 still has no definition; no run, no paper; check in. |
 | 20261012.160349 | [Incense nib carry, declined, no build](20261012/20261012-160349_incense-nib-carry-declined-no-build.kyri) | Round-open clean; card nib carried to 63ca60a47e; claim board clear; no build. |
 | 20261012.160311 | [Bakery ruling gap, no build](20261012/20261012-160311_bakery-ruling-gap-no-build.kyri) | Ff to 3cae5f7ab9; %841 and receipt key ruling-gated; no build. |
 | 20261012.155816 | [Petrichor gate held, ff one, no build](20261012/20261012-155816_petrichor-gate-held-ff-one-no-build.kyri) | Ff to 851ac83dcf; rail and seam still held; no build. |
