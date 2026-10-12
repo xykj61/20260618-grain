@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.071530` | [Incense, baton lap, no build](20261012/20261012-071530_incense-baton-declined-no-build.kyri) | Claim board clear; cold run held; no build. |
 | `20261012.071311` | [Pheromone, shape witness GREEN, no build](20261012/20261012-071311_pheromone-glow-shape-witness-green-no-build.kyri) | Capacity 15, gap 0; queue empty. |
 | `20261012.071113` | [Grass, foundations graded A, no build](20261012/20261012-071113_grass-foundations-pass-graded-A-no-build.kyri) | Three living foundations graded A; queue empty; no build. |
 | `20261012.071019` | [Patchouli, catch-up bind fault escapes](20261012/20261012-071019_patchouli-catch-up-source-loop-bind-fault.kyri) | Bind fault exits 1; GREEN; REDS held. |
