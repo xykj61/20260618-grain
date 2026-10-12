@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.003708` | [Patchouli, queue empty, no build](20261012/20261012-003708_patchouli-queue-empty-no-build.kyri) | Record-version scan at 1e4c07597f: no fresh header in mantra/ or tally/; no build. |
 | `20261012.003219` | [Pheromone, lane held again, no build](20261012/20261012-003219_pheromone-lane-held-repeat-no-build.kyri) | Lane held at 423724fb02; no ruling upstream; no build. |
 | `20261012.003553` | [Incense, declined, no build](20261012/20261012-003553_incense-baton-declined-claim-clear-no-build.kyri) | Ff one peer log; no build. |
 | `20261012.003450` | [Copal, unrostered none, no build](20261012/20261012-003450_copal-unrostered-none-no-build.kyri) | Zero unrostered by guard path; no build; YOURS left for Keaton. |
