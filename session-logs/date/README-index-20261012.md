@@ -3,6 +3,7 @@
 | 20261012.163207 | [Grass device and merit graded, no molt](20261012/20261012-163207_grass-device-and-merit-graded-no-molt.kyri) | Device B+ (89), merit A (93); no edit; no molt frame. |
 | 20261012.163305 | [Diffuser P1 held, ff three, no run](20261012/20261012-163305_diffuser-p1-hold-ff-three-peers-no-run.kyri) | Ff to 010a5c4c37; no P1 ruling; no run. |
 | 20261012.162907 | [Patchouli queue empty, no build](20261012/20261012-162907_patchouli-queue-empty-check-in.kyri) | Queue empty; %841 ruling-held. |
+| 20261012.163047 | [Pheromone lane empty, ff four, no build](20261012/20261012-163047_pheromone-lane-empty-ff-four-no-build.kyri) | Ff to dd1fab364d; no language change; no build. |
 | 20261012.162723 | [Grass sample clean, no molt](20261012/20261012-162723_grass-sample-clean-no-molt.kyri) | Four foundations graded B or better; no edit; no molt frame. |
 | 20261012.162650 | [Petrichor gate held, ff four, no build](20261012/20261012-162650_petrichor-gate-held-ff-four-no-build.kyri) | Ff to d2aa99631b; gate unchanged upstream; no build. |
 | 20261012.162242 | [Patchouli queue empty again, no build](20261012/20261012-162242_patchouli-queue-empty-held-no-build.kyri) | Ff to 120250b91a; queue empty; %807 and %841 ruling-held; no build. |
