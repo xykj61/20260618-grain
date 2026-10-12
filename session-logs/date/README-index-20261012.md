@@ -1,3 +1,4 @@
+| 20261012.165531 | [P1 hold, decision owed, no run](20261012/20261012-165531_diffuser-p1-hold-no-run-decision-owed.kyri) | HOLD; no run; P1 ruling owed to Claude or Keaton. |
 | 20261012.164853 | [Incense fire row, no build](20261012/20261012-164853_incense-fire-row-no-build.kyri) | Nib carried; repeated decline named for cutting; Keaton's word asked. |
 | 20261012.165002 | [P1 hold, ff two peers, no run](20261012/20261012-165002_diffuser-p1-hold-ff-two-peers-no-run.kyri) | Ff to cdfc8e1f17; P1 ruling still owed; no run. |
 | 20261012.164220 | [GRASS inner regraded B+, no build](20261012/20261012-164220_grass-inner-regraded-again-no-build.kyri) | Queue empty; same page B+ at same HEAD; no edit. |
