@@ -1565,25 +1565,11 @@ pub const Weave = struct {
             // invariant: deletes.len <= max_weave_lines
             assert(deletes.len <= max_weave_lines);
 
-            const targets = try allocator.alloc(LineId, deletes.len);
+            // The targets are sorted and checked distinct before anything else
+            // reads them. Split out of this function so the walk below reads on
+            // its own; the refusal still returns before a single generation moves.
+            const targets = try sorted_delete_targets(allocator, deletes);
             defer allocator.free(targets);
-            for (targets, deletes) |*into, from| into.* = from;
-            std.mem.sort(LineId, targets, {}, struct {
-                fn less_than(_: void, a: LineId, b: LineId) bool {
-                    return a.less_than(b);
-                }
-            }.less_than);
-            // The targets are distinct, which is what lets the hit count below
-            // prove every one of them was found. They are sorted, so two equal
-            // targets are neighbours and one pass reads the whole question.
-            // Read at the edge rather than asserted: a diff is a CALLER'S data,
-            // and the three readings from here to the mark loop each answer
-            // something a caller can get wrong without corrupting anything.
-            for (targets, 0..) |_, i| {
-                if (i + 1 < targets.len and !targets[i].less_than(targets[i + 1])) {
-                    return WeaveError.DeleteNamesOneLineTwice;
-                }
-            }
 
             // NOTHING BELOW MOVES A BYTE OF THE WEAVE until every target has
             // been read. The walk records WHERE each target sits and the second
@@ -1632,6 +1618,44 @@ pub const Weave = struct {
                 self.lines.items[at].gen += 1;       // odd -> even: mark gone
             }
         }
+    }
+
+    /// Copies the delete targets, sorts them by identity, and refuses a diff
+    /// that names one line twice. The caller owns the returned slice and frees
+    /// it. Read at the edge rather than asserted: a diff is a CALLER'S data, so
+    /// a duplicate is a named refusal, and the weave is untouched because this
+    /// runs before any walk begins.
+    fn sorted_delete_targets(allocator: std.mem.Allocator, deletes: []const LineId) ![]LineId {
+        // invariant: the delete list is no longer than the ceiling, since every
+        // target names one of the weave's own lines and the copy below is sized by it
+        // invariant: deletes.len <= max_weave_lines
+        assert(deletes.len <= max_weave_lines);
+        // invariant: this is only reached with at least one target, since the caller
+        // guards on deletes.len > 0 and an empty copy would have nothing to sort
+        // invariant: deletes.len > 0
+        assert(deletes.len > 0);
+
+        const targets = try allocator.alloc(LineId, deletes.len);
+        errdefer allocator.free(targets);
+        for (targets, deletes) |*into, from| into.* = from;
+        std.mem.sort(LineId, targets, {}, struct {
+            fn less_than(_: void, a: LineId, b: LineId) bool {
+                return a.less_than(b);
+            }
+        }.less_than);
+        // The targets are distinct, which is what lets the hit count in the caller
+        // prove every one of them was found. They are sorted, so two equal targets
+        // are neighbours and one pass reads the whole question.
+        for (targets, 0..) |_, i| {
+            if (i + 1 < targets.len and !targets[i].less_than(targets[i + 1])) {
+                return WeaveError.DeleteNamesOneLineTwice;
+            }
+        }
+        // invariant: the copy holds exactly the caller's targets, one for one, so the
+        // hit count the caller compares against deletes.len is measuring the same set
+        // invariant: targets.len == deletes.len
+        assert(targets.len == deletes.len);
+        return targets;
     }
 
     /// The order key and run one insert answers with, as `inherited_place`
