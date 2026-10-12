@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.101148 | [Bakery, crux held for ruling, no build](20261012/20261012-101148_bakery-crux-held-ruling-pending-no-build.kyri) | Receipt key is YOURS; no mechanical lap; no build. |
 | 20261012.100804 | [Diffuser, P1 held a fifteenth time, no run](20261012/20261012-100804_diffuser-p1-held-round-15-stop-hold-loop.kyri) | P1 still unruled; hold loop named; no build. |
 | 20261012.100831 | [Grass, queue empty, open reds held](20261012/20261012-100831_grass-queue-empty-open-reds-held.kyri) | Queue empty; six OPEN reds in other lanes; no build. |
 | 20261012.100807 | [Pheromone, lane held, witnesses GREEN, no build](20261012/20261012-100807_pheromone-lane-held-witnesses-green-no-build.kyri) | Two closed-state witnesses GREEN; claims board clear; no build. |
