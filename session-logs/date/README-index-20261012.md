@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.060601` | [Patchouli, weave apply split, GREEN](20261012/20261012-060601_patchouli-weave-apply-split.kyri) | apply 83 to 51 lines; two helpers; witnesses GREEN. |
 | 20261012.013938 | [diffuser P1 floor is capacity](20261012/20261012-013938_diffuser-p1-floor-capacity-not-length.kyri) | P1 cannot clear by trace length; the ruling is on the precondition |
 | 20261012.003423 | [Grass, three rule pages clean, no build](20261012/20261012-003423_grass-three-rule-pages-graded-clean-no-build.kyri) | Three pages graded Field, none below B; no build. |
 | 20261012.003058 | [Grass, inner page graded B+](20261012/20261012-003058_grass-grade-inner-page-b-plus-no-build.kyri) | Grass grades recursion-prompts/grass-inner.md B+ 89; no build. |
