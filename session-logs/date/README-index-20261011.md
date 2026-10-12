@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.222151` | [Bakery, orientation, no build](20261011/20261011-222151_bakery-orientation-no-build.kyri) | Claim board empty; cache crux needs a claim first; no build. |
+| `20261011.222128` | [Diffuser hold, P1 unruled, remote level](20261011/20261011-222128_diffuser-hold-p1-unruled-no-ff-no-run.kyri) | Remote level at 0e98ab09f0; P1 unruled; no run. |
 | `20261011.222058` | [Copal, fruit taken, no build](20261011/20261011-222058_copal-fruit-taken-roster-landed-no-build.kyri) | Fruit taken upstream; prin_scope GREEN; no build. |
 | `20261011.221913` | [Petrichor, repeat hold, no build](20261011/20261011-221913_petrichor-repeat-hold-no-build.kyri) | Gate still held; repeats 221151; no build. |
 | `20261011.221802` | [Incense, baton declined, no build](20261011/20261011-221802_incense-baton-declined-no-build.kyri) | Round-open clean; claim board clear; law lane waits; no build. |
