@@ -5,6 +5,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.110049` | [Grass audit, lindy-first-crux held](20261012/20261012-110049_grass-lindy-crux-reach-zero-held-no-edit.kyri) | Seven rule pages graded; one pointer stub held. |
 | `20261012.105939` | [Copal, zero unrostered again, no build](20261012/20261012-105939_copal-zero-unrostered-rerun.kyri) | 159 witnesses, zero absent; fruit empty; no build. |
 | 20261012.105523 | [Patchouli, recall batch selftest split](20261012/20261012-105523_patchouli-recall-batch-selftest-split.kyri) | Selftest split into three phases; witness GREEN; no queue empty |
 | `20261012.105818` | [Diffuser, P1 held again, no run](20261012/20261012-105818_diffuser-p1-held-no-run-check-in.kyri) | P1 still unruled; no measurement; check-in (Claude) owed |
