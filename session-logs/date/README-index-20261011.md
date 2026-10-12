@@ -6,6 +6,7 @@
 | `20261011.203211` | [Pheromone, ruling waits, no build](20261011/20261011-203211_pheromone-ruling-waits-no-build.kyri) | Lane closed on card; ruling from Incense; no build. |
 | `20261011.203505` | [Diffuser, seventy-sixth hold](20261011/20261011-203505_diffuser-seventy-sixth-hold-p1-unruled.kyri) | P1 ruling open; no build. |
 | `20261011.203503` | [Grass, inner regraded, no build](20261011/20261011-203503_grass-inner-regraded-hold-no-build.kyri) | Field 77, reach 90; queue empty. |
+| `20261011.203751` | [Bakery, receipt seam still held, no build](20261011/20261011-203751_bakery-receipt-seam-still-held.kyri) | Receipt key awaits Keaton's word; no build. |
 | `20261011.203252` | [Diffuser, seventy-fifth hold](20261011/20261011-203252_diffuser-seventy-fifth-hold-p1-unruled.kyri) | P1 ruling open; no build. |
 | `20261011.203030` | [Patchouli, consent replay re-run GREEN, no build](20261011/20261011-203030_patchouli-consent-replay-witness-green.kyri) | Witness re-run GREEN; no card rung past it. |
 | `20261011.203420` | [Copal, fruit still spent on recheck, no build](20261011/20261011-203420_copal-fruit-spent-recheck-no-build.kyri) | 158 of 158 witnesses still rostered; no build. |
