@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.023317` | [Pheromone, lane held round eight, no build](20261012/20261012-023317_pheromone-lane-held-round-eight-no-build.kyri) | Lane held on Incense's ruling; upstream clear for Glow; no build. |
 | `20261012.023633` | [Grass, sample clear, no build](20261012/20261012-023633_grass-sample-clear-no-build.kyri) | Ten mycelium heads re-graded, all B or better; no lift. |
 | `20261012.023154` | [Incense, declined, no build](20261012/20261012-023154_incense-declined-no-build.kyri) | Ff to copal's claim; board read; no build. |
 | `20261012.023550` | [Patchouli queue empty, no build](20261012/20261012-023550_patchouli-queue-empty-fresh-class-no-build.kyri) | Queue empty again; kumara red held; apply split booked. |
