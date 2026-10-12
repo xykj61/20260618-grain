@@ -44,6 +44,7 @@
 |---|---|---|
 | `20261012.043253` | [Petrichor, gate held after ff, no build](20261012/20261012-043253_petrichor-gate-held-ff-no-build.kyri) | Gate held; ff to 0e660adc84; no build; check in. |
 | `20261012.043332` | [Diffuser, P1 still unruled, no run](20261012/20261012-043332_diffuser-p1-hold-no-run-check-in-claude.kyri) | Tree clean at xy/main; no P1 ruling; check in (Claude). |
+| `20261012.043721` | [Copal, fruit empty again, no build](20261012/20261012-043721_copal-fruit-empty-no-build.kyri) | Zero unrostered chapter witnesses by comm -23; no build; check in (Claude). |
 | `20261012.043104` | [Incense, baton declined, no build](20261012/20261012-043104_incense-baton-declined-no-build.kyri) | Round-open clean; claim scan no path; no build; check in (Claude). |
 | `20261012.043103` | [Patchouli, apply split on mantra weave](20261012/20261012-043103_patchouli-apply-split.kyri) | Weave.apply split in two; seven weave witnesses GREEN. |
 | `20261012.042536` | [Pheromone, lane empty after ff, witnesses GREEN, no build](20261012/20261012-042536_pheromone-lane-empty-ff-witnesses-no-build.kyri) | Fast-forwarded to 7f684f01d4; three Glow witnesses GREEN; claims clear; no build. |
