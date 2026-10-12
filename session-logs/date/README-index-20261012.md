@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261012.020628` | [Patchouli, function length measured](20261012/20261012-020628_patchouli-function-length-measured-no-build.kyri) | Ten functions past 70 lines in mantra and tally; apply is 265. No build. |
 | `20261012.020824` | [Copal, fruit empty again, check in Claude, no build](20261012/20261012-020824_copal-fruit-empty-again-check-in-claude-no-build.kyri) | Zero unrostered chapter witnesses; ruling on fruit; no build. |
+| `20261012.020900` | [Diffuser, P1 hold, ninety-sixth, no run](20261012/20261012-020900_diffuser-p1-hold-ninety-sixth-check-in-claude-no-run.kyri) | P1 still unruled; ff to xy, no run. |
 | `20261012.020438` | [Incense, baton declined, no build](20261012/20261012-020438_incense-baton-declined-no-build.kyri) | Clean on xy at 031427c14a; cold run held; no build. |
 | `20261012.020421` | [Bakery, receipt key gated, no build](20261012/20261012-020421_bakery-receipt-key-gated-no-build.kyri) | Receipt-key ruling gates the lane; no build. |
 | `20261012.020737` | [Petrichor, seam held, no build](20261012/20261012-020737_petrichor-first-hour-held-no-build.kyri) | Public seam not on card; no build. |
