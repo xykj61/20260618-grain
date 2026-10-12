@@ -1590,12 +1590,112 @@ pub const Weave = struct {
         }
     }
 
+    /// The order key and run one insert answers with, as `inherited_place`
+    /// returns them. A plain pair, so the caller reads both fields by name.
+    const Inherited = struct { ord: u32, run: u32 };
+
+    /// The order key and run a new insert inherits from the diff: its anchor's,
+    /// then overridden by the line it replaces. An insert with neither keeps
+    /// the fresh order key and run it was handed.
+    ///
+    /// Split out of `apply_inserts` so the lookup reads on its own. It only
+    /// reads the weave, so the caller decides what to do with the answer.
+    fn inherited_place(self: *const Weave, diff: Diff, insert_at: usize, fresh_ord: u32, fresh_run: u32) Inherited {
+        // invariant: the insert being placed has a text in the diff to place
+        // invariant: insert_at < diff.inserts.len
+        assert(insert_at < diff.inserts.len);
+        // invariant: the weave stands inside its ceiling, since the lookup walks
+        // every line it holds
+        // invariant: self.lines.items.len <= max_weave_lines
+        assert(self.lines.items.len <= max_weave_lines);
+        var ord_for = fresh_ord;
+        var run_for = fresh_run;
+        // AN ORDINARY INSERT TAKES THE PLACE OF THE LINE IT COMES AFTER
+        // (REDS %689). It carries a fresh position, which is higher than the
+        // anchor's, so the position tiebreak sorts it JUST PAST the anchor
+        // and before whatever follows -- a line placed between two others
+        // without a denser number than a `u32` can hold. Two inserts after
+        // one anchor keep the order they were written in, for the same
+        // reason. An insert opening the document has no anchor and keeps the
+        // counter's own answer, which is the one case still landing at the
+        // end; a document that grows at its head wants its own lap. First
+        // place is unreachable from an anchor too -- an insert anchored on
+        // the first line inherits its run and order key and draws a higher
+        // position, and the position is the last tiebreak, so it lands
+        // second. Claim 9 of weave_apply_witness.rye holds both readings.
+        if (insert_at < diff.after.len) {
+            if (diff.after[insert_at]) |anchor| {
+                for (self.lines.items) |held| {
+                    if (held.id().eq(anchor)) {
+                        ord_for = held.ord;
+                        run_for = held.run;
+                        break;
+                    }
+                }
+            }
+        }
+        // A REPLACEMENT names a line outright and overrides the anchor, on
+        // Keaton's word: it inherits the place of the line it REPLACES.
+        if (insert_at < diff.replaces.len) {
+            if (diff.replaces[insert_at]) |replaced| {
+                for (self.lines.items) |held| {
+                    if (held.id().eq(replaced)) {
+                        // The RUN is inherited beside the order key, and it
+                        // has to be: the run is read first of all, so a
+                        // replacement carrying a fresh run sorts after every
+                        // line of the run it meant to stand inside, however
+                        // its order key reads. Inheriting both is what "the
+                        // place" means here; only the identity stays fresh.
+                        ord_for = held.ord;
+                        run_for = held.run;
+                        break;
+                    }
+                }
+            }
+        }
+        return .{ .ord = ord_for, .run = run_for };
+    }
+
+    /// Put a new line where its place says, rather than at the end. The
+    /// backing list is held in place order, so the line goes in the middle
+    /// whenever its place sorts before a held line.
+    ///
+    /// Split out of `apply_inserts` so the placement walk reads on its own.
+    fn place_line(self: *Weave, allocator: std.mem.Allocator, line: Line) !void {
+        // invariant: the list stands inside the ceiling before a line joins it
+        // invariant: self.lines.items.len <= max_weave_lines
+        assert(self.lines.items.len <= max_weave_lines);
+        // THE LINE GOES WHERE ITS PLACE SAYS, rather than at the end. The
+        // backing list is held in place order -- `current` asserts it on
+        // every read and returns document order without sorting because of
+        // it -- and an appended line kept that true only while positions
+        // rose monotonically. A replacement inherits an order key from the
+        // middle, so it must be placed in the middle.
+        //
+        // Linear rather than binary on purpose: the list is bounded by
+        // `max_weave_lines`, a replacement is the only line that ever lands
+        // anywhere but the end, and a binary search over a list this walk
+        // just proved ordered would be a second reading of the same order.
+        var at: u32 = @intCast(self.lines.items.len);
+        for (self.lines.items, 0..) |held, idx| {
+            if (line.place().less_than(held.place())) {
+                at = @intCast(idx);
+                break;
+            }
+        }
+        // invariant: the chosen slot sits inside the list, end included
+        // invariant: at <= self.lines.items.len
+        assert(at <= self.lines.items.len);
+        try self.lines.insert(allocator, at, line);
+    }
+
     /// Place each new line at its position, carrying the run and order key
     /// that its anchor or replacement dictates.
     ///
     /// Split out of `apply` so the insert half reads on its own. The run and
     /// the floor are read here, before the first line is added, as they were
-    /// in `apply`.
+    /// in `apply`. The lookup and the placement walk are in their own helpers
+    /// so this body reads as its steps.
     fn apply_inserts(self: *Weave, allocator: std.mem.Allocator, diff: Diff) !void {
         // invariant: the weave stands inside its ceiling on entry, since the
         // placement walk below reads every line it holds
@@ -1631,58 +1731,14 @@ pub const Weave = struct {
             // The pairing arrives on the diff rather than being guessed here: a
             // replacement is the nth arrival in a gap answering the nth
             // departure, and only the diff can see the gaps.
-            var ord_for = self.next_pos;
-            var run_for = run;
-            // AN ORDINARY INSERT TAKES THE PLACE OF THE LINE IT COMES AFTER
-            // (REDS %689). It carries a fresh position, which is higher than the
-            // anchor's, so the position tiebreak sorts it JUST PAST the anchor
-            // and before whatever follows -- a line placed between two others
-            // without a denser number than a `u32` can hold. Two inserts after
-            // one anchor keep the order they were written in, for the same
-            // reason. An insert opening the document has no anchor and keeps the
-            // counter's own answer, which is the one case still landing at the
-            // end; a document that grows at its head wants its own lap. First
-            // place is unreachable from an anchor too -- an insert anchored on
-            // the first line inherits its run and order key and draws a higher
-            // position, and the position is the last tiebreak, so it lands
-            // second. Claim 9 of weave_apply_witness.rye holds both readings.
-            if (insert_at < diff.after.len) {
-                if (diff.after[insert_at]) |anchor| {
-                    for (self.lines.items) |held| {
-                        if (held.id().eq(anchor)) {
-                            ord_for = held.ord;
-                            run_for = held.run;
-                            break;
-                        }
-                    }
-                }
-            }
-            // A REPLACEMENT names a line outright and overrides the anchor, on
-            // Keaton's word: it inherits the place of the line it REPLACES.
-            if (insert_at < diff.replaces.len) {
-                if (diff.replaces[insert_at]) |replaced| {
-                    for (self.lines.items) |held| {
-                        if (held.id().eq(replaced)) {
-                            // The RUN is inherited beside the order key, and it
-                            // has to be: the run is read first of all, so a
-                            // replacement carrying a fresh run sorts after every
-                            // line of the run it meant to stand inside, however
-                            // its order key reads. Inheriting both is what "the
-                            // place" means here; only the identity stays fresh.
-                            ord_for = held.ord;
-                            run_for = held.run;
-                            break;
-                        }
-                    }
-                }
-            }
+            const inherited = self.inherited_place(diff, insert_at, self.next_pos, run);
             const line = Line{
                 .text = text,
                 .gen   = 1,
                 .pos   = self.next_pos,
-                .ord   = ord_for,
+                .ord   = inherited.ord,
                 .site  = diff.site,
-                .run   = run_for,
+                .run   = inherited.run,
             };
             // invariant: an odd generation means present -- the parity IS the tombstone, so an
             // even one reaching here would be a deleted line treated as live
@@ -1695,25 +1751,7 @@ pub const Weave = struct {
             // counter that repeated itself is caught right here.
             // invariant: line.pos >= floor
             assert(line.pos >= floor);
-            // THE LINE GOES WHERE ITS PLACE SAYS, rather than at the end. The
-            // backing list is held in place order -- `current` asserts it on
-            // every read and returns document order without sorting because of
-            // it -- and an appended line kept that true only while positions
-            // rose monotonically. A replacement inherits an order key from the
-            // middle, so it must be placed in the middle.
-            //
-            // Linear rather than binary on purpose: the list is bounded by
-            // `max_weave_lines`, a replacement is the only line that ever lands
-            // anywhere but the end, and a binary search over a list this walk
-            // just proved ordered would be a second reading of the same order.
-            var at: u32 = @intCast(self.lines.items.len);
-            for (self.lines.items, 0..) |held, idx| {
-                if (line.place().less_than(held.place())) {
-                    at = @intCast(idx);
-                    break;
-                }
-            }
-            try self.lines.insert(allocator, at, line);
+            try self.place_line(allocator, line);
             self.next_pos += 1;
         }
     }
