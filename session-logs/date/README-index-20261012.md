@@ -1,3 +1,4 @@
+| 20261012.163355 | [Patchouli queue empty on a fresh net, no build](20261012/20261012-163355_patchouli-queue-empty-fresh-net-no-build.kyri) | Fresh header net: only elder read-compat hits; no build. |
 | 20261012.163332 | [Incense decline on a clear board, nib carry, no build](20261012/20261012-163332_incense-decline-clear-board-no-build.kyri) | Clear board, all eight seats clocked in; nib carried; no build. |
 # session-logs day index -- 20261012
 **Language:** EN
