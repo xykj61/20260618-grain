@@ -6,6 +6,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.114057 | [Diffuser P1 earth lap, check in](20261012/20261012-114057_diffuser-p1-earth-check-in-no-run.kyri) | ff to 29964ad275; P1 still owed; no run. |
 | 20261012.114026 | [Pheromone baton, ff and hold, no build](20261012/20261012-114026_pheromone-baton-hold-ff-no-build.kyri) | Lane held at closed fruit; ff to xy; no build. |
 | 20261012.113727 | [Petrichor gate held, no build](20261012/20261012-113727_petrichor-gate-held-ff-again-no-build.kyri) | Consent gate unchanged; no build. |
 | 20261012.114051 | [Gauge guide graded A, no molt](20261012/20261012-114051_grass-gauge-guide-grade-a-no-build.kyri) | GAUGE_STYLE at Field: composite 92 A; no edit; no claim. |
