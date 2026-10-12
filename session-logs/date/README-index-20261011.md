@@ -13,6 +13,7 @@
 | `20261011.231237` | [Incense, baton declined, dead-letter noted, no build](20261011/20261011-231237_incense-baton-declined-dead-letter-noted-no-build.kyri) | Board clear; 8 peer stash records reported; no build. |
 | `20261011.231219` | [Diffuser, P1 held, unruled, ff three peers, no run](20261011/20261011-231219_diffuser-held-p1-unruled-ff-three-peers-no-run.kyri) | P1 unruled; ff three peers; no run. |
 | `20261011.231213` | [Copal, fruit absent, no build](20261011/20261011-231213_copal-fruit-absent-no-build.kyri) | 158 of 158 witnesses rostered; prin_ticker is a delegated hand; no build. |
+| `20261011.231749` | [Pheromone, lane empty, Glow refusal green, no build](20261011/20261011-231749_pheromone-lane-empty-glow-refusal-green-no-build.kyri) | Lane held for a language ruling; witness green; no build. |
 | `20261011.230819` | [Diffuser, P1 held, 170 revisions, no run](20261011/20261011-230819_diffuser-hold-p1-unruled-no-run-170-revisions.kyri) | P1 unruled; no peer diffuser file; no run. |
 | `20261011.230538` | [Incense, baton lap declined, claim board clear, no build](20261011/20261011-230538_incense-baton-declined-clear-board-no-build.kyri) | Board clear; nib carried; %642, %519 wait on Keaton's word. |
 | `20261011.230931` | [Incense, baton lap declined, nib carried](20261011/20261011-230931_incense-baton-declined-nib-carried-no-build.kyri) | Clear board; nib carried; no build. |
