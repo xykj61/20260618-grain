@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.121424 | [Grass foundations, four graded, no frame](20261012/20261012-121424_grass-foundations-four-graded-no-frame.kyri) | Four pages at B+ or above; no molt, no build. |
 | 20261012.121210 | [Diffuser P1 hold, three peers in, no run](20261012/20261012-121210_diffuser-p1-hold-ff-three-peers-no-run.kyri) | P1 still unruled; three log-and-card peers in, no diffuser file; check in (Claude). |
 | 20261012.121025 | [Copal fruit void, no build](20261012/20261012-121025_copal-fruit-void-no-build.kyri) | Zero unrostered chapter witnesses; no claim; no build. |
 | 20261012.120554 | [Petrichor held at the water row, no build](20261012/20261012-120554_petrichor-water-row-held-no-build.kyri) | Gate unchanged at f6975f780a; upstream log-only; no build. |
