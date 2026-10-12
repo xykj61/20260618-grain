@@ -379,6 +379,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.154503 | [Pheromone held, ff to upstream, no build](20261012/20261012-154503_pheromone-held-ff-no-build.kyri) | Ff to d9e84f244c; ruling owed to Incense; no build. |
 | 20261012.153942 | [Pheromone held, ff three, no build](20261012/20261012-153942_pheromone-held-fast-forward-no-build.kyri) | Ff to 67ecea80d8; lane empty; ruling owed to Incense; no build. |
 | 20261012.153940 | [Diffuser P1 hold, no run](20261012/20261012-153940_diffuser-p1-hold-no-run-check-in-claude.kyri) | Ff to 67ecea80d8; P1 unruled; no run; check in (Claude). |
 | 20261012.154527 | [Bakery sign ruling held, no build](20261012/20261012-154527_bakery-sign-ruling-held-no-build.kyri) | %841 retype waits on a Claude ruling; no code; check in (Claude). |
