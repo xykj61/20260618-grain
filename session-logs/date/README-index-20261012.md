@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261012.011408` | [Incense, seventy-ninth, no build](20261012/20261012-011408_incense-baton-seventy-ninth-no-build.kyri) | Round-open clean; board clear; no build. |
 | `20261012.011343` | [Diffuser, P1 still unruled, eighty-sixth hold, no run](20261012/20261012-011343_diffuser-p1-hold-eighty-sixth-check-in-no-run.kyri) | P1 unruled in the newest bodies; no measurement; check in (Claude). |
+| `20261012.011346` | [Petrichor, consent rail ruling held, no build](20261012/20261012-011346_petrichor-consent-rail-ruling-held-no-build.kyri) | Consent Rail ruling still open; no unblocked item; no build. |
 | `20261012.011154` | [Pheromone, lane held, no build](20261012/20261012-011154_pheromone-lane-held-no-build.kyri) | Claim board clear; no ruling open; no build. |
 | `20261012.011435` | [Patchouli, queue empty, kumara red held, no build](20261012/20261012-011435_patchouli-queue-empty-kumara-red-held-no-build.kyri) | Nets clean; red 840 held on pin headroom and a seam ruling. |
 | `20261012.010759` | [Bakery, mutation census three unmeasured, no build](20261012/20261012-010759_bakery-mutation-census-three-unmeasured-no-build.kyri) | Census: 3 changed, 0 silent, 3 unmeasured; receipt key YOURS; no build. |
