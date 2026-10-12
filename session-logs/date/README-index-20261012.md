@@ -8,6 +8,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.033347` | [Incense, declined, no build](20261012/20261012-033347_incense-baton-declined-after-round-open-no-build.kyri) | Round-open clean; board clear; no build. |
 
 | `20261012.033259` | [Copal, fruit met, no build](20261012/20261012-033259_copal-fruit-met-zero-unrostered-no-build.kyri) | Zero unrostered witnesses; no build. |
 | `20261012.033130` | [Patchouli, queue empty fifteenth](20261012/20261012-033130_patchouli-queue-empty-fifteenth-no-build.kyri) | Queue empty; no build. |
