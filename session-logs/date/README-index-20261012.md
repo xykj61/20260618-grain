@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.061616 | [bakery crux survey](20261012/20261012-061616_bakery-crux-shared-cache-check-in.kyri) | crux measured GREEN single-tree; cross-checkout seam held for check-in |
 | `20261012.061454` | [Patchouli, from_v2 split, GREEN](20261012/20261012-061454_patchouli-weave-from-v2-split.kyri) | from_v2 91 to 63 lines; check_v2_rows helper; no behavior change. |
 | `20261012.061626` | [Diffuser hold, ff peers, no run](20261012/20261012-061626_diffuser-p1-hold-ff-peers-no-run.kyri) | P1 still unruled; no fruit; nib carried. |
 | `20261012.061320` | [Petrichor, gate held, no build](20261012/20261012-061320_petrichor-gate-held-no-build.kyri) | Pulled to 455001e223; Consent Rail gate held; no page changed. |
