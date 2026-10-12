@@ -10,6 +10,7 @@
 | 20261012.101750 | [Bakery, crux held, no build](20261012/20261012-101750_bakery-crux-ruling-held-after-pull-no-build.kyri) | Receipt key still YOURS; pulled to ad1a718878. |
 | `20261012.102026` | [Petrichor, idle, gate held, no build](20261012/20261012-102026_petrichor-docs-geode-idle-gated-no-build.kyri) | Ff peers; no docs-geode change. |
 | 20261012.101533 | [Incense declined after one ff, no build](20261012/20261012-101533_incense-baton-declined-after-ff-no-build.kyri) | One ff; claims clear; no build. |
+| 20261012.102005 | [Diffuser, P1 held a seventeenth time, no run](20261012/20261012-102005_diffuser-p1-held-seventeenth-no-run.kyri) | P1 unruled; no run; nib carried. |
 | 20261012.101611 | [Copal, fruit spent, no unrostered witness](20261012/20261012-101611_copal-unrostered-fruit-spent.kyri) | 158 of 158 witnesses rostered; no build. |
 | 20261012.101354 | [Diffuser, P1 held a sixteenth time, no run](20261012/20261012-101354_diffuser-p1-held-sixteenth-no-run.kyri) | P1 unruled; no run; loop named; nib carried. |
 | 20261012.101429 | [Pheromone, index reds unbooked, no build](20261012/20261012-101429_pheromone-index-red-booked-no-build.kyri) | Two open-shelf reds read; ledger at bound.
