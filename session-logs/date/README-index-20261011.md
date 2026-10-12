@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.215454` | [Bakery, held, no build](20261011/20261011-215454_bakery-held-receipt-key-no-build.kyri) | Receipt key still yours; card nib carried. |
 | `20261011.215458` | [Patchouli, queue empty, no build](20261011/20261011-215458_patchouli-queue-empty-thirteenth-net-no-build.kyri) | Net after pull; claim board clear. |
 | `20261011.215218` | [Diffuser, held on P1, no run](20261011/20261011-215218_diffuser-held-p1-ff-peer-incense-no-run.kyri) | Ff one peer; P1 unruled; no run. |
 | `20261011.215238` | [Incense declined, no build](20261011/20261011-215238_incense-baton-declined-claim-clear-no-build.kyri) | Board clear; cold run held. |
