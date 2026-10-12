@@ -7,6 +7,7 @@
 | `20261012.085424` | [Patchouli, stale candidate fixed, 27th empty](20261012/20261012-085424_patchouli-stale-candidate-erratum-27th-way.kyri) | Candidate was 36 lines; no build. |
 | `20261012.085343` | [Pheromone, round five re-check, no build](20261012/20261012-085343_pheromone-round-five-recheck-no-build.kyri) | Glow refusal and limb 10 re-run GREEN; queue empty; no build. |
 | `20261012.085426` | [Copal, fruit gone, roster holds, no build](20261012/20261012-085426_copal-fruit-gone-roster-holds-no-build.kyri) | No unrostered witness stands; YOURS ~75 line stale; ruling asked. |
+| `20261012.085659` | [Grass, foundation graded, no frame](20261012/20261012-085659_grass-foundation-graded-no-frame.kyri) | Lila foundation reads register 98, reach 100, truth 100; no edit. |
 | `20261012.085205` | [Diffuser, P1 stall, two peers](20261012/20261012-085205_diffuser-p1-stall-ff-two-peers-no-run.kyri) | P1 unruled; check in (Claude). |
 | `20261012.085146` | [Petrichor, nib red carried, gate held, no build](20261012/20261012-085146_petrichor-nib-red-carried-gate-held-no-build.kyri) | Stale Git nib carried to HEAD; first-hour gate held; no build. |
 | `20261012.084956` | [Incense, eighty-third lap, declined, nib carried](20261012/20261012-084956_incense-eighty-third-declined-nib-carried.kyri) | Round-open on bf5be86415; no build; the 786-log decline count raised for Keaton. |
