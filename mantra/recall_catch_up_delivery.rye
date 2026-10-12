@@ -339,7 +339,12 @@ fn run_source_loop(_: std.Io) !u8 {
     var hops: u32 = 0;
     while (hops < 8) : (hops += 1) {
         var wire: [@intCast(wf.wire_capacity)]u8 = undefined;
-        const wire_len = recv_wire_timeout(source_port, &wire, 2) catch break;
+        // invariant: only a receive timeout (RecvFailed) is the normal idle wait and ends the loop. A bind or
+        // socket-option failure is a fault, so it escapes rather than reporting an answered loop with exit 0.
+        const wire_len = recv_wire_timeout(source_port, &wire, 2) catch |err| switch (err) {
+            error.RecvFailed => break,
+            else => return err,
+        };
         if (wire_len < wf.off_cipher or wire_len > wf.wire_capacity) return error.RecvFailed;
 
         var opened: [@intCast(wf.max_message)]u8 = undefined;
