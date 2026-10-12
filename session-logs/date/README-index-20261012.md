@@ -381,6 +381,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.154734 | [Copal, no unrostered witness](20261012/20261012-154734_copal-no-unrostered-chapter-witness-no-build.kyri) | Fruit empty; 159 rostered; no build. |
 | 20261012.154717 | [Incense nib carried, ff one, no build](20261012/20261012-154717_incense-nib-carried-ff-one-no-build.kyri) | Ff to daa25d98d3; card nib carried; no build. |
 | 20261012.154503 | [Pheromone held, ff to upstream, no build](20261012/20261012-154503_pheromone-held-ff-no-build.kyri) | Ff to d9e84f244c; ruling owed to Incense; no build. |
 | 20261012.153942 | [Pheromone held, ff three, no build](20261012/20261012-153942_pheromone-held-fast-forward-no-build.kyri) | Ff to 67ecea80d8; lane empty; ruling owed to Incense; no build. |
