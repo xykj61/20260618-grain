@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.081051` | [Petrichor, gate held after ff, no build](20261012/20261012-081051_petrichor-gate-held-ff-no-build.kyri) | Consent Rail gate unchanged; no fruit; no build. |
 | `20261012.081035` | [Copal, fruit empty, held](20261012/20261012-081035_copal-fruit-empty-strict-measure-no-build.kyri) | Strict measure: zero unrostered witnesses; no build. |
 | `20261012.081114` | [Diffuser, held again on P1, no run](20261012/20261012-081114_diffuser-p1-hold-check-in-claude.kyri) | P1 still unruled; fast-forward only; check in (Claude) to restate or retire. |
 | `20261012.080658` | [Pheromone, held again, fast-forwarded, no build](20261012/20261012-080658_pheromone-held-again-no-build.kyri) | Lane held on its stop clause; checkout fast-forwarded; no claim, no build. |
