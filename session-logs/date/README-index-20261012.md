@@ -2,6 +2,7 @@
 **Language:** EN
 | 20261012.155539 | [Copal fire row, no build](20261012/20261012-155539_copal-fire-row-no-build.kyri) | Zero unrostered witnesses again; card YOURS line stale; no build. |
 | 20261012.155334 | [Bakery held on receipt key, no build](20261012/20261012-155334_bakery-receipt-key-held-no-build.kyri) | Round-open adopted d57bbe9ba4; receipt key is YOURS; 970 of 1163 logs no-build. |
+| 20261012.155620 | [Pheromone held, ff one, no build](20261012/20261012-155620_pheromone-held-ff-one-no-build.kyri) | Ff to 7be431d220; capacity GREEN at 15; Incense ruling owed; no build. |
 | 20261012.155101 | [Diffuser P1 held, rebased, no run](20261012/20261012-155101_diffuser-p1-hold-rebased-no-run.kyri) | Rebased own log; nib carried; P1 unruled; check in (Claude). |
 | 20261012.155016 | [Incense nib carry, no build](20261012/20261012-155016_incense-nib-carry-no-build.kyri) | Ff to f015192cd7; card nib carried; witness GREEN; no build. |
 | 20261012.154637 | [Patchouli queue empty, no build](20261012/20261012-154637_patchouli-queue-empty-no-build.kyri) | Broad net finds no header family; %807 and %765 owed; no build. |
