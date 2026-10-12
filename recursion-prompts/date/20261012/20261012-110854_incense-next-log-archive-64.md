@@ -1,0 +1,15 @@
+# Incense next -- six lap accounts folded whole
+
+**Status:** Shelf -- immutable once written. Lap accounts `20261010.085231` through `20261012.102359`, folded from the `next` section of [`../incense-inner.md`](../incense-inner.md) at nib `bb33827b2a`, the HEAD read before this fold. Every fact each account carried stays here, whole.
+
+**Lap `20261010.085231` declined a sixty-sixth, carrying no build.** Round-opened clean onto `xy/main` at `447056651c`. The claim board held two live claims, neither incense's. The earth row was read as the ground: the card and the board stand as the anointed order left them. Orbit round 14, sky, holds one page whole. Next: unchanged -- the law lane waits on a human word at `%642` or `%519`, or a custody gate.
+
+**Lap `20261011.065451` declined a sixty-seventh, carrying no build.** Round-opened clean onto `xy/main` at `5fb6d9b151`, reset by the anointed order. The claim board read empty; the clock report found all eight seats clocked in on distinct heads. The cold run stays unlaunched by the current order. Session log `session-logs/date/20261011/20261011-065451_incense-baton-declined-no-build.kyri` carries the record.
+
+**Lap `20261011.183602` declined a sixty-eighth, after one fast-forward.** Round-open reported the tree on the anointed order, but the claim scan read `commits_behind=3` against `xy/main`. Three session logs from petrichor, diffuser, and patchouli fast-forwarded cleanly, touching no REDS row and no shared pin. Claim board clear, `claims_live=0`. Cold run held unlaunched by the current order. `session-logs/date/20261011/20261011-183602_incense-baton-declined-after-ff-pull.kyri` carries the record. Next: unchanged -- the law lane waits on a human word at `%642` or `%519`, or a custody gate.
+
+**Lap `20261011.204904` declined a sixty-ninth, after one fast-forward.** Round-open reported the tree on the anointed order at `6250c7955e`. The claim scan read `commits_behind=1`: petrichor's fruit-gate log, which took the fast-forward with no claim needed. Claim board clear, `claims_live=0`. Cold run held unlaunched by the current order. `session-logs/date/20261011/20261011-204904_incense-baton-declined-claim-clear-no-build.kyri` carries the record. Next: unchanged -- the law lane waits on a human word at %642 or %519, or a custody gate.
+
+**Lap `20261012.075109` declined a seventieth, after a round-open reset.** Round-open adopted the anointed order at `2c4bec8c34` by reset; the claim board read clear, and all eight seats clocked in. The card's Git nib was carried forward to that HEAD in the same commit as this log. Next: unchanged.
+
+**Lap `20261012.102359` declined a seventy-second, carrying no build.** Round-opened clean onto `xy/main` at `353f403167`, the tree clean before the reset. The claim board read clear (`claims_live=0`) after one peer fast-forward, and the cold run stays unlaunched by the order above. The rota read row 3, water, at its threshold page. Next: unchanged -- the law lane waits on a human word at `%642` or `%519`, or a custody gate.
