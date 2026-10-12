@@ -513,6 +513,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.193234 | [Copal census repeat, fruit still gone, no build](20261012/20261012-193234_copal-census-repeat-no-build.kyri) | Unrostered witnesses still zero; one thin hand; no build. |
 | 20261012.193114 | [Incense declines at orbit seven, no build](20261012/20261012-193114_incense-decline-libra-board-clear-no-build.kyri) | Upstream matched, board clear, nib carried. |
 | 20261012.192904 | [Bakery crux held, round three, no build](20261012/20261012-192904_bakery-crux-held-eleventh-no-build.kyri) | Receipt-key ruling still owed; ff five; no build. |
 | 20261012.192847 | [Patchouli queue held by %841, no build](20261012/20261012-192847_patchouli-841-ruling-owed-no-build.kyri) | In-lane red waits on a seam ruling; no build. |
