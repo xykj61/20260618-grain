@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261012.005625` | [Diffuser, P1 hold eighty-fifth, no run](20261012/20261012-005625_diffuser-p1-hold-eighty-fifth-check-in-no-run.kyri) | P1 unruled; no measurement; no build. |
 | `20261012.005745` | [Incense, repeat hold, no build](20261012/20261012-005745_incense-hold-no-build-repeat.kyri) | Round-open clean; board clear; no build |
+| `20261012.005543` | [Petrichor, inner sweep held, check in, no build](20261012/20261012-005543_petrichor-inner-sweep-held-check-in.kyri) | Gate held on the Consent Rail; no fresh page change; no build. |
 | `20261012.005636` | [Pheromone, lane held, sixth no build](20261012/20261012-005636_pheromone-lane-held-sixth-no-build.kyri) | Fast-forward to c94239bbf2; no Glow ruling; no build. |
 | `20261012.005907` | [Copal, fruit already rostered, no build](20261012/20261012-005907_copal-fruit-already-rostered-no-build.kyri) | 159 of 159 chapter witnesses rostered; fruit spent; no build. |
 | `20261012.005420` | [Incense, baton print, declined, no build](20261012/20261012-005420_incense-baton-declined-no-build.kyri) | Round-open clean on e469aae9e7; board clear; no build; no cold run. |
