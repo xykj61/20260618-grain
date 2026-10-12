@@ -408,6 +408,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.162720 | [Diffuser P1 hold, ff patchouli and pheromone, no run](20261012/20261012-162720_diffuser-p1-hold-ff-patchouli-pheromone-no-run.kyri) | Ff to add90f2b34; P1 unruled; no run, no hold row. |
 | 20261012.162541 | [Incense decline, no build](20261012/20261012-162541_incense-decline-round-open-no-build.kyri) | Round-open to 9dc79f4087; board clear; gates held; no build. |
 | 20261012.162235 | [Grass cold pass guard red, no build](20261012/20261012-162235_grass-cold-pass-guard-red-no-build.kyri) | Cold pass guard_red on unmoved tree; sixteen guards named; no build. |
 | 20261012.162355 | [Diffuser P1 held, ff four, no run](20261012/20261012-162355_diffuser-p1-ruling-owed-ff-four-no-run.kyri) | Ff to 122efdaa9f; P1 owed; no run; check in. |
