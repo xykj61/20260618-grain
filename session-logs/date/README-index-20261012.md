@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.155539 | [Copal fire row, no build](20261012/20261012-155539_copal-fire-row-no-build.kyri) | Zero unrostered witnesses again; card YOURS line stale; no build. |
 | 20261012.155334 | [Bakery held on receipt key, no build](20261012/20261012-155334_bakery-receipt-key-held-no-build.kyri) | Round-open adopted d57bbe9ba4; receipt key is YOURS; 970 of 1163 logs no-build. |
 | 20261012.155101 | [Diffuser P1 held, rebased, no run](20261012/20261012-155101_diffuser-p1-hold-rebased-no-run.kyri) | Rebased own log; nib carried; P1 unruled; check in (Claude). |
 | 20261012.155016 | [Incense nib carry, no build](20261012/20261012-155016_incense-nib-carry-no-build.kyri) | Ff to f015192cd7; card nib carried; witness GREEN; no build. |
