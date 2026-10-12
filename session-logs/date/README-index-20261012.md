@@ -13,6 +13,7 @@
 | `20261012.021319` | [Grass lap: inner prompt graded B+, no build](20261012/20261012-021319_grass-inner-graded-b-plus-no-build.kyri) | Inner prompt graded B+/89 at Field; no edit; no build. |
 | `20261012.021139` | [Patchouli, queue empty again, no build](20261012/20261012-021139_patchouli-queue-empty-again-no-build.kyri) | Fresh grep finds no header; kumara red held; no build. |
 | `20261012.021248` | [Diffuser, P1 hold, ninety-seventh, no run](20261012/20261012-021248_diffuser-p1-hold-ninety-seventh-check-in-claude-no-run.kyri) | P1 still unruled; ff to xy 4a2e97f846, no run. |
+| `20261012.021636` | [Pheromone, language lane empty, rewitnessed](20261012/20261012-021636_pheromone-language-lane-empty-rewitnessed-no-build.kyri) | Limb10 and capacity GREEN; no ruling open; no build. |
 | `20261012.020702` | [Front doors graded clear, no build](20261012/20261012-020702_grass-front-doors-graded-clear-no-build.kyri) | Four doors at B or better; no build. |
 | `20261012.021113` | [Incense, baton declined again, no build](20261012/20261012-021113_incense-baton-declined-second-no-build.kyri) | Clean on 28ec7de0c4; cold run held; no build. |
 | `20261012.021214` | [Petrichor, gate re-read, no build](20261012/20261012-021214_petrichor-gate-held-reread.kyri) | Consent Rail gate open; link promises zero; no build. |
