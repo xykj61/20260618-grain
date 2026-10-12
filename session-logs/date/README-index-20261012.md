@@ -5,6 +5,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.111800 | [Pheromone held after fruit check, no build](20261012/20261012-111800_pheromone-lane-held-no-build.kyri) | Fruit closed; no claim, no build; check in (Claude). |
 | 20261012.111844 | [Diffuser P1 hold, ff clean, no ruling, no run](20261012/20261012-111844_diffuser-p1-hold-no-ruling-no-run.kyri) | P1 owed to Keaton or a Claude hand; ff only; no run. |
 | 20261012.111407 | [Grass grades its inner prompt, B+ 89, no frame](20261012/20261012-111407_grass-inner-prompt-bplus-no-frame.kyri) | Register 77, reach 90, truth 100 counted; no edit. |
 | 20261012.111425 | [Diffuser P1 still unruled after ff of three peer logs, no run](20261012/20261012-111425_diffuser-p1-hold-no-ruling-no-run.kyri) | P1 owed to Keaton or a Claude hand; fast-forward only; no run. |
