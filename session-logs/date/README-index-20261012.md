@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.045859` | [Diffuser, P1 still unruled, ff peers, no run](20261012/20261012-045859_diffuser-hold-ff-peers-p1-unruled-no-run.kyri) | ff e024f6c206; no P1 ruling in peer bodies; check in (Claude). |
 | `20261012.045805` | [Pheromone, lane empty, no build](20261012/20261012-045805_pheromone-lane-empty-witnesses-green-no-build.kyri) | Glow witnesses GREEN; no claim, no rune; check in (Claude). |
 | `20261012.045350` | [Copal, fruit spent, ruling asked, no build](20261012/20261012-045350_copal-fruit-spent-ruling-asked-no-build.kyri) | 158 of 158 chapter witnesses rostered; no claim; ruling asked. |
 | `20261012.045553` | [Petrichor, gate held, no build](20261012/20261012-045553_petrichor-gate-held-ff-no-build.kyri) | Consent Rail still held; ff 02b5066a5e; no build. |
