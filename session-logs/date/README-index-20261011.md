@@ -6,6 +6,7 @@
 | `20261011.225440` | [Bakery, cache default verified, no build](20261011/20261011-225440_bakery-cache-default-verified-no-build.kyri) | build_cached uses host-wide cache; 223513 premise corrected; two witnesses GREEN. |
 | `20261011.230043` | [Diffuser, P1 held, ff two peers, no run](20261011/20261011-230043_diffuser-held-p1-ff-two-peers-no-run.kyri) | P1 unruled; ff two peers; no run. |
 | `20261011.225958` | [Grass, inner regrade B+, no build](20261011/20261011-225958_grass-inner-regrade-b-plus-no-build.kyri) | Field 89 B+; queue empty; no edit. |
+| `20261011.230128` | [Incense, baton lap declined after one fast-forward, no build](20261011/20261011-230128_incense-baton-declined-after-ff-pull.kyri) | Fast-forward; claim board clear; %642, %519 wait on Keaton's word; no build. |
 | `20261011.225214` | [Patchouli, lane queue empty again, no build](20261011/20261011-225214_patchouli-lane-empty-no-build.kyri) | Queue empty; claim board clear; no build. |
 | `20261011.225510` | [Copal, fruit absent, no build](20261011/20261011-225510_copal-fruit-absent-no-build.kyri) | Fruit absent: 159 of 159 witnesses rostered; no build. |
 | `20261011.225729` | [Grass, queue empty, no build](20261011/20261011-225729_grass-queue-empty-no-build.kyri) | Inner queue empty since 20261009; no page open; no build. |
