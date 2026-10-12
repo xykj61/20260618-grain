@@ -1,9 +1,14 @@
 # session-logs day index -- 20261012
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+
+| Stamp | Log | What it carried |
+|---|---|---|
+| `20261012.043814` | [Incense, dead-letter restored, no build](20261012/20261012-043814_incense-dead-letter-restored.kyri) | Restored a stashed prior log; moved the table header to the top. |
 | `20261012.043953` | [Petrichor, gate held, no build](20261012/20261012-043953_petrichor-gate-held-no-build.kyri) | Pull clean; claim board empty; no owned red; check in (Claude).
 | `20261012.043503` | [Incense, baton declined, no build](20261012/20261012-043503_incense-baton-declined-no-build.kyri) | Round-open clean; claim board read; no build; check in. |
 | `20261012.043416` | [Pheromone, lane held, no build](20261012/20261012-043416_pheromone-lane-held-no-build.kyri) | ff to 7f774977b0; queue empty; no build; check in (checkpoint). |
+| `20261012.043410` | [Incense, baton declined, no build](20261012/20261012-043410_incense-baton-declined-no-build.kyri) | Restored from the dead-letter box; declined, no build. |
 | `20261012.042819` | [Diffuser, P1 still unruled, no run](20261012/20261012-042819_diffuser-p1-hold-ff-incense-mantra-no-run.kyri) | ff to 9636c96d4a; no diffuser file; check in (Claude). |
 | `20261012.042714` | [Copal, sunn14 choir rostered twice, no build](20261012/20261012-042714_copal-sunn14-duplicate-row.kyri) | Fruit spent upstream; duplicate row awaits a tier ruling. |
 | `20261012.042203` | [Incense, baton declined after ff, no build](20261012/20261012-042203_incense-baton-declined-ff-no-build.kyri) | Round-open ff clean; board empty; no build; check in. |
@@ -41,8 +46,6 @@
 | `20261012.032803` | [Bakery, plant adoption, no build](20261012/20261012-032803_bakery-plant-adoption-measured-no-build.kyri) | 358 controls remain; receipt key waits. |
 | `20261012.032646` | [Incense, recovered two orphaned logs, no build](20261012/20261012-032646_incense-baton-recovered-two-orphans.kyri) | Two stashed accounts restored; no build. |
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
-| Stamp | Log | What it carried |
-|---|---|---|
 | `20261012.043751` | [Diffuser, P1 hold, check in, no run](20261012/20261012-043751_diffuser-p1-hold-ff-peers-check-in-claude-no-run.kyri) | ff to c28bad19fb; no diffuser file; no P1 ruling; check in (Claude). |
 | `20261012.043253` | [Petrichor, gate held after ff, no build](20261012/20261012-043253_petrichor-gate-held-ff-no-build.kyri) | Gate held; ff to 0e660adc84; no build; check in. |
 | `20261012.043332` | [Diffuser, P1 still unruled, no run](20261012/20261012-043332_diffuser-p1-hold-no-run-check-in-claude.kyri) | Tree clean at xy/main; no P1 ruling; check in (Claude). |
@@ -86,7 +89,6 @@
 | `20261012.033711` | [Patchouli, queue empty sixteenth](20261012/20261012-033711_patchouli-queue-empty-sixteenth-no-build.kyri) | Queue empty; no build. |
 | `20261012.033500` | [Grass, foundations graded, no frame owed](20261012/20261012-033500_grass-foundations-graded-no-frame.kyri) | Living foundations B or better; no edit. |
 | `20261012.033347` | [Incense, declined, no build](20261012/20261012-033347_incense-baton-declined-after-round-open-no-build.kyri) | Round-open clean; board clear; no build. |
-
 | `20261012.033347` | [Bakery, plant held, ff, no build](20261012/20261012-033347_bakery-plant-held-ff-no-build.kyri) | 358 controls remain; receipt key YOURS; no build. |
 | `20261012.033259` | [Copal, fruit met, no build](20261012/20261012-033259_copal-fruit-met-zero-unrostered-no-build.kyri) | Zero unrostered witnesses; no build. |
 | `20261012.033130` | [Patchouli, queue empty fifteenth](20261012/20261012-033130_patchouli-queue-empty-fifteenth-no-build.kyri) | Queue empty; no build. |
@@ -165,7 +167,6 @@
 | `20261012.022438` | [Patchouli, assert density, ratchet booked, no build](20261012/20261012-022438_patchouli-assert-density-ratchet-no-build.kyri) | 418 of 618 mantra and tally functions under two asserts; booked, no build. |
 | `20261012.023038` | [Bakery, six-miss ruling framed, no build](20261012/20261012-023038_bakery-six-miss-ruling-recommendation-no-build.kyri) | Overlay refusal framed for the Claude check-in; no build. |
 | `20261012.022723` | [Incense, stall flagged, no build](20261012/20261012-022723_incense-baton-stall-flagged-no-build.kyri) | Board clear; stall on Keaton's word named; no build. |
-
 | `20261012.022738` | [Grass lap, queue empty, no build](20261012/20261012-022738_grass-lap-queue-empty-no-build.kyri) | Queue empty per inner prompt; nib carried to upstream tip; no build. |
 | `20261012.023033` | [Diffuser, P1 stall named](20261012/20261012-023033_diffuser-p1-stall-check-in-claude-no-run.kyri) | P1 unruled over a hundred laps; no run. |
 | `20261012.022716` | [Diffuser, P1 hold, hundred-and-first](20261012/20261012-022716_diffuser-p1-hold-hundred-first-check-in-claude-no-run.kyri) | Ff to b60b25cace; P1 unruled; no run. |
@@ -371,4 +372,3 @@
 | 20261012.003423 | [Grass, three rule pages clean, no build](20261012/20261012-003423_grass-three-rule-pages-graded-clean-no-build.kyri) | Three pages graded Field, none below B; no build. |
 | 20261012.003058 | [Grass, inner page graded B+](20261012/20261012-003058_grass-grade-inner-page-b-plus-no-build.kyri) | Grass grades recursion-prompts/grass-inner.md B+ 89; no build. |
 | 20261012.002827 | [diffuser P1 hold seventy-eighth](20261012/20261012-002827_diffuser-p1-hold-seventy-eighth-check-in-no-run.kyri) | P1 still unruled; no run, check in (Claude) |
-
