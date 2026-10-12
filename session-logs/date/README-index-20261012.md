@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.092958 | [Patchouli, queue empty, no build](20261012/20261012-092958_patchouli-queue-empty-no-build.kyri) | Version-literal net clean; queue empty a 28th lap; no build. |
 | 20261012.092750 | [Incense ninety-second, declined, no build](20261012/20261012-092750_incense-ninety-second-declined-no-build.kyri) | Round-open clean at 30033786df; clock in; no build. |
 | 20261012.092832 | [Diffuser P1 stalled, ff three peers, check in](20261012/20261012-092832_diffuser-p1-stalled-ff-three-peers-check-in.kyri) | P1 still unruled; no run; check in (Claude). |
 | 20261012.092429 | [Petrichor, fruit gated, no build](20261012/20261012-092429_petrichor-no-build-fruit-gated.kyri) | Consent Rail gate still Diffuser's; no fruit; no build. |
