@@ -1,6 +1,7 @@
 # session-logs day index -- 20261012
 **Language:** EN
 | 20261012.125237 | [Patchouli queue empty, kumara ruling still waiting](20261012/20261012-125237_patchouli-queue-empty-kumara-ruling-wait.kyri) | Queue empty; kumara seam still live at tally/kumara.rye:36; ruling wanted; no build. |
+| 20261012.125422 | [Grass audit of three front doors, all A, no build](20261012/20261012-125422_grass-audit-front-doors-b-or-better-no-build.kyri) | Three front doors graded A; nothing below B; no build. |
 | 20261012.124842 | [Pheromone held at the closed card, no build](20261012/20261012-124842_pheromone-held-closed-card-no-build.kyri) | Language lane empty; no claim taken; ruling wanted; no build. |
 | 20261012.124624 | [Patchouli queue empty, kumara red held, no build](20261012/20261012-124624_patchouli-queue-empty-kumara-held-no-build.kyri) | Queue re-checked empty; kumara seam and pin headroom wait on a ruling. |
 | 20261012.124518 | [Petrichor gate held after ff, no build](20261012/20261012-124518_petrichor-gate-held-ff-no-build.kyri) | Gate held at eb3e8002a8; no build. |
