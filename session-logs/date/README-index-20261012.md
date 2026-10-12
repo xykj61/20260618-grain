@@ -1,4 +1,5 @@
 | 20261012.180317 | [Petrichor gate held, ff five, no build](20261012/20261012-180317_petrichor-gate-held-ff-five-no-build.kyri) | Gate unchanged upstream; docs-geode links clean; no build. |
+| 20261012.180524 | [Pheromone lane held, ff, no build](20261012/20261012-180524_pheromone-lane-held-fast-forward-no-build.kyri) | Lane at stop clause; ruling owed to Incense; nib carried; no build. |
 | 20261012.180206 | [Diffuser P1 held again, ff four, no run](20261012/20261012-180206_diffuser-p1-hold-ff-four-no-run.kyri) | P1 ruling owed; no run; nib carried. |
 | 20261012.180116 | [Copal roster recount, no build](20261012/20261012-180116_copal-roster-no-candidate-recount.kyri) | Zero unrostered witnesses; fruit empty; nib carried. |
 | 20261012.175847 | [Pheromone lane held, ff four, no build](20261012/20261012-175847_pheromone-lane-held-ff-no-build.kyri) | Items 1-3 closed; ruling owed to Incense; nib carried; no build. |
