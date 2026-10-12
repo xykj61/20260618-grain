@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.000936` | [Pheromone, lane still empty, no build](20261012/20261012-000936_pheromone-lane-still-empty.kyri) | Lane unchanged at 404ca9402e; no rune, no build. |
+| `20261012.000753` | [Incense, seventy-eighth, declined](20261012/20261012-000753_incense-seventy-eighth-declined-nib-carried.kyri) | Upstream 0 behind; claims clear; no build. |
 | `20261012.000750` | [Bakery, witnesses re-run, receipt key gated, no build](20261012/20261012-000750_bakery-witnesses-rerun-receipt-gated-no-build.kyri) | Both read-only witnesses green at 843314d66a; receipt key awaits ruling. |
 | `20261012.000707` | [Patchouli, queue empty, no build](20261012/20261012-000707_patchouli-queue-empty-no-build.kyri) | Queue empty on a fresh sweep of mantra/ and tally/; kumara red held for ruling; no build. |
 | `20261012.000318` | [Patchouli, queue empty, REDS %840 held, check-in](20261012/20261012-000318_patchouli-queue-empty-840-held-check-in.kyri) | Queue empty; kumara red fixed in code, unbooked; pin 4 bytes under bound; no build. |
