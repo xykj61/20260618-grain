@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.163941 | [Pheromone lane empty, ff four, no build](20261012/20261012-163941_pheromone-lane-empty-ff-four-no-build.kyri) | Ff to 9a677f8524; no Glow change; Incense ruling owed. |
 | 20261012.163740 | [Bakery ff four, ruling held, no build](20261012/20261012-163740_bakery-fast-forward-four-ruling-held-no-build.kyri) | Ff four; receipt key held; no build. |
 | 20261012.163603 | [Copal fruit closed, no build](20261012/20261012-163603_copal-chapter-fruit-closed-held-no-build.kyri) | 159 of 159 witnesses rostered; no build.
 | 20261012.163234 | [Petrichor gate held, ff five, no build](20261012/20261012-163234_petrichor-gate-held-ff-five-no-build.kyri) | Ff to 010a5c4c37; gate unchanged upstream; no build. |
