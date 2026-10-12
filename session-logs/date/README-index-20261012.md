@@ -5,6 +5,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.023932` | [Grass, pin held, dead shelf, no build](20261012/20261012-023932_grass-pin-dead-shelf-held-no-build.kyri) | Inner-prompt page clears B; pin's dead 20261006 link held. |
 | `20261012.023908` | [Copal, fruit empty, fifth reading](20261012/20261012-023908_copal-fruit-empty-fifth-reading-no-build.kyri) | Zero unrostered witnesses; no claim; ruling asked. |
 | `20261012.023901` | [Incense, declined, claim board empty](20261012/20261012-023901_incense-declined-claim-board-empty.kyri) | Board empty; upstream pulled; no build. |
 | `20261012.023823` | [Petrichor, gate held, check in, no build](20261012/20261012-023823_petrichor-gate-held-check-in-no-build.kyri) | Gate unmoved; no repeat sweep; no build. |
