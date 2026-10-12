@@ -76,6 +76,10 @@ pub const StoreError = error{
     /// this is where it is spent: a truncated, altered, or misfiled blob
     /// refuses here rather than travelling on as a shorter honest weave.
     BlobNameMismatch,
+    /// HEAD must name a commit by its full 64-character digest. A shorter or
+    /// longer name refuses here, before HEAD is touched, rather than relying on
+    /// a debug-only assert to hold in a release build.
+    HeadNameLength,
 };
 
 /// The blob store: a handle to the `.mantra/` directory tree.
@@ -178,12 +182,16 @@ pub const Store = struct {
 
     /// Write a new HEAD, pointing to `name` (a 64-char hex blob name).
     pub fn write_head(self: *const Store, io: std.Io, name: []const u8) !void {
-        // invariant: a store name is the hex of a digest, exactly two characters per byte, so
-        // any other length would address a blob that was never written
-        assert(name.len == Sha3.digest_length * 2);
+        // The name is checked at the edge, before HEAD is touched. A store name is the hex of a
+        // digest, exactly two characters per byte, so any other length would address a blob that
+        // was never written. This used to be a debug-only assert plus `catch unreachable`, which
+        // a release build would have let through to undefined behavior.
+        if (name.len != Sha3.digest_length * 2) return StoreError.HeadNameLength;
+        // invariant: the name is exactly 64 characters, so with its newline it fills 65 bytes
+        assert(name.len + 1 <= 65);
         // Write "name\n" as HEAD.
         var buf: [65]u8 = undefined;
-        const head_content = std.fmt.bufPrint(&buf, "{s}\n", .{name}) catch unreachable;
+        const head_content = try std.fmt.bufPrint(&buf, "{s}\n", .{name});
         try self.mantra_dir.writeFile(io, .{ .sub_path = "HEAD", .data = head_content });
     }
 };

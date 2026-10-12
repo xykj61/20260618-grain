@@ -11,6 +11,7 @@
 | `20261011.201918` | [Copal, fruit spent, no build](20261011/20261011-201918_copal-fruit-spent-no-build.kyri) | 0 of 159 unrostered; no build. |
 | `20261011.202122` | [Grass, open pages graded, all A](20261011/20261011-202122_grass-open-pages-graded-all-a-no-frame.kyri) | Four pages read A; no edit, no frame, no build. |
 | `20261011.202424` | [Pheromone, held on ruling, limb10 green](20261011/20261011-202424_pheromone-held-on-ruling-limb10-green-no-build.kyri) | Limb10 GREEN on 02ac4dc5ef; ruling held; no build. |
+| `20261011.202507` | [Patchouli, store HEAD name refused at the edge](20261011/20261011-202507_patchouli-store-head-name-edge.kyri) | Latent unreachable made a named refusal; witness GREEN. |
 | `20261011.201712` | [Grass, front doors graded, no frame](20261011/20261011-201712_grass-docs-front-door-graded-no-frame.kyri) | Four front doors read B or better; no molt frame; no build. |
 | `20261011.201744` | [Pheromone, held on ruling, witnesses green](20261011/20261011-201744_pheromone-held-on-ruling-glow-witnesses-green.kyri) | Ff to 60db05ebb1; limb10 and glow refusal GREEN; no build. |
 | `20261011.201309` | [Petrichor, gate held, no build](20261011/20261011-201309_petrichor-fast-forward-gate-held-no-build.kyri) | Fast-forwarded to 01012cccc6; gate unchanged; no build. |

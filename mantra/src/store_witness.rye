@@ -169,6 +169,18 @@ pub fn main(init: std.process.Init) !u8 {
     assert(corrupt == null);
     print("store: HEAD round-trips, and both an absent and a mis-sized HEAD read null -- GREEN\n", .{});
 
+    // ---- Claim 7b -- a HEAD name of the wrong length is refused at the write edge, and HEAD is
+    // left exactly as it stood. Shorter and longer both refuse by name.
+    const short_name = "a" ** (Sha3.digest_length * 2 - 1);
+    const long_name = "a" ** (Sha3.digest_length * 2 + 1);
+    try std.testing.expectError(store_mod.StoreError.HeadNameLength, store_three.write_head(io, short_name));
+    try std.testing.expectError(store_mod.StoreError.HeadNameLength, store_three.write_head(io, long_name));
+    // invariant: HEAD still holds the mis-sized bytes claim 7 planted, byte for byte
+    var head_bytes: [16]u8 = undefined;
+    const head_now = try store_three.mantra_dir.readFile(io, "HEAD", &head_bytes);
+    assert(std.mem.eql(u8, head_now, "short\n"));
+    print("store: a HEAD name one character short or long is refused HeadNameLength, and HEAD is left untouched -- GREEN\n", .{});
+
     // ---- Claim 8 -- the ceiling has a reason.
     // 128 MiB over a weave at its own line ceiling is 128 bytes a row, which
     // stands at roughly twice this tree's own 50.3 bytes a line.
