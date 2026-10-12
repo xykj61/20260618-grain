@@ -6,6 +6,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.031054` | [Incense, baton read, claim board clear, declined, no build](20261012/20261012-031054_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; queue gated; no build. |
+| `20261012.031408` | [Pheromone, ff seven, lane held, no build](20261012/20261012-031408_pheromone-ff-lane-held-no-build.kyri) | Seven upstream, none in glow; no build. |
 | `20261012.031102` | [Copal, fruit spent, no build](20261012/20261012-031102_copal-fruit-spent-no-build.kyri) | Fruit spent: 0 unrostered chapter witnesses; ruling asked. |
 | `20261012.031045` | [Bakery, receipt key re-scanned, no build](20261012/20261012-031045_bakery-rescan-receipt-key-no-build.kyri) | Six of six mutations miss; ruling still YOURS; no build. |
 | `20261012.031042` | [Diffuser, P1 hold, ff two peers, no run](20261012/20261012-031042_diffuser-p1-hold-ff-peers-no-run.kyri) | P1 unruled; ff clean; no run. |
