@@ -5,6 +5,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.110322` | [Pheromone held, no build](20261012/20261012-110322_pheromone-lane-held-verified-no-build.kyri) | Witnesses GREEN; held for Incense ruling. |
 | 20261012.110526 | [Copal zero unrostered, no build](20261012/20261012-110526_copal-zero-unrostered-no-build.kyri) | Fruit empty: 158 witnesses, all rostered; no build. |
 | `20261012.110344` | [Petrichor lane held at the consent gate, no claim](20261012/20261012-110344_petrichor-gate-held-no-claim.kyri) | Gate held; no claim; check in (Claude). |
 | `20261012.110502` | [Incense declined, no build, nib carried](20261012/20261012-110502_incense-baton-declined-no-build.kyri) | Round-open clean; claim board clear; cold run held by order; no build. |
