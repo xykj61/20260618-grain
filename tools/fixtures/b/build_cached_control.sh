@@ -124,6 +124,61 @@ cd "$here_cwd"
 expect "a relative store misses first" "$(field "$OUT" cache)" miss
 expect "a relative store proves its binary" "$(field "$OUT" verdict)" proved
 
+# The import closure (fourteen legs). The compiler reads every imported sibling, so the key must hold
+# each one. Before the closure was keyed, changing only the sibling reused the stale binary and its
+# proof ran the old code (REDS %840, reproduced in a pen before the repair).
+mkdir -p "$pen/imp"
+printf 'const h = @import("helper.zig");\npub fn main() void {\n    if (h.code() != 0) @panic("red");\n}\n' > "$pen/imp/main.zig"
+printf 'pub fn code() u8 {\n    return 0;\n}\n' > "$pen/imp/helper.zig"
+build "$pen/imp/main.zig" "" - zig-0.16 "$store"
+expect "an imported sibling misses on its first build" "$(field "$OUT" cache)" miss
+expect "the closure names the one sibling" "$(field "$OUT" closure)" 1
+key_imp=$(field "$OUT" key)
+printf 'pub fn code() u8 {\n    return 1;\n}\n' > "$pen/imp/helper.zig"
+build "$pen/imp/main.zig" "" - zig-0.16 "$store" || true
+expect "changing only the sibling misses" "$(field "$OUT" cache)" miss
+expect "the sibling change moves the key" "$([ "$(field "$OUT" key)" != "$key_imp" ] && echo yes || echo no)" yes
+expect "the changed sibling's proof fails on its own" "$(field "$OUT" verdict)" proof_failed
+
+# A transitive import is keyed too -- a change two files deep misses.
+printf 'const d = @import("deep.zig");\npub fn code() u8 {\n    return d.value();\n}\n' > "$pen/imp/helper.zig"
+printf 'pub fn value() u8 {\n    return 0;\n}\n' > "$pen/imp/deep.zig"
+build "$pen/imp/main.zig" "" - zig-0.16 "$store"
+expect "the transitive closure names two siblings" "$(field "$OUT" closure)" 2
+printf 'pub fn value() u8 {\n    return 1;\n}\n' > "$pen/imp/deep.zig"
+build "$pen/imp/main.zig" "" - zig-0.16 "$store" || true
+expect "a change two imports deep misses" "$(field "$OUT" cache)" miss
+expect "the deep change fails its proof" "$(field "$OUT" verdict)" proof_failed
+
+# A missing import is a named refusal before any key or store is written.
+rm -f "$pen/imp/deep.zig"
+build "$pen/imp/main.zig" "" - zig-0.16 "$store" || true
+expect "a missing import refuses with exit 2" "$RC" 2
+expect "the refusal names the missing import" "$(printf '%s\n' "$ERR" | sed -n 's/^error=\([a-z_]*\).*/\1/p')" import_missing
+
+# The closure bound, from both sides. c0 reaches 256 siblings (257 files) and refuses; c1
+# reaches 255 (256 files, exactly the bound) and still walks free and proves.
+mkdir -p "$pen/chain"
+k=0
+while [ "$k" -le 256 ]; do
+  next=$((k + 1))
+  if [ "$k" -eq 0 ]; then
+    printf 'const n = @import("c%d.zig");\npub fn main() void {\n    _ = n;\n}\n' "$next" > "$pen/chain/c$k.zig"
+  elif [ "$k" -lt 256 ]; then
+    printf 'const n = @import("c%d.zig");\npub fn value() u8 {\n    return n.value();\n}\n' "$next" > "$pen/chain/c$k.zig"
+  else
+    printf 'pub fn value() u8 {\n    return 0;\n}\n' > "$pen/chain/c$k.zig"
+  fi
+  k=$((k + 1))
+done
+build "$pen/chain/c0.zig" "" - zig-0.16 "$store" || true
+expect "one file past the closure bound refuses with exit 2" "$RC" 2
+expect "the refusal names the closure bound" "$(printf '%s\n' "$ERR" | sed -n 's/^error=\([a-z_]*\).*/\1/p')" closure_over_bound
+printf 'const n = @import("c2.zig");\npub fn main() void {\n    _ = n;\n}\n' > "$pen/chain/c1.zig"
+build "$pen/chain/c1.zig" "" - zig-0.16 "$store"
+expect "a closure of exactly the bound walks free" "$(field "$OUT" closure)" 255
+expect "a closure of exactly the bound proves" "$(field "$OUT" verdict)" proved
+
 echo "control_legs=$legs"
 echo "control_failed=$failed"
 if [ "$failed" -eq 0 ]; then

@@ -7,8 +7,16 @@
 # itself, so an executable-bit change forces a miss at the receipt layer, where Zig cannot see it.
 #
 # WHAT IS KEYED: the source bytes (sha256), the mode bits read from the file, the flags string,
-# the overlay bytes (sha256, or none), and the compiler identity the caller declares. The path is
-# NOT keyed, so identical bytes at another checkout path share one key.
+# the overlay bytes (sha256, or none), the compiler identity the caller declares, and the import
+# closure: every relative `import` builtin string ending .zig, .zon or .rye that the source reaches,
+# transitively, each keyed by its path relative to the source's directory and its bytes (sha256).
+# WHY THE CLOSURE. The compiler reads every imported file, so a key over the root alone reuses a
+# stale binary when only a sibling changes (REDS %840 -- reproduced: the key held and the proof ran
+# the old code). A missing import, an absolute import, or a closure past max_closure files is a
+# named refusal, because a key over an incomplete set would reuse exactly as silently.
+# The path of the source itself is NOT keyed, so identical bytes at another checkout path share one
+# key; dependency paths are relative to the source directory for the same reason.
+# Comment mentions of an import are read too. That over-keys (an extra miss), never under-keys.
 #
 # USAGE: sh tools/b/build_receipt_key.sh <source> <flags> <overlay-or-dash> <compiler-id>
 # PRINTS: the canonical record, one field per line, then key=<sha256 of that record>.
@@ -46,11 +54,68 @@ else
   ovl_sha=$(sha256sum "$overlay" | cut -d' ' -f1)
 fi
 
+# invariant: the import closure is walked whole or refused; a sampled closure would key as complete.
+# why max_closure: 256 is a power of two, the same ceiling the tree's own flat rooms carry, so a
+# closure that large is a named refusal rather than a key that silently stops short.
+max_closure=256
+root_dir=$(cd "$(dirname "$src")" && pwd -P)
+root_abs="$root_dir/$(basename "$src")"
+seen="|$root_abs|"
+deps=""
+members=1
+set -- "$root_abs"
+while [ "$#" -gt 0 ]; do
+  cur=$1
+  shift
+  cur_dir=$(dirname "$cur")
+  # why awk: a `while match` loop reads every import string on a line, not only the first.
+  for imp in $(awk '{ s = $0; while (match(s, /@import\("[^"]+"\)/)) { print substr(s, RSTART + 9, RLENGTH - 11); s = substr(s, RSTART + RLENGTH) } }' "$cur"); do
+    case "$imp" in
+      *.zig|*.zon|*.rye) ;;
+      *) continue ;;
+    esac
+    case "$imp" in
+      /*) echo "error=import_absolute import=$imp in=$cur" >&2; exit 2 ;;
+    esac
+    if [ ! -f "$cur_dir/$imp" ]; then
+      echo "error=import_missing import=$imp in=$cur" >&2
+      exit 2
+    fi
+    resolved_dir=$(cd "$cur_dir" && cd "$(dirname "$imp")" && pwd -P)
+    resolved="$resolved_dir/$(basename "$imp")"
+    case "$seen" in
+      *"|$resolved|"*) continue ;;
+    esac
+    seen="$seen$resolved|"
+    members=$((members + 1))
+    if [ "$members" -gt "$max_closure" ]; then
+      echo "error=closure_over_bound max=$max_closure" >&2
+      exit 2
+    fi
+    deps="$deps$resolved
+"
+    set -- "$@" "$resolved"
+  done
+done
+
+# why sorted: the walk visits files in discovery order, and a key must not depend on which import
+# line a file was reached by. Paths are relative to the source directory, so a checkout that moves
+# keeps its key, the same reason the source's own path is not keyed.
+dep_block=$(printf '%s' "$deps" | sed '/^$/d' | sort | while IFS= read -r d; do
+  rel=${d#"$root_dir/"}
+  printf 'dep=%s:%s\n' "$rel" "$(sha256sum "$d" | cut -d' ' -f1)"
+done)
+
 record="src=$src_sha
 mode=$mode
 flags=$flags
 overlay=$ovl_sha
-compiler=$compiler"
+compiler=$compiler
+closure=$((members - 1))"
+if [ -n "$dep_block" ]; then
+  record="$record
+$dep_block"
+fi
 
 printf '%s\n' "$record"
 key=$(printf '%s\n' "$record" | sha256sum | cut -d' ' -f1)

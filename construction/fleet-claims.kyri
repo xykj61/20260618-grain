@@ -52,9 +52,3 @@ format fleet-claims-v1
 # The board opens empty, and the first claim belongs to the next ship that opens a build. Seeding
 # it with this lap's own work would be a claim written after the fact, which is the one thing a
 # declaration may never be.
-claim build-cache-import-closure
-seat bakery
-stamp 20261012.120854
-epoch 1791821334
-paths tools/b/build_receipt_key.sh tools/b/build_cached.sh tools/fixtures/b/build_cached_control.sh tools/b/build_cached_witness.rish
-what Key the build cache on every relative import the source reaches, so a changed sibling module misses instead of reusing a stale binary (REDS %840).

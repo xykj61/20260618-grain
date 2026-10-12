@@ -17,13 +17,13 @@
 #   rishi/bin/rishi run tools/b/build_cached_witness.rish
 
 say "build-cached: Language EN -- a consumer that reuses a binary is only as safe as the control that shows it refuses every changed input. This runs that control and reads its count."
-say "build-cached: Style Radiant -- twenty-six legs, each planted change met by a miss, and a relative store that still proves its binary, and the count pinned so a shrinking control cannot pass quietly."
+say "build-cached: Style Radiant -- forty legs, each planted change met by a miss, and a relative store that still proves its binary, and the count pinned so a shrinking control cannot pass quietly."
 say "build-cached: Lens TAME -- bound every claim, and let the control's own fields answer rather than a remembered number."
 
 let control = run ["sh" "tools/fixtures/b/build_cached_control.sh"]
 say control.out
 assert control.ok else "build-cached: the control must complete with every leg answering"
-assert control.out contains "control_legs=26" else "build-cached: the control must run exactly twenty-six legs"
+assert control.out contains "control_legs=40" else "build-cached: the control must run exactly forty legs"
 assert control.out contains "control_failed=0" else "build-cached: no control leg may fail"
 assert control.out contains "control_verdict=ok" else "build-cached: the control must agree with itself"
 say "GREEN: build-cached -- a reused binary is refused when any declared input changes, and every owed leg answers."
