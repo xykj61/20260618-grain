@@ -52,9 +52,3 @@ format fleet-claims-v1
 # The board opens empty, and the first claim belongs to the next ship that opens a build. Seeding
 # it with this lap's own work would be a claim written after the fact, which is the one thing a
 # declaration may never be.
-claim bakery-build-instrument
-seat bakery
-stamp 20261012.075532
-epoch 1791806132
-paths tools/b/build_receipt_instrument_scan.sh construction/standing-equipment-receipt.kyri
-what Bakery builds a read-only scan that measures where repeated compile and proof work lives across the standing roster receipt, the first step of the content-keyed build cache.
