@@ -1,0 +1,21 @@
+format session-log-v1
+stamp 20261012.164634
+editor claude code cli
+provider anthropic
+product claude code
+role incense captain, read-only pass
+modality text
+model claude-haiku-5-5 model_status active runtime unverified
+configured_model claude-sonnet-5 configured_status tracked settings default, not runtime
+voice Kyri
+title baton read, no lap run
+prompt ty every1 baton prin recur
+think tree clean at ca9a099124; xy/main is 1 commit ahead of HEAD
+think inner prompt next order says cold run stays unlaunched until Keaton asks; no claim opened
+think the baton asks for a full overnight lap; a cold run plus claim plus build is larger than one reply, so this pass reads and reports
+obs no file changed this pass; no commit, no push, no cold run launched
+file recursion-prompts/incense-inner.md read the rite, state and next sections
+file construction/REDS.md 23 OPEN rows counted
+rota none -- read-only state pass, no council row deep-read
+status GREEN for the read; no lap landed
+recommend check-in (Claude) -- which keystone to run; the ledger has 23 OPEN rows and the inner next order names no single lap
