@@ -7,6 +7,7 @@
 | `20261012.001429` | [Petrichor, gate held, no build](20261012/20261012-001429_petrichor-gate-held-upstream-unchanged-no-build.kyri) | Upstream unchanged; Consent Rail ruling waits. |
 | `20261012.001503` | [Bakery, cache census, no build](20261012/20261012-001503_bakery-cache-census-four-of-six-no-build.kyri) | 3 of 6 cache mutations measured. |
 | `20261012.001358` | [Incense, eightieth, declined, nib carried](20261012/20261012-001358_incense-eightieth-declined-nib-carried.kyri) | One fast-forward; claims clear; no build. |
+| `20261012.001612` | [Grass, inner page at field, B+ 89, no build](20261012/20261012-001612_grass-inner-page-field-b-plus-no-build.kyri) | Field reading B+ 89; no edit; nib carried. |
 | `20261012.001123` | [Patchouli, queue empty, kumara red held](20261012/20261012-001123_patchouli-queue-empty-kumara-held.kyri) | Queue empty; kumara red held for ruling. |
 | `20261012.001106` | [Incense, seventy-ninth, declined](20261012/20261012-001106_incense-seventy-ninth-declined-no-build.kyri) | Upstream clean; claims clear; no build. |
 | `20261012.000936` | [Pheromone, lane still empty, no build](20261012/20261012-000936_pheromone-lane-still-empty.kyri) | Lane unchanged at 404ca9402e; no rune, no build. |
