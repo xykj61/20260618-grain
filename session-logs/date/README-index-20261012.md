@@ -8,6 +8,7 @@
 |---|---|---|
 | `20261012.052744` | [Diffuser, P1 hold, ff petrichor, no run](20261012/20261012-052744_diffuser-p1-hold-ff-petrichor-no-run.kyri) | P1 unruled; one petrichor log in; no run. |
 | `20261012.052650` | [Patchouli, unwrap sites read, no build](20261012/20261012-052650_patchouli-unwrap-class-read-no-build.kyri) | Unreachable-trap class read; no new red; kumara line-36 held. |
+| `20261012.052801` | [Copal, fruit empty, no build](20261012/20261012-052801_copal-fruit-empty-no-build.kyri) | Zero unrostered witnesses; no build; override awaits a ruling. |
 | `20261012.052539` | [Petrichor, ff and gate held, no build](20261012/20261012-052539_petrichor-ff-gate-held-no-build.kyri) | Four upstream logs read; Consent Rail still Keaton's call; no fruit. |
 | `20261012.052449` | [Diffuser, P1 hold, ff peers, no run](20261012/20261012-052449_diffuser-p1-hold-ff-peers-no-run.kyri) | P1 unruled; peers ff'd; no run. |
 | `20261012.052226` | [Copal, fruit empty, fifth reading, no build](20261012/20261012-052226_copal-fruit-empty-fifth-reading-no-build.kyri) | Zero unrostered; fruit empty; no build. |
