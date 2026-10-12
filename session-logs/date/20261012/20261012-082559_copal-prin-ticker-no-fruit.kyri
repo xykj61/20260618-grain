@@ -28,6 +28,7 @@ file construction/ITINERARY.md why-one-line the card names the census the fruit 
 file tools/gen/chapter/prin_ticker.rish why-one-line the one unrostered candidate; read, not rostered, since slide mode loops forever
 file tools/gen/chapter/prin_ticker_witness.rish why-one-line already rostered; run GREEN to prove the file's proof still holds
 obs the send raced peers three times: a pull-rebase conflicted in the shelf index and the card, each resolved by keeping every row and the newest nib; the work landed as afb41acfd7 after a final pull and push; the card's nib lagged one commit and was carried forward in this follow-up
+obs the card's nib lagged once more after a peer commit landed between this follow-up and its push; carried forward again to beaa487ecd, the parent of this commit
 scope read the claim board, the roster, and the one chapter file; ran one existing witness; wrote this log and its index row
 status GREEN for the witness run; no fruit, no claim, no build -- the one candidate is a hand covered by a rostered witness
 recommend check-in (Claude) -- whether a thin hand that loops forever belongs on the roster at all, and whether the card's 91-of-166 census should be re-derived
