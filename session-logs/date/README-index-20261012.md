@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.075317` | [Petrichor, gate held, ff of five, no build](20261012/20261012-075317_petrichor-gate-held-ff-no-build.kyri) | Gate held after ff; no claim, no build. |
 | `20261012.074929` | [Grass, docs-geode graded, no lift](20261012/20261012-074929_grass-docs-geode-rishi-ref-register-named.kyri) | 40 pages graded; rishi register named for petrichor. |
 | `20261012.074908` | [Pheromone, queue held](20261012/20261012-074908_pheromone-queue-held-no-build.kyri) | Queue empty pending Incense ruling; no build. |
 | `20261012.075009` | [Diffuser, P1 unruled, ff of petrichor gate, no run](20261012/20261012-075009_diffuser-p1-hold-ff-petrichor-no-run.kyri) | P1 unruled; no diffuser file touched; no measurement. |
