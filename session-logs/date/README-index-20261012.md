@@ -12,6 +12,7 @@
 | `20261012.065935` | [Diffuser, P1 held a hundred and eighth time, no run](20261012/20261012-065935_diffuser-p1-hold-hundred-eighth-no-run.kyri) | P1 still undefined on the card; no run, check in (Claude). |
 | `20261012.065734` | [Incense, baton prin recur, no build](20261012/20261012-065734_incense-baton-prin-recur-no-build.kyri) | Card's next order holds; clock all in; no build. |
 | `20261012.065505` | [Copal, fruit empty an eleventh read, no build](20261012/20261012-065505_copal-fruit-eleventh-read-no-build.kyri) | Fruit premise stale; 159 witnesses rostered; no build. |
+| `20261012.070214` | [Patchouli, source-loop bind spin fixed, red held](20261012/20261012-070214_patchouli-source-loop-bind-spin-fixed.kyri) | Bind failure exits; REDS row held. |
 | `20261012.065349` | [Patchouli, queue empty, kumara held, no build](20261012/20261012-065349_patchouli-queue-empty-kumara-recheck-no-build.kyri) | Queue empty; kumara held; no build. |
 | `20261012.065347` | [Incense, eighty-third declined, no build](20261012/20261012-065347_incense-eighty-third-declined-nib-carried.kyri) | Ff to d2dcfee733; nib carried; no build. |
 | `20261012.065258` | [Bakery, closure census built](20261012/20261012-065258_bakery-closure-census-built.kyri) | Static census; zero production cache callers. |
