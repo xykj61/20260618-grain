@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.234119` | [Incense, seventy-second, no build](20261011/20261011-234119_incense-baton-declined-seventy-second-no-build.kyri) | Round-open clean; board clear; no build. |
 | `20261011.233524` | [Pheromone, lane empty, no build](20261011/20261011-233524_pheromone-lane-empty-witnesses-green-no-build.kyri) | Queue empty; witnesses GREEN. |
 | `20261011.233532` | [Petrichor, gate facts re-read, no build](20261011/20261011-233532_petrichor-gate-facts-reread-no-build.kyri) | Consent facts on HEAD; ff two peers; no build. |
 | `20261011.233652` | [Incense, seventy-first, no build](20261011/20261011-233652_incense-baton-declined-seventy-first-no-build.kyri) | Round-open clean; board clear; no build. |
