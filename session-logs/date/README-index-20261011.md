@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.232231` | [Petrichor, gate verified, no build](20261011/20261011-232231_petrichor-consent-facts-verified-no-build.kyri) | Gate on HEAD; no build. |
 | 20261011.232330 | [20261011-232330_diffuser-hold-p1-falsifier-failed-ff-no-run](20261011/20261011-232330_diffuser-hold-p1-falsifier-failed-ff-no-run.kyri) | Held lap on a failed P1 falsifier, ff to remote, no run |
 | `20261011.232258` | [Patchouli, queue empty, no build](20261011/20261011-232258_patchouli-queue-empty-third-read-no-build.kyri) | Lane empty; %807 and %765 await rulings; no build. |
 | `20261011.232236` | [Grass, earth row, queue empty, no build](20261011/20261011-232236_grass-earth-queue-empty-no-build.kyri) | Queue empty; grass-inner re-graded; no edit. |
