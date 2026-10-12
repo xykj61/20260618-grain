@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.072507` | [Grass, field reading, no lift](20261012/20261012-072507_grass-field-reading-no-lift.kyri) | Three compressor pages graded B or better; no lift, no edit. |
 | `20261012.072441` | [Pheromone, capacity rechecked, no build](20261012/20261012-072441_pheromone-capacity-rechecked-no-build.kyri) | Witness GREEN on new HEAD; lane at its stop; no claim. |
 | `20261012.072530` | [Incense, seventy-eighth, no build](20261012/20261012-072530_incense-baton-seventy-eighth-no-build.kyri) | Fetch level with xy/main; claim board clear; no build. |
 | `20261012.072359` | [Bakery, crux held, no build](20261012/20261012-072359_bakery-crux-held-no-build.kyri) | Peers fast-forwarded; board empty; ruling waits. |
