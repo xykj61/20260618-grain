@@ -350,6 +350,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.150226 | [Pheromone ff, lane held on ruling, no build](20261012/20261012-150226_pheromone-held-round-15-no-build.kyri) | ff to 3b4736931d; lane held; no build. |
 | 20261012.145627 | [Pheromone ff, lane held, no build](20261012/20261012-145627_pheromone-ff-held-no-build.kyri) | Ff to 126450519e; no open Glow fruit; no build. |
 | 20261012.145430 | [Grass inner re-graded, repeat, no frame](20261012/20261012-145430_grass-inner-regraded-repeat-no-frame.kyri) | Repeat of 144937: B+/89 again; queue empty; no build. |
 | 20261012.144909 | [Diffuser P1 held, REDS 842 open, no run](20261012/20261012-144909_diffuser-p1-held-redbook-no-run.kyri) | P1 unruled; ff to main; %842 left open; no run. |
