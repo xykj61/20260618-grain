@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.014757` | [Copal, no unrostered witness, no build](20261012/20261012-014757_copal-no-unrostered-witness-no-build.kyri) | Fruit empty; roster covers all witnesses; no build. |
 | `20261012.014310` | [Incense, baton declined, no build](20261012/20261012-014310_incense-baton-declined-no-build.kyri) | Round-opened clean; claim board clear; lane gated; no build. |
 | `20261012.014323` | [Bakery reds-first control adopts plant law](20261012/20261012-014323_bakery-reds-first-plant-adoption.kyri) | Shared plant law; control green; floor held. |
 | `20261012.014407` | [Grass, queue empty, reds ruling-owned, no build](20261012/20261012-014407_grass-queue-empty-reds-open-no-build.kyri) | Field re-read B+; OPEN reds owned by other lanes; no build. |
