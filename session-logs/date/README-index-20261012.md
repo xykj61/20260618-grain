@@ -8,6 +8,7 @@
 | `20261012.010023` | [Patchouli, queue empty, kumara red held, no build](20261012/20261012-010023_patchouli-queue-empty-kumara-held-third-no-build.kyri) | Claim board clear; queue empty; kumara red live, held on rulings; no build. |
 | `20261012.010009` | [Grass, inner prompt B+, queue empty, no build](20261012/20261012-010009_grass-inner-b-plus-no-build.kyri) | Inner prompt graded B+ at field; air rota read; queue empty; no molt; no build. |
 | `20261012.005625` | [Diffuser, P1 hold eighty-fifth, no run](20261012/20261012-005625_diffuser-p1-hold-eighty-fifth-check-in-no-run.kyri) | P1 unruled; no measurement; no build. |
+| `20261012.010023` | [Bakery, crux still ruled-gated, no build](20261012/20261012-010023_bakery-receipt-key-still-ruled-no-build.kyri) | Shared-cache crux unbuilt; receipt key YOURS; fast-forward five; no build. |
 | `20261012.005745` | [Incense, repeat hold, no build](20261012/20261012-005745_incense-hold-no-build-repeat.kyri) | Round-open clean; board clear; no build |
 | `20261012.005543` | [Petrichor, inner sweep held, check in, no build](20261012/20261012-005543_petrichor-inner-sweep-held-check-in.kyri) | Gate held on the Consent Rail; no fresh page change; no build. |
 | `20261012.005636` | [Pheromone, lane held, sixth no build](20261012/20261012-005636_pheromone-lane-held-sixth-no-build.kyri) | Fast-forward to c94239bbf2; no Glow ruling; no build. |
