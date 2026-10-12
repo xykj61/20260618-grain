@@ -417,6 +417,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.164540 | [Bakery ff eight, ruling held, no build](20261012/20261012-164540_bakery-ff-eight-ruling-held-no-build.kyri) | Ff eight to ca9a099124; receipt key held; no build. |
 | 20261012.164322 | [Copal fruit empty again, held](20261012/20261012-164322_copal-fruit-empty-repeat-hold.kyri) | 159 of 159 chapter witnesses rostered on basename read; no build. |
 | 20261012.164120 | [Diffuser P1 held, ff four, no run](20261012/20261012-164120_diffuser-p1-hold-ff-bakery-grass-no-run.kyri) | Ff four peers; P1 ruling held; no run. |
 | 20261012.163817 | [Grass inner prompt re-graded B+, no build](20261012/20261012-163817_grass-inner-regraded-b-plus-no-build.kyri) | Re-graded B+ (89) at Field; no molt frame; no build. |
