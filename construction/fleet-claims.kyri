@@ -52,3 +52,9 @@ format fleet-claims-v1
 # The board opens empty, and the first claim belongs to the next ship that opens a build. Seeding
 # it with this lap's own work would be a claim written after the fact, which is the one thing a
 # declaration may never be.
+claim patchouli-apply-split
+seat patchouli
+stamp 20261012.042629
+epoch 1791793590
+paths mantra/src/weave.rye mantra/src/weave_apply_witness.rye
+what Split Weave.apply in mantra/src/weave.rye into a delete-phase helper and an insert-phase helper, behaviour and refusals unchanged, proven by the apply, merge, and v2 witnesses.
