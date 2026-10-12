@@ -8,6 +8,7 @@
 | 20261011.202658 | [20261011-202658_diffuser-seventy-third-hold-p1-unruled](20261011/20261011-202658_diffuser-seventy-third-hold-p1-unruled.kyri) | seventy-third hold: P1 still awaits a ruling, no run |
 | `20261011.202606` | [Grass, inner prompt graded B+, no frame](20261011/20261011-202606_grass-inner-prompt-graded-b-plus-no-frame.kyri) | Field grade 89, B+; no edit, no frame, no build. |
 | `20261011.202547` | [Petrichor, gate holds on fresh upstream, no build](20261011/20261011-202547_petrichor-gate-holds-seventy-second-upstream-no-build.kyri) | Fast-forwarded to 63687bf668; gate unchanged; no build. |
+| `20261011.202831` | [Copal, chapter witnesses all rostered, no build](20261011/20261011-202831_copal-chapter-witness-roster-complete-no-build.kyri) | 158 of 158 witnesses rostered; no build. |
 | `20261011.202131` | [Diffuser, seventy-second hold](20261011/20261011-202131_diffuser-seventy-second-hold-no-new-instrument.kyri) | P1 ruling open; no build. |
 | `20261011.202340` | [Copal, fruit spent on second read](20261011/20261011-202340_copal-fruit-spent-second-read.kyri) | 0 of 159 unrostered; no build. |
 | `20261011.202023` | [Petrichor, gate holds after peer correction, no build](20261011/20261011-202023_petrichor-gate-holds-after-peer-correction.kyri) | Fast-forwarded to cd150b3c76; gate unchanged; no build. |
