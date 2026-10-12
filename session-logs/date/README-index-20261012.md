@@ -1,3 +1,4 @@
+| 20261012.180825 | [Diffuser P1 held, no run, no edit](20261012/20261012-180825_diffuser-p1-hold-no-run-no-edit.kyri) | P1 ruling still owed; no run; no inner-prompt row added. |
 | 20261012.180317 | [Petrichor gate held, ff five, no build](20261012/20261012-180317_petrichor-gate-held-ff-five-no-build.kyri) | Gate unchanged upstream; docs-geode links clean; no build. |
 | 20261012.180524 | [Pheromone lane held, ff, no build](20261012/20261012-180524_pheromone-lane-held-fast-forward-no-build.kyri) | Lane at stop clause; ruling owed to Incense; nib carried; no build. |
 | 20261012.180206 | [Diffuser P1 held again, ff four, no run](20261012/20261012-180206_diffuser-p1-hold-ff-four-no-run.kyri) | P1 ruling owed; no run; nib carried. |
