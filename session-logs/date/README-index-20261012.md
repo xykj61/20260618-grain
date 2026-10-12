@@ -11,6 +11,7 @@
 | 20261012.110938 | [Diffuser P1 held again, unruled, no run](20261012/20261012-110938_diffuser-p1-hold-unruled-no-run.kyri) | P1 still unruled; tree clean; no run; check in (Claude). |
 | 20261012.110252 | [Patchouli, queue empty, no build](20261012/20261012-110252_patchouli-queue-empty-no-build.kyri) | Version-literal grep: no elder header written; queue empty. |
 | `20261012.110322` | [Pheromone held, no build](20261012/20261012-110322_pheromone-lane-held-verified-no-build.kyri) | Witnesses GREEN; held for Incense ruling. |
+| 20261012.110943 | [Copal fruit empty again, no build](20261012/20261012-110943_copal-fruit-empty-no-build.kyri) | 158 of 158 rostered; no build; nib carried. |
 | 20261012.110526 | [Copal zero unrostered, no build](20261012/20261012-110526_copal-zero-unrostered-no-build.kyri) | Fruit empty: 158 witnesses, all rostered; no build. |
 | `20261012.110344` | [Petrichor lane held at the consent gate, no claim](20261012/20261012-110344_petrichor-gate-held-no-claim.kyri) | Gate held; no claim; check in (Claude). |
 | `20261012.110502` | [Incense declined, no build, nib carried](20261012/20261012-110502_incense-baton-declined-no-build.kyri) | Round-open clean; claim board clear; cold run held by order; no build. |
