@@ -14,6 +14,7 @@
 | `20261012.030813` | [Incense, Capricorn round declined, round-open clean, no build](20261012/20261012-030813_incense-round-open-capricorn-declined-no-build.kyri) | Round-open clean; board clear; queue gated; no build. |
 | `20261012.030306` | [Incense, round-open, earth row, no build](20261012/20261012-030306_incense-round-open-earth-row-declined-no-build.kyri) | Round-open clean; board clear; no build. |
 | `20261012.030154` | [Bakery, receipt key held, no build](20261012/20261012-030154_bakery-receipt-key-held-no-build.kyri) | Receipt key still YOURS; claim board clear; no build. |
+| `20261012.030924` | [Petrichor, backtick paths read, no build](20261012/20261012-030924_petrichor-backtick-paths-read-no-build.kyri) | 31 unresolved, no living dead end. |
 | `20261012.025944` | [Copal, fruit empty, fifth reading, no build](20261012/20261012-025944_copal-fruit-empty-fifth-reading-no-build.kyri) | Zero unrostered witnesses; check in (Claude) on the fruit |
 | `20261012.030147` | [Petrichor, docs-geode links clean, gate held, no build](20261012/20261012-030147_petrichor-links-clean-no-build.kyri) | 435 of 435 relative links resolve; no page edit; no build. |
 | `20261012.030348` | [Patchouli, queue empty again, no build](20261012/20261012-030348_patchouli-queue-empty-no-build.kyri) | Queue empty; held items unchanged; no build. |
