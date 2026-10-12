@@ -7,6 +7,7 @@
 |---|---|---|
 | `20261012.024337` | [Patchouli, tally seed stops swallowing stdout error](20261012/20261012-024337_patchouli-seed-stdout-error-not-swallowed.kyri) | Seed exit now named on a closed stdout; one line. |
 | `20261012.024356` | [Pheromone held, no build](20261012/20261012-024356_pheromone-lane-held-round-eleven-no-build.kyri) | Ruling still with Incense; no build. |
+| `20261012.024521` | [Grass, docs-geode README A, no frame, no build](20261012/20261012-024521_grass-docs-geode-readme-a-no-build.kyri) | Door grade A (94); no frame, no edit. |
 | `20261012.023932` | [Grass, pin held, dead shelf, no build](20261012/20261012-023932_grass-pin-dead-shelf-held-no-build.kyri) | Inner-prompt page clears B; pin's dead 20261006 link held. |
 | `20261012.023908` | [Copal, fruit empty, fifth reading](20261012/20261012-023908_copal-fruit-empty-fifth-reading-no-build.kyri) | Zero unrostered witnesses; no claim; ruling asked. |
 | `20261012.023901` | [Incense, declined, claim board empty](20261012/20261012-023901_incense-declined-claim-board-empty.kyri) | Board empty; upstream pulled; no build. |
