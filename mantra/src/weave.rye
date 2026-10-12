@@ -1969,35 +1969,43 @@ pub const Weave = struct {
             .next_run = @max(self.next_run, other.next_run),
         };
 
+        // Postcondition on the merged counters and lines, held in two helpers
+        // so `merge` reads as its steps. Each helper keeps the reasoning for
+        // the asserts it owns.
+        assert_merged_counters(self, other, &merged);
+        assert_merged_lines(&merged);
+
+        return merged;
+    }
+
+    /// Postcondition on the merged COUNTERS, said apart from the line walk
+    /// because the walk cannot see it. The walk holds every held LINE under the
+    /// merged counters, and that reading is exactly as tight as the tightest
+    /// side: a weave standing one above its highest line proves its own counter
+    /// by carrying it. A weave standing SEVERAL above does not, and `V2Record`
+    /// admits one on purpose -- its own head says the record declines to inherit
+    /// the tightness, and `from_v2` refuses only a counter at or below a row it
+    /// holds. So a restored weave may declare `next_pos` at 5 while holding
+    /// position 2, and a counter DERIVED from the result's lines would hand the
+    /// next `apply` a position that record already declared spent, with every
+    /// line still standing under the fallen counter and nothing in the walk able
+    /// to say so. The merge control's `pos_derived` phase plants exactly that,
+    /// and it passes every other claim in the witness.
+    ///
+    /// NAME WHAT THESE FOUR ARE NOT: an isolated catch. Claim 11 reads the
+    /// merged counters directly, so the pen reds with these lines deleted --
+    /// measured `20260915`, exit 134 either way. What they buy is the reading
+    /// for EVERY caller rather than for the witness's one input, which is the
+    /// difference between a module holding its own postcondition and a
+    /// witness holding it on the module's behalf. The lift's run assert one
+    /// constructor over is named the same way and for the same reason.
+    ///
+    /// Four asserts rather than two compound ones, because a compound
+    /// `assert(a and b)` names the pair and not the side that failed.
+    fn assert_merged_counters(self: *const Weave, other: *const Weave, merged: *const Weave) void {
         // invariant: the merged weave's two counters each stand at or above
         // BOTH sides', so the next edit made on the result takes a position
         // and a run number neither side has already spent.
-        //
-        // Postcondition on the COUNTERS THEMSELVES, said apart from the walk
-        // below because the walk cannot see it. The walk holds every held LINE
-        // under the merged counters, and that reading is exactly as tight as
-        // the tightest side: a weave standing one above its highest line proves
-        // its own counter by carrying it. A weave standing SEVERAL above does
-        // not, and `V2Record` admits one on purpose -- its own head says the
-        // record declines to inherit the tightness, and `from_v2` refuses only
-        // a counter at or below a row it holds. So a restored weave may declare
-        // `next_pos` at 5 while holding position 2, and a counter DERIVED from
-        // the result's lines would hand the next `apply` a position that record
-        // already declared spent, with every line still standing under the
-        // fallen counter and nothing in the walk able to say so. The merge
-        // control's `pos_derived` phase plants exactly that, and it passes every
-        // other claim in the witness.
-        //
-        // NAME WHAT THESE FOUR ARE NOT: an isolated catch. Claim 11 reads the
-        // merged counters directly, so the pen reds with these lines deleted --
-        // measured `20260915`, exit 134 either way. What they buy is the reading
-        // for EVERY caller rather than for the witness's one input, which is the
-        // difference between a module holding its own postcondition and a
-        // witness holding it on the module's behalf. The lift's run assert one
-        // constructor over is named the same way and for the same reason.
-        //
-        // Four asserts rather than two compound ones, because a compound
-        // `assert(a and b)` names the pair and not the side that failed.
         // invariant: merged.next_pos >= self.next_pos
         assert(merged.next_pos >= self.next_pos);
         // invariant: merged.next_pos >= other.next_pos
@@ -2006,7 +2014,11 @@ pub const Weave = struct {
         assert(merged.next_run >= self.next_run);
         // invariant: merged.next_run >= other.next_run
         assert(merged.next_run >= other.next_run);
+    }
 
+    /// Postcondition on every merged LINE: a real generation, a position and a
+    /// run under the merged counters, and identities strictly increasing.
+    fn assert_merged_lines(merged: *const Weave) void {
         for (merged.lines.items, 0..) |line, i| {
             // invariant: a line carries a real generation, since zero is
             // reserved and a merge must never invent one
@@ -2034,8 +2046,6 @@ pub const Weave = struct {
                 assert(merged.lines.items[i].place().less_than(merged.lines.items[i + 1].place()));
             }
         }
-
-        return merged;
     }
 
     /// Append one note per position the LEFT holds, carrying the right's count
