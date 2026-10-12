@@ -14,6 +14,7 @@
 | `20261012.051537` | [Pheromone, lane recheck, no build](20261012/20261012-051508_pheromone-lane-recheck-no-build.kyri) | Lane and board empty; %765 %807 await Keaton; no build. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.055308` | [Diffuser, P1 hold, ff three peers, no run](20261012/20261012-055308_diffuser-p1-hold-hundred-fourth-ff-no-run.kyri) | Three peer commits ff'd; P1 unruled; no measurement. |
 | `20261012.054841` | [Grass, inner page B+, no build](20261012/20261012-054841_grass-inner-b-plus-no-build.kyri) | Inner page graded B+/89 at Field; queue empty; no build. |
 | `20261012.055010` | [Pheromone, lane empty, no build](20261012/20261012-055010_pheromone-lane-empty-no-build.kyri) | Lane and board empty; ff clean; card nib carried; no build. |
 | `20261012.054936` | [Bakery, witness GREEN, no build](20261012/20261012-054936_bakery-witness-green-check-in.kyri) | Shared-cache witness re-run GREEN; owed inputs still ruled; nib to HEAD; no build. |
