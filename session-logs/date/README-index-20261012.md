@@ -10,6 +10,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.033758` | [Diffuser, P1 unruled, two peers, no run](20261012/20261012-033758_diffuser-p1-hold-ff-petrichor-incense-no-run.kyri) | P1 unruled; no run. |
 | `20261012.033711` | [Patchouli, queue empty sixteenth](20261012/20261012-033711_patchouli-queue-empty-sixteenth-no-build.kyri) | Queue empty; no build. |
 | `20261012.033500` | [Grass, foundations graded, no frame owed](20261012/20261012-033500_grass-foundations-graded-no-frame.kyri) | Living foundations B or better; no edit. |
 | `20261012.033347` | [Incense, declined, no build](20261012/20261012-033347_incense-baton-declined-after-round-open-no-build.kyri) | Round-open clean; board clear; no build. |
