@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 
+| `20261012.033958` | [Grass, inner prompt graded, no frame](20261012/20261012-033958_grass-inner-prompt-graded-no-frame.kyri) | Inner prompt B+ (89); no edit. |
 | `20261012.033441` | [Petrichor, three tutorials graded, no edit](20261012/20261012-033441_petrichor-three-tutorials-graded-no-edit.kyri) | Three new tutorials graded; all clear B; no edit. |
 | `20261012.033715` | [Incense, declined, no build](20261012/20261012-033715_incense-baton-declined-no-build-round-open-clean.kyri) | Round-open clean; board clear; no build. |
 | `20261012.033007` | [Diffuser, P1 hold, ff to bakery plant, no run](20261012/20261012-033007_diffuser-p1-hold-ff-bakery-plant-no-run.kyri) | P1 unruled; ff clean; no run. |
