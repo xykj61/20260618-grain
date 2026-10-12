@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261012.022219` | [Incense, declined, stall named, no build](20261012/20261012-022219_incense-baton-declined-stall-named-no-build.kyri) | Claim board clear; lane gated on Keaton's word; no build. |
 | `20261012.022136` | [Grass lap, fire row, queue empty, no lift](20261012/20261012-022136_grass-fire-row-queue-empty-no-lift.kyri) | Fold A, Lila page A+; queue empty; no lift; no build. |
+| `20261012.022132` | [Diffuser, P1 hold, hundredth](20261012/20261012-022132_diffuser-p1-hold-hundredth-check-in-claude-no-run.kyri) | Fetch to ed0e687086, no diffuser file; P1 still unruled; no run. |
 | `20261012.021752` | [Petrichor, orbit 12, fast-forwarded, no build](20261012/20261012-021752_petrichor-lap-orbit-12-no-build.kyri) | Pulled clean to 329f197283; gate held; orbit 12 Pisces; no build. |
 | `20261012.021631` | [Incense, baton recovered ten stashed logs, no build](20261012/20261012-021631_incense-baton-recovered-logs-no-build.kyri) | Ten dead-letter logs restored and indexed; no build. |
 | `20261012.021552` | [Grass lap, queue empty, regrade, no build](20261012/20261012-021552_grass-queue-empty-regrade-no-build.kyri) | Queue empty; inner prompt regraded, service unjudged; no build. |
