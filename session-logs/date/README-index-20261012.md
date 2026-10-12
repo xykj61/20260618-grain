@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.080417` | [Incense, declined again, nib carried](20261012/20261012-080417_incense-decline-nib-carried.kyri) | Clear board at cd6dff37d0; law lane waits on Keaton. |
 | `20261012.080114` | [Pheromone, held for Incense, no claim, no build](20261012/20261012-080114_pheromone-held-no-claim-no-build.kyri) | Lane held on its stop clause; board read; no claim, no build. |
 | `20261012.080105` | [Incense, declined, no build](20261012/20261012-080105_incense-declined-claim-clear-no-build.kyri) | Clear board at c556a24761; law lane waits on Keaton. |
 | `20261012.075804` | [Bakery, receipt basis foreign](20261012/20261012-075804_bakery-receipt-basis-foreign.kyri) | Receipt head off main; scan reads foreign. |
