@@ -1,5 +1,6 @@
 | 20261012.185714 | [Patchouli queue empty, no build](20261012/20261012-185714_patchouli-queue-empty-sixth-lap-no-build.kyri) | Queue empty; %841 and mantra/kumara twin wait on one ruling; no build. |
 | 20261012.185428 | [Diffuser P1 held, ff four peers, no run](20261012/20261012-185428_diffuser-p1-hold-ff-four-peers-no-run.kyri) | P1 ruling owed; no run; no inner-prompt row added. |
+| 20261012.185629 | [Bakery gate held, hygiene only, no build](20261012/20261012-185629_bakery-gate-held-hygiene-only-no-build.kyri) | Receipt-key ruling still open; queue is hygiene; no build. |
 | 20261012.185316 | [Copal claim closed, no new roster](20261012/20261012-185316_copal-brush-parse-claim-closed.kyri) | Stale claim closed; witness re-proven; none left unrostered. |
 | 20261012.185346 | [Petrichor gate held after ff, no build](20261012/20261012-185346_petrichor-gate-held-ff-five-no-build-recheck.kyri) | Consent Rail unchanged upstream; no build. |
 | 20261012.184754 | [Incense decline, nib carried](20261012/20261012-184754_incense-decline-nib-carried-no-build.kyri) | Clean round-open; nib carried; no build. |
