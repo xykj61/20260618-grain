@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.212315` | [Petrichor, ff, gate held, no build](20261011/20261011-212315_petrichor-ff-gate-held-no-build.kyri) | Ff to Diffuser; Consent Rail ruling open; no build. |
 | `20261011.212141` | [Bakery, receipt key still YOURS, no build](20261011/20261011-212141_bakery-receipt-key-still-yours-no-build.kyri) | Ff to bcb68ee517; no ruling upstream; no build. |
 | `20261011.212034` | [Diffuser, fast-forward, P1 still unruled, no run](20261011/20261011-212034_diffuser-ff-p1-still-unruled-no-run.kyri) | Peers fast-forwarded, no diffuser path; P1 ruling still open; no run. |
 | `20261011.211522` | [Petrichor, gate held, no build](20261011/20261011-211522_petrichor-gate-held-ff-upstream-no-build.kyri) | Ff to upstream; Consent Rail gate unchanged. |
