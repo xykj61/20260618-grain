@@ -482,6 +482,15 @@ finds no other receive-path swallow; `snapshot_export_delivery.rye` reads its re
 wrap `bufPrint` into a buffer sized for its own output, which is an assertion rather than a swallow.
 The matching REDS row is held for the same pin headroom as `%840`'s, and no row was booked.
 
+**The queue reads empty a twenty-fourth way, `20261012.071550`.** The last lap's widened net was
+the catch class across the receive paths. This lap widened it again to every catch site in
+`mantra/` and `tally/` sources: 75 sites in 25 files. Each sorts into one of three kinds -- a
+`catch unreachable` around a `bufPrint` sized for its own output (an assertion), a catch that
+returns or propagates (not a swallow), or a receive path. The receive paths are closed: subscribe-poll
+escapes every fault, catch-up carries last lap's fix, batch has no catch on its receive, and
+snapshot export reads with `try`. The one live site, `tally/kumara.rye:36`, is the legacy `sign`
+behind `%840`, which waits on Keaton's ruling. The next lap should not repeat this net.
+
 ## gates
 
 Keys, funds, provisioning, identity, and the public seed stay manual.
