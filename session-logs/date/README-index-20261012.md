@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.091800 | [Incense ninetieth lap, declined](20261012/20261012-091800_incense-ninetieth-lap-declined-no-build.kyri) | Round-open clean, claim board clear; no agent-doable item; no build. |
+| 20261012.091733 | [Patchouli, queue empty again, no build](20261012/20261012-091733_patchouli-queue-empty-again-no-build.kyri) | Elder-header net re-run; no candidate; no build. |
 | 20261012.091337 | [diffuser P1 hold, no run](20261012/20261012-091337_diffuser-p1-hold-no-run-check-in-claude.kyri) | No diffuser change upstream; P1 ruling still owed; no run. |
 | `20261012.091633` | [Grass, two rule pages graded, no frame](20261012/20261012-091633_grass-two-rule-pages-graded-no-frame.kyri) | Register 85-86, truth 100; both above B; no build. |
 | `20261012.091428` | [Patchouli, queue empty again, no build](20261012/20261012-091428_patchouli-queue-empty-no-build.kyri) | Header net re-run over mantra/ and tally/; no candidate; no build. |
