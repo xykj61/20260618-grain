@@ -8,6 +8,7 @@
 |---|---|---|
 | `20261012.052859` | [Incense, baton declined, no build](20261012/20261012-052859_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; cold run held; no build. |
 | `20261012.052751` | [Bakery, capture candidates stale, no build](20261012/20261012-052751_bakery-capture-candidate-stale-no-build.kyri) | Both preserved patches fail git apply on HEAD; no build. |
+| `20261012.053036` | [Pheromone, ff, lane empty, no build](20261012/20261012-053036_pheromone-ff-lane-empty-no-build.kyri) | Fast-forwarded five peer commits; language lane empty; no build. |
 | `20261012.052744` | [Diffuser, P1 hold, ff petrichor, no run](20261012/20261012-052744_diffuser-p1-hold-ff-petrichor-no-run.kyri) | P1 unruled; one petrichor log in; no run. |
 | `20261012.052650` | [Patchouli, unwrap sites read, no build](20261012/20261012-052650_patchouli-unwrap-class-read-no-build.kyri) | Unreachable-trap class read; no new red; kumara line-36 held. |
 | `20261012.052801` | [Copal, fruit empty, no build](20261012/20261012-052801_copal-fruit-empty-no-build.kyri) | Zero unrostered witnesses; no build; override awaits a ruling. |
