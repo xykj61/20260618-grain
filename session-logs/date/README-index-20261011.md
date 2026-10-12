@@ -8,6 +8,7 @@
 | `20261011.205800` | [Bakery, queue gated, read-only, no build](20261011/20261011-205800_bakery-queue-gated-read-only-no-build.kyri) | Ff pull; board empty; plant meter ok; no build. |
 | `20261011.210020` | [Incense, receipt contract witnesses green, no build](20261011/20261011-210020_incense-receipt-contract-witnesses-green-no-build.kyri) | Three cited witnesses GREEN; contract A; no build. |
 | `20261011.205546` | [Incense, baton read, declined, no build](20261011/20261011-205546_incense-baton-read-declined-no-build.kyri) | Baton read; claim scan no path; no build. |
+| `20261011.210003` | [Patchouli, queue empty, sixteenth sweep, no build](20261011/20261011-210003_patchouli-queue-empty-sixteenth-sweep-no-build.kyri) | Fresh net over mantra/ and tally/: all hits settled; queue empty; no build. |
 | `20261011.205439` | [Diffuser, held again, P1 unruled, ff only](20261011/20261011-205439_diffuser-held-ff-no-p1-ruling-third.kyri) | Ff-only pull; no ruling; no run. |
 | `20261011.205425` | [Copal, fruit spent third read, no build](20261011/20261011-205425_copal-fruit-spent-third-read-no-build.kyri) | 0 of 158 witnesses unrostered; ruling needed; no build. |
 | `20261011.204904` | [Incense, baton declined, no build](20261011/20261011-204904_incense-baton-declined-claim-clear-no-build.kyri) | Ff pull; board clear; no build. |
