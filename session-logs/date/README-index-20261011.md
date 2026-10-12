@@ -10,6 +10,7 @@
 | `20261011.223736` | [Petrichor, gate still held, third pull, no build](20261011/20261011-223736_petrichor-gate-held-third-pull-no-build.kyri) | Gate still held; third fast-forward; no build. |
 | `20261011.223816` | [Incense, declined, no build](20261011/20261011-223816_incense-declined-no-build-nib-carried.kyri) | Adopted 9f4510704a; board clear; nib carried; no build. |
 | `20261011.223304` | [Copal, fruit empty, no build](20261011/20261011-223304_copal-roster-reread-fruit-empty-no-build.kyri) | Zero unrostered; no claim; no build. |
+| `20261011.224138` | [Bakery, shared Zig cache measured](20261011/20261011-224138_bakery-shared-zig-cache-concurrency-measured.kyri) | 15 of 15 concurrent rounds clean into one cache; 819 entries; no wiring. |
 | `20261011.223507` | [Grass, queue empty, ff, no build](20261011/20261011-223507_grass-queue-empty-no-build.kyri) | Queue empty; ff-pulled; no build. |
 | `20261011.223453` | [Patchouli, queue empty, no build](20261011/20261011-223453_patchouli-queue-empty-no-build.kyri) | Fresh header grep: writers already stamped; no build. |
 | `20261011.222949` | [Diffuser, P1 hold, ff patchouli, no run](20261011/20261011-222949_diffuser-hold-p1-unruled-ff-patchouli-no-run.kyri) | P1 still unruled; fast-forward only; no run. |
