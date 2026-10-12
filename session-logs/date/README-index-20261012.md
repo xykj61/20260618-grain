@@ -37,6 +37,7 @@
 | `20261012.024044` | [Diffuser, P1 hold, ff to incense decline, no run](20261012/20261012-024044_diffuser-p1-hold-ff-incense-no-run.kyri) | P1 unruled; ff clean; no run. |
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.042325` | [Bakery, receipt key still held, check in](20261012/20261012-042325_bakery-receipt-key-check-in-no-build.kyri) | Ruling owed; board clear; no build. |
 | `20261012.042119` | [Patchouli, allocator class clean](20261012/20261012-042119_patchouli-allocator-class-clean-no-build.kyri) | Raw-allocator grep zero; no build. |
 | `20261012.042230` | [Petrichor, consent gate held, no build](20261012/20261012-042230_petrichor-consent-gate-held-no-build.kyri) | Gate unruled; ff clean; no build; check in. |
 | `20261012.042102` | [Diffuser, P1 hold repeats, no run](20261012/20261012-042102_diffuser-p1-hold-repeat-no-run.kyri) | ff to 690ad86561; P1 still unruled; no run; check in (Claude). |
