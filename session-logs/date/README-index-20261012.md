@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.073530` | [Diffuser, P1 still unruled, fast-forward of two peers, no run](20261012/20261012-073530_diffuser-p1-hold-ff-peers-no-run-4.kyri) | Held pass on P1; no ruling landed; no run. |
 | `20261012.073239` | [Diffuser, P1 still unruled, fast-forward past two peer logs, no run](20261012/20261012-073239_diffuser-p1-hold-ff-peers-no-run-3.kyri) | Held pass on P1; no ruling landed; no run. |
 | `20261012.073038` | [Grass, front doors graded, no lift](20261012/20261012-073038_grass-front-doors-graded-no-lift.kyri) | Three front doors A on counted halves; no edit. |
 | `20261012.072937` | [Incense, bound read, no build](20261012/20261012-072937_incense-baton-seventy-ninth-bound-no-build.kyri) | Round-open clean; claim board clear; nib carried; no build. |
