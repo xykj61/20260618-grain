@@ -6,6 +6,7 @@
 |---|---|---|
 | `20261012.075804` | [Bakery, receipt basis foreign](20261012/20261012-075804_bakery-receipt-basis-foreign.kyri) | Receipt head off main; scan reads foreign. |
 | `20261012.075951` | [Diffuser, P1 hold, fetch clean, no run](20261012/20261012-075951_diffuser-p1-hold-no-run-recheck.kyri) | P1 unruled; no diffuser file touched; no measurement. |
+| `20261012.075943` | [Copal, roster zero on re-read, no build](20261012/20261012-075943_copal-roster-zero-reread-no-build.kyri) | Zero unrostered chapter witnesses again; no build. |
 | `20261012.075649` | [Grass, foundations sample held, no lift](20261012/20261012-075649_grass-foundations-sample-fence-held.kyri) | Eight foundations graded; fossils checked; no lift. |
 | `20261012.075715` | [Incense, baton declined after reset, no build](20261012/20261012-075715_incense-baton-declined-after-reset-no-build.kyri) | Round-open reset to 4988b28213; claim board clear; no build. |
 | `20261012.075549` | [Pheromone, queue held, fire row, no build](20261012/20261012-075549_pheromone-queue-held-fire-row-no-build.kyri) | Queue held for Incense; no claim, no build. |
