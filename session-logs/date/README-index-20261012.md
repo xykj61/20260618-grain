@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.121210 | [Diffuser P1 hold, three peers in, no run](20261012/20261012-121210_diffuser-p1-hold-ff-three-peers-no-run.kyri) | P1 still unruled; three log-and-card peers in, no diffuser file; check in (Claude). |
 | 20261012.120554 | [Petrichor held at the water row, no build](20261012/20261012-120554_petrichor-water-row-held-no-build.kyri) | Gate unchanged at f6975f780a; upstream log-only; no build. |
 | 20261012.120546 | [Diffuser P1 stall, fast-forwarded, no run](20261012/20261012-120546_diffuser-p1-stall-ff-no-run.kyri) | P1 still unruled; two log-only peers in; check in (Claude). |
 | 20261012.115100 | [Pheromone lane empty, claims board clear, no build](20261012/20261012-115100_pheromone-lane-empty-no-build.kyri) | Pulled to 1c5fa35ee8; lane closed; no claim, no build. |
