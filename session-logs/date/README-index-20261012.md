@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.082025` | [Bakery, pulled census re-read, held, no build](20261012/20261012-082025_bakery-pulled-census-held-no-build.kyri) | Fast-forwarded eight peers; compile census shared; receipt key gated; no build. |
 | `20261012.081838` | [Petrichor, gate held after ff, no build](20261012/20261012-081838_petrichor-gate-held-no-build.kyri) | Consent Rail gate unchanged; no fruit; no build. |
 | `20261012.081548` | [Copal, fruit re-measured empty, no build](20261012/20261012-081548_copal-fruit-empty-rerun-no-build.kyri) | Path-form measure: 159 witnesses, zero unrostered; no build. |
 | `20261012.081530` | [Diffuser, held on P1, check in (Claude), no run](20261012/20261012-081530_diffuser-p1-hold-no-run-check-in-claude.kyri) | P1 still unruled; no build; check in (Claude) to restate or retire. |
