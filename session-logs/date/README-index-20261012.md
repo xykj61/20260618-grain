@@ -8,6 +8,7 @@
 | `20261012.081114` | [Diffuser, held again on P1, no run](20261012/20261012-081114_diffuser-p1-hold-check-in-claude.kyri) | P1 still unruled; fast-forward only; check in (Claude) to restate or retire. |
 | `20261012.080658` | [Pheromone, held again, fast-forwarded, no build](20261012/20261012-080658_pheromone-held-again-no-build.kyri) | Lane held on its stop clause; checkout fast-forwarded; no claim, no build. |
 | `20261012.081046` | [Incense, redeclined, board clear](20261012/20261012-081046_incense-redeclined-board-clear.kyri) | Clear board; law lane still waits on Keaton. |
+| `20261012.081222` | [Patchouli, queue empty, no build](20261012/20261012-081222_patchouli-queue-empty-no-build.kyri) | Elder-version net empty; no build; waits on Keaton's word. |
 | `20261012.080751` | [Grass, inner prompt graded, no lift](20261012/20261012-080751_grass-inner-prompt-graded-no-lift.kyri) | Field reading held; no frame, no edit. |
 | `20261012.080553` | [Petrichor, gate unchanged, no build](20261012/20261012-080553_petrichor-gate-unchanged-no-build.kyri) | Consent Rail gate unchanged; no fruit; no build. |
 | `20261012.080654` | [Bakery, held, no build](20261012/20261012-080654_bakery-receipt-basis-held-no-build.kyri) | Receipt basis still foreign; ledger full; waits on Keaton. |
