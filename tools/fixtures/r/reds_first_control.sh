@@ -41,8 +41,12 @@ printf '%s\n' "$clean"
 printf '%s\n' "$clean" | grep -qx 'verdict=ok' || { echo 'control_verdict=clean_leg_wrong_verdict'; exit 1; }
 
 # Leg 2 -- break one citer's citation; the scan must refuse and name it.
-sed -i.bak 's/20260729-224828_reds-first-and-the-allocation\.md//' \
-  "$pen/.claude/rules/reds-first.md"
+# The plant goes through the shared plant law, so a program that matches nothing
+# is refused by name rather than leaving the citer intact and the leg reading green.
+. tools/fixtures/p/plant.sh
+plant_apply "$pen/.claude/rules/reds-first.md" \
+  's/20260729-224828_reds-first-and-the-allocation\.md//' reds_first_citation_break \
+  || { echo 'control_verdict=plant_not_applied'; exit 1; }
 
 set +e
 broken=$(cd "$pen" && sh tools/fixtures/r/reds_first_scan.sh 2>&1)
