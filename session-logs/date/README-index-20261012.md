@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.013945` | [Pheromone, air boundary held, no build](20261012/20261012-013945_pheromone-air-boundary-held-no-build.kyri) | Air rota row; fifteen-field ceiling read direct and held; no build. |
+| 20261012.013938 | [diffuser P1 floor is capacity](20261012/20261012-013938_diffuser-p1-floor-capacity-not-length.kyri) | P1 cannot clear by trace length; the ruling is on the precondition |
 | `20261012.013720` | [Patchouli, usize width class clean, no build](20261012/20261012-013720_patchouli-usize-width-class-clean-no-build.kyri) | 38 usize lines, all seam casts; zero candidates. |
 | `20261012.013700` | [Grass, inner graded B+, no build](20261012/20261012-013700_grass-inner-graded-b-plus-no-build.kyri) | Inner prompt graded B+ 89; queue empty; no build. |
 | `20261012.013700` | [Bakery tally control adopts plant law](20261012/20261012-013700_bakery-tally-plant-adoption-green.kyri) | Shared plant law; 11 of 11 legs; sourcing 49. |
