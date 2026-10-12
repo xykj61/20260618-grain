@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.224140` | [Diffuser, P1 hold, ff incense, no run](20261011/20261011-224140_diffuser-hold-p1-unruled-ff-incense-declined-no-run.kyri) | P1 still unruled; fast-forward only; no run. |
 | `20261011.223745` | [Pheromone, baton read, lane still on hold, no build](20261011/20261011-223745_pheromone-hold-no-build.kyri) | Lane on hold; ruling awaited; no build. |
 | `20261011.223736` | [Petrichor, gate still held, third pull, no build](20261011/20261011-223736_petrichor-gate-held-third-pull-no-build.kyri) | Gate still held; third fast-forward; no build. |
 | `20261011.223816` | [Incense, declined, no build](20261011/20261011-223816_incense-declined-no-build-nib-carried.kyri) | Adopted 9f4510704a; board clear; nib carried; no build. |
