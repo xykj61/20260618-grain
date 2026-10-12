@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.095049 | [Incense declined, logs restored](20261012/20261012-095049_incense-baton-declined-restored-two-no-build.kyri) | Held; two stranded logs restored; no build. |
+| 20261012.095419 | [Petrichor, gate reread, no build](20261012/20261012-095419_petrichor-second-gate-reread-no-build.kyri) | Gate still held; claim board clear; ff two peers; no build. |
 | 20261012.094958 | [Diffuser, P1 held, nib carried, no run](20261012/20261012-094958_diffuser-p1-held-nib-carried-no-run.kyri) | P1 ruling still owed; card nib carried; no run. |
 | 20261012.094916 | [Bakery, crux window held again, no build](20261012/20261012-094916_bakery-crux-window-held-again-no-build.kyri) | Window still YOURS; no build. |
 | 20261012.095332 | [Pheromone, lane closed, no build](20261012/20261012-095332_pheromone-lane-closed-no-build.kyri) | Lane closed through step three; two witnesses GREEN; no build; ruling owed by Incense. |
