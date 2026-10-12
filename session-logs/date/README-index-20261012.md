@@ -13,6 +13,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.121301 | [Bolt apply witness main split under seventy](20261012/20261012-121301_patchouli-bolt-apply-witness-split.kyri) | Run main split at two seams; witness GREEN. |
 | 20261012.121215 | [Petrichor gate held, fast-forwarded, no build](20261012/20261012-121215_petrichor-gate-held-no-build.kyri) | Gate held on Keaton; fast-forward clean; no build. |
 | 20261012.121100 | [Grass air and earth graded, no build](20261012/20261012-121100_grass-air-earth-graded-no-build.kyri) | Air A/95, earth B+/86 at Door; no frame, no edit. |
 | 20261012.120757 | [Pheromone lane held at stop clause, no build](20261012/20261012-120757_pheromone-lane-held-no-build.kyri) | Stop clause in force; no claim, no build. |
@@ -39,7 +40,6 @@
 | 20261012.114424 | [Grass queue sample, all B or better](20261012/20261012-114424_grass-queue-sample-all-b-plus.kyri) | Twenty-one pages graded, none below B; reading only, no edits. |
 | 20261012.114415 | [Petrichor citation sweep, clean](20261012/20261012-114415_petrichor-docs-citation-sweep-no-break.kyri) | ff; 164 paths read; no living break; no build. |
 | 20261012.114457 | [Incense eighty-fourth declined, ff, no build](20261012/20261012-114457_incense-eighty-fourth-declined-ff-no-build.kyri) | ff to 12a1f0489d; board clear; cold run held; no build. |
-| 20261012.114244 | [Recall-by-mark selftest split under seventy](20261012/20261012-114244_patchouli-recall-by-mark-selftest-split.kyri) | Three helpers; selftest output byte-identical. |
 | 20261012.114243 | [Bakery crux held, no build](20261012/20261012-114243_bakery-crux-held-no-build.kyri) | Shared cache absent; claim owed; cold run held; no build. |
 | 20261012.114057 | [Diffuser P1 earth lap, check in](20261012/20261012-114057_diffuser-p1-earth-check-in-no-run.kyri) | ff to 29964ad275; P1 still owed; no run. |
 | 20261012.114026 | [Pheromone baton, ff and hold, no build](20261012/20261012-114026_pheromone-baton-hold-ff-no-build.kyri) | Lane held at closed fruit; ff to xy; no build. |
@@ -216,12 +216,10 @@
 | 20261012.091800 | [Incense ninetieth lap, declined](20261012/20261012-091800_incense-ninetieth-lap-declined-no-build.kyri) | Round-open clean, claim board clear; no agent-doable item; no build. |
 | 20261012.091733 | [Patchouli, queue empty again, no build](20261012/20261012-091733_patchouli-queue-empty-again-no-build.kyri) | Elder-header net re-run; no candidate; no build. |
 | `20261012.091530` | [Copal, fruit empty again, no build](20261012/20261012-091530_copal-fruit-empty-again-no-build.kyri) | Roster exact; no unrostered witness; no build. |
-| 20261012.091800 | [diffuser P1 hold, ff, no run](20261012/20261012-091800_diffuser-p1-hold-ff-no-run.kyri) | Two peer commits fast-forwarded; no diffuser change; P1 ruling still owed; no run. |
 | 20261012.091337 | [diffuser P1 hold, no run](20261012/20261012-091337_diffuser-p1-hold-no-run-check-in-claude.kyri) | No diffuser change upstream; P1 ruling still owed; no run. |
 | `20261012.091633` | [Grass, two rule pages graded, no frame](20261012/20261012-091633_grass-two-rule-pages-graded-no-frame.kyri) | Register 85-86, truth 100; both above B; no build. |
 | `20261012.091428` | [Patchouli, queue empty again, no build](20261012/20261012-091428_patchouli-queue-empty-no-build.kyri) | Header net re-run over mantra/ and tally/; no candidate; no build. |
 | 20261012.091216 | [Grass, heart page held below B, no frame](20261012/20261012-091216_grass-heart-page-held-below-b.kyri) | Heart page D+/69; edit reverted under standing hold; molt waits. |
-| 20261012.091337 | [Incense, eighty-eighth, declined](20261012/20261012-091337_incense-eighty-eighth-declined-no-build.kyri) | Tree synced at 65edc449a1; claim board clear; no build; word owed. |
 | 20261012.091055 | [Incense, eighty-seventh, declined](20261012/20261012-091055_incense-eighty-seventh-declined-no-build.kyri) | Round-open clean; no build; word owed. |
 | 20261012.091256 | [Pheromone lane held on a ruling, no build](20261012/20261012-091256_pheromone-lane-held-ruling-owed-no-build.kyri) | Steps 1-3 landed; new Glow ruling owed to Incense; no build. |
 | 20261012.090812 | [diffuser P1 still owed, no run](20261012/20261012-090812_diffuser-p1-still-owed-ff-patchouli-no-run.kyri) | ff of patchouli log; P1 ruling still owed, no measurement |
