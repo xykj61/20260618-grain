@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.220352` | [Patchouli, kumara held, witness GREEN](20261011/20261011-220352_patchouli-kumara-held-witness-regreen.kyri) | Queue empty; kumara red waits on two rulings. |
 
 | `20261011.220108` | [Petrichor, fifth hold, no build](20261011/20261011-220108_petrichor-fifth-hold-no-build.kyri) | Consent Rail and public seam still open; no build. |
 | `20261011.220022` | [Pheromone, round-open, lane closed, no build](20261011/20261011-220022_pheromone-round-open-no-build.kyri) | Ff pull to 36c5687146; lane closed on card; no build. |
