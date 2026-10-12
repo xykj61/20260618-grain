@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.084810` | [Diffuser, P1 stall after ff of three peers, no run](20261012/20261012-084810_diffuser-p1-stall-ff-peers-no-run.kyri) | Peers only; P1 ruling still owed; no run. |
 | `20261012.084659` | [Petrichor, consent facts verified, no build](20261012/20261012-084659_petrichor-consent-facts-verified-no-build.kyri) | Gate commits verified on the tree; rail ruling still waits; no build. |
 | `20261012.084437` | [Incense, declined, cold run held, no build](20261012/20261012-084437_incense-declined-no-build-cold-held.kyri) | Clean round-open; claim board clear; no build; ruling asked. |
 | `20261012.084014` | [Patchouli, queue empty a 25th way](20261012/20261012-084014_patchouli-queue-empty-tidy-bans-clean.kyri) | Tidy-ban class clean; no code moved; queue waits on Keaton. |
