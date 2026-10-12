@@ -56,6 +56,9 @@ record=$(sh "$writer" "$abs_src" "$flags" - "$compiler")
 key=$(printf '%s\n' "$record" | tail -n 1 | sed 's/^key=//')
 
 mkdir -p "$store"
+# why canonical: the compile runs inside a scratch directory, so a relative store would resolve
+# against that directory and publish a cell with no binary in it. An absolute store names one place.
+store=$(cd "$store" && pwd -P)
 cell="$store/$key"
 bin="$cell/prog"
 
