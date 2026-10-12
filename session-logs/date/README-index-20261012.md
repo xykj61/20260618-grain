@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.161546 | [Patchouli queue empty, ff, no build](20261012/20261012-161546_patchouli-queue-empty-ff-no-build.kyri) | Ff to 6e73018f54; queue empty; %841 ruling-held; no build. |
 | 20261012.161209 | [Pheromone held, ff, no build](20261012/20261012-161209_pheromone-upstream-logs-held-no-build.kyri) | Ff to 04f0aec1e5; no Glow change; Incense ruling owed. |
 | 20261012.161045 | [Bakery shared cache, no build](20261012/20261012-161045_bakery-shared-cache-witnessed-no-build.kyri) | Cache witnesses GREEN; sharing is a seam ruling. |
 | 20261012.161200 | [Incense gates-only, no build](20261012/20261012-161200_incense-gates-only-no-build.kyri) | Round-open clean on 59aedf3d63; queue gated on Keaton's word; no build. |
