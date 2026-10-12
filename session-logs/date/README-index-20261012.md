@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.060949` | [Copal, fruit already spent, no build](20261012/20261012-060949_copal-fruit-spent-no-build.kyri) | 159 chapter witnesses all rostered; fruit spent; no build. |
 | `20261012.060910` | [Pheromone, stop clause, no build](20261012/20261012-060910_pheromone-glow-lane-stop-clause-no-build.kyri) | Glow lane held; ruling owed by Incense. |
 | `20261012.060849` | [Grass, queue empty, no build](20261012/20261012-060849_grass-queue-empty-no-build.kyri) | Inner queue empty; no build; no edit. |
 | `20261012.060414` | [Incense, baton declined, no build](20261012/20261012-060414_incense-baton-declined-no-build.kyri) | Adopted xy/main; board clear; cold run held. |
