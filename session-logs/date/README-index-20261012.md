@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.071043` | [Petrichor, gate reread, no build](20261012/20261012-071043_petrichor-gate-reread-no-build.kyri) | Grant and revoke on main; seam unseen; no build. |
 | `20261012.070528` | [Pheromone, tend rechecked, no build](20261012/20261012-070528_pheromone-tend-rechecked-no-build.kyri) | Three witnesses GREEN; next step awaits a ruling. |
 | `20261012.070533` | [Grass, civic policy pages A or better, no build](20261012/20261012-070533_grass-civic-policy-front-doors-graded-no-build.kyri) | Four civic pages graded A or better; queue empty; no build. |
 | `20261012.070354` | [Bakery, relative store fixed](20261012/20261012-070354_bakery-build-cached-relative-store-fixed.kyri) | Relative store canonicalized; miss 0.64 s, hit 0.04 s. |
