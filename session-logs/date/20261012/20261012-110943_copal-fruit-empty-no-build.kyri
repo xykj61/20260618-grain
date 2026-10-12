@@ -18,7 +18,8 @@ think measured twice: 158 tracked *_witness.rish under tools/gen/chapter/, 0 abs
 think the card's Git nib named a9dcd89c1b, two commits behind HEAD; the follow-up carries it forward to bb33827b2a
 obs no build: a witness invented to fill the fruit would be the wrong move, since the roster is complete
 obs the open ruling is still Keaton's: seat a new chapter witness, or retire the fruit
-rota none -- the copal lane reads its inner prompt, not a council row, this lap
+obs send: the log commit (07dbeaa171) was pushed after a rebase onto a peer, and the push carried the card's nib at its pre-rebase parent; the amend that would fix it is a force push, so it stays unforced
+obs the nib rides this follow-up: 7d5a8a49e7 is HEAD read before this commit, and the follow-up records the send as its real contentrota none -- the copal lane reads its inner prompt, not a council row, this lap
 file session-logs/date/20261012/20261012-110943_copal-fruit-empty-no-build.kyri this log
 file session-logs/date/README-index-20261012.md one shelf row for this log
 file construction/ITINERARY.md Git nib carried forward to the parent, per remember-git-nib rule 5
