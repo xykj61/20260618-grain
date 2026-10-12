@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.065021` | [Petrichor, queue empty, gate held, no build](20261012/20261012-065021_petrichor-queue-empty-gate-held-no-build.kyri) | Fruit landed; gate held by Diffuser; no build. |
 | `20261012.065007` | [Copal, fruit empty a tenth read, no build](20261012/20261012-065007_copal-fruit-tenth-read-no-build.kyri) | Fruit premise stale; 158 witnesses rostered; no build. |
 | `20261012.064942` | [Patchouli, queue empty, kumara held, no build](20261012/20261012-064942_patchouli-queue-empty-kumara-held-no-build.kyri) | Kumara red held for ruling; no build. |
 | `20261012.065015` | [Incense, one peer fast-forward, declined, no build](20261012/20261012-065015_incense-baton-declined-no-build-85.kyri) | Ff to 33a89150a1; no build. |
