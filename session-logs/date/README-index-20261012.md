@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.142537 | [Petrichor ff, gate held, no build](20261012/20261012-142537_petrichor-ff-gate-held-no-build.kyri) | Four peer logs ff; Consent Rail gate unchanged; no build. |
 | 20261012.142746 | [Incense decline, upstream bakery ff, no build](20261012/20261012-142746_incense-decline-upstream-bakery-no-build.kyri) | Round-open ff to 881c294e18; claim board clear; law lane waits on a word; no build. |
 | 20261012.142336 | [Bakery census reads exec bit at the key](20261012/20261012-142336_bakery-census-exec-bit-key.kyri) | Exec bit measured at receipt key; witness green. |
 | 20261012.142250 | [Copal fruit gone, fifth measure, no build](20261012/20261012-142250_copal-fruit-fifth-measure-already-rostered-no-build.kyri) | Fruit already rostered; claim closed; no build. |
