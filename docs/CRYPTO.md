@@ -13,29 +13,30 @@ named here against 87 standing in the directory (REDS %195)
 
 ## Thesis -- cryptography written in the open, checked against the world
 
-Grain will face a security audit, and building our own cryptography in the open --
-disciplined, bounded, and parity-checked against published references -- is the honest way
-to earn it. Every primitive in [`crypto/`](../crypto/) is authored in pure **Rye**, calls
-**no `std.crypto`**, and is proven **byte-for-byte** against both a public RFC known-answer
-and Zig's own independent `std.crypto`. The library serves every module that will ever sign,
-verify, agree a key, or seal a message: **Kumara** identity, **Vault** sealed storage,
-**Comlink** sessions, and the **Lotus** signed carry.
+Grain will face a security audit. Building our own cryptography in the open is the honest way to
+earn it: disciplined, bounded, and checked for parity against published references.
 
-**Rye-first, the priority spine:** the mathematics lands in green-witnessed Rye, and any Glow
-surface stands on that witness rather than ahead of it.
+Every primitive in [`crypto/`](../crypto/) is written in pure **Rye**. It calls **no `std.crypto`**.
+Each one is proven **byte-for-byte** against a public RFC known-answer and against Zig's own
+independent `std.crypto`. The library serves every module that will ever sign, verify, agree a key,
+or seal a message: **Kumara** identity, **Vault** sealed storage, **Comlink** sessions, and the
+**Lotus** signed carry.
 
-**Clean-room:** `Monocypher` (CC0/BSD-dual, vendored, unmodified) is the
-parity *target*, studied through its public API and the RFC vectors rather than copied
+**Rye-first, the priority spine:** the mathematics lands in green-witnessed Rye first. Any Glow
+surface stands on that witness, not ahead of it.
+
+**Clean-room:** `Monocypher` (CC0/BSD-dual, vendored, unmodified) is the parity *target*. We study
+it through its public API and the RFC vectors, and we do not copy it
 ([`gratitude-licenses.md`](../.claude/rules/gratitude-licenses.md)).
 
 ---
 
 ## Where the record lives -- this page routes, the directory holds
 
-This is the **compression shelf**, and its law is written at the top of
-[`README.md`](README.md): pages here distill, hold no load-bearing pins, and leave the raw record
-standing beneath them. So the rung-by-rung account lives in `crypto/`, beside the code, where a
-standing guard holds each page to the directory it describes.
+This is the **compression shelf**. Its law sits at the top of [`README.md`](README.md): pages here
+distill, hold no load-bearing pins, and leave the raw record standing beneath them. The rung-by-rung
+account lives in `crypto/`, beside the code. A standing guard holds each page to the directory it
+describes.
 
 | Question an auditor asks | The page that answers it | What keeps it true |
 |---|---|---|
@@ -45,10 +46,10 @@ standing guard holds each page to the directory it describes.
 | What is *not* yet proven? | [`crypto/CONSTANT_TIME.md`](../crypto/CONSTANT_TIME.md) -- every file's posture toward a secret | a reading, kept honest by naming the horizon rather than claiming a measurement |
 | How many modules, and how many proven? | [`crypto_count_guard_witness.rish`](../tools/cr/crypto_count_guard_witness.rish) | a bijection between files on disk and witnesses the suite registers; it prints both counts |
 
-**No count is typed on this page,** and that is deliberate. This page carried a table of 80
-modules while 87 stood in the directory, and a subset copy of a roster goes short more quietly
-than a short roster does -- a reader sees rows rather than the set they were drawn from. The
-count guard computes both numbers on demand (REDS %80, %105, %191, %195).
+**No count is typed on this page.** That is deliberate. This page once carried a table of 80 modules
+while 87 stood in the directory. A subset copy of a roster goes short more quietly than a short
+roster does, because a reader sees rows and never the set they came from. The count guard computes
+both numbers on demand (REDS %80, %105, %191, %195).
 
 ---
 
@@ -58,11 +59,10 @@ count guard computes both numbers on demand (REDS %80, %105, %191, %195).
 rishi/bin/rishi run tools/cr/crypto_suite_witness.rish
 ```
 
-[`crypto_suite_witness.rish`](../tools/cr/crypto_suite_witness.rish) rebuilds each
-`crypto/<name>.rye` fresh from source into the gitignored `crypto/bin/`, runs every per-file
-witness in dependency order, and names the exact file the moment one goes RED. A GREEN suite
-means every claim here is re-provable by tooling rather than trusted from a commit message --
-measurement beats memory. It then runs the count guard above.
+[`crypto_suite_witness.rish`](../tools/cr/crypto_suite_witness.rish) rebuilds each `crypto/<name>.rye`
+fresh from source into the gitignored `crypto/bin/`. It runs every per-file witness in dependency
+order, and it names the exact file the moment one goes RED. A GREEN suite re-proves every claim here
+with tooling. Measurement beats memory. The suite then runs the count guard above.
 
 To prove one rung alone, run its witness:
 
@@ -71,68 +71,64 @@ rishi/bin/rishi run tools/cr/crypto_ed25519_sign_witness.rish
 rishi/bin/rishi run tools/cr/crypto_vault_seal_witness.rish
 ```
 
-Each witness asserts its `GREEN crypto-<name>` line against the RFC known-answer **and** a
-cross-check against Zig's independent `std.crypto`, so parity is proven against two witnesses
-at once: the published vector, and a second implementation that reached the same bytes without
-seeing our code.
+Each witness asserts its `GREEN crypto-<name>` line. It checks the RFC known-answer **and** a
+cross-check against Zig's independent `std.crypto`. Parity therefore rests on two witnesses: the
+published vector, and a second implementation that reached the same bytes without seeing our code.
 
 ---
 
 ## Constant-time posture -- a scoped horizon, named honestly
 
-Correctness is settled; **timing-safety is a scoped horizon rather than a settled claim.** A
-timing claim is a measurement, and this library claims no measurement yet.
-[`crypto/CONSTANT_TIME.md`](../crypto/CONSTANT_TIME.md) draws the full map, file by file, with
-line citations. In one screen, every primitive sits in exactly one posture toward a secret:
+Correctness is settled. **Timing-safety is a scoped horizon, not a settled claim.** A timing claim
+is a measurement, and this library claims no measurement yet.
+[`crypto/CONSTANT_TIME.md`](../crypto/CONSTANT_TIME.md) draws the full map, file by file, with line
+citations. In brief, every primitive sits in exactly one posture toward a secret:
 
-- **public-only** -- reads only public values (verify, decode, the group law, the
-  Edwards<->Montgomery conversion of a *public* key). Variable time here leaks no secret,
-  because the operation holds none.
+- **public-only** -- reads only public values: verify, decode, the group law, and the
+  Edwards<->Montgomery conversion of a *public* key. Variable time here leaks no secret, because
+  the operation holds none.
 - **data-independent by construction** -- touches a secret, and keeps control flow and memory
-  access fixed regardless of its value: the ChaCha/Poly arithmetic, the AEAD tag compare
+  access fixed whatever its value. This covers the ChaCha/Poly arithmetic, the AEAD tag compare
   (which accumulates the byte difference and tests once), the `fe25519` reduction and inversion
   ladder, and **X25519's Montgomery ladder** (a fixed step count with a branchless masked
-  conditional swap). This is the strongest posture pure Rye asserts without a measurement, and
-  it still awaits one, since a compiler may undo branchless source.
-- **deliberately variable-time** -- `ed25519_scalarmul.rye` (double-and-add branches on the
-  secret scalar's bits) and `ed25519_sign.rye`, which composes it. Correct and parity-GREEN,
-  and **timing-safe only once measured** -- named here rather than hidden, and the sharpest
-  horizon in the library. A future measurement round puts these on metal before any timing
-  claim is earned.
+  conditional swap). This is the strongest posture pure Rye asserts without a measurement. It
+  still awaits one, because a compiler may undo branchless source.
+- **deliberately variable-time** -- `ed25519_scalarmul.rye` (double-and-add branches on the secret
+  scalar's bits) and `ed25519_sign.rye`, which composes it. Both are correct and parity-GREEN.
+  They are **timing-safe only once measured**. We name them here rather than hide them, and they
+  are the sharpest horizon in the library. A future measurement round puts them on metal before
+  any timing claim is earned.
 
 ---
 
 ## The custody gate -- the library builds and verifies; it never holds a key
 
-Every witness runs over **test** keys and the RFC's public vectors: no real identity key, no
-network, no funds, no real device. Signing a record, or agreeing a session, with the
-maintainer's **own** identity key stays a **custody gate** (gate %3 / %4) -- the agent builds
-and proves the mathematics, and the key stays Keaton's hand. `ed25519_sign.rye`'s
-`derive_public(seed)` and `sign(seed, msg)` take a caller-supplied seed, and a test seed is not
-the maintainer's identity key.
+Every witness runs over **test** keys and the RFC's public vectors. No real identity key, no
+network, no funds, no real device. Signing a record, or agreeing a session, with the maintainer's
+**own** identity key stays a **custody gate** (gate %3 / %4). The agent builds and proves the
+mathematics. The key stays in Keaton's hand. `ed25519_sign.rye`'s `derive_public(seed)` and
+`sign(seed, msg)` take a caller-supplied seed, and a test seed is not the maintainer's identity key.
 
-**Monocypher-source parity is landed** -- the vendored `vendor/monocypher` is compiled fresh
-and diffed byte-for-byte against our authored Rye over the published vectors, rung by rung.
-[`crypto/PARITY.md`](../crypto/PARITY.md) names which rungs stand and what each one anchors to;
-that page moved the record word for word out of `crypto/README.md` when it split, and it is the
-one place the parity account lives.
+**Monocypher-source parity is landed.** The vendored `vendor/monocypher` is compiled fresh and
+diffed byte-for-byte against our authored Rye over the published vectors, rung by rung.
+[`crypto/PARITY.md`](../crypto/PARITY.md) names which rungs stand and what each one anchors to. That
+page holds the parity account, word for word, since it split out of `crypto/README.md`.
 
 ---
 
 ## How to add a rung
 
-1. **Name the claim** in `active-designing/` (dated, raw layer first) and pick the published
+1. **Name the claim** in `active-designing/` (dated, raw layer first), and pick the published
    reference it will be parity-checked against.
-2. **Author in pure Rye**, under TAME Guidance -- bound everything, two or more asserts per
-   function, `// invariant:` on each, no `std.crypto`, no copied Monocypher line.
-3. **Write the witness** `tools/cr/crypto_<name>_witness.rish`, asserting the RFC known-answer
+2. **Author in pure Rye**, under TAME Guidance: bound everything, two or more asserts per function,
+   `// invariant:` on each, no `std.crypto`, no copied Monocypher line.
+3. **Write the witness** `tools/cr/crypto_<name>_witness.rish`. It asserts the RFC known-answer
    **and** a cross-check against Zig's `std.crypto`.
-4. **Register it** in `crypto_suite_witness.rish` in dependency order, and run the whole suite
-   GREEN.
+4. **Register it** in `crypto_suite_witness.rish` in dependency order, and run the whole suite GREEN.
 5. **Record its row** in [`crypto/MODULES.md`](../crypto/MODULES.md), its reasoning in
    [`crypto/LADDER.md`](../crypto/LADDER.md), and its posture in
    [`crypto/CONSTANT_TIME.md`](../crypto/CONSTANT_TIME.md). This page compresses, so it needs no
-   edit: it routes to those three, and each is held to the directory by its own guard.
+   edit. It routes to those three, and each is held to the directory by its own guard.
 
 ---
 
