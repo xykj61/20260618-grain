@@ -512,6 +512,8 @@ behind `%840`, which waits on Keaton's ruling. The next lap should not repeat th
 
 **The queue reads empty a twenty-ninth way, `20261012.101212`, by the tidy bans no earlier lap listed.** `git grep -nF` over `mantra/` and `tally/` for `Self = @This()`, `usingnamespace`, `!comptime`, `FIXME`, `dbg(`, `) == error.` and `) != error.` finds zero of each. `copyForwards` and `copyBackwards` each appear once, in `tally/README.md:77`, where the page names the ban rather than calling it. No production site breaks a tidy ban. The next lap should not repeat this net either.
 
+**The over-70 candidate list was stale, and the lap that found it took a real one, `20261012.105523`.** The `snapshot_export.rye` `parse_head_record_content` named above as 76 lines had already been split under `801bbb1bfe`; it reads 36 lines now. Measured fresh, the production functions past 70 are the four selftest harnesses `run_spool_selftest` (145), `run_beading_selftest` (134), `run_batch_selftest` (104), and `run_selftest` in `recall_by_mark.rye` (82). `recall_batch_delivery.rye`'s `run_selftest` (155) was split into `run_single_frame_selftest`, `run_chunk_selftest`, and `run_beaded_selftest`, each under 70 lines, with the selftest's print order held. Witness `tools/m/mantra_recall_batch_wire.rish` GREEN, and the built selftest exits 0 with nine lines printed, in the three phases' order, read on metal after the split (the pre-split binary was not rebuilt for a line-by-line diff). `tools/t/tame_style_check.rish` reads GREEN. The next candidate is `run_spool_selftest`, measured fresh before any lap names it.
+
 ## gates
 
 Keys, funds, provisioning, identity, and the public seed stay manual.

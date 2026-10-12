@@ -250,16 +250,29 @@ fn recv_batch_payload(port: u16, out: []u8) !u32 {
     }
 }
 
+// The selftest runs three witnesses in order: one batch under a single Comlink seal,
+// a batch chunked across frames, and a beaded bolt batch. Each owns one function so
+// no single function holds all three at once, which keeps every one under 70 lines.
 fn run_selftest(_: std.Io) !u8 {
     const signer = batch_signer();
+    var alpha_digest: [64]u8 = undefined;
+    digest_hex_of("alpha", &alpha_digest);
+
+    try run_single_frame_selftest(signer, alpha_digest);
+    try run_chunk_selftest(signer, alpha_digest);
+    try run_beaded_selftest(signer, alpha_digest);
+    return 0;
+}
+
+// The single-frame witness: build a batch, seal it through the Comlink wire, open it,
+// and apply it to a fetcher that already holds alpha.
+fn run_single_frame_selftest(signer: kumara.KeyPair, alpha_digest: [64]u8) !void {
     var src: ns.BoltCatalog = undefined;
     try init_witness_source(&src);
     var fetcher: ns.BoltCatalog = undefined;
     try init_witness_fetcher(&fetcher);
 
     const req = try build_held_request();
-    var alpha_digest: [64]u8 = undefined;
-    digest_hex_of("alpha", &alpha_digest);
     const held = [_][64]u8{alpha_digest};
 
     var batch_buf: [rb.max_batch_bytes]u8 = undefined;
@@ -320,7 +333,11 @@ fn run_selftest(_: std.Io) !u8 {
     });
     print("rbw: version {s} batch_wire {s}\n", .{ rbw_version, bw.batch_wire_version });
     print("GREEN: NS-L3 lap 3w-4 hosted resin-batch sync under Comlink seal.\n", .{});
+}
 
+// The chunk witness: a batch too large for one frame is split, sealed per frame,
+// reassembled by the assembler, and applied whole.
+fn run_chunk_selftest(signer: kumara.KeyPair, alpha_digest: [64]u8) !void {
     try bw.run_chunk_wire_selftest();
     print("rbw: multi-frame chunk assembler -- GREEN\n", .{});
 
@@ -361,7 +378,12 @@ fn run_selftest(_: std.Io) !u8 {
     assert(big_out[0] == 'B');
     assert(big_out[399] == 'B');
     print("rbw: chunked batch {d} bytes over {d} frames -- GREEN\n", .{ chunk_built.len, chunk_count });
+    print("GREEN: NS-L3 lap 3w-4 multi-frame batch chunking under Comlink seal.\n", .{});
+}
 
+// The beaded witness: a large file arrives as a batch and is hydrated into the bead
+// store, then recalled through the beaded path and checked byte for byte.
+fn run_beaded_selftest(signer: kumara.KeyPair, alpha_digest: [64]u8) !void {
     var beaded_src: ns.BoltCatalog = undefined;
     var beaded_store: bd.BeadStore = undefined;
     try init_beaded_witness_source(&beaded_src, &beaded_store);
@@ -401,9 +423,7 @@ fn run_selftest(_: std.Io) !u8 {
     witness_pattern_fill(&expect, 20260706);
     assert(std.mem.eql(u8, beaded_out[0..400], expect[0..400]));
     print("rbw: beaded bolt batch {d} bytes -- recallBeaded GREEN\n", .{beaded_built.len});
-    print("GREEN: NS-L3 lap 3w-4 multi-frame batch chunking under Comlink seal.\n", .{});
     print("GREEN: NS-L3 lap 3w-5 beaded bolt batch wire (in-process).\n", .{});
-    return 0;
 }
 
 fn run_source(_: std.Io) !u8 {
