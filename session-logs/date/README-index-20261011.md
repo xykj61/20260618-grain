@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.223745` | [Pheromone, baton read, lane still on hold, no build](20261011/20261011-223745_pheromone-hold-no-build.kyri) | Lane on hold; ruling awaited; no build. |
 | `20261011.223736` | [Petrichor, gate still held, third pull, no build](20261011/20261011-223736_petrichor-gate-held-third-pull-no-build.kyri) | Gate still held; third fast-forward; no build. |
 | `20261011.223304` | [Copal, fruit empty, no build](20261011/20261011-223304_copal-roster-reread-fruit-empty-no-build.kyri) | Zero unrostered; no claim; no build. |
 | `20261011.223507` | [Grass, queue empty, ff, no build](20261011/20261011-223507_grass-queue-empty-no-build.kyri) | Queue empty; ff-pulled; no build. |
