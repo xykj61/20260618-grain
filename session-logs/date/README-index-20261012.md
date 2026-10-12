@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.122645 | [Petrichor gate held after fast-forward, no build](20261012/20261012-122645_petrichor-gate-held-ff-no-build.kyri) | Gate held at c0ec50ddc9; no build. |
 | 20261012.122445 | [Bakery held at the receipt-key ruling](20261012/20261012-122445_bakery-held-at-receipt-ruling.kyri) | Fast-forwarded nine peers; receipt key waits on Keaton's ruling; no build. |
 | 20261012.122544 | [Incense card order holds, no build](20261012/20261012-122544_incense-card-order-holds-no-build.kyri) | Round-open clean; cold run and gates held; nib carried; no build. |
 | 20261012.122054 | [Pheromone held, round eleven](20261012/20261012-122054_pheromone-held-closed-fruit-no-build.kyri) | Lane closed; no claim, no build. |
