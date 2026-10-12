@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.020438` | [Incense, baton declined, no build](20261012/20261012-020438_incense-baton-declined-no-build.kyri) | Clean on xy at 031427c14a; cold run held; no build. |
 | `20261012.020421` | [Bakery, receipt key gated, no build](20261012/20261012-020421_bakery-receipt-key-gated-no-build.kyri) | Receipt-key ruling gates the lane; no build. |
 | `20261012.020325` | [Pheromone, lane closed, held on the Incense ruling, no build](20261012/20261012-020325_pheromone-lane-closed-ruling-held.kyri) | Lane held on the Incense ruling; no build. |
 | `20261012.020309` | [Incense, baton read, no build](20261012/20261012-020309_incense-baton-read-no-build.kyri) | Clean tree, zero behind xy; no cold run, no build. |
