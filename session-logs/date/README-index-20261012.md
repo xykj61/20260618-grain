@@ -4,6 +4,7 @@
 
 | `20261012.055922` | [Grass, inner prompt B+, no build](20261012/20261012-055922_grass-inner-prompt-grade-b-plus-no-build.kyri) | Inner prompt graded at Field, composite 89 B+; no molt frame; no edit. |
 | `20261012.055920` | [Copal, fruit spent, no build](20261012/20261012-055920_copal-fruit-already-spent-no-build.kyri) | 158 of 158 witnesses rostered; no build. |
+| `20261012.060151` | [Incense, stall read, no build](20261012/20261012-060151_incense-stall-read-no-build.kyri) | Clock read, board clear, cold run held; no build. |
 | `20261012.055904` | [Incense, baton declined, no build](20261012/20261012-055904_incense-baton-declined-no-build.kyri) | Round-open clean, board read; cold run held; no build.
 | `20261012.055904` | [Bakery, crux held, check-in, no build](20261012/20261012-055904_bakery-crux-held-check-in.kyri) | Shared-cache crux held for a ruling; no build. |
 | `20261012.055800` | [Patchouli, queue held, kumara red awaits ruling, no build](20261012/20261012-055800_patchouli-queue-held-no-build.kyri) | Inner queue held; kumara witness GREEN; red waits on a ruling; no build. |
