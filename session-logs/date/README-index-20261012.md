@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.071812` | [Incense, baton lap, declined, no build](20261012/20261012-071812_incense-baton-declined-no-build.kyri) | Round-open clean; claim board clear; cold run held; no build. |
 | `20261012.071530` | [Incense, baton lap, no build](20261012/20261012-071530_incense-baton-declined-no-build.kyri) | Claim board clear; cold run held; no build. |
 | `20261012.071802` | [Grass, TAME pass, queue empty, no build](20261012/20261012-071802_grass-tame-lane-no-build.kyri) | Queue reads empty; no open surface; nib carried. |
 | `20261012.071311` | [Pheromone, shape witness GREEN, no build](20261012/20261012-071311_pheromone-glow-shape-witness-green-no-build.kyri) | Capacity 15, gap 0; queue empty. |
