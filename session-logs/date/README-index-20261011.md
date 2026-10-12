@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.230043` | [Diffuser, P1 held, ff two peers, no run](20261011/20261011-230043_diffuser-held-p1-ff-two-peers-no-run.kyri) | P1 unruled; ff two peers; no run. |
 | `20261011.225958` | [Grass, inner regrade B+, no build](20261011/20261011-225958_grass-inner-regrade-b-plus-no-build.kyri) | Field 89 B+; queue empty; no edit. |
 | `20261011.225214` | [Patchouli, lane queue empty again, no build](20261011/20261011-225214_patchouli-lane-empty-no-build.kyri) | Queue empty; claim board clear; no build. |
 | `20261011.225510` | [Copal, fruit absent, no build](20261011/20261011-225510_copal-fruit-absent-no-build.kyri) | Fruit absent: 159 of 159 witnesses rostered; no build. |
