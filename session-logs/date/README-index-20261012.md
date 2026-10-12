@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.080751` | [Grass, inner prompt graded, no lift](20261012/20261012-080751_grass-inner-prompt-graded-no-lift.kyri) | Field reading held; no frame, no edit. |
 | `20261012.080553` | [Petrichor, gate unchanged, no build](20261012/20261012-080553_petrichor-gate-unchanged-no-build.kyri) | Consent Rail gate unchanged; no fruit; no build. |
 | `20261012.080654` | [Bakery, held, no build](20261012/20261012-080654_bakery-receipt-basis-held-no-build.kyri) | Receipt basis still foreign; ledger full; waits on Keaton. |
 | `20261012.080417` | [Incense, declined again, nib carried](20261012/20261012-080417_incense-decline-nib-carried.kyri) | Clear board at cd6dff37d0; law lane waits on Keaton. |
