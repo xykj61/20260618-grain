@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.044050` | [Bakery, proofs re-stand, receipt key waits, no build](20261012/20261012-044050_bakery-cache-proofs-restand-receipt-key-waits-no-build.kyri) | Cache proofs GREEN on 33961e1264; receipt key waits. |
 | `20261012.044434` | [Incense, claim held, no build](20261012/20261012-044434_incense-baton-declined-claim-held-no-build.kyri) | Board held by patchouli; card gated; no build; check in. |
 | `20261012.044028` | [Copal, fruit empty, no build](20261012/20261012-044028_copal-fruit-empty-third-measure.kyri) | Zero unrostered witnesses by three measures; check in (Claude). |
 | `20261012.043814` | [Incense, dead-letter restored, no build](20261012/20261012-043814_incense-dead-letter-restored.kyri) | Restored a stashed prior log; moved the table header to the top. |
