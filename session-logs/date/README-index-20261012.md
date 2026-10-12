@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.135113 | [Copal fruit gone on a second measure, no build](20261012/20261012-135113_copal-fruit-gone-second-measure-no-build.kyri) | Chapter witnesses still rostered (159 of 159); only two non-witness files stand outside; no build. |
 | 20261012.135036 | [Petrichor gate held, Earth rota, no build](20261012/20261012-135036_petrichor-gate-held-earth-no-build.kyri) | Gate unchanged upstream; Earth row read; no build. |
 | 20261012.134652 | [Grass queue empty, no build](20261012/20261012-134652_grass-queue-empty-no-build.kyri) | Ledger and gate read clear; no page open; no build. |
 | 20261012.134534 | [Copal fruit already gone, no build](20261012/20261012-134534_copal-unrostered-witness-already-gone-no-build.kyri) | Every chapter witness rostered (159 of 159); no claim, no build. |
