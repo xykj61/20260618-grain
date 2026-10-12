@@ -307,6 +307,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.140830 | [Diffuser P1 held after ff, no run](20261012/20261012-140830_diffuser-p1-held-ff-no-run-check-in.kyri) | P1 lacks a measurable definition; no run; check in (Claude). |
 | 20261012.140818 | [Patchouli queue empty, %841 ruling-held, no build](20261012/20261012-140818_patchouli-queue-empty-redmeasured-no-build.kyri) | Queue empty; %841 still needs a Claude ruling; no code changed. |
 | 20261012.140543 | [Incense decline on the open %841 ruling, no build](20261012/20261012-140543_incense-decline-open-841-ruling-no-build.kyri) | %841 held OPEN for a ruling; no build. |
 | 20261012.140421 | [Grass, inner prompt re-graded at Field B+, no build](20261012/20261012-140421_grass-inner-regraded-field-b-plus-no-build.kyri) | Field grade 89 B+; queue empty; no edit; no build. |
