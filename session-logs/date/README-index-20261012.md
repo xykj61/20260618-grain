@@ -26,6 +26,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.123525 | [Diffuser held on P1, no run](20261012/20261012-123525_diffuser-p1-held-ff-copal-grass-no-run.kyri) | Fast-forwarded two peer logs; P1 ruling still owed; no run. |
 | 20261012.123335 | [Grass inner regraded B+, repeat, no change](20261012/20261012-123335_grass-inner-regraded-b-plus-repeat.kyri) | Repeats 122352: inner prompt B+/89; no change, no build. |
 | 20261012.122814 | [Pheromone held at closed fruit, no build](20261012/20261012-122814_pheromone-held-closed-fruit-no-build.kyri) | Lane closed; no claim, no build. |
 | 20261012.122838 | [Patchouli queue empty, fifth grep](20261012/20261012-122838_patchouli-queue-empty-fifth-grep-no-build.kyri) | Versioned headers all chronological or read-compat; no build. |
