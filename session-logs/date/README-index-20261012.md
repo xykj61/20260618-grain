@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.104525 | [Diffuser P1 held, ff five peers, check in](20261012/20261012-104525_diffuser-p1-hold-ff-peers-check-in-claude.kyri) | P1 unruled; no run; check in (Claude). |
 | 20261012.104350 | [Incense eighty-third, declined, check-in](20261012/20261012-104350_incense-eighty-third-declined-check-in.kyri) | Round-open clean, claim board clear, no build; the repeated no-build reading named for Keaton |
 | 20261012.104030 | [Pheromone, fire lap, Glow lane held, no build](20261012/20261012-104030_pheromone-fire-sees-held-no-build.kyri) | Fire row read; Incense ruling still the open door; no build. |
 | 20261012.104004 | [Petrichor, rebase held, no build](20261012/20261012-104004_petrichor-rebase-held-no-build.kyri) | Rebased one log; Consent Rail held; no build. |
