@@ -431,6 +431,7 @@
 |---|---|---|
 | 20261012.171938 | [Ff eight, receipt key held](20261012/20261012-171938_bakery-round-open-receipt-key-held-no-build.kyri) | Ruling owed; no build. |
 | 20261012.172118 | [Pheromone lane closed, repeat read, no build](20261012/20261012-172118_pheromone-lane-closed-repeat-no-build.kyri) | Lane closed; ruling owed; no build. |
+| 20261012.172233 | [Incense decline, ff diffuser, no build](20261012/20261012-172233_incense-decline-ff-diffuser-no-build.kyri) | Ff to 2ccac421e0; no build; %642 and %519 owe a word. |
 | 20261012.171755 | [Incense decline on round-open, no build](20261012/20261012-171755_incense-decline-round-open-no-build.kyri) | Ff to 4de6cd3483; nib carried; no build. |
 | 20261012.171441 | [Copal fruit rostered again, no build](20261012/20261012-171441_copal-fruit-rostered-again-no-build.kyri) | Zero unrostered witnesses again; no build; next fruit owed. |
 | 20261012.171711 | [Petrichor gate held, ff to 4de6cd, no build](20261012/20261012-171711_petrichor-gate-held-no-build.kyri) | Inner citations resolve; ruling owed; no build. |
