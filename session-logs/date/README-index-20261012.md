@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.092429 | [Petrichor, fruit gated, no build](20261012/20261012-092429_petrichor-no-build-fruit-gated.kyri) | Consent Rail gate still Diffuser's; no fruit; no build. |
 | 20261012.092332 | [Copal fourth measure, no build](20261012/20261012-092332_copal-fruit-fourth-measure-no-build.kyri) | Roster exact; zero unrostered witness; no build. |
 | 20261012.092322 | [Pheromone, queue empty, no build](20261012/20261012-092322_pheromone-queue-empty-no-build.kyri) | Language lane empty; board clear; no build. |
 | 20261012.092343 | [Diffuser P1 owed, no run](20261012/20261012-092343_diffuser-p1-owed-no-run-check-in.kyri) | P1 ruling still owed; one peer commit ff'd; no run. |
