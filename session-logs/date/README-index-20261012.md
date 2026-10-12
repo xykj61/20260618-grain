@@ -9,6 +9,7 @@
 | `20261012.000936` | [Pheromone, lane still empty, no build](20261012/20261012-000936_pheromone-lane-still-empty.kyri) | Lane unchanged at 404ca9402e; no rune, no build. |
 | `20261012.000856` | [Diffuser, P1 hold seventy-sixth, check in, no run](20261012/20261012-000856_diffuser-p1-hold-seventy-sixth-no-run.kyri) | P1 still unruled; no peer commit; no measurement, no build. |
 | `20261012.000809` | [Copal, no unrostered witness, no build](20261012/20261012-000809_copal-no-unrostered-witness-no-build.kyri) | comm reads 0 of 159; amphora none; no build. |
+| `20261012.000809` | [Grass, three prose pages B or better, no build](20261012/20261012-000809_grass-three-prose-pages-b-or-better-no-build.kyri) | README A/94, foundations README A/91, COMPASS B+/88; no edit. |
 | `20261012.000753` | [Incense, seventy-eighth, declined](20261012/20261012-000753_incense-seventy-eighth-declined-nib-carried.kyri) | Upstream 0 behind; claims clear; no build. |
 | `20261012.000750` | [Bakery, witnesses re-run, receipt key gated, no build](20261012/20261012-000750_bakery-witnesses-rerun-receipt-gated-no-build.kyri) | Both read-only witnesses green at 843314d66a; receipt key awaits ruling. |
 | `20261012.000707` | [Patchouli, queue empty, no build](20261012/20261012-000707_patchouli-queue-empty-no-build.kyri) | Queue empty on a fresh sweep of mantra/ and tally/; kumara red held for ruling; no build. |
