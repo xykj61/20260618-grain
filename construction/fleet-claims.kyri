@@ -52,3 +52,9 @@ format fleet-claims-v1
 # The board opens empty, and the first claim belongs to the next ship that opens a build. Seeding
 # it with this lap's own work would be a claim written after the fact, which is the one thing a
 # declaration may never be.
+claim bakery-tally-receipt-control-plant-adoption
+seat bakery
+stamp 20261012.013457
+epoch 1791783297
+paths tools/fixtures/t/tally_receipt_refusal_control.sh
+what Adopt the shared plant law in tally_receipt_refusal_control: replace its local sed plant helper with plant_apply from tools/fixtures/p/plant.sh, so sourcing rises 48 to 49 with the same eleven legs.
