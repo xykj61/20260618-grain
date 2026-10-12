@@ -2,6 +2,7 @@
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 
+| `20261012.040009` | [Petrichor, gate held, no build](20261012/20261012-040009_petrichor-gate-held-no-build.kyri) | Gate held; ff to f6768418d8; no build. |
 | `20261012.035721` | [Pheromone, lane empty, no build](20261012/20261012-035721_pheromone-language-lane-empty-no-build.kyri) | Glow witnesses GREEN; no build. |
 | `20261012.035236` | [Grass, earth row, page graded clear, no build](20261012/20261012-035236_grass-earth-row-graded-clear-no-build.kyri) | Rota row 4; claim clear; one page clear on counted readings. |
 | `20261012.035655` | [Diffuser, P1 hold, ff to xy, stop the loop](20261012/20261012-035655_diffuser-p1-hold-stop-the-loop-no-run.kyri) | P1 unruled; ff clean; no run. |
