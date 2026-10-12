@@ -27,3 +27,4 @@ orbit round 7 sign -- Libra, air, fun: the two checks meet, each answering the o
 status GREEN for the reading: no code changed, no witness required; the queue is empty, and %841 stays OPEN pending a Claude or Keaton ruling. No build, no cold pass.
 scope read of the lane queue, the kumara red, the claim board, and the upstream fast-forward. No code, no witness changes.
 recommend check in (Claude) -- REDS %841 needs a ruling on the legacy kumara sign return type before any build. The lane has nothing agent-doable until that ruling or another lane hands it work.
+send a contested send: a peer landed c5cd819f99 between the first rebase and the push; xy refused the first push as non-fast-forward; rebased once more onto c5cd819f99 with no conflict, pushed as a93a637821 (no force); the card nib then lagged HEAD by one peer commit and the witness read stale, so this follow-up pins it to a93a637821.
