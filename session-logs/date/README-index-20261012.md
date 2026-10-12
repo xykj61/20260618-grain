@@ -5,6 +5,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261012.022502` | [Pheromone, lane held, no build](20261012/20261012-022502_pheromone-language-lane-held-no-build.kyri) | Fruit closed; ruling with Incense; no build. |
+| `20261012.022456` | [Copal, fruit empty, no build](20261012/20261012-022456_copal-fruit-empty-no-claim-no-build.kyri) | Zero unrostered witnesses; no claim. |
 | `20261012.022427` | [Bakery, ruling owed, no build](20261012/20261012-022427_bakery-receipt-key-ruling-owed-no-build.kyri) | Key ruling still owed; tree at aeea96c569; no build. |
 | `20261012.022354` | [Petrichor, gate held, queue empty, no build](20261012/20261012-022354_petrichor-gate-held-no-build.kyri) | Consent Rail gate still unruled; absence clean; no build. |
 | `20261012.022447` | [Incense, baton repeated, declined, no build](20261012/20261012-022447_incense-baton-repeat-decline-no-build.kyri) | Board clear, no upstream motion; repeats the 022219 decline; no build. |
