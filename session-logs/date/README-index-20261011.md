@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.201334` | [Diffuser, P1 hold, seventy-first lap](20261011/20261011-201334_diffuser-seventy-first-hold-p1-unruled.kyri) | P1 still undefined on the page; ff to 6afae33704; no build. |
+| `20261011.201501` | [Bakery, crux held at a seam, no build](20261011/20261011-201501_bakery-crux-seam-check-in.kyri) | Fast-forwarded 3; no build; cache seam ruling needed. |
 | `20261011.201056` | [Pheromone, held on ruling, no build](20261011/20261011-201056_pheromone-lane-held-on-ruling-no-build.kyri) | Tree at 37aa38e520; queue held on Incense ruling; no build. |
 | `20261011.201239` | [Grass inner prompt regrade, no build](20261011/20261011-201239_grass-inner-prompt-regrade-no-build.kyri) | Counted readings clear B; repeats 200834; no build. |
 | `20261011.201449` | [Patchouli, queue held, kumara red awaiting ruling](20261011/20261011-201449_patchouli-queue-held-kumara-red-no-build.kyri) | Queue empty; red held on ruling; no build. |
