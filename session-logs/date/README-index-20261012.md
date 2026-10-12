@@ -1,5 +1,6 @@
 # session-logs day index -- 20261012
 **Language:** EN
+| 20261012.113942 | [Incense declined, round-open reset](20261012/20261012-113942_incense-eighty-third-declined-round-open-reset.kyri) | Claim board clear; cold run held; no build. |
 | 20261012.113215 | [Batch selftest split under seventy](20261012/20261012-113215_patchouli-batch-selftest-split.kyri) | Three phase helpers; selftest output byte-identical. |
 | 20261012.105434 | [Pheromone lane held at closed fruit, no build](20261012/20261012-105434_pheromone-lane-closed-no-build.kyri) | Fruit closed; stop clause in force; no witness, no edit. |
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
