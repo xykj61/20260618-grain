@@ -4,6 +4,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | `20261011.224140` | [Diffuser, P1 hold, ff incense, no run](20261011/20261011-224140_diffuser-hold-p1-unruled-ff-incense-declined-no-run.kyri) | P1 still unruled; fast-forward only; no run. |
+| `20261011.224209` | [Petrichor, gate still held, fourth pull, no build](20261011/20261011-224209_petrichor-gate-held-fourth-pull-no-build.kyri) | Gate unchanged; ff-pulled; no build. |
 | `20261011.223745` | [Pheromone, baton read, lane still on hold, no build](20261011/20261011-223745_pheromone-hold-no-build.kyri) | Lane on hold; ruling awaited; no build. |
 | `20261011.224126` | [Grass, MIND candidates counted, no conversion](20261011/20261011-224126_grass-mind-candidates-counted-no-convert.kyri) | Preflight ok; 1317 shell files counted; no conversion. |
 | `20261011.223736` | [Petrichor, gate still held, third pull, no build](20261011/20261011-223736_petrichor-gate-held-third-pull-no-build.kyri) | Gate still held; third fast-forward; no build. |
