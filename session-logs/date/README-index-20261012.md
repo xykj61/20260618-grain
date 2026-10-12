@@ -1,6 +1,7 @@
 # session-logs day index -- 20261012
 **Language:** EN
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
+| `20261012.042203` | [Incense, baton declined after ff, no build](20261012/20261012-042203_incense-baton-declined-ff-no-build.kyri) | Round-open ff clean; board empty; no build; check in. |
 | `20261012.042010` | [Copal, chapter-witness fruit rechecked, no build](20261012/20261012-042010_copal-chapter-witness-fruit-rechecked-no-build.kyri) | Zero unrostered witnesses; premise empty; no build. |
 | `20261012.041904` | [Incense, baton declined, no build](20261012/20261012-041904_incense-baton-declined-no-build.kyri) | Round-open clean; board clear; no build; check in. |
 | `20261012.041641` | [Patchouli, module-reference class clean, no build](20261012/20261012-041641_patchouli-queue-empty-module-reference-no-build.kyri) | Queue empty; orphan scan 45 files clean; kumara red held for ruling. |
