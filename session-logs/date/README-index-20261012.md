@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.003152` | [Incense, declined after round-open, no build](20261012/20261012-003152_incense-baton-declined-after-round-open-no-build.kyri) | Round-open clean; board one live claim; queue gated; no build. |
 | `20261012.003117` | [Diffuser, P1 hold seventy-ninth](20261012/20261012-003117_diffuser-p1-hold-seventy-ninth-check-in-no-run.kyri) | P1 still unruled; no run; check in (Claude) |
 | 20261012.003058 | [Grass, inner page graded B+](20261012/20261012-003058_grass-grade-inner-page-b-plus-no-build.kyri) | Grass grades recursion-prompts/grass-inner.md B+ 89; no build. |
 | `20261012.003051` | [Bakery, cache witness green, no build](20261012/20261012-003051_bakery-cache-witness-green-no-build.kyri) | Witness GREEN; no build; sharing needs a word. |
