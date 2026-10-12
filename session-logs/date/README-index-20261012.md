@@ -11,6 +11,7 @@
 | 20261012.114348 | [Copal fruit re-measured, no build](20261012/20261012-114348_copal-fruit-remeasured-no-build.kyri) | Zero unrostered chapter witnesses at 6a387f6d44; no claim, no build. |
 | 20261012.114244 | [Recall-by-mark selftest split under seventy](20261012/20261012-114244_patchouli-recall-by-mark-selftest-split.kyri) | Three helpers; selftest output byte-identical. |
 | 20261012.114537 | [Diffuser P1 check-in, no run](20261012/20261012-114537_diffuser-p1-check-in-no-run.kyri) | Fast-forward only; P1 unruled; no run, no hold row. |
+| 20261012.114424 | [Grass queue sample, all B or better](20261012/20261012-114424_grass-queue-sample-all-b-plus.kyri) | Twenty-one pages graded, none below B; reading only, no edits. |
 | 20261012.114415 | [Petrichor citation sweep, clean](20261012/20261012-114415_petrichor-docs-citation-sweep-no-break.kyri) | ff; 164 paths read; no living break; no build. |
 | 20261012.114243 | [Bakery crux held, no build](20261012/20261012-114243_bakery-crux-held-no-build.kyri) | Shared cache absent; claim owed; cold run held; no build. |
 | 20261012.114057 | [Diffuser P1 earth lap, check in](20261012/20261012-114057_diffuser-p1-earth-check-in-no-run.kyri) | ff to 29964ad275; P1 still owed; no run. |
