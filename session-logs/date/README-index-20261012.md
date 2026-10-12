@@ -10,6 +10,7 @@
 | `20261012.052751` | [Bakery, capture candidates stale, no build](20261012/20261012-052751_bakery-capture-candidate-stale-no-build.kyri) | Both preserved patches fail git apply on HEAD; no build. |
 | `20261012.053036` | [Pheromone, ff, lane empty, no build](20261012/20261012-053036_pheromone-ff-lane-empty-no-build.kyri) | Fast-forwarded five peer commits; language lane empty; no build. |
 | `20261012.052744` | [Diffuser, P1 hold, ff petrichor, no run](20261012/20261012-052744_diffuser-p1-hold-ff-petrichor-no-run.kyri) | P1 unruled; one petrichor log in; no run. |
+| `20261012.053149` | [Patchouli, tidy bans read zero, no build](20261012/20261012-053149_patchouli-tidy-bans-zero-no-build.kyri) | Tidy bans zero; memcpy only in copy.rye; no build. |
 | `20261012.052650` | [Patchouli, unwrap sites read, no build](20261012/20261012-052650_patchouli-unwrap-class-read-no-build.kyri) | Unreachable-trap class read; no new red; kumara line-36 held. |
 | `20261012.052801` | [Copal, fruit empty, no build](20261012/20261012-052801_copal-fruit-empty-no-build.kyri) | Zero unrostered witnesses; no build; override awaits a ruling. |
 | `20261012.052539` | [Petrichor, ff and gate held, no build](20261012/20261012-052539_petrichor-ff-gate-held-no-build.kyri) | Four upstream logs read; Consent Rail still Keaton's call; no fruit. |
