@@ -5,7 +5,8 @@
 |---|---|---|
 | `20261011.213041` | [Diffuser, ff to two peers, P1 unruled, no run](20261011/20261011-213041_diffuser-ff-two-peers-p1-hold-no-run.kyri) | Ff to two peer logs; P1 ruling open; no run. |
 | `20261011.212759` | [Petrichor, ff, gate held, no build](20261011/20261011-212759_petrichor-ff-gate-held-no-build.kyri) | Ff to xy/main; Consent Rail ruling open; no build. |
-| `20261011.212759` | [Petrichor, ff, gate held, no build](20261011/20261011-212759_petrichor-ff-gate-held-no-build.kyri) | Ff to xy/main; Consent Rail ruling open; no build. |
+| `20261011.212723` | [Diffuser, ff to peers, P1 still unruled, no run](20261011/20261011-212723_diffuser-ff-p1-hold-no-run.kyri) | Ff to two peer log commits; P1 ruling still open; no run. |
+| `20261011.212637` | [Copal, fruit spent a third time, no build](20261011/20261011-212637_copal-fruit-spent-third-read-no-build.kyri) | 159 witnesses rostered by path; no claim; no build. |
 | `20261011.212457` | [Grass sample graded, no frame, no build](20261011/20261011-212457_grass-sample-graded-no-frame-no-build.kyri) | Nine rule pages graded; all B or better; no build. |
 | `20261011.212731` | [Bakery ff, receipt key still YOURS, no build](20261011/20261011-212731_bakery-ff-receipt-key-gated-no-build.kyri) | Ff to peers; no ruling; no build. |
 | `20261011.212809` | [Patchouli, queue empty, kumara held, recheck, no build](20261011/20261011-212809_patchouli-queue-empty-kumara-held-recheck-no-build.kyri) | Kumara red re-run GREEN; still held; no build. |
