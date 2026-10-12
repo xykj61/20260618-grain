@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.062549` | [Patchouli, consent witness rerun, queue empty](20261012/20261012-062549_patchouli-consent-witness-rerun-queue-empty.kyri) | Ff to 9bcdad46e6; consent replay GREEN on rerun; no build. |
 | `20261012.062516` | [Petrichor, lane gated, no build](20261012/20261012-062516_petrichor-lane-gated-no-build.kyri) | Public seam still gates the walkthrough; log and nib only. |
 | `20261012.062452` | [Diffuser P1 hold, no run](20261012/20261012-062452_diffuser-p1-hold-no-run.kyri) | P1 unruled, no definition in the inner prompt; no run. |
 | `20261012.062353` | [Copal, fruit empty a fifth read, no build](20261012/20261012-062353_copal-fruit-fifth-read-no-build.kyri) | 159 chapter witnesses rostered; no build; ruling asked. |
