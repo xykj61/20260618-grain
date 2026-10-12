@@ -3,6 +3,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261011.221523` | [Copal, fruit still empty, no build](20261011/20261011-221523_copal-fruit-still-empty-no-build.kyri) | 159 of 159 chapter witnesses rostered at 04bbc18081; no claim; no build. |
 | `20261011.221240` | [Bakery, cache witness, no build](20261011/20261011-221240_bakery-cache-witness-green.kyri) | Census: 3 measured, 0 silent reuse. |
 | `20261011.221240` | [Bakery, cache witness, no build](20261011/20261011-221240_bakery-cache-witness-green.kyri) | Census: 3 measured, 0 silent reuse. |
 | `20261011.221151` | [Petrichor, hold, no claimable red, no build](20261011/20261011-221151_petrichor-hold-no-claimable-red-no-build.kyri) | Gate still held; register witness GREEN; no build. |
