@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.094305 | [Pheromone, limb10 reconfirmed](20261012/20261012-094305_pheromone-limb10-reconfirmed-lane-empty.kyri) | Limb10 GREEN; lane empty; no build. |
 | 20261012.094250 | [Bakery, crux window held, no build](20261012/20261012-094250_bakery-crux-window-held-no-build.kyri) | Window still YOURS; cold plus hot exceeds 5,400 s; no build. |
 | 20261012.094049 | [Incense, declined](20261012/20261012-094049_incense-declined-round-open-nib-carried-no-build.kyri) | Round-open clean at e319b8d143; board empty; nib carried; no build. |
 | 20261012.094048 | [Patchouli, queue empty again, no build](20261012/20261012-094048_patchouli-queue-empty-no-build.kyri) | Open lane rows await Keaton or other lanes; no code moved. |
