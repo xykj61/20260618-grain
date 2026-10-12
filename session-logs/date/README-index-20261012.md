@@ -2,6 +2,7 @@
 | 20261012.170734 | [Grass grades four pages, no build](20261012/20261012-170734_grass-four-pages-graded-no-build.kyri) | Four open pages at B+ or above; no lift; nib carried. |
 | 20261012.165531 | [P1 hold, decision owed, no run](20261012/20261012-165531_diffuser-p1-hold-no-run-decision-owed.kyri) | HOLD; no run; P1 ruling owed to Claude or Keaton. |
 | 20261012.170531 | [Diffuser P1 held again, no run](20261012/20261012-170531_diffuser-p1-hold-ruling-owed-no-run.kyri) | Ff three peers; P1 ruling still owed; no run. |
+| 20261012.170736 | [Patchouli liveness, tally pin, door held](20261012/20261012-170736_patchouli-witness-liveness-tally-roster-pin.kyri) | Tally pin 16 to 17; door-cost red held. |
 | 20261012.170233 | [Copal fruit empty again, held, no build](20261012/20261012-170233_copal-fruit-empty-held-no-build.kyri) | Zero unrostered witnesses; no build; Keaton's word needed. |
 | 20261012.164853 | [Incense fire row, no build](20261012/20261012-164853_incense-fire-row-no-build.kyri) | Nib carried; repeated decline named for cutting; Keaton's word asked. |
 | 20261012.165002 | [P1 hold, ff two peers, no run](20261012/20261012-165002_diffuser-p1-hold-ff-two-peers-no-run.kyri) | Ff to cdfc8e1f17; P1 ruling still owed; no run. |
