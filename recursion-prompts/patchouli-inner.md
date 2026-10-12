@@ -455,6 +455,19 @@ so this lap books it as the next candidate and builds nothing. The reading is ro
 indent-matched brace can miss a body that closes on a shared line. Re-run it rather than trusting this
 paragraph.
 
+**Erratum `20261012.080538` -- the figures above were wrong, and the split they priced is landed.**
+The 265, 118 and 91 lines were a brace-depth overcount. Measured again by indentation-matched closing
+brace on `20261012.080538`: `apply` is **51** lines, `merge` **58**, `from_v2` **63**. The one
+production function in `weave.rye` past 70 was `apply_deletes` at **84**. It now stands at **70**, after
+`sorted_delete_targets` (32 lines) took the copy, sort, and duplicate refusal. Its walk and mutation
+stay where they were, and the refusal still lands before any generation moves. Proven by
+`rishi/bin/rishi run tools/m/mantra_weave_apply_witness.rish` GREEN, and the merge, v1-lift, v2,
+v1-write, order-record, annotate-cli, and tablecloth witnesses all exit 0 on the same tree. The
+remaining over-70 production functions are the `run_selftest` harnesses in `recall_batch_delivery.rye`,
+`spool.rye`, `beading.rye`, `resin_batch.rye`, `recall_sync_delivery.rye`, and `recall_by_mark.rye`,
+plus `snapshot_export.rye`'s `parse_head_record_content` at 76. Those are the next candidates; the weave
+seam is no longer one of them.
+
 **The assert-density class, measured `20261012.022438`: 418 of 618 functions carry fewer than two `assert(` lines.** The reading covers the 62 non-witness `.rye` files of `mantra/` and `tally/`, with the same brace-depth walk as the function-length class. Of the 418, 171 run ten lines or longer, 188 run four to nine, and 60 run under four, so the thin set is not a set of one-liners. The gap is in the tree's own rule, which asks at least two asserts per function. No guard reads it: `tame_style_check` gates whether a file holds any `assert(` at all, which reads zero, and says nothing about the density inside it. The spot check at `mantra/recall_tablecloth_query_wire.rye:109` holds up. `encode_request` is 41 lines with one assert and no `// invariant:` comment. This lap books the class as a ratchet and builds nothing. The reading is a scratch awk walk, so re-run it rather than trusting this paragraph.
 
 **The queue reads empty again, `20261012.031016`, and the fire row sees the held red.** The council row for this lap is fire, which sees. What it sees is the kumara red from `20261010.152007`: `tally/kumara.rye:36` still reads `return kp.sign(message, noise) catch unreachable`, the legacy `sign` a caller can reach with a mismatched pair. That red is real and not yet in `construction/REDS.md`. The ledger pin already stands at 65,532 bytes, and a booked row there means folding shared rows, which eight ships read. So the row stays held for Keaton's ruling on headroom and on the legacy return type, as the `20261010` entry says. No new candidate turned up in `mantra/` or `tally/`.
