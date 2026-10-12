@@ -4,6 +4,7 @@
 
 | Stamp | Log | What it carried |
 |---|---|---|
+| `20261012.073636` | [Grass, queue empty, no build, log-only](20261012/20261012-073636_grass-queue-empty-no-build.kyri) | Queue empty, claim board clear; no surface opened, no grade taken. |
 | `20261012.073518` | [Pheromone, queue empty, witness GREEN, no build](20261012/20261012-073518_pheromone-lane-empty-witness-green-no-build.kyri) | Glow capacity GREEN at 15; lane empty; no claim; no build. |
 | `20261012.073530` | [Diffuser, P1 still unruled, fast-forward of two peers, no run](20261012/20261012-073530_diffuser-p1-hold-ff-peers-no-run-4.kyri) | Held pass on P1; no ruling landed; no run. |
 | `20261012.073239` | [Diffuser, P1 still unruled, fast-forward past two peer logs, no run](20261012/20261012-073239_diffuser-p1-hold-ff-peers-no-run-3.kyri) | Held pass on P1; no ruling landed; no run. |
