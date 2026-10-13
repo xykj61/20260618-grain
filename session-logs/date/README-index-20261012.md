@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.213606 | [Incense clean board, held, no build](20261012/20261012-213606_incense-clean-board-held-no-build.kyri) | Clear board; order holds rulings; no build. |
 | 20261012.213200 | [Grass inner re-read B+, no build](20261012/20261012-213200_grass-grade-inner-reread-no-build.kyri) | Re-read at a4ab89a61f; composite 88; no molt. |
 | 20261012.213503 | [Pheromone parked, no build](20261012/20261012-213503_pheromone-parked-no-build.kyri) | Lane empty; REDS rows are other lanes; no build. |
 | 20261012.213141 | [Patchouli asked-twice reads green](20261012/20261012-213141_patchouli-tablecloth-asked-twice-green.kyri) | Fifth claim: same weave, same bytes and digest; GREEN. |
