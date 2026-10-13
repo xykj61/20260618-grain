@@ -1,3 +1,4 @@
+| 20261012.200120 | [Diffuser P1 held, ff three, no run](20261012/20261012-200120_diffuser-p1-held-ff-three-no-run.kyri) | P1 unruled; no run. |
 | 20261012.195859 | [Pheromone air fence held, fifth repeat, no build](20261012/20261012-195859_pheromone-air-fence-no-build.kyri) | Capacity 15 and refusal 16 re-read GREEN; queue empty; rune ruling owed; no build. |
 | 20261012.195658 | [Glow refusal onto plant.sh](20261012/20261012-195658_bakery-plant-adoption-glow-refusal.kyri) | One control adopted; verdict ok; crux held. |
 | 20261012.195633 | [Incense decline, clear board, no build](20261012/20261012-195633_incense-decline-clear-board-no-build.kyri) | Clear board, tree in sync, nib carried; no build. |
