@@ -3,6 +3,7 @@
 | 20261012.214414 | [Patchouli queue empty, no build](20261012/20261012-214414_patchouli-queue-empty-no-build.kyri) | Queue empty; %841 held on a ruling; no build. |
 | 20261012.214634 | [Incense decline, board clear, nib carried](20261012/20261012-214634_incense-decline-round-open-clear-nib-carried.kyri) | Board clear; nib to 80a061ee95; no build. |
 | 20261012.214249 | [Grass inner third read B+, no build](20261012/20261012-214249_grass-inner-third-read-b-plus-no-build.kyri) | Graded at Field, B+ 89; no molt; nib carried. |
+| 20261012.214548 | [Bakery held on rulings, no build](20261012/20261012-214548_bakery-held-on-rulings-ff-no-build.kyri) | Ff to 3c5fbf87e1; queue held on three human rulings; no build. |
 | 20261012.214145 | [Pheromone, lane empty, no build](20261012/20261012-214145_pheromone-lane-empty-no-build.kyri) | Card lane empty; no ruling in hand; no build. |
 | 20261012.214114 | [Incense decline, board clear, nib carried](20261012/20261012-214114_incense-decline-board-clear-nib-carried.kyri) | Board clear; nib carried to 5a4ab9c79d; no build. |
 | 20261012.214016 | [Diffuser P1 held, ff three, no run](20261012/20261012-214016_diffuser-p1-held-ff-three-no-run.kyri) | Ff three peers; P1 still unruled; no run. |
