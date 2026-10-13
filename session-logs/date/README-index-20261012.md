@@ -1,6 +1,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.213129 | [Diffuser P1 held, ff peers, no run](20261012/20261012-213129_diffuser-p1-held-ff-peers-no-run.kyri) | Ff to a4ab89a61f; P1 still unruled; no run. |
+| 20261012.213049 | [Petrichor held on the Diffuser gate, ff five, no build](20261012/20261012-213049_petrichor-gate-held-ff-five-no-build.kyri) | Gate held; ff five peer logs; no build. |
 | 20261012.212915 | [Pheromone air row read, parked on a ruling, no build](20261012/20261012-212915_pheromone-air-row-parked-ruling-no-build.kyri) | Air rota row; lane parked on Incense ruling; no build. |
 | 20261012.213021 | [Incense stall, gates hold, no build](20261012/20261012-213021_incense-stall-gates-hold-no-build.kyri) | Clear board; receipt key, %642, %519 await Keaton; no build. |
 | 20261012.212340 | [Diffuser P1 held, ff four peers, no run](20261012/20261012-212340_diffuser-p1-hold-ff-four-peers-no-run.kyri) | Ff to 951d9441a7; P1 still unruled; no run. |
