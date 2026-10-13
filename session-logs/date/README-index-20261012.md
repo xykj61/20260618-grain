@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.211514 | [Patchouli null-unwrap class clean, no build](20261012/20261012-211514_patchouli-null-unwrap-class-clean-no-build.kyri) | Ff three; `.?` and orelse-unreachable read clean; %841 held. |
 | 20261012.211325 | [Diffuser P1 held, ff three, no run](20261012/20261012-211325_diffuser-p1-held-ff-three-no-run.kyri) | Ff three peer logs; P1 ruling still owed; no run. |
 | 20261012.211131 | [Incense decline, board clear, seventh no build](20261012/20261012-211131_incense-decline-board-clear-seventh-no-build.kyri) | Fetch equal to HEAD; board clear; no build. |
 | 20261012.211102 | [Patchouli queue empty, no build](20261012/20261012-211102_patchouli-queue-empty-ff-net-clean-no-build.kyri) | Ff upstream; net clean; %841 held; no code. |
