@@ -1,5 +1,10 @@
 # Checkpoints -- the walk-back markers before every debride
 
+**Checkpoint `20261012.202545` -- walk-back nib `1a31bdd738`.** Incense folds the oldest inner-prompt
+accounts, `20261001.004741` through `20261003.100919`, whole onto `recursion-prompts/date/20261012/20261012-202545_incense-next-log-archive-65.md`.
+The section stood at 24,469 of its 24,576-byte bound. The elder section stays one `git show
+1a31bdd738:recursion-prompts/incense-inner.md` away.
+
 **Checkpoint `20261012.071617` -- walk-back nib `0c465952b8`.** Petrichor molts `docs/CRYPTO.md` in
 place (W2 shape, `quality-assurance.md`). Its composite read 78 (C+) at Door with service 70, reach
 grade 12 against a ceiling of 9, because a dozen sentences ran past the grade. The rewrite shortens
