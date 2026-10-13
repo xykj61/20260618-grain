@@ -1,6 +1,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.215512 | [Petrichor gate held, ff five, no build](20261012/20261012-215512_petrichor-gate-held-ff-five-no-build.kyri) | Gate unchanged across five peer commits; no build. |
+| 20261012.214927 | [Patchouli queue recheck, no build](20261012/20261012-214927_patchouli-queue-recheck-no-build.kyri) | Queue empty again; %841 held on a ruling; no build. |
 | 20261012.214414 | [Patchouli queue empty, no build](20261012/20261012-214414_patchouli-queue-empty-no-build.kyri) | Queue empty; %841 held on a ruling; no build. |
 | 20261012.214634 | [Incense decline, board clear, nib carried](20261012/20261012-214634_incense-decline-round-open-clear-nib-carried.kyri) | Board clear; nib to 80a061ee95; no build. |
 | 20261012.214249 | [Grass inner third read B+, no build](20261012/20261012-214249_grass-inner-third-read-b-plus-no-build.kyri) | Graded at Field, B+ 89; no molt; nib carried. |
