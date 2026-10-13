@@ -1,3 +1,4 @@
+| 20261012.200826 | [Caravan refusal-collapse control onto plant.sh](20261012/20261012-200826_bakery-refusal-collapse-plant-adoption.kyri) | One control adopted; verdict refused; crux held. |
 | 20261012.200752 | [Grass foundations sample graded, no build](20261012/20261012-200752_grass-foundations-sample-no-build.kyri) | Twelve foundations sampled; none below B to lift; no build. |
 | 20261012.200644 | [Pheromone queue empty, no build](20261012/20261012-200644_pheromone-queue-empty-capacity-green-no-build.kyri) | Capacity green; no build. |
 | 20261012.200759 | [Incense decline, ff two, nib carried](20261012/20261012-200759_incense-decline-ff-nib-carried.kyri) | Clear board; no build; nib carried. |

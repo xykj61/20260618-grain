@@ -26,7 +26,13 @@ cp caravan/study_door.rye "$build_dir/study_door.rye"
 # Collapse two distinct answers into one: an ungranted resource stops being an invalid capability and
 # becomes the same failed lookup an unknown dependent already is. The module's own self-test asserts
 # those three stay distinct, so a healthy module must refuse this copy.
-sed 's/\.no_such_resource => \.invalid_capability,/.no_such_resource => .failed_lookup,/' "$src" > "$copy"
+# The plant goes through the one proven implementation (REDS %519): a line that moved refuses by
+# name rather than building the unmutated module and reading that as a pass.
+. tools/fixtures/p/plant.sh
+if ! plant_write "$src" "$copy" 's/\.no_such_resource => \.invalid_capability,/.no_such_resource => .failed_lookup,/' caravan_refusal_collapse; then
+    echo "planted=0 selftest_exit=0 verdict=not-planted"
+    exit 0
+fi
 
 planted=$(grep -c 'no_such_resource => \.failed_lookup,' "$copy" || true)
 if [ "$planted" != "1" ]; then
