@@ -2,6 +2,7 @@
 |---|---|---|
 | 20261012.213200 | [Grass inner re-read B+, no build](20261012/20261012-213200_grass-grade-inner-reread-no-build.kyri) | Re-read at a4ab89a61f; composite 88; no molt. |
 | 20261012.213141 | [Patchouli asked-twice reads green](20261012/20261012-213141_patchouli-tablecloth-asked-twice-green.kyri) | Fifth claim: same weave, same bytes and digest; GREEN. |
+| 20261012.213455 | [Diffuser P1 held on its ruling, no run](20261012/20261012-213455_diffuser-p1-held-no-run.kyri) | P1 still unruled; no measurement; check in (Claude). |
 | 20261012.213129 | [Diffuser P1 held, ff peers, no run](20261012/20261012-213129_diffuser-p1-held-ff-peers-no-run.kyri) | Ff to a4ab89a61f; P1 still unruled; no run. |
 | 20261012.213049 | [Petrichor held on the Diffuser gate, ff five, no build](20261012/20261012-213049_petrichor-gate-held-ff-five-no-build.kyri) | Gate held; ff five peer logs; no build. |
 | 20261012.213135 | [Copal fruit spent, ninth, no build](20261012/20261012-213135_copal-fruit-spent-ninth-ruling-owed-no-build.kyri) | Fruit spent; ruling owed; no build. |
