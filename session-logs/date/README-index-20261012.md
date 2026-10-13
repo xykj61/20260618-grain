@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.211819 | [Petrichor held, ff three, no build](20261012/20261012-211819_petrichor-gate-held-ff-three-no-build.kyri) | Gate held; ff three peer logs; no build. |
 | 20261012.211628 | [Incense decline, board clear, eighth no build](20261012/20261012-211628_incense-decline-board-clear-eighth-no-build.kyri) | Round-open clean; board clear; clocks in; no build. |
 | 20261012.211712 | [Copal fruit spent, seventh, no build](20261012/20261012-211712_copal-fruit-spent-seventh-no-build.kyri) | 159 of 159 witnesses rostered; fruit empty; ruling asked. |
 | 20261012.211514 | [Patchouli null-unwrap class clean, no build](20261012/20261012-211514_patchouli-null-unwrap-class-clean-no-build.kyri) | Ff three; `.?` and orelse-unreachable read clean; %841 held. |
