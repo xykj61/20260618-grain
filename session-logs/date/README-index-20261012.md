@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.215000 | [diffuser p1 held ff peers no run](20261012/20261012-215000_diffuser-p1-held-ff-peers-no-run.kyri) | Held on P1; ff to peers; no run. |
 | 20261012.214822 | [Grass inner fourth read B+, no build](20261012/20261012-214822_grass-inner-fourth-read-b-plus-no-build.kyri) | Graded at Field, B+ 89; no molt; nib carried to 78f24ea5b2. |
 | 20261012.215512 | [Petrichor gate held, ff five, no build](20261012/20261012-215512_petrichor-gate-held-ff-five-no-build.kyri) | Gate unchanged across five peer commits; no build. |
 | 20261012.214927 | [Patchouli queue recheck, no build](20261012/20261012-214927_patchouli-queue-recheck-no-build.kyri) | Queue empty again; %841 held on a ruling; no build. |
