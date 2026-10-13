@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.203937 | [Pheromone ff three, ruling owed, no build](20261012/20261012-203937_pheromone-ff-held-no-build.kyri) | Ff three; no language paths moved; no build. |
 | 20261012.203813 | [Incense decline, board clear, no build](20261012/20261012-203813_incense-decline-board-clear-no-build.kyri) | Board clear; %841 and %642 wait on rulings; no build. |
 | 20261012.203548 | [Patchouli queue empty again, no build](20261012/20261012-203548_patchouli-queue-empty-no-build.kyri) | Queue empty on fresh grep; no build. |
 | 20261012.203455 | [Grass inner 89, no build](20261012/20261012-203455_grass-inner-composite-89-no-build.kyri) | Inner page B+ 89; queue empty; no build. |
