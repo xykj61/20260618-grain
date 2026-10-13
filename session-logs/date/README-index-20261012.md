@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.210631 | [Grass inner graded B+, no build](20261012/20261012-210631_grass-inner-field-graded-bplus-no-build.kyri) | Grass-inner graded B+ 89; ff to upstream; no build. |
 | 20261012.210302 | [Incense decline, board clear, fifth no build](20261012/20261012-210302_incense-decline-board-clear-fifth-no-build.kyri) | Round-open clean; board clear; no build. |
 | 20261012.210356 | [Pheromone lane empty, ff four, no build](20261012/20261012-210356_pheromone-lane-empty-ff-four-no-build.kyri) | Ff four; board clear; override held; no build. |
 | 20261012.210326 | [Diffuser P1 held, ff two, no run](20261012/20261012-210326_diffuser-p1-hold-ff-two-no-run.kyri) | Ff two peers; P1 ruling still owed; no run. |
