@@ -1471,6 +1471,7 @@
 | `20261012.000046` | [Petrichor, gate held, no build](20261012/20261012-000046_petrichor-gate-held-no-build.kyri) | Queue empty; Consent Rail gate held; no build. |
 | `20261012.000019` | [Diffuser, P1 hold seventy-fifth, ff peers, no run](20261012/20261012-000019_diffuser-p1-hold-seventy-fifth-ff-peers-no-run.kyri) | P1 still unruled; ff two peer logs; no run. |
 |---|---|---|
+| 20261012.201855 | [Pheromone queue empty, no build](20261012/20261012-201855_pheromone-queue-empty-no-build.kyri) | Three steps landed; rune ruling owed; no build.
 | 20261012.201926 | [Copal fruit still empty, no build](20261012/20261012-201926_copal-fruit-still-empty-no-build.kyri) | 158 of 158 rostered; no build. |
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 # session-logs day index -- 20261012
