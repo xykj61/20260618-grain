@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.205055 | [Diffuser P1 held, ff three, no run](20261012/20261012-205055_diffuser-p1-hold-ff-three-no-run.kyri) | Ff three peers; P1 ruling owed; no build. |
 | 20261012.204923 | [Grass queue spent, four heads at A or B+, no build](20261012/20261012-204923_grass-queue-spent-till-voucher-regraded.kyri) | Named heads read A or B+; no edit; no build. |
 | 20261012.204903 | [Crux gated, no build](20261012/20261012-204903_bakery-crux-gated-no-build.kyri) | Ff to ecc34f5211; crux waits on receipt key and window rulings; no build. |
 | 20261012.204805 | [Patchouli queue empty, fifteenth fresh net, no build](20261012/20261012-204805_patchouli-queue-empty-fifteenth-no-build.kyri) | Fresh -v grep clean; no code; nib carried. |
