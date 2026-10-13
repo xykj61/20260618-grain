@@ -24,3 +24,4 @@ file session-logs/date/20261012/20261012-205806_petrichor-gate-held-ff-four-no-b
 scope fast-forward of four upstream logs; card nib carried; no build; no sweep; no code
 status GREEN for the gate check (zero changed bytes on the seam paths); no product work landed
 recommend check-in (checkpoint) -- Petrichor's next fruit waits on the public seam landing or Keaton's word on the Consent Rail ruling
+file construction/ITINERARY.md the rebase after a race left the Git nib one commit behind; repaired by this follow-up to c343ed6d43, the HEAD read before this commit
