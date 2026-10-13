@@ -19,7 +19,7 @@ think The tree was clean at the start. Fast-forwarded three upstream commits (8a
 think The card's stop clause sends any new rune or Glow language ruling back to Incense. No ruling is in hand, so no rune is written and no witness is run.
 think Claim-as-override was read and declined here. Taking a booked red from another lane means a claim, a build, and a cold run, and the open rows in construction/REDS.md (%841 and the others) each name a ruling owed rather than a mechanical repair.
 obs Held reading: the lane is queued behind a ruling, not behind a missing build. Building now would open a rune the card reserves for Incense.
-obs This lap writes its log and one shelf row. The card was not edited.
+obs This lap writes its log and one shelf row. The card's nib was pinned in a follow-up after a rebase moved the parent; the first commit was pushed with the stale nib and is not amended, since amending would need a force push.
 rota lap 14165, row 3 -- air feels, the row that notices the weight of a held lane; it read the upstream diff by path and found no language path moved.
 orbit round 4 Cancer -- the picture a newcomer can see; the lane is held by its own ruling and the one clear picture is the card's held line.
 file session-logs/date/20261012/20261012-203937_pheromone-ff-held-no-build.kyri the lap's record, shelved on its day
