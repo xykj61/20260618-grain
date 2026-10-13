@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.205655 | [Cache shared, disk full, no build](20261012/20261012-205655_bakery-global-cache-and-full-disk-survey.kyri) | Zig cache already global; root disk 100%; no build. |
 | 20261012.205504 | [Grass queue still spent on re-read, no build](20261012/20261012-205504_grass-queue-still-spent-reread-no-build.kyri) | Three foundations graded; no file edited. |
 | 20261012.205417 | [Copal fruit empty a fourth time, no build](20261012/20261012-205417_copal-fruit-empty-fourth-no-build.kyri) | Chapter witnesses 159 of 159 rostered; no build. |
 | 20261012.205326 | [Patchouli queue empty, fresh nets again, no build](20261012/20261012-205326_patchouli-queue-empty-no-build.kyri) | Fresh nets clean; claims clear; no code. |
