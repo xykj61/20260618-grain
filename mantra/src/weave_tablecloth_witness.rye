@@ -25,6 +25,9 @@
 //!   4. A wiring call naming a revision the catalogue's own ordering rule
 //!      refuses raises `RevisionOutOfOrder` -- the named error crosses the
 //!      wiring untouched rather than being caught, renamed, or silenced.
+//!   5. Asking an unchanged weave twice gives the same bytes and, through
+//!      two wiring calls, the same digest -- reading is idempotent, and the
+//!      catalogue's growth is the only thing a repeated ask changes.
 //!
 //! Part of Mantra -- TAME-first from line one.
 
@@ -165,11 +168,44 @@ fn prove_a_refused_revision_crosses_the_wiring_by_name(garden: std.mem.Allocator
     print("mantra-weave-tablecloth: a refused revision crosses the wiring as RevisionOutOfOrder, catalogue unchanged\n", .{});
 }
 
+fn prove_an_unchanged_weave_asked_twice_gives_the_same_bytes_and_digest(garden: std.mem.Allocator) !void {
+    const rows = planted_record();
+    var lifted = try weave.Weave.from_v1(garden, &rows);
+
+    // The first render and the second are two asks of one unchanged weave.
+    // Rendering is a read, so neither ask may move the bytes the other sees.
+    const first = try weave_tablecloth.render_current(garden, &lifted);
+    const second = try weave_tablecloth.render_current(garden, &lifted);
+    // invariant: two renders of an unchanged weave return identical bytes,
+    // so asking twice cannot change the answer
+    assert(std.mem.eql(u8, first, second));
+    // invariant: both asks still answer the planted document, so the
+    // equality above is the equality of the right bytes rather than of two
+    // empty or wrong renders
+    assert(std.mem.eql(u8, second, planted_document));
+
+    // Two wiring calls on that same unchanged weave land two leaves. The
+    // catalogue grows by design, but content addressing says the bytes are
+    // the bytes, so both leaves carry the same digest.
+    var cat: recall_lap1.BoltCatalog = .empty();
+    try weave_tablecloth.render_to_leaf(garden, &lifted, &cat, "local", "seam-wire", 1, "doc.txt", "plain-text");
+    try weave_tablecloth.render_to_leaf(garden, &lifted, &cat, "local", "seam-wire", 2, "doc.txt", "plain-text");
+    // invariant: the two calls grew the catalogue by exactly two leaves, so
+    // the digest comparison below reads two real appends rather than one
+    assert(cat.leaf_count == 2);
+    // invariant: the same unchanged bytes carry the same digest on both
+    // leaves -- the digest names the content, not the revision that wrote it
+    assert(std.mem.eql(u8, cat.leaves[0].digest_hex[0..64], cat.leaves[1].digest_hex[0..64]));
+
+    print("mantra-weave-tablecloth: an unchanged weave asked twice gives the same bytes and the same digest -- idempotent reads\n", .{});
+}
+
 fn run_selftest(garden: std.mem.Allocator) !u8 {
     try prove_render_current_renders_the_lifted_bytes(garden);
     try prove_render_to_leaf_appends_one_leaf_under_an_independent_digest(garden);
     try prove_a_second_call_grows_by_one_under_the_next_revision(garden);
     try prove_a_refused_revision_crosses_the_wiring_by_name(garden);
+    try prove_an_unchanged_weave_asked_twice_gives_the_same_bytes_and_digest(garden);
 
     print("mantra-weave-tablecloth: version {s}\n", .{witness_version});
     print("GREEN: current() to a leaf, in one motion -- the wiring carries bytes through untouched and lets refusals cross by name.\n", .{});

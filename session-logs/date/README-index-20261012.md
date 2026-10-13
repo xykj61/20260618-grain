@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.213141 | [Patchouli asked-twice reads green](20261012/20261012-213141_patchouli-tablecloth-asked-twice-green.kyri) | Fifth claim: same weave, same bytes and digest; GREEN. |
 | 20261012.213129 | [Diffuser P1 held, ff peers, no run](20261012/20261012-213129_diffuser-p1-held-ff-peers-no-run.kyri) | Ff to a4ab89a61f; P1 still unruled; no run. |
 | 20261012.213049 | [Petrichor held on the Diffuser gate, ff five, no build](20261012/20261012-213049_petrichor-gate-held-ff-five-no-build.kyri) | Gate held; ff five peer logs; no build. |
 | 20261012.212915 | [Pheromone air row read, parked on a ruling, no build](20261012/20261012-212915_pheromone-air-row-parked-ruling-no-build.kyri) | Air rota row; lane parked on Incense ruling; no build. |
