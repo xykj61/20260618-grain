@@ -1,3 +1,4 @@
+| 20261012.201159 | [Pheromone round-open, limb10 GREEN, no build](20261012/20261012-201159_pheromone-round-open-limb10-green-no-build.kyri) | Limb10 GREEN on metal; queue empty; no build.
 | 20261012.200959 | [Patchouli queue empty, %841 held, no build](20261012/20261012-200959_patchouli-queue-empty-841-held-no-build.kyri) | Queue empty; %841 ruling owed; no build. |
 | 20261012.200826 | [Caravan refusal-collapse control onto plant.sh](20261012/20261012-200826_bakery-refusal-collapse-plant-adoption.kyri) | One control adopted; verdict refused; crux held. |
 | 20261012.200752 | [Grass foundations sample graded, no build](20261012/20261012-200752_grass-foundations-sample-no-build.kyri) | Twelve foundations sampled; none below B to lift; no build. |
