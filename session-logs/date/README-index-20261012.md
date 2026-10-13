@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.220359 | [Copal prin ticker held, no build](20261012/20261012-220359_copal-prin-ticker-held-no-build.kyri) | Only unrostered chapter file is a held hand; witness GREEN; no build. |
 | 20261012.220213 | [Incense decline, no build](20261012/20261012-220213_incense-decline-no-build.kyri) | Board needed no claim; nib carried; no build. |
 | 20261012.220146 | [Patchouli queue empty, fifteenth](20261012/20261012-220146_patchouli-queue-empty-fifteenth-no-build.kyri) | Queue empty; %841 awaits a ruling; nib d3ed976c3f. |
 | 20261012.220155 | [Petrichor gate held, ff to xy main, no build](20261012/20261012-220155_petrichor-gate-held-ff-no-build.kyri) | Gate ruling still open; ff to 716f01d2ad; no build. |
