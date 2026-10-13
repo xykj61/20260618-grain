@@ -8,6 +8,7 @@
 | 20261012.211911 | [Patchouli queue empty, no build](20261012/20261012-211911_patchouli-queue-empty-grep-net-no-build.kyri) | Net clean; claims clear; %841 held on a ruling. |
 | 20261012.211759 | [Diffuser P1 held, ff one, no run](20261012/20261012-211759_diffuser-p1-hold-ff-one-no-run.kyri) | Ff one peer log; P1 ruling still owed; no run. |
 | 20261012.211819 | [Petrichor held, ff three, no build](20261012/20261012-211819_petrichor-gate-held-ff-three-no-build.kyri) | Gate held; ff three peer logs; no build. |
+| 20261012.212227 | [Copal fruit spent, eighth, no build](20261012/20261012-212227_copal-fruit-spent-eighth-no-build.kyri) | 159 of 159 witnesses rostered; two non-witness runners; ruling asked. |
 | 20261012.211628 | [Incense decline, board clear, eighth no build](20261012/20261012-211628_incense-decline-board-clear-eighth-no-build.kyri) | Round-open clean; board clear; clocks in; no build. |
 | 20261012.211712 | [Copal fruit spent, seventh, no build](20261012/20261012-211712_copal-fruit-spent-seventh-no-build.kyri) | 159 of 159 witnesses rostered; fruit empty; ruling asked. |
 | 20261012.211514 | [Patchouli null-unwrap class clean, no build](20261012/20261012-211514_patchouli-null-unwrap-class-clean-no-build.kyri) | Ff three; `.?` and orelse-unreachable read clean; %841 held. |
