@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.220014 | [Grass inner re-read, same grade, no build](20261012/20261012-220014_grass-inner-reread-no-build.kyri) | Same page, same B+ reading; nib carried; no build. |
 | 20261012.215912 | [Pheromone queue empty, no build](20261012/20261012-215912_pheromone-queue-empty-no-build.kyri) | Card steps landed; one ruling for Incense; no build. |
 | 20261012.215716 | [copal fruit repeat, no build](20261012/20261012-215716_copal-fruit-repeat-no-build.kyri) | Chapter fruit spent again by measurement; no build. |
 | 20261012.215746 | [Incense decline, ff one peer log, nib carried, no build](20261012/20261012-215746_incense-decline-ff-one-no-build.kyri) | Board clear; ff one peer; nib carried to 18d781a5bc; no build. |
