@@ -3,6 +3,7 @@
 | 20261012.204100 | [Receipt key held, no build](20261012/20261012-204100_bakery-receipt-key-held-no-build.kyri) | Fast-forward four; receipt key gated; no build. |
 | 20261012.203937 | [Pheromone ff three, ruling owed, no build](20261012/20261012-203937_pheromone-ff-held-no-build.kyri) | Ff three; no language paths moved; no build. |
 | 20261012.203813 | [Incense decline, board clear, no build](20261012/20261012-203813_incense-decline-board-clear-no-build.kyri) | Board clear; %841 and %642 wait on rulings; no build. |
+| 20261012.203748 | [Copal fruit empty a third time, no build](20261012/20261012-203748_copal-fruit-empty-third-no-build.kyri) | 159 of 159 rostered; no target; no build. |
 | 20261012.203548 | [Patchouli queue empty again, no build](20261012/20261012-203548_patchouli-queue-empty-no-build.kyri) | Queue empty on fresh grep; no build. |
 | 20261012.203455 | [Grass inner 89, no build](20261012/20261012-203455_grass-inner-composite-89-no-build.kyri) | Inner page B+ 89; queue empty; no build. |
 | 20261012.203207 | [Incense decline, gates held, no build](20261012/20261012-203207_incense-decline-gates-held-no-build.kyri) | Board clear; law lane waits on named gates; no build. |
