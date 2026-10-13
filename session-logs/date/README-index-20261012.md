@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.211325 | [Diffuser P1 held, ff three, no run](20261012/20261012-211325_diffuser-p1-held-ff-three-no-run.kyri) | Ff three peer logs; P1 ruling still owed; no run. |
 | 20261012.211102 | [Patchouli queue empty, no build](20261012/20261012-211102_patchouli-queue-empty-ff-net-clean-no-build.kyri) | Ff upstream; net clean; %841 held; no code. |
 | 20261012.210847 | [Copal fruit empty, sixth, no build](20261012/20261012-210847_copal-fruit-empty-sixth-no-build.kyri) | 158 of 158 witnesses rostered; ruling asked. |
 | 20261012.210942 | [Petrichor gate held, ff one, no build](20261012/20261012-210942_petrichor-gate-held-no-build.kyri) | Consent gate held with Diffuser; ff one; no build. |
