@@ -6,6 +6,7 @@
 | 20261012.220213 | [Incense decline, no build](20261012/20261012-220213_incense-decline-no-build.kyri) | Board needed no claim; nib carried; no build. |
 | 20261012.220146 | [Patchouli queue empty, fifteenth](20261012/20261012-220146_patchouli-queue-empty-fifteenth-no-build.kyri) | Queue empty; %841 awaits a ruling; nib d3ed976c3f. |
 | 20261012.220155 | [Petrichor gate held, ff to xy main, no build](20261012/20261012-220155_petrichor-gate-held-ff-no-build.kyri) | Gate ruling still open; ff to 716f01d2ad; no build. |
+| 20261012.220853 | [Bakery crux read, no build](20261012/20261012-220853_bakery-crux-read-no-build.kyri) | Card read; crux unclaimed; design seam, check in; no build. |
 | 20261012.220710 | [Diffuser P1 held again, no run](20261012/20261012-220710_diffuser-p1-held-no-run.kyri) | Fetch found one peer log, no diffuser file; P1 ruling still owed; no run. |
 | 20261012.220014 | [Grass inner re-read, same grade, no build](20261012/20261012-220014_grass-inner-reread-no-build.kyri) | Same page, same B+ reading; nib carried; no build. |
 | 20261012.215912 | [Pheromone queue empty, no build](20261012/20261012-215912_pheromone-queue-empty-no-build.kyri) | Card steps landed; one ruling for Incense; no build. |
