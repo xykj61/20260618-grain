@@ -1,3 +1,4 @@
+| 20261012.201353 | [Copal fruit empty, every chapter witness rostered](20261012/20261012-201353_copal-fruit-empty-no-unrostered-witness.kyri) | 159 of 159 rostered; no build. |
 | 20261012.201159 | [Pheromone round-open, limb10 GREEN, no build](20261012/20261012-201159_pheromone-round-open-limb10-green-no-build.kyri) | Limb10 GREEN on metal; queue empty; no build.
 | 20261012.200959 | [Patchouli queue empty, %841 held, no build](20261012/20261012-200959_patchouli-queue-empty-841-held-no-build.kyri) | Queue empty; %841 ruling owed; no build. |
 | 20261012.200826 | [Caravan refusal-collapse control onto plant.sh](20261012/20261012-200826_bakery-refusal-collapse-plant-adoption.kyri) | One control adopted; verdict refused; crux held. |
