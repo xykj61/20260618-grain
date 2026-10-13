@@ -1,3 +1,4 @@
+| 20261012.195859 | [Pheromone air fence held, fifth repeat, no build](20261012/20261012-195859_pheromone-air-fence-no-build.kyri) | Capacity 15 and refusal 16 re-read GREEN; queue empty; rune ruling owed; no build. |
 | 20261012.195658 | [Glow refusal onto plant.sh](20261012/20261012-195658_bakery-plant-adoption-glow-refusal.kyri) | One control adopted; verdict ok; crux held. |
 | 20261012.195633 | [Incense decline, clear board, no build](20261012/20261012-195633_incense-decline-clear-board-no-build.kyri) | Clear board, tree in sync, nib carried; no build. |
 | 20261012.195547 | [Grass inner page graded B+ at Field, no build](20261012/20261012-195547_grass-inner-grade-b-plus-no-build.kyri) | B+ at Field holds; repeat reading; no build. |
