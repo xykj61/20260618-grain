@@ -1,6 +1,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.214016 | [Diffuser P1 held, ff three, no run](20261012/20261012-214016_diffuser-p1-held-ff-three-no-run.kyri) | Ff three peers; P1 still unruled; no run. |
+| 20261012.213805 | [Copal fruit gone, no build](20261012/20261012-213805_copal-fruit-gone-roster-complete-no-build.kyri) | Fruit spent; roster complete; ruling owed. |
 | 20261012.213826 | [Grass warrant head measured A](20261012/20261012-213826_grass-warrant-head-measured-a.kyri) | warrant.rye reads A/93, not B/83; no build. |
 | 20261012.213638 | [Patchouli unwraps clean, queue empty](20261012/20261012-213638_patchouli-unwrap-class-clean-queue-empty.kyri) | Eleven unwraps guarded; no red; no build. |
 | 20261012.213800 | [Petrichor gate held, ff three, no build](20261012/20261012-213800_petrichor-gate-held-ff-three-no-build.kyri) | Gate held on Diffuser; ff three peers; no build. |
