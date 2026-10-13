@@ -1,6 +1,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.215000 | [diffuser p1 held ff peers no run](20261012/20261012-215000_diffuser-p1-held-ff-peers-no-run.kyri) | Held on P1; ff to peers; no run. |
+| 20261012.214918 | [Incense decline, ff one, nib carried](20261012/20261012-214918_incense-decline-ff-one-nib-carried.kyri) | Board clear; ff one peer log; nib to 78f24ea5b2; no build. |
 | 20261012.214822 | [Grass inner fourth read B+, no build](20261012/20261012-214822_grass-inner-fourth-read-b-plus-no-build.kyri) | Graded at Field, B+ 89; no molt; nib carried to 78f24ea5b2. |
 | 20261012.214809 | [Copal fruit spent, no build](20261012/20261012-214809_copal-fruit-spent-no-build.kyri) | Zero unrostered witnesses by measurement; no build. |
 | 20261012.215512 | [Petrichor gate held, ff five, no build](20261012/20261012-215512_petrichor-gate-held-ff-five-no-build.kyri) | Gate unchanged across five peer commits; no build. |
