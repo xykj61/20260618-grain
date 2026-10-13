@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.202652 | [Pheromone queue empty, no build](20261012/20261012-202652_pheromone-queue-empty-no-build.kyri) | Lane queue empty; ruling owed by Incense; no build. |
 | 20261012.202430 | [Petrichor ff three, gate held](20261012/20261012-202430_petrichor-ff-three-gate-held-no-build.kyri) | Seam and Consent Rail unchanged; no build. |
 | 20261012.202335 | [Grass inner page graded B+, no build](20261012/20261012-202335_grass-inner-b-plus-no-build.kyri) | Foundations page B+ 85; queue empty; no build. |
 | 20261012.202307 | [Patchouli inner prompt, truncated copies dropped](20261012/20261012-202307_patchouli-inner-prompt-truncated-copies-dropped.kyri) | Two cut-off paragraphs removed; queue empty; %841 held. |
