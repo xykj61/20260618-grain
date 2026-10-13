@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.215716 | [copal fruit repeat, no build](20261012/20261012-215716_copal-fruit-repeat-no-build.kyri) | Chapter fruit spent again by measurement; no build. |
 | 20261012.215746 | [Incense decline, ff one peer log, nib carried, no build](20261012/20261012-215746_incense-decline-ff-one-no-build.kyri) | Board clear; ff one peer; nib carried to 18d781a5bc; no build. |
 | 20261012.215502 | [Patchouli queue empty, no build](20261012/20261012-215502_patchouli-queue-empty-no-build.kyri) | Nets empty again; nib to 6f7e1fcba3; no build. |
 | 20261012.215308 | [Petrichor gate held, ff one, no build](20261012/20261012-215308_petrichor-gate-held-ff-one-no-build.kyri) | Gate unchanged upstream; no build. |
