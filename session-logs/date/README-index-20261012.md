@@ -6,6 +6,7 @@
 | 20261012.210103 | [Copal fruit empty a fifth time, no build](20261012/20261012-210103_copal-fruit-empty-fifth-no-build.kyri) | 158 of 158 chapter witnesses rostered; ruling asked. |
 | 20261012.210035 | [Grass fire look, queue spent, no build](20261012/20261012-210035_grass-fire-look-spent-queue-no-build.kyri) | Grass-inner graded Field; register 77, reach 90; no build. |
 | 20261012.205654 | [Incense decline, board clear, no build](20261012/20261012-205654_incense-decline-board-clear-fourth-no-build.kyri) | Round-open ff; board clear; no build. |
+| 20261012.210428 | [Patchouli queue empty, fourteenth net, no build](20261012/20261012-210428_patchouli-queue-empty-fourteenth-net.kyri) | Ff to c343ed6d43; net clean; %841 ruling-held; no code. |
 | 20261012.205924 | [Patchouli queue empty, thirteenth net, no build](20261012/20261012-205924_patchouli-queue-empty-thirteenth-net.kyri) | Fresh nets clean; ff to 1d21f917ac; claims clear; no code. |
 | 20261012.205831 | [Pheromone lane empty, ff to remote, no build](20261012/20261012-205831_pheromone-lane-empty-ff-no-build.kyri) | Ff to 1d21f917ac; limb10 GREEN; claim board clear; no build. |
 | 20261012.205655 | [Cache shared, disk full, no build](20261012/20261012-205655_bakery-global-cache-and-full-disk-survey.kyri) | Zig cache already global; root disk 100%; no build. |
