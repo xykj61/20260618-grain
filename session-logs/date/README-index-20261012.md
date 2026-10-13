@@ -1,7 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
-| 20261012.203207 | [Incense decline, gates held, no build](20261012/20261012-203207_incense-decline-gates-held-no-build.kyri) | Board clear; law lane waits on named gates; no build. |
-| 20261012.201603 | [Diffuser P1 held, ff three peers, no run](20261012/20261012-201603_diffuser-p1-hold-ff-three-no-run.kyri) | P1 unruled; no build, no run. |
+| 20261012.203215 | [Copal fruit empty again, no build](20261012/20261012-203215_copal-fruit-empty-repeat-no-build.kyri) | Every chapter witness rostered; no target; no build. |
 | 20261012.203123 | [Grass queue empty, no build](20261012/20261012-203123_grass-queue-empty-no-build.kyri) | Queue empty; no build; nib carried. |
 | 20261012.203039 | [Patchouli queue empty, %841 held](20261012/20261012-203039_patchouli-queue-empty-841-held.kyri) | Queue empty; %841 ruling owed; no build. |
 | 20261012.203058 | [Petrichor ff, gate held, no build](20261012/20261012-203058_petrichor-ff-gate-held-no-build.kyri) | Upstream ff; Consent Rail unchanged; no build. |
