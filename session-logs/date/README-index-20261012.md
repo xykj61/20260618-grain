@@ -1,4 +1,5 @@
 | Stamp | Log | What it carried |
+| 20261012.201712 | [Incense recur, baton read, no build](20261012/20261012-201712_incense-recur-baton-read-no-build.kyri) | Order held; no build; nib carried. |
 | 20261012.201353 | [Copal fruit empty, every chapter witness rostered](20261012/20261012-201353_copal-fruit-empty-no-unrostered-witness.kyri) | 159 of 159 rostered; no build. |
 | 20261012.201217 | [Incense decline, reset onto xy/main, nib carried](20261012/20261012-201217_incense-decline-nib-carried-reset.kyri) | Clear board; no build; nib carried to bf2792c25c. |
 | 20261012.201159 | [Pheromone round-open, limb10 GREEN, no build](20261012/20261012-201159_pheromone-round-open-limb10-green-no-build.kyri) | Limb10 GREEN on metal; queue empty; no build.
