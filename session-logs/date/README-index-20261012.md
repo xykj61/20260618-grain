@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.205253 | [Lane empty, override held, no build](20261012/20261012-205253_pheromone-lane-empty-claim-held-no-build.kyri) | Lane empty; override held; limb10 GREEN; no build. |
 | 20261012.205133 | [Petrichor gate held, no build, again](20261012/20261012-205133_petrichor-gate-held-no-build-again.kyri) | Ff to ecc34f5211; gate unchanged; no build. |
 | 20261012.205055 | [Diffuser P1 held, ff three, no run](20261012/20261012-205055_diffuser-p1-hold-ff-three-no-run.kyri) | Ff three peers; P1 ruling owed; no build. |
 | 20261012.204923 | [Grass queue spent, four heads at A or B+, no build](20261012/20261012-204923_grass-queue-spent-till-voucher-regraded.kyri) | Named heads read A or B+; no edit; no build. |
