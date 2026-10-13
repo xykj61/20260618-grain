@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.221444 | [Petrichor gate held, no build](20261012/20261012-221444_petrichor-gate-held-ff-no-build.kyri) | Rail and seam unchanged; Claude ruling owed. |
 | 20261012.221313 | [Copal prin ticker repeat, no build](20261012/20261012-221313_copal-prin-ticker-repeat-no-build.kyri) | Unrostered file is the held thin hand; its witness GREEN; no build. |
 | 20261012.221259 | [Grass inner re-graded, no build](20261012/20261012-221259_grass-inner-regrade-no-build.kyri) | Same page, same B+ reading at Field; repeat, no edit. |
 | 20261012.221015 | [Patchouli queue empty, no build](20261012/20261012-221015_patchouli-queue-empty-no-build.kyri) | Queue empty; %841 held on ruling; no build. |
