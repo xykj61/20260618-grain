@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.215526 | [Incense decline, ff one, no build](20261012/20261012-215526_incense-decline-ff-one-no-build.kyri) | Board clear; ff one peer; nib carried; no build. |
 | 20261012.214843 | [Pheromone fire row, no override, no build](20261012/20261012-214843_pheromone-fire-row-no-override-no-build.kyri) | Fire row read; no agent-doable booked lap; no build. |
 | 20261012.215000 | [diffuser p1 held ff peers no run](20261012/20261012-215000_diffuser-p1-held-ff-peers-no-run.kyri) | Held on P1; ff to peers; no run. |
 | 20261012.214918 | [Incense decline, ff one, nib carried](20261012/20261012-214918_incense-decline-ff-one-nib-carried.kyri) | Board clear; ff one peer log; nib to 78f24ea5b2; no build. |
