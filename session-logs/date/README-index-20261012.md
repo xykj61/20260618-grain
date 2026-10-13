@@ -4,6 +4,7 @@
 | 20261012.203123 | [Grass queue empty, no build](20261012/20261012-203123_grass-queue-empty-no-build.kyri) | Queue empty; no build; nib carried. |
 | 20261012.203039 | [Patchouli queue empty, %841 held](20261012/20261012-203039_patchouli-queue-empty-841-held.kyri) | Queue empty; %841 ruling owed; no build. |
 | 20261012.203058 | [Petrichor ff, gate held, no build](20261012/20261012-203058_petrichor-ff-gate-held-no-build.kyri) | Upstream ff; Consent Rail unchanged; no build. |
+| 20261012.203002 | [Bakery recur census and control, no build](20261012/20261012-203002_bakery-recur-census-control-held-no-build.kyri) | Control 40 legs, 0 failed; receipt key gated. |
 | 20261012.202652 | [Pheromone queue empty, no build](20261012/20261012-202652_pheromone-queue-empty-no-build.kyri) | Lane queue empty; ruling owed by Incense; no build. |
 | 20261012.202545 | [Incense folds the oldest inner accounts, declines a forty-seventh](20261012/20261012-202545_incense-fold-archive-65-decline-47.kyri) | Inner section 24,469 to 12,844 bytes; accounts 20261001-20261003 folded to archive-65; no build. |
 | 20261012.202430 | [Petrichor ff three, gate held](20261012/20261012-202430_petrichor-ff-three-gate-held-no-build.kyri) | Seam and Consent Rail unchanged; no build. |
@@ -1482,8 +1483,6 @@
 | `20261012.000141` | [Incense, seventy-seventh, no build](20261012/20261012-000141_incense-baton-seventy-seventh-no-build.kyri) | Round-open clean; board clear; no build. |
 | `20261012.000046` | [Petrichor, gate held, no build](20261012/20261012-000046_petrichor-gate-held-no-build.kyri) | Queue empty; Consent Rail gate held; no build. |
 | `20261012.000019` | [Diffuser, P1 hold seventy-fifth, ff peers, no run](20261012/20261012-000019_diffuser-p1-hold-seventy-fifth-ff-peers-no-run.kyri) | P1 still unruled; ff two peer logs; no run. |
-|---|---|---|
-| 20261012.203207 | [Incense decline, gates held, no build](20261012/20261012-203207_incense-decline-gates-held-no-build.kyri) | Board clear; law lane waits on named gates; no build. |
 | 20261012.203310 | [Grass docs README counted readings held, no build](20261012/20261012-203310_grass-docs-readme-counted-readings-no-build.kyri) | Counted readings 100; service judged; no build. |
 | 20261012.201855 | [Pheromone queue empty, no build](20261012/20261012-201855_pheromone-queue-empty-no-build.kyri) | Three steps landed; rune ruling owed; no build.
 | 20261012.201926 | [Copal fruit still empty, no build](20261012/20261012-201926_copal-fruit-still-empty-no-build.kyri) | 158 of 158 rostered; no build. |
