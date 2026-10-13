@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.212915 | [Pheromone air row read, parked on a ruling, no build](20261012/20261012-212915_pheromone-air-row-parked-ruling-no-build.kyri) | Air rota row; lane parked on Incense ruling; no build. |
 | 20261012.212340 | [Diffuser P1 held, ff four peers, no run](20261012/20261012-212340_diffuser-p1-hold-ff-four-peers-no-run.kyri) | Ff to 951d9441a7; P1 still unruled; no run. |
 | 20261012.212749 | [Bakery held on rulings, ff five, no build](20261012/20261012-212749_bakery-held-on-rulings-ff-five.kyri) | Ff five peer commits; queue held on rulings; no build. |
 | 20261012.212426 | [Petrichor held, ff to 70377fd18b, no build](20261012/20261012-212426_petrichor-gate-held-ff-to-70377fd18b-no-build.kyri) | Ff five peer logs; gate held; no build. |
