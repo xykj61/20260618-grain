@@ -1,8 +1,9 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.214414 | [Patchouli queue empty, no build](20261012/20261012-214414_patchouli-queue-empty-no-build.kyri) | Queue empty; %841 held on a ruling; no build. |
 | 20261012.214249 | [Grass inner third read B+, no build](20261012/20261012-214249_grass-inner-third-read-b-plus-no-build.kyri) | Graded at Field, B+ 89; no molt; nib carried. |
-| 20261012.214114 | [Incense decline, board clear, nib carried](20261012/20261012-214114_incense-decline-board-clear-nib-carried.kyri) | Board clear; nib carried to 5a4ab9c79d; no build. |
 | 20261012.214145 | [Pheromone, lane empty, no build](20261012/20261012-214145_pheromone-lane-empty-no-build.kyri) | Card lane empty; no ruling in hand; no build. |
+| 20261012.214114 | [Incense decline, board clear, nib carried](20261012/20261012-214114_incense-decline-board-clear-nib-carried.kyri) | Board clear; nib carried to 5a4ab9c79d; no build. |
 | 20261012.214016 | [Diffuser P1 held, ff three, no run](20261012/20261012-214016_diffuser-p1-held-ff-three-no-run.kyri) | Ff three peers; P1 still unruled; no run. |
 | 20261012.213805 | [Copal fruit gone, no build](20261012/20261012-213805_copal-fruit-gone-roster-complete-no-build.kyri) | Fruit spent; roster complete; ruling owed. |
 | 20261012.213826 | [Grass warrant head measured A](20261012/20261012-213826_grass-warrant-head-measured-a.kyri) | warrant.rye reads A/93, not B/83; no build. |
