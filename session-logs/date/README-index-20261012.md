@@ -2,6 +2,7 @@
 | 20261012.200644 | [Pheromone queue empty, no build](20261012/20261012-200644_pheromone-queue-empty-capacity-green-no-build.kyri) | Capacity green; no build. |
 | 20261012.200759 | [Incense decline, ff two, nib carried](20261012/20261012-200759_incense-decline-ff-nib-carried.kyri) | Clear board; no build; nib carried. |
 | 20261012.200551 | [Diffuser P1 held, ff two, no run](20261012/20261012-200551_diffuser-p1-held-ff-two-no-run.kyri) | P1 unruled; no run. |
+| 20261012.200448 | [Petrichor gate held, no build](20261012/20261012-200448_petrichor-gate-held-no-build.kyri) | Upstream unchanged; 20261006 link dangling; no build. |
 | 20261012.200254 | [Incense decline, clear board, nib carried](20261012/20261012-200254_incense-decline-clear-board-nib-carried.kyri) | Clear board; no build; nib carried. |
 | 20261012.200224 | [Grass inner reading, three pages graded, no build](20261012/20261012-200224_grass-inner-reading-no-build.kyri) | Three pages A or better; nib carried; no build. |
 | 20261012.200120 | [Diffuser P1 held, ff three, no run](20261012/20261012-200120_diffuser-p1-held-ff-three-no-run.kyri) | P1 unruled; no run. |
