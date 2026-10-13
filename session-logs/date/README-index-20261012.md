@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.204446 | [Petrichor gate held, ff five, no build](20261012/20261012-204446_petrichor-gate-held-ff-five-again-no-build.kyri) | Ff five; gate unchanged; no build. |
 | 20261012.204159 | [Grass queue empty, %841 held, no build](20261012/20261012-204159_grass-queue-empty-841-held-no-build.kyri) | Queue empty; %841 held for a ruling; no build. |
 | 20261012.204106 | [Incense decline, board clear, no build](20261012/20261012-204106_incense-decline-board-clear-no-build.kyri) | Board clear; law lane waits on %642, %841, %519; no build. |
 | 20261012.204154 | [Patchouli queue empty, fresh nets, no build](20261012/20261012-204154_patchouli-queue-empty-fresh-nets-no-build.kyri) | Fresh -v grep clean; no code; nib carried. |
