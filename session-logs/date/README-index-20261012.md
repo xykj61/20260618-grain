@@ -3,6 +3,7 @@
 | 20261012.213826 | [Grass warrant head measured A](20261012/20261012-213826_grass-warrant-head-measured-a.kyri) | warrant.rye reads A/93, not B/83; no build. |
 | 20261012.213638 | [Patchouli unwraps clean, queue empty](20261012/20261012-213638_patchouli-unwrap-class-clean-queue-empty.kyri) | Eleven unwraps guarded; no red; no build. |
 | 20261012.213606 | [Incense clean board, held, no build](20261012/20261012-213606_incense-clean-board-held-no-build.kyri) | Clear board; order holds rulings; no build. |
+| 20261012.213800 | [Petrichor gate held, ff three, no build](20261012/20261012-213800_petrichor-gate-held-ff-three-no-build.kyri) | Gate held on Diffuser; ff three peers; no build. |
 | 20261012.213200 | [Grass inner re-read B+, no build](20261012/20261012-213200_grass-grade-inner-reread-no-build.kyri) | Re-read at a4ab89a61f; composite 88; no molt. |
 | 20261012.213503 | [Pheromone parked, no build](20261012/20261012-213503_pheromone-parked-no-build.kyri) | Lane empty; REDS rows are other lanes; no build. |
 | 20261012.213141 | [Patchouli asked-twice reads green](20261012/20261012-213141_patchouli-tablecloth-asked-twice-green.kyri) | Fifth claim: same weave, same bytes and digest; GREEN. |
