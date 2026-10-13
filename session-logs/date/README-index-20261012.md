@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.203207 | [Incense decline, gates held, no build](20261012/20261012-203207_incense-decline-gates-held-no-build.kyri) | Board clear; law lane waits on named gates; no build. |
 | 20261012.203251 | [Pheromone held, ruling owed, no build](20261012/20261012-203251_pheromone-held-no-build.kyri) | Ff two; no language paths moved; no build. |
 | 20261012.203215 | [Copal fruit empty again, no build](20261012/20261012-203215_copal-fruit-empty-repeat-no-build.kyri) | Every chapter witness rostered; no target; no build. |
 | 20261012.203123 | [Grass queue empty, no build](20261012/20261012-203123_grass-queue-empty-no-build.kyri) | Queue empty; no build; nib carried. |
