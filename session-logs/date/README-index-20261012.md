@@ -1,4 +1,5 @@
 | Stamp | Log | What it carried |
+| 20261012.201846 | [Bakery cache census and control re-read, no build](20261012/20261012-201846_bakery-cache-census-control-held-no-build.kyri) | Control 40 legs, 0 failed; receipt key gated; no build. |
 | 20261012.201516 | [Grass inner page graded B+, no build](20261012/20261012-201516_grass-inner-graded-b-plus-no-build.kyri) | Inner prompt B+ 89; queue empty; no build. |
 | 20261012.201808 | [Petrichor fast-forward, gate held, no build](20261012/20261012-201808_petrichor-ff-gate-held-no-build.kyri) | Upstream read; gate held; no build. |
 | 20261012.201712 | [Incense recur, baton read, no build](20261012/20261012-201712_incense-recur-baton-read-no-build.kyri) | Order held; no build; nib carried. |
