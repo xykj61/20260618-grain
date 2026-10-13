@@ -1,6 +1,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.204100 | [Receipt key held, no build](20261012/20261012-204100_bakery-receipt-key-held-no-build.kyri) | Fast-forward four; receipt key gated; no build. |
+| 20261012.203952 | [Diffuser P1 held, ff three, no run](20261012/20261012-203952_diffuser-p1-hold-ff-three-no-run.kyri) | Ff three; P1 ruling owed; no build. |
 | 20261012.203937 | [Pheromone ff three, ruling owed, no build](20261012/20261012-203937_pheromone-ff-held-no-build.kyri) | Ff three; no language paths moved; no build. |
 | 20261012.203813 | [Incense decline, board clear, no build](20261012/20261012-203813_incense-decline-board-clear-no-build.kyri) | Board clear; %841 and %642 wait on rulings; no build. |
 | 20261012.203748 | [Copal fruit empty a third time, no build](20261012/20261012-203748_copal-fruit-empty-third-no-build.kyri) | 159 of 159 rostered; no target; no build. |
