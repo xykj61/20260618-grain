@@ -1,4 +1,5 @@
 | Stamp | Log | What it carried |
+| 20261012.201808 | [Petrichor fast-forward, gate held, no build](20261012/20261012-201808_petrichor-ff-gate-held-no-build.kyri) | Upstream read; gate held; no build. |
 | 20261012.201712 | [Incense recur, baton read, no build](20261012/20261012-201712_incense-recur-baton-read-no-build.kyri) | Order held; no build; nib carried. |
 | 20261012.201534 | [Patchouli queue empty, %841 still held](20261012/20261012-201534_patchouli-queue-empty-841-still-held.kyri) | Queue empty; %841 ruling owed; no build.
 | 20261012.201353 | [Copal fruit empty, every chapter witness rostered](20261012/20261012-201353_copal-fruit-empty-no-unrostered-witness.kyri) | 159 of 159 rostered; no build. |
