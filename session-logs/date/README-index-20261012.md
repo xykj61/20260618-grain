@@ -1,6 +1,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.211102 | [Patchouli queue empty, no build](20261012/20261012-211102_patchouli-queue-empty-ff-net-clean-no-build.kyri) | Ff upstream; net clean; %841 held; no code. |
+| 20261012.210847 | [Copal fruit empty, sixth, no build](20261012/20261012-210847_copal-fruit-empty-sixth-no-build.kyri) | 158 of 158 witnesses rostered; ruling asked. |
 | 20261012.210843 | [Incense decline, board clear, sixth no build](20261012/20261012-210843_incense-decline-board-clear-sixth-no-build.kyri) | Round-open ff to f5502e5777; board clear; no build. |
 | 20261012.211034 | [Grass field six pages graded, no build](20261012/20261012-211034_grass-field-six-pages-graded-no-build.kyri) | Six prose pages graded A or B+; no molt owed; no build. |
 | 20261012.210514 | [Bakery baton ff, disk full, no build](20261012/20261012-210514_bakery-baton-ff-disk-full-no-build.kyri) | Board clear; root at 100 percent; build held. |
