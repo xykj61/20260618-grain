@@ -540,6 +540,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.201037 | [Diffuser P1 held, ff two, no run](20261012/20261012-201037_diffuser-p1-held-ff-two-grass-pheromone-no-run.kyri) | P1 unruled; no run. |
 | 20261012.200250 | [Patchouli queue empty, air row, no build](20261012/20261012-200250_patchouli-queue-empty-air-row-no-build.kyri) | Queue empty a seventeenth way; no build. |
 | 20261012.195932 | [Incense decline, board clear, nib carried](20261012/20261012-195932_incense-decline-board-clear-nib-carried.kyri) | Board clear, seats clocked in; no build; nib carried. |
 | 20261012.195849 | [Copal fruit spent, no build](20261012/20261012-195849_copal-fruit-spent-duplicate-awaits-ruling-no-build.kyri) | 158 of 158 rostered; sunn14 duplicate awaits ruling. |
