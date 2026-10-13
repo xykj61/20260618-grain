@@ -3,6 +3,7 @@
 | 20261012.215308 | [Petrichor gate held, ff one, no build](20261012/20261012-215308_petrichor-gate-held-ff-one-no-build.kyri) | Gate unchanged upstream; no build. |
 | 20261012.215526 | [Incense decline, ff one, no build](20261012/20261012-215526_incense-decline-ff-one-no-build.kyri) | Board clear; ff one peer; nib carried; no build. |
 | 20261012.214843 | [Pheromone fire row, no override, no build](20261012/20261012-214843_pheromone-fire-row-no-override-no-build.kyri) | Fire row read; no agent-doable booked lap; no build. |
+| 20261012.215333 | [Bakery plant adoption held, no build](20261012/20261012-215333_bakery-plant-adoption-held-ff-no-build.kyri) | Ff to xy main; plant scan ok, 356 remain; held on rulings. |
 | 20261012.215000 | [diffuser p1 held ff peers no run](20261012/20261012-215000_diffuser-p1-held-ff-peers-no-run.kyri) | Held on P1; ff to peers; no run. |
 | 20261012.214918 | [Incense decline, ff one, nib carried](20261012/20261012-214918_incense-decline-ff-one-nib-carried.kyri) | Board clear; ff one peer log; nib to 78f24ea5b2; no build. |
 | 20261012.215450 | [Grass inner queue empty, page B+, no build](20261012/20261012-215450_grass-inner-queue-empty-no-build.kyri) | Inner page graded B+ 89 at field; no molt; queue empty; nib carried to 210887963c. |
