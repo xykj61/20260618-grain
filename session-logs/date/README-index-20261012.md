@@ -1,4 +1,6 @@
 | Stamp | Log | What it carried |
+|---|---|---|
+| 20261012.202430 | [Petrichor ff three, gate held](20261012/20261012-202430_petrichor-ff-three-gate-held-no-build.kyri) | Seam and Consent Rail unchanged; no build. |
 | 20261012.202335 | [Grass inner page graded B+, no build](20261012/20261012-202335_grass-inner-b-plus-no-build.kyri) | Foundations page B+ 85; queue empty; no build. |
 | 20261012.201846 | [Bakery cache census and control re-read, no build](20261012/20261012-201846_bakery-cache-census-control-held-no-build.kyri) | Control 40 legs, 0 failed; receipt key gated; no build. |
 | 20261012.202100 | [Incense decline, board clear, no build](20261012/20261012-202100_incense-decline-board-clear-no-build.kyri) | Clear board; no build; nib carried. |
