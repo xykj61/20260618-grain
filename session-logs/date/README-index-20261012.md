@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.203251 | [Pheromone held, ruling owed, no build](20261012/20261012-203251_pheromone-held-no-build.kyri) | Ff two; no language paths moved; no build. |
 | 20261012.203215 | [Copal fruit empty again, no build](20261012/20261012-203215_copal-fruit-empty-repeat-no-build.kyri) | Every chapter witness rostered; no target; no build. |
 | 20261012.203123 | [Grass queue empty, no build](20261012/20261012-203123_grass-queue-empty-no-build.kyri) | Queue empty; no build; nib carried. |
 | 20261012.203039 | [Patchouli queue empty, %841 held](20261012/20261012-203039_patchouli-queue-empty-841-held.kyri) | Queue empty; %841 ruling owed; no build. |
