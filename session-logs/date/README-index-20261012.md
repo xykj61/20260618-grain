@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.221015 | [Patchouli queue empty, no build](20261012/20261012-221015_patchouli-queue-empty-no-build.kyri) | Queue empty; %841 held on ruling; no build. |
 | 20261012.221138 | [Diffuser P1 held again, ff to xy main, no run](20261012/20261012-221138_diffuser-p1-held-ff-no-run.kyri) | Three peer commits, none on P1; ruling still owed; no run. |
 | 20261012.220706 | [Pheromone witness red is a full disk, no build](20261012/20261012-220706_pheromone-witness-disk-full-no-build.kyri) | Glow witness red by host disk, not code; no build. |
 | `.` | [grass-inner-page-graded-bplus]() | grass inner page graded B+ 89, no build |
