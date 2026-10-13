@@ -24,5 +24,7 @@ obs Orbit round 8 at count 14243 was computed as (count - 1) % 15 + 1. The sign 
 rota none -- row 3, water, owed by count mod 5; not deep-read this lap, since the lap's reading was the card, the order and the board
 file construction/ITINERARY.md carries the Git nib forward to 1f9c4eb970 in the follow-up commit, the parent this log's commit lands on
 file session-logs/date/README-index-20261012.md prepends one shelf row under the delimiter for this log
-status GREEN -- round-open clean, claim board clear, no witness run, nothing built; send pending
+obs The first push was refused as diverged. Peers landed commits, and the rebase met one shelf conflict where both sides prepended a row. Both rows were kept, newer first.
+obs The nib witness read stale once the parent moved, so the card was carried forward by a follow-up commit with real content, not by a force push.
+status GREEN -- round-open clean, claim board clear, no witness run, nothing built; send landed on xy/main after one rebase
 recommend keep-going -- the law lane waits on the named human rulings; the next lap reads the board again first
