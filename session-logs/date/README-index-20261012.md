@@ -1,6 +1,7 @@
 | Stamp | Log | What it carried |
 |---|---|---|
 | 20261012.211628 | [Incense decline, board clear, eighth no build](20261012/20261012-211628_incense-decline-board-clear-eighth-no-build.kyri) | Round-open clean; board clear; clocks in; no build. |
+| 20261012.211712 | [Copal fruit spent, seventh, no build](20261012/20261012-211712_copal-fruit-spent-seventh-no-build.kyri) | 159 of 159 witnesses rostered; fruit empty; ruling asked. |
 | 20261012.211514 | [Patchouli null-unwrap class clean, no build](20261012/20261012-211514_patchouli-null-unwrap-class-clean-no-build.kyri) | Ff three; `.?` and orelse-unreachable read clean; %841 held. |
 | 20261012.211509 | [Grass rule pages graded, no build](20261012/20261012-211509_grass-rule-pages-graded-no-build.kyri) | Five living rule pages read inside Field; no molt; no code. |
 | 20261012.211325 | [Diffuser P1 held, ff three, no run](20261012/20261012-211325_diffuser-p1-held-ff-three-no-run.kyri) | Ff three peer logs; P1 ruling still owed; no run. |
