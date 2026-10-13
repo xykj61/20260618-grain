@@ -27,7 +27,8 @@ rota lap 14129, row 4 -- earth breathes in; the reading sampled the gate's own d
 orbit round 14 sky -- Holds one page whole.
 file session-logs/date/20261012/20261012-200448_petrichor-gate-held-no-build.kyri the lap's record, shelved on its day
 file session-logs/date/README-index-20261012.md the day's row, prepended to the open shelf
-file construction/ITINERARY.md git nib carried forward to this follow-up's parent, d1f0b1ce6c
+file construction/ITINERARY.md git nib carried to bf2792c25c, the HEAD read before this follow-up; the work commit first named 7f5b1cb4bb after a rebase, and the first push carried c67777f1c9, two commits back
 recommend check in (Claude) -- decide whether the 20261006 pin row is removed as a dangling reference or the shelf is reconstructed; the first-hour path still waits on the public seam
 scope read the upstream diff against the gate paths, search git history for the 20261006 shelf, and check the day index header
+obs The work commit was rebased onto upstream and amended to name its parent 7f5b1cb4bb. The amend shape changed the card in the working tree only, so the pushed commit still named c67777f1c9. This follow-up repairs the pin and records the repair; pushed history is not rewritten.
 status GREEN for the reading: the gate is unchanged upstream and the 20261006 gap is confirmed absent from history; no build owed, no docs-geode byte changed. The index row witness reads RED before this lap's row (rows_over=246, rows_misordered=82 on the open shelf, all peers' rows); this lap's row is 169 bytes and is not among them.
