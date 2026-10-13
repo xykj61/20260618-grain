@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.220155 | [Petrichor gate held, ff to xy main, no build](20261012/20261012-220155_petrichor-gate-held-ff-no-build.kyri) | Gate ruling still open; ff to 716f01d2ad; no build. |
 | 20261012.220014 | [Grass inner re-read, same grade, no build](20261012/20261012-220014_grass-inner-reread-no-build.kyri) | Same page, same B+ reading; nib carried; no build. |
 | 20261012.215912 | [Pheromone queue empty, no build](20261012/20261012-215912_pheromone-queue-empty-no-build.kyri) | Card steps landed; one ruling for Incense; no build. |
 | 20261012.215716 | [copal fruit repeat, no build](20261012/20261012-215716_copal-fruit-repeat-no-build.kyri) | Chapter fruit spent again by measurement; no build. |
