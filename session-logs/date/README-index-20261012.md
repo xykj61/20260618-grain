@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.212340 | [Diffuser P1 held, ff four peers, no run](20261012/20261012-212340_diffuser-p1-hold-ff-four-peers-no-run.kyri) | Ff to 951d9441a7; P1 still unruled; no run. |
 | 20261012.212426 | [Petrichor held, ff to 70377fd18b, no build](20261012/20261012-212426_petrichor-gate-held-ff-to-70377fd18b-no-build.kyri) | Ff five peer logs; gate held; no build. |
 | 20261012.212423 | [Pheromone fruit parked on a ruling, no build](20261012/20261012-212423_pheromone-fruit-parked-ruling-owed-no-build.kyri) | Fruit empty; Incense ruling owed; ff to xy; no build. |
 | 20261012.211921 | [Bakery queue held, no build](20261012/20261012-211921_bakery-queue-held-on-rulings-no-build.kyri) | Ff to 5811914c73; queue held on rulings. |
