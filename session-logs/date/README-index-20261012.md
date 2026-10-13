@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.221648 | [Bakery crux held, no build](20261012/20261012-221648_bakery-crux-held-ruling-no-build.kyri) | Crux waits on a Claude ruling; clock-out set; no build. |
 | 20261012.221548 | [Pheromone lane held, no build](20261012/20261012-221548_pheromone-lane-held-no-build.kyri) | Lane door waits on Incense; %841 needs a Claude ruling; no build. |
 | 20261012.221444 | [Petrichor gate held, no build](20261012/20261012-221444_petrichor-gate-held-ff-no-build.kyri) | Rail and seam unchanged; Claude ruling owed. |
 | 20261012.221313 | [Copal prin ticker repeat, no build](20261012/20261012-221313_copal-prin-ticker-repeat-no-build.kyri) | Unrostered file is the held thin hand; its witness GREEN; no build. |
