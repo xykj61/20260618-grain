@@ -1,5 +1,6 @@
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.204903 | [Crux gated, no build](20261012/20261012-204903_bakery-crux-gated-no-build.kyri) | Ff to ecc34f5211; crux waits on receipt key and window rulings; no build. |
 | 20261012.204805 | [Patchouli queue empty, fifteenth fresh net, no build](20261012/20261012-204805_patchouli-queue-empty-fifteenth-no-build.kyri) | Fresh -v grep clean; no code; nib carried. |
 | 20261012.204804 | [Pheromone lane empty, no build](20261012/20261012-204804_pheromone-lane-empty-no-build.kyri) | Lane empty; claim board clear; no code; nib carried. |
 | 20261012.204641 | [Incense decline, board clear, no build](20261012/20261012-204641_incense-decline-board-clear-no-build.kyri) | Board clear; law lane waits on %642, %841, %519; no build. |
