@@ -534,6 +534,7 @@
 **Status:** Chapter index -- OPEN while the day runs, immutable once the day closes
 | Stamp | Log | What it carried |
 |---|---|---|
+| 20261012.200250 | [Patchouli queue empty, air row, no build](20261012/20261012-200250_patchouli-queue-empty-air-row-no-build.kyri) | Queue empty a seventeenth way; no build. |
 | 20261012.195932 | [Incense decline, board clear, nib carried](20261012/20261012-195932_incense-decline-board-clear-nib-carried.kyri) | Board clear, seats clocked in; no build; nib carried. |
 | 20261012.195849 | [Copal fruit spent, no build](20261012/20261012-195849_copal-fruit-spent-duplicate-awaits-ruling-no-build.kyri) | 158 of 158 rostered; sunn14 duplicate awaits ruling. |
 | 20261012.195803 | [Petrichor gate held, ff four, 20261006 gap still absent](20261012/20261012-195803_petrichor-ff-four-gap-held-no-build.kyri) | Consent Rail unchanged; 20261006 shelf absent from history; decision on pin row owed; no build. |
