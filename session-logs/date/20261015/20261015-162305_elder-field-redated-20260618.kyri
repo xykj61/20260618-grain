@@ -1,0 +1,17 @@
+format session-log-v1
+stamp 20261015.162305
+editor Claude Code CLI
+provider Anthropic
+product Claude Code
+role captain incense interactive
+modality text
+model unverified
+model_status active runtime unverified
+voice Kyri
+title elder field redated to 20260618
+prompt Keaton: rename the elder 20260817 date to the earliest date one of our voices generated a tree document (not web-fetched or molted research), likely 202606; update affected tasks and dependencies.
+think Earliest genuine voice document is 20260618-085812_strengthening-strategy.md (Voice Reya 2), beating the earliest commit (2026-07-13) and the re-root (20260817). 20260101 hits were synthetic fixtures; nothing earlier than 20260618 exists in our rooms.
+obs Updated the living docs and the rename script default in both trees from 20260817 to 20260618, renamed xykj61/20260817-grain to xykj61/20260618-grain (old name redirects), and rewrote the two date-name paragraphs rather than find-replacing them. Session logs keep the name they recorded. Staged only my files; left the concurrent Cursor lane's index and pins.
+file tools/f/fleet_rename_dated.sh -- default PREFIX now 20260618
+file expanding-prompts/date/20261015/20261015-160427_the-dated-immutable-trees.md -- names and the resolved date-name paragraph
+recommend check-in (Claude) -- the date is corrected across both trees and the repo; staged instructions reprinted for your hand

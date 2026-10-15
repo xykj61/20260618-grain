@@ -8,10 +8,10 @@
 # absolute path a rename leaves stale refuses every sign and push (birth_a_clone's own lesson),
 # and nothing tracked can catch it since .git/config is untracked.
 #
-#   sh tools/f/fleet_rename_dated.sh            # prefix defaults to 20260817
-#   sh tools/f/fleet_rename_dated.sh 20260817
+#   sh tools/f/fleet_rename_dated.sh            # prefix defaults to 20260618
+#   sh tools/f/fleet_rename_dated.sh 20260618
 set -eu
-PREFIX="${1:-20260817}"
+PREFIX="${1:-20260618}"
 SHIPS="incense bakery pheromone petrichor grass copal patchouli diffuser"
 here="$(pwd)"
 for ship in $SHIPS; do
