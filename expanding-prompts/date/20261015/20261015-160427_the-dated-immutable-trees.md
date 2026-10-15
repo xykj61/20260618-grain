@@ -23,7 +23,7 @@ whoever receives it. It begins nearly-blank on purpose, small enough to read ent
 
 ## What already landed on the originating pier (done, signed, verified)
 
-- **Upstream repositories:** `xykj61/20260817-grain` (public, the full history copy), `grain-ww/grain`
+- **Upstream repositories:** `xykj61/20260618-grain` (public, the full history copy), `grain-ww/grain`
   refreshed to today's seed and `grain-ww/20261015-grain` (public, the dated copy), and the two private
   new homes `xykj61/20261016-grain` and `grain-ww/20261016-grain`.
 - **The tree** `~/20261016-grain-incense`: five signed commits (LICENSE, minimized context, README,
@@ -39,10 +39,10 @@ Do these on the dallas-keeper pier, and on the macOS and Framework machines, eac
    could answer for one ship, keep the one that is newer and carries no uncommitted changes; set the
    others aside rather than deleting them.
 2. **Rename the fleet folders (fleet quiesced).** Stop the watch and every loop first. From a shell
-   that is NOT inside any grain tree, run `sh tools/f/fleet_rename_dated.sh 20260817`. It renames
-   `~/grain-<ship>` to `~/20260817-grain-<ship>`, refuses a tree with uncommitted changes, skips a
+   that is NOT inside any grain tree, run `sh tools/f/fleet_rename_dated.sh 20260618`. It renames
+   `~/grain-<ship>` to `~/20260618-grain-<ship>`, refuses a tree with uncommitted changes, skips a
    destination that exists, and repoints each moved tree's own `.git/config` signing and transport
-   paths. A bare `~/grain` becomes `~/20260817-grain-incense`. The tree your shell is standing in must
+   paths. A bare `~/grain` becomes `~/20260618-grain-incense`. The tree your shell is standing in must
    be renamed from a neutral shell and re-entered -- the shell cannot rename its own working directory
    out from under itself.
 3. **Decouple the paths.** Source `tools/g/grain_prefix.sh` and use `$GRAIN_PREFIX` and `grain_home`
@@ -59,14 +59,15 @@ Do these on the dallas-keeper pier, and on the macOS and Framework machines, eac
 
 ## Blind spots and open questions
 
-- **The date name.** The earliest commit in the live `xy` history is dated 2026-07-13, while 20260817
-  is the clean-history re-root date. The repositories and folders use 20260817 as instructed; confirm
-  which date the name should honor.
+- **The date name is resolved.** The elder field is named `20260618`, for the earliest document one
+  of our own voices wrote into the tree -- Reya 2's strategy for strengthening Rye, stamped
+  20260618.085812. The name marks when a voice first spoke here, rather than the earliest commit
+  (2026-07-13) or the clean-history re-root (20260817), neither of which a voice made.
 - **GPLv3 and seL4.** The kernel is GPL-2.0 and the userlevel is BSD-2-Clause. A GPLv3 Caravan root
   task on the BSD userlevel is clean; any question of linking across GPL-2.0 and GPL-3.0 wants counsel
   before the first link rather than after.
 - **The toolchain.** The new tree cannot yet run Glow, Rye, and Rishi; bootstrapping their toolchain
-  from the 20260817-grain field is the first build lap, held so the tree stays readable while small.
+  from the 20260618-grain field is the first build lap, held so the tree stays readable while small.
 - **The disk, long-term.** Clearing the cache bought room today; a larger volume or a standing prune
   would keep the loops from writing into a full disk some quiet night.
 
