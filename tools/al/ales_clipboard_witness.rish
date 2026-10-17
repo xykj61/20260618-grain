@@ -1,7 +1,7 @@
 # tools/al/ales_clipboard_witness.rish -- the clipboard, a held span pasted anywhere across masters (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
-# Design read: active-designing/20260814-fill-ales25-lotus-clipboard.md
+# Design read: active-designing/date/20260814/20260814-fill-ales25-lotus-clipboard.md
 # Stands on: lotus/selection.rye (lotus-audio) -- the validated Selection a keeper fills the clipboard from, and its cut for lift-and-hold;
 # lotus/timeline.rye (lotus-audio) -- splice, applied to each destination channel; lotus/pan.rye (lotus-audio) -- the StereoClip whose two
 # channels share one length.

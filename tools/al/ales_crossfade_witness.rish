@@ -1,7 +1,7 @@
 # tools/al/ales_crossfade_witness.rish -- the equal-power crossfade: lotus-audio's pan law swept over time (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
-# Design read: active-designing/20260814-fill-ales12-lotus-equal-power-crossfade.md
+# Design read: active-designing/date/20260814/20260814-fill-ales12-lotus-equal-power-crossfade.md
 # Stands on: lotus/power.rye (lotus-audio) -- the equal-power `split` read at each sample of the overlap, so the crossfade reuses
 # the proven law rather than re-deriving it; lotus/timeline.rye (lotus-audio) -- the Clip it crosses and the one true saturation
 # (timeline.saturate) reused whole, exactly as lotus-audio's mix.

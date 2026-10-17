@@ -1,7 +1,7 @@
 # tools/al/ales_cue_sheet_witness.rish -- the marker track travels as text, a cue sheet (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
-# Design read: active-designing/20260814-fill-ales22-lotus-cue-sheet.md
+# Design read: active-designing/date/20260814/20260814-fill-ales22-lotus-cue-sheet.md
 # Stands on: lotus/markers.rye (lotus-audio) -- the sorted, unique named track and its one `add` reused whole, so every track bound is
 # enforced at the text edge; lotus/pan.rye (lotus-audio) -- the StereoClip master; tally/parse_int.rye -- strict decimal at the text edge.
 #

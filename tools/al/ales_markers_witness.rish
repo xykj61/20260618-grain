@@ -1,7 +1,7 @@
 # tools/al/ales_markers_witness.rish -- the markers track, named positions a keeper navigates and snaps to (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
-# Design read: active-designing/20260814-fill-ales20-lotus-markers.md
+# Design read: active-designing/date/20260814/20260814-fill-ales20-lotus-markers.md
 # Stands on: lotus/scrub.rye (lotus-audio) -- the scrub's move_to reused whole for snap; lotus/loop.rye (lotus-audio) -- loop.make reused whole
 # for the region between two markers; lotus/pan.rye (lotus-audio) -- the StereoClip whose two channels share one length.
 #

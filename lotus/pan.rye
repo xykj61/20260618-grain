@@ -6,7 +6,7 @@
 //! owes, as distinct from the equal-power curve a later rung may add.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
-//! Design read: active-designing/20260814-fill-ales10-lotus-pan-stereo.md
+//! Design read: active-designing/date/20260814/20260814-fill-ales10-lotus-pan-stereo.md
 //! Stands on: lotus/fader.rye (lotus-audio) -- a panned track is TWO faded contributions, so each channel is `fader.render` run once
 //! with a pan-folded effective fader; the whole rung reuses lotus-audio's one sum twice rather than deriving a stereo accumulation;
 //! lotus/track.rye (lotus-audio) -- the Session the pans align with; lotus/timeline.rye (lotus-audio) -- the Clip and the one saturation.

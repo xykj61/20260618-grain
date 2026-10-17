@@ -5,7 +5,7 @@
 //! the read side genuinely stereo.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
-//! Design read: active-designing/20260814-fill-ales15-lotus-stereo-transport.md
+//! Design read: active-designing/date/20260814/20260814-fill-ales15-lotus-stereo-transport.md
 //! Stands on: lotus/transport.rye (lotus-audio) -- the single-position Transport head reused whole (a stereo master needs no second
 //! cursor); lotus/pan.rye (lotus-audio) -- the StereoClip whose two channels share one length; lotus/clock.rye (lotus-audio) -- seek and
 //! elapsed speak real time; lotus/timeline.rye (lotus-audio) -- the Clip each channel is.

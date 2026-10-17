@@ -6,7 +6,7 @@
 //! clip is placed at a real moment.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
-//! Design read: active-designing/20260814-fill-ales5-lotus-sample-clock.md
+//! Design read: active-designing/date/20260814/20260814-fill-ales5-lotus-sample-clock.md
 //! Stands on: lotus/timeline.rye (lotus-audio) -- the Clip it edits, the bound it converts to, and the one true saturation it
 //! reuses; lotus/fade.rye (lotus-audio) -- the fade `fade_ms` names in milliseconds; lotus/mix.rye (lotus-audio) -- the sample-for-sample
 //! sum `place_at` carries to a real offset.

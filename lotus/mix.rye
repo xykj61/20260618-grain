@@ -4,7 +4,7 @@
 //! A shorter track contributes silence past its end, so the mix runs the length of the longer track and no sample is torn.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
-//! Design read: active-designing/20260814-fill-ales3-lotus-mix-second-track.md
+//! Design read: active-designing/date/20260814/20260814-fill-ales3-lotus-mix-second-track.md
 //! Stands on: lotus/timeline.rye (lotus-audio) -- the Clip it mixes and the saturation it reuses. To set a track's level before
 //! summing, run lotus-audio's `gain` on a clip first, then mix -- level and mix stay separate gestures.
 //!

@@ -1,7 +1,7 @@
 # tools/al/ales_loop_witness.rish -- the transport loop: a marked region read round and round (lotus-audio).
 #
 # Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
-# Design read: active-designing/20260814-fill-ales14-lotus-transport-loop.md
+# Design read: active-designing/date/20260814/20260814-fill-ales14-lotus-transport-loop.md
 # Stands on: lotus/transport.rye (lotus-audio) -- the play head this rung extends (a loop OFF delegates to it whole); lotus/clock.rye
 # (lotus-audio) -- mark_ms sets the region in real time; lotus/timeline.rye (lotus-audio) -- the Clip the master is.
 #

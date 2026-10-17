@@ -5,7 +5,7 @@
 //! heard. The resolution produces an EFFECTIVE fader column, and the mix itself is lotus-audio's `fader.render` unchanged.
 //!
 //! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio - rung lotus-audio.
-//! Design read: active-designing/20260814-fill-ales9-lotus-mute-solo.md
+//! Design read: active-designing/date/20260814/20260814-fill-ales9-lotus-mute-solo.md
 //! Stands on: lotus/fader.rye (lotus-audio) -- a Strip carries a Fader, and `render` resolves mute/solo to an effective fader column
 //! then delegates to `fader.render` whole (no new accumulation, no second saturation); lotus/track.rye (lotus-audio) -- the Session
 //! table the strips align with; lotus/timeline.rye (lotus-audio) -- the Clip and the one true saturation, reached through lotus-audio.
