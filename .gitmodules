@@ -75,3 +75,12 @@
 [submodule "gratitude/ripgrep"]
 	path = gratitude/ripgrep
 	url = https://github.com/BurntSushi/ripgrep.git
+[submodule "gratitude/grain-school"]
+	path = gratitude/grain-school
+	url = https://github.com/node777/grain-school.git
+[submodule "gratitude/grain-atlas"]
+	path = gratitude/grain-atlas
+	url = https://github.com/node777/grain-atlas.git
+[submodule "gratitude/grain-www"]
+	path = gratitude/grain-www
+	url = https://github.com/node777/grain-www.git
