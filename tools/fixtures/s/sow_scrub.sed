@@ -69,6 +69,9 @@ s/xykj61atgmail/acme-owner/g
 s/siyafundllc/acme-fund/g
 s/siyafund/acme-fund/g
 s/thebittradingcompany/acme-co/g
+s/bit-trading-c[o]mpany\.com/acme-co.example/g
+s/bit-trading-c[o]mpany/acme-co/g
+s/n[o]de777/acme-collaborator/g
 s/bitscape/acme-co/g
 s/xy96gen-z/acme-owner/g
 s/xykld2/acme-owner/g
