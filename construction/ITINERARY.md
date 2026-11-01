@@ -2,7 +2,7 @@
 
 **Language:** EN
 **Status:** Living pin -- operator card; full eight-ship formation sailing
-**Stamp:** `20260918.063504` (EDT)
+**Stamp:** `20261101.142320` (EDT)
 **Voice:** Kyri
 **Style:** Bhakta with Radiant warmth; Gauge at Meter
 **Molted from:** [`archive/date/20260912/20260912-142909_itinerary-bound-before-flight.md`](archive/date/20260912/20260912-142909_itinerary-bound-before-flight.md). The archived card remains historical continuity outside Mitra and shred-prep.
@@ -43,202 +43,14 @@ for the watched inputs. That changes the roster runner's contract, so it waits o
 3. (`20260916.004153`) -- **the wire ceiling above**, once Keaton's word names which door it takes.
    `%646` left this queue `20260917`: swept and closed, its 7 hard sites each wanting their own lane.
 
-**PHEROMONE -- THE YOURS QUESTION WAS ALREADY ANSWERED.** [Account shelved
-whole](archive/date/20261002/20261002-070112_itinerary-pheromone-yours-question-already-answered-account.md)
--- `orphaned_revoke` already carries a `Reason` member in `mantra/src/consent_replay.rye`, landed
-by Patchouli before this card's own prior stamp. Language lane reads empty; no fresh rune question
-stands.
 
-**PHEROMONE -- SIX MORE CHAPTER CHECKPOINTS TOOK REDS %292'S OWN REPAIR.** [Account shelved
-whole](archive/date/20261003/20261003-075144_itinerary-pheromone-six-checkpoints-account.md) --
-all six GREEN on metal and rostered. **YOURS:** none -- language lane reads empty.
+**Sailed accounts consolidated (`20261101.142320`).** Over forty shelved-account
+pointer blocks -- Pheromone, Incense, Copal, Bakery, Petrichor, Grass, Diffuser,
+Patchouli -- compressed to this summary. Every account is one click away in
+[`archive/`](archive/) under its own dated filename; the lineage table at
+[`archive/README.md`](archive/README.md) is the way in. Open questions lifted to
+*Open doors* below. Walk-back: `git show ac19440927:construction/ITINERARY.md`.
 
-**PHEROMONE -- THE TENTH STRUCTURE PEDESTAL, `Refusal`'S OWN THREE FIELDS.** [Account shelved
-whole](archive/date/20261003/20261003-075300_itinerary-pheromone-receipt-refusal-pedestal-account.md)
--- GREEN on metal and rostered. **YOURS:** none -- a new rune returns to Incense.
-
-**INCENSE.** [Account shelved](archive/date/20260918/20260918-055107_itinerary-incense-backtick-path-account.md)
--- backtick_path fell 68 to 64.
-
-**INCENSE.** [Account shelved](archive/date/20260918/20260918-075447_itinerary-incense-comment-path-account.md)
--- comment_path's ceiling raised 61 to 66 on a clean reading.
-
-**INCENSE.** [Account shelved](archive/date/20260918/20260918-090424_itinerary-incense-cold-run-30-reds-account.md)
--- two stale binaries rebuilt, `%826` booked (the parent-hash wall's own backlog).
-
-**INCENSE.** [Account shelved](archive/date/20260918/20260918-091343_itinerary-incense-second-cold-run-account.md)
--- a second cold run named the same 28-red backlog plus one fresh regression, `%827` booked.
-
-**INCENSE.** [Account shelved](archive/date/20260924/20260924-212814_itinerary-incense-cold-roster-42-reds-account.md)
--- both owed items closed.
-
-**INCENSE.** [Account shelved](archive/date/20260925/20260925-075903_itinerary-incense-archive-fold-broken-build-account.md)
--- the archive fold's own build was broken and repaired, REDS `20260924.212249` and `20260924.212647`.
-
-**INCENSE.** [Account shelved](archive/date/20260925/20260925-130901_itinerary-incense-disk-headroom-account.md)
--- incense's own gitignored build-output rooms cleared, 96%/7.6G free to 89%/20G free on the shared
-mount; the other seven ships' rooms stay theirs to clear.
-
-**PHEROMONE -- the `rune_cell.rye` double-take account.** [Shelved
-whole](archive/date/20260918/20260918-053350_itinerary-pheromone-rune-cell-account.md).
-
-**PHEROMONE -- `mycelium/puddle_convergence.rye` account.** [Shelved
-whole](archive/date/20260918/20260918-093702_itinerary-pheromone-puddle-convergence-asserts-account.md) -- two
-named-invariant asserts landed, `tame_style_check`'s zero-assert ratchet fell 11 to 10, **7** files
-remain, all outside pheromone's own lane.
-**INCENSE.** [Accounts shelved](archive/date/20260917/20260917-204936_itinerary-incense-two-landed-accounts.md).
-
-**COPAL -- SIX ACCOUNTS AND ONE OPEN QUESTION SET, FOLDED WHOLE.** [account](archive/date/20261001/20261001-125524_itinerary-copal-six-pointer-fold-account.md).
-**YOURS:** a `--cut` flag taking a whole record and whether the board should refuse a hand editing
-it at all; the resin room's landed wall, 45 written characters, 1,417 almanac characters, the
-claim-path exemption, and the remaining unrostered chapter witnesses -- all Keaton's word.
-
-**COPAL -- TWENTY ROSTER-ACCOUNT POINTERS, FOLDED WHOLE.** [Fold
-account](archive/date/20261002/20261002-092614_itinerary-copal-fifteen-roster-accounts-fold.md) --
-voice_roster through sunn13_root_survey, all landed and closed.
-
-**COPAL -- THE NINTH IRONBEETLE ROSTER ACCOUNT, SHELVED WHOLE.** [Account
-shelved](archive/date/20261002/20261002-163247_itinerary-copal-ninth-ironbeetle-roster-account.md)
--- ep011 rostered and both that claim and the stale ep010 claim closed.
-
-**COPAL -- THE ELEVENTH IRONBEETLE ROSTER ACCOUNT, SHELVED WHOLE.** [Account
-shelved](archive/date/20261002/20261002-171805_itinerary-copal-eleventh-ironbeetle-roster-account.md)
--- ep013 rostered; a stale resurrected claim from a bad rebase found and closed.
-
-**COPAL -- THE TWELFTH IRONBEETLE ROSTER ACCOUNT, SHELVED WHOLE.** [Account
-shelved](archive/date/20261002/20261002-175052_itinerary-copal-twelfth-ironbeetle-roster-account.md)
--- ep014 rostered and that claim closed.
-
-**COPAL -- EP015 AND GOLDEN-RULE ROSTER ACCOUNTS, SHELVED WHOLE.** [Account
-shelved](archive/date/20261002/20261002-183323_itinerary-copal-ep015-and-golden-rule-roster-account.md)
--- ep015 and the TB golden-rule sibling, both rostered and closed.
-
-**COPAL -- EP018 AND EP019 ROSTER ACCOUNTS, SHELVED WHOLE.** [Account
-shelved](archive/date/20261002/20261002-222800_itinerary-copal-ep018-ep019-roster-accounts.md)
--- ep018 and ep019 rostered and both claims closed.
-
-**COPAL -- THE EP020 IRONBEETLE ROSTER ACCOUNT, SHELVED WHOLE.** [Account
-shelved](archive/date/20261002/20261002-215127_itinerary-copal-ep020-roster-account.md)
--- ep020 rostered and that claim closed.
-
-**COPAL -- EP021, EP022, AND EP028 ROSTER ACCOUNTS, SHELVED WHOLE.** [Account
-shelved](archive/date/20261002/20261002-223751_itinerary-copal-ep021-ep022-ep028-roster-account.md)
--- ep021, ep022, and ep028 rostered and all three claims closed. **YOURS:** ~75 chapter witnesses
-remain unrostered (166 found under `tools/gen/chapter/`, 91 carrying a `guard` row in
-`construction/standing-equipment.kyri`), measured against that count rather than trusted from this
-line.
-
-**COPAL -- EP030 THROUGH EP042 ROSTER ACCOUNTS, FOLDED WHOLE.** [Account
-shelved](archive/date/20261003/20261003-030606_itinerary-copal-ep030-ep042-roster-fold.md) --
-ep030, ep031, ep034, ep038, ep040, and ep042 rostered and all claims closed, nothing lost.
-
-**COPAL -- EP043 THROUGH EP045 ROSTERED, THE FAMILY COMPLETE, SHELVED WHOLE.** [Account
-shelved](archive/date/20261003/20261003-093436_itinerary-copal-ep043-ep045-family-complete-account.md)
--- the IronBeetle episode-census family rostered complete at 34 of 34.
-
-**COPAL -- TIGERSTYLE-VOID-RETURN ROSTER ACCOUNT, SHELVED WHOLE.** [Account
-shelved](archive/date/20261003/20261003-085439_itinerary-copal-tigerstyle-void-return-account.md)
--- `tigerstyle_void_return_witness.rish` rostered and that claim closed.
-
-**COPAL -- cion-survey JOURNEY 13 COMPLETE, R2 AND R3 ROSTERED, FOLDED WHOLE.** [Account
-shelved](archive/date/20261003/20261003-041959_itinerary-copal-vols-journey-13-complete-account.md)
--- `vols_classify` and `vols_survey_kyri` both rostered and their claims closed; all four cion-survey
-Journey 13 rungs now carry a guard entry.
-
-**COPAL -- NONA_SEASON_N0 ROSTER ACCOUNT, SHELVED WHOLE.** [Account
-shelved](archive/date/20261003/20261003-085439_itinerary-copal-nona-season-n0-account.md) --
-`nona_season_n0_witness.rish` rostered and that claim closed.
-
-**COPAL -- THE BUFFER-BLEEDS ROSTER ACCOUNT, SHELVED WHOLE.** [Account
-shelved](archive/date/20261003/20261003-091418_itinerary-copal-buffer-bleeds-roster-account.md)
--- `tigerbeetle_buffer_bleeds_census_witness.rish` rostered and that claim closed.
-
-**COPAL -- THE CACHE-INPLACE ROSTER ACCOUNT, SHELVED WHOLE.** [Account
-shelved](archive/date/20261003/20261003-093436_itinerary-copal-cache-inplace-roster-account.md)
--- `tigerbeetle_cache_inplace_census_witness.rish` rostered and that claim closed.
-
-**COPAL -- THE CONTROL-PLANE ROSTER ACCOUNT, SHELVED WHOLE.** [Account
-shelved](archive/date/20261003/20261003-094501_itinerary-copal-control-plane-roster-account.md)
--- `tigerbeetle_control_plane_census_witness.rish` rostered and that claim closed.
-
-**COPAL -- THE DEPENDENCIES ROSTER ACCOUNT, SHELVED WHOLE.** [Account
-shelved](archive/date/20261003/20261003-101500_itinerary-copal-dependencies-roster-account.md)
--- `tigerbeetle_dependencies_census_witness.rish` rostered and that claim closed.
-
-**COPAL -- THE LAST-STAGE ROSTER ACCOUNT, SHELVED WHOLE.** [Account
-shelved](archive/date/20261003/20261003-101810_itinerary-copal-last-stage-roster-account.md)
--- `tigerbeetle_last_stage_census_witness.rish` rostered and that claim closed. **YOURS:** chapter
-witnesses remain unrostered under `tools/gen/chapter/`, measured by `comm -23` against
-`construction/standing-equipment.kyri`'s guard paths rather than trusted from this line.
-
-**COPAL -- THE TENTH IRONBEETLE ROSTER ACCOUNT, SHELVED WHOLE.** [Account
-shelved](archive/date/20261002/20261002-170210_itinerary-copal-tenth-ironbeetle-roster-account.md)
--- ep012 rostered and that claim closed.
-
-**COPAL -- THE EP010 IRONBEETLE ROSTER ACCOUNT, SHELVED WHOLE.** [Account
-shelved](archive/date/20261002/20261002-175052_itinerary-copal-ep010-roster-account.md)
--- ep010 rostered and that claim closed.
-
-**COPAL -- A CANDIDATE ROSTER FOUND A RED INSTEAD.** [Account](archive/date/20261001/20261001-234702_itinerary-copal-instrument-suite-fascia-floor-account.md)
--- `instrument_suite_witness.rish` reds on a fascia-health floor the tree has already dropped
-below; booked at `construction/REDS.md` (`20261001.234320`), **OPEN**.
-
-**COPAL -- FIFTEENTH THROUGH NINETEENTH UNROSTERED WITNESSES, FOLDED WHOLE.** [Account
-shelved](archive/date/20261002/20261002-180725_itinerary-copal-fifteenth-through-nineteenth-roster-fold.md)
--- pond_brushstroke_frame, tigerbeetle_assert_census, tigerbeetle_be_explicit_census,
-wayland_from_frame, and ironbeetle_ep006_census, all rostered and claims closed.
-
-**BAKERY -- CAPTURE ACCOUNT SHELVED WHOLE.** [Account shelved](archive/date/20261009/20261009-164312_itinerary-bakery-capture-evidence-account.md) -- `capture_evidence` now reads the producer's status, bytes, and lines; `shell_portable_control.sh` 81 legs GREEN.
-
-**Two elder accounts [shelved whole](archive/date/20261002/20261002-055950_itinerary-bakery-two-accounts-fold.md).**
-**YOURS:** the proposed 10,800-second lap window, against 9,837 seconds of guard cost and a
-5,400-second timeout a running process confirmed; and whether the receipt earns a `clean_tree`
-field, which is the one change that would make a shared basis possible at all.
-
-**PETRICHOR -- FOUR ELDER ACCOUNTS, SHELVED WHOLE.** Baton register
-([account](archive/date/20260925/20260925-184242_itinerary-petrichor-baton-register-account.md)),
-citizen draft sources
-([account](archive/date/20261001/20261001-123036_itinerary-petrichor-citizen-draft-account.md)),
-Wyoming PBC first pass, C+/77 to B+/85
-([account](archive/date/20261001/20261001-123622_itinerary-petrichor-wyoming-pbc-account.md)),
-citizen's-door re-confirmed A/92 with all sixteen links resolving (no account filed; stated plainly
-on this card until this fold).
-
-**PETRICHOR -- THE WYOMING PBC WALKTHROUGH REACHES THE DOOR CEILING.** [Account shelved
-whole](archive/date/20261001/20261001-150500_itinerary-petrichor-wyoming-pbc-grade-9-account.md):
-grade 12 over ceiling closed to grade 9 exactly, `composite=97 (A+)`, no statute cite, fee figure,
-or *verify* marker moved. **YOURS:** none -- the fruit is closed.
-
-**PETRICHOR -- THE CITIZEN DOOR TEACHES A YES THAT CAN CHANGE.** [Account shelved
-whole](archive/date/20261001/20261001-231541_itinerary-petrichor-consent-contract-account.md):
-the contract accepted, and the citizen door's new "A yes you can change" section names grant,
-revoke, and the one refusal proven today -- a mismatched holder. Door/B+, composite 89.
-**YOURS:** none -- Consent Rail and the rest wait past this lane.
-
-**GRASS -- SIX ELDER ACCOUNTS, SHELVED WHOLE.** Pointers only, nothing lost, every path still
-opens: [five-account
-fold](archive/date/20261003/20261003-034124_itinerary-grass-five-elder-accounts-fold.md) (the
-twenty-six-account fold, the pleac reach fix, the diffuser-inner find, and three module-head
-lifts), [four-lift
-fold](archive/date/20261003/20261003-084011_itinerary-grass-four-module-head-fold.md) (portage,
-braid, cord_byzantine, a five-head sample), [testament
-lift](archive/date/20261003/20261003-085552_itinerary-grass-testament-shelve.md), [freight
-lift](archive/date/20261003/20261003-090430_itinerary-grass-freight-shelve.md), [fold.rye
-lift](archive/date/20261003/20261003-091351_itinerary-grass-fold-shelve.md).
-
-**GRASS -- `TENURE.RYE`'S HEAD LIFTS C+ TO B+.** Elder account
-[shelved](archive/date/20261003/20261003-102244_itinerary-grass-statement-shelve.md).
-[Account](../active-designing/date/20261003/20261003-102244_grass-tenure-module-head-account.md):
-fourteen negative phrases rewrote affirmative, same facts -- `fold.fold_log`'s whole-log refusal
-became a decline exposing a mesh to front-running, `StarTaken` became a lawful standstill, the
-demo closing took `freight.rye`'s own shape. Register 47 to 100, composite 77 to 88, B+ -- reach
-sits at grade 13, over ceiling, no further split without losing a fact; B+ stands. Five touching
-witnesses re-run GREEN; no code line moved. **`20261010` re-read at judged service 75:** `till.rye` A/91, `voucher.rye` B+/89, `rehearsal.rye` B+/88 -- all at or above B.
-`warrant.rye` lifted C/80 to B+/89 by splitting its head's comment sentences; `mycelium_warrant_witness` GREEN on metal. Queue of named heads is spent.
-
-**DIFFUSER -- THE SIMULATED POPULATION EXPLAINS MOST OF THE GAP; CHURN IS THE LARGEST FACTOR.** The mixed-lifetime chain stands in [the mixed-lifetime essay](../active-designing/date/20261003/20261003-102318_the-mixed-lifetime-cost-is-space-not-time.md). Landed `20261009.174149`: the simulated paper's own population reproduces its table on a real glibc buffer to within 10 percent, and matching the churn to the real probe closes about 82 percent of the gap at W=10,000 (2,105 per seed against 1,696). The falsifier did not fire. The size mix ran at `20261009.174910` and closed the residual to the seed spread, so that Next is done. Next waits on a real caller's live-set trace, which the tracked tree does not hold: the `20261009.183640` read opened the two matches the `175814` log left unopened, and neither is a trace. The old account is shelved at [construction/archive/20261009-174149_diffuser-card-account-shelved.md](archive/20261009-174149_diffuser-card-account-shelved.md).
-
-**PATCHOULI -- THE LANE'S ACCOUNTS, SHELVED WHOLE.** [Account shelved](archive/date/20261012/20261012-120220_itinerary-patchouli-receipt-refusal-split-account.md) -- `receipt_refusal_witness.rye`'s main split under seventy into three claim helpers, GREEN on metal (log `20261012.120220`). The `store_witness` split of `20261012.115038` stays shelved beside it. **YOURS:** the held red `ContinuityFact.stamp` (use-after-return, waits on your word, the pin at 65,532 of 65,536). **YOURS:** the two rulings gating `%840` (`tally/kumara.rye:36`, legacy `sign`), and the legacy `sign` seam to `sign_checked`, or keep it.
 
 **EVERY SHIP OWES ITS `rishi` BINARY A REBUILD** (`20260915.223610`, `%746`). `rishi/bin/rishi` is
 untracked, so a checkout carries whatever it last built, and a stale one answers `NoSuchField` on a
@@ -323,7 +135,7 @@ The interface uses ASCII as structure, linen as material, and motion as a bounde
 Brushstroke declares each component's grid, role, state, tokens, and motion profile. Skate renders the fixed frame and bounded events. A correspondence witness forces meaning, description, and behavior to change together.
 
 ## Now -- the eight sailing ship itineraries
-**Git nib:** `2231863f95`
+**Git nib:** `ac19440927`
 
 
 ### Incense -- product captain
@@ -447,7 +259,7 @@ Ships may rest while a dependency is open. Rest preserves the finishing edge.
 
 ## Under-the-hood module road
 
-The build beneath every whole uses Rishi, Rye, Tally, Caravan, and Aurora with Brix describing the closure. The first receipt whole uses Kyri, Mantra, Dimeroll, Linengrow, Brushstroke, and Skate. Later named milestones earn Comlink, Pond, Amphora, Granary, Mandi, MUR, Lantern, Mycelium, and Cellar only when their job becomes necessary. Favorite names guide clear responsibility; they never justify an extra layer by themselves.
+The build beneath every whole uses Rishi, Rye, Tally, Caravan, and Aurora with Brix describing the closure. The first receipt whole uses Kyri, Mantra, Dimeroll, Linengrow, Brushstroke, and Skate. **Terrarium** is the browser-hosted RISC-V emulation surface -- a living world under glass, bounded and observable -- where outsiders see the system through `grain-emu.wasm` booting Caravan and Grain userspace (named `20261031` on Keaton and DJINN's word; DJINN's `grain-www` architecture). **Steward** is the root supervisor inside Caravan: reads the Brix manifest, builds domains declaratively, manages lifecycle with a bounded restart policy, wires typed IPC, and manages capability leases with time bounds and usage limits. Later named milestones earn Comlink, Pond, Amphora, Granary, Mandi, MUR, Lantern, Mycelium, and Cellar only when their job becomes necessary. Favorite names guide clear responsibility; they never justify an extra layer by themselves.
 
 ## Alignment measures
 
@@ -504,12 +316,28 @@ At check-in, count completed named wholes, dual-product acceptance cases green, 
 - **The Glow field capacity** -- `$:` now admits fifteen faces, the contract's widest type, with the
   sixteenth still refused (`glow_shape_capacity`). The existing shape and lowering path carries it;
   no new rune was added.
+- **Copal YOURS (lifted `20261101`).** The `--cut` flag taking a whole record, whether the board
+  should refuse a hand editing it, the resin room's landed wall (45 written characters, 1,417
+  almanac characters), the claim-path exemption, and ~75 unrostered chapter witnesses (166 found
+  under `tools/gen/chapter/`, 91 rostered). The fascia-health floor red (`20261001.234320`) remains
+  **OPEN** on the ledger.
+- **Bakery YOURS (lifted `20261101`).** The proposed 10,800-second lap window (against 9,837s guard
+  cost and a 5,400s timeout), and whether the receipt earns a `clean_tree` field.
+- **Patchouli YOURS (lifted `20261101`).** The held red `ContinuityFact.stamp` (use-after-return,
+  pin at 65,532 of 65,536), and the two rulings gating `%840` (`tally/kumara.rye:36`, legacy
+  `sign`).
+- **Pier YOURS (lifted `20261101`).** Whether the fleet reads its own free space at all
+  (from the `%745` pier-filled account).
+- **The stack vision.** The itinerary reimagined as bounded stacks where new insights push to the
+  front. The round reads from the top of the stack; the previous tree state is the frozen function.
+  Full vision: [`active-development/20261031-232638_terrarium-and-the-stack-that-breathes.md`](../active-development/20261031-232638_terrarium-and-the-stack-that-breathes.md).
 
 ## Archive and record
 
 - The immediately departing itinerary rests at [`archive/date/20260912/20260912-142909_itinerary-bound-before-flight.md`](archive/date/20260912/20260912-142909_itinerary-bound-before-flight.md).
 - Its elder rests at [`archive/date/20260912/20260912-141814_itinerary-before-lindy-crux-molt.md`](archive/date/20260912/20260912-141814_itinerary-before-lindy-crux-molt.md).
 - The prior design system rests at [`../active-designing/archive/20260826-022443_the-linengrow-design-theme.md`](../active-designing/archive/20260826-022443_the-linengrow-design-theme.md).
+- The `20261101.142320` stack molt-breach consolidated over forty shelved-account pointer blocks into a single summary, lifting open questions to *Open doors*. Walk-back: `git show ac19440927:construction/ITINERARY.md`.
 - Archives are historical continuity outside Mitra and shred-prep.
 - Fleet trees remain the full live formation from `20260913`. From `20261001` every live roster engine reads `claude`. Bakery resolves `claude-opus-5`; the other live seats resolve `claude-sonnet-5` (moved off the 5.5 family 20261001 pending Anthropic's resolution of the reported safety-classifier issue).
 

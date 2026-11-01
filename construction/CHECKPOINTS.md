@@ -1,5 +1,10 @@
 # Checkpoints -- the walk-back markers before every debride
 
+**Checkpoint `20261101.142320` -- stack molt-breach of the operator card.**
+- **Walk-back nib:** `ac19440927` -- `git show ac19440927:construction/ITINERARY.md` restores the pre-consolidation card.
+- **Swept:** over forty shelved-account pointer blocks (lines 46-241) consolidated to a single summary paragraph. Open YOURS questions from Copal, Bakery, Patchouli, and the pier-filled account lifted to Open Doors. Module road expanded with Terrarium and Steward. Stack vision referenced.
+- **What waits there, worth recalling:** the per-ship account lineage in its original inline form, each pointer beside the section it followed. Every account is still one click away in `archive/README.md`; what the elder card held was the pointer in context.
+
 **Checkpoint `20261018.205901` -- seed walk-back for the publish to grain-ww/grain.**  
 - **Seed head now (ww):** `7ed44d889d`, the anonymous root commit the seed publish pushed on the owner's yes.  
 - **Prior seed head (ww):** not recorded. The publish force-pushes, and the prior head was not read before the push, so this row cannot name it. The seed clone is recreated on every publish, so it is not kept there either.  
