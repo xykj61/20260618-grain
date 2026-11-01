@@ -10,6 +10,12 @@ Opened: `20261018.225249`
 
 ---
 
+## 20261101
+
+**docs-page** `composition/20261101-144352_the-harmony-from-earth-to-glass.md` `28cabe73dd` -- five pictures (materials, economics, hardware, emulation, alignment) harmonized into one argument; orbit round 5 economics check answered
+
+---
+
 ## 20261020
 
 **room** `session-logs/date/` `1c22273d0b` -- 13,366 `.kyri` session logs renamed to `.kyri.md`; 86 shelf index rows repointed
