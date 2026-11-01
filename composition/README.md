@@ -26,6 +26,7 @@ Newest first.
 
 | Stamp | Entry |
 |---|---|
+| 20261101.144352 | [The harmony from earth to glass](20261101-144352_the-harmony-from-earth-to-glass.md) | five pictures harmonized: materials, economics, hardware, emulation, alignment |
 | 20261019.010800 | [The missing module gap](20261019-010800_the-missing-module-gap.md) | two days, six of eight kinds, module absent -- the teaching phase arrived on schedule |
 | 20261019.002845 | [Calfive plans -- seven kinds](20261019-002845_calfive-plans-seven-kinds.md) | language, product, identity/network, surface, hardware, creative suite, long return |
 | 20261018.223157 | [Kyli 7 -- the shared library](20261018-223157_kyli-7-the-shared-library.md) | the composition pattern comes home: shared library, composed voices, Radha |
