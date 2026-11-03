@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261103.150239` | [standing roster tutorial in docs-geode](20261103/20261103-150239_standing-roster-tutorial.kyri.md) | Bhakta tutorial: five verdicts, standfast, --full, evidence, workflow |
 | `20261103.145835` | [standfast default for standing equipment](20261103/20261103-145835_standfast-default-standing-equipment.kyri.md) | Halt on first red by default per TAME -- --full overrides |
 | `20261103.101415` | [@splat type annotations committed](20261103/20261103-101415_splat-type-annotations-commit.kyri.md) | 138 files annotated for Zig 0.17 @splat, cold endurance run launched |
 | `20261103.020226` | [Zig 0.17 molt-breach send](20261103/20261103-020226_zig-017-molt-breach-send.kyri.md) | Committed 472 files and pushed to origin -- molt-breach landed on main |

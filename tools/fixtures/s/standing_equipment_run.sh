@@ -151,6 +151,8 @@ only=""
 hot=no
 probe=no
 scoped=no
+# Halt on first red by default -- safety first per TAME Guidance.
+# docs-geode/tutorials/running-the-standing-roster.md
 standfast=yes
 
 # THE CADENCE SLICE -- how many cadence guards this lap sings beside its lap tier. A tier is a
