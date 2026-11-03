@@ -29,6 +29,7 @@ const print = std.debug.print;
 const beading = @import("mantra/beading.rye");
 const tally_copy = @import("tally_copy.rye");
 const parse_int = @import("parse_int.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 pub const tablecloth_version = "20260812.142132";
 
@@ -393,7 +394,7 @@ fn run_tablecloth_selftest() !u8 {
         assert(err == error.NameEmpty);
     }
     {
-        const long_name = "x" ** (max_name + 1);
+        const long_name = str_repeat("x", (max_name + 1));
         if (store_artifact(&cat, &store, long_name, doc_a)) |_| {
             return error.NameTooLong;
         } else |err| {

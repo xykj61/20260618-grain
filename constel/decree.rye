@@ -48,8 +48,8 @@ pub const DecreeError = error{
 /// A decree over one proposed value: each roster slot's single accept (the value it agreed to), which slots have cast, the
 /// value the leader proposed, and the constellation size. Bounded by max_piers, exactly like the roster it indexes.
 pub const Decree = struct {
-    accepted: [roster.max_piers]u32 = [_]u32{0} ** roster.max_piers,
-    cast: [roster.max_piers]bool = [_]bool{false} ** roster.max_piers,
+    accepted: [roster.max_piers]u32 = @splat(0),
+    cast: [roster.max_piers]bool = @splat(false),
     value: u32 = 0,
     size: u32 = 0,
 

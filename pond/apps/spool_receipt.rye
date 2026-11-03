@@ -56,13 +56,13 @@ const doc_name = "security.md";
 const hex_digits = "0123456789abcdef";
 
 // Demo keeper seeds and the settled fractal -- no real key, no custody (gate %4 untouched).
-const g_key: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-const g_keeper: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
-const s_key: [kumara.seed_length]u8 = .{0x44} ** kumara.seed_length;
-const s_keeper: [kumara.seed_length]u8 = .{0x55} ** kumara.seed_length;
-const p_key: [kumara.seed_length]u8 = .{0x77} ** kumara.seed_length;
-const p_keeper: [kumara.seed_length]u8 = .{0x88} ** kumara.seed_length;
-const other_keeper: [kumara.seed_length]u8 = .{0x33} ** kumara.seed_length;
+const g_key: [kumara.seed_length]u8 = @splat(0x11);
+const g_keeper: [kumara.seed_length]u8 = @splat(0x22);
+const s_key: [kumara.seed_length]u8 = @splat(0x44);
+const s_keeper: [kumara.seed_length]u8 = @splat(0x55);
+const p_key: [kumara.seed_length]u8 = @splat(0x77);
+const p_keeper: [kumara.seed_length]u8 = @splat(0x88);
+const other_keeper: [kumara.seed_length]u8 = @splat(0x33);
 
 // The inclusive fractal: galaxy 3, its star (3,2) = 27, its planet (3,2,4) = 267.
 const galaxy_num: u32 = 3;

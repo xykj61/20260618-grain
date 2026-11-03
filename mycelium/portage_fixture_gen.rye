@@ -37,21 +37,21 @@ pub const start: u64 = 100;
 pub const amount: u64 = 40;
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 
 fn world_tag(name: []const u8) [portage.world_tag_len]u8 {
     // invariant: a world tag name fits the fixed tag width.
     assert(name.len <= portage.world_tag_len);
-    var t: [portage.world_tag_len]u8 = .{0} ** portage.world_tag_len;
+    var t: [portage.world_tag_len]u8 = @splat(0);
     tally_copy.copy_disjoint(u8, t[0..name.len], name);
     return t;
 }
 
 /// The crossing's fixed 16-byte id.
 pub fn crossing_id() [portage.id_len]u8 {
-    return .{id_byte} ** portage.id_len;
+    return @splat(id_byte);
 }
 
 /// The crossing's content digest -- derived from the fixture's own seeds, independent of any record text.

@@ -91,7 +91,7 @@ pub const Snapshot = struct {
 /// The effective committed length is snap.count + tail_len, which climbs past max_tail as compaction reclaims the tail.
 pub const CompactLog = struct {
     snap: Snapshot = .{},
-    tail: [max_tail]u32 = [_]u32{0} ** max_tail,
+    tail: [max_tail]u32 = @splat(0),
     tail_len: u32 = 0,
 
     /// The effective committed length -- the snapshot's absorbed count plus the live tail. This is the number a client sees;

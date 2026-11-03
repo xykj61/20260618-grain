@@ -214,7 +214,7 @@ pub fn parse(text: []const u8, out: *Manifest) KyriError!void {
 // --- selftest scaffolding: build a world ledger over the seasons' own idioms ----------------------------
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 
@@ -247,7 +247,7 @@ fn seat_ledger(pledge_id: u8, credit: u64, pledge_amt: u64, funder: u8, owner: u
 
     var pb: [1 + lapse.id_len + lapse.deadline_len + puddle.pk_len]u8 = undefined;
     pb[0] = lapse.tag_pledge;
-    const id_bytes: [lapse.id_len]u8 = .{pledge_id} ** lapse.id_len;
+    const id_bytes: [lapse.id_len]u8 = @splat(pledge_id);
     tally_copy.copy_disjoint(u8, pb[1 .. 1 + lapse.id_len], id_bytes[0..]);
     write_deadline(9, pb[1 + lapse.id_len .. 1 + lapse.id_len + lapse.deadline_len]);
     tally_copy.copy_disjoint(u8, pb[1 + lapse.id_len + lapse.deadline_len ..][0..puddle.pk_len], to);

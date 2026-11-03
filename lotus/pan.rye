@@ -90,8 +90,8 @@ pub fn render_stereo(
     assert(faders.len == session.count and pans.len == session.count);
     assert(session.count <= track.max_tracks);
 
-    var left_col: [track.max_tracks]fader.Fader = [_]fader.Fader{.{}} ** track.max_tracks;
-    var right_col: [track.max_tracks]fader.Fader = [_]fader.Fader{.{}} ** track.max_tracks;
+    var left_col: [track.max_tracks]fader.Fader = @splat(.{});
+    var right_col: [track.max_tracks]fader.Fader = @splat(.{});
     var t: u32 = 0;
     while (t < session.count) : (t += 1) {
         const p = pans[t];

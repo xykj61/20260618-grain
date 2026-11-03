@@ -160,7 +160,7 @@ pub fn verdicts_match(whole: *const till.Till, across: *const till.Till) bool {
 // ---- selftest: the verdict reads the same across a sealed checkpoint --------------
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 

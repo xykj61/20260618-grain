@@ -166,8 +166,8 @@ fn run_selftest() !u8 {
         while (li < lens.len) : (li += 1) {
             const L = lens[li];
             var s = try make(L);
-            var gl: [5]i16 = [_]i16{0} ** 5;
-            var gr: [5]i16 = [_]i16{0} ** 5;
+            var gl: [5]i16 = @splat(0);
+            var gr: [5]i16 = @splat(0);
             var bl: [max_scrub_window]i16 = undefined;
             var br: [max_scrub_window]i16 = undefined;
             var got: u32 = 0;
@@ -201,8 +201,8 @@ fn run_selftest() !u8 {
         try timeline.splice(&sc.left, 0, &[_]i16{ 1, 2, 3, 4, 5, 6 });
         try timeline.splice(&sc.right, 0, &[_]i16{ 11, 12, 13, 14, 15, 16 });
         var s = try make(3);
-        var bl: [3]i16 = [_]i16{0} ** 3;
-        var br: [3]i16 = [_]i16{0} ** 3;
+        var bl: [3]i16 = @splat(0);
+        var br: [3]i16 = @splat(0);
         try move_to(&s, &sc, 2);
         var n = try read_window(&s, &sc, &bl, &br);
         if (n != 3 or !eq(bl[0..n], &[_]i16{ 3, 4, 5 }) or !eq(br[0..n], &[_]i16{ 13, 14, 15 })) return error.MidReadWrong;
@@ -242,8 +242,8 @@ fn run_selftest() !u8 {
         if (nudge(&s, &sc, -100) != 0) return error.ClampLowWrong; // overshoot low → 0
         if (nudge(&s, &sc, 1000) != 8) return error.ClampHighWrong; // overshoot high → len
         if (nudge(&s, &sc, -3) != 5) return error.DragLeftWrong; // 8 − 3 = 5
-        var bl: [2]i16 = [_]i16{0} ** 2;
-        var br: [2]i16 = [_]i16{0} ** 2;
+        var bl: [2]i16 = @splat(0);
+        var br: [2]i16 = @splat(0);
         const n = try read_window(&s, &sc, &bl, &br); // window [5,7)
         if (n != 2 or !eq(bl[0..n], &[_]i16{ 6, 7 }) or !eq(br[0..n], &[_]i16{ 3, 2 })) return error.DraggedReadWrong;
     }
@@ -264,8 +264,8 @@ fn run_selftest() !u8 {
 
         var s = try make(3);
         try move_to(&s, &rendered, 1);
-        var bl: [3]i16 = [_]i16{0} ** 3;
-        var br: [3]i16 = [_]i16{0} ** 3;
+        var bl: [3]i16 = @splat(0);
+        var br: [3]i16 = @splat(0);
         const n = try read_window(&s, &rendered, &bl, &br);
         if (n != 3 or !eq(bl[0..n], &[_]i16{ 700, 700, 700 }) or !eq(br[0..n], &[_]i16{ 700, 700, 700 })) return error.RenderedScrubWrong;
         const lvl = meter_window(&s, &rendered);
@@ -282,8 +282,8 @@ fn run_selftest() !u8 {
         const orig_l = [_]i16{ 9, 8, 7, 6, 5 };
         const orig_r = [_]i16{ 90, 80, 70, 60, 50 };
         var s = try make(2);
-        var bl: [2]i16 = [_]i16{0} ** 2;
-        var br: [2]i16 = [_]i16{0} ** 2;
+        var bl: [2]i16 = @splat(0);
+        var br: [2]i16 = @splat(0);
         _ = nudge(&s, &sc, 3);
         _ = nudge(&s, &sc, -1);
         _ = try read_window(&s, &sc, &bl, &br);
@@ -305,8 +305,8 @@ fn run_selftest() !u8 {
         if (move_to(&s, &sc, 4)) |_| return error.PastEndSlipped else |e| if (e != error.PastEnd) return error.WrongPastEnd;
         try move_to(&s, &sc, 3); // exactly the end is allowed
         // mismatched buffers refuse BadBlock -- a scrub reads exactly its window length into matched buffers.
-        var bl: [2]i16 = [_]i16{0} ** 2;
-        var br3: [3]i16 = [_]i16{0} ** 3;
+        var bl: [2]i16 = @splat(0);
+        var br3: [3]i16 = @splat(0);
         try move_to(&s, &sc, 0);
         if (read_window(&s, &sc, &bl, &br3)) |_| return error.BadBlockSlipped else |e| if (e != error.BadBlock) return error.WrongBadBlock;
     }

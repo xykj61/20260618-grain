@@ -391,9 +391,9 @@ pub fn emit_sponsor(io: std.Io, s: *const Sponsor) void {
 // --- selftest and example instance --------------------------------------
 
 // Example seeds -- plainly not a real pilot's key, so no identity is invented.
-const example_key_seed: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-const example_keeper_seed: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
-const example_net_seed: [kumara.seed_length]u8 = .{0x33} ** kumara.seed_length;
+const example_key_seed: [kumara.seed_length]u8 = @splat(0x11);
+const example_keeper_seed: [kumara.seed_length]u8 = @splat(0x22);
+const example_net_seed: [kumara.seed_length]u8 = @splat(0x33);
 const example_number: u32 = 27; // a star in the inclusive fractal — of_star(3,2), galaxy 3
 const example_chosen_parent: u32 = 7; // an escape to a different galaxy (default is 3)
 

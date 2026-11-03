@@ -99,7 +99,7 @@ pub fn infuse(base_src: []const u8, over_src: []const u8, out: []u8) InfuseError
     const nb = try parse(base_src, &base);
     const no = try parse(over_src, &over);
 
-    var over_emitted: [max_pairs]bool = [_]bool{false} ** max_pairs;
+    var over_emitted: [max_pairs]bool = @splat(false);
     var pos: u32 = 0;
 
     // Walk base in order. A base key the override defines is replaced (all the

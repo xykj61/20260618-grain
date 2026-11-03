@@ -197,7 +197,7 @@ pub fn demo_genesis(issuer: kumara.KeyPair, account_pk: []const u8) !cord.Dag {
 /// A fixed demo keypair from a single repeated seed byte -- a caller (or witness) names an account or a
 /// stranger ship distinct from the roster.
 pub fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [seed_len]u8 = .{byte} ** seed_len;
+    const seed: [seed_len]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 

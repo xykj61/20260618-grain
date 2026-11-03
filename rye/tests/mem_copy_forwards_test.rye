@@ -6,7 +6,7 @@ const std = @import("std");
 const mem = std.mem;
 
 pub fn main() void {
-    var dest: [8]u8 = .{0} ** 8;
+    var dest: [8]u8 = @splat(0);
     mem.copyForwards(u8, dest[0..4], "Rye");
     std.debug.assert(mem.eql(u8, dest[0..3], "Rye"));
     std.debug.assert(dest[3] == 0);
@@ -15,7 +15,7 @@ pub fn main() void {
     mem.copyForwards(u8, overlap[0..4], overlap[2..6]);
     std.debug.assert(mem.eql(u8, overlap[0..4], "cdef"));
 
-    var dest2: [4]u8 = .{'x'} ** 4;
+    var dest2: [4]u8 = @splat('x');
     mem.copyForwards(u8, &dest2, "");
     std.debug.assert(dest2[0] == 'x');
 

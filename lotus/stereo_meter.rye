@@ -82,8 +82,8 @@ pub fn rms_right(sm: *const StereoMeter) u32 {
 fn meter_stereo_via_transport(sc: *const pan.StereoClip, block_len: u32) !StereoMeter {
     var t = transport.Transport{};
     var sm = StereoMeter{};
-    var sl: [16]i16 = [_]i16{0} ** 16;
-    var sr: [16]i16 = [_]i16{0} ** 16;
+    var sl: [16]i16 = @splat(0);
+    var sr: [16]i16 = @splat(0);
     // invariant: the requested block never exceeds the scratch buffers, so the read is bounded.
     assert(block_len >= 1 and block_len <= sl.len);
     while (!stereo_transport.at_end(&t, sc)) {

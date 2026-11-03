@@ -119,12 +119,12 @@ fn run_selftest() !u8 {
         try timeline.splice(&stereo.left, 0, &[_]i16{ 10, 20, 30, 40, 50 });
         try timeline.splice(&stereo.right, 0, &[_]i16{ -1, -2, -3, -4, -5 });
         var t = transport.Transport{};
-        var gl: [5]i16 = [_]i16{0} ** 5;
-        var gr: [5]i16 = [_]i16{0} ** 5;
+        var gl: [5]i16 = @splat(0);
+        var gr: [5]i16 = @splat(0);
         var got: u32 = 0;
         while (!at_end(&t, &stereo)) {
-            var bl: [2]i16 = [_]i16{0} ** 2;
-            var br: [2]i16 = [_]i16{0} ** 2;
+            var bl: [2]i16 = @splat(0);
+            var br: [2]i16 = @splat(0);
             const n = try read_block(&t, &stereo, &bl, &br);
             var k: u32 = 0;
             while (k < n) : (k += 1) {
@@ -137,8 +137,8 @@ fn run_selftest() !u8 {
         if (!eq(gl[0..got], stereo.left.samples())) return error.LeftConcatWrong;
         if (!eq(gr[0..got], stereo.right.samples())) return error.RightConcatWrong;
         // the read past the end is empty in both channels.
-        var tl: [2]i16 = [_]i16{0} ** 2;
-        var tr: [2]i16 = [_]i16{0} ** 2;
+        var tl: [2]i16 = @splat(0);
+        var tr: [2]i16 = @splat(0);
         if (try read_block(&t, &stereo, &tl, &tr) != 0) return error.PastEndReadWrong;
     }
 
@@ -154,8 +154,8 @@ fn run_selftest() !u8 {
         try timeline.splice(&stereo.right, 0, &[_]i16{ 9, 10 });
         var t = transport.Transport{};
         if (at_end(&t, &stereo)) return error.FreshAtEnd;
-        var bl: [2]i16 = [_]i16{0} ** 2;
-        var br: [2]i16 = [_]i16{0} ** 2;
+        var bl: [2]i16 = @splat(0);
+        var br: [2]i16 = @splat(0);
         _ = try read_block(&t, &stereo, &bl, &br);
         if (!at_end(&t, &stereo)) return error.NotAtEndAfterAll;
     }
@@ -166,8 +166,8 @@ fn run_selftest() !u8 {
         try timeline.splice(&stereo.left, 0, &[_]i16{ 1, 2, 3 });
         try timeline.splice(&stereo.right, 0, &[_]i16{ 4, 5, 6 });
         var t = transport.Transport{};
-        var bl: [2]i16 = [_]i16{0} ** 2;
-        var br: [3]i16 = [_]i16{0} ** 3;
+        var bl: [2]i16 = @splat(0);
+        var br: [3]i16 = @splat(0);
         if (read_block(&t, &stereo, &bl, &br)) |_| return error.BadBlockSlipped else |e| if (e != error.BadBlock) return error.WrongBadBlock;
     }
 
@@ -180,8 +180,8 @@ fn run_selftest() !u8 {
         var t = transport.Transport{};
         try seek_ms(&t, &stereo, c, 3);
         if (t.position() != 3 or elapsed_ms(&t, c) != 3) return error.SeekWrong;
-        var bl: [2]i16 = [_]i16{0} ** 2;
-        var br: [2]i16 = [_]i16{0} ** 2;
+        var bl: [2]i16 = @splat(0);
+        var br: [2]i16 = @splat(0);
         const n = try read_block(&t, &stereo, &bl, &br);
         const want_l = [_]i16{ 4, 5 };
         const want_r = [_]i16{ 14, 15 };
@@ -205,8 +205,8 @@ fn run_selftest() !u8 {
         try @import("power.rye").render_stereo(&s, &faders, &pans, c, &rendered);
 
         var t = transport.Transport{};
-        var bl: [2]i16 = [_]i16{0} ** 2;
-        var br: [2]i16 = [_]i16{0} ** 2;
+        var bl: [2]i16 = @splat(0);
+        var br: [2]i16 = @splat(0);
         const n = try read_block(&t, &rendered, &bl, &br);
         const seven_hundred = [_]i16{ 700, 700 }; // 1000 × isqrt(5000)/100
         if (n != 2 or !eq(bl[0..n], &seven_hundred) or !eq(br[0..n], &seven_hundred)) return error.RenderedPlaybackWrong;
@@ -221,12 +221,12 @@ fn run_selftest() !u8 {
         const orig_l = [_]i16{ 9, 8, 7, 6 };
         const orig_r = [_]i16{ 90, 80, 70, 60 };
         var t = transport.Transport{};
-        var bl: [4]i16 = [_]i16{0} ** 4;
-        var br: [4]i16 = [_]i16{0} ** 4;
+        var bl: [4]i16 = @splat(0);
+        var br: [4]i16 = @splat(0);
         _ = try read_block(&t, &stereo, &bl, &br); // play to the end
         try seek_ms(&t, &stereo, c, 0); // rewind
-        var al: [4]i16 = [_]i16{0} ** 4;
-        var ar: [4]i16 = [_]i16{0} ** 4;
+        var al: [4]i16 = @splat(0);
+        var ar: [4]i16 = @splat(0);
         const n = try read_block(&t, &stereo, &al, &ar);
         if (n != 4 or !eq(al[0..n], &orig_l) or !eq(ar[0..n], &orig_r)) return error.ReplayWrong;
         if (!eq(stereo.left.samples(), &orig_l) or !eq(stereo.right.samples(), &orig_r)) return error.MasterMutated;

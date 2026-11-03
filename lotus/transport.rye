@@ -112,10 +112,10 @@ fn run_selftest() !u8 {
         var master = timeline.Clip{};
         try timeline.splice(&master, 0, &[_]i16{ 10, 20, 30, 40, 50 });
         var t = Transport{};
-        var gathered: [5]i16 = [_]i16{0} ** 5;
+        var gathered: [5]i16 = @splat(0);
         var got: u32 = 0;
         while (!at_end(&t, &master)) {
-            var block: [2]i16 = [_]i16{0} ** 2;
+            var block: [2]i16 = @splat(0);
             const n = read_block(&t, &master, &block);
             var k: u32 = 0;
             while (k < n) : (k += 1) {
@@ -126,7 +126,7 @@ fn run_selftest() !u8 {
         if (got != 5) return error.CountWrong;
         if (!eq(gathered[0..got], master.samples())) return error.ConcatWrong;
         // the read past the end is empty -- zero samples, no error, no wrap.
-        var tail: [2]i16 = [_]i16{0} ** 2;
+        var tail: [2]i16 = @splat(0);
         if (read_block(&t, &master, &tail) != 0) return error.PastEndReadWrong;
     }
 
@@ -141,7 +141,7 @@ fn run_selftest() !u8 {
         try timeline.splice(&master, 0, &[_]i16{ 7, 8 });
         var t = Transport{};
         if (at_end(&t, &master)) return error.FreshAtEnd;
-        var block: [2]i16 = [_]i16{0} ** 2;
+        var block: [2]i16 = @splat(0);
         _ = read_block(&t, &master, &block);
         if (!at_end(&t, &master)) return error.NotAtEndAfterAll;
     }
@@ -156,7 +156,7 @@ fn run_selftest() !u8 {
         if (t.position() != 3) return error.SeekWrong;
         if (elapsed_ms(&t, c) != 3) return error.ElapsedWrong;
         // a read after the seek continues from the sought moment, not the start.
-        var block: [2]i16 = [_]i16{0} ** 2;
+        var block: [2]i16 = @splat(0);
         const n = read_block(&t, &master, &block);
         const want = [_]i16{ 4, 5 };
         if (n != 2 or !eq(block[0..n], &want)) return error.SeekReadWrong;
@@ -180,10 +180,10 @@ fn run_selftest() !u8 {
         try timeline.splice(&master, 0, &[_]i16{ 9, 8, 7, 6 });
         const original = [_]i16{ 9, 8, 7, 6 };
         var t = Transport{};
-        var block: [4]i16 = [_]i16{0} ** 4;
+        var block: [4]i16 = @splat(0);
         _ = read_block(&t, &master, &block); // play to the end
         try seek_ms(&t, &master, c, 0); // rewind
-        var again: [4]i16 = [_]i16{0} ** 4;
+        var again: [4]i16 = @splat(0);
         const n = read_block(&t, &master, &again);
         if (n != 4 or !eq(again[0..n], &original)) return error.ReplayWrong;
         if (!eq(master.samples(), &original)) return error.MasterMutated;

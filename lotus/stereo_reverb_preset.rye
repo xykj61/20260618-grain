@@ -94,12 +94,12 @@ fn run_selftest() !u8 {
     // 1024 samples == 1024 ms at this clock -- long enough for the hall's strongest comb to recirculate all the way to silence, the room lotus-audio
     //   proved a long strong hall actually decays in. Two distinct impulses so the channels genuinely differ (no crossing can hide).
     const left = blk: {
-        var b: [1024]i16 = [_]i16{0} ** 1024;
+        var b: [1024]i16 = @splat(0);
         b[0] = 12000;
         break :blk b;
     };
     const right = blk: {
-        var b: [1024]i16 = [_]i16{0} ** 1024;
+        var b: [1024]i16 = @splat(0);
         b[3] = 9000; // a different impulse at a different position — the right channel is not the left
         break :blk b;
     };

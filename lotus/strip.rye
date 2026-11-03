@@ -87,7 +87,7 @@ pub fn render(
     // invariant: the strip column aligns one-to-one with the placed tracks.
     assert(strips.len == session.count);
     assert(session.count <= track.max_tracks);
-    var eff: [track.max_tracks]fader.Fader = [_]fader.Fader{.{}} ** track.max_tracks;
+    var eff: [track.max_tracks]fader.Fader = @splat(.{});
     resolve(strips, eff[0..session.count]);
     // The mix itself is lotus-audio, unchanged -- the effective column is the only thing mute/solo contributes.
     try fader.render(session, eff[0..session.count], clk, out);

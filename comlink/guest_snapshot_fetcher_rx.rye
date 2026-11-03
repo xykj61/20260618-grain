@@ -8,7 +8,7 @@ const kumara = @import("kumara.rye");
 
 var rx: vn.RxQueue = undefined;
 
-const batch_signer_seed = [_]u8{0x61} ** kumara.seed_length;
+const batch_signer_seed = @splat(0x61);
 
 export fn _start() linksection(".text.init") callconv(.naked) noreturn {
     asm volatile (

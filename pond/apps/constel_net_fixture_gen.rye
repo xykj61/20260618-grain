@@ -25,12 +25,12 @@ const kumara = @import("kumara.rye");
 pub const constel_net_fixture_gen_version = "20260813.024836";
 
 // The same demo branch the harness rungs settle: galaxy 3 - star 27 - planet 267, one law-safe name.
-const demo_g_key: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-const demo_g_keeper: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
-const demo_s_key: [kumara.seed_length]u8 = .{0x33} ** kumara.seed_length;
-const demo_s_keeper: [kumara.seed_length]u8 = .{0x44} ** kumara.seed_length;
-const demo_p_key: [kumara.seed_length]u8 = .{0x55} ** kumara.seed_length;
-const demo_p_keeper: [kumara.seed_length]u8 = .{0x66} ** kumara.seed_length;
+const demo_g_key: [kumara.seed_length]u8 = @splat(0x11);
+const demo_g_keeper: [kumara.seed_length]u8 = @splat(0x22);
+const demo_s_key: [kumara.seed_length]u8 = @splat(0x33);
+const demo_s_keeper: [kumara.seed_length]u8 = @splat(0x44);
+const demo_p_key: [kumara.seed_length]u8 = @splat(0x55);
+const demo_p_keeper: [kumara.seed_length]u8 = @splat(0x66);
 
 const galaxy_num: u32 = 3;
 const star_num: u32 = 27;

@@ -47,7 +47,7 @@ pub const StreamError = error{
 /// A bounded byte FIFO carrying LOTS frames: a fixed buffer, a read cursor, and the written length. A write appends; a read
 /// advances the cursor; a drained stream compacts back to the start on the next write.
 pub const AudioStream = struct {
-    buf: [max_stream]u8 = [_]u8{0} ** max_stream,
+    buf: [max_stream]u8 = @splat(0),
     cursor: u32 = 0,
     len: u32 = 0,
 
@@ -107,7 +107,7 @@ pub fn feed(st: *AudioStream, frame: *const wire.Frame) StreamError!void {
 /// A bounded, ordered reassembly of every whole frame drained from the stream: the samples laid end to end into one gapless
 /// timeline, plus the count of frames read. The timeline is the audio that arrived, in order, with no torn or missing sample.
 pub const Timeline = struct {
-    buf: [max_timeline]i16 = [_]i16{0} ** max_timeline,
+    buf: [max_timeline]i16 = @splat(0),
     len: u32 = 0,
     frames: u32 = 0,
 

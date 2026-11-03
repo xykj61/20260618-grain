@@ -163,7 +163,7 @@ fn run_selftest() !u8 {
         full.right.len = timeline.max_clip - 1;
         // hold a wider span so net growth (held - lead - trail) exceeds the one free sample.
         var wide_src = pan.StereoClip{};
-        var wbuf: [8]i16 = [_]i16{0} ** 8;
+        var wbuf: [8]i16 = @splat(0);
         try timeline.splice(&wide_src.left, 0, &wbuf);
         try timeline.splice(&wide_src.right, 0, &wbuf);
         var wcb = clipboard.Clipboard{};

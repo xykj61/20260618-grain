@@ -195,7 +195,7 @@ fn run_selftest() !u8 {
     // 5. a constant input swept settles to the input exactly and never dips at a block boundary -- a constant is a fixed point of
     //    every legal coefficient, and the carried state never restarts, so the sweep rises monotonically to the input and stays.
     {
-        const run = [_]i16{2000} ** 48;
+        const run = @splat(2000);
         var clip = timeline.Clip{};
         try load_clip(&clip, &run);
         try sweep_low_pass(&clip, 0, clip.len, 1, 2, 2, 6); // 1/2 → 2/2 in six blocks

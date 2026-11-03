@@ -230,7 +230,7 @@ pub fn resolve(dag: *const cord.Dag) error{
 // ---- selftest: the crux is a contested draw decided by the agreed order ------
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 

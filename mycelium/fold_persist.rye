@@ -185,7 +185,7 @@ fn read_u32_le(in: []const u8) u32 {
 /// Selftest -- sleep - wake - equal - refuse whole.
 pub fn main() !void {
     const kumara = @import("kumara.rye");
-    const seed: [kumara.seed_length]u8 = .{0xa1} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(0xa1);
     const kp = kumara.keypair_from_seed(&seed);
 
     const issue = fold.mint_fact(kp, fold.kind_issue, 1000, "", "persist-genesis") orelse return error.MintIssue;

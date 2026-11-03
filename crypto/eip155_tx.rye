@@ -160,7 +160,7 @@ fn slice_eq(a: []const u8, b: []const u8) bool {
 
 fn run_selftest() !u8 {
     // The EIP-155 specification's own canonical example transaction, field for field. Test key 0x4646...46, chain id 1.
-    const to = [_]u8{0x35} ** 20; // to = 0x3535353535353535353535353535353535353535
+    const to = @splat(0x35); // to = 0x3535353535353535353535353535353535353535
     const gas_price = [_]u8{ 0x04, 0xa8, 0x17, 0xc8, 0x00 }; // 20 gwei = 20e9
     const gas = [_]u8{ 0x52, 0x08 }; // 21000
     const value = [_]u8{ 0x0d, 0xe0, 0xb6, 0xb3, 0xa7, 0x64, 0x00, 0x00 }; // 1 ETH = 1e18 wei

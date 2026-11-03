@@ -22,6 +22,7 @@ const print = std.debug.print;
 const skate = @import("brushstroke/skate_grid.rye");
 const tokens = @import("brushstroke/tokens.rye");
 const lantern = @import("lantern/lantern_core.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 const lantern_face_version = "20260829.233003";
 
@@ -183,7 +184,7 @@ pub fn main(init: std.process.Init) !u8 {
     assert(expect_row(&grid3, 2, "= proposed"));
     print("lantern-face: proposed marks plainly what is not yet settled -- GREEN\n", .{});
 
-    const wide = "x" ** 39;
+    const wide = str_repeat("x", 39);
     var grid4 = try skate.Grid.init(garden, face_cols, face_rows);
     if (compose_face(&grid4, wide, "a", .settled)) |_| {
         return error.WideQuestionAccepted;
@@ -191,7 +192,7 @@ pub fn main(init: std.process.Init) !u8 {
         // invariant: the width refusal names itself rather than clipping.
         assert(err == error.QuestionTooWide);
     }
-    assert(expect_row(&grid4, 0, " " ** 8));
+    assert(expect_row(&grid4, 0, str_repeat(" ", 8)));
     print("lantern-face: a 39-byte question refuses by name, grid untouched -- GREEN\n", .{});
 
     var grid5 = try skate.Grid.init(garden, face_cols, face_rows);
@@ -215,7 +216,7 @@ pub fn main(init: std.process.Init) !u8 {
     }
     print("lantern-face: empty question and empty settled answer refuse -- GREEN\n", .{});
 
-    const exact = "y" ** 38;
+    const exact = str_repeat("y", 38);
     var grid7 = try skate.Grid.init(garden, face_cols, face_rows);
     try compose_face(&grid7, exact, exact, .settled);
     print("lantern-face: the exact 38-byte budget welcomes on both rows -- GREEN\n", .{});

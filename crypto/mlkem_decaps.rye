@@ -96,12 +96,12 @@ pub fn k_pke_decrypt(comptime k: u32, comptime du: u32, comptime dv: u32, dk_pke
     var i: u32 = 0;
     // invariant (bound): exactly k u-polynomials decoded, one per turn.
     while (i < k) : (i += 1) {
-        var block: encode.Encoded = .{ .bytes = [_]u8{0} ** encode.max_bytes, .len = 32 * du };
+        var block: encode.Encoded = .{ .bytes = @splat(0), .len = 32 * du };
         var b: u32 = 0;
         // invariant (bound): exactly 32-du bytes read for this polynomial.
         while (b < 32 * du) : (b += 1) block.bytes[b] = c[32 * du * i + b];
         const raw = encode.byte_decode(&block, du);
-        var poly: ring.Poly = .{ .cs = [_]u32{0} ** n };
+        var poly: ring.Poly = .{ .cs = @splat(0) };
         var cc: u32 = 0;
         // invariant (bound): exactly n = 256 coefficients decompressed.
         while (cc < n) : (cc += 1) poly.cs[cc] = encode.decompress(raw[cc], du);
@@ -109,9 +109,9 @@ pub fn k_pke_decrypt(comptime k: u32, comptime du: u32, comptime dv: u32, dk_pke
     }
 
     // v = Decompress_dv(ByteDecode_dv(c2)) -- the dv-compressed second segment, decompressed back into the ring.
-    var v_poly: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var v_poly: ring.Poly = .{ .cs = @splat(0) };
     {
-        var block: encode.Encoded = .{ .bytes = [_]u8{0} ** encode.max_bytes, .len = 32 * dv };
+        var block: encode.Encoded = .{ .bytes = @splat(0), .len = 32 * dv };
         var b: u32 = 0;
         // invariant (bound): exactly 32-dv bytes read for v.
         while (b < 32 * dv) : (b += 1) block.bytes[b] = c[32 * du * k + b];
@@ -125,7 +125,7 @@ pub fn k_pke_decrypt(comptime k: u32, comptime du: u32, comptime dv: u32, dk_pke
     i = 0;
     // invariant (bound): exactly k secret polynomials decoded.
     while (i < k) : (i += 1) {
-        var block: encode.Encoded = .{ .bytes = [_]u8{0} ** encode.max_bytes, .len = poly_encoded_bytes };
+        var block: encode.Encoded = .{ .bytes = @splat(0), .len = poly_encoded_bytes };
         var b: u32 = 0;
         // invariant (bound): exactly 384 bytes read for this polynomial.
         while (b < poly_encoded_bytes) : (b += 1) block.bytes[b] = dk_pke[poly_encoded_bytes * i + b];
@@ -134,7 +134,7 @@ pub fn k_pke_decrypt(comptime k: u32, comptime du: u32, comptime dv: u32, dk_pke
 
     // w = v - InvNTT(Σ_j ŝ[j] ∘ NTT(u[j])), each coefficient reduced mod q. NTT(u) lifts u into the transform domain; the pointwise sum stays
     // canonical; InvNTT returns it to standard domain; the subtraction is (v + q - x) mod q on canonical residues.
-    var acc: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var acc: ring.Poly = .{ .cs = @splat(0) };
     var j: u32 = 0;
     // invariant (bound): exactly k pointwise products accumulated.
     while (j < k) : (j += 1) {
@@ -150,7 +150,7 @@ pub fn k_pke_decrypt(comptime k: u32, comptime du: u32, comptime dv: u32, dk_pke
         }
     }
     const su = ring.inv_ntt(&acc);
-    var w: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var w: ring.Poly = .{ .cs = @splat(0) };
     var cw: u32 = 0;
     // invariant (bound): w = v - su, one canonical subtraction per coefficient.
     while (cw < n) : (cw += 1) {

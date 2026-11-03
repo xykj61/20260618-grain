@@ -362,9 +362,9 @@ fn process_segment(blocks: []Block, passes: u32, memory: u32, threads: u32, mode
     // invariant: the pass, slice, and lane are within their bounds, so every offset computed below lands inside the block memory.
     assert(n < passes and slice < sync_points and lane < threads);
 
-    var addresses: Block = [_]u64{0} ** block_words;
-    var in_block: Block = [_]u64{0} ** block_words;
-    const zero: Block = [_]u64{0} ** block_words;
+    var addresses: Block = @splat(0);
+    var in_block: Block = @splat(0);
+    const zero: Block = @splat(0);
 
     const data_independent = (mode == .argon2i) or (mode == .argon2id and n == 0 and slice < sync_points / 2);
     if (data_independent) {
@@ -493,7 +493,7 @@ pub fn kdf(garden: std.mem.Allocator, out: []u8, password: []const u8, salt: []c
     const blocks = garden.alloc(Block, memory) catch return error.OutOfMemory;
     // The arena is released whole by the season; a defer-free explicit free is left to the caller's arena discipline.
     var z: u32 = 0;
-    while (z < memory) : (z += 1) blocks[z] = [_]u64{0} ** block_words;
+    while (z < memory) : (z += 1) blocks[z] = @splat(0);
 
     try init_blocks(blocks, &h0, memory, params.p);
     process_blocks(blocks, params.t, memory, params.p, mode, lanes, segments);
@@ -512,10 +512,10 @@ fn bytes_eq(a: []const u8, b: []const u8) bool {
 /// One RFC 9106 primary vector: password 0x01*32, salt 0x02*16, secret 0x03*8, ad 0x04*12, t=3, m=32, p=4, 32-byte output. Each mode
 /// publishes its own known-answer; this proves our Argon2 reproduces it byte-for-byte.
 fn check_primary(garden: std.mem.Allocator, mode: Mode, want: *const [32]u8) !void {
-    const password = [_]u8{0x01} ** 32;
-    const salt = [_]u8{0x02} ** 16;
-    const secret = [_]u8{0x03} ** 8;
-    const ad = [_]u8{0x04} ** 12;
+    const password = @splat(0x01);
+    const salt = @splat(0x02);
+    const secret = @splat(0x03);
+    const ad = @splat(0x04);
     var dk: [32]u8 = undefined;
     try kdf(garden, &dk, &password, &salt, .{ .t = 3, .m = 32, .p = 4, .secret = &secret, .ad = &ad }, mode);
     if (!bytes_eq(&dk, want)) return error.PrimaryMismatch;

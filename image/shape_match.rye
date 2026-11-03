@@ -70,7 +70,7 @@ pub fn signed_log10(h: f64) f64 {
 /// The distance functions read these; a caller rarely needs the signature directly, yet it is the honest middle value between a
 /// raw fingerprint and a scalar distance.
 pub const LogSignature = struct {
-    m: [7]f64 = [_]f64{0.0} ** 7,
+    m: [7]f64 = @splat(0.0),
 };
 
 /// The signed-log signature of one component's Hu invariants -- a pure transform, no pixels read.

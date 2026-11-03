@@ -103,7 +103,7 @@ fn run_selftest() !u8 {
     {
         const c = try clock.make(48000);
         if (clock.samples_for(c, 1) catch 0 != 48) return error.RateConversionWrong; // guard the arithmetic itself
-        var buf: [240]i16 = [_]i16{0} ** 240; // 240 samples == 5 ms at 48 kHz, so count_ms 5 covers the whole clip exactly
+        var buf: [240]i16 = @splat(0); // 240 samples == 5 ms at 48 kHz, so count_ms 5 covers the whole clip exactly
         buf[0] = 10000; // an impulse at index 0
         var timed = timeline.Clip{};
         try load_clip(&timed, &buf);

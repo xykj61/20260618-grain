@@ -186,12 +186,12 @@ pub fn verify_chain(
 
 // --- selftest -----------------------------------------------------------
 
-const g_key: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-const g_keeper: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
-const s_key: [kumara.seed_length]u8 = .{0x44} ** kumara.seed_length;
-const s_keeper: [kumara.seed_length]u8 = .{0x55} ** kumara.seed_length;
-const p_key: [kumara.seed_length]u8 = .{0x77} ** kumara.seed_length;
-const p_keeper: [kumara.seed_length]u8 = .{0x88} ** kumara.seed_length;
+const g_key: [kumara.seed_length]u8 = @splat(0x11);
+const g_keeper: [kumara.seed_length]u8 = @splat(0x22);
+const s_key: [kumara.seed_length]u8 = @splat(0x44);
+const s_keeper: [kumara.seed_length]u8 = @splat(0x55);
+const p_key: [kumara.seed_length]u8 = @splat(0x77);
+const p_keeper: [kumara.seed_length]u8 = @splat(0x88);
 
 const galaxy_num: u32 = 3;
 const star_num: u32 = 27;

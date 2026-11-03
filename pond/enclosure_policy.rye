@@ -846,7 +846,7 @@ fn run_selftest() !u8 {
     // unreachable from run_check until `20260830`, because the caller sized its buffer AT the
     // bound and `readFile` fills a buffer rather than refusing -- so the one guard against a
     // truncated reading could never be handed a value that fired it.
-    const too_long = [_]u8{'m'} ** (max_policy_len + 1);
+    const too_long = @splat('m');
     if (inspect_policy(&too_long)) |_| return error.PolicyTooLongPassed else |_| {}
 
     // A record carrying only header fields declares no enclosure at all.

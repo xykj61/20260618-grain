@@ -94,8 +94,8 @@ pub fn fair_trade_holds(ct: *const CertifiedTrade, price: i64) bool {
 
 // --- selftest -----------------------------------------------------------
 
-const producer_seed: [kumara.seed_length]u8 = .{0x33} ** kumara.seed_length;
-const steward_seed: [kumara.seed_length]u8 = .{0x66} ** kumara.seed_length;
+const producer_seed: [kumara.seed_length]u8 = @splat(0x33);
+const steward_seed: [kumara.seed_length]u8 = @splat(0x66);
 
 // The cooperative sells as its producer point; the steward co-attests. Plainly demo numbers.
 const producer_point: u32 = 7;

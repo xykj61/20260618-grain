@@ -53,7 +53,7 @@ pub const TxReport = struct {
     result: TxResult = .refused_stand_in,
     frame_len: u32 = 0,
     iface_len: u32 = 0,
-    iface: [setu6.iface_name_max]u8 = .{' '} ** setu6.iface_name_max,
+    iface: [setu6.iface_name_max]u8 = @splat(' '),
 
     pub fn iface_slice(self: *const TxReport) []const u8 {
         if (self.iface_len == 0) return "none";
@@ -142,7 +142,7 @@ pub fn attempt_iface_tx_to(mode: setu6.LabMode, iface: []const u8, dest: [4]u8) 
     // SO_BROADCAST's return is discarded on purpose: the directed send this module makes needs
     // no broadcast bit, and the limited-broadcast fallback names its own failure at sendto.
     _ = c.setsockopt(fd, SOL_SOCKET, SO_BROADCAST, &yes, @sizeOf(c_int));
-    var ifname: [setu6.iface_name_max + 1]u8 = .{0} ** (setu6.iface_name_max + 1);
+    var ifname: [setu6.iface_name_max + 1]u8 = @splat(0);
     tally_copy.copy_disjoint(u8, ifname[0..iface.len], iface);
     if (c.setsockopt(fd, SOL_SOCKET, SO_BINDTODEVICE, &ifname, @intCast(iface.len + 1)) != 0) {
         report.result = .send_failed;

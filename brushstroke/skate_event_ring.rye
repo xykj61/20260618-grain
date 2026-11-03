@@ -39,7 +39,7 @@ pub fn EventRing(comptime Event: type) type {
         /// the unsigned ceiling without spending u64-max queue operations.
         pub fn init_at(counter_origin: u64) Ring {
             const ring = Ring{
-                .seats = [_]?Event{null} ** event_capacity,
+                .seats = @splat(null),
                 .head = counter_origin,
                 .tail = counter_origin,
             };

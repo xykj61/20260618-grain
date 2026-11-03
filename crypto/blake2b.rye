@@ -164,7 +164,7 @@ pub fn hash512(msg: []const u8) Blake2bError![digest_len]u8 {
 
     if (total == 0) {
         // The empty message is one final block of all zeros, counter zero.
-        const empty = [_]u8{0} ** block_bytes;
+        const empty = @splat(0);
         compress(&h, &empty, 0, true);
     } else {
         var offset: u32 = 0;
@@ -176,7 +176,7 @@ pub fn hash512(msg: []const u8) Blake2bError![digest_len]u8 {
         const rem = total - offset;
         // invariant: the tail is a non-empty block-sized-or-smaller span -- the loop above consumed every earlier full block.
         assert(rem > 0 and rem <= block_bytes);
-        var last_block = [_]u8{0} ** block_bytes;
+        var last_block = @splat(0);
         var j: u32 = 0;
         while (j < rem) : (j += 1) last_block[j] = msg[offset + j];
         compress(&h, &last_block, @as(u128, total), true);
@@ -214,7 +214,7 @@ pub fn hash_var(out: []u8, msg: []const u8) Blake2bError!void {
 
     if (total == 0) {
         // The empty message is one final block of all zeros, counter zero -- the same last-block rule hash512 keeps.
-        const empty = [_]u8{0} ** block_bytes;
+        const empty = @splat(0);
         compress(&h, &empty, 0, true);
     } else {
         var offset: u32 = 0;
@@ -224,7 +224,7 @@ pub fn hash_var(out: []u8, msg: []const u8) Blake2bError!void {
         const rem = total - offset;
         // invariant: the tail is a non-empty block-sized-or-smaller span -- the loop above consumed every earlier full block.
         assert(rem > 0 and rem <= block_bytes);
-        var last_block = [_]u8{0} ** block_bytes;
+        var last_block = @splat(0);
         var j: u32 = 0;
         while (j < rem) : (j += 1) last_block[j] = msg[offset + j];
         compress(&h, &last_block, @as(u128, total), true);
@@ -270,7 +270,7 @@ pub fn hash_keyed(out: []u8, key: []const u8, msg: []const u8) Blake2bError!void
     h[0] ^= 0x0000000001010000 ^ (@as(u64, key_len) << 8) ^ @as(u64, out_len);
 
     // The key, zero-padded to one full 128-byte block, is prepended to the message and folded in first; the counter treats it as a full block.
-    var key_block = [_]u8{0} ** block_bytes;
+    var key_block = @splat(0);
     var kk: u32 = 0;
     while (kk < key_len) : (kk += 1) key_block[kk] = key[kk];
     // invariant: the whole key was copied into the leading block, no more and no less.
@@ -291,7 +291,7 @@ pub fn hash_keyed(out: []u8, key: []const u8, msg: []const u8) Blake2bError!void
         const rem = total - offset;
         // invariant: the tail is a non-empty block-sized-or-smaller span -- the loop above consumed every earlier full block.
         assert(rem > 0 and rem <= block_bytes);
-        var last_block = [_]u8{0} ** block_bytes;
+        var last_block = @splat(0);
         var j: u32 = 0;
         while (j < rem) : (j += 1) last_block[j] = msg[offset + j];
         compress(&h, &last_block, @as(u128, block_bytes + total), true);

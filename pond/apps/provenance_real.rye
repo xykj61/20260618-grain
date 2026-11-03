@@ -58,12 +58,12 @@ const big_doc = @embedFile("corpora/security.md");
 const sig_len: u32 = 64;
 
 // Demo keeper seeds -- no real key, no custody. Mirrors tablecloth_keyed's selftest.
-const g_key: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-const g_keeper: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
-const s_key: [kumara.seed_length]u8 = .{0x44} ** kumara.seed_length;
-const s_keeper: [kumara.seed_length]u8 = .{0x55} ** kumara.seed_length;
-const p_key: [kumara.seed_length]u8 = .{0x77} ** kumara.seed_length;
-const p_keeper: [kumara.seed_length]u8 = .{0x88} ** kumara.seed_length;
+const g_key: [kumara.seed_length]u8 = @splat(0x11);
+const g_keeper: [kumara.seed_length]u8 = @splat(0x22);
+const s_key: [kumara.seed_length]u8 = @splat(0x44);
+const s_keeper: [kumara.seed_length]u8 = @splat(0x55);
+const p_key: [kumara.seed_length]u8 = @splat(0x77);
+const p_keeper: [kumara.seed_length]u8 = @splat(0x88);
 
 // The inclusive fractal: galaxy 3, its star (3,2) = 27, its planet (3,2,4) = 267.
 const galaxy_num: u32 = 3;
@@ -165,7 +165,7 @@ fn unwelcome_forged_signature() !void {
     const w = try seat_world();
     var store: beading.BeadStore = .empty();
     var kc: keyed.KeyedCatalog = .empty();
-    const zero_sig: [sig_len]u8 = .{0} ** sig_len;
+    const zero_sig: [sig_len]u8 = @splat(0);
     const before = kc.cat.count;
     if (keyed.store_owned(&kc, &store, &w.con, &w.planet, doc_name, real_doc, &zero_sig)) |_| {
         return error.UnwelcomePassed;

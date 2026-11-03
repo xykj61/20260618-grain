@@ -174,7 +174,7 @@ pub fn keccak_sponge(rate: u32, delim: u8, msg: []const u8, out: []u8) void {
     // invariant: the delimiter is one of the three the standards define -- SHA3's 0x06, original Keccak's 0x01, or SHAKE's 0x1f.
     assert(delim == sha3_delim or delim == keccak_delim or delim == shake_delim);
 
-    var st = [_]u64{0} ** lanes;
+    var st = @splat(0);
     const total: u32 = @intCast(msg.len);
 
     // Absorb every full rate-byte block of the message proper.
@@ -190,7 +190,7 @@ pub fn keccak_sponge(rate: u32, delim: u8, msg: []const u8, out: []u8) void {
     // invariant: the leftover is strictly less than a whole rate -- every full block was absorbed above.
     assert(rem < rate);
 
-    var block = [_]u8{0} ** state_bytes;
+    var block = @splat(0);
     var j: u32 = 0;
     while (j < rem) : (j += 1) block[j] = msg[offset + j];
     block[rem] = delim;

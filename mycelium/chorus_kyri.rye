@@ -38,6 +38,7 @@ const lapse = @import("lapse.rye");
 const kumara = @import("kumara.rye");
 const tally_copy = @import("tally_copy.rye");
 const parse_int = @import("parse_int.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 /// The record buffer bound -- a full quorum's claim lines plus one member line per voice fit with room.
 pub const max_record: u32 = 8192;
@@ -217,7 +218,7 @@ pub fn parse(text: []const u8, out: *chorus.Chorus) KyriError!u32 {
 // ---- selftest: a quorum travels and still proves itself ----------------------
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 
@@ -246,7 +247,7 @@ fn pledge_body(id: []const u8, deadline: u64, to: []const u8, out: []u8) u32 {
 /// Build a Dag: genesis credits Alice 100, Alice pledges 100 to Bob under a far deadline (open) -- so a
 /// chorus over Alice reads balance 0, reserved 100, received 100, the position the wire must carry whole.
 fn build_dag() !cord.Dag {
-    const id = [_]u8{0x01} ** lapse.id_len;
+    const id = @splat(0x01);
     const kf = seeded(0xF0);
     const ka = seeded(0xA1);
     const kb = seeded(0xB2);
@@ -336,14 +337,14 @@ pub fn main() !void {
     }
     // Refusal: a missing field (no threshold line) refuses BadFormat.
     {
-        const bad = "format chorus-v1\nhead " ++ ("00" ** chorus.order_head_len) ++ "\naccount " ++ ("00" ** chorus.pk_len) ++ "\nposition 0 0 0\nmember " ++ ("00" ** chorus.pk_len) ++ " " ++ ("00" ** kumara.signature_length) ++ "\n";
+        const bad = "format chorus-v1\nhead " ++ (str_repeat("00", chorus.order_head_len).*) ++ "\naccount " ++ (str_repeat("00", chorus.pk_len).*) ++ "\nposition 0 0 0\nmember " ++ (str_repeat("00", chorus.pk_len).*) ++ " " ++ (str_repeat("00", kumara.signature_length).*) ++ "\n";
         if (parse(bad, &scratch)) |_| return error.MissingAdmitted else |err| {
             if (err != error.BadFormat) return error.WrongMissing;
         }
     }
     // Refusal: a bad hex member node key refuses BadHex.
     {
-        const bad = "format chorus-v1\nhead " ++ ("00" ** chorus.order_head_len) ++ "\naccount " ++ ("00" ** chorus.pk_len) ++ "\nposition 0 0 0\nthreshold 1\nmember zz " ++ ("00" ** kumara.signature_length) ++ "\n";
+        const bad = "format chorus-v1\nhead " ++ (str_repeat("00", chorus.order_head_len).*) ++ "\naccount " ++ (str_repeat("00", chorus.pk_len).*) ++ "\nposition 0 0 0\nthreshold 1\nmember zz " ++ (str_repeat("00", kumara.signature_length).*) ++ "\n";
         if (parse(bad, &scratch)) |_| return error.BadHexAdmitted else |err| {
             if (err != error.BadHex) return error.WrongBadHex;
         }

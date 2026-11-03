@@ -109,8 +109,8 @@ pub fn record_signed(
 // ---- witnesses ----
 
 // Demo keeper seeds -- plainly not real keys, so no identity is invented.
-const seller_seed: [kumara.seed_length]u8 = .{0x33} ** kumara.seed_length;
-const buyer_seed: [kumara.seed_length]u8 = .{0x66} ** kumara.seed_length;
+const seller_seed: [kumara.seed_length]u8 = @splat(0x33);
+const buyer_seed: [kumara.seed_length]u8 = @splat(0x66);
 
 fn pubkey_of(seed: *const [kumara.seed_length]u8) [pubkey_len]u8 {
     return kumara.keypair_from_seed(seed).public_key.bytes;

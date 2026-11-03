@@ -37,6 +37,7 @@ const fold = @import("fold.rye");
 const kumara = @import("kumara.rye");
 const tally_copy = @import("tally_copy.rye");
 const parse_int = @import("parse_int.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 const pk_len = kumara.PublicKey.encoded_length;
 const sig_len = kumara.signature_length;
@@ -287,7 +288,7 @@ pub fn rebuild(pl: *const PortableDag) !cord.Dag {
 // ---- selftest: the agreed order travels with the bytes ---------------------
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 
@@ -399,7 +400,7 @@ pub fn main() !void {
     if (parse("format cord-dag-v1\nghost 5\n")) |_| return error.UnknownAdmitted else |err| {
         if (err != error.UnknownField) return error.WrongUnknown;
     }
-    if (parse("format cord-dag-v1\nparent " ++ "00" ** hash_len ++ "\n")) |_| return error.OrphanAdmitted else |err| {
+    if (parse("format cord-dag-v1\nparent " ++ str_repeat("00", hash_len) ++ "\n")) |_| return error.OrphanAdmitted else |err| {
         if (err != error.ParentBeforeBlock) return error.WrongOrphan;
     }
 

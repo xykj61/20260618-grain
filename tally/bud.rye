@@ -32,7 +32,7 @@ pub const pinned_h_bytes: [point_len]u8 = .{
 };
 
 pub fn scalar_from_u64(n: u64) [scalar_len]u8 {
-    var s: [scalar_len]u8 = .{0} ** scalar_len;
+    var s: [scalar_len]u8 = @splat(0);
     std.mem.writeInt(u64, s[0..8], n, .little);
     return Edwards25519.scalar.reduce(s);
 }
@@ -67,7 +67,7 @@ pub fn point_to_hex(p: Edwards25519, out: *[point_len * 2]u8) void {
 fn run_selftest(_: std.Io) !u8 {
     try assert_pinned_h();
 
-    const dew = [_]u8{0x11} ** scalar_len;
+    const dew = @splat(0x11);
     const c1 = try commit(1000, &dew);
     const c2 = try commit(1000, &dew);
     assert(std.mem.eql(u8, &c1.toBytes(), &c2.toBytes()));

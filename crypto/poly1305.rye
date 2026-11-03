@@ -262,7 +262,7 @@ pub fn mac(tag: *[tag_bytes]u8, msg: []const u8, key: *const [key_bytes]u8) Poly
         const rem = total - offset;
         // invariant: the remainder is a strict partial block -- a full block would have been taken by the loop above.
         assert(rem < block_bytes);
-        var buf = [_]u8{0} ** block_bytes;
+        var buf = @splat(0);
         var i: u32 = 0;
         while (i < rem) : (i += 1) buf[i] = msg[offset + i];
         buf[rem] = 1; // the RFC's length marker for the final partial block

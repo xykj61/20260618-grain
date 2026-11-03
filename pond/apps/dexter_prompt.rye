@@ -43,7 +43,7 @@ pub const PromptError = error{
 /// A drawn prompt row: a fixed grid of exactly row_cols cells, space-filled where no character is drawn,
 /// and the column the caret sits at (always within the row).
 pub const PromptRow = struct {
-    cells: [row_cols]u8 = [_]u8{' '} ** row_cols,
+    cells: [row_cols]u8 = @splat(' '),
     cursor_col: u32 = 0,
 
     /// The row as a slice of exactly row_cols cells.
@@ -146,7 +146,7 @@ fn an_overwide_prefix_refuses() !void {
     var l = line.Line.empty();
     try l.type_str("x");
     // A prefix as wide as the whole row leaves no column for the line -- refused by name.
-    var wide: [row_cols]u8 = [_]u8{'>'} ** row_cols;
+    var wide: [row_cols]u8 = @splat('>');
     const refused = render_prompt(wide[0..], &l);
     assert(refused == error.PrefixTooWide);
     // A prefix exactly at the bound (one column left) is accepted.

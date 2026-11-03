@@ -141,8 +141,8 @@ pub fn record_signed_transfer(
 // --- witnesses ----
 
 // Demo steward seeds -- plainly not real keys, so no identity is invented.
-const siya_steward_seed: [kumara.seed_length]u8 = .{0x33} ** kumara.seed_length;
-const linengrow_steward_seed: [kumara.seed_length]u8 = .{0x66} ** kumara.seed_length;
+const siya_steward_seed: [kumara.seed_length]u8 = @splat(0x33);
+const linengrow_steward_seed: [kumara.seed_length]u8 = @splat(0x66);
 
 fn pubkey_of(seed: *const [kumara.seed_length]u8) [pubkey_len]u8 {
     return kumara.keypair_from_seed(seed).public_key.bytes;

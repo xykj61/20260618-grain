@@ -198,7 +198,7 @@ pub fn parse_func(text: []const u8) !Rgba {
     // Head, lowercased into a small fixed buffer (longest legal head is "hsla", four bytes).
     const head_raw = trim_spaces(t[0..open]);
     if (head_raw.len == 0 or head_raw.len > 4) return error.BadFunctionForm;
-    var head = [_]u8{0} ** 4;
+    var head = @splat(0);
     var hi: u32 = 0;
     while (hi < head_raw.len) : (hi += 1) head[hi] = to_lower(head_raw[hi]);
     const h = head[0..head_raw.len];
@@ -570,7 +570,7 @@ fn run_selftest(garden: std.mem.Allocator) !u8 {
         const forms = [_][]const u8{ "#f0a", "#f0a8", "#ff00aa", "#ff00aa80", "112233", "#000000" };
         for (forms) |f| {
             const c = try parse_hex(f);
-            var buf = [_]u8{0} ** 9;
+            var buf = @splat(0);
             const hex = try format_hex(c, buf[0..]);
             // invariant: canonical text re-parses to the same four bytes -- an exact color round-trip.
             const c2 = try parse_hex(hex);

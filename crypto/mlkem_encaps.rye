@@ -152,7 +152,7 @@ pub fn k_pke_encrypt(comptime k: u32, comptime eta1: u32, comptime du: u32, comp
     var i: u32 = 0;
     // invariant (bound): exactly k encoded polynomials decoded, one per turn.
     while (i < k) : (i += 1) {
-        var block: encode.Encoded = .{ .bytes = [_]u8{0} ** encode.max_bytes, .len = poly_encoded_bytes };
+        var block: encode.Encoded = .{ .bytes = @splat(0), .len = poly_encoded_bytes };
         var b: u32 = 0;
         // invariant (bound): exactly 384 bytes read for this polynomial.
         while (b < poly_encoded_bytes) : (b += 1) block.bytes[b] = ek[poly_encoded_bytes * i + b];
@@ -199,7 +199,7 @@ pub fn k_pke_encrypt(comptime k: u32, comptime eta1: u32, comptime du: u32, comp
     i = 0;
     // invariant (bound): exactly k output polynomials.
     while (i < k) : (i += 1) {
-        var acc: ring.Poly = .{ .cs = [_]u32{0} ** n };
+        var acc: ring.Poly = .{ .cs = @splat(0) };
         var j: u32 = 0;
         // invariant (bound): exactly k pointwise products accumulated per row.
         while (j < k) : (j += 1) {
@@ -225,12 +225,12 @@ pub fn k_pke_encrypt(comptime k: u32, comptime eta1: u32, comptime du: u32, comp
     }
 
     // mu = Decompress_1(ByteDecode_1(m)) -- the message lifted to the ring: each bit becomes 0 or round(q/2) = 1665.
-    var m_block: encode.Encoded = .{ .bytes = [_]u8{0} ** encode.max_bytes, .len = seed_half_bytes };
+    var m_block: encode.Encoded = .{ .bytes = @splat(0), .len = seed_half_bytes };
     var mb: u32 = 0;
     // invariant (bound): exactly 32 message bytes read.
     while (mb < seed_half_bytes) : (mb += 1) m_block.bytes[mb] = m[mb];
     const m_bits = encode.byte_decode(&m_block, 1);
-    var mu: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var mu: ring.Poly = .{ .cs = @splat(0) };
     var mc: u32 = 0;
     // invariant (bound): exactly n = 256 message bits decompressed.
     while (mc < n) : (mc += 1) {
@@ -241,7 +241,7 @@ pub fn k_pke_encrypt(comptime k: u32, comptime eta1: u32, comptime du: u32, comp
     }
 
     // v = InvNTT(Σ_j t_hat[j] ∘ r_hat[j]) + e2 + mu, each coefficient reduced mod q.
-    var vacc: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var vacc: ring.Poly = .{ .cs = @splat(0) };
     var vj: u32 = 0;
     // invariant (bound): exactly k pointwise products accumulated.
     while (vj < k) : (vj += 1) {

@@ -65,13 +65,13 @@ fn parse_trailing_u32(rest: []const u8) LowerError!u32 {
 }
 
 pub const Compose2Spec = struct {
-    a_face: [rf.max_name_len]u8 = .{0} ** rf.max_name_len,
+    a_face: [rf.max_name_len]u8 = @splat(0),
     a_len: usize = 0,
     a_value: u32 = 0,
-    b_face: [rf.max_name_len]u8 = .{0} ** rf.max_name_len,
+    b_face: [rf.max_name_len]u8 = @splat(0),
     b_len: usize = 0,
     b_value: u32 = 0,
-    gate: [r2.max_name_len]u8 = .{0} ** r2.max_name_len,
+    gate: [r2.max_name_len]u8 = @splat(0),
     gate_len: usize = 0,
 };
 

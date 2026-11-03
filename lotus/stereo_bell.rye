@@ -151,7 +151,7 @@ fn run_selftest() !u8 {
 
     // 2c. a settled constant survives the bell on both channels at a boosting gain -- at direct current the mid band is zero, so the bell turns only the middle and the settled tail equals the input exactly, per channel.
     {
-        const run = [_]i16{2500} ** 40;
+        const run = @splat(2500);
         var sc = pan.StereoClip{};
         try load_stereo(&sc, &run, &run);
         try stereo_bell(&sc, 0, 40, 1, 3, 1, 2, 4, 1); // mid ×4

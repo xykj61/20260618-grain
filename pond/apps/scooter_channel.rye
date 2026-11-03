@@ -56,7 +56,7 @@ pub const ChannelError = error{
 pub const Post = struct {
     author: u32,
     seq: u32,
-    text: [max_text]u8 = [_]u8{0} ** max_text,
+    text: [max_text]u8 = @splat(0),
     text_len: u32 = 0,
 
     /// The text as it was posted -- exactly the bytes written, never more than the buffer holds.
@@ -75,8 +75,8 @@ pub const Post = struct {
 // Invariant: member_count in 1..max_members (the host always holds seat zero); post_count <= max_posts.
 pub const Channel = struct {
     host: u32,
-    members: [max_members]u32 = [_]u32{0} ** max_members,
-    cursors: [max_members]u32 = [_]u32{0} ** max_members,
+    members: [max_members]u32 = @splat(0),
+    cursors: [max_members]u32 = @splat(0),
     member_count: u32 = 0,
     posts: [max_posts]Post = undefined,
     post_count: u32 = 0,
@@ -299,7 +299,7 @@ fn bounds_refuse_by_name() !void {
     assert(overflow == error.ChannelFull);
 
     // An over-long post refuses rather than truncate.
-    const big = [_]u8{'x'} ** (max_text + 1);
+    const big = @splat('x');
     const too_long = c.post(host_key, big[0..]);
     assert(too_long == error.TextTooLong);
 

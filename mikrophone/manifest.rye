@@ -57,7 +57,7 @@ pub const ManifestError = error{
 /// A bounded manifest blob: a fixed buffer sized for the widest possible manifest, and the length actually written.
 /// `bytes()` reads back exactly the written region -- never a byte past what `write_manifest` wrote.
 pub const Manifest = struct {
-    buf: [max_manifest]u8 = [_]u8{0} ** max_manifest,
+    buf: [max_manifest]u8 = @splat(0),
     len: u32 = 0,
 
     /// The written manifest bytes as they stand -- exactly the header plus records written by `write_manifest`.

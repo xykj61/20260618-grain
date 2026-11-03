@@ -114,7 +114,7 @@ pub fn multitap(
     const end: u32 = start + count;
     // Snapshot the dry prefix [0, end) BEFORE any write, so every tap reads the ORIGINAL audio and never a sample this pass just wrote --
     // the graft/clipboard snapshot-before-write idiom (lotus-audio/25), reused. One bounded scratch, the width graft already carries.
-    var dry: [timeline.max_clip]i16 = [_]i16{0} ** timeline.max_clip;
+    var dry: [timeline.max_clip]i16 = @splat(0);
     {
         var j: u32 = 0;
         // invariant: end never exceeds the clip's length, so the snapshot stays within the bounded scratch.

@@ -90,8 +90,8 @@ pub const Contact = struct {
             .galaxy = galaxy,
             .live = live,
             .count = 0,
-            .domains = [_]u32{0} ** max_redirects,
-            .targets = [_]u32{0} ** max_redirects,
+            .domains = @splat(0),
+            .targets = @splat(0),
         };
     }
 
@@ -130,8 +130,8 @@ pub const Contact = struct {
 };
 
 fn run_selftest() !u8 {
-    const main_seed: [kumara.seed_length]u8 = .{0x51} ** kumara.seed_length;
-    const desc_seed: [kumara.seed_length]u8 = .{0x52} ** kumara.seed_length;
+    const main_seed: [kumara.seed_length]u8 = @splat(0x51);
+    const desc_seed: [kumara.seed_length]u8 = @splat(0x52);
 
     // Delegate a live descendant under the main key.
     const d = delegate(&main_seed, &desc_seed);
@@ -155,7 +155,7 @@ fn run_selftest() !u8 {
     assert(c.count == 3);
 
     // Rotate the live key; the main key holds, the descendant changes, still live.
-    const desc2_seed: [kumara.seed_length]u8 = .{0x53} ** kumara.seed_length;
+    const desc2_seed: [kumara.seed_length]u8 = @splat(0x53);
     c.rotate(&main_seed, &desc2_seed);
     if (!delegation_live(&c.live)) return error.RotatedNotLive;
 
@@ -177,8 +177,8 @@ fn put_line(io: std.Io, comptime fmt: []const u8, args: anytype) void {
 }
 
 fn run_emit(io: std.Io) !u8 {
-    const main_seed: [kumara.seed_length]u8 = .{0x51} ** kumara.seed_length;
-    const desc_seed: [kumara.seed_length]u8 = .{0x52} ** kumara.seed_length;
+    const main_seed: [kumara.seed_length]u8 = @splat(0x51);
+    const desc_seed: [kumara.seed_length]u8 = @splat(0x52);
     var c = Contact.init(267, 27, 3, delegate(&main_seed, &desc_seed));
     c.add_redirect(1, 100);
     c.add_redirect(2, 100);

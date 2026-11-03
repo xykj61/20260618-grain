@@ -143,7 +143,7 @@ pub fn pledges_match(whole: *const pledge.Ledger, across: *const pledge.Ledger) 
 // ---- selftest: the two-phase verdict reads the same across a sealed checkpoint ----
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 
@@ -167,8 +167,8 @@ fn resolve_body(tag: u8, id: []const u8, out: []u8) u32 {
 }
 
 pub fn main() !void {
-    const id = [_]u8{0x01} ** pledge.id_len;
-    const id2 = [_]u8{0x02} ** pledge.id_len;
+    const id = @splat(0x01);
+    const id2 = @splat(0x02);
     const kf = seeded(0xF0); // funder / genesis credit
     const ka = seeded(0xA1); // Alice — pledges inside the prefix, resolves across the cut
     const kb = seeded(0xB2); // Bob — the pledge's recipient

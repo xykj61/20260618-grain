@@ -8,6 +8,7 @@
 //!     <mark> <sha3-256-hex> <name>
 
 const std = @import("std");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 const assert = std.debug.assert;
 const print = std.debug.print;
 
@@ -126,7 +127,7 @@ pub const NameAdmit = enum { fresh, repeated, overflowing };
 /// small memory rather than a wider parser.
 pub const NameRoster = struct {
     names: [max_listed_names][max_name_len]u8 = undefined,
-    lens: [max_listed_names]u32 = [_]u32{0} ** max_listed_names,
+    lens: [max_listed_names]u32 = @splat(0),
     count: u32 = 0,
 };
 
@@ -255,7 +256,7 @@ pub fn parse_manifest_line(line: []const u8) error{ InvalidFormat, UnknownMark, 
 }
 
 fn run_selftest(_: std.Io) !u8 {
-    const line = mark_plain_bytes ++ " " ++ ("ab" ** 32) ++ " session-logs/example.md";
+    const line = mark_plain_bytes ++ " " ++ (str_repeat("ab", 32).*) ++ " session-logs/example.md";
     const entry = try parse_manifest_line(line);
     // invariant: a line built from the roster's own mark parses back into the same three fields, so
     // the welcome leg proves acceptance rather than proving only that no error was raised.
@@ -264,52 +265,52 @@ fn run_selftest(_: std.Io) !u8 {
     assert(std.mem.eql(u8, entry.name, "session-logs/example.md"));
 
     if (parse_manifest_line(mark_plain_bytes ++ " short name")) |_| return error.UnwelcomePassed else |_| {}
-    if (parse_manifest_line(" " ++ ("ab" ** 32) ++ " x")) |_| return error.UnwelcomePassed else |_| {}
-    if (parse_manifest_line(mark_plain_bytes ++ " " ++ ("AB" ** 32) ++ " x")) |_| return error.UnwelcomePassed else |_| {}
+    if (parse_manifest_line(" " ++ (str_repeat("ab", 32).*) ++ " x")) |_| return error.UnwelcomePassed else |_| {}
+    if (parse_manifest_line(mark_plain_bytes ++ " " ++ (str_repeat("AB", 32).*) ++ " x")) |_| return error.UnwelcomePassed else |_| {}
 
     // Both directions of the wreck rule, since a refusal proven only one way cannot be
     // told from a bypass. The manifest root walks free beside plain-bytes; a stranger
     // and an inviting-sounding kind the engine never named both refuse.
-    const manifest_line = mark_manifest ++ " " ++ ("ab" ** 32) ++ " nested.kyri";
+    const manifest_line = mark_manifest ++ " " ++ (str_repeat("ab", 32).*) ++ " nested.kyri";
     const nested = try parse_manifest_line(manifest_line);
     // invariant: the manifest root parses beside plain-bytes, so the roster admits both kinds; a
     // welcome proven for one mark alone would leave a narrowed roster reading green.
     assert(std.mem.eql(u8, nested.mark, mark_manifest));
     // invariant: each refusal names UnknownMark itself, so a refusal earned some other way -- a bad
     // length, a malformed digest -- cannot be read as the roster doing its work.
-    if (parse_manifest_line("zzz-unknown-stranger " ++ ("ab" ** 32) ++ " x")) |_| return error.UnwelcomePassed else |err| assert(err == error.UnknownMark);
-    if (parse_manifest_line("executable " ++ ("ab" ** 32) ++ " payload.so")) |_| return error.UnwelcomePassed else |err| assert(err == error.UnknownMark);
+    if (parse_manifest_line("zzz-unknown-stranger " ++ (str_repeat("ab", 32).*) ++ " x")) |_| return error.UnwelcomePassed else |err| assert(err == error.UnknownMark);
+    if (parse_manifest_line("executable " ++ (str_repeat("ab", 32).*) ++ " payload.so")) |_| return error.UnwelcomePassed else |err| assert(err == error.UnknownMark);
 
     // Both directions of the containment rule. A nested relative name walks free,
     // because a season is read by a directory walk and `sub/a.txt` is what that walk
     // hands back; every shape that could land outside the home refuses by its own name.
-    const nested_ok = try parse_manifest_line(mark_plain_bytes ++ " " ++ ("ab" ** 32) ++ " sub/deeper/a.txt");
+    const nested_ok = try parse_manifest_line(mark_plain_bytes ++ " " ++ (str_repeat("ab", 32).*) ++ " sub/deeper/a.txt");
     // invariant: the welcome is asserted as hard as the refusals, so a rule refusing
     // every name would be told apart from one refusing the escaping names alone.
     assert(std.mem.eql(u8, nested_ok.name, "sub/deeper/a.txt"));
-    if (parse_manifest_line(mark_plain_bytes ++ " " ++ ("ab" ** 32) ++ " ../escaped.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.EscapingName);
-    if (parse_manifest_line(mark_plain_bytes ++ " " ++ ("ab" ** 32) ++ " sub/../../escaped.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.EscapingName);
-    if (parse_manifest_line(mark_plain_bytes ++ " " ++ ("ab" ** 32) ++ " /etc/passwd")) |_| return error.UnwelcomePassed else |err| assert(err == error.EscapingName);
-    if (parse_manifest_line(mark_plain_bytes ++ " " ++ ("ab" ** 32) ++ " sub//a.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.EscapingName);
-    if (parse_manifest_line(mark_plain_bytes ++ " " ++ ("ab" ** 32) ++ " ./a.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.EscapingName);
-    if (parse_manifest_line(mark_plain_bytes ++ " " ++ ("ab" ** 32) ++ " sub/")) |_| return error.UnwelcomePassed else |err| assert(err == error.EscapingName);
+    if (parse_manifest_line(mark_plain_bytes ++ " " ++ (str_repeat("ab", 32).*) ++ " ../escaped.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.EscapingName);
+    if (parse_manifest_line(mark_plain_bytes ++ " " ++ (str_repeat("ab", 32).*) ++ " sub/../../escaped.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.EscapingName);
+    if (parse_manifest_line(mark_plain_bytes ++ " " ++ (str_repeat("ab", 32).*) ++ " /etc/passwd")) |_| return error.UnwelcomePassed else |err| assert(err == error.EscapingName);
+    if (parse_manifest_line(mark_plain_bytes ++ " " ++ (str_repeat("ab", 32).*) ++ " sub//a.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.EscapingName);
+    if (parse_manifest_line(mark_plain_bytes ++ " " ++ (str_repeat("ab", 32).*) ++ " ./a.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.EscapingName);
+    if (parse_manifest_line(mark_plain_bytes ++ " " ++ (str_repeat("ab", 32).*) ++ " sub/")) |_| return error.UnwelcomePassed else |err| assert(err == error.EscapingName);
 
     // Both directions of the framing rule. A name carrying a control byte cannot be written
     // as one record, so it refuses by its own error name rather than by the containment one --
     // two faults with two cures, told apart at the door. The welcome beside them is the
     // ordinary name that carries a space, which the format DOES admit: the name is the last
     // field and runs to the end of the line, so a space round-trips and a newline cannot.
-    const spaced = try parse_manifest_line(mark_plain_bytes ++ " " ++ ("ab" ** 32) ++ " a file with spaces.txt");
+    const spaced = try parse_manifest_line(mark_plain_bytes ++ " " ++ (str_repeat("ab", 32).*) ++ " a file with spaces.txt");
     // invariant: the welcome is asserted as hard as the refusals, so a rule refusing every
     // unusual byte would be told apart from one refusing the bytes that break a record.
     assert(std.mem.eql(u8, spaced.name, "a file with spaces.txt"));
-    if (parse_manifest_line(mark_plain_bytes ++ " " ++ ("ab" ** 32) ++ " a.txt\nevil.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.UnframedName);
-    if (parse_manifest_line(mark_plain_bytes ++ " " ++ ("ab" ** 32) ++ " a.txt\revil.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.UnframedName);
-    if (parse_manifest_line(mark_plain_bytes ++ " " ++ ("ab" ** 32) ++ " a.txt\x00evil.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.UnframedName);
-    if (parse_manifest_line(mark_plain_bytes ++ " " ++ ("ab" ** 32) ++ " a.txt\tevil.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.UnframedName);
+    if (parse_manifest_line(mark_plain_bytes ++ " " ++ (str_repeat("ab", 32).*) ++ " a.txt\nevil.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.UnframedName);
+    if (parse_manifest_line(mark_plain_bytes ++ " " ++ (str_repeat("ab", 32).*) ++ " a.txt\revil.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.UnframedName);
+    if (parse_manifest_line(mark_plain_bytes ++ " " ++ (str_repeat("ab", 32).*) ++ " a.txt\x00evil.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.UnframedName);
+    if (parse_manifest_line(mark_plain_bytes ++ " " ++ (str_repeat("ab", 32).*) ++ " a.txt\tevil.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.UnframedName);
     // invariant: the two rules stay apart -- an upward walk still answers EscapingName, so
     // widening the framing rule did not quietly swallow the containment one.
-    if (parse_manifest_line(mark_plain_bytes ++ " " ++ ("ab" ** 32) ++ " ../still-escaping.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.EscapingName);
+    if (parse_manifest_line(mark_plain_bytes ++ " " ++ (str_repeat("ab", 32).*) ++ " ../still-escaping.txt")) |_| return error.UnwelcomePassed else |err| assert(err == error.EscapingName);
 
     // Both directions of the named-once rule. A roster admits each place once; the second offer
     // of the same place answers repeated, and a listing past the roof answers overflowing --

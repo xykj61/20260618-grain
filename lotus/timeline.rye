@@ -61,7 +61,7 @@ pub fn saturate(v: i64) i16 {
 /// A bounded, editable buffer of i16 PCM samples: the audio a keeper actually works on. A Clip is loaded from a reassembled
 /// Timeline (lotus-audio) and then cut, gained, and spliced in place. No heap outlives it.
 pub const Clip = struct {
-    buf: [max_clip]i16 = [_]i16{0} ** max_clip,
+    buf: [max_clip]i16 = @splat(0),
     len: u32 = 0,
 
     /// The clip's samples in order -- exactly the audio under edit.

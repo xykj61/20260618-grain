@@ -166,7 +166,7 @@ fn clip_of(samples: []const i16) !timeline.Clip {
 fn meter_via_transport(master: *const timeline.Clip, block_len: u32) !Meter {
     var t = transport.Transport{};
     var m = Meter{};
-    var scratch: [16]i16 = [_]i16{0} ** 16;
+    var scratch: [16]i16 = @splat(0);
     // invariant: the requested block never exceeds the scratch buffer, so the read is bounded.
     assert(block_len >= 1 and block_len <= scratch.len);
     while (!transport.at_end(&t, master)) {

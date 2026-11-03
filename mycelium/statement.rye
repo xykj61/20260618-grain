@@ -257,7 +257,7 @@ pub fn render(s: *const Statement) void {
 // --- selftest: the crux is a statement that reconciles with its ledger ----
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 
@@ -338,7 +338,7 @@ fn resolve_perm(blocks: []const cord.Block) !lapse.Ledger {
 }
 
 pub fn main() !void {
-    const id = [_]u8{0x01} ** lapse.id_len;
+    const id = @splat(0x01);
     const alice_pk = seeded(0xA1).public_key.toBytes();
     const bob_pk = seeded(0xB2).public_key.toBytes();
     const stranger_pk = seeded(0xCC).public_key.toBytes();

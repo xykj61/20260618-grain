@@ -124,7 +124,7 @@ fn abs_i32(x: i32) i32 {
 fn packed_from(src: []const u8) encode.Packed {
     // invariant (precondition): the slice fits the carrier.
     assert(src.len <= encode.max_bytes);
-    var p: encode.Packed = .{ .bytes = [_]u8{0} ** encode.max_bytes, .len = @as(u32, @intCast(src.len)) };
+    var p: encode.Packed = .{ .bytes = @splat(0), .len = @as(u32, @intCast(src.len)) };
     var i: u32 = 0;
     // invariant (bound): exactly src.len bytes copied, one per turn.
     while (i < src.len) : (i += 1) p.bytes[i] = src[i];
@@ -179,7 +179,7 @@ fn decode_t1_2d_ntt(src: []const u8) ring.Poly {
     const p = packed_from(src);
     const t1 = encode.simple_bit_unpack(&p, t1_bits);
     const scale: u32 = @as(u32, 1) << @as(u5, @intCast(power2_d)); // 2¹³ = 8192
-    var poly: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var poly: ring.Poly = .{ .cs = @splat(0) };
     var i: u32 = 0;
     // invariant (bound): exactly n = 256 coefficients scaled, one per turn.
     while (i < n) : (i += 1) {
@@ -195,7 +195,7 @@ fn decode_t1_2d_ntt(src: []const u8) ring.Poly {
 fn w_approx_row(a_row: *const [max_l]ring.Poly, z_hat: *const [max_l]ring.Poly, ct1_hat: *const ring.Poly, l: u32) ring.Poly {
     // invariant (precondition): a dimension ML-DSA uses.
     assert(l >= 4 and l <= max_l);
-    var acc: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var acc: ring.Poly = .{ .cs = @splat(0) };
     var j: u32 = 0;
     // invariant (bound): exactly l pointwise products accumulated, never unbounded.
     while (j < l) : (j += 1) {
@@ -282,7 +282,7 @@ pub fn verify(
     while (i < l) : (i += 1) {
         const p = packed_from(sig_bytes[off .. off + z_poly_bytes]);
         const z_signed = encode.bit_unpack(&p, gamma1 - 1, gamma1);
-        var poly: ring.Poly = .{ .cs = [_]u32{0} ** n };
+        var poly: ring.Poly = .{ .cs = @splat(0) };
         var c: u32 = 0;
         // invariant (bound): exactly n = 256 coefficients checked and lifted, one per turn.
         while (c < n) : (c += 1) {
@@ -343,7 +343,7 @@ pub fn verify(
     while (i < k) : (i += 1) {
         const ct1_hat = ring.multiply_ntts(&c_hat, &t1_2d_hat[i]);
         const w_row = w_approx_row(&a_hat[i], &z_hat, &ct1_hat, l);
-        var w1: [n]u32 = [_]u32{0} ** n;
+        var w1: [n]u32 = @splat(0);
         var c: u32 = 0;
         // invariant (bound): exactly n coefficients' high bits recovered through the hint, one per turn.
         while (c < n) : (c += 1) {

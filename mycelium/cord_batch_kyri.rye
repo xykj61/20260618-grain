@@ -38,6 +38,7 @@ const fold = @import("fold.rye");
 const kumara = @import("kumara.rye");
 const tally_copy = @import("tally_copy.rye");
 const parse_int = @import("parse_int.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 const pk_len = kumara.PublicKey.encoded_length;
 const sig_len = kumara.signature_length;
@@ -324,7 +325,7 @@ pub fn rebuild(pl: *const PortableBatchDag, out: *cord_batch.BatchDag) !void {
 // ---- selftest: the agreed order travels with the batched bytes -------------
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 
@@ -440,12 +441,12 @@ pub fn main() !void {
     if (parse("format cord-batch-v1\nghost 5\n")) |_| return error.UnknownAdmitted else |err| {
         if (err != error.UnknownField) return error.WrongUnknown;
     }
-    if (parse("format cord-batch-v1\nfact 1 5 - 616263 " ++ "00" ** pk_len ++ " " ++ "00" ** sig_len ++ "\n")) |_| {
+    if (parse("format cord-batch-v1\nfact 1 5 - 616263 " ++ str_repeat("00", pk_len) ++ " " ++ str_repeat("00", sig_len) ++ "\n")) |_| {
         return error.OrphanFactAdmitted;
     } else |err| {
         if (err != error.FactBeforeBlock) return error.WrongOrphanFact;
     }
-    if (parse("format cord-batch-v1\nblock " ++ "00" ** pk_len ++ " 0 " ++ "00" ** sig_len ++ "\n")) |_| {
+    if (parse("format cord-batch-v1\nblock " ++ str_repeat("00", pk_len) ++ " 0 " ++ str_repeat("00", sig_len) ++ "\n")) |_| {
         return error.EmptyBatchAdmitted;
     } else |err| {
         if (err != error.EmptyBatch) return error.WrongEmptyBatch;

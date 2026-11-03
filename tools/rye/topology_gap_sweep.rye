@@ -215,7 +215,7 @@ pub fn main() void {
     var covered: Tally = .{};
     var gap: Tally = .{};
     var elder: Tally = .{};
-    var hist: [walk_cap + 2]u32 = [_]u32{0} ** (walk_cap + 2);
+    var hist: [walk_cap + 2]u32 = @splat(0);
 
     var unit: [gen_max + 1]bool = undefined;
     var g: u32 = 1;

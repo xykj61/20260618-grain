@@ -99,7 +99,7 @@ fn mac_region(st: *poly1305.State, region: []const u8) void {
         const rem = total - offset;
         // invariant: the remainder is a strict partial block -- a full block would have been taken above.
         assert(rem < mac_block_bytes);
-        var buf = [_]u8{0} ** mac_block_bytes;
+        var buf = @splat(0);
         var i: u32 = 0;
         while (i < rem) : (i += 1) buf[i] = region[offset + i];
         poly1305.absorb(st, &buf, true);
@@ -115,7 +115,7 @@ fn compute_tag(tag: *[tag_bytes]u8, otk: *const [poly1305.key_bytes]u8, aad: []c
     mac_region(&st, cipher);
 
     // The trailing lengths block: le64(aad_len) then le64(cipher_len), a full 16-byte block.
-    var lens = [_]u8{0} ** mac_block_bytes;
+    var lens = @splat(0);
     std.mem.writeInt(u64, lens[0..8], @as(u64, aad.len), .little);
     std.mem.writeInt(u64, lens[8..16], @as(u64, cipher.len), .little);
     poly1305.absorb(&st, &lens, true);

@@ -184,12 +184,12 @@ pub fn parse(text: []const u8) KyriError!PortableConstel {
 // ---- witnesses ----
 
 // Example seeds -- plainly not a real keeper's key, so no identity is invented and no key is held.
-const demo_g_key: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-const demo_g_keeper: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
-const demo_s_key: [kumara.seed_length]u8 = .{0x33} ** kumara.seed_length;
-const demo_s_keeper: [kumara.seed_length]u8 = .{0x44} ** kumara.seed_length;
-const demo_p_key: [kumara.seed_length]u8 = .{0x55} ** kumara.seed_length;
-const demo_p_keeper: [kumara.seed_length]u8 = .{0x66} ** kumara.seed_length;
+const demo_g_key: [kumara.seed_length]u8 = @splat(0x11);
+const demo_g_keeper: [kumara.seed_length]u8 = @splat(0x22);
+const demo_s_key: [kumara.seed_length]u8 = @splat(0x33);
+const demo_s_keeper: [kumara.seed_length]u8 = @splat(0x44);
+const demo_p_key: [kumara.seed_length]u8 = @splat(0x55);
+const demo_p_keeper: [kumara.seed_length]u8 = @splat(0x66);
 
 // The same d12-d60 branch rung two settles: galaxy 3 - star 27 - planet 267, under one law-safe name.
 const galaxy_num: u32 = 3;

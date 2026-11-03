@@ -44,7 +44,7 @@ pub const Track = struct {
 
 /// A bounded table of placed clips -- the multi-track session. Rendered into one master by summing every track at its offset.
 pub const Session = struct {
-    tracks: [max_tracks]Track = [_]Track{.{ .clip = .{}, .at_ms = 0 }} ** max_tracks,
+    tracks: [max_tracks]Track = @splat(.{ .clip = .{}, .at_ms = 0 }),
     count: u32 = 0,
 
     /// The placed tracks in order -- exactly the session under render.
@@ -75,7 +75,7 @@ pub fn render(session: *const Session, clk: clock.Clock, out: *timeline.Clip) (T
     assert(clk.rate >= 1 and clk.rate <= clock.max_rate);
 
     // A wide accumulator per sample, so the master saturates over the TRUE sum of all tracks, never once per track.
-    var acc: [timeline.max_clip]i64 = [_]i64{0} ** timeline.max_clip;
+    var acc: [timeline.max_clip]i64 = @splat(0);
     var master_len: u32 = 0;
 
     var t: u32 = 0;

@@ -116,8 +116,8 @@ pub fn accept(table: *table_mod.PeerTable, intro: Introduction, now: u64) error{
 pub fn main() !void {
     if (introduce_hops_max != 2) return error.HopsBound;
 
-    const star_seed: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-    const ship_seed: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
+    const star_seed: [kumara.seed_length]u8 = @splat(0x11);
+    const ship_seed: [kumara.seed_length]u8 = @splat(0x22);
     const star_kp = kumara.keypair_from_seed(&star_seed);
     const ship_kp = kumara.keypair_from_seed(&ship_seed);
 

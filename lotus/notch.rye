@@ -118,7 +118,7 @@ fn run_selftest() !u8 {
     //    the high band removes it (settles to 0), so their sum settles to x. The exact contrast to lotus-audio's band-pass, which
     //    drove a constant to zero.
     {
-        const run = [_]i16{2500} ** 60;
+        const run = @splat(2500);
         var clip = timeline.Clip{};
         try load_clip(&clip, &run);
         try notch(&clip, 0, clip.len, 1, 3, 1, 2); // distinct edges, yet direct current is kept

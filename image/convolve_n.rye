@@ -342,13 +342,13 @@ fn run_selftest(garden: std.mem.Allocator) !u8 {
 
     // --- a NEGATIVE result clamps to 0, an OVER result clamps to 255 (no wrap) at a wide radius -------------------------
     // A 5x5 kernel of all -1 over divisor 1, bias 0 on a flat white field -> 25 * -255 -> clamps to 0.
-    var neg_w = [_]i32{-1} ** 25;
+    var neg_w = @splat(-1);
     const negate = KernelN{ .weights = &neg_w, .radius = 2, .divisor = 1, .bias = 0 };
     var flat_white = try make_canvas(garden, 7, 7, white);
     _ = &flat_white;
     const negated = try convolve_n(garden, &flat_white, negate);
     if (pixel_at(&negated, 3, 3).r != 0) return error.NegativeDidNotClampToZero;
-    var amp_w = [_]i32{1} ** 25;
+    var amp_w = @splat(1);
     const amplify = KernelN{ .weights = &amp_w, .radius = 2, .divisor = 1, .bias = 0 };
     const amped = try convolve_n(garden, &flat_white, amplify);
     if (pixel_at(&amped, 3, 3).r != 255) return error.OverDidNotClampTo255;
@@ -401,7 +401,7 @@ fn run_selftest(garden: std.mem.Allocator) !u8 {
     if (convolve_n(garden, &checker, big_bias)) |_| return error.BigBiasNotRefused else |err| {
         if (err != error.BiasTooLarge) return error.WrongBiasError;
     }
-    var over_w = [_]i32{1} ** 25;
+    var over_w = @splat(1);
     over_w[12] = convolve_n_max_weight + 1;
     const big_weight = KernelN{ .weights = &over_w, .radius = 2, .divisor = 25, .bias = 0 };
     if (convolve_n(garden, &checker, big_weight)) |_| return error.BigWeightNotRefused else |err| {

@@ -45,12 +45,12 @@ pub const ParseError = error{
 };
 
 pub const CoreSpec = struct {
-    arms: [max_arms][max_name_len]u8 = .{.{0} ** max_name_len} ** max_arms,
-    lens: [max_arms]usize = .{0} ** max_arms,
-    bodies: [max_arms]expr.Expr = [_]expr.Expr{.{ .kind = .literal }} ** max_arms,
-    has_body: [max_arms]bool = .{false} ** max_arms,
+    arms: [max_arms][max_name_len]u8 = @splat(@as([max_name_len]u8, @splat(0))),
+    lens: [max_arms]usize = @splat(0),
+    bodies: [max_arms]expr.Expr = @splat(.{ .kind = .literal }),
+    has_body: [max_arms]bool = @splat(false),
     count: usize = 0,
-    payload_face: [max_name_len]u8 = .{0} ** max_name_len,
+    payload_face: [max_name_len]u8 = @splat(0),
     payload_len: usize = 0,
     payload_value: u32 = 0,
     payload_typed: bool = false,

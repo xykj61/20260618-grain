@@ -105,7 +105,7 @@ pub fn carries(have: u8, need: u8) bool {
 // =========================================================================
 
 pub const Tree = struct {
-    slots: [max_slots]Slot = [_]Slot{.{}} ** max_slots,
+    slots: [max_slots]Slot = @splat(.{}),
 
     /// An empty tree. Every slot free, no lineage yet.
     pub fn init() Tree {

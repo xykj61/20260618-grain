@@ -42,7 +42,7 @@ pub const SwitchboardError = error{
 /// reaches which pier. No new bound of its own beyond roster.max_piers mailboxes.
 pub const Switchboard = struct {
     roster: roster.Roster = roster.Roster.init(),
-    boxes: [roster.max_piers]channel.Channel = [_]channel.Channel{.{}} ** roster.max_piers,
+    boxes: [roster.max_piers]channel.Channel = @splat(.{}),
 
     /// The current member count -- how many piers stand in the constellation.
     pub fn size(self: *const Switchboard) u32 {

@@ -137,11 +137,11 @@ fn run_selftest() !u8 {
     //     silent incoming lands 700 at center on the left while a 2000-outgoing lands 1400 on the right -- the same positional weight applied to each channel's own level, the image held not split.
     {
         var out_m = pan.StereoClip{};
-        var out_l: [101]i16 = [_]i16{1000} ** 101;
-        var out_r: [101]i16 = [_]i16{2000} ** 101;
+        var out_l: [101]i16 = @splat(1000);
+        var out_r: [101]i16 = @splat(2000);
         try load_stereo(&out_m, &out_l, &out_r);
         var in_m = pan.StereoClip{};
-        var zeros: [101]i16 = [_]i16{0} ** 101;
+        var zeros: [101]i16 = @splat(0);
         try load_stereo(&in_m, &zeros, &zeros);
         var out = pan.StereoClip{};
         try stereo_crossfade(&out_m, &in_m, &out);
@@ -186,8 +186,8 @@ fn run_selftest() !u8 {
     //     i16 ceiling and pin to +32767 on each channel.
     {
         var out_m = pan.StereoClip{};
-        var loud_l: [101]i16 = [_]i16{30000} ** 101;
-        var loud_r: [101]i16 = [_]i16{31000} ** 101;
+        var loud_l: [101]i16 = @splat(30000);
+        var loud_r: [101]i16 = @splat(31000);
         try load_stereo(&out_m, &loud_l, &loud_r);
         var in_m = pan.StereoClip{};
         try load_stereo(&in_m, &loud_l, &loud_r);

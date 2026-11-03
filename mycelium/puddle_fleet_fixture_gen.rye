@@ -22,7 +22,7 @@ const puddle_kyri = @import("puddle_kyri.rye");
 const kumara = @import("kumara.rye");
 
 fn host_key(byte: u8) [puddle.pk_len]u8 {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     const kp = kumara.keypair_from_seed(&seed);
     return kp.public_key.toBytes();
 }

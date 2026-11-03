@@ -445,7 +445,7 @@ pub fn resolve(dag: *const cord.Dag) FoldError!Ledger {
 // ---- selftest: the crux is a chain that commits whole or reverses whole ---------
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 
@@ -537,7 +537,7 @@ fn seat_chain(id: []const u8, final_amount: u64) ![5]cord.Block {
 }
 
 pub fn main() !void {
-    const id = [_]u8{0x07} ** id_len;
+    const id = @splat(0x07);
     const ka = seeded(0xA1);
     const kb = seeded(0xB2);
     const kc = seeded(0xC3);

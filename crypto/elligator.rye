@@ -225,7 +225,7 @@ pub fn rev(public_key: *const [32]u8, tweak: u8) RevResult {
     if (!inv.is_square) {
         // invariant: an unrepresentable point returns without touching the representative; the caller reads only `ok`.
         assert(inv.is_square == false);
-        return RevResult{ .ok = false, .hidden = [_]u8{0} ** 32 };
+        return RevResult{ .ok = false, .hidden = @splat(0) };
     }
 
     // Multiply by u when the tweak's low bit selects the positive v, by u+A otherwise.
@@ -329,8 +329,8 @@ fn run_selftest() !u8 {
 
     // 4. The r = 0 edge: the all-zero representative maps to the u-coordinate 0 (the point (0, 0)), Monocypher's own r = 0 case.
     {
-        const zero = [_]u8{0} ** 32;
-        var zero_u = [_]u8{0} ** 32;
+        const zero = @splat(0);
+        var zero_u = @splat(0);
         _ = &zero_u;
         if (!bytes_eq(&map(&zero), &zero_u)) return error.ZeroRepresentativeMismatch;
     }

@@ -31,6 +31,7 @@ const assert = std.debug.assert;
 const print = std.debug.print;
 
 const gc = @import("dimeroll/dimeroll_core.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 pub const commerce_trade_version = "20260812.175228";
 
@@ -195,7 +196,7 @@ fn unwelcome_self_trade_refuses() !void {
 /// An item name past the memo budget refuses rather than truncate what the journal records.
 fn unwelcome_overlong_item_refuses() !void {
     var trade = demo_trade(500);
-    const long_item = "x" ** (max_item_len + 1);
+    const long_item = str_repeat("x", (max_item_len + 1));
     trade.item = long_item;
     const booked = record_trade(&trade);
     assert(booked == error.ItemTooLong);

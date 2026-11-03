@@ -61,7 +61,7 @@ pub fn verify_bytes(message: []const u8, sig_bytes: []const u8, pubkey: PublicKe
 }
 
 fn run_selftest(_: std.Io) !u8 {
-    const seed: [seed_length]u8 = .{0x42} ** seed_length;
+    const seed: [seed_length]u8 = @splat(0x42);
     const kp = keypair_from_seed(&seed);
     const message = "kumara witness message\n";
 

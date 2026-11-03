@@ -134,7 +134,7 @@ fn load_clip(clip: *timeline.Clip, src: []const i16) !void {
 fn run_selftest() !u8 {
     const c = try clock.make(1000); // 1 sample per ms — each ms of pre-delay is one sample, the bench legible
     const impulse = blk: {
-        var b: [1024]i16 = [_]i16{0} ** 1024;
+        var b: [1024]i16 = @splat(0);
         b[0] = 12000;
         break :blk b;
     };

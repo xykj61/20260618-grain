@@ -268,7 +268,7 @@ pub fn append_fact(log: *Log, fact: Fact) error{
 
 /// Selftest -- Check shape: purity - invariant - kumara - star unique - refuse whole.
 pub fn main() !void {
-    const seed: [kumara.seed_length]u8 = .{0x7e} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(0x7e);
     const kp = kumara.keypair_from_seed(&seed);
 
     const issue = mint_fact(kp, kind_issue, 1000, "", "genesis-purpose") orelse return error.MintIssue;

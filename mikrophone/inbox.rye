@@ -29,7 +29,7 @@ pub const inbox_version = "20260814.022831";
 /// the length actually kept. A fresh inbox is empty; no heap outlives it. `keep` holds exactly the payload of the last
 /// frame proven whole and accepted.
 pub const Inbox = struct {
-    keep: [session.max_samples]u8 = [_]u8{0} ** session.max_samples,
+    keep: [session.max_samples]u8 = @splat(0),
     keep_len: u32 = 0,
 
     /// A fresh, empty inbox holding nothing.

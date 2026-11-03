@@ -81,8 +81,8 @@ pub fn copy(master: *pan.StereoClip, sel: selection.Selection, at: u32) GraftErr
     // Atomic capacity guard: both channels have the same bound and length, so a fit on the left is a fit on the right.
     if (n > master.left.buf.len - master.left.len) return error.ClipFull;
 
-    var snap_l: [timeline.max_clip]i16 = [_]i16{0} ** timeline.max_clip;
-    var snap_r: [timeline.max_clip]i16 = [_]i16{0} ** timeline.max_clip;
+    var snap_l: [timeline.max_clip]i16 = @splat(0);
+    var snap_r: [timeline.max_clip]i16 = @splat(0);
     const count = snapshot(master, sel, &snap_l, &snap_r);
 
     try timeline.splice(&master.left, at, snap_l[0..count]);
@@ -102,8 +102,8 @@ pub fn move(master: *pan.StereoClip, sel: selection.Selection, at: u32) GraftErr
     if (at > master.left.len) return error.BadDest; // past the master
     if (at > sel.start and at < sel.end) return error.BadDest; // strictly inside the moved span — undefined
 
-    var snap_l: [timeline.max_clip]i16 = [_]i16{0} ** timeline.max_clip;
-    var snap_r: [timeline.max_clip]i16 = [_]i16{0} ** timeline.max_clip;
+    var snap_l: [timeline.max_clip]i16 = @splat(0);
+    var snap_r: [timeline.max_clip]i16 = @splat(0);
     const count = snapshot(master, sel, &snap_l, &snap_r);
 
     // Cut the source from both channels in lockstep (selection.cut refuses BadRange before any shift, atomic across the pair).

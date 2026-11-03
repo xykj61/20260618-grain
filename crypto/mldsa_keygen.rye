@@ -187,7 +187,7 @@ pub fn keygen(comptime k: u32, comptime l: u32, comptime eta: u32, xi: *const [s
     i = 0;
     // invariant (bound): exactly k rows produced.
     while (i < k) : (i += 1) {
-        var acc: ring.Poly = .{ .cs = [_]u32{0} ** n };
+        var acc: ring.Poly = .{ .cs = @splat(0) };
         var j: u32 = 0;
         // invariant (bound): exactly l pointwise products accumulated per row.
         while (j < l) : (j += 1) {

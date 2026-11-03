@@ -139,7 +139,7 @@ fn run_selftest() !u8 {
     // 3. the seam is seamless on a constant -- a constant input filtered in two pieces settles to the input exactly, and the
     //    first sample of the SECOND piece does not roll off again (it continues, it does not re-transient).
     {
-        const run = [_]i16{2000} ** 40;
+        const run = @splat(2000);
         var clip = timeline.Clip{};
         try load_clip(&clip, &run);
         var f = Lowpass{ .num = 1, .den = 2 };
@@ -157,7 +157,7 @@ fn run_selftest() !u8 {
     // 4. reset re-opens the transient -- after a settled run, reset returns the state to silence, so the next run over a constant
     //    rolls off from below it again (its first sample under the constant), rather than continuing settled.
     {
-        const run = [_]i16{3000} ** 30;
+        const run = @splat(3000);
         var clip = timeline.Clip{};
         try load_clip(&clip, &run);
         var f = Lowpass{ .num = 1, .den = 3 };
@@ -246,7 +246,7 @@ fn run_selftest() !u8 {
     //    returns the state to silence, so the next run over a constant leaves a NON-zero first sample again (the transient before
     //    direct current is removed), rather than continuing settled at zero.
     {
-        const run = [_]i16{3000} ** 30;
+        const run = @splat(3000);
         var clip = timeline.Clip{};
         try load_clip(&clip, &run);
         var f = Highpass{ .num = 1, .den = 3 };

@@ -40,8 +40,8 @@ const provenance_receipt_version = "20260812.190000";
 const real_doc = @embedFile("corpora/waymark_green.md");
 
 // Demo keeper seed and its settled planet point -- no real key, no custody.
-const p_keeper: [kumara.seed_length]u8 = .{0x88} ** kumara.seed_length;
-const other_keeper: [kumara.seed_length]u8 = .{0x55} ** kumara.seed_length;
+const p_keeper: [kumara.seed_length]u8 = @splat(0x88);
+const other_keeper: [kumara.seed_length]u8 = @splat(0x55);
 const planet_num: u32 = 267;
 
 const doc_name = "waymark-e182-green.md";

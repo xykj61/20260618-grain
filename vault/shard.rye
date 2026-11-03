@@ -299,9 +299,9 @@ pub fn emit_shard(io: std.Io, shard: *const Shard) void {
 // --- selftest ---------------------------------------------------------------
 
 // A fake secret and a fake keeper -- plainly not a real key, so no keeping is invented.
-const fake_secret: [32]u8 = .{0x11} ** 32;
-const demo_keeper_seed: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
-const demo_coeff_seed: [32]u8 = .{0x33} ** 32;
+const fake_secret: [32]u8 = @splat(0x11);
+const demo_keeper_seed: [kumara.seed_length]u8 = @splat(0x22);
+const demo_coeff_seed: [32]u8 = @splat(0x33);
 
 const locations = [_]Location{ .home, .kin, .cold, .relic, .brain };
 

@@ -52,8 +52,8 @@ pub const ElectError = error{
 /// A ballot over one election: each roster slot's single vote for a candidate slot, which slots have cast, and the size of the
 /// constellation. Bounded by max_piers, exactly like the roster it indexes.
 pub const Ballot = struct {
-    choice: [roster.max_piers]u32 = [_]u32{0} ** roster.max_piers,
-    cast: [roster.max_piers]bool = [_]bool{false} ** roster.max_piers,
+    choice: [roster.max_piers]u32 = @splat(0),
+    cast: [roster.max_piers]bool = @splat(false),
     size: u32 = 0,
 
     /// Record one honest vote: voter names a candidate. A voter that has already cast refuses DoubleVote -- a pier votes once

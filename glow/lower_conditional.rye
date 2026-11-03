@@ -126,7 +126,7 @@ fn expect_then_value(then_arm: *const ArmExpr) u32 {
 
 const MixEmitted = struct {
     slots: [6][max_arm_len]u8 = undefined,
-    lens: [6]usize = .{0} ** 6,
+    lens: [6]usize = @splat(0),
     n: usize = 0,
 
     fn contains(self: *const MixEmitted, name: []const u8) bool {

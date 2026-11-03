@@ -23,7 +23,7 @@ pub const ParseError = error{
 };
 
 pub const NullSpec = struct {
-    subject: [max_subject_len]u8 = [_]u8{0} ** max_subject_len,
+    subject: [max_subject_len]u8 = @splat(0),
 };
 
 pub fn subject_slice(spec: *const NullSpec) []const u8 {

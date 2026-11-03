@@ -59,7 +59,7 @@ pub const TestamentError = error{
 /// roster from them, needing no stored key.
 pub const Testament = struct {
     names: [testament_max_ships][max_name_len]u8 = undefined,
-    name_lens: [testament_max_ships]u32 = [_]u32{0} ** testament_max_ships,
+    name_lens: [testament_max_ships]u32 = @splat(0),
     roster_count: u32 = 0,
     seal: chorus.Chorus = undefined,
 

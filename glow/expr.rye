@@ -52,22 +52,22 @@ pub const CueArg = enum { face, jam_of };
 
 pub const Expr = struct {
     kind: Kind,
-    face: [max_name_len]u8 = [_]u8{0} ** max_name_len,
+    face: [max_name_len]u8 = @splat(0),
     face_len: usize = 0,
-    face2: [max_name_len]u8 = [_]u8{0} ** max_name_len,
+    face2: [max_name_len]u8 = @splat(0),
     face2_len: usize = 0,
     /// Third face: jam-right when left is mix, mix-left when right is mix,
     /// or right-mix left when both are mix.
-    face3: [max_name_len]u8 = [_]u8{0} ** max_name_len,
+    face3: [max_name_len]u8 = @splat(0),
     face3_len: usize = 0,
     /// Fourth face: right-mix right when both jam args are mix.
-    face4: [max_name_len]u8 = [_]u8{0} ** max_name_len,
+    face4: [max_name_len]u8 = @splat(0),
     face4_len: usize = 0,
     left_arg: ArgKind = .face,
     right_arg: ArgKind = .face,
     cue_arg: CueArg = .face,
     lit: u32 = 0,
-    mold: [max_name_len]u8 = [_]u8{0} ** max_name_len,
+    mold: [max_name_len]u8 = @splat(0),
     mold_len: usize = 0,
 };
 

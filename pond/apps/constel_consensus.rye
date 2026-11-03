@@ -38,7 +38,7 @@ const Node = struct {
 /// A deterministic demo keeper -- seed a keypair from one repeated byte, exactly
 /// as the Cord's own selftest does. Demo only; never a real key.
 pub fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 

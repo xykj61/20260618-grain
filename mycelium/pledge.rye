@@ -416,7 +416,7 @@ pub fn resolve(dag: *const cord.Dag) FoldError!Ledger {
 // ---- selftest: the crux is one pledge, resolved once by the order --------------
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 
@@ -506,7 +506,7 @@ fn seat_equivocation(id: []const u8) ![4]cord.Block {
 }
 
 pub fn main() !void {
-    const id = [_]u8{0x01} ** id_len;
+    const id = @splat(0x01);
 
     // The crux -- the equivocation is resolved once by the order, identically across every
     // arrival permutation. The verdict: exactly one of post/void settles the pledge, the

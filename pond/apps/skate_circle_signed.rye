@@ -187,8 +187,8 @@ pub fn request_signed(
 // --- selftest -----------------------------------------------------------
 
 // Demo keeper seeds -- plainly not real keys, so no identity is invented.
-const ivy_seed: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-const wren_seed: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
+const ivy_seed: [kumara.seed_length]u8 = @splat(0x11);
+const wren_seed: [kumara.seed_length]u8 = @splat(0x22);
 
 const ivy: u32 = 101;
 const wren: u32 = 202;
@@ -233,7 +233,7 @@ fn unwelcome_relabel_refuses() !void {
     var ring = try demo_ring();
     // Enroll a third keeper the requester never asked for.
     const flax: u32 = 303;
-    const flax_seed: [kumara.seed_length]u8 = .{0x33} ** kumara.seed_length;
+    const flax_seed: [kumara.seed_length]u8 = @splat(0x33);
     try ring.enroll(flax, pubkey_of(&flax_seed));
 
     const ivy_join = sign_join(&ivy_seed, demo_circle, ivy);
@@ -268,7 +268,7 @@ fn unwelcome_unknown_keeper_refuses() !void {
     var c = skate.Circle.open();
     const ring = try demo_ring();
     const stranger: u32 = 909;
-    const stranger_seed: [kumara.seed_length]u8 = .{0x44} ** kumara.seed_length;
+    const stranger_seed: [kumara.seed_length]u8 = @splat(0x44);
     const sig = sign_join(&stranger_seed, demo_circle, stranger);
     const bad = join_signed(&c, &ring, demo_circle, stranger, &sig);
     assert(bad == error.UnknownKeeper);

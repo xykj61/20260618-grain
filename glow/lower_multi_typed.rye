@@ -27,13 +27,13 @@ pub const LowerError = rf.ParseError || lower_multi.LowerError || error{
 };
 
 pub const LineBind = struct {
-    face: [max_name_len]u8 = .{0} ** max_name_len,
+    face: [max_name_len]u8 = @splat(0),
     face_len: usize = 0,
     value: u32 = 0,
 };
 
 pub const MultiTypedSpec = struct {
-    binds: [max_lines]LineBind = [_]LineBind{.{}} ** max_lines,
+    binds: [max_lines]LineBind = @splat(.{}),
     count: usize = 0,
 };
 

@@ -32,6 +32,7 @@ const timeline = @import("timeline.rye");
 const pan = @import("pan.rye");
 const markers = @import("markers.rye");
 const parse_int = @import("parse_int.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 pub const cue_sheet_version = "20260814.134526";
 
@@ -116,7 +117,7 @@ pub fn parse_sheet(text: []const u8, master: *const pan.StereoClip, out: *marker
 
 fn run_selftest() !u8 {
     var master = pan.StereoClip{};
-    var buf: [500]i16 = [_]i16{0} ** 500;
+    var buf: [500]i16 = @splat(0);
     try timeline.splice(&master.left, 0, &buf);
     try timeline.splice(&master.right, 0, &buf);
 
@@ -181,14 +182,14 @@ fn run_selftest() !u8 {
         var back = markers.Markers{};
         if (parse_sheet("format lotus-cue-sheet-v1\nmark 5 a\nmark 5 b\n", &master, &back)) |_| return error.DupSlipped else |e| if (e != error.Duplicate) return error.WrongDup;
         if (parse_sheet("format lotus-cue-sheet-v1\nmark 501 a\n", &master, &back)) |_| return error.PastEndSlipped else |e| if (e != error.PastEnd) return error.WrongPastEnd;
-        const huge_name = "mark 5 " ++ ("q" ** (markers.max_name + 1)) ++ "\n";
+        const huge_name = "mark 5 " ++ (str_repeat("q", (markers.max_name + 1)).*) ++ "\n";
         if (parse_sheet("format lotus-cue-sheet-v1\n" ++ huge_name, &master, &back)) |_| return error.HugeNameSlipped else |e| if (e != error.BadName) return error.WrongHugeName;
     }
 
     // 5. a record past the marker ceiling refuses MarkersFull -- build a master long enough, render max_markers+1 lines, parse.
     {
         var big = pan.StereoClip{};
-        var big_buf: [markers.max_markers + 1]i16 = [_]i16{0} ** (markers.max_markers + 1);
+        var big_buf: [markers.max_markers + 1]i16 = @splat(0);
         try timeline.splice(&big.left, 0, &big_buf);
         try timeline.splice(&big.right, 0, &big_buf);
 

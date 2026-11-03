@@ -159,7 +159,7 @@ fn run_selftest() !u8 {
     //   to silence: 12000-(7/10)^k rounds to zero by k≈29, so the last nonzero tap sits near sample 725 plus a little diffusion -- well before
     //   the last eighth. A shorter clip cannot settle a long strong hall, so the tail law needs the room the hall actually decays in.
     const impulse = blk: {
-        var b: [1024]i16 = [_]i16{0} ** 1024;
+        var b: [1024]i16 = @splat(0);
         b[0] = 12000;
         break :blk b;
     };

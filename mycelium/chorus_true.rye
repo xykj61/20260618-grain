@@ -84,9 +84,9 @@ pub const Reading = struct {
 
 /// Three distinct demo node keypairs -- the mesh that vouches. Dev-only seeds; no real key is ever held.
 fn three_nodes() [3]kumara.KeyPair {
-    const a: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-    const b: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
-    const c: [kumara.seed_length]u8 = .{0x33} ** kumara.seed_length;
+    const a: [kumara.seed_length]u8 = @splat(0x11);
+    const b: [kumara.seed_length]u8 = @splat(0x22);
+    const c: [kumara.seed_length]u8 = @splat(0x33);
     return .{ kumara.keypair_from_seed(&a), kumara.keypair_from_seed(&b), kumara.keypair_from_seed(&c) };
 }
 

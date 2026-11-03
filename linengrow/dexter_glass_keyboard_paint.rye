@@ -305,7 +305,7 @@ pub const HitMap = struct {
     height: i32 = 0,
     ready: bool = false,
     count: u32 = 0,
-    keys: [max_hit_keys]HitKey = [_]HitKey{.{}} ** max_hit_keys,
+    keys: [max_hit_keys]HitKey = @splat(.{}),
 
     pub fn contains(self: HitMap, x: i32, y: i32) bool {
         if (!self.ready or self.width <= 0 or self.height <= 0) return false;

@@ -22,10 +22,10 @@ const print = std.debug.print;
 const argon2 = @import("argon2.rye");
 
 /// RFC 9106 primary vector inputs, shared by all three modes.
-const rfc_password = [_]u8{0x01} ** 32;
-const rfc_salt = [_]u8{0x02} ** 16;
-const rfc_secret = [_]u8{0x03} ** 8;
-const rfc_ad = [_]u8{0x04} ** 12;
+const rfc_password = @splat(0x01);
+const rfc_salt = @splat(0x02);
+const rfc_secret = @splat(0x03);
+const rfc_ad = @splat(0x04);
 
 const hex_alphabet = "0123456789abcdef";
 

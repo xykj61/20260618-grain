@@ -172,7 +172,7 @@ pub fn parse(text: []const u8, out: *warrant.Warrant) KyriError!void {
 // ---- selftest: a handoff travels and its verdict on a succession is unchanged --------------------
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 

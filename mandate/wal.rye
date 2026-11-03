@@ -65,7 +65,7 @@ pub fn record_remove(wal: *Wal, id: u32) WalError!void {
     // invariant: the log never runs past its bound.
     assert(wal.count <= max_entries);
     if (wal.count >= max_entries) return error.Full;
-    wal.entries[wal.count] = .{ .kind = op_remove, .id = id, .tag = 0, .vec = [_]f32{0} ** store.max_dim };
+    wal.entries[wal.count] = .{ .kind = op_remove, .id = id, .tag = 0, .vec = @splat(0) };
     wal.count += 1;
 }
 

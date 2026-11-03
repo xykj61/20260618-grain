@@ -26,7 +26,7 @@ pub const ParseError = error{
 
 /// A parsed `?-` subject wing, NUL-padded; use subject_slice() to read it.
 pub const SwitchSpec = struct {
-    subject: [max_subject_len]u8 = [_]u8{0} ** max_subject_len,
+    subject: [max_subject_len]u8 = @splat(0),
 };
 
 pub fn subject_slice(spec: *const SwitchSpec) []const u8 {

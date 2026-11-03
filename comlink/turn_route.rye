@@ -71,7 +71,7 @@ pub fn freshest(a: *const tilak.Turn, b: *const tilak.Turn) *const tilak.Turn {
 pub fn read_turn(known: ?*const tilak.Turn, incoming: *const tilak.Turn, identity_pubkey: [pubkey_len]u8) RouteDecision {
     if (!tilak.verify_turn(incoming, identity_pubkey)) {
         // Refused -- keep the last trusted key, or zeros when there is none yet.
-        const kept: [pubkey_len]u8 = if (known) |k| k.net_pubkey else [_]u8{0} ** pubkey_len;
+        const kept: [pubkey_len]u8 = if (known) |k| k.net_pubkey else @splat(0);
         const decision = RouteDecision{ .accepted = false, .route_key = kept, .reason = .forged_refused };
         // invariant: a refused turn is never accepted -- forged input can
         // never win the route key.
@@ -95,10 +95,10 @@ pub fn read_turn(known: ?*const tilak.Turn, incoming: *const tilak.Turn, identit
 
 // --- selftest -----------------------------------------------------------
 
-const key_seed: [32]u8 = .{0x11} ** 32;
-const net_seed_a: [32]u8 = .{0x33} ** 32;
-const net_seed_b: [32]u8 = .{0x44} ** 32;
-const other_key_seed: [32]u8 = .{0x55} ** 32;
+const key_seed: [32]u8 = @splat(0x11);
+const net_seed_a: [32]u8 = @splat(0x33);
+const net_seed_b: [32]u8 = @splat(0x44);
+const other_key_seed: [32]u8 = @splat(0x55);
 
 fn bytes_eq(a: [pubkey_len]u8, b: [pubkey_len]u8) bool {
     return std.mem.eql(u8, &a, &b);

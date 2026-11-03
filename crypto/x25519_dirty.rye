@@ -67,7 +67,7 @@ const dirty_base_point = [32]u8{
 /// form -- the small addend as a u128 laid into the low sixteen bytes, then bit 252 set (byte 31, bit 4 -> 0x10) -- never pasted as a byte
 /// pattern. add_xl reads it four bytes at a time as eight little-endian u32 words.
 fn order_l_bytes() [32]u8 {
-    var b = [_]u8{0} ** 32;
+    var b = @splat(0);
     const addend: u128 = 27742317777372353535851937790883648493;
     var i: u32 = 0;
     // invariant (construction): the addend is below 2^125, so its sixteen little-endian bytes never reach byte 31 where bit 252 lives -- the two

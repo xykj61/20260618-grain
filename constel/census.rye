@@ -41,7 +41,7 @@ pub const CensusError = error{
 /// A present-set: one bool per roster slot, marked true as each member's reply is heard. A silent member is a slot left
 /// false -- absence is knowable by slot, not merely a smaller count. Bounded by max_piers, exactly like the roster it indexes.
 pub const Census = struct {
-    present: [roster.max_piers]bool = [_]bool{false} ** roster.max_piers,
+    present: [roster.max_piers]bool = @splat(false),
     count: u32 = 0,
 
     /// Mark a roster slot present, refusing to double-count -- a reply already heard from this slot is a fault the caller

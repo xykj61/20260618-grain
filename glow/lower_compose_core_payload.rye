@@ -104,14 +104,14 @@ fn parse_trailing_u32(rest: []const u8) LowerError!u32 {
 }
 
 pub const ComposeCorePayloadSpec = struct {
-    outer_face: [rf.max_name_len]u8 = .{0} ** rf.max_name_len,
+    outer_face: [rf.max_name_len]u8 = @splat(0),
     outer_len: usize = 0,
     outer_value: u32 = 0,
-    payload_face: [rk.max_name_len]u8 = .{0} ** rk.max_name_len,
+    payload_face: [rk.max_name_len]u8 = @splat(0),
     payload_len: usize = 0,
     payload_value: u32 = 0,
     payload_typed: bool = false,
-    arm: [rk.max_name_len]u8 = .{0} ** rk.max_name_len,
+    arm: [rk.max_name_len]u8 = @splat(0),
     arm_len: usize = 0,
     body: expr.Expr = .{ .kind = .literal },
     has_body: bool = false,

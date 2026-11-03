@@ -22,7 +22,7 @@ pub const max_price_len: u32 = 16;
 pub const max_path_len: u32 = 64;
 
 /// Exchange listing seed -- distinct from publisher 0x65, delivery 0x64, seal 0x63, vessel 0x62.
-const listing_seed: [kumara.seed_length]u8 = .{0x66} ** kumara.seed_length;
+const listing_seed: [kumara.seed_length]u8 = @splat(0x66);
 
 pub const ListingError = error{
     InvalidListing,

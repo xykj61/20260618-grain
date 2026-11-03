@@ -44,7 +44,7 @@ pub const ChannelError = error{
 /// A bounded byte FIFO: a fixed buffer, a read cursor, and the written length. A write appends; a read advances the cursor.
 /// When the cursor catches the length the channel is drained and the next write compacts back to the start.
 pub const Channel = struct {
-    buf: [max_channel]u8 = [_]u8{0} ** max_channel,
+    buf: [max_channel]u8 = @splat(0),
     cursor: u32 = 0,
     len: u32 = 0,
 

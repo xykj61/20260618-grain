@@ -29,13 +29,13 @@ pub const ParseError = error{
 };
 
 pub const QuadSpec = struct {
-    a: [max_name_len]u8 = [_]u8{0} ** max_name_len,
+    a: [max_name_len]u8 = @splat(0),
     a_len: usize = 0,
-    b: [max_name_len]u8 = [_]u8{0} ** max_name_len,
+    b: [max_name_len]u8 = @splat(0),
     b_len: usize = 0,
-    c: [max_name_len]u8 = [_]u8{0} ** max_name_len,
+    c: [max_name_len]u8 = @splat(0),
     c_len: usize = 0,
-    d: [max_name_len]u8 = [_]u8{0} ** max_name_len,
+    d: [max_name_len]u8 = @splat(0),
     d_len: usize = 0,
 };
 

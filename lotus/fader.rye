@@ -64,7 +64,7 @@ pub fn render(
     assert(faders.len == session.count);
 
     // A wide accumulator per sample, so the master saturates over the TRUE faded sum of all tracks, never once per track.
-    var acc: [timeline.max_clip]i64 = [_]i64{0} ** timeline.max_clip;
+    var acc: [timeline.max_clip]i64 = @splat(0);
     var master_len: u32 = 0;
 
     var t: u32 = 0;

@@ -279,10 +279,10 @@ const HeadRecordFields = struct {
     identity_epoch: u64 = 0,
     continuity_epoch: u64 = 0,
     continuity_kind: ContinuityKind = .export_kind,
-    continuity_parent: [64]u8 = [_]u8{'0'} ** 64,
+    continuity_parent: [64]u8 = @splat('0'),
     continuity_stamp: [64]u8 = undefined,
     continuity_stamp_len: u32 = 0,
-    identity_hex: [64]u8 = [_]u8{'0'} ** 64,
+    identity_hex: [64]u8 = @splat('0'),
     parity_claim: [64]u8 = undefined,
     parity_claim_len: u32 = 0,
 };
@@ -763,7 +763,7 @@ fn refuse_prefix_snapshot(signer: kumara.KeyPair, snap: []const u8) !void {
 }
 
 fn run_selftest(_: std.Io) !u8 {
-    const signer_seed = [_]u8{0x61} ** kumara.seed_length;
+    const signer_seed = @splat(0x61);
     const signer = kumara.keypair_from_seed(&signer_seed);
 
     var src: ns.BoltCatalog = .empty();

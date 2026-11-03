@@ -292,39 +292,39 @@ fn run_selftest() !u8 {
     //    reducing to its true residue.
     {
         // Canonical round-trip of the Curve25519 base u-coordinate, 9.
-        var nine = [_]u8{0} ** 32;
+        var nine = @splat(0);
         nine[0] = 9;
         if (!bytes_eq(&to_bytes(from_bytes(&nine)), &nine)) return error.RoundTripMismatch;
 
         // 1-1 = 1.
         const one = from_small(1);
-        var one_b = [_]u8{0} ** 32;
+        var one_b = @splat(0);
         one_b[0] = 1;
         if (!bytes_eq(&to_bytes(mul(one, one)), &one_b)) return error.OneMismatch;
 
         // 2-3 = 6.
-        var six_b = [_]u8{0} ** 32;
+        var six_b = @splat(0);
         six_b[0] = 6;
         if (!bytes_eq(&to_bytes(mul(from_small(2), from_small(3))), &six_b)) return error.ProductMismatch;
 
         // a - a = 0 for a nonzero a.
         const a = from_bytes(&test_bytes(31));
-        var zero_b = [_]u8{0} ** 32;
+        var zero_b = @splat(0);
         if (!bytes_eq(&to_bytes(sub(a, a)), &zero_b)) return error.SubMismatch;
 
         // a - a⁻¹ = 1.
         if (!bytes_eq(&to_bytes(mul(a, invert(a))), &one_b)) return error.InverseMismatch;
 
         // A non-canonical encoding reduces to its true residue: the encoding of p is 0, and the encoding of p + 5 is 5.
-        var p_enc = [_]u8{0xff} ** 32;
+        var p_enc = @splat(0xff);
         p_enc[0] = 0xed;
         p_enc[31] = 0x7f;
         if (!bytes_eq(&to_bytes(from_bytes(&p_enc)), &zero_b)) return error.NonCanonicalP;
 
-        var p5_enc = [_]u8{0xff} ** 32;
+        var p5_enc = @splat(0xff);
         p5_enc[0] = 0xf2; // 0x100 − 14, i.e. (p + 5) mod 256
         p5_enc[31] = 0x7f;
-        var five_b = [_]u8{0} ** 32;
+        var five_b = @splat(0);
         five_b[0] = 5;
         if (!bytes_eq(&to_bytes(from_bytes(&p5_enc)), &five_b)) return error.NonCanonicalP5;
     }

@@ -174,7 +174,7 @@ fn run_selftest() !u8 {
 
     // 6. BOUNDED -- the poll runs over a full roster of eight within the pier cap; a unanimous up-to-date poll grants every vote.
     {
-        var logs: [roster.max_piers]TermedLog = [_]TermedLog{.{}} ** roster.max_piers;
+        var logs: [roster.max_piers]TermedLog = @splat(.{});
         var ptrs: [roster.max_piers]*const TermedLog = undefined;
         var i: u32 = 0;
         while (i < roster.max_piers) : (i += 1) {

@@ -64,8 +64,8 @@ pub fn name_matches(res: *const store.QueryResult, registry: *const names.NameRe
 fn prove_named_serve() !void {
     // Seat a settled galaxy and claim a spoken name for it -- through names.rye's public
     // sign_claim, the helper that unblocks claiming a name from outside that module.
-    const g_key: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-    const g_keeper: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
+    const g_key: [kumara.seed_length]u8 = @splat(0x11);
+    const g_keeper: [kumara.seed_length]u8 = @splat(0x22);
     const galaxy_num: u32 = 3;
     const g_bind = tilak.make_bind(&g_key, &g_keeper);
     const opened = try settlement.open(galaxy_num, &g_bind);

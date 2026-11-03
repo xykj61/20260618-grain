@@ -28,10 +28,10 @@ pub const ParseError = error{
 };
 
 pub const CallNSpec = struct {
-    gate: [max_name_len]u8 = .{0} ** max_name_len,
+    gate: [max_name_len]u8 = @splat(0),
     gate_len: usize = 0,
-    names: [max_names][max_name_len]u8 = .{.{0} ** max_name_len} ** max_names,
-    lens: [max_names]usize = .{0} ** max_names,
+    names: [max_names][max_name_len]u8 = @splat(@as([max_name_len]u8, @splat(0))),
+    lens: [max_names]usize = @splat(0),
     count: usize = 0,
 };
 

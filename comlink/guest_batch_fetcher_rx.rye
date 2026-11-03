@@ -10,7 +10,7 @@ const kumara = @import("kumara.rye");
 
 var rx: vn.RxQueue = undefined;
 
-const batch_signer_seed = [_]u8{0x61} ** kumara.seed_length;
+const batch_signer_seed = @splat(0x61);
 
 fn witness_pattern_fill(buf: []u8, seed: u32) void {
     var x: u32 = seed;

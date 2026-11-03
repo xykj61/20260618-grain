@@ -176,7 +176,7 @@ fn run_selftest() !u8 {
         if (!bytes_eq(&to_bytes(from_zig(b)), &b.toBytes())) return error.BasePointMismatch;
 
         // The identity compresses to Y = 1 (all-zero bytes but the first).
-        var id_b = [_]u8{0} ** 32;
+        var id_b = @splat(0);
         id_b[0] = 1;
         if (!bytes_eq(&to_bytes(from_zig(ZEd.identityElement)), &id_b)) return error.IdentityMismatch;
 

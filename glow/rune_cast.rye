@@ -33,7 +33,7 @@ pub const ParseError = error{
 /// A parsed cast's own mold name, NUL-padded; use mold_slice() to read it
 /// back trimmed.
 pub const CastSpec = struct {
-    mold: [max_mold_len]u8 = [_]u8{0} ** max_mold_len,
+    mold: [max_mold_len]u8 = @splat(0),
 };
 
 pub fn mold_slice(spec: *const CastSpec) []const u8 {

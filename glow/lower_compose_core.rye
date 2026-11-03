@@ -97,13 +97,13 @@ fn parse_trailing_u32(rest: []const u8) LowerError!u32 {
 }
 
 pub const ComposeCoreSpec = struct {
-    face: [rf.max_name_len]u8 = .{0} ** rf.max_name_len,
+    face: [rf.max_name_len]u8 = @splat(0),
     face_len: usize = 0,
     value: u32 = 0,
-    arms: [rk.max_arms][rk.max_name_len]u8 = .{.{0} ** rk.max_name_len} ** rk.max_arms,
-    lens: [rk.max_arms]usize = .{0} ** rk.max_arms,
-    bodies: [rk.max_arms]expr.Expr = [_]expr.Expr{.{ .kind = .literal }} ** rk.max_arms,
-    has_body: [rk.max_arms]bool = .{false} ** rk.max_arms,
+    arms: [rk.max_arms][rk.max_name_len]u8 = @splat(@as([rk.max_name_len]u8, @splat(0))),
+    lens: [rk.max_arms]usize = @splat(0),
+    bodies: [rk.max_arms]expr.Expr = @splat(.{ .kind = .literal }),
+    has_body: [rk.max_arms]bool = @splat(false),
     count: usize = 0,
     is_open: bool = false,
 };

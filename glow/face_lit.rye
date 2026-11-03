@@ -27,7 +27,7 @@ pub const LitKind = enum { cord, hex };
 
 /// One parsed `face=<lit>` clause; `lit` spans the source token.
 pub const FaceLitSpec = struct {
-    face: [max_name_len]u8 = [_]u8{0} ** max_name_len,
+    face: [max_name_len]u8 = @splat(0),
     face_len: u32 = 0,
     lit_kind: LitKind = .cord,
     lit: tokens.Token = .{},

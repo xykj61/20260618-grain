@@ -55,7 +55,7 @@ pub const Entry = struct {
 
 /// One catalog entry: a product name (held in a fixed buffer, never a borrowed slice) and its window.
 const Cell = struct {
-    name_buf: [max_name_len]u8 = [_]u8{0} ** max_name_len,
+    name_buf: [max_name_len]u8 = @splat(0),
     name_len: u32 = 0,
     win: Window = .{},
 
@@ -70,7 +70,7 @@ const Cell = struct {
 /// owned -- the whole point of the trick is that every product shares the single decoded image.
 pub const SpriteIndex = struct {
     sheet: *const qoi.Pixmap,
-    cells: [max_products]Cell = [_]Cell{.{}} ** max_products,
+    cells: [max_products]Cell = @splat(.{}),
     count: u32 = 0,
 
     /// Open an index over an already-decoded sheet. The sheet is decoded once, by the caller, and read by
@@ -245,7 +245,7 @@ fn run_selftest(garden: std.mem.Allocator) !u8 {
         if (e != error.NameTaken) return error.WrongDupe;
     }
     // Unwelcome: an overlong product name refuses.
-    var long_name: [max_name_len + 1]u8 = [_]u8{'a'} ** (max_name_len + 1);
+    var long_name: [max_name_len + 1]u8 = @splat('a');
     if (index.add(long_name[0..], 0, 0, 2, 2)) |_| return error.LongSlipped else |e| {
         if (e != error.NameTooLong) return error.WrongLong;
     }

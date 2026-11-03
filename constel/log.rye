@@ -46,7 +46,7 @@ pub const LogError = error{
 /// An append-only sequence of committed values. `len` entries are filled, in order, index 0 first. A committed entry is never
 /// rewritten -- the only mutation is a new value at index `len`, exactly Mantra's append-only order.
 pub const Log = struct {
-    entry: [max_entries]u32 = [_]u32{0} ** max_entries,
+    entry: [max_entries]u32 = @splat(0),
     len: u32 = 0,
 
     /// Append an already-committed value at the next index, refusing LogFull at the cap. The value joins at index `len`, and

@@ -35,6 +35,7 @@ const pan = @import("pan.rye");
 const markers = @import("markers.rye");
 const cue_sheet = @import("cue_sheet.rye");
 const seal = @import("seal.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 pub const cue_seal_version = "20260814.153033";
 
@@ -143,7 +144,7 @@ fn run_selftest() !u8 {
         if (verify_and_parse("format lotus-cue-sheet-v1\nmark 0 intro\n", &master, &back)) |_| return error.PlainSlipped else |e| if (e != error.BadRecord) return error.WrongPlain;
         if (verify_and_parse("format lotus-cue-sheet-sealed-v1\n", &master, &back)) |_| return error.NoDigestSlipped else |e| if (e != error.BadRecord) return error.WrongNoDigest;
         if (verify_and_parse("format lotus-cue-sheet-sealed-v1\ndigest abc\nformat lotus-cue-sheet-v1\n", &master, &back)) |_| return error.ShortDigestSlipped else |e| if (e != error.BadRecord) return error.WrongShortDigest;
-        const bad_hex = "format lotus-cue-sheet-sealed-v1\ndigest " ++ ("z" ** 64) ++ "\nformat lotus-cue-sheet-v1\n";
+        const bad_hex = "format lotus-cue-sheet-sealed-v1\ndigest " ++ (str_repeat("z", 64).*) ++ "\nformat lotus-cue-sheet-v1\n";
         if (verify_and_parse(bad_hex, &master, &back)) |_| return error.BadHexSlipped else |e| if (e != error.BadRecord) return error.WrongBadHex;
     }
 

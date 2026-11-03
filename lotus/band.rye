@@ -144,7 +144,7 @@ fn run_selftest() !u8 {
     // 4. the band rejects direct current -- a constant input settles to zero: the high-pass stage drives the constant to zero, and
     //    the low-pass of a settled zero stays zero. A band-pass keeps no DC.
     {
-        const run = [_]i16{2500} ** 60;
+        const run = @splat(2500);
         var clip = timeline.Clip{};
         try load_clip(&clip, &run);
         var f = Bandpass{ .num_low = 1, .den_low = 3, .num_high = 1, .den_high = 2 };
@@ -156,7 +156,7 @@ fn run_selftest() !u8 {
     //    both states to silence, so the next run over a constant leaves a NON-zero first sample again (the high-pass transient
     //    before direct current is removed), rather than continuing settled at zero.
     {
-        const run = [_]i16{3000} ** 40;
+        const run = @splat(3000);
         var clip = timeline.Clip{};
         try load_clip(&clip, &run);
         var f = Bandpass{ .num_low = 1, .den_low = 3, .num_high = 1, .den_high = 2 };

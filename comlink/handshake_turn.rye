@@ -89,7 +89,7 @@ pub fn handshake_wire(
     // refusal, not a crash -- routing keeps the last trusted key.
     const parsed = tilak.turn_from_bytes(intro.descriptor.as_slice());
     if (parsed == null) {
-        const kept: [pubkey_len]u8 = if (known_turn) |k| k.net_pubkey else [_]u8{0} ** pubkey_len;
+        const kept: [pubkey_len]u8 = if (known_turn) |k| k.net_pubkey else @splat(0);
         return .{ .admitted = true, .route = .{ .accepted = false, .route_key = kept, .reason = .forged_refused } };
     }
     var incoming = parsed.?;
@@ -99,11 +99,11 @@ pub fn handshake_wire(
 
 // --- selftest -----------------------------------------------------------
 
-const star_seed: [32]u8 = .{0x01} ** 32;
-const peer_seed: [32]u8 = .{0x02} ** 32;
-const net_seed_a: [32]u8 = .{0x03} ** 32;
-const net_seed_b: [32]u8 = .{0x04} ** 32;
-const forger_seed: [32]u8 = .{0x05} ** 32;
+const star_seed: [32]u8 = @splat(0x01);
+const peer_seed: [32]u8 = @splat(0x02);
+const net_seed_a: [32]u8 = @splat(0x03);
+const net_seed_b: [32]u8 = @splat(0x04);
+const forger_seed: [32]u8 = @splat(0x05);
 
 fn bytes_eq(a: [pubkey_len]u8, b: [pubkey_len]u8) bool {
     return std.mem.eql(u8, &a, &b);

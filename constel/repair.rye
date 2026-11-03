@@ -70,7 +70,7 @@ pub const TermedEntry = struct {
 /// only mutation that REMOVES an entry is truncate_to, and it only ever drops an uncommitted stale-term suffix (the tissue constels-naming
 /// proved could never have committed) -- the committed prefix is never rewritten.
 pub const TermedLog = struct {
-    entry: [max_entries]TermedEntry = [_]TermedEntry{.{}} ** max_entries,
+    entry: [max_entries]TermedEntry = @splat(.{}),
     len: u32 = 0,
 
     /// The term of entry `i`, refusing NoEntry past the filled prefix.

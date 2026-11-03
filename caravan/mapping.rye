@@ -337,8 +337,8 @@ pub fn plan(placement: Placement) error{
     };
 
     var result = Plan{
-        .pages = [_]u32{0} ** all_page_sizes.len,
-        .tables = [_]u32{0} ** page_table_levels,
+        .pages = @splat(0),
+        .tables = @splat(0),
     };
 
     // The root always exists -- an address space is a root table before it is

@@ -237,7 +237,7 @@ pub fn render(v: *const Voucher) void {
 // --- selftest: a voucher is bound to the order it was read against --------
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 
@@ -317,7 +317,7 @@ fn dag_of(blocks: []const cord.Block) !cord.Dag {
 }
 
 pub fn main() !void {
-    const id = [_]u8{0x01} ** lapse.id_len;
+    const id = @splat(0x01);
     const node = seeded(0x0D);
     const alice_pk = seeded(0xA1).public_key.toBytes();
 

@@ -175,7 +175,7 @@ fn run_selftest() !u8 {
     {
         const c = try clock.make(48000);
         if (clock.samples_for(c, 1) catch 0 != 48) return error.RateConversionWrong; // guard the arithmetic itself
-        var buf: [240]i16 = [_]i16{0} ** 240; // 240 samples == 5 ms at 48 kHz, so count_ms 5 covers the whole clip exactly
+        var buf: [240]i16 = @splat(0); // 240 samples == 5 ms at 48 kHz, so count_ms 5 covers the whole clip exactly
         buf[0] = 10000; // an impulse at index 0
         var timed = timeline.Clip{};
         try load_clip(&timed, &buf);
@@ -232,7 +232,7 @@ fn run_selftest() !u8 {
         if (reverb_ms(&clip, c, 0, 3, &none, &noaps)) |_| return error.NoCombsSlipped else |e| if (e != error.NoCombs) return error.WrongNoCombs;
         if (!eq(clip.samples(), &three)) return error.RefusedNoCombsMutated;
         // an over-long comb bank (more than max_stages) refuses TooManyStages before any conversion
-        const many = [_]CombSpecMs{.{ .delay_ms = 1, .fb_num = 1, .fb_den = 2 }} ** (reverb.max_stages + 1);
+        const many = @splat(.{ .delay_ms = 1, .fb_num = 1, .fb_den = 2 });
         if (reverb_ms(&clip, c, 0, 3, &many, &noaps)) |_| return error.TooManySlipped else |e| if (e != error.TooManyStages) return error.WrongTooMany;
         if (!eq(clip.samples(), &three)) return error.RefusedTooManyMutated;
         // a feedback at unity forwards BadGain

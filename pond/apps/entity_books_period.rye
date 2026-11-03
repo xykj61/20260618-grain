@@ -131,8 +131,8 @@ pub fn parse(text: []const u8) PeriodError!PortablePeriod {
 
     var have_entity = false;
     var have_stamp = false;
-    var have = [_]bool{false} ** gc.account_count;
-    var pp = PortablePeriod{ .name_bytes = undefined, .name_len = 0, .stamp_bytes = undefined, .stamp_len = 0, .nets = .{0} ** gc.account_count };
+    var have = @splat(false);
+    var pp = PortablePeriod{ .name_bytes = undefined, .name_len = 0, .stamp_bytes = undefined, .stamp_len = 0, .nets = @splat(0) };
 
     while (lines.next()) |raw| {
         if (raw.len == 0) continue; // a trailing newline yields one empty line

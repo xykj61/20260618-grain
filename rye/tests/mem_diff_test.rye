@@ -17,14 +17,14 @@ const mem = std.mem;
 
 pub fn main() void {
     // --- copyForwards ---
-    var dest: [8]u8 = .{0} ** 8;
+    var dest: [8]u8 = @splat(0);
     mem.copyForwards(u8, &dest, "Rye");
     // Precondition assertion live: dest.len (8) >= source.len (3).
     std.debug.assert(dest[0] == 'R' and dest[1] == 'y' and dest[2] == 'e');
     std.debug.assert(dest[3] == 0); // bytes beyond source are untouched
 
     // Copy empty source -- no-op, dest unchanged.
-    var dest2: [4]u8 = .{'x'} ** 4;
+    var dest2: [4]u8 = @splat('x');
     mem.copyForwards(u8, &dest2, "");
     std.debug.assert(dest2[0] == 'x');
 

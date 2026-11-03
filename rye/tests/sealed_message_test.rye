@@ -25,14 +25,14 @@ fn seal_key(shared: [32]u8) [ChaCha20Poly1305.key_length]u8 {
 
 pub fn main() void {
     // Two identities, each one owner seed (994: one root, derived keys).
-    const alice_id = Ed25519.KeyPair.generateDeterministic([_]u8{0xA1} ** 32) catch unreachable;
-    const bob_id = Ed25519.KeyPair.generateDeterministic([_]u8{0xB0} ** 32) catch unreachable;
+    const alice_id = Ed25519.KeyPair.generateDeterministic(@splat(0xA1)) catch unreachable;
+    const bob_id = Ed25519.KeyPair.generateDeterministic(@splat(0xB0)) catch unreachable;
     // Their agreement keys, derived from the very same identities.
     const alice_x = X25519.KeyPair.fromEd25519(alice_id) catch unreachable;
     const bob_x = X25519.KeyPair.fromEd25519(bob_id) catch unreachable;
 
     const message = "Meet me where the rye grows.";
-    const nonce = [_]u8{0x01} ** ChaCha20Poly1305.nonce_length;
+    const nonce = @splat(0x01);
 
     // --- Alice seals to Bob ---
     const shared_a = X25519.scalarmult(alice_x.secret_key, bob_x.public_key) catch unreachable;

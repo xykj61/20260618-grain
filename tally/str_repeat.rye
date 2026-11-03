@@ -1,0 +1,56 @@
+//! tally/str_repeat.rye -- comptime string repetition.
+//!
+//! Zig 0.16 had `"ab" ** 32`; Zig 0.17 removed the `**` operator for arrays
+//! and strings alike. `@splat` replaces it for arrays, and this function
+//! replaces it for string literals: `str_repeat("ab", 32)` returns a
+//! `*const [64]u8` pointing to the repeated result, evaluated at comptime.
+//!
+//! Placement here mirrors `tally/copy.rye` -- bounded utilities that every
+//! module may reach for.
+
+const std = @import("std");
+const assert = std.debug.assert;
+
+pub fn str_repeat(comptime s: []const u8, comptime n: usize) *const [s.len * n]u8 {
+    // invariant: the input string is non-empty, since repeating an empty
+    // string n times is always the empty string and never needs this helper
+    comptime assert(s.len > 0);
+    // invariant: the repetition count is non-zero
+    comptime assert(n > 0);
+    return comptime blk: {
+        var buf: [s.len * n]u8 = undefined;
+        for (0..n) |i| {
+            @memcpy(buf[i * s.len ..][0..s.len], s);
+        }
+        const result = buf;
+        break :blk &result;
+    };
+}
+
+fn run_selftest() void {
+    // invariant: single-char repeat produces the expected length
+    const a4 = str_repeat("a", 4);
+    assert(a4.len == 4);
+    assert(std.mem.eql(u8, a4, "aaaa"));
+
+    // invariant: multi-char repeat interleaves correctly
+    const ab3 = str_repeat("ab", 3);
+    assert(ab3.len == 6);
+    assert(std.mem.eql(u8, ab3, "ababab"));
+
+    // invariant: single repetition is identity
+    const hello = str_repeat("hello", 1);
+    assert(hello.len == 5);
+    assert(std.mem.eql(u8, hello, "hello"));
+
+    // invariant: longer patterns repeat correctly
+    const hex32 = str_repeat("00", 32);
+    assert(hex32.len == 64);
+    for (hex32) |c| assert(c == '0');
+
+    std.debug.print("tally: str_repeat selftest passed.\n", .{});
+}
+
+pub fn main() void {
+    run_selftest();
+}

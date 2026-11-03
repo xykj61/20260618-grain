@@ -300,7 +300,7 @@ pub fn render(f: *const Fleet) void {
 // --- selftest: a world berths at exactly one host, and every node computes the same berth ---------------
 
 fn host_key(byte: u8) [pk_len]u8 {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     const kp = kumara.keypair_from_seed(&seed);
     return kp.public_key.toBytes();
 }

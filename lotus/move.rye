@@ -54,7 +54,7 @@ pub fn move(clip: *timeline.Clip, start: u32, count: u32, dest: u32) MoveError!v
     if (dest > clip.len - count) return error.BadRange;
 
     // Copy the span into one bounded scratch buffer before removing it -- its budget is max_clip, the same bound the Clip's own buffer names, so count ≤ len ≤ max_clip always fits.
-    var scratch: [timeline.max_clip]i16 = [_]i16{0} ** timeline.max_clip;
+    var scratch: [timeline.max_clip]i16 = @splat(0);
     // invariant: the span we save never exceeds the scratch budget -- count is bounded by the current samples, themselves bounded by max_clip.
     assert(count <= scratch.len);
     var i: u32 = 0;

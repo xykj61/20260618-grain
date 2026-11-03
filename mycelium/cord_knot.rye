@@ -217,7 +217,7 @@ pub fn states_match(x: *const fold.FoldState, y: *const fold.FoldState) bool {
 const Facts = struct { fa: fold.Fact, fb: fold.Fact, fc: fold.Fact, fd: fold.Fact };
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 

@@ -38,7 +38,7 @@ const kumara = @import("kumara.rye");
 const tally_copy = @import("tally_copy.rye");
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 
@@ -78,8 +78,8 @@ fn post_body(id: []const u8, out: []u8) u32 {
 /// pledge LAPSES (coins home to Alice, the post a no-op); Alice pledges 100 to Carol under a far
 /// deadline at round 3 and leaves it open.
 fn seat_dag() !cord.Dag {
-    const id1 = [_]u8{0x01} ** lapse.id_len;
-    const id2 = [_]u8{0x02} ** lapse.id_len;
+    const id1 = @splat(0x01);
+    const id2 = @splat(0x02);
     const kf = seeded(0xF0); // demo funder / genesis credit authority
     const ka = seeded(0xA1); // Alice — the pledger
     const kb = seeded(0xB2); // Bob — the lapsed pledge's intended recipient (paid nothing)

@@ -23,7 +23,7 @@ pub const ParseError = error{
 };
 
 pub const MutateSpec = struct {
-    wing: [max_wing_len]u8 = [_]u8{0} ** max_wing_len,
+    wing: [max_wing_len]u8 = @splat(0),
 };
 
 pub fn wing_slice(spec: *const MutateSpec) []const u8 {

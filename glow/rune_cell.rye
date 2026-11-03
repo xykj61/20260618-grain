@@ -28,9 +28,9 @@ pub const ParseError = error{
 };
 
 pub const CellSpec = struct {
-    left: [max_name_len]u8 = [_]u8{0} ** max_name_len,
+    left: [max_name_len]u8 = @splat(0),
     left_len: usize = 0,
-    right: [max_name_len]u8 = [_]u8{0} ** max_name_len,
+    right: [max_name_len]u8 = @splat(0),
     right_len: usize = 0,
 };
 

@@ -84,8 +84,8 @@ pub fn meter_loop_live(sc: *const pan.StereoClip, lp: *const loop.Loop, cycles: 
     var t = transport.Transport{};
     loop.enter(&t, lp); // head at the region top — the K cycles concatenate to K copies of the region exactly
     var sm = stereo_meter.StereoMeter{};
-    var sl: [16]i16 = [_]i16{0} ** 16;
-    var sr: [16]i16 = [_]i16{0} ** 16;
+    var sl: [16]i16 = @splat(0);
+    var sr: [16]i16 = @splat(0);
 
     var remaining: u32 = total;
     while (remaining > 0) {

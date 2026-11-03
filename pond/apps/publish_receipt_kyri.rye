@@ -29,6 +29,7 @@ const receipt_mod = @import("publish_receipt.rye");
 const tablecloth = @import("tablecloth.rye");
 const parse_int = @import("parse_int.rye");
 const kumara = @import("kumara.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 pub const publish_receipt_kyri_version = "20260812.173656";
 
@@ -160,7 +161,7 @@ pub fn parse(text: []const u8) KyriError!receipt_mod.Publication {
 
 // ---- witnesses ----
 
-const keeper_seed: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
+const keeper_seed: [kumara.seed_length]u8 = @splat(0x22);
 const demo_point: u32 = 3;
 
 fn pubkey_of(seed: *const [kumara.seed_length]u8) [receipt_mod.pubkey_len]u8 {
@@ -187,7 +188,7 @@ fn welcome_round_trip_preserves() !void {
 
 /// An unknown field refuses -- never silently dropped.
 fn unwelcome_unknown_field_refuses() !void {
-    const record = "format publication-v1\npoint 3\nname a.txt\nlen 4\ndigest " ++ ("0" ** 64) ++ "\nsig " ++ ("0" ** 128) ++ "\nsurprise yes\n";
+    const record = "format publication-v1\npoint 3\nname a.txt\nlen 4\ndigest " ++ (str_repeat("0", 64).*) ++ "\nsig " ++ (str_repeat("0", 128).*) ++ "\nsurprise yes\n";
     const parsed = parse(record);
     assert(parsed == error.UnknownField);
     print("publish_receipt_kyri: an unknown field refused UnknownField (never dropped).\n", .{});
@@ -195,7 +196,7 @@ fn unwelcome_unknown_field_refuses() !void {
 
 /// A missing field refuses.
 fn unwelcome_missing_field_refuses() !void {
-    const record = "format publication-v1\npoint 3\nname a.txt\nlen 4\ndigest " ++ ("0" ** 64) ++ "\n";
+    const record = "format publication-v1\npoint 3\nname a.txt\nlen 4\ndigest " ++ (str_repeat("0", 64).*) ++ "\n";
     const parsed = parse(record);
     assert(parsed == error.MissingField);
     print("publish_receipt_kyri: a missing field refused MissingField.\n", .{});
@@ -206,7 +207,7 @@ fn unwelcome_bad_header_and_hex_refuse() !void {
     const bad_header = "format other-v1\npoint 3\n";
     const header_result = parse(bad_header);
     assert(header_result == error.BadFormat);
-    const short_hex = "format publication-v1\npoint 3\nname a.txt\nlen 4\ndigest abcd\nsig " ++ ("0" ** 128) ++ "\n";
+    const short_hex = "format publication-v1\npoint 3\nname a.txt\nlen 4\ndigest abcd\nsig " ++ (str_repeat("0", 128).*) ++ "\n";
     const hex_result = parse(short_hex);
     assert(hex_result == error.BadHex);
     print("publish_receipt_kyri: a wrong header and short hex each refused.\n", .{});

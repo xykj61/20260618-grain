@@ -71,9 +71,9 @@ pub const Command = struct {
 /// whole reason to replicate a log.
 pub const Machine = struct {
     register: u32 = 0,
-    last_seq: [max_clients]u32 = [_]u32{0} ** max_clients,
-    last_result: [max_clients]u32 = [_]u32{0} ** max_clients,
-    seen: [max_clients]bool = [_]bool{false} ** max_clients,
+    last_seq: [max_clients]u32 = @splat(0),
+    last_result: [max_clients]u32 = @splat(0),
+    seen: [max_clients]bool = @splat(false),
 
     /// Whether `client` has ever applied a request, and if so at what highest seq. A fresh machine has seen no one.
     pub fn has_applied(self: *const Machine, client: u32) bool {

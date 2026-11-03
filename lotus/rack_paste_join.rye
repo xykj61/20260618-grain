@@ -150,7 +150,7 @@ fn run_selftest() !u8 {
         full.left.len = timeline.max_clip - 1;
         full.right.len = timeline.max_clip - 1;
         var wide_src = pan.StereoClip{};
-        var wbuf: [8]i16 = [_]i16{0} ** 8;
+        var wbuf: [8]i16 = @splat(0);
         try timeline.splice(&wide_src.left, 0, &wbuf);
         try timeline.splice(&wide_src.right, 0, &wbuf);
         try rack.copy_to(&r, "wide", &wide_src, try selection.make(&wide_src, 0, 8));

@@ -42,7 +42,7 @@ pub const HistoryError = error{
 
 /// One remembered line: the bytes committed, held byte-for-byte, and how many are held.
 pub const Entry = struct {
-    bytes: [max_entry]u8 = [_]u8{0} ** max_entry,
+    bytes: [max_entry]u8 = @splat(0),
     len: u32 = 0,
 
     /// The remembered text -- exactly the bytes committed, never more than the buffer holds.
@@ -58,7 +58,7 @@ pub const Entry = struct {
 /// a fresh line the caller composes); cursor == count-1 is the newest kept line; cursor == 0 the oldest.
 /// A commit resets the cursor to the live edge, exactly as a shell drops you back to a fresh prompt.
 pub const History = struct {
-    entries: [max_history]Entry = [_]Entry{.{}} ** max_history,
+    entries: [max_history]Entry = @splat(.{}),
     start: u32 = 0,
     count: u32 = 0,
     cursor: u32 = 0,
@@ -233,7 +233,7 @@ fn commit_resets_to_live_edge() !void {
     assert(!h.is_browsing());
     assert(h.len() == 3);
     // A too-long line is refused rather than truncated, and the ring is unchanged.
-    var long: [max_entry + 1]u8 = [_]u8{'x'} ** (max_entry + 1);
+    var long: [max_entry + 1]u8 = @splat('x');
     const refused = h.commit(long[0..]);
     assert(refused == error.EntryTooLong);
     assert(h.len() == 3);

@@ -75,7 +75,7 @@ pub const Grid = struct {
             .rows = rows,
             .cells = cells,
             .fg_index = fg_index,
-            .palette = [_]Color{.{ .r = 0, .g = 0, .b = 0 }} ** max_palette,
+            .palette = @splat(.{ .r = 0, .g = 0, .b = 0 }),
         };
     }
 
@@ -264,7 +264,7 @@ fn draw_glyph(
     else if (extended_glyphs) |ext|
         ext[ch - 128]
     else
-        [_]u8{0} ** 8;
+        @splat(0);
     const stride_usize: usize = @intCast(stride);
     var gy: u32 = 0;
     while (gy < 8) : (gy += 1) {

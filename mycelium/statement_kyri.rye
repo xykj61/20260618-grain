@@ -36,6 +36,7 @@ const fold = @import("fold.rye");
 const kumara = @import("kumara.rye");
 const tally_copy = @import("tally_copy.rye");
 const parse_int = @import("parse_int.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 /// A travelled statement carries at most this many lines -- bounded by the ledger's own pledge ceiling.
 pub const max_lines_in_record: u32 = statement.statement_max_lines;
@@ -184,7 +185,7 @@ pub fn parse(text: []const u8, out: *statement.Statement) KyriError!void {
 // ---- selftest: the statement travels and still reconciles --------------------
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 
@@ -214,8 +215,8 @@ fn pledge_body(id: []const u8, deadline: u64, to: []const u8, out: []u8) u32 {
 /// deadline (open) and 100 to Carol under a far deadline (open) -- Alice's statement then carries two
 /// open made lines and reserves 200, a line the wire must carry whole.
 fn build_ledger() !lapse.Ledger {
-    const id1 = [_]u8{0x01} ** lapse.id_len;
-    const id2 = [_]u8{0x02} ** lapse.id_len;
+    const id1 = @splat(0x01);
+    const id2 = @splat(0x02);
     const kf = seeded(0xF0);
     const ka = seeded(0xA1);
     const kb = seeded(0xB2);
@@ -310,11 +311,11 @@ pub fn main() !void {
 
     // Refusal: a wrong header refuses BadFormat.
     var scratch: statement.Statement = undefined;
-    if (parse("format statement-v2\naccount " ++ ("00" ** statement.pk_len) ++ " 0 0 0 0\n", &scratch)) |_| return error.BadHeaderAdmitted else |err| {
+    if (parse("format statement-v2\naccount " ++ (str_repeat("00", statement.pk_len).*) ++ " 0 0 0 0\n", &scratch)) |_| return error.BadHeaderAdmitted else |err| {
         if (err != error.BadFormat) return error.WrongHeader;
     }
     // Refusal: an unknown field refuses UnknownField (never dropped).
-    if (parse("format statement-v1\naccount " ++ ("00" ** statement.pk_len) ++ " 0 0 0 0\nbogus a b\n", &scratch)) |_| return error.UnknownAdmitted else |err| {
+    if (parse("format statement-v1\naccount " ++ (str_repeat("00", statement.pk_len).*) ++ " 0 0 0 0\nbogus a b\n", &scratch)) |_| return error.UnknownAdmitted else |err| {
         if (err != error.UnknownField) return error.WrongUnknown;
     }
     // Refusal: a bad hex account key refuses BadHex.
@@ -327,14 +328,14 @@ pub fn main() !void {
     }
     // Refusal: an unknown direction refuses BadInt (3 is neither made nor received).
     {
-        const bad_dir = "format statement-v1\naccount " ++ ("00" ** statement.pk_len) ++ " 0 0 0 1\nline 3 " ++ ("00" ** statement.pk_len) ++ " 0 0\n";
+        const bad_dir = "format statement-v1\naccount " ++ (str_repeat("00", statement.pk_len).*) ++ " 0 0 0 1\nline 3 " ++ (str_repeat("00", statement.pk_len).*) ++ " 0 0\n";
         if (parse(bad_dir, &scratch)) |_| return error.BadDirAdmitted else |err| {
             if (err != error.BadInt) return error.WrongBadDir;
         }
     }
     // Refusal: an unknown state refuses BadInt (5 is past state_lapsed).
     {
-        const bad_state = "format statement-v1\naccount " ++ ("00" ** statement.pk_len) ++ " 0 0 0 1\nline 1 " ++ ("00" ** statement.pk_len) ++ " 0 5\n";
+        const bad_state = "format statement-v1\naccount " ++ (str_repeat("00", statement.pk_len).*) ++ " 0 0 0 1\nline 1 " ++ (str_repeat("00", statement.pk_len).*) ++ " 0 5\n";
         if (parse(bad_state, &scratch)) |_| return error.BadStateAdmitted else |err| {
             if (err != error.BadInt) return error.WrongBadState;
         }
@@ -342,7 +343,7 @@ pub fn main() !void {
     // Refusal: a broken reconciliation refuses BadReconcile -- a present statement claiming reserved 50
     // with an open made line of 100 made or dropped a reserve in the crossing.
     {
-        const broken = "format statement-v1\naccount " ++ ("00" ** statement.pk_len) ++ " 0 50 100 1\nline 1 " ++ ("11" ** statement.pk_len) ++ " 100 0\n";
+        const broken = "format statement-v1\naccount " ++ (str_repeat("00", statement.pk_len).*) ++ " 0 50 100 1\nline 1 " ++ (str_repeat("11", statement.pk_len).*) ++ " 100 0\n";
         if (parse(broken, &scratch)) |_| return error.BrokenAdmitted else |err| {
             if (err != error.BadReconcile) return error.WrongBroken;
         }

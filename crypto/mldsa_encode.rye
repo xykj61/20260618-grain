@@ -104,7 +104,7 @@ fn bitlen(x: u32) u32 {
 pub fn simple_bit_pack(w: *const [n]u32, b_bits: u32) Packed {
     // invariant (precondition): a width ML-DSA uses, 1..20 -- zero would pack nothing, wider than 20 no field needs.
     assert(b_bits >= 1 and b_bits <= max_bits);
-    var out: Packed = .{ .bytes = [_]u8{0} ** max_bytes, .len = 32 * b_bits };
+    var out: Packed = .{ .bytes = @splat(0), .len = 32 * b_bits };
     // acc holds the bits gathered but not yet flushed -- never more than 7 leftover plus one b_bits-wide coefficient (< 27 bits), inside u32.
     var acc: u32 = 0;
     var acc_bits: u32 = 0;
@@ -136,7 +136,7 @@ pub fn simple_bit_unpack(b: *const Packed, b_bits: u32) [n]u32 {
     // invariant (precondition): a width ML-DSA uses, and the buffer carries exactly 32-b_bits meaningful bytes.
     assert(b_bits >= 1 and b_bits <= max_bits);
     assert(b.len == 32 * b_bits);
-    var out: [n]u32 = [_]u32{0} ** n;
+    var out: [n]u32 = @splat(0);
     const mask: u32 = (@as(u32, 1) << @as(u5, @intCast(b_bits))) - 1;
     var acc: u32 = 0;
     var acc_bits: u32 = 0;
@@ -166,7 +166,7 @@ pub fn bit_pack(w: *const [n]i32, a: u32, b: u32) Packed {
     const b_bits = bitlen(a + b);
     // invariant (precondition): the combined range fits a width ML-DSA uses.
     assert(b_bits >= 1 and b_bits <= max_bits);
-    var shifted: [n]u32 = [_]u32{0} ** n;
+    var shifted: [n]u32 = @splat(0);
     var i: u32 = 0;
     // invariant (bound): exactly n = 256 coefficients centered, one per turn.
     while (i < n) : (i += 1) {
@@ -185,7 +185,7 @@ pub fn bit_unpack(bytes: *const Packed, a: u32, b: u32) [n]i32 {
     // below is by this width and a wider one would shift past the word
     assert(b_bits >= 1 and b_bits <= max_bits);
     const z = simple_bit_unpack(bytes, b_bits);
-    var out: [n]i32 = [_]i32{0} ** n;
+    var out: [n]i32 = @splat(0);
     var i: u32 = 0;
     // invariant (bound): exactly n = 256 coefficients un-centered, one per turn.
     while (i < n) : (i += 1) {
@@ -286,7 +286,7 @@ pub fn use_hint(h: u32, r: u32, gamma2: u32) u32 {
 /// A deterministic pseudo-random coefficient array from a seed, each coefficient reduced into [0, bound) -- the selftest's non-trivial unsigned
 /// inputs. A tiny LCG keeps it reproducible without any std.crypto, so a failing run always reruns identically. Same generator the ring rung uses.
 fn poly_from_seed(seed: u32, bound: u32) [n]u32 {
-    var p: [n]u32 = [_]u32{0} ** n;
+    var p: [n]u32 = @splat(0);
     var state: u32 = seed *% 2654435761 +% 1013904223;
     var j: u32 = 0;
     while (j < n) : (j += 1) {
@@ -298,7 +298,7 @@ fn poly_from_seed(seed: u32, bound: u32) [n]u32 {
 
 /// signed_poly_from_seed -- a deterministic pseudo-random SIGNED coefficient array, each coefficient in [-a, b], for the bit_pack round-trip.
 fn signed_poly_from_seed(seed: u32, a: u32, b: u32) [n]i32 {
-    var p: [n]i32 = [_]i32{0} ** n;
+    var p: [n]i32 = @splat(0);
     var state: u32 = seed *% 2654435761 +% 1013904223;
     const span: u32 = a + b + 1;
     var j: u32 = 0;
@@ -341,7 +341,7 @@ fn run_selftest() !u8 {
     //    byte is 0xBC; its top nibble 0xA joins the next coefficient's low nibble 0xF as 0xFA; then 0xDE -- bytes {0xBC, 0xFA, 0xDE}, the same
     //    LSB-first order ML-KEM's ByteEncode proves. A wrong bit direction fails here before any round-trip.
     {
-        var f: [n]u32 = [_]u32{0} ** n;
+        var f: [n]u32 = @splat(0);
         f[0] = 0xABC;
         f[1] = 0xDEF;
         const enc = simple_bit_pack(&f, 12);

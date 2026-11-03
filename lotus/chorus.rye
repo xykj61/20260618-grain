@@ -126,7 +126,7 @@ pub fn chorus(
     const end: u32 = start + count;
     // Snapshot the dry prefix [0, end) BEFORE any write, so every interpolated read is of the ORIGINAL audio -- the lotus-audio/lotus-audio/graft
     // snapshot-before-write idiom, reused. One bounded scratch, the width glide and taps already carry.
-    var dry: [timeline.max_clip]i16 = [_]i16{0} ** timeline.max_clip;
+    var dry: [timeline.max_clip]i16 = @splat(0);
     {
         var j: u32 = 0;
         // invariant: end never exceeds the clip's length, so the snapshot stays within the bounded scratch.

@@ -58,7 +58,7 @@ pub const WireError = error{
 /// A bounded wire frame: a fixed buffer sized for the widest possible frame, and the length actually written into it.
 /// `bytes()` reads back exactly the framed region -- never a byte past what `frame` wrote.
 pub const Frame = struct {
-    buf: [max_frame]u8 = [_]u8{0} ** max_frame,
+    buf: [max_frame]u8 = @splat(0),
     len: u32 = 0,
 
     /// The framed bytes as they stand -- exactly the header plus payload written by `frame`.

@@ -239,9 +239,9 @@ pub fn evaluate_signed(
 
 // Demo keeper seeds -- plainly not real keys, so no identity is invented. The producer at point 7
 // and the steward at point 12 each vouch for the criteria that are honestly theirs to attest.
-const producer_seed: [kumara.seed_length]u8 = .{0x33} ** kumara.seed_length;
-const steward_seed: [kumara.seed_length]u8 = .{0x66} ** kumara.seed_length;
-const stranger_seed: [kumara.seed_length]u8 = .{0x99} ** kumara.seed_length;
+const producer_seed: [kumara.seed_length]u8 = @splat(0x33);
+const steward_seed: [kumara.seed_length]u8 = @splat(0x66);
+const stranger_seed: [kumara.seed_length]u8 = @splat(0x99);
 
 const producer_point: u32 = 7;
 const steward_point: u32 = 12;

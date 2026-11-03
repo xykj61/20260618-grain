@@ -43,7 +43,7 @@ const batch_recv_timeout_sec: u32 = 2;
 // frames never goes quiet, so the timeout alone never ends the loop.
 const max_batch_frames: u32 = 16 * @as(u32, bw.max_batch_chunks);
 
-const batch_signer_seed = [_]u8{0x61} ** kumara.seed_length;
+const batch_signer_seed = @splat(0x61);
 
 fn batch_signer() kumara.KeyPair {
     return kumara.keypair_from_seed(&batch_signer_seed);

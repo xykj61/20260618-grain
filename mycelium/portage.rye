@@ -325,14 +325,14 @@ pub fn world_head(dag: *const cord.Dag, out: *[voucher.order_head_len]u8) void {
 // --- selftest scaffolding: build two worlds over the season's own idioms --------------------------------
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 
 fn world_tag(name: []const u8) [world_tag_len]u8 {
     // invariant: a world tag name fits the fixed tag width.
     assert(name.len <= world_tag_len);
-    var t: [world_tag_len]u8 = .{0} ** world_tag_len;
+    var t: [world_tag_len]u8 = @splat(0);
     tally_copy.copy_disjoint(u8, t[0..name.len], name);
     return t;
 }
@@ -381,7 +381,7 @@ fn dag_of(blocks: []const cord.Block) !cord.Dag {
 }
 
 pub fn main() !void {
-    const id = [_]u8{0x2C} ** id_len;
+    const id = @splat(0x2C);
     const wtag = world_tag("world-b");
     const start: u64 = 100;
     const amount: u64 = 40;

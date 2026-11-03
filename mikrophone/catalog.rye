@@ -49,7 +49,7 @@ pub const CatalogError = error{
 /// One kept recording's identity and place in the packed store: its content address, where it starts, and how long it
 /// is.
 const Entry = struct {
-    address: Address = [_]u8{0} ** wire.digest_len,
+    address: Address = @splat(0),
     off: u32 = 0,
     len: u32 = 0,
 };
@@ -57,9 +57,9 @@ const Entry = struct {
 /// A bounded, content-addressed desk catalog: a packed byte store, the length actually used, a bounded index of entries
 /// keyed by content address, and a count of distinct recordings. A fresh catalog is empty; no heap outlives it.
 pub const Catalog = struct {
-    store: [max_bytes]u8 = [_]u8{0} ** max_bytes,
+    store: [max_bytes]u8 = @splat(0),
     used: u32 = 0,
-    entries: [max_entries]Entry = [_]Entry{.{}} ** max_entries,
+    entries: [max_entries]Entry = @splat(.{}),
     count: u32 = 0,
 
     /// A fresh, empty catalog holding nothing.

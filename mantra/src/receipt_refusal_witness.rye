@@ -6,6 +6,7 @@ const print = std.debug.print;
 const receipt = @import("receipt_offer.rye");
 const refusal = @import("tally_receipt_refusal.rye");
 const bounds = @import("tally_receipt_offer_bounds.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 // Force every declaration in the claimed module through semantic analysis. Rye
 // otherwise checks only the functions this witness happens to call.
@@ -66,7 +67,7 @@ fn agrees(fact: receipt.ReceiptOfferFact, encoded_len: u32, signature_valid: boo
 fn claim_admission_refusals(fact: receipt.ReceiptOfferFact) void {
     // A ceiling refusal names all five things the contract asks for.
     var bad = fact;
-    bad.purpose = "x" ** (bounds.max_purpose_bytes + 1);
+    bad.purpose = str_repeat("x", (bounds.max_purpose_bytes + 1));
     refusal_line(bad, 512, true, "field=purpose value=81 ceiling=80 unit=ascii-byte reason=too-long");
     agrees(bad, 512, true, error.TooLong);
 
@@ -138,7 +139,7 @@ fn claim_log_refusals(fact: receipt.ReceiptOfferFact) !void {
 /// and a line past the buffer it is written into.
 fn claim_render_refusals() void {
     // The record refuses a field name it cannot render inside its published line.
-    const wide: refusal.Refusal = .{ .field = "n" ** (refusal.max_field_name_bytes + 1), .reason = .empty };
+    const wide: refusal.Refusal = .{ .field = str_repeat("n", (refusal.max_field_name_bytes + 1)), .reason = .empty };
     if (wide.render(&line_buffer)) |_| unreachable else |err| assert(err == error.FieldNameTooLong);
     var narrow: [8]u8 = undefined;
     const ordinary: refusal.Refusal = .{ .field = "purpose", .reason = .empty };

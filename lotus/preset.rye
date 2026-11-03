@@ -63,7 +63,7 @@ pub const PresetError = error{
 /// A built chain: a bounded Step buffer and the count actually written into it. `slice()` reads back exactly the steps this
 /// preset produced -- never a stale tail -- and feeds render.render or stereo_render.stereo_render verbatim.
 pub const Chain = struct {
-    steps: [max_preset_steps]render.Step = [_]render.Step{.{ .kind = .invert }} ** max_preset_steps,
+    steps: [max_preset_steps]render.Step = @splat(.{ .kind = .invert }),
     len: u32 = 0,
 
     /// The steps this preset built, in order, exactly `len` of them.

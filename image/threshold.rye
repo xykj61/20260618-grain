@@ -70,7 +70,7 @@ pub fn histogram(src: *const qoi.Pixmap) [luma_bins]u32 {
     // invariant: the buffer holds exactly one RGBA pixel per source pixel.
     assert(src.pixels.len == n);
 
-    var bins = [_]u32{0} ** luma_bins;
+    var bins = @splat(0);
     var i: usize = 0;
     while (i < n) : (i += 4) {
         const y = luma_of(src.pixels[i], src.pixels[i + 1], src.pixels[i + 2]);

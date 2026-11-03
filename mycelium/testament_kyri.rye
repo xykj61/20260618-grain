@@ -39,6 +39,7 @@ const constel = @import("constel.rye");
 const testament = @import("testament.rye");
 const tally_copy = @import("tally_copy.rye");
 const parse_int = @import("parse_int.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 pub const pk_len: u32 = testament.pk_len;
 pub const head_len: u32 = testament.head_len;
@@ -296,14 +297,14 @@ pub fn main() !void {
     }
     // --- Refusal: a missing claim field (no position line) refuses BadFormat ----------------------------
     {
-        const bad = "format testament-v1\nship xnvethqua\nhead " ++ ("00" ** head_len) ++ "\naccount " ++ ("00" ** pk_len) ++ "\nmember " ++ ("00" ** pk_len) ++ " " ++ ("00" ** kumara.signature_length) ++ "\n";
+        const bad = "format testament-v1\nship xnvethqua\nhead " ++ (str_repeat("00", head_len).*) ++ "\naccount " ++ (str_repeat("00", pk_len).*) ++ "\nmember " ++ (str_repeat("00", pk_len).*) ++ " " ++ (str_repeat("00", kumara.signature_length).*) ++ "\n";
         if (parse(bad, &scratch)) |_| return error.MissingAdmitted else |err| {
             if (err != error.BadFormat) return error.WrongMissing;
         }
     }
     // --- Refusal: a bad hex member node key refuses BadHex ----------------------------------------------
     {
-        const bad = "format testament-v1\nship xnvethqua\nhead " ++ ("00" ** head_len) ++ "\naccount " ++ ("00" ** pk_len) ++ "\nposition 0 0 0\nmember zz " ++ ("00" ** kumara.signature_length) ++ "\n";
+        const bad = "format testament-v1\nship xnvethqua\nhead " ++ (str_repeat("00", head_len).*) ++ "\naccount " ++ (str_repeat("00", pk_len).*) ++ "\nposition 0 0 0\nmember zz " ++ (str_repeat("00", kumara.signature_length).*) ++ "\n";
         if (parse(bad, &scratch)) |_| return error.BadHexAdmitted else |err| {
             if (err != error.BadHex) return error.WrongBadHex;
         }

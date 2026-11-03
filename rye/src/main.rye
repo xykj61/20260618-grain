@@ -1,10 +1,10 @@
 //! The `rye` command-line tool -- the first version of the Rye language.
 //!
-//! Rye is a derivative of Zig 0.16.0. This first version is honest about what
+//! Rye is a derivative of Zig 0.17.0. This first version is honest about what
 //! it is: a thin, careful front-end that runs `.rye` source through the Zig
-//! 0.16.0 toolchain. Rye source is Zig source for now; the language will grow
+//! 0.17.0 toolchain. Rye source is Zig source for now; the language will grow
 //! its own shape over time. By standing on the same toolchain, every capability
-//! Zig 0.16.0 offers -- including SHA3-512 in the standard crypto library -- is
+//! Zig 0.17.0 offers -- including SHA3-512 in the standard crypto library -- is
 //! Rye's too, by construction.
 //!
 //! The `rye` command is itself a Rye program -- this file, `src/main.rye` -- so
@@ -91,18 +91,18 @@ const Sha256 = std.crypto.hash.sha2.Sha256;
 /// at its own opening: a binary built from an elder source with this string
 /// unmoved walks through that door and then behaves differently, which is
 /// exactly what happened on the lap the memo landed. A behavior change in this
-/// file moves this stamp. The backend stays honestly 0.16.0 throughout.
-const rye_version = "20260916.231500";
+/// file moves this stamp. The backend moves from 0.16.0 to 0.17.0 with this stamp.
+const rye_version = "20261103.015559";
 
 /// The Zig toolchain version this first Rye stands upon.
-const zig_backend_version = "0.16.0";
+const zig_backend_version = "0.17.0";
 
-/// The backend's version on Rye's chronological clock: the UTC commit time of
-/// the pinned Zig 0.16.0 source (codeberg.org/ziglang/zig @ 24fdd5b7). Zig
-/// reports itself semantically as 0.16.0 through `builtin.zig_version`, and we
-/// never overwrite that truth; this simply reads the same pinned snapshot the
-/// Rye way, so even the ground we stand on carries a chronological name.
-const zig_backend_version_chrono = "20260413.181917";
+/// The backend's version on Rye's chronological clock: the Homebrew stdlib
+/// timestamp of the Zig 0.17.0 release (ziglang.org/download/0.17.0). Zig
+/// reports itself semantically as 0.17.0 through `builtin.zig_version`, and we
+/// never overwrite that truth; this simply reads the release the Rye way, so
+/// even the ground we stand on carries a chronological name.
+const zig_backend_version_chrono = "20261001.180200";
 
 /// One tree, one toolchain spawn (REDS %281). The bridge writes `.zig` shadows
 /// beside the sources and clears them on the way out, so two builds sharing a

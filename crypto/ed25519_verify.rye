@@ -188,7 +188,7 @@ fn run_selftest() !u8 {
         };
         var seed_n: u8 = 1;
         while (seed_n <= 5) : (seed_n += 1) {
-            const seed = [_]u8{seed_n} ** 32;
+            const seed = @splat(seed_n);
             const kp = ZSig.KeyPair.generateDeterministic(seed) catch return error.KeyGenFailed;
             const pk = kp.public_key.toBytes();
             for (messages) |m| {

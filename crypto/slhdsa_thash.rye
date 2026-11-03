@@ -103,7 +103,7 @@ pub const Address = struct {
 
     /// A fresh, entirely zero address. Every field is then set deliberately; nothing is inherited by accident.
     pub fn zero() Address {
-        return Address{ .bytes = [_]u8{0} ** address_bytes };
+        return Address{ .bytes = @splat(0) };
     }
 
     /// Which hypertree layer this hash lives on (0 at the bottom, d-1 at the top).

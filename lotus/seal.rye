@@ -29,6 +29,7 @@ const assert = std.debug.assert;
 const print = std.debug.print;
 
 const tally_copy = @import("tally_copy.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 const Sha256 = std.crypto.hash.sha2.Sha256;
 
@@ -203,7 +204,7 @@ fn run_selftest() !u8 {
     {
         if (open("format lotus-seal-test-v1\n", header)) |_| return error.NoDigestSlipped else |e| if (e != error.BadRecord) return error.WrongNoDigest;
         if (open("format lotus-seal-test-v1\ndigest abc\nbody\n", header)) |_| return error.ShortDigestSlipped else |e| if (e != error.BadRecord) return error.WrongShortDigest;
-        const bad_hex = "format lotus-seal-test-v1\ndigest " ++ ("z" ** 64) ++ "\nbody\n";
+        const bad_hex = "format lotus-seal-test-v1\ndigest " ++ (str_repeat("z", 64).*) ++ "\nbody\n";
         if (open(bad_hex, header)) |_| return error.BadHexSlipped else |e| if (e != error.BadRecord) return error.WrongBadHex;
     }
 

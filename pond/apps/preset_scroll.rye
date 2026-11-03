@@ -354,7 +354,7 @@ fn run_selftest(garden: std.mem.Allocator) !u8 {
     // Coverage: paging top-to-bottom by page_down shows every one of the five books at least once -- scrolling loses
     // nothing, exactly as the open-image pager walk proved.
     {
-        var seen = [_]bool{false} ** 5;
+        var seen = @splat(false);
         while (true) {
             const wl = cur.visible(&lib);
             const page = try window(garden, &lib, &cur, cols);

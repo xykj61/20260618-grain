@@ -155,7 +155,7 @@ pub fn chain_to_points(allocator: std.mem.Allocator, ch: *const ChainCode) ![]co
 /// orientation: an axis-aligned rectangle's boundary is all axis steps (codes 0,2,4,6), and a 90-degree turn permutes the
 /// counts by +2.
 pub fn code_histogram(ch: *const ChainCode) [8]u32 {
-    var hist = [_]u32{0} ** 8;
+    var hist = @splat(0);
     var k: usize = 0;
     while (k < ch.codes.len) : (k += 1) {
         const d: usize = ch.codes[k];

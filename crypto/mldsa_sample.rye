@@ -109,7 +109,7 @@ pub fn rej_ntt_poly(rho: *const [32]u8, b0: u8, b1: u8) SampleError!ring.Poly {
     var xof: [ntt_xof_bytes]u8 = undefined;
     shake.shake128(input[0..], xof[0..]) catch return error.SampleExhausted;
 
-    var a: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var a: ring.Poly = .{ .cs = @splat(0) };
     var pos: u32 = 0;
     var j: u32 = 0;
     var guard: u32 = 0;
@@ -152,7 +152,7 @@ pub fn rej_bounded_poly(rho_prime: *const [64]u8, nonce: u16, eta: u32) SampleEr
     var xof: [bounded_xof_bytes]u8 = undefined;
     shake.shake256(input[0..], xof[0..]) catch return error.SampleExhausted;
 
-    var f: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var f: ring.Poly = .{ .cs = @splat(0) };
     var pos: u32 = 0;
     var i: u32 = 0;
     var guard: u32 = 0;
@@ -210,7 +210,7 @@ pub fn sample_in_ball(seed: []const u8, tau: u32) SampleError!ring.Poly {
     var xof: [ball_xof_bytes]u8 = undefined;
     shake.shake256(seed, xof[0..]) catch return error.SampleExhausted;
 
-    var c: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var c: ring.Poly = .{ .cs = @splat(0) };
     // the first 8 bytes are the sign bits, LSB-first across the 64-bit word (only τ of them are consumed).
     var signs: u64 = 0;
     var s: u32 = 0;
@@ -290,7 +290,7 @@ fn rej_ntt_bitreader_reference(rho: *const [32]u8, b0: u8, b1: u8) SampleError!r
     var xof: [ntt_xof_bytes]u8 = undefined;
     shake.shake128(input[0..], xof[0..]) catch return error.SampleExhausted;
 
-    var a: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var a: ring.Poly = .{ .cs = @splat(0) };
     var bitpos: u32 = 0;
     var j: u32 = 0;
     var guard: u32 = 0;

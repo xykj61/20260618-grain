@@ -57,7 +57,7 @@ pub const ReconfigError = error{
 /// A configuration: a bounded membership mask over roster slots, plus its population count. The count is the n whose strict
 /// majority (quorum.majority_of) governs every decision made under this config.
 pub const Config = struct {
-    member_mask: [roster.max_piers]bool = [_]bool{false} ** roster.max_piers,
+    member_mask: [roster.max_piers]bool = @splat(false),
     size: u32 = 0,
 
     /// Whether a slot belongs to this config.
@@ -101,7 +101,7 @@ pub const JointConfig = struct {
 /// A joint ballot over one proposed transition: each participant's single yes-vote, the joint config it is judged against, and
 /// -- once sealed -- the majorities reached in each config and whether the transition may commit.
 pub const JointBallot = struct {
-    voted: [roster.max_piers]bool = [_]bool{false} ** roster.max_piers,
+    voted: [roster.max_piers]bool = @splat(false),
     joint: JointConfig,
     yes_old: u32 = 0,
     yes_new: u32 = 0,
@@ -232,7 +232,7 @@ fn run_selftest() !u8 {
 
     // 0. The empty-config guard -- a config of nobody has no majority and is refused at construction.
     {
-        const none = [_]bool{false} ** roster.max_piers;
+        const none = @splat(false);
         if (config_of(none)) |_| return error.EmptyAllowed else |e| if (e != error.EmptyConfig) return error.WrongEmpty;
     }
 
@@ -398,7 +398,7 @@ fn run_selftest() !u8 {
 
 /// Build a membership mask from a list of slots -- a thin selftest convenience so a scenario names its config by its members.
 fn mask_of(slots: []const u32) [roster.max_piers]bool {
-    var m = [_]bool{false} ** roster.max_piers;
+    var m = @splat(false);
     var i: u32 = 0;
     while (i < slots.len) : (i += 1) {
         // invariant: only a real roster slot ever enters a config mask.

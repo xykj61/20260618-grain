@@ -155,9 +155,9 @@ pub fn tax(ledger: *NetLedger, amount: u64) (LedgerError || AdmitError)!fold.Fol
 // ---- witnesses ----
 
 // Example seeds -- plainly not a real keeper's key, so no identity is invented and no key is held.
-const demo_key: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-const demo_keeper: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
-const alien_seed: [kumara.seed_length]u8 = .{0x33} ** kumara.seed_length;
+const demo_key: [kumara.seed_length]u8 = @splat(0x11);
+const demo_keeper: [kumara.seed_length]u8 = @splat(0x22);
+const alien_seed: [kumara.seed_length]u8 = @splat(0x33);
 const demo_galaxy: u32 = 3; // a number that decodes to a galaxy under the compass sky
 const safe_name = "xnqvl34"; // a seated law-safe draw
 

@@ -250,7 +250,7 @@ fn run_selftest() !u8 {
 
         var seed_byte: u8 = 1;
         while (seed_byte <= 6) : (seed_byte += 1) {
-            const d = [_]u8{seed_byte} ** 32;
+            const d = @splat(seed_byte);
             const q = try sign.derive_public(&d);
             var pub64: [64]u8 = undefined;
             var t: u32 = 0;
@@ -306,11 +306,11 @@ fn run_selftest() !u8 {
 
     // 3. Edge refusals: a short signature, and an out-of-range recovery byte, each refused before a partial result escapes.
     {
-        const short = [_]u8{0} ** 64;
+        const short = @splat(0);
         if (recover_signer("x", &short)) |_| return error.ShortSigAccepted else |err| {
             if (err != error.BadSignatureLength) return error.WrongShortSigError;
         }
-        var bad_v = [_]u8{1} ** 65;
+        var bad_v = @splat(1);
         bad_v[64] = 99;
         if (recover_signer("x", &bad_v)) |_| return error.BadVAccepted else |err| {
             if (err != error.BadRecoveryByte) return error.WrongBadVError;

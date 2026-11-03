@@ -285,7 +285,7 @@ pub fn answer_over_state(
 // star - exactly the shape the fold selftest folds, the same lawful log every reader sees.
 // issued=1000, taxed=128 (64 tax + 64 reservation), supply=872, one star "bandun".
 fn seat_demo(log: *fold.Log) FoldError!void {
-    const seed: [kumara.seed_length]u8 = .{0x7e} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(0x7e);
     const kp = kumara.keypair_from_seed(&seed);
     const issue = fold.mint_fact(kp, fold.kind_issue, 1000, "", "genesis-purpose") orelse unreachable;
     const tax = fold.mint_fact(kp, fold.kind_tax, 64, "", "star-price-drain") orelse unreachable;

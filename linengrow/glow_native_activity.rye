@@ -62,14 +62,14 @@ const default_hearth_kyri =
     \\
 ;
 
-export var glow_last_session_root_hex: [65]u8 = [_]u8{0} ** 65;
+export var glow_last_session_root_hex: [65]u8 = @splat(0);
 
 /// Glow product session-root (u32 from lowered nest cue-jam; expect 5).
 /// Distinct from Seva B0's 32-byte hex root in glow_last_session_root_hex.
 export var glow_last_product_session_root: u32 = 0;
 
 /// glow-language: live typed-append session root (hex + NUL). Distinct from pixel-glass.
-export var glow_last_live_root_hex: [65]u8 = [_]u8{0} ** 65;
+export var glow_last_live_root_hex: [65]u8 = @splat(0);
 
 var g_activity: ?*anyopaque = null;
 var g_input_queue: ?*anyopaque = null;

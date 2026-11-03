@@ -15,7 +15,7 @@ pub fn main() void {
     const empty_string: [:0]const u8 = "";
     std.debug.assert(mem.sliceAsBytes(empty_string).len == 0);
 
-    const lots_of_nothing = [1]void{{}} ** 4;
+    const lots_of_nothing: [4][1]void = @splat(@as([1]void, .{{}}));
     std.debug.assert(mem.sliceAsBytes(&lots_of_nothing).len == 0);
 
     std.debug.print("rye: mem.sliceAsBytes assertions confirmed.\n", .{});

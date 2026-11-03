@@ -685,7 +685,7 @@ fn prove_skies() !void {
     if (council_sky.outfit_seat(0).? != 0) return error.CouncilSeatZero;
     if (council_sky.outfit_seat(council_sky.universe_points() - 1).? != 26) return error.CouncilSeatLast;
     if (council_sky.outfit_seat(council_sky.universe_points()) != null) return error.CouncilSeatPast;
-    var seen = [_]bool{false} ** 27;
+    var seen = @splat(false);
     var k: u32 = 0;
     while (k < 27) : (k += 1) {
         const seat = council_sky.outfit_seat(k * council_sky.galaxies).?; // galaxy-0 points

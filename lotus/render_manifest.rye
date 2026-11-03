@@ -30,6 +30,7 @@ const print = std.debug.print;
 const seal = @import("seal.rye");
 const tally_copy = @import("tally_copy.rye");
 const parse_int = @import("parse_int.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 const Sha256 = std.crypto.hash.sha2.Sha256;
 
@@ -274,7 +275,7 @@ fn run_selftest() !u8 {
     //    a field refuses BadManifest.
     {
         var out: [max_manifest_bytes]u8 = undefined;
-        const long_name = "x" ** (max_preset_name + 1);
+        const long_name = str_repeat("x", (max_preset_name + 1));
         if (seal_manifest(out[0..], long_name, sample_rate, channels, frames, wav)) |_| return error.LongNameSlipped else |e| if (e != error.NameTooLong) return error.WrongLongName;
         if (seal_manifest(out[0..], preset_name, sample_rate, 3, frames, wav)) |_| return error.BadChanSlipped else |e| if (e != error.BadManifest) return error.WrongBadChan;
 

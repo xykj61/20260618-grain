@@ -211,9 +211,9 @@ pub fn accept_signed(estate: *estate_mod.Estate, ring: *const Keyring, estate_id
 // --- selftest -----------------------------------------------------------
 
 // Demo keeper and heir seeds -- plainly not real keys, so no identity is invented.
-const demo_keeper_seed: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-const demo_heir_seed: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
-const stranger_seed: [kumara.seed_length]u8 = .{0x33} ** kumara.seed_length;
+const demo_keeper_seed: [kumara.seed_length]u8 = @splat(0x11);
+const demo_heir_seed: [kumara.seed_length]u8 = @splat(0x22);
+const stranger_seed: [kumara.seed_length]u8 = @splat(0x33);
 
 const keeper_pt: u32 = 11;
 const heir_pt: u32 = 42;

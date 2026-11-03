@@ -76,8 +76,8 @@ pub fn read_estate(text: []const u8, ring: *const signed.Keyring) (kyri.KyriErro
 // --- selftest -----------------------------------------------------------
 
 // Demo keeper and heir seeds -- the same seeds the fixture was signed with, so the record verifies as real.
-const demo_keeper_seed: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-const demo_heir_seed: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
+const demo_keeper_seed: [kumara.seed_length]u8 = @splat(0x11);
+const demo_heir_seed: [kumara.seed_length]u8 = @splat(0x22);
 
 const keeper_pt: u32 = 11;
 const heir_pt: u32 = 42;

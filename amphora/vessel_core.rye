@@ -29,7 +29,7 @@ pub const seal_nonce_hex_len: u32 = 24;
 pub const seal_tag_hex_len: u32 = 32;
 
 /// Witness seed for Amphora vessel stamps -- distinct from kumara 0x42 / batch 0x60.
-const vessel_stamp_seed: [kumara.seed_length]u8 = .{0x62} ** kumara.seed_length;
+const vessel_stamp_seed: [kumara.seed_length]u8 = @splat(0x62);
 
 pub const VesselFields = struct {
     format: []const u8,

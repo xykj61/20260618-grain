@@ -30,7 +30,7 @@ pub const ParseError = error{
 
 /// A parsed `?:` test expression, NUL-padded; use test_slice() to read it.
 pub const IfSpec = struct {
-    test_expr: [max_test_len]u8 = [_]u8{0} ** max_test_len,
+    test_expr: [max_test_len]u8 = @splat(0),
 };
 
 pub fn test_slice(spec: *const IfSpec) []const u8 {

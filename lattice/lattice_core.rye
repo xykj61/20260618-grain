@@ -25,7 +25,7 @@ pub const TensorError = error{
 pub const Matrix = struct {
     rows: u32,
     cols: u32,
-    data: [max_elements]f32 = .{0} ** max_elements,
+    data: [max_elements]f32 = @splat(0),
 
     pub fn init(rows: u32, cols: u32) TensorError!Matrix {
         if (rows == 0 or cols == 0) return error.EmptyMatrix;

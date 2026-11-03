@@ -70,7 +70,7 @@ pub fn check_position_across(c: *const chorus.Chorus, ledger: *const lapse.Ledge
 // ---- selftest: a quorum's agreed position reads true across a sealed checkpoint ----
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 
@@ -183,7 +183,7 @@ fn gather(dag: *const cord.Dag, account_pk: []const u8, nodes: []const kumara.Ke
 }
 
 pub fn main() !void {
-    const id = [_]u8{0x01} ** lapse.id_len;
+    const id = @splat(0x01);
     const nodes = three_nodes();
     const alice_pk = seeded(0xA1).public_key.toBytes();
     const bob_pk = seeded(0xB2).public_key.toBytes();

@@ -73,7 +73,7 @@ pub const constellation_max: u32 = max_for(topology.compass_sky); // 66 under th
 
 // The unconfigured networking key: all zeros is not a valid Ed25519 point, so it
 // can never collide with a real key, and it marks a point that has never rotated.
-const no_net_key: [pubkey_len]u8 = .{0} ** pubkey_len;
+const no_net_key: [pubkey_len]u8 = @splat(0);
 
 pub const SettleError = error{
     Full,
@@ -468,17 +468,17 @@ pub fn escape(
 // --- selftest -----------------------------------------------------------
 
 // Example seeds -- plainly not a real pilot's key, so no identity is invented.
-const g_key: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-const g_keeper: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
-const s_key: [kumara.seed_length]u8 = .{0x44} ** kumara.seed_length;
-const s_keeper: [kumara.seed_length]u8 = .{0x55} ** kumara.seed_length;
-const p_key: [kumara.seed_length]u8 = .{0x77} ** kumara.seed_length;
-const p_keeper: [kumara.seed_length]u8 = .{0x88} ** kumara.seed_length;
-const p_net: [kumara.seed_length]u8 = .{0x99} ** kumara.seed_length;
-const p_net_reset: [kumara.seed_length]u8 = .{0xbb} ** kumara.seed_length;
-const new_owner: [kumara.seed_length]u8 = .{0xaa} ** kumara.seed_length;
-const s2_key: [kumara.seed_length]u8 = .{0xcc} ** kumara.seed_length;
-const s2_keeper: [kumara.seed_length]u8 = .{0xdd} ** kumara.seed_length;
+const g_key: [kumara.seed_length]u8 = @splat(0x11);
+const g_keeper: [kumara.seed_length]u8 = @splat(0x22);
+const s_key: [kumara.seed_length]u8 = @splat(0x44);
+const s_keeper: [kumara.seed_length]u8 = @splat(0x55);
+const p_key: [kumara.seed_length]u8 = @splat(0x77);
+const p_keeper: [kumara.seed_length]u8 = @splat(0x88);
+const p_net: [kumara.seed_length]u8 = @splat(0x99);
+const p_net_reset: [kumara.seed_length]u8 = @splat(0xbb);
+const new_owner: [kumara.seed_length]u8 = @splat(0xaa);
+const s2_key: [kumara.seed_length]u8 = @splat(0xcc);
+const s2_keeper: [kumara.seed_length]u8 = @splat(0xdd);
 
 // A sibling star under galaxy 3, for the planet to escape to: of_star(3,1) = 15.
 const star2_num: u32 = 15;
@@ -616,7 +616,7 @@ fn prove_escape(con: *Constellation, fx: *const Fixture, d: *Deeds) !void {
 // Every refusal escape owes: a galaxy has no sponsor to leave; the target must be
 // settled, one tier up, and different; the request and the adoption must both be real.
 fn prove_escape_refusals(con: *Constellation, d: *Deeds) !void {
-    const zero_sig: [sig_len]u8 = .{0} ** sig_len;
+    const zero_sig: [sig_len]u8 = @splat(0);
 
     // A galaxy is the root of its own tree -- it cannot escape.
     const g_req = tilak.make_sponsor(&g_key, galaxy_num, galaxy_num, star_num);
@@ -656,7 +656,7 @@ fn prove_escape_refusals(con: *Constellation, d: *Deeds) !void {
 // spawn signature, a re-mint, a stale rotation, and a turn signed by the wrong key.
 fn prove_refusals(con: *Constellation, fx: *const Fixture, d: *Deeds) !void {
     const other_bind = tilak.make_bind(&new_owner, &new_owner);
-    const zero_sig: [sig_len]u8 = .{0} ** sig_len;
+    const zero_sig: [sig_len]u8 = @splat(0);
 
     // A planet whose star (39) was never settled cannot mint -- present an unsettled
     // parent deed; the shared surface has no commitment for it. Planet 99 = of_planet(3,3,1).

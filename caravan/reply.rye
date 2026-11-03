@@ -256,7 +256,7 @@ pub fn examine(bench: *const Bench, ask: Ask, stage: Stage) ReplyError!refusals.
         .message => {
             if (ask.words > ipc_buffer.max_message_words) return ipc_buffer.IpcError.MessageTooLong;
             var buffer = bench.buffer;
-            var carried = [_]u64{0} ** ipc_buffer.max_message_words;
+            var carried = @splat(0);
             const seated = try buffer.send(@intFromEnum(ask.method), carried[0..@intCast(ask.words)], 0);
             // invariant: a message inside the buffer's bound always seats.
             assert(seated == .no_error);
@@ -444,7 +444,7 @@ pub const corpus = [_]Named{
 /// This is the measurement the whole rung turns on. It runs asks; it reads no
 /// roster of neighbours and credits nothing by proximity.
 pub fn reach() ReplyError![refusals.kernel_refusal_count]bool {
-    var earned = [_]bool{false} ** refusals.kernel_refusal_count;
+    var earned = @splat(false);
     for (corpus) |named| {
         var bench = try demo_bench();
         const answer = try read(&bench, named.ask);
@@ -527,7 +527,7 @@ pub fn run_self_test() u8 {
     }
 
     // ---- The four owned sets are disjoint, and with success they are the eleven.
-    var claimed = [_]u32{0} ** refusals.kernel_refusal_count;
+    var claimed = @splat(0);
     for (all_stages) |stage| {
         for (stage_owns(stage)) |owned| {
             assert(owned != .no_error); // invariant: no stage owns success -- success is every stage passing

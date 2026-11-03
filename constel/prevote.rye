@@ -172,7 +172,7 @@ fn run_selftest() !u8 {
 
     // 6. BOUNDED -- the pre-vote poll runs over a full roster of eight within the pier cap.
     {
-        var peers: [roster.max_piers]Peer = [_]Peer{.{ .heard_leader_recently = false, .last_term = 1, .len = 1 }} ** roster.max_piers;
+        var peers: [roster.max_piers]Peer = @splat(.{ .heard_leader_recently = false, .last_term = 1, .len = 1 });
         const grants = pre_vote_tally(&peers, 1, 1); // every peer is silent and matched — all pre-grant
         assert(grants == roster.max_piers);
     }

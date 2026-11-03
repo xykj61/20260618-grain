@@ -148,9 +148,9 @@ pub fn vote_signed(
 // --- selftest -----------------------------------------------------------
 
 // Demo keeper seeds -- plainly not real keys, so no identity is invented.
-const ivy_seed: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-const wren_seed: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
-const flax_seed: [kumara.seed_length]u8 = .{0x33} ** kumara.seed_length;
+const ivy_seed: [kumara.seed_length]u8 = @splat(0x11);
+const wren_seed: [kumara.seed_length]u8 = @splat(0x22);
+const flax_seed: [kumara.seed_length]u8 = @splat(0x33);
 
 const ivy: u32 = 101;
 const wren: u32 = 202;

@@ -37,6 +37,7 @@ const fold = @import("fold.rye");
 const kumara = @import("kumara.rye");
 const tally_copy = @import("tally_copy.rye");
 const parse_int = @import("parse_int.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 /// A travelled record carries at most this many accounts -- a dev-net ledger is small
 /// and legible, well under the Ledger's own ceiling.
@@ -225,7 +226,7 @@ pub fn parse(text: []const u8, out: *lapse.Ledger) KyriError!void {
 // ---- selftest: the deadline verdict travels and answers unchanged ------------
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 
@@ -266,8 +267,8 @@ fn post_body(id: []const u8, out: []u8) u32 {
 /// 100 to Carol under a far deadline and leaves it open (reserved). The record must carry the
 /// lapsed settlement, the open one, the reserved holding, and each deadline.
 fn build_scene() !lapse.Ledger {
-    const id1 = [_]u8{0x01} ** lapse.id_len;
-    const id2 = [_]u8{0x02} ** lapse.id_len;
+    const id1 = @splat(0x01);
+    const id2 = @splat(0x02);
     const kf = seeded(0xF0);
     const ka = seeded(0xA1);
     const kb = seeded(0xB2);
@@ -387,14 +388,14 @@ pub fn main() !void {
     }
     // Refusal: an unknown pledge state refuses BadInt (5 is past state_lapsed).
     {
-        const bad_state = "format lapse-v1\nissued 0\npledge " ++ ("00" ** lapse.id_len) ++ " " ++ ("00" ** lapse.pk_len) ++ " " ++ ("00" ** lapse.pk_len) ++ " 0 2 5 0\n";
+        const bad_state = "format lapse-v1\nissued 0\npledge " ++ (str_repeat("00", lapse.id_len).*) ++ " " ++ (str_repeat("00", lapse.pk_len).*) ++ " " ++ (str_repeat("00", lapse.pk_len).*) ++ " 0 2 5 0\n";
         if (parse(bad_state, &scratch)) |_| return error.BadStateAdmitted else |err| {
             if (err != error.BadInt) return error.WrongBadState;
         }
     }
     // A lapsed state (3) parses cleanly -- the new settlement class travels.
     {
-        const lapsed_line = "format lapse-v1\nissued 0\npledge " ++ ("00" ** lapse.id_len) ++ " " ++ ("00" ** lapse.pk_len) ++ " " ++ ("00" ** lapse.pk_len) ++ " 0 2 3 0\n";
+        const lapsed_line = "format lapse-v1\nissued 0\npledge " ++ (str_repeat("00", lapse.id_len).*) ++ " " ++ (str_repeat("00", lapse.pk_len).*) ++ " " ++ (str_repeat("00", lapse.pk_len).*) ++ " 0 2 3 0\n";
         if (parse(lapsed_line, &scratch)) |_| {} else |_| return error.LapsedRejected;
         if (scratch.lapsed_seen() != 1) return error.LapsedNotRead;
     }

@@ -16,7 +16,7 @@ pub const max_line_len: u32 = 400;
 pub const max_utf8_insert: u32 = 8;
 
 pub const Utf8Insert = struct {
-    data: [max_utf8_insert]u8 = [_]u8{0} ** max_utf8_insert,
+    data: [max_utf8_insert]u8 = @splat(0),
     len: u8 = 0,
 
     pub fn slice(self: *const Utf8Insert) []const u8 {

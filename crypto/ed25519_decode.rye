@@ -98,7 +98,7 @@ fn fe_pow(a: fe.Field, e: *const [32]u8) fe.Field {
 /// The exponent (p - 5)/8 = 2^252 - 3, little-endian: the square-root candidate exponent. Derived by hand from p = 2^255 - 19 (bit 1 clear,
 /// every other bit up to 251 set), so no borrowed limb pattern enters the tree.
 fn exp_p58() [32]u8 {
-    var e = [_]u8{0xff} ** 32;
+    var e = @splat(0xff);
     e[0] = 0xfd; // bit 1 cleared: …11111101
     var i: u32 = 31;
     while (i > 0) : (i -= 1) e[i] = 0xff;
@@ -108,7 +108,7 @@ fn exp_p58() [32]u8 {
 
 /// The exponent (p - 1)/4 = 2^253 - 5, little-endian: the exponent whose base-2 power is √-1. Derived by hand from p = 2^255 - 19.
 fn exp_p14() [32]u8 {
-    var e = [_]u8{0xff} ** 32;
+    var e = @splat(0xff);
     e[0] = 0xfb; // bit 2 cleared: …11111011
     e[31] = 0x1f; // bits 248..252 set, 253..255 clear
     return e;

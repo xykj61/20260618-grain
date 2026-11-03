@@ -57,7 +57,7 @@ fn put_line_centered(grid: *skate.Grid, row: u32, text: []const u8) void {
         grid.put_line(row, text);
         return;
     }
-    var line: [64]u8 = [_]u8{' '} ** 64;
+    var line: [64]u8 = @splat(' ');
     const cols: usize = @intCast(grid.cols);
     // invariant: the text is centred inside the line by writing at an offset, so a line shorter
     // than its column count or text wider than the columns would be written past the row
@@ -104,7 +104,7 @@ pub var active_cellular: hearth.Cellular = .off;
 /// hearth-display: thin Settings list open (rows 2-5).
 pub var settings_open: bool = false;
 /// hearth-display: hit boxes for the four preset lines (valid when settings_open).
-pub var last_preset_hits: [lulu2.preset_count]CloseHit = [_]CloseHit{.{}} ** lulu2.preset_count;
+pub var last_preset_hits: [lulu2.preset_count]CloseHit = @splat(.{});
 /// hearth-display: editing short home_id (only while settings_open).
 pub var home_editing: bool = false;
 pub var home_draft: lulu3.Draft = .{};
@@ -315,7 +315,7 @@ fn clear_touch_hits() void {
     last_keyboard_hit = .{};
     last_close_hit = .{};
     last_hearth_hit = .{};
-    last_preset_hits = [_]CloseHit{.{}} ** lulu2.preset_count;
+    last_preset_hits = @splat(.{});
     last_home_hit = .{};
     last_wire_hit = .{};
     last_cell_hit = .{};

@@ -8785,7 +8785,7 @@ pub fn check_suffice_runs(
     }
     // And the reader's own word is still exactly where they wrote it, since
     // telling somebody what a look found is no license to edit what they said.
-    if (!suits_answers(worth_written(io, standing_address), apprised_of(io, standing_address) orelse [_]u8{0} ** max_found_bytes)) {
+    if (!suits_answers(worth_written(io, standing_address), apprised_of(io, standing_address) orelse @splat(0))) {
         print("  RED: a telling run rewrote the word it was only asked to answer\n", .{});
         return 1;
     }

@@ -61,7 +61,7 @@ pub fn majority_of(n: u32) u32 {
 /// the constellation size, the derived live count and threshold, and whether a strict majority was reached. `record` marks
 /// each heard reply, `seal` computes the decision, `in_quorum` names the deciding set.
 pub const Quorum = struct {
-    present: [roster.max_piers]bool = [_]bool{false} ** roster.max_piers,
+    present: [roster.max_piers]bool = @splat(false),
     caller_slot: u32 = 0,
     size: u32 = 0,
     live: u32 = 0,

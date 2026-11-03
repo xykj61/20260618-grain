@@ -148,7 +148,7 @@ pub fn reverb(
     const end: u32 = start + count;
     // The comb-bank sum over the span, in one bounded scratch -- index i-start. Each comb's output is added here and saturated once, so the
     // pile-up of parallel comb trains pins to the i16 rail rather than wrapping.
-    var acc: [timeline.max_clip]i16 = [_]i16{0} ** timeline.max_clip;
+    var acc: [timeline.max_clip]i16 = @splat(0);
     for (combs) |c| {
         // Run this comb on a fresh whole-clip COPY of the dry, so the combs run in parallel and never feed one another -- the copy holds
         // the dry before the span (lotus-audio reads it there) and the span itself; the echo writes the comb train into the copy's span only.
@@ -304,7 +304,7 @@ fn run_selftest() !u8 {
         var clip = timeline.Clip{};
         const three = [_]i16{ 1, 2, 3 };
         try load_clip(&clip, &three);
-        const many = [_]CombSpec{.{ .delay = 1, .fb_num = 1, .fb_den = 2 }} ** (max_stages + 1);
+        const many = @splat(.{ .delay = 1, .fb_num = 1, .fb_den = 2 });
         const noaps = [_]AllpassSpec{};
         if (reverb(&clip, 0, clip.len, &many, &noaps)) |_| return error.TooManySlipped else |e| if (e != error.TooManyStages) return error.WrongTooMany;
         if (!eq(clip.samples(), &three)) return error.RefusedTooManyMutated;

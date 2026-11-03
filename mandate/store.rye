@@ -165,7 +165,7 @@ fn normalized(vec: *const [max_dim]f32, dim: u32) [max_dim]f32 {
     const n = @sqrt(dot(vec, vec, dim));
     // invariant: only a non-zero vector has a direction to keep.
     assert(n > 0);
-    var out = [_]f32{0} ** max_dim;
+    var out = @splat(0);
     var i: u32 = 0;
     while (i < dim) : (i += 1) {
         out[i] = @floatCast(@as(f64, vec[i]) / n);

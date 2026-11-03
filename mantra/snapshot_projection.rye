@@ -170,7 +170,7 @@ pub fn projected_leaf_count(cat: *const ns.BoltCatalog) u32 {
 }
 
 fn run_selftest(_: std.Io) !u8 {
-    const signer_seed = [_]u8{0x61} ** kumara.seed_length;
+    const signer_seed = @splat(0x61);
     const signer = kumara.keypair_from_seed(&signer_seed);
 
     // A catalog where every tuple has exactly one revision: the export and the

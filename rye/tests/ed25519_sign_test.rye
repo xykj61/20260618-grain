@@ -14,7 +14,7 @@ const Ed25519 = std.crypto.sign.Ed25519;
 
 pub fn main() void {
     // A fixed seed gives a deterministic key pair -- an identity we can re-derive.
-    const seed = [_]u8{0x42} ** Ed25519.KeyPair.seed_length;
+    const seed = @splat(0x42);
     const kp = Ed25519.KeyPair.generateDeterministic(seed) catch unreachable;
 
     const message = "Rye speaks, and signs.";

@@ -99,9 +99,9 @@ pub fn read_council(text: []const u8) kyri.KyriError!Reading {
 // --- selftest -----------------------------------------------------------
 
 // Demo keeper seeds -- the same seeds the fixture was signed with, so the record verifies as real.
-const seat0_seed: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-const seat1_seed: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
-const seat2_seed: [kumara.seed_length]u8 = .{0x33} ** kumara.seed_length;
+const seat0_seed: [kumara.seed_length]u8 = @splat(0x11);
+const seat1_seed: [kumara.seed_length]u8 = @splat(0x22);
+const seat2_seed: [kumara.seed_length]u8 = @splat(0x33);
 
 const demo_council: u32 = 9;
 const prop_a: u32 = 3;

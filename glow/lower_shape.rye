@@ -115,7 +115,7 @@ fn emit_bytes_demo_helper(out: []u8, used: *u32, comptime fn_name: []const u8, b
     // Bound-copy loop in emit (no memcpy token in this file -- TAME scan).
     try append_print(out, used,
         \\fn {s}(comptime s: []const u8) [{d}]u8 {{
-        \\    var buf = [_]u8{{0}} ** {d};
+        \\    var buf: [{d}]u8 = @splat(0);
         \\    var i: u32 = 0;
         \\    while (i < @as(u32, @intCast(s.len))) : (i += 1) {{
         \\        buf[@as(usize, @intCast(i))] = s[@as(usize, @intCast(i))];
@@ -167,9 +167,9 @@ fn emit_tuple_type(spec: *const rm.ShapeSpec, zig_type: []const u8, out: []u8, u
         const fl = try zig_safe_ident(rm.field_slice(spec, @as(usize, @intCast(i))), &zf, "tuple-field");
         const face = zf[0..@as(usize, @intCast(fl))];
         if (spec.field_is_cord[@as(usize, @intCast(i))]) {
-            try append_print(out, used, "    {s}: [{d}]u8 = [_]u8{{0}} ** {d},\n", .{ face, cord_bound, cord_bound });
+            try append_print(out, used, "    {s}: [{d}]u8 = @splat(0),\n", .{ face, cord_bound });
         } else if (spec.field_is_hex[@as(usize, @intCast(i))]) {
-            try append_print(out, used, "    {s}: [{d}]u8 = [_]u8{{0}} ** {d},\n", .{ face, hex_bound, hex_bound });
+            try append_print(out, used, "    {s}: [{d}]u8 = @splat(0),\n", .{ face, hex_bound });
         } else if (spec.field_is_u64[@as(usize, @intCast(i))]) {
             try append_print(out, used, "    {s}: u64 = 0,\n", .{face});
         } else {
@@ -337,9 +337,9 @@ fn emit_tagged_payload_type(spec: *const rm.ShapeSpec, zig_type: []const u8, out
                 const fl = try zig_safe_ident(rm.payload_face_slice(spec, @as(usize, @intCast(i)), @as(usize, @intCast(fi))), &zf, "tagged-payload-face");
                 const face = zf[0..@as(usize, @intCast(fl))];
                 if (spec.payload_face_is_cord[@as(usize, @intCast(i))][@as(usize, @intCast(fi))]) {
-                    try append_print(out, used, "        {s}: [{d}]u8 = [_]u8{{0}} ** {d},\n", .{ face, cord_bound, cord_bound });
+                    try append_print(out, used, "        {s}: [{d}]u8 = @splat(0),\n", .{ face, cord_bound });
                 } else if (spec.payload_face_is_hex[@as(usize, @intCast(i))][@as(usize, @intCast(fi))]) {
-                    try append_print(out, used, "        {s}: [{d}]u8 = [_]u8{{0}} ** {d},\n", .{ face, hex_bound, hex_bound });
+                    try append_print(out, used, "        {s}: [{d}]u8 = @splat(0),\n", .{ face, hex_bound });
                 } else if (spec.payload_face_is_u64[@as(usize, @intCast(i))][@as(usize, @intCast(fi))]) {
                     try append_print(out, used, "        {s}: u64 = 0,\n", .{face});
                 } else {

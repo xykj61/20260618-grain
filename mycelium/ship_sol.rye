@@ -14,6 +14,7 @@ const assert = std.debug.assert;
 const print = std.debug.print;
 const kumara = @import("kumara.rye");
 const tally_copy = @import("tally_copy.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 /// Hard ceiling -- seated v27 - explicit_bounds.
 pub const ship_sol_proof_max_bytes: u32 = 1024;
@@ -109,7 +110,7 @@ pub fn verify_proof(p: *const SolProof) VerifyError!void {
 
 /// Selftest -- Check shape: bound - seal - shape - refuse whole - purity.
 pub fn main() !void {
-    const seed: [kumara.seed_length]u8 = .{0x5c} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(0x5c);
     const kp = kumara.keypair_from_seed(&seed);
     const stamp: u64 = 20260730040859;
 
@@ -118,7 +119,7 @@ pub fn main() !void {
     if (ok.body_len > ship_sol_proof_max_bytes) return error.BoundBroken;
 
     // Oversized name packing toward the bound -- a name at sol_name_max that still packs.
-    const big_name = "a" ** sol_name_max_bytes;
+    const big_name = str_repeat("a", sol_name_max_bytes);
     const big = mint_proof(kp, big_name, stamp) orelse return error.BigMint;
     try verify_proof(&big);
 

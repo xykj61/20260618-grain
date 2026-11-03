@@ -78,7 +78,7 @@ pub const Reading = struct {
 
 /// A deterministic demo node keypair -- the node that vouches. Dev-only seed; no real key is ever held.
 fn node_keypair() kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{0x0D} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(0x0D);
     return kumara.keypair_from_seed(&seed);
 }
 

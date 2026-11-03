@@ -65,8 +65,8 @@ fn file_exists(io: std.Io, path: []const u8) bool {
 
 fn lane_seed(lane: Lane) [kumara.seed_length]u8 {
     return switch (lane) {
-        .a => .{0xa1} ** kumara.seed_length,
-        .b => .{0xb2} ** kumara.seed_length,
+        .a => @splat(0xa1),
+        .b => @splat(0xb2),
     };
 }
 

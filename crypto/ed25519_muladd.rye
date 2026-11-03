@@ -62,7 +62,7 @@ fn bytes_eq(a: []const u8, b: []const u8) bool {
 fn mul_wide(a: *const [32]u8, b: *const [32]u8, c: *const [32]u8) [64]u8 {
     // Column accumulators: col[k] gathers every byte-product a[i]-b[j] with i + j == k, plus (for k < 32) the addend byte c[k]. Each column sums
     // at most 32 products of two bytes (≤ 32-255-255 < 2^21) plus one addend byte and an incoming carry, so a u64 column never overflows.
-    var col = [_]u64{0} ** 64;
+    var col = @splat(0);
     var i: u32 = 0;
     while (i < scalar_bytes) : (i += 1) {
         var j: u32 = 0;
@@ -77,7 +77,7 @@ fn mul_wide(a: *const [32]u8, b: *const [32]u8, c: *const [32]u8) [64]u8 {
     while (t < scalar_bytes) : (t += 1) col[t] += @as(u64, c[t]);
 
     // Settle the columns into 8-bit bytes with a single carry-propagation pass from least to most significant.
-    var out = [_]u8{0} ** 64;
+    var out = @splat(0);
     var carry: u64 = 0;
     var k: u32 = 0;
     while (k < wide_bytes) : (k += 1) {
@@ -99,7 +99,7 @@ pub fn mul_add(a: *const [32]u8, b: *const [32]u8, c: *const [32]u8) [32]u8 {
     // invariant: the result is the canonical scalar below L -- the exact shape a signature's S component must carry.
     assert(sc.is_canonical(&out));
     // invariant: reducing the already-reduced result again is a fixed point, confirming the value is fully folded modulo L.
-    var ext = [_]u8{0} ** 64;
+    var ext = @splat(0);
     var i: u32 = 0;
     while (i < scalar_bytes) : (i += 1) ext[i] = out[i];
     // invariant: the result is checked against a second reduction of the same value, so the
@@ -126,11 +126,11 @@ const ZScalar = std.crypto.ecc.Edwards25519.scalar;
 
 fn run_selftest() !u8 {
     const one = blk: {
-        var o = [_]u8{0} ** 32;
+        var o = @splat(0);
         o[0] = 1;
         break :blk o;
     };
-    const zero = [_]u8{0} ** 32;
+    const zero = @splat(0);
 
     // 1. Algebraic known-answers anyone can check.
     {
@@ -145,7 +145,7 @@ fn run_selftest() !u8 {
         if (!bytes_eq(&mul_add(&zero, &x, &c_small), &c_small)) return error.ZeroMulAddMismatch;
 
         // a-1 + 0 = a mod L -- equals reduce of a zero-extended to 64 bytes, our own reference.
-        var a_ext = [_]u8{0} ** 64;
+        var a_ext = @splat(0);
         const a = scalar_seed(21);
         var i: u32 = 0;
         while (i < 32) : (i += 1) a_ext[i] = a[i];
@@ -162,7 +162,7 @@ fn run_selftest() !u8 {
             const c = scalar_seed(seed +% 170);
             if (!bytes_eq(&mul_add(&a, &b, &c), &ZScalar.mulAdd(a, b, c))) return error.RefMulAddMismatch;
         }
-        const ones = [_]u8{0xff} ** 32;
+        const ones = @splat(0xff);
         if (!bytes_eq(&mul_add(&ones, &ones, &ones), &ZScalar.mulAdd(ones, ones, ones))) return error.RefMulAddOnesMismatch;
     }
 

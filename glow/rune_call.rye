@@ -26,9 +26,9 @@ pub const ParseError = error{
 };
 
 pub const CallSpec = struct {
-    gate: [max_name_len]u8 = .{0} ** max_name_len,
+    gate: [max_name_len]u8 = @splat(0),
     gate_len: usize = 0,
-    sample: [max_name_len]u8 = .{0} ** max_name_len,
+    sample: [max_name_len]u8 = @splat(0),
     sample_len: usize = 0,
 };
 

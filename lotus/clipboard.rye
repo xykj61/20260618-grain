@@ -45,8 +45,8 @@ pub const ClipboardError = error{
 /// A held stereo span -- the audio a keeper carries between places and masters. Two bounded buffers of one shared length; no master
 /// reference, so once filled it stands alone and survives any edit to the master it was copied from.
 pub const Clipboard = struct {
-    left: [timeline.max_clip]i16 = [_]i16{0} ** timeline.max_clip,
-    right: [timeline.max_clip]i16 = [_]i16{0} ** timeline.max_clip,
+    left: [timeline.max_clip]i16 = @splat(0),
+    right: [timeline.max_clip]i16 = @splat(0),
     len: u32 = 0,
 
     /// The length of the held span in samples -- 0 when the clipboard is empty. What a paste inserts into each destination channel.

@@ -45,9 +45,9 @@ const Entry = struct {
 /// A bounded desk archive: a packed byte store, the length actually used, and a bounded index of entries in arrival
 /// order. A fresh archive is empty; no heap outlives it.
 pub const Archive = struct {
-    store: [max_bytes]u8 = [_]u8{0} ** max_bytes,
+    store: [max_bytes]u8 = @splat(0),
     used: u32 = 0,
-    entries: [max_entries]Entry = [_]Entry{.{}} ** max_entries,
+    entries: [max_entries]Entry = @splat(.{}),
     count: u32 = 0,
 
     /// A fresh, empty archive holding nothing.

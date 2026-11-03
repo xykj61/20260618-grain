@@ -34,7 +34,7 @@ pub const LabMode = enum {
 pub const LabStatus = struct {
     payload_ready: bool = false,
     payload_len: u32 = 0,
-    iface: [iface_name_max]u8 = .{' '} ** iface_name_max,
+    iface: [iface_name_max]u8 = @splat(' '),
     iface_len: u32 = 0,
     mode: LabMode = .stand_in,
 

@@ -61,9 +61,9 @@ pub const PartFacts = struct {
 
 /// One part's facts, held in fixed buffers (never a borrowed slice), paralleling one `SpriteIndex` cell.
 const PartRecord = struct {
-    number_buf: [max_part_number_len]u8 = [_]u8{0} ** max_part_number_len,
+    number_buf: [max_part_number_len]u8 = @splat(0),
     number_len: u32 = 0,
-    material_buf: [max_material_len]u8 = [_]u8{0} ** max_material_len,
+    material_buf: [max_material_len]u8 = @splat(0),
     material_len: u32 = 0,
     price_cents: u64 = 0,
 
@@ -96,7 +96,7 @@ fn check_token(field: []const u8, ceiling: u32) PartError!void {
 /// window WITH facts.
 pub const PartCatalog = struct {
     index: sprite.SpriteIndex,
-    facts: [sprite.max_products]PartRecord = [_]PartRecord{.{}} ** sprite.max_products,
+    facts: [sprite.max_products]PartRecord = @splat(.{}),
 
     /// Open a catalog over an already-decoded sheet -- the sheet is decoded once and shared by every product,
     /// exactly as the sprite index intends.

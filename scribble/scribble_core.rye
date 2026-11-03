@@ -27,7 +27,7 @@ pub const ParseError = error{
 pub const max_snippets: u32 = 16;
 
 pub const Snippet = struct {
-    text: [max_block_text]u8 = .{0} ** max_block_text,
+    text: [max_block_text]u8 = @splat(0),
     text_len: u32 = 0,
 
     pub fn text_slice(self: *const Snippet) []const u8 {
@@ -46,9 +46,9 @@ pub const BlockKind = enum(u8) {
 pub const Block = struct {
     kind: BlockKind,
     depth: u32 = 0,
-    lang: [max_fence_lang]u8 = .{0} ** max_fence_lang,
+    lang: [max_fence_lang]u8 = @splat(0),
     lang_len: u32 = 0,
-    text: [max_block_text]u8 = .{0} ** max_block_text,
+    text: [max_block_text]u8 = @splat(0),
     text_len: u32 = 0,
 
     pub fn text_slice(self: *const Block) []const u8 {
@@ -208,7 +208,7 @@ fn extract_kind_snippets(blocks: []const Block, kind: BlockKind, out: []Snippet)
 
 pub const Heading = struct {
     depth: u32 = 0,
-    text: [max_block_text]u8 = .{0} ** max_block_text,
+    text: [max_block_text]u8 = @splat(0),
     text_len: u32 = 0,
 
     pub fn text_slice(self: *const Heading) []const u8 {
@@ -256,7 +256,7 @@ pub fn extract_headings_at_depth(blocks: []const Block, depth: u8, out: []Headin
 }
 
 pub const Paragraph = struct {
-    text: [max_block_text]u8 = .{0} ** max_block_text,
+    text: [max_block_text]u8 = @splat(0),
     text_len: u32 = 0,
 
     pub fn text_slice(self: *const Paragraph) []const u8 {

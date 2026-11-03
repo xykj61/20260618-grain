@@ -18,7 +18,7 @@ const gen_version = "20260712.215400";
 
 /// Test vector only -- never a custody key. Deterministic so any bench regenerates.
 const fixture_seed_name = "signed-kumara-fixture-seed-v1";
-const fixture_seed: [kumara.seed_length]u8 = .{0x42} ** kumara.seed_length;
+const fixture_seed: [kumara.seed_length]u8 = @splat(0x42);
 
 /// Byte-identical to linengrow/receipt_core.rye witness_canonical_fact / G1 FACT.
 const receipt_message =

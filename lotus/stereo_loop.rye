@@ -123,12 +123,12 @@ fn run_selftest() !u8 {
         try timeline.splice(&stereo.right, 0, &[_]i16{ -1, -2, -3, -4, -5 });
         var t = transport.Transport{};
         const off = loop.Loop{}; // default: off
-        var gl: [5]i16 = [_]i16{0} ** 5;
-        var gr: [5]i16 = [_]i16{0} ** 5;
+        var gl: [5]i16 = @splat(0);
+        var gr: [5]i16 = @splat(0);
         var got: u32 = 0;
         while (!stereo_transport.at_end(&t, &stereo)) {
-            var bl: [2]i16 = [_]i16{0} ** 2;
-            var br: [2]i16 = [_]i16{0} ** 2;
+            var bl: [2]i16 = @splat(0);
+            var br: [2]i16 = @splat(0);
             const n = try read_block(&t, &stereo, &off, &bl, &br);
             var k: u32 = 0;
             while (k < n) : (k += 1) {
@@ -152,8 +152,8 @@ fn run_selftest() !u8 {
         const lp = try make(1, 4, &stereo); // region [1,4): left 20,30,40 · right -2,-3,-4
         var t = transport.Transport{};
         loop.enter(&t, &lp);
-        var nl: [9]i16 = [_]i16{0} ** 9;
-        var nr: [9]i16 = [_]i16{0} ** 9;
+        var nl: [9]i16 = @splat(0);
+        var nr: [9]i16 = @splat(0);
         const n = try read_block(&t, &stereo, &lp, &nl, &nr);
         const left_cycles = [_]i16{ 20, 30, 40, 20, 30, 40, 20, 30, 40 };
         const right_cycles = [_]i16{ -2, -3, -4, -2, -3, -4, -2, -3, -4 };
@@ -187,8 +187,8 @@ fn run_selftest() !u8 {
         const lp = try make(0, stereo.left.len, &stereo);
         var t = transport.Transport{};
         loop.enter(&t, &lp);
-        var sl: [7]i16 = [_]i16{0} ** 7;
-        var sr: [7]i16 = [_]i16{0} ** 7;
+        var sl: [7]i16 = @splat(0);
+        var sr: [7]i16 = @splat(0);
         const n = try read_block(&t, &stereo, &lp, &sl, &sr);
         const left_bit = [_]i16{ 7, 8, 9, 7, 8, 9, 7 };
         const right_bit = [_]i16{ 70, 80, 90, 70, 80, 90, 70 };
@@ -204,8 +204,8 @@ fn run_selftest() !u8 {
         const lp = try make(2, 3, &stereo); // region [2,3): left 33 · right 77
         var t = transport.Transport{};
         loop.enter(&t, &lp);
-        var fl: [4]i16 = [_]i16{0} ** 4;
-        var fr: [4]i16 = [_]i16{0} ** 4;
+        var fl: [4]i16 = @splat(0);
+        var fr: [4]i16 = @splat(0);
         _ = try read_block(&t, &stereo, &lp, &fl, &fr);
         const all_left = [_]i16{ 33, 33, 33, 33 };
         const all_right = [_]i16{ 77, 77, 77, 77 };
@@ -221,8 +221,8 @@ fn run_selftest() !u8 {
         const lp = try make(0, 3, &stereo);
         var t = transport.Transport{};
         loop.enter(&t, &lp);
-        var bl: [2]i16 = [_]i16{0} ** 2;
-        var br: [3]i16 = [_]i16{0} ** 3;
+        var bl: [2]i16 = @splat(0);
+        var br: [3]i16 = @splat(0);
         if (read_block(&t, &stereo, &lp, &bl, &br)) |_| return error.BadBlockSlipped else |e| if (e != error.BadBlock) return error.WrongBadBlock;
     }
 
@@ -243,8 +243,8 @@ fn run_selftest() !u8 {
         if (!(lp.start == 0 and lp.end == 2 and lp.on)) return error.MarkMsWrong;
         var t = transport.Transport{};
         loop.enter(&t, &lp);
-        var rl: [4]i16 = [_]i16{0} ** 4;
-        var rr: [4]i16 = [_]i16{0} ** 4;
+        var rl: [4]i16 = @splat(0);
+        var rr: [4]i16 = @splat(0);
         _ = try read_block(&t, &rendered, &lp, &rl, &rr);
         const seven_hundred = [_]i16{ 700, 700, 700, 700 }; // 1000 × isqrt(5000)/100, cycled
         if (!eq(&rl, &seven_hundred) or !eq(&rr, &seven_hundred)) return error.RenderedLoopWrong;
@@ -261,8 +261,8 @@ fn run_selftest() !u8 {
         const lp = try make(1, 3, &stereo);
         var t = transport.Transport{};
         loop.enter(&t, &lp);
-        var bl: [16]i16 = [_]i16{0} ** 16;
-        var br: [16]i16 = [_]i16{0} ** 16;
+        var bl: [16]i16 = @splat(0);
+        var br: [16]i16 = @splat(0);
         _ = try read_block(&t, &stereo, &lp, &bl, &br); // eight cycles of a two-sample region
         if (!eq(stereo.left.samples(), &orig_l) or !eq(stereo.right.samples(), &orig_r)) return error.LoopMutatedMaster;
     }

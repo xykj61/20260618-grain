@@ -30,7 +30,7 @@ pub const ChunkKind = enum(u8) {
 };
 
 pub const Chunk = struct {
-    path: [max_path_len]u8 = .{0} ** max_path_len,
+    path: [max_path_len]u8 = @splat(0),
     path_len: u32 = 0,
     kind: ChunkKind,
     lines: u32,

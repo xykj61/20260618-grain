@@ -9,7 +9,7 @@ const clock = @import("mod_clock.rye");
 
 pub fn main() void {
     // Every one of the sixteen slots resolves, and none falls outside the roster.
-    var seen_base: [12]u32 = .{0} ** 12;
+    var seen_base: [12]u32 = @splat(0);
     var emphasis: u32 = 0;
     var s: u32 = 0;
     while (s < clock.priority_slots) : (s += 1) {

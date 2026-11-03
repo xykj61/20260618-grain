@@ -71,7 +71,7 @@ fn run_selftest() !u8 {
     const c = try clock.make(1000); // 1 sample per ms — a millisecond equals a sample, legible on a bench
 
     var master = pan.StereoClip{};
-    var buf: [500]i16 = [_]i16{0} ** 500;
+    var buf: [500]i16 = @splat(0);
     try timeline.splice(&master.left, 0, &buf);
     try timeline.splice(&master.right, 0, &buf);
 

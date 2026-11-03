@@ -7,8 +7,8 @@ const kumara = @import("kumara.rye");
 
 pub fn main() void {
     // invariant: two distinct seeds yield two distinct keypairs, so the mismatch below is real.
-    const seed_a: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-    const seed_b: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
+    const seed_a: [kumara.seed_length]u8 = @splat(0x11);
+    const seed_b: [kumara.seed_length]u8 = @splat(0x22);
     const kp_a = kumara.keypair_from_seed(&seed_a);
     const kp_b = kumara.keypair_from_seed(&seed_b);
     assert(!std.mem.eql(u8, &kp_a.public_key.toBytes(), &kp_b.public_key.toBytes()));

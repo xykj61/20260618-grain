@@ -104,7 +104,7 @@ pub fn sample_ntt(rho: *const [32]u8, b0: u8, b1: u8) SampleError!ring.Poly {
     // shake128 raises only on a bad length; our fixed input and output widths are in range, yet we honor the error union honestly.
     shake.shake128(input[0..], xof[0..]) catch return error.SampleExhausted;
 
-    var a: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var a: ring.Poly = .{ .cs = @splat(0) };
     var pos: u32 = 0;
     var j: u32 = 0;
     var guard: u32 = 0;
@@ -143,7 +143,7 @@ pub fn sample_cbd(bytes: []const u8, eta: u32) SampleError!ring.Poly {
     // invariant (precondition): eta is one ML-KEM uses (2 or 3), and the input carries exactly 2-eta bits per coefficient over 256 coefficients.
     assert(eta >= eta_min and eta <= eta_max);
     assert(bytes.len == 64 * eta);
-    var f: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var f: ring.Poly = .{ .cs = @splat(0) };
     var i: u32 = 0;
     // invariant (bound): exactly n = 256 coefficients drawn, one per turn.
     while (i < n) : (i += 1) {
@@ -189,7 +189,7 @@ fn poly_eq(a: *const ring.Poly, b: *const ring.Poly) bool {
 
 /// negate_poly -- the coefficient-wise additive inverse mod q, (q - c) mod q, the right-hand side of the CBD bit-complement identity.
 fn negate_poly(a: *const ring.Poly) ring.Poly {
-    var r: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var r: ring.Poly = .{ .cs = @splat(0) };
     var j: u32 = 0;
     while (j < n) : (j += 1) {
         r.cs[j] = (q - a.cs[j]) % q;
@@ -209,7 +209,7 @@ fn sample_ntt_bitreader_reference(rho: *const [32]u8, b0: u8, b1: u8) SampleErro
     var xof: [ntt_xof_bytes]u8 = undefined;
     shake.shake128(input[0..], xof[0..]) catch return error.SampleExhausted;
 
-    var a: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var a: ring.Poly = .{ .cs = @splat(0) };
     var bitpos: u32 = 0;
     var j: u32 = 0;
     var guard: u32 = 0;
@@ -280,13 +280,13 @@ fn run_selftest() !u8 {
         var eta: u32 = eta_min;
         while (eta <= eta_max) : (eta += 1) {
             const len: u32 = 64 * eta;
-            var zeros: [64 * eta_max]u8 = [_]u8{0} ** (64 * eta_max);
+            var zeros: [64 * eta_max]u8 = @splat(0);
             const fz = try sample_cbd(zeros[0..len], eta);
             var j: u32 = 0;
             while (j < n) : (j += 1) {
                 if (fz.cs[j] != 0) return error.KnownAnswerMismatch;
             }
-            var ones: [64 * eta_max]u8 = [_]u8{0xFF} ** (64 * eta_max);
+            var ones: [64 * eta_max]u8 = @splat(0xFF);
             const fo = try sample_cbd(ones[0..len], eta);
             j = 0;
             while (j < n) : (j += 1) {

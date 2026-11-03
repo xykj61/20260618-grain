@@ -96,7 +96,7 @@ pub fn allpass(
     // Snapshot the dry prefix [0, end) BEFORE any write, so the delayed DRY term x[n-delay] reads the ORIGINAL audio and never a sample
     // this pass just wrote -- the graft/multi-tap snapshot-before-write idiom (lotus-audio/68), reused. One bounded scratch, the width graft
     // already carries. The delayed OUTPUT term reads the clip buffer directly (the echo idiom), so it is NOT snapshotted.
-    var dry: [timeline.max_clip]i16 = [_]i16{0} ** timeline.max_clip;
+    var dry: [timeline.max_clip]i16 = @splat(0);
     {
         var j: u32 = 0;
         // invariant: end never exceeds the clip's length, so the snapshot stays within the bounded scratch.

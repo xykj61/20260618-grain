@@ -47,7 +47,7 @@ const max_entries = repair.max_entries;
 /// with the leader (its matchIndex + 1, in Raft's terms). A fresh view has every pier at zero; the leader records itself at its
 /// own length.
 pub const MatchView = struct {
-    match: [roster.max_piers]u32 = [_]u32{0} ** roster.max_piers,
+    match: [roster.max_piers]u32 = @splat(0),
     size: u32 = 0,
 
     /// Record that `slot` holds a prefix of `replicated_len` entries agreeing with the leader. Bounded to the constellation and to

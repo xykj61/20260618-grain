@@ -23,7 +23,7 @@ pub const digest_hex_len: u32 = 64;
 pub const stamp_sig_hex_len: u32 = kumara.signature_length * 2;
 
 /// Witness seed -- distinct from vessel stamp 0x62 and seal 0x63.
-const delivery_stamp_seed: [kumara.seed_length]u8 = .{0x64} ** kumara.seed_length;
+const delivery_stamp_seed: [kumara.seed_length]u8 = @splat(0x64);
 
 pub const SlipFields = struct {
     format: []const u8,

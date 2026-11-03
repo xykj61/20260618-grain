@@ -235,7 +235,7 @@ pub fn inv_ntt(f: *const Poly) Poly {
 /// h[i] = a[i]-b[i] mod q. This is the whole reason the NTT exists -- the ring multiply is now linear-time -- and it is simpler than ML-KEM's
 /// degree-1 base case precisely because the larger modulus lets the ring split all the way down.
 pub fn multiply_ntts(f: *const Poly, g: *const Poly) Poly {
-    var h: Poly = .{ .cs = [_]u32{0} ** n };
+    var h: Poly = .{ .cs = @splat(0) };
     // invariant (precondition): both operands carry canonical residues.
     assert(f.cs[0] < q and g.cs[0] < q);
     var i: u32 = 0;
@@ -253,7 +253,7 @@ pub fn multiply_ntts(f: *const Poly, g: *const Poly) Poly {
 /// A deterministic pseudo-random ring element from a seed -- the selftest's non-trivial inputs, each coefficient reduced into [0, q). A tiny LCG
 /// keeps it reproducible without any std.crypto, so a failing run always reruns identically.
 fn poly_from_seed(seed: u32) Poly {
-    var p: Poly = .{ .cs = [_]u32{0} ** n };
+    var p: Poly = .{ .cs = @splat(0) };
     var state: u32 = seed *% 2654435761 +% 1013904223;
     var j: u32 = 0;
     while (j < n) : (j += 1) {
@@ -285,7 +285,7 @@ fn poly_is_zero(a: *const Poly) bool {
 /// term whose degree reaches 256 or beyond wraps with a MINUS sign (X²⁵⁶ ≡ -1). This is the ground truth the NTT multiply must reproduce; it is
 /// slow and obviously correct, which is exactly what a self-consistency oracle wants. Identical in shape to ML-KEM's -- the ring degree is shared.
 fn negacyclic_schoolbook(f: *const Poly, g: *const Poly) Poly {
-    var h: Poly = .{ .cs = [_]u32{0} ** n };
+    var h: Poly = .{ .cs = @splat(0) };
     var i: u32 = 0;
     while (i < n) : (i += 1) {
         var j: u32 = 0;

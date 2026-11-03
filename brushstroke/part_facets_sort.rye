@@ -50,7 +50,7 @@ pub fn sort_by_price(src: *const part_catalog.PartCatalog, out: *part_catalog.Pa
     assert(out.index.sheet == src.index.sheet);
 
     const n = src.len();
-    var taken: [sprite.max_products]bool = [_]bool{false} ** sprite.max_products;
+    var taken: [sprite.max_products]bool = @splat(false);
 
     // Selection sort: n times, pick the cheapest not-yet-taken part, earliest held index breaking ties (stable).
     var placed: u32 = 0;

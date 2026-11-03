@@ -56,14 +56,14 @@ pub const RackError = error{
 /// One named held span -- a bounded name beside a whole lotus-audio Clipboard. The clipboard owns its two sample buffers, so a slot stands
 /// alone: it survives any edit to the master it was copied from and to any other slot.
 pub const Slot = struct {
-    name_buf: [max_name]u8 = [_]u8{0} ** max_name,
+    name_buf: [max_name]u8 = @splat(0),
     name_len: u32 = 0,
     board: clipboard.Clipboard = .{},
 };
 
 /// A small named set of held spans -- the multi-slot clipboard. Slots are stored in the order filled; a name names at most one slot.
 pub const Rack = struct {
-    slots: [max_slots]Slot = [_]Slot{.{}} ** max_slots,
+    slots: [max_slots]Slot = @splat(.{}),
     count: u32 = 0,
 
     /// How many named spans the rack currently holds -- 0 when empty, never past max_slots.
@@ -317,7 +317,7 @@ fn run_selftest() !u8 {
         const sel = try selection.make(&m, 0, 2);
 
         if (copy_to(&rack, "", &m, sel)) |_| return error.EmptyNameSlipped else |e| if (e != error.BadName) return error.WrongEmptyName;
-        const huge = [_]u8{'q'} ** (max_name + 1);
+        const huge = @splat('q');
         if (copy_to(&rack, &huge, &m, sel)) |_| return error.HugeNameSlipped else |e| if (e != error.BadName) return error.WrongHugeName;
         if (rack.size() != 0) return error.BadNameMutated;
 

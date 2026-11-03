@@ -127,7 +127,7 @@ fn is_zero32(s: *const [32]u8) bool {
 /// the hash and for the affine x. The big-endian value is reversed into the low 32 bytes of a 64-byte little-endian buffer, then reduced.
 fn scalar_from_be(be: *const [32]u8) [32]u8 {
     const le = reverse32(be);
-    var wide = [_]u8{0} ** 64;
+    var wide = @splat(0);
     var i: u32 = 0;
     while (i < field_bytes) : (i += 1) {
         // invariant: the reversed value lands entirely in the low half of the wide buffer.
@@ -140,7 +140,7 @@ fn scalar_from_be(be: *const [32]u8) [32]u8 {
 /// (a + b) mod n, both operands canonical little-endian scalars below n. The sum of two sub-n values is below 2n, so it fits in 33 bytes; it
 /// is laid into a 64-byte little-endian buffer and reduced by the GREEN scalar field -- the modular addition the scalar module does not export.
 fn add_mod_n(a_le: *const [32]u8, b_le: *const [32]u8) [32]u8 {
-    var wide = [_]u8{0} ** 64;
+    var wide = @splat(0);
     var carry: u16 = 0;
     var i: u32 = 0;
     while (i < field_bytes) : (i += 1) {
@@ -176,9 +176,9 @@ fn prf(msg: []const u8, key: *const [32]u8) [32]u8 {
 /// DRBG reproduced exactly (RFC 6979 HMAC-DRBG with a 32-byte zero noise block and the raw message hash). The private key and hash both arrive
 /// big-endian; the returned nonce is big-endian, ready to reverse for the ladder.
 fn deterministic_nonce(d_be: *const [32]u8, hash_be: *const [32]u8) SignError![32]u8 {
-    var m = [_]u8{0} ** drbg_msg_bytes; // V | domain | noise(zeros) | key | hash
-    var v = [_]u8{0x01} ** 32; // V starts all-0x01
-    var k_hmac = [_]u8{0x00} ** 32; // the HMAC key K starts all-zero
+    var m = @splat(0); // V | domain | noise(zeros) | key | hash
+    var v = @splat(0x01); // V starts all-0x01
+    var k_hmac = @splat(0x00); // the HMAC key K starts all-zero
 
     // The key and hash occupy fixed regions of the message buffer and never change; the noise block m[33..65] stays zero (null noise).
     var i: u32 = 0;
@@ -294,7 +294,7 @@ fn run_selftest() !u8 {
 
     var seed_byte: u8 = 1;
     while (seed_byte <= 8) : (seed_byte += 1) {
-        const seed = [_]u8{seed_byte} ** 32;
+        const seed = @splat(seed_byte);
         // Zig's own deterministic key pair -- the reference key and the ground-truth signer.
         const kp = try ZEcdsa.KeyPair.generateDeterministic(seed);
         const d_be = kp.secret_key.toBytes(); // the private scalar, big-endian — a TEST key, never an identity key
@@ -344,7 +344,7 @@ fn run_selftest() !u8 {
 
     // An out-of-range private key (zero) is refused rather than signed.
     {
-        const zero = [_]u8{0} ** 32;
+        const zero = @splat(0);
         if (sign_prehashed(&zero, &zero)) |_| return error.ZeroKeyAccepted else |err| {
             if (err != error.InvalidPrivateKey) return error.WrongZeroKeyError;
         }

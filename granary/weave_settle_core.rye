@@ -21,7 +21,7 @@ pub const max_price_len: u32 = 16;
 pub const max_settled: u32 = 8;
 
 /// Settle seed -- distinct from Mandi settle 0x68, Exchange 0x66, Mandi listing 0x67.
-const settle_seed: [kumara.seed_length]u8 = .{0x69} ** kumara.seed_length;
+const settle_seed: [kumara.seed_length]u8 = @splat(0x69);
 
 pub const SettleError = error{
     InvalidSettle,

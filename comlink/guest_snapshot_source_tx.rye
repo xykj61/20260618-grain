@@ -10,7 +10,7 @@ const kumara = @import("kumara.rye");
 
 var tx: vn.TxQueue = undefined;
 
-const batch_signer_seed = [_]u8{0x61} ** kumara.seed_length;
+const batch_signer_seed = @splat(0x61);
 
 fn send_sealed_payload(payload: []const u8) void {
     var scratch: [@intCast(wf.wire_capacity)]u8 = undefined;

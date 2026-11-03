@@ -258,7 +258,7 @@ pub fn close(plan: []const Phase, out: []Phase) void {
     assert(out.len == plan.len);
     // invariant: a closing stays inside the queue one supervisor may hold
     assert(plan.len <= max_queue_len);
-    var known: [max_turns][max_turn_steps]u32 = @splat(@splat(0));
+    var known: [max_turns][max_turn_steps]u32 = @splat(@as([max_turn_steps]u32, @splat(0)));
     var i: u32 = 0;
     while (i < plan.len) : (i += 1) {
         const p = plan[i];

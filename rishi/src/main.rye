@@ -283,7 +283,7 @@ const SpawnSlot = struct {
 };
 
 const SpawnRegistry = struct {
-    slots: [max_spawn_handles]SpawnSlot = [_]SpawnSlot{.{}} ** max_spawn_handles,
+    slots: [max_spawn_handles]SpawnSlot = @splat(.{}),
 
     fn alloc(self: *SpawnRegistry) !*SpawnSlot {
         for (&self.slots) |*slot| {

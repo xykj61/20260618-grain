@@ -119,28 +119,28 @@ pub const BodyKind = enum {
 /// `shape_name_len == 0` means sample shape is the aura `@u32`.
 /// glow-language: `face2_len > 0` means a pair-faces header `[a=@u32 b=@u32]`.
 pub const GateSpec = struct {
-    face: [max_face_len]u8 = [_]u8{0} ** max_face_len,
+    face: [max_face_len]u8 = @splat(0),
     face_len: u32 = 0,
-    face2: [max_face_len]u8 = [_]u8{0} ** max_face_len,
+    face2: [max_face_len]u8 = @splat(0),
     face2_len: u32 = 0,
     // mul-a: `face3_len > 0` means a three-face header `[a=@u32 b=@u32 c=@u32]` -- the shape
     // the lit-vs-area law asked for, the first cond whose operand composes two faces.
-    face3: [max_face_len]u8 = [_]u8{0} ** max_face_len,
+    face3: [max_face_len]u8 = @splat(0),
     face3_len: u32 = 0,
-    shape_name: [max_shape_len]u8 = [_]u8{0} ** max_shape_len,
+    shape_name: [max_shape_len]u8 = @splat(0),
     shape_name_len: u32 = 0,
     body: BodyKind = .identity,
-    gate: [max_gate_len]u8 = [_]u8{0} ** max_gate_len,
+    gate: [max_gate_len]u8 = @splat(0),
     gate_len: u32 = 0,
     cond_rhs: u32 = 0, // glow-language: gth right-hand literal
     and_op1: u8 = 0, // and: 1=gth 2=eq for the first face's inner cond
     and_rhs1: u32 = 0, // and: the first inner cond's literal
     and_op2: u8 = 0, // and: 1=gth 2=eq for the second face's inner cond
     and_rhs2: u32 = 0, // and: the second inner cond's literal
-    nest_op: [4]u8 = [_]u8{0} ** 4, // and-of-ors: 1=gth 2=eq per inner comparison, reading order
-    nest_lhs: [4]u8 = [_]u8{0} ** 4, // and-of-ors: 1=first face 2=second face on each comparison's left
-    nest_rhs_face: [4]u8 = [_]u8{0} ** 4, // and-of-ors: 0=literal, else the header face on the right
-    nest_rhs: [4]u32 = [_]u32{0} ** 4, // and-of-ors: the literal right side when nest_rhs_face is 0
+    nest_op: [4]u8 = @splat(0), // and-of-ors: 1=gth 2=eq per inner comparison, reading order
+    nest_lhs: [4]u8 = @splat(0), // and-of-ors: 1=first face 2=second face on each comparison's left
+    nest_rhs_face: [4]u8 = @splat(0), // and-of-ors: 0=literal, else the header face on the right
+    nest_rhs: [4]u32 = @splat(0), // and-of-ors: the literal right side when nest_rhs_face is 0
     cond_then: u32 = 0, // glow-language: answer when sample > rhs
     then_face: u8 = 0, // glow-language: 0=literal · 1=first face · 2=second face
     else_face: u8 = 0, // glow-language: the arm selects a face instead of a literal

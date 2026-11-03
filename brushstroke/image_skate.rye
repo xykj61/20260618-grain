@@ -47,7 +47,7 @@ pub const block_cell: u8 = 128;
 
 /// A full-block extended-glyph atlas -- every slot fully lit -- so a palette-colored cell paints a solid block.
 /// Skate reads glyphs 128..255 from here when `extended_glyphs` points at it (its glass-keyboard emoji-atlas seam).
-var block_atlas: [128][8]u8 = [_][8]u8{[_]u8{0xFF} ** 8} ** 128;
+var block_atlas: [128][8]u8 = @splat(@as([8]u8, @splat(0xFF)));
 
 pub const MapError = error{
     EmptyImage,

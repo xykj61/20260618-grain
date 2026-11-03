@@ -26,13 +26,13 @@ pub const ParseError = error{
 };
 
 pub const Call3Spec = struct {
-    gate: [max_name_len]u8 = .{0} ** max_name_len,
+    gate: [max_name_len]u8 = @splat(0),
     gate_len: usize = 0,
-    a: [max_name_len]u8 = .{0} ** max_name_len,
+    a: [max_name_len]u8 = @splat(0),
     a_len: usize = 0,
-    b: [max_name_len]u8 = .{0} ** max_name_len,
+    b: [max_name_len]u8 = @splat(0),
     b_len: usize = 0,
-    c: [max_name_len]u8 = .{0} ** max_name_len,
+    c: [max_name_len]u8 = @splat(0),
     c_len: usize = 0,
 };
 

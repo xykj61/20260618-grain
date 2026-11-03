@@ -49,6 +49,7 @@ const assert = std.debug.assert;
 const print = std.debug.print;
 const store_mod = @import("store.rye");
 const weave = @import("weave.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 const Dir = std.Io.Dir;
 const Sha3 = std.crypto.hash.sha3.Sha3_256;
@@ -178,7 +179,7 @@ fn claim_ceiling_edges(io: std.Io, pen: Dir, garden: std.mem.Allocator) !u32 {
     // ---- Claim 6 -- past the ceiling at the READ edge, on a real file.
     // Written straight into the blob directory under a well-formed name, since
     // `write_blob` now refuses to put it there at all.
-    const planted_name = "0" ** (Sha3.digest_length * 2);
+    const planted_name = str_repeat("0", (Sha3.digest_length * 2));
     // invariant: the planted name is well-formed, so the refusal below is the
     // read edge's own reading rather than a malformed request
     assert(planted_name.len == Sha3.digest_length * 2);
@@ -200,7 +201,7 @@ fn claim_head_states(io: std.Io, pen: Dir, garden: std.mem.Allocator) !u32 {
     assert(absent == null);
     // invariant: HEAD takes a well-formed 64-character name; the bytes need not
     // be a real blob here, since HEAD only stores and returns the name it is given
-    const head_name = "0" ** (Sha3.digest_length * 2);
+    const head_name = str_repeat("0", (Sha3.digest_length * 2));
     try store_three.write_head(io, head_name);
     const head_back = try store_three.read_head(garden, io);
     assert(head_back != null);
@@ -212,8 +213,8 @@ fn claim_head_states(io: std.Io, pen: Dir, garden: std.mem.Allocator) !u32 {
 
     // ---- Claim 7b -- a HEAD name of the wrong length is refused at the write edge, and HEAD is
     // left exactly as it stood. Shorter and longer both refuse by name.
-    const short_name = "a" ** (Sha3.digest_length * 2 - 1);
-    const long_name = "a" ** (Sha3.digest_length * 2 + 1);
+    const short_name = str_repeat("a", (Sha3.digest_length * 2 - 1));
+    const long_name = str_repeat("a", (Sha3.digest_length * 2 + 1));
     try std.testing.expectError(store_mod.StoreError.HeadNameLength, store_three.write_head(io, short_name));
     try std.testing.expectError(store_mod.StoreError.HeadNameLength, store_three.write_head(io, long_name));
     // invariant: HEAD still holds the mis-sized bytes claim 7 planted, byte for byte

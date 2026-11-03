@@ -318,6 +318,7 @@ fn run_selftest(garden: std.mem.Allocator) !u8 {
     // Applies by name, equalling the recipe by hand: `vivid` over image A equals photos.saturate(A, 3, 2) run by
     // hand -- the name resolves to exactly its recipe, byte for byte.
     const photos = @import("photos.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
     const vivid_a = try apply_preset(garden, &book, "vivid", &img_a);
     const vivid_hand_a = try photos.saturate(garden, &img_a, 3, 2);
     assert(vivid_a.same_bytes(&vivid_hand_a));
@@ -378,7 +379,7 @@ fn run_selftest(garden: std.mem.Allocator) !u8 {
         if (b.define("", &one)) |_| return error.EmptySlipped else |e| {
             if (e != error.BadPresetName) return error.WrongEmpty;
         }
-        const long = "x" ** (max_preset_name + 1);
+        const long = str_repeat("x", (max_preset_name + 1));
         if (b.define(long, &one)) |_| return error.LongSlipped else |e| {
             if (e != error.BadPresetName) return error.WrongLong;
         }

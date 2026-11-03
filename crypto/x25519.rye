@@ -147,7 +147,7 @@ pub fn x25519(scalar: *const [32]u8, u_coord: *const [32]u8) [32]u8 {
 /// The public-key case: scalar-(base point 9). This is X25519 over the standard generator -- the operation that turns a private scalar into a
 /// shareable public key.
 pub fn x25519_base(scalar: *const [32]u8) [32]u8 {
-    var u = [_]u8{0} ** 32;
+    var u = @splat(0);
     u[0] = base_u;
     return x25519(scalar, &u);
 }
@@ -199,7 +199,7 @@ fn run_selftest() !u8 {
 
     // 2. The RFC 7748 §5.2 one-iteration base-point vector: X25519(9, 9) has a fixed published answer, and it must equal our public-key path.
     {
-        var nine = [_]u8{0} ** 32;
+        var nine = @splat(0);
         nine[0] = 9;
         var one_iter: [32]u8 = undefined;
         _ = try std.fmt.hexToBytes(one_iter[0..], "422c8e7a6227d7bca1350b3e2bb7279f7897b87bb6854b783c60e80311ae3079");

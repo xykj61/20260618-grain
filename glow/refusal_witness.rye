@@ -11,6 +11,7 @@ const rune_shape = @import("rune_shape.rye");
 const lower_shape = @import("lower_shape.rye");
 const tokens = @import("tokens.rye");
 const zig_ident = @import("zig_ident.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 // invariant: every declaration of the module goes through semantic analysis, so a type
 // error in a body this witness never calls reds the build (REDS %463, %470).
@@ -79,25 +80,25 @@ const four_payload_src =
 
 /// A name one byte past `tokens.max_name_len` -- the first of the four ceilings the lexer
 /// answers with the one word `error.BadToken`.
-const long_name_src = ("a" ** (tokens.max_name_len + 1)) ++ "\n";
+const long_name_src = (str_repeat("a", (tokens.max_name_len + 1)).*) ++ "\n";
 
 /// A `%tag` whose name runs one byte past the same ceiling. One scanner serves both kinds, so
 /// this is what proves the kind word travels rather than being spelled once at the refusal.
-const long_tag_src = ("%" ++ ("a" ** (tokens.max_name_len + 1))) ++ "\n";
+const long_tag_src = ("%" ++ (str_repeat("a", (tokens.max_name_len + 1)).*)) ++ "\n";
 
 /// The same name AT the ceiling, which the lexer admits -- the other side of leg 16.
-const at_name_src = ("a" ** tokens.max_name_len) ++ "\n";
+const at_name_src = (str_repeat("a", tokens.max_name_len).*) ++ "\n";
 
 /// A cord literal whose interior runs one byte past `tokens.max_cord_lit_bytes`.
-const long_cord_src = "'" ++ ("c" ** (tokens.max_cord_lit_bytes + 1)) ++ "'\n";
+const long_cord_src = "'" ++ (str_repeat("c", (tokens.max_cord_lit_bytes + 1)).*) ++ "'\n";
 
 /// A hex literal two digits past `tokens.max_hex_lit_digits` -- an EVEN count on purpose, so
 /// the odd-digit refusal standing one line above the ceiling stays out of the way.
-const long_hex_src = "@ux" ++ ("f" ** (tokens.max_hex_lit_digits + 2)) ++ "\n";
+const long_hex_src = "@ux" ++ (str_repeat("f", (tokens.max_hex_lit_digits + 2)).*) ++ "\n";
 
 /// A source one byte past `tokens.max_src_len`. Every byte is an ident byte, so this source
 /// would ALSO break the name ceiling -- and the record proves which of the two refused.
-const long_src_src = "a" ** (tokens.max_src_len + 1);
+const long_src_src = str_repeat("a", (tokens.max_src_len + 1));
 
 pub fn main() !void {
     print("refusal_witness {s}\n", .{witness_version});
@@ -142,8 +143,8 @@ pub fn main() !void {
     print("refusal: reason and unit words distinct and printable -- GREEN\n", .{});
 
     // 4 -- a field name one byte past its ceiling refuses; the ceiling itself is admitted.
-    const at_ceiling = [_]u8{'f'} ** refusal.max_field_name_bytes;
-    const past_ceiling = [_]u8{'f'} ** (refusal.max_field_name_bytes + 1);
+    const at_ceiling = @splat('f');
+    const past_ceiling = @splat('f');
     const fits = refusal.Refusal{ .field = at_ceiling[0..], .reason = .too_many_fields };
     _ = try fits.render(buf[0..]);
     const past = refusal.Refusal{ .field = past_ceiling[0..], .reason = .too_many_fields };

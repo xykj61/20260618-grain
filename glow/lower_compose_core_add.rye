@@ -66,10 +66,10 @@ fn parse_trailing_u32(rest: []const u8) LowerError!u32 {
 }
 
 pub const ComposeCoreAddSpec = struct {
-    face_a: [rf.max_name_len]u8 = .{0} ** rf.max_name_len,
+    face_a: [rf.max_name_len]u8 = @splat(0),
     face_a_len: usize = 0,
     value_a: u32 = 0,
-    face_b: [rf.max_name_len]u8 = .{0} ** rf.max_name_len,
+    face_b: [rf.max_name_len]u8 = @splat(0),
     face_b_len: usize = 0,
     value_b: u32 = 0,
 };

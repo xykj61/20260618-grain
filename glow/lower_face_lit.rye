@@ -78,7 +78,7 @@ pub fn emit_face_lit_expr(
             if (!cord_interior_safe(bytes)) return error.BadCordLit;
             try append_print(out, used,
                 \\blk: {{
-                \\    var buf = [_]u8{{0}} ** {d};
+                \\    var buf: [{d}]u8 = @splat(0);
                 \\    const s = "{s}";
                 \\    var i: u32 = 0;
                 \\    while (i < @as(u32, @intCast(s.len))) : (i += 1) {{

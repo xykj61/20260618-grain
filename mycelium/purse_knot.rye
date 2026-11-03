@@ -166,7 +166,7 @@ pub fn purses_match(whole: *const purse.Purse, across: *const purse.Purse) bool 
 // ---- selftest: the per-account verdict reads the same across a sealed checkpoint ----
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 

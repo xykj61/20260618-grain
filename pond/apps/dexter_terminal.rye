@@ -44,7 +44,7 @@ pub const journal_body: u32 = term_rows - 2;
 /// A drawn terminal screen: the fixed grid of cells, and the absolute place of the caret (its row and
 /// column). The caret always sits on the prompt row, always within the width.
 pub const Terminal = struct {
-    cells: [term_rows * term_cols]u8 = [_]u8{' '} ** (term_rows * term_cols),
+    cells: [term_rows * term_cols]u8 = @splat(' '),
     caret_row: u32 = prompt_row,
     caret_col: u32 = 0,
 

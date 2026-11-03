@@ -136,7 +136,7 @@ fn run_selftest() !u8 {
 
     // 6. BOUNDED -- the heartbeat poll runs over a full roster of eight (seven peers plus the leader) within the pier cap.
     {
-        var acks: [roster.max_piers - 1]bool = [_]bool{true} ** (roster.max_piers - 1); // every peer answers
+        var acks: [roster.max_piers - 1]bool = @splat(true); // every peer answers
         const b = backing(&acks);
         assert(b == roster.max_piers); // self + seven peers == eight, no overrun
         assert(still_commands(&acks, quorum.majority_of(roster.max_piers)));

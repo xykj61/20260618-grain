@@ -53,7 +53,7 @@ pub const Entry = struct {
 
 pub const TrialBalance = struct {
     /// Debit-positive net per account (cash, revenue, expense, equity).
-    nets: [account_count]i64 = .{0} ** account_count,
+    nets: [account_count]i64 = @splat(0),
 
     pub fn conservation(self: TrialBalance) i64 {
         var sum: i64 = 0;

@@ -35,6 +35,7 @@ const selection = @import("selection.rye");
 const rack = @import("rack.rye");
 const rack_sheet = @import("rack_sheet.rye");
 const seal = @import("seal.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 pub const rack_seal_version = "20260814.151050";
 
@@ -158,7 +159,7 @@ fn run_selftest() !u8 {
         // a digest line too short (not 64 hex characters).
         if (verify_and_parse("format lotus-rack-sheet-sealed-v1\ndigest abc\nformat lotus-rack-sheet-v1\n", &back)) |_| return error.ShortDigestSlipped else |e| if (e != error.BadRecord) return error.WrongShortDigest;
         // a digest line of the right length but carrying a non-hex character.
-        const bad_hex = "format lotus-rack-sheet-sealed-v1\ndigest " ++ ("z" ** 64) ++ "\nformat lotus-rack-sheet-v1\n";
+        const bad_hex = "format lotus-rack-sheet-sealed-v1\ndigest " ++ (str_repeat("z", 64).*) ++ "\nformat lotus-rack-sheet-v1\n";
         if (verify_and_parse(bad_hex, &back)) |_| return error.BadHexSlipped else |e| if (e != error.BadRecord) return error.WrongBadHex;
     }
 

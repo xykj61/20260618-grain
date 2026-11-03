@@ -148,7 +148,7 @@ fn run_selftest() !u8 {
     //    base u-coordinate. So eddsa_to_x25519(Edwards base) must be 9 on the nose, and x25519_to_eddsa(9) must recover the base's y.
     {
         const base_bytes = ZEd.basePoint.toBytes();
-        var nine = [_]u8{0} ** 32;
+        var nine = @splat(0);
         nine[0] = 9;
         if (!same32(&eddsa_to_x25519(&base_bytes), &nine)) return error.BasePointNotNine;
 

@@ -14,13 +14,17 @@ cd "$here"
 # The toolchain: honor a pre-set RYE_ZIG, else the vendored Zig 0.17.0 beside us.
 zig="${RYE_ZIG:-../vendor/zig-toolchain/zig}"
 
-# Bridge the source, and clear the bridge away on the way out whatever happens.
+# Bridge the source and its local .rye imports to .zig, and clear them on exit.
+# rye build does this with rewrite_rye_imports; the bootstrap replicates the
+# minimal bridge for the one dependency main.rye holds (parse_int.rye).
 bridge="src/main.rye.zig"
-cp src/main.rye "$bridge"
-trap 'rm -f "$bridge"' EXIT
+dep_bridge="src/parse_int.zig"
+sed 's/@import("parse_int\.rye")/@import("parse_int.zig")/g' src/main.rye > "$bridge"
+cp src/parse_int.rye "$dep_bridge"
+trap 'rm -f "$bridge" "$dep_bridge"' EXIT
 
 mkdir -p bin
-# Zig 0.16 requires -lc for getpid (build_lock_acquire). Linux glibc hosts
+# Zig 0.17 requires -lc for getpid (build_lock_acquire). Linux glibc hosts
 # refuse without it; Darwin accepts it. NixOS without FHS libc keeps the musl
 # recipe in docs-geode/tutorials/the-first-hour.md.
 # ReleaseSafe: two builds at one path give identical bytes (measured 20260918:

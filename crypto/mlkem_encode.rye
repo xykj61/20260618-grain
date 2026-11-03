@@ -75,7 +75,7 @@ pub const Encoded = struct {
 pub fn byte_encode(f: *const [n]u32, d: u32) Encoded {
     // invariant (precondition): the width is one FIPS 203 uses, 1..12 -- narrower loses information, wider than 12 no coefficient needs.
     assert(d >= 1 and d <= max_d);
-    var out: Encoded = .{ .bytes = [_]u8{0} ** max_bytes, .len = 32 * d };
+    var out: Encoded = .{ .bytes = @splat(0), .len = 32 * d };
     // acc holds the bits gathered but not yet flushed -- never more than 7 leftover plus one d-bit coefficient (< 20 bits), well inside u32.
     var acc: u32 = 0;
     var acc_bits: u32 = 0;
@@ -108,7 +108,7 @@ pub fn byte_decode(b: *const Encoded, d: u32) [n]u32 {
     // invariant (precondition): the width is one FIPS 203 uses, and the buffer carries exactly 32-d meaningful bytes.
     assert(d >= 1 and d <= max_d);
     assert(b.len == 32 * d);
-    var out: [n]u32 = [_]u32{0} ** n;
+    var out: [n]u32 = @splat(0);
     const mask: u32 = (@as(u32, 1) << @as(u5, @intCast(d))) - 1;
     var acc: u32 = 0;
     var acc_bits: u32 = 0;
@@ -168,7 +168,7 @@ pub fn decompress(y: u32, d: u32) u32 {
 /// A deterministic pseudo-random coefficient array from a seed, each coefficient reduced into [0, bound) -- the selftest's non-trivial inputs. A
 /// tiny LCG keeps it reproducible without any std.crypto, so a failing run always reruns identically. Same generator the ring rung uses.
 fn poly_from_seed(seed: u32, bound: u32) [n]u32 {
-    var p: [n]u32 = [_]u32{0} ** n;
+    var p: [n]u32 = @splat(0);
     var state: u32 = seed *% 2654435761 +% 1013904223;
     var j: u32 = 0;
     while (j < n) : (j += 1) {
@@ -210,7 +210,7 @@ fn run_selftest() !u8 {
     //    is 0xBC; its top nibble 0xA joins the next coefficient's low nibble 0xF as 0xFA; then 0xDE -- bytes {0xBC, 0xFA, 0xDE}. A wrong bit
     //    direction fails here before any round-trip.
     {
-        var f: [n]u32 = [_]u32{0} ** n;
+        var f: [n]u32 = @splat(0);
         f[0] = 0xABC;
         f[1] = 0xDEF;
         const enc = byte_encode(&f, 12);

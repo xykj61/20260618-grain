@@ -85,12 +85,12 @@ pub const BodyKind = enum {
 /// A parsed thin barket: sample face + optional named shape + identity/call body.
 /// `shape_name_len == 0` means sample shape is the aura `@u32`.
 pub const BarketSpec = struct {
-    face: [max_face_len]u8 = [_]u8{0} ** max_face_len,
+    face: [max_face_len]u8 = @splat(0),
     face_len: u32 = 0,
-    shape_name: [max_shape_len]u8 = [_]u8{0} ** max_shape_len,
+    shape_name: [max_shape_len]u8 = @splat(0),
     shape_name_len: u32 = 0,
     body: BodyKind = .header_only,
-    gate: [max_gate_len]u8 = [_]u8{0} ** max_gate_len,
+    gate: [max_gate_len]u8 = @splat(0),
     gate_len: u32 = 0,
 };
 

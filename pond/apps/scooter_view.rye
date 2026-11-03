@@ -42,7 +42,7 @@ pub const body_rows: u32 = frame_rows - 1;
 /// A rendered terminal frame: a fixed grid of cells, space-filled where no character is drawn. rows_used
 /// names how many rows carry content, so a caller (or a later painter) knows where the drawing ends.
 pub const Frame = struct {
-    cells: [frame_rows * frame_cols]u8 = [_]u8{' '} ** (frame_rows * frame_cols),
+    cells: [frame_rows * frame_cols]u8 = @splat(' '),
     rows_used: u32 = 0,
 
     /// One row as a slice of exactly frame_cols cells.

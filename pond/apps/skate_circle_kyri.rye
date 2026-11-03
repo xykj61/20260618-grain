@@ -33,6 +33,7 @@ const skate = @import("skate_circle.rye");
 const signed = @import("skate_circle_signed.rye");
 const kumara = @import("kumara.rye");
 const parse_int = @import("parse_int.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 pub const skate_circle_kyri_version = "20260812.201611";
 
@@ -280,8 +281,8 @@ pub fn parse(text: []const u8) KyriError!PortableCircle {
 // --- selftest -----------------------------------------------------------
 
 // Demo keeper seeds -- plainly not real keys, so no identity is invented.
-const ivy_seed: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-const wren_seed: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
+const ivy_seed: [kumara.seed_length]u8 = @splat(0x11);
+const wren_seed: [kumara.seed_length]u8 = @splat(0x22);
 
 const ivy: u32 = 101;
 const wren: u32 = 202;
@@ -357,7 +358,7 @@ fn unwelcome_flipped_signature_refuses() !void {
 
 /// An unknown field refuses rather than being dropped -- the reader keeps every line honest.
 fn unwelcome_unknown_field_refuses() !void {
-    const text = "format skate-circle-v1\ncircle 7\nmember 101 " ++ ("00" ** sig_len) ++ "\nghost 5\n";
+    const text = "format skate-circle-v1\ncircle 7\nmember 101 " ++ (str_repeat("00", sig_len).*) ++ "\nghost 5\n";
     const bad = parse(text);
     assert(bad == error.UnknownField);
     print("skate_circle_kyri: an unknown field refused UnknownField rather than be dropped.\n", .{});

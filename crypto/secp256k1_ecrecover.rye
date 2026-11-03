@@ -144,7 +144,7 @@ fn eq32(a: *const [32]u8, b: *const [32]u8) bool {
 /// reduction the verifier and signer run. The big-endian value is reversed into the low 32 bytes of a 64-byte little-endian buffer, then reduced.
 fn hash_to_scalar(be: *const [32]u8) [32]u8 {
     const le = reverse32(be);
-    var wide = [_]u8{0} ** 64;
+    var wide = @splat(0);
     var i: u32 = 0;
     while (i < field_bytes) : (i += 1) {
         // invariant: the reversed value lands entirely in the low half of the wide buffer.
@@ -245,7 +245,7 @@ fn pubkey_eq(a: *const PubKey, qx: *const [32]u8, qy: *const [32]u8) bool {
 fn run_selftest() !u8 {
     // 0. Unsupported recovery ids are refused: only 0 and 1 are Ethereum-valid.
     {
-        const any = [_]u8{1} ** 32;
+        const any = @splat(1);
         if (recover(&any, &any, &any, 2)) |_| return error.RecoveryId2Accepted else |err| {
             if (err != error.UnsupportedRecoveryId) return error.WrongRecoveryIdError;
         }
@@ -256,7 +256,7 @@ fn run_selftest() !u8 {
     {
         var seed_byte: u8 = 1;
         while (seed_byte <= 8) : (seed_byte += 1) {
-            const seed = [_]u8{seed_byte} ** 32;
+            const seed = @splat(seed_byte);
             const kp = try ZEcdsa.KeyPair.generateDeterministic(seed);
             const aff = kp.public_key.p.affineCoordinates();
             const qx = aff.x.toBytes(.big);
@@ -295,7 +295,7 @@ fn run_selftest() !u8 {
 
         var seed_byte: u8 = 1;
         while (seed_byte <= 8) : (seed_byte += 1) {
-            const seed = [_]u8{seed_byte} ** 32;
+            const seed = @splat(seed_byte);
             const kp = try ZEcdsa.KeyPair.generateDeterministic(seed);
             const aff = kp.public_key.p.affineCoordinates();
             const qx = aff.x.toBytes(.big);

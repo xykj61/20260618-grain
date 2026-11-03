@@ -99,7 +99,7 @@ pub fn parse(line: []const u8) ParseError!BoundSpec {
     if (bound_text.len > prefix.len and std.mem.eql(u8, bound_text[0..prefix.len], prefix) and bound_text[bound_text.len - 1] == ')') {
         const ident = bound_text[prefix.len .. bound_text.len - 1];
         if (ident.len == 0 or ident.len >= max_ident_len) return error.IdentTooLong;
-        var padded: [max_ident_len]u8 = [_]u8{0} ** max_ident_len;
+        var padded: [max_ident_len]u8 = @splat(0);
         @memcpy(padded[0..ident.len], ident);
         // invariant: a constructed lent_of bound never claims more of its
         // fixed buffer than the length check above already proved fits.

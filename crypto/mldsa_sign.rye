@@ -167,11 +167,11 @@ fn expand_mask_poly(rho_pp: *const [64]u8, nonce: u16, gamma1_bits: u32) SignErr
     iv[65] = @as(u8, @intCast(nonce >> 8));
 
     const packed_len: u32 = 32 * (gamma1_bits + 1);
-    var pk: encode.Packed = .{ .bytes = [_]u8{0} ** encode.max_bytes, .len = packed_len };
+    var pk: encode.Packed = .{ .bytes = @splat(0), .len = packed_len };
     shake.shake256(iv[0..], pk.bytes[0..packed_len]) catch return error.HashFailed;
 
     const signed = encode.bit_unpack(&pk, gamma1 - 1, gamma1);
-    var out: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var out: ring.Poly = .{ .cs = @splat(0) };
     var i: u32 = 0;
     // invariant (bound): exactly n = 256 coefficients lifted to residue form, one per turn.
     while (i < n) : (i += 1) out.cs[i] = res_from_centered(signed[i]);
@@ -183,7 +183,7 @@ fn expand_mask_poly(rho_pp: *const [64]u8, nonce: u16, gamma1_bits: u32) SignErr
 fn packed_from(src: []const u8) encode.Packed {
     // invariant (precondition): the slice fits the carrier and is a whole-byte packing.
     assert(src.len <= encode.max_bytes);
-    var p: encode.Packed = .{ .bytes = [_]u8{0} ** encode.max_bytes, .len = @as(u32, @intCast(src.len)) };
+    var p: encode.Packed = .{ .bytes = @splat(0), .len = @as(u32, @intCast(src.len)) };
     var i: u32 = 0;
     // invariant (bound): exactly src.len bytes copied, one per turn.
     while (i < src.len) : (i += 1) p.bytes[i] = src[i];
@@ -195,7 +195,7 @@ fn packed_from(src: []const u8) encode.Packed {
 fn decode_poly_ntt(src: []const u8, a: u32, b: u32) ring.Poly {
     const p = packed_from(src);
     const signed = encode.bit_unpack(&p, a, b);
-    var poly: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var poly: ring.Poly = .{ .cs = @splat(0) };
     var i: u32 = 0;
     // invariant (bound): exactly n = 256 coefficients lifted, one per turn.
     while (i < n) : (i += 1) poly.cs[i] = res_from_centered(signed[i]);
@@ -211,7 +211,7 @@ fn c_mul(c_hat: *const ring.Poly, x_hat: *const ring.Poly) ring.Poly {
 /// accum_row -- one row of w = Â ∘ ŷ folded and returned to the standard domain: Σ_j Â[i][j] ∘ ŷ[j], each addend a canonical residue, then invNTT. The
 /// same composition the keygen rung's computeT used for t.
 fn accum_row(a_row: *const [max_l]ring.Poly, y_hat: *const [max_l]ring.Poly, l: u32) ring.Poly {
-    var acc: ring.Poly = .{ .cs = [_]u32{0} ** n };
+    var acc: ring.Poly = .{ .cs = @splat(0) };
     var j: u32 = 0;
     // invariant (bound): exactly l pointwise products accumulated, never unbounded.
     while (j < l) : (j += 1) {

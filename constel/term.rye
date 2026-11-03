@@ -52,7 +52,7 @@ pub const TermError = error{
 /// Each roster slot's highest-seen term -- a bounded [max_piers]u32, exactly like the roster it indexes. A term is monotonic per
 /// slot: observe advances it, and nothing ever lowers it.
 pub const TermTable = struct {
-    term: [roster.max_piers]u32 = [_]u32{ground_term} ** roster.max_piers,
+    term: [roster.max_piers]u32 = @splat(ground_term),
     size: u32 = 0,
 
     /// The term a slot currently holds. A fresh table reads ground_term everywhere.

@@ -105,7 +105,7 @@ pub fn stereo_smooth_trim(
     // Forward pass -- the SILENCE INTERSECTION over the SMOOTHED labels. Walk the frames left to right, advancing one cursor per channel across its own smoothed tiling run
     // list, and mark a frame jointly-silent ONLY where it is `.silent` in both SMOOTHED channels. A frame silent in one smoothed channel alone is left unmarked -- the other
     // speaker's content keeps it. Count the jointly-silent samples so the length postcondition can be asserted exactly.
-    var joint_silent = [_]bool{false} ** max_frames;
+    var joint_silent = @splat(false);
     var joint_total: u32 = 0;
     var li: u32 = 0;
     var ri: u32 = 0;

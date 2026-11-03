@@ -67,7 +67,7 @@ pub fn pass_muster_across(m: *const muster.Muster, c: *const chorus.Chorus, ledg
 // ---- selftest: a roll's verdict on a quorum reads true across a sealed checkpoint ----
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 
@@ -191,7 +191,7 @@ fn roll_of_four() !muster.Muster {
 }
 
 pub fn main() !void {
-    const id = [_]u8{0x01} ** lapse.id_len;
+    const id = @splat(0x01);
     const nodes = three_nodes();
     const alice_pk = seeded(0xA1).public_key.toBytes();
     const bob_pk = seeded(0xB2).public_key.toBytes();

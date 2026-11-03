@@ -155,12 +155,12 @@ fn parse_import_line(line: []const u8) LowerError![]const u8 {
 }
 
 pub const ComposeLibSpec = struct {
-    stem: [max_stem_len]u8 = .{0} ** max_stem_len,
+    stem: [max_stem_len]u8 = @splat(0),
     stem_len: usize = 0,
-    face: [rf.max_name_len]u8 = .{0} ** rf.max_name_len,
+    face: [rf.max_name_len]u8 = @splat(0),
     face_len: usize = 0,
     value: u32 = 0,
-    gate: [rc.max_name_len]u8 = .{0} ** rc.max_name_len,
+    gate: [rc.max_name_len]u8 = @splat(0),
     gate_len: usize = 0,
 };
 

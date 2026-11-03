@@ -18,7 +18,7 @@ pub fn main() void {
     const z = mem.zeroes(Ex);
     std.debug.assert(z.x == 0);
     std.debug.assert(z.y == 0);
-    std.debug.assert(mem.eql(u8, mem.asBytes(&z), &[_]u8{0} ** @sizeOf(Ex)));
+    std.debug.assert(mem.eql(u8, mem.asBytes(&z), &@as([@sizeOf(Ex)]u8, @splat(0))));
 
     std.debug.print("rye: mem.zeroes assertions confirmed.\n", .{});
 }

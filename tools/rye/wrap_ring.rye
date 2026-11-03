@@ -65,7 +65,7 @@ pub const Ring = struct {
         };
         var i: u32 = 0;
         while (i < circumference) : (i += 1) {
-            r.pages[i] = Page{ .bytes = [_]u8{0} ** page_bytes, .lap = 0 };
+            r.pages[i] = Page{ .bytes = @splat(0), .lap = 0 };
         }
         // invariant: construction leaves every page on lap zero, so a reader
         // handed a page before any write can tell it was never written.

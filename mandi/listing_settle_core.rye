@@ -29,7 +29,7 @@ pub const max_settled: u32 = 8;
 
 /// Settle seed -- distinct from Mandi listing 0x67, Exchange 0x66, delivery 0x64.
 /// Public by construction: it is written here, so the keypair is reproducible by any reader.
-const settle_seed: [kumara.seed_length]u8 = .{0x68} ** kumara.seed_length;
+const settle_seed: [kumara.seed_length]u8 = @splat(0x68);
 
 pub const SettleError = error{
     InvalidSettle,

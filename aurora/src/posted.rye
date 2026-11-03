@@ -38,8 +38,8 @@ const off_cipher: usize = off_tag + ChaCha20Poly1305.tag_length; // ciphertext b
 const wire_capacity: usize = 512;
 const max_message: usize = wire_capacity - off_cipher;
 
-const seed_alice = [_]u8{0xA1} ** 32;
-const seed_bob = [_]u8{0xB0} ** 32;
+const seed_alice = @splat(0xA1);
+const seed_bob = @splat(0xB0);
 
 export fn _start() linksection(".text.init") callconv(.naked) noreturn {
     // Each hart gives itself its own stack, then passes its id to kmain.
@@ -74,7 +74,7 @@ fn seal_and_post() noreturn {
     const bob_x_pub = X25519.publicKeyFromEd25519(bob_pub) catch unreachable;
 
     const message = "Meet me where the rye grows.";
-    const nonce = [_]u8{0x01} ** ChaCha20Poly1305.nonce_length;
+    const nonce = @splat(0x01);
 
     const shared = X25519.scalarmult(alice_x.secret_key, bob_x_pub) catch unreachable;
     const key = seal_key(shared);

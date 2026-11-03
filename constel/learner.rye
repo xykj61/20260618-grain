@@ -212,11 +212,11 @@ fn run_selftest() !u8 {
     // 6. BOUNDED -- a full roster of eight, one a learner: seven voters, majority four, every voter acking commits, and the counts
     //    stay within the pier cap.
     {
-        var roles: [roster.max_piers]bool = [_]bool{true} ** roster.max_piers;
+        var roles: [roster.max_piers]bool = @splat(true);
         roles[roster.max_piers - 1] = false; // the last member is a learner
         assert(voter_count(&roles) == roster.max_piers - 1); // seven voters
         assert(voter_majority(&roles) == quorum.majority_of(roster.max_piers - 1)); // four
-        var acks: [roster.max_piers]bool = [_]bool{true} ** roster.max_piers; // everyone answers
+        var acks: [roster.max_piers]bool = @splat(true); // everyone answers
         assert(commit_backing(&roles, &acks) == roster.max_piers - 1); // the learner's ack skipped — seven
         assert(committed(&roles, &acks));
     }

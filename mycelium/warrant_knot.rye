@@ -104,7 +104,7 @@ pub fn verify_chain(ch: *const Chain) ChainError!muster.Muster {
 // ---- selftest: a succession chain reads the same head across a checkpoint ----------------------------
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 

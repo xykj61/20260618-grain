@@ -48,10 +48,10 @@ const DemoBlocks = struct {
 };
 
 fn seat_blocks() !DemoBlocks {
-    const ka = kumara.keypair_from_seed(&([_]u8{0xa1} ** kumara.seed_length));
-    const kb = kumara.keypair_from_seed(&([_]u8{0xb2} ** kumara.seed_length));
-    const kc = kumara.keypair_from_seed(&([_]u8{0xc3} ** kumara.seed_length));
-    const kd = kumara.keypair_from_seed(&([_]u8{0xd4} ** kumara.seed_length));
+    const ka = kumara.keypair_from_seed(&(@splat(0xa1)));
+    const kb = kumara.keypair_from_seed(&(@splat(0xb2)));
+    const kc = kumara.keypair_from_seed(&(@splat(0xc3)));
+    const kd = kumara.keypair_from_seed(&(@splat(0xd4)));
 
     const fa = fold.mint_fact(ka, fold.kind_issue, 500, "", "genesis-a") orelse return error.MintA;
     const fb = fold.mint_fact(kb, fold.kind_issue, 500, "", "genesis-b") orelse return error.MintB;

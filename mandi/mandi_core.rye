@@ -29,7 +29,7 @@ pub const max_price_len: u32 = 16;
 
 /// Mandi listing seed -- distinct from Granary exchange 0x66 and Amphora delivery 0x64.
 /// Public by construction: it is written here, so the keypair is reproducible by any reader.
-const listing_seed: [kumara.seed_length]u8 = .{0x67} ** kumara.seed_length;
+const listing_seed: [kumara.seed_length]u8 = @splat(0x67);
 
 pub const ListingError = error{
     InvalidListing,

@@ -135,7 +135,7 @@ fn load32(s: *const [32]u8) [5]u64 {
 fn store32(l: [5]u64) [32]u8 {
     // invariant: only values below n are serialized, so the top limb is empty and the low four limbs hold the whole scalar.
     assert(l[4] == 0);
-    var s = [_]u8{0} ** 32;
+    var s = @splat(0);
     var i: u32 = 0;
     while (i < scalar_bytes) : (i += 1) {
         s[i] = @truncate(l[i >> 3] >> @intCast((i & 7) * 8));
@@ -189,7 +189,7 @@ fn mul_wide(a: *const [32]u8, b: *const [32]u8) [64]u8 {
         assert(carry <= 0xffffffffffffffff and r[i + 4] == 0);
         r[i + 4] = @truncate(carry);
     }
-    var out = [_]u8{0} ** 64;
+    var out = @splat(0);
     var k: u32 = 0;
     while (k < wide_bytes) : (k += 1) {
         out[k] = @truncate(r[k >> 3] >> @intCast((k & 7) * 8));
@@ -230,7 +230,7 @@ pub fn invert(a: *const [32]u8) [32]u8 {
     // invariant: inversion takes a canonical operand below n.
     assert(is_canonical(a));
     const e = exponent_n_minus_2();
-    var one = [_]u8{0} ** 32;
+    var one = @splat(0);
     one[0] = 1; // the multiplicative identity as a little-endian scalar
     var r = one;
     var i: u32 = exponent_bits;
@@ -309,22 +309,22 @@ fn run_selftest() !u8 {
     // 1. Algebraic known-answers anyone can check.
     {
         // 0 reduces to 0.
-        const zero_wide = [_]u8{0} ** 64;
-        if (!bytes_eq(&reduce(&zero_wide), &([_]u8{0} ** 32))) return error.ZeroReduceMismatch;
+        const zero_wide = @splat(0);
+        if (!bytes_eq(&reduce(&zero_wide), &(@splat(0)))) return error.ZeroReduceMismatch;
 
         // n reduces to 0 -- embed our own n bytes in the low half of a 64-byte value.
-        var n_wide = [_]u8{0} ** 64;
+        var n_wide = @splat(0);
         const nb = n_bytes();
         var i: u32 = 0;
         while (i < 32) : (i += 1) n_wide[i] = nb[i];
-        if (!bytes_eq(&reduce(&n_wide), &([_]u8{0} ** 32))) return error.OrderReduceMismatch;
+        if (!bytes_eq(&reduce(&n_wide), &(@splat(0)))) return error.OrderReduceMismatch;
 
         // 0 is canonical (below n); n itself is not.
-        if (!is_canonical(&([_]u8{0} ** 32))) return error.ZeroNotCanonical;
+        if (!is_canonical(&(@splat(0)))) return error.ZeroNotCanonical;
         if (is_canonical(&nb)) return error.OrderCanonical;
 
         // a - 1 = a for a spread of canonical scalars.
-        var one = [_]u8{0} ** 32;
+        var one = @splat(0);
         one[0] = 1;
         var seed: u8 = 1;
         while (seed <= 16) : (seed += 1) {
@@ -336,7 +336,7 @@ fn run_selftest() !u8 {
         seed = 1;
         while (seed <= 16) : (seed += 1) {
             const a = canon_scalar_seed(seed);
-            if (bytes_eq(&a, &([_]u8{0} ** 32))) continue; // 0 has no inverse
+            if (bytes_eq(&a, &(@splat(0)))) continue; // 0 has no inverse
             const inv = invert(&a);
             if (!bytes_eq(&mul(&a, &inv), &one)) return error.InverseRoundTripMismatch;
         }
@@ -350,7 +350,7 @@ fn run_selftest() !u8 {
             const w = wide_bytes_seed(seed);
             if (!bytes_eq(&reduce(&w), &ZScalar.reduce64(w, .little))) return error.RefReduceMismatch;
         }
-        const ones = [_]u8{0xff} ** 64;
+        const ones = @splat(0xff);
         if (!bytes_eq(&reduce(&ones), &ZScalar.reduce64(ones, .little))) return error.RefReduceOnesMismatch;
     }
 
@@ -371,7 +371,7 @@ fn run_selftest() !u8 {
         var seed: u8 = 1;
         while (seed <= 32) : (seed += 1) {
             const a = canon_scalar_seed(seed);
-            if (bytes_eq(&a, &([_]u8{0} ** 32))) continue;
+            if (bytes_eq(&a, &(@splat(0)))) continue;
             const zs = try ZScalar.Scalar.fromBytes(a, .little);
             if (!bytes_eq(&invert(&a), &zs.invert().toBytes(.little))) return error.RefInvertMismatch;
         }

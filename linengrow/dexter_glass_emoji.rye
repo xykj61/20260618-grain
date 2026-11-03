@@ -22,7 +22,7 @@ pub const Tab = enum(u8) {
 };
 
 pub const Utf8 = struct {
-    data: [max_utf8]u8 = [_]u8{0} ** max_utf8,
+    data: [max_utf8]u8 = @splat(0),
     len: u8 = 0,
 
     pub fn slice(self: *const Utf8) []const u8 {
@@ -135,7 +135,7 @@ pub const faces: [face_count]Face = .{
 
 /// Glyph table for Skate extended slots 0..127 (only 0..face_count-1 filled).
 pub const glyphs_ext: [128][8]u8 = blk: {
-    var out: [128][8]u8 = [_][8]u8{[_]u8{0} ** 8} ** 128;
+    var out: [128][8]u8 = @splat(@as([8]u8, @splat(0)));
     for (faces, 0..) |f, i| {
         out[i] = f.glyph;
     }

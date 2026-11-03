@@ -316,7 +316,7 @@ const AnswerSlot = struct {
 pub const Ticket = struct { index: u32, generation: u32 };
 
 pub const AnswerPool = struct {
-    slots: [pool_answer_max]AnswerSlot = [_]AnswerSlot{.{}} ** pool_answer_max,
+    slots: [pool_answer_max]AnswerSlot = @splat(.{}),
     active: u32 = 0,
     retained: u32 = 0,
 

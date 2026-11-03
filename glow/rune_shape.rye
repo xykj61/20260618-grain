@@ -101,37 +101,27 @@ pub fn classify_shape_aura(aura: []const u8) ParseError!ShapeAuraFlags {
 }
 
 pub const ShapeSpec = struct {
-    name: [max_name_len]u8 = [_]u8{0} ** max_name_len,
+    name: [max_name_len]u8 = @splat(0),
     name_len: usize = 0,
     body: BodyKind = .tuple,
-    fields: [max_fields][max_name_len]u8 = [_][max_name_len]u8{[_]u8{0} ** max_name_len} ** max_fields,
-    field_lens: [max_fields]usize = [_]usize{0} ** max_fields,
+    fields: [max_fields][max_name_len]u8 = @splat(@as([max_name_len]u8, @splat(0))),
+    field_lens: [max_fields]usize = @splat(0),
     /// glow-language: true when the `$:` face aura is `@t` (cord).
-    field_is_cord: [max_fields]bool = [_]bool{false} ** max_fields,
+    field_is_cord: [max_fields]bool = @splat(false),
     /// glow-language: true when the `$:` face aura is `@ux` (hex); exclusive of cord.
-    field_is_hex: [max_fields]bool = [_]bool{false} ** max_fields,
+    field_is_hex: [max_fields]bool = @splat(false),
     /// `20260724.205719`: true when the `$:` face aura is `@u64`; exclusive of cord/hex.
-    field_is_u64: [max_fields]bool = [_]bool{false} ** max_fields,
+    field_is_u64: [max_fields]bool = @splat(false),
     /// Per `$%` arm: count of payload faces; 0 means unit `~`.
-    payload_counts: [max_fields]usize = [_]usize{0} ** max_fields,
-    payloads: [max_fields][max_payload_faces][max_name_len]u8 = [_][max_payload_faces][max_name_len]u8{
-        [_][max_name_len]u8{[_]u8{0} ** max_name_len} ** max_payload_faces,
-    } ** max_fields,
-    payload_face_lens: [max_fields][max_payload_faces]usize = [_][max_payload_faces]usize{
-        [_]usize{0} ** max_payload_faces,
-    } ** max_fields,
+    payload_counts: [max_fields]usize = @splat(0),
+    payloads: [max_fields][max_payload_faces][max_name_len]u8 = @splat(@as([max_payload_faces][max_name_len]u8, @splat(@as([max_name_len]u8, @splat(0))))),
+    payload_face_lens: [max_fields][max_payload_faces]usize = @splat(@as([max_payload_faces]usize, @splat(0))),
     /// glow-language: per payload face -- `@t` cord (exclusive of hex).
-    payload_face_is_cord: [max_fields][max_payload_faces]bool = [_][max_payload_faces]bool{
-        [_]bool{false} ** max_payload_faces,
-    } ** max_fields,
+    payload_face_is_cord: [max_fields][max_payload_faces]bool = @splat(@as([max_payload_faces]bool, @splat(false))),
     /// glow-language: per payload face -- `@ux` hex (exclusive of cord).
-    payload_face_is_hex: [max_fields][max_payload_faces]bool = [_][max_payload_faces]bool{
-        [_]bool{false} ** max_payload_faces,
-    } ** max_fields,
+    payload_face_is_hex: [max_fields][max_payload_faces]bool = @splat(@as([max_payload_faces]bool, @splat(false))),
     /// `20260724.205719`: per payload face -- `@u64` (exclusive of cord/hex).
-    payload_face_is_u64: [max_fields][max_payload_faces]bool = [_][max_payload_faces]bool{
-        [_]bool{false} ** max_payload_faces,
-    } ** max_fields,
+    payload_face_is_u64: [max_fields][max_payload_faces]bool = @splat(@as([max_payload_faces]bool, @splat(false))),
     field_count: usize = 0,
 };
 
@@ -491,9 +481,9 @@ pub fn parse_source_reporting(src: []const u8, out: *refusal.Slot) ParseError!Sh
             } else {
                 // Payload arm: one or more face=<admitted>, then ].
                 var faces: [max_payload_faces][]const u8 = undefined;
-                var face_cord: [max_payload_faces]bool = [_]bool{false} ** max_payload_faces;
-                var face_hex: [max_payload_faces]bool = [_]bool{false} ** max_payload_faces;
-                var face_u64: [max_payload_faces]bool = [_]bool{false} ** max_payload_faces;
+                var face_cord: [max_payload_faces]bool = @splat(false);
+                var face_hex: [max_payload_faces]bool = @splat(false);
+                var face_u64: [max_payload_faces]bool = @splat(false);
                 var face_count: u32 = 0;
                 while (i < n and toks[@as(usize, @intCast(i))].kind != .rbracket) {
                     if (face_count >= max_payload_faces) {

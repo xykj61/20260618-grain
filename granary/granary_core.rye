@@ -27,7 +27,7 @@ pub const digest_hex_len: u32 = 64;
 pub const stamp_sig_hex_len: u32 = kumara.signature_length * 2;
 
 /// Publisher witness seed -- distinct from vessel 0x62, seal 0x63, delivery 0x64.
-const publisher_seed: [kumara.seed_length]u8 = .{0x65} ** kumara.seed_length;
+const publisher_seed: [kumara.seed_length]u8 = @splat(0x65);
 
 pub const fixture_front_page = "granary/fixtures/front_page.md";
 
@@ -56,14 +56,14 @@ pub const NameFact = struct {
 };
 
 const StoredFact = struct {
-    stamp: [max_stamp]u8 = .{0} ** max_stamp,
+    stamp: [max_stamp]u8 = @splat(0),
     stamp_len: u32 = 0,
-    person: [max_person]u8 = .{0} ** max_person,
+    person: [max_person]u8 = @splat(0),
     person_len: u32 = 0,
-    weave: [max_weave]u8 = .{0} ** max_weave,
+    weave: [max_weave]u8 = @splat(0),
     weave_len: u32 = 0,
-    resin_digest: [digest_hex_len]u8 = .{0} ** digest_hex_len,
-    stamp_sig: [stamp_sig_hex_len]u8 = .{0} ** stamp_sig_hex_len,
+    resin_digest: [digest_hex_len]u8 = @splat(0),
+    stamp_sig: [stamp_sig_hex_len]u8 = @splat(0),
 
     fn as_view(self: *const StoredFact) NameFact {
         return .{
@@ -77,13 +77,13 @@ const StoredFact = struct {
 };
 
 const StoredResin = struct {
-    digest_hex: [digest_hex_len]u8 = .{0} ** digest_hex_len,
-    bytes: [max_resin_bytes]u8 = .{0} ** max_resin_bytes,
+    digest_hex: [digest_hex_len]u8 = @splat(0),
+    bytes: [max_resin_bytes]u8 = @splat(0),
     bytes_len: u32 = 0,
 };
 
 pub const FrameLine = struct {
-    text: [max_frame_line]u8 = .{0} ** max_frame_line,
+    text: [max_frame_line]u8 = @splat(0),
     text_len: u32 = 0,
 
     pub fn slice(self: *const FrameLine) []const u8 {

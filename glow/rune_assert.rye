@@ -31,7 +31,7 @@ pub const Polarity = enum { positive, negative };
 /// Invariant: test_len <= max_test_len; body is a decimal payload.
 pub const AssertSpec = struct {
     polarity: Polarity = .positive,
-    test_expr: [max_test_len]u8 = [_]u8{0} ** max_test_len,
+    test_expr: [max_test_len]u8 = @splat(0),
     test_len: u32 = 0,
     body: u32 = 0,
 };

@@ -20,13 +20,13 @@ const tally_parse_int = @import("parse_int.rye");
 pub const wov_version = "20260709.224634";
 
 /// Pinned witness seeds -- distinct from MUR (0x61/0x62; was MALA) and Open Asks (0x51-0x53).
-pub const monarch_seed = [_]u8{0x71} ** kumara.seed_length;
-pub const holder_a_seed = [_]u8{0x72} ** kumara.seed_length;
-pub const holder_b_seed = [_]u8{0x73} ** kumara.seed_length;
+pub const monarch_seed = @splat(0x71);
+pub const holder_a_seed = @splat(0x72);
+pub const holder_b_seed = @splat(0x73);
 /// Second monarch for dual-control D1 (twin log lines).
-pub const monarch_b_seed = [_]u8{0x74} ** kumara.seed_length;
+pub const monarch_b_seed = @splat(0x74);
 
-pub const instance_id_bytes = [_]u8{0xaa} ** 16;
+pub const instance_id_bytes = @splat(0xaa);
 pub const pubkey_hex_len: u32 = 64;
 pub const instance_hex_len: u32 = 32;
 pub const digest_hex_len: u32 = 64;
@@ -57,13 +57,13 @@ const ExitKey = struct {
 };
 
 pub const Book = struct {
-    accounts: [max_accounts]Account = [_]Account{.{}} ** max_accounts,
+    accounts: [max_accounts]Account = @splat(.{}),
     account_count: u32 = 0,
     issued: i64 = 0,
     redeemed: i64 = 0,
     root_seq: u64 = 0,
     prev_state_root_hex: [digest_hex_len]u8 = undefined,
-    exits: [max_exits]ExitKey = [_]ExitKey{.{}} ** max_exits,
+    exits: [max_exits]ExitKey = @splat(.{}),
     exit_count: u32 = 0,
 
     pub fn init() Book {

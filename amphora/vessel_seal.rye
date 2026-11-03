@@ -32,7 +32,7 @@ pub const nonce_hex_len: u32 = ChaCha20Poly1305.nonce_length * 2;
 pub const tag_hex_len: u32 = ChaCha20Poly1305.tag_length * 2;
 
 /// Witness seal key -- distinct from vessel stamp seed 0x62 and kumara 0x42.
-const vessel_seal_seed: [ChaCha20Poly1305.key_length]u8 = .{0x63} ** ChaCha20Poly1305.key_length;
+const vessel_seal_seed: [ChaCha20Poly1305.key_length]u8 = @splat(0x63);
 
 fn trim_line(line: []const u8) []const u8 {
     return std.mem.trim(u8, line, " \t\r\n");
@@ -404,7 +404,7 @@ fn run_open_check(io: std.Io, path: []const u8) !u8 {
 fn run_selftest() !u8 {
     const plain = "cargo plain-bytes cd416bd6cae889877c353fc9abe39daaff1668666049a8fd10974248d99d23ab hello.txt\n";
     const ad = shoulder_ring1_wire;
-    const nonce = [_]u8{0x07} ** ChaCha20Poly1305.nonce_length;
+    const nonce = @splat(0x07);
     var cipher: [max_seal_plain]u8 = undefined;
     var tag: [ChaCha20Poly1305.tag_length]u8 = undefined;
     try encrypt_cargo(plain, ad, nonce, &cipher, &tag);

@@ -294,7 +294,7 @@ fn run_selftest() !u8 {
         std.mem.writeInt(u32, wild[13..17], max_entries + 99, .little);
         if (load(wild[0..n])) |_| unreachable else |err| assert(err == error.CorruptImage);
         // A truncated tail -- one byte short of the header+digest floor refuses ImageTooBig.
-        var tiny: [header_len + digest_len - 1]u8 = [_]u8{0} ** (header_len + digest_len - 1);
+        var tiny: [header_len + digest_len - 1]u8 = @splat(0);
         if (load(&tiny)) |_| unreachable else |err| assert(err == error.ImageTooBig);
         // A bad magic byte -- not our image at all.
         var badmagic: [max_image_bytes]u8 = undefined;

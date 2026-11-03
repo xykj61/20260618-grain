@@ -152,7 +152,7 @@ pub fn render(m: *const Muster) void {
 // --- selftest: a Chorus passes muster only when enrolled validators reach the threshold ------------
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 

@@ -321,7 +321,7 @@ pub fn committed_batch_log(
 // ---- selftest: the batch folds identical to single-fact -------------------
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 

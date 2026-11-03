@@ -41,9 +41,9 @@ pub const SessionError = error{
 /// committed payload a deliberate commit chose to carry out, and `powered` is the power itself. No heap outlives the
 /// power -- both buffers are fixed and bounded by `max_samples`.
 pub const Session = struct {
-    work: [max_samples]u8 = [_]u8{0} ** max_samples,
+    work: [max_samples]u8 = @splat(0),
     work_len: u32 = 0,
-    keep: [max_samples]u8 = [_]u8{0} ** max_samples,
+    keep: [max_samples]u8 = @splat(0),
     keep_len: u32 = 0,
     committed: bool = false,
     powered: bool = true,

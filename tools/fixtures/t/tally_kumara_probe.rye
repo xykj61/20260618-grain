@@ -5,7 +5,7 @@ const kumara = @import("kumara.rye");
 
 pub fn main(init: std.process.Init) !u8 {
     _ = init;
-    const seed: [kumara.seed_length]u8 = .{0x42} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(0x42);
     const first = kumara.keypair_from_seed(&seed);
     const second = kumara.keypair_from_seed(&seed);
     if (!std.mem.eql(u8, &first.public_key.bytes, &second.public_key.bytes)) {

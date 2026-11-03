@@ -120,12 +120,12 @@ pub fn place_of(point: u32) ?topology.Address {
 
 // --- selftest -----------------------------------------------------------
 
-const g_key: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-const g_keeper: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
-const s_key: [kumara.seed_length]u8 = .{0x44} ** kumara.seed_length;
-const s_keeper: [kumara.seed_length]u8 = .{0x55} ** kumara.seed_length;
-const p_key: [kumara.seed_length]u8 = .{0x77} ** kumara.seed_length;
-const p_keeper: [kumara.seed_length]u8 = .{0x88} ** kumara.seed_length;
+const g_key: [kumara.seed_length]u8 = @splat(0x11);
+const g_keeper: [kumara.seed_length]u8 = @splat(0x22);
+const s_key: [kumara.seed_length]u8 = @splat(0x44);
+const s_keeper: [kumara.seed_length]u8 = @splat(0x55);
+const p_key: [kumara.seed_length]u8 = @splat(0x77);
+const p_keeper: [kumara.seed_length]u8 = @splat(0x88);
 
 // The inclusive fractal: galaxy 3, its star (3,2) = 27, its planet (3,2,4) = 267.
 const galaxy_num: u32 = 3;
@@ -169,7 +169,7 @@ fn seat_world() !World {
 // An unsettled deed for a point that never settled -- used to prove the non-owner refusal.
 fn ghost_deed(point: u32) settlement.Deed {
     const addr = topology.decode(point).?;
-    const zero: [pubkey_len]u8 = .{0} ** pubkey_len;
+    const zero: [pubkey_len]u8 = @splat(0);
     return .{
         .point = point,
         .tier = addr.tier,
@@ -237,7 +237,7 @@ fn run_spool_keyed_selftest() !u8 {
     assert(kc.cat.count == before_ghost); // the refusal wound nothing
 
     // Unwelcome: a forged signature refuses -- the keeper never signed this publication.
-    const zero_sig: [sig_len]u8 = .{0} ** sig_len;
+    const zero_sig: [sig_len]u8 = @splat(0);
     if (store_owned_large(&kc, &store, &w.con, &w.planet, "forged.md", doc_security, &zero_sig)) |_| {
         return error.ForgedPublished;
     } else |err| {

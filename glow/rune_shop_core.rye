@@ -35,13 +35,13 @@ pub const CoreError = error{
 } || rb.ParseError;
 
 pub const ArmSpec = struct {
-    name: [max_arm_name_len]u8 = [_]u8{0} ** max_arm_name_len,
+    name: [max_arm_name_len]u8 = @splat(0),
     name_len: u32 = 0,
     gate: rb.GateSpec = .{},
 };
 
 pub const CoreSpec = struct {
-    arms: [max_core_arms]ArmSpec = [_]ArmSpec{.{}} ** max_core_arms,
+    arms: [max_core_arms]ArmSpec = @splat(.{}),
     arm_count: u32 = 0,
 };
 

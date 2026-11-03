@@ -120,7 +120,7 @@ pub const Pixmap = struct {
 /// each one).
 pub const EncodeResult = struct {
     len: u32 = 0,
-    ops: [op_count_kinds]u32 = [_]u32{0} ** op_count_kinds,
+    ops: [op_count_kinds]u32 = @splat(0),
 };
 
 /// A safe upper bound on the encoded size of a pixmap of `pixels` pixels: header + worst case one 5-byte
@@ -156,7 +156,7 @@ pub fn decode(allocator: std.mem.Allocator, bytes: []const u8) !Pixmap {
     // invariant: the output buffer is exactly four bytes per pixel.
     assert(out.len == @as(usize, pixel_count) * 4);
 
-    var index = [_]Rgba{.{ .r = 0, .g = 0, .b = 0, .a = 0 }} ** 64;
+    var index = @splat(.{ .r = 0, .g = 0, .b = 0, .a = 0 });
     var px = Rgba{ .r = 0, .g = 0, .b = 0, .a = 255 };
     var run: u32 = 0;
     var p: u32 = header_len; // read cursor into `bytes`
@@ -255,7 +255,7 @@ pub fn encode(pm: *const Pixmap, dst: []u8) !EncodeResult {
     dst[w + 13] = pm.colorspace;
     w = header_len;
 
-    var index = [_]Rgba{.{ .r = 0, .g = 0, .b = 0, .a = 0 }} ** 64;
+    var index = @splat(.{ .r = 0, .g = 0, .b = 0, .a = 0 });
     var prev = Rgba{ .r = 0, .g = 0, .b = 0, .a = 255 };
     var run: u32 = 0;
 

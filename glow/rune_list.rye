@@ -26,8 +26,8 @@ pub const ParseError = error{
 };
 
 pub const ListSpec = struct {
-    faces: [max_faces][max_name_len]u8 = .{.{0} ** max_name_len} ** max_faces,
-    lens: [max_faces]usize = .{0} ** max_faces,
+    faces: [max_faces][max_name_len]u8 = @splat(@as([max_name_len]u8, @splat(0))),
+    lens: [max_faces]usize = @splat(0),
     count: usize = 0,
 };
 

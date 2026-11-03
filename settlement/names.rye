@@ -28,6 +28,7 @@ const kumara = @import("kumara.rye");
 const tilak = @import("kumara_tilak.rye");
 const topology = @import("topology.rye");
 const settlement = @import("constellation.rye");
+const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
 const Sha256 = std.crypto.hash.sha2.Sha256;
 
@@ -77,7 +78,7 @@ fn valid_char(c: u8) bool {
 pub fn make_name(text: []const u8) ?Name {
     if (text.len == 0 or text.len > max_name_len) return null;
     if (text[0] == '-' or text[text.len - 1] == '-') return null;
-    var name = Name{ .bytes = .{0} ** max_name_len, .len = @intCast(text.len) };
+    var name = Name{ .bytes = @splat(0), .len = @intCast(text.len) };
     for (text, 0..) |c, i| {
         if (!valid_char(c)) return null;
         name.bytes[i] = c;
@@ -238,12 +239,12 @@ pub fn release(
 // --- selftest -----------------------------------------------------------
 
 // Example seeds -- plainly not a real pilot's key, so no identity is invented.
-const g_key: [kumara.seed_length]u8 = .{0x11} ** kumara.seed_length;
-const g_keeper: [kumara.seed_length]u8 = .{0x22} ** kumara.seed_length;
-const s_key: [kumara.seed_length]u8 = .{0x44} ** kumara.seed_length;
-const s_keeper: [kumara.seed_length]u8 = .{0x55} ** kumara.seed_length;
-const p_key: [kumara.seed_length]u8 = .{0x77} ** kumara.seed_length;
-const p_keeper: [kumara.seed_length]u8 = .{0x88} ** kumara.seed_length;
+const g_key: [kumara.seed_length]u8 = @splat(0x11);
+const g_keeper: [kumara.seed_length]u8 = @splat(0x22);
+const s_key: [kumara.seed_length]u8 = @splat(0x44);
+const s_keeper: [kumara.seed_length]u8 = @splat(0x55);
+const p_key: [kumara.seed_length]u8 = @splat(0x77);
+const p_keeper: [kumara.seed_length]u8 = @splat(0x88);
 
 // Topology numbers, inclusive fractal: galaxy 3, its star (3,2) = 27, its planet
 // (3,2,4) = 267. Sponsorship by modulus (267 mod 60 = 27, 27 mod 12 = 3).
@@ -322,7 +323,7 @@ fn prove_claim_and_release(w: *const World, reg: *NameRegistry) !void {
 // Every refusal name custody owes: a taken name, an already-named point, a
 // non-owner, a forged signature, and releasing a name one does not hold.
 fn prove_refusals(w: *const World, reg: *NameRegistry) !void {
-    const zero_sig: [sig_len]u8 = .{0} ** sig_len;
+    const zero_sig: [sig_len]u8 = @splat(0);
 
     // "bob" is taken by the star; the planet cannot claim it.
     const bob = name_of("bob");
@@ -361,7 +362,7 @@ fn prove_refusals(w: *const World, reg: *NameRegistry) !void {
 // A ghost deed for a point that never settled -- used to prove the non-owner refusal.
 fn unsettled_deed(point: u32) settlement.Deed {
     const addr = topology.decode(point).?;
-    const zero: [pubkey_len]u8 = .{0} ** pubkey_len;
+    const zero: [pubkey_len]u8 = @splat(0);
     return .{
         .point = point,
         .tier = addr.tier,
@@ -385,7 +386,7 @@ fn prove_name_validation() !void {
     if (make_name("with space") != null) return error.SpaceAccepted;
     if (make_name("-lead") != null) return error.LeadingHyphenAccepted;
     if (make_name("trail-") != null) return error.TrailingHyphenAccepted;
-    const too_long = "a" ** (max_name_len + 1);
+    const too_long = str_repeat("a", (max_name_len + 1));
     if (make_name(too_long) != null) return error.TooLongAccepted;
 }
 

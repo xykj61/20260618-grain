@@ -40,7 +40,7 @@ pub const corpus_facts: u32 = 32;
 pub const batch_width: u32 = cord_batch.max_facts_per_block;
 
 fn seeded(byte: u8) kumara.KeyPair {
-    const seed: [kumara.seed_length]u8 = .{byte} ** kumara.seed_length;
+    const seed: [kumara.seed_length]u8 = @splat(byte);
     return kumara.keypair_from_seed(&seed);
 }
 
