@@ -109,7 +109,7 @@ These prompts already exist. The table says which sign-round of the remaining qu
 | `20261007-084500` the Suno stems | the title length landed in the previous quest | Pisces, if a later round wants the wish and the square still. |
 | `20261006-012726` the root shortens one parent | a rule is seated; the moves wait | Virgo: one parent, one job, one page. |
 | `20261006-003454` neth, one job | the prompt stands | Virgo beside the root, not a second tidy in the same round. |
-| `20261005-171200` the Zig 0.17 standfast | census counted; the pin stays 0.16.0 | Capricorn: the bound holds. |
+| `20261005-171200` the Zig 0.17 standfast | **LANDED** `20261103` -- 1,157 sites migrated, rye binary rebuilt on 0.17.0 | Capricorn: the bound holds, and then it moves. |
 | `20261005-211336` the native frame | the prompt stands | Leo, only as far as the receipt card is a product a person can hold. No provisioning. |
 | `20261005-225646` fold stays the fold | the prompt stands | Scorpio: the fold page, when its two missing links are in the tree. |
 

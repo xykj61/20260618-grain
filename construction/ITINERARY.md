@@ -158,7 +158,7 @@ Brushstroke declares each component's grid, role, state, tokens, and motion prof
 1. Review and revise the proposed one-page contract for **[The receipt you can read](../active-designing/date/20260912/20260912-201126_the-receipt-you-can-read-contract.md)**: one synthetic input, four public types, module residences, eight acceptance cases, and one falsifier now stand at a checkable edge.
 2. Keep Linengrow meaning and Dimeroll meaning separate over the same Mantra facts during implementation; the `20260913` review accepts this boundary.
 3. Integrate the first whole and stamp its achieved name only after the dual-product witness passes.
-4. The Zig 0.17.0 standfast is named at expanding-prompts/20261005-171200_zig-017-standfast-orbit.md. Census counted. Pin stays 0.16.0. A ledger row waits until a compile refuses.
+4. **LANDED (`20261103.020226`).** Zig 0.17.0 molt-breach complete: 1,157 migration sites across 471 files, `rye/bin/rye` rebuilt on 0.17.0, three test builds verified. Commit `001e9f24a1`. The standfast at `expanding-prompts/20261005-171200_zig-017-standfast-orbit.md` is closed.
 
 **Stop:** product meaning, DJINN design authority, custody, or a new module seat returns to Keaton.
 
