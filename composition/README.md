@@ -26,6 +26,10 @@ Newest first.
 
 | Stamp | Entry |
 |---|---|
+| 20261102.211750 | [The Mantrapod and the Terrarium, side by side](20261102-211750_the-mantrapod-and-the-terrarium.md) | hardware and emulator face to face -- where they meet, what each teaches the other |
+| 20261102.211617 | [Kyli and Kyri, the teaching pair](20261102-211617_kyli-and-kyri-the-teaching-pair.md) | two voices, two promises -- the film and the notebook |
+| 20261102.211549 | [What must stop](20261102-211549_what-must-stop.md) | Fire sees -- the ledger at its bound, the run, the orphans, the rules, the holds |
+| 20261102.211530 | [The five and the five](20261102-211530_the-five-and-the-five.md) | harvest screens paired with Calfive goals -- the two checks meet in balance |
 | 20261101.144352 | [The harmony from earth to glass](20261101-144352_the-harmony-from-earth-to-glass.md) | five pictures harmonized: materials, economics, hardware, emulation, alignment |
 | 20261019.010800 | [The missing module gap](20261019-010800_the-missing-module-gap.md) | two days, six of eight kinds, module absent -- the teaching phase arrived on schedule |
 | 20261019.002845 | [Calfive plans -- seven kinds](20261019-002845_calfive-plans-seven-kinds.md) | language, product, identity/network, surface, hardware, creative suite, long return |

@@ -10,6 +10,18 @@ Opened: `20261018.225249`
 
 ---
 
+## 20261102
+
+**docs-page** `composition/20261102-211750_the-mantrapod-and-the-terrarium.md` -- metal and glass side by side: the Mantrapod as destination, the Terrarium as window, each proving the other
+
+**docs-page** `composition/20261102-211617_kyli-and-kyri-the-teaching-pair.md` -- two voices (Kyri the film, Kyli the notebook) and why they stay separate
+
+**docs-page** `composition/20261102-211549_what-must-stop.md` -- fire sees: the ledger bound, the cold run cost, the orphan census, the rule token weight, the gate holds, the double-published spine
+
+**docs-page** `composition/20261102-211530_the-five-and-the-five.md` -- harvest's five screens paired with Calfive's five goals in Libra balance
+
+---
+
 ## 20261101
 
 **docs-page** `composition/20261101-144352_the-harmony-from-earth-to-glass.md` `28cabe73dd` -- five pictures (materials, economics, hardware, emulation, alignment) harmonized into one argument; orbit round 5 economics check answered
