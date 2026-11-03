@@ -151,6 +151,7 @@ only=""
 hot=no
 probe=no
 scoped=no
+standfast=yes
 
 # THE CADENCE SLICE -- how many cadence guards this lap sings beside its lap tier. A tier is a
 # cadence rather than an exemption, and on this pier it had become the second: measured
@@ -433,6 +434,7 @@ while [ $# -gt 0 ]; do
             case "$cadence_slice" in
               ''|*[!0-9]*) echo "refused: --cadence-slice wants a whole number" >&2; exit 1 ;;
             esac ;;
+    --full) standfast=no ;;
     --*)    echo "refused: unknown option $1" >&2; exit 1 ;;
     *)      only="$1"; want_tier=all ;;
   esac
@@ -1576,6 +1578,11 @@ while read -r name path tier gate; do
   live_write
   echo "$name $verdict ${guard_seconds}s ${guard_cpu}ms"
   ran=$((ran + 1))
+  if [ "$standfast" = yes ] && { [ "$verdict" = red ] || [ "$verdict" = absent ]; }; then
+    echo "standfast: halting on first red -- pass --full for the complete roster"
+    standfast_broke=yes
+    break
+  fi
 done < "$pen/todo"
 
 # Taken before the runner writes its own card, so the digest describes the tree the GUARDS saw
@@ -1595,6 +1602,9 @@ hitledger_write
 run_scope=full
 [ "$scoped" = yes ] && run_scope=scoped
 [ -n "$only" ] && run_scope=named
+# A standfast break ran a partial set of guards; clear only what was actually run, the way a
+# scoped pass does, so evidence from guards that never ran this pass keeps standing.
+[ "${standfast_broke:-no}" = yes ] && run_scope=standfast
 
 # The evidence lands now, after the digest and beside the card, for the reason written above the
 # room's name. The old evidence is cleared first so a stale file can never be read as this run's
@@ -1630,6 +1640,13 @@ run_scope=full
 # `green_leaves_no_evidence` case reads.
 if [ "$run_scope" = full ]; then
   rm -rf "$red_room"
+elif [ "$run_scope" = standfast ]; then
+  # Standfast broke after a partial run -- clear only what actually ran, read from the fresh log.
+  awk '$1 == "ran" {print $2}' "$pen/fresh" | while read -r _rn; do
+    [ -n "$_rn" ] || continue
+    rm -f "$red_room/$_rn.txt"
+  done
+  rmdir "$red_room" 2>/dev/null || true
 else
   while read -r _rn; do
     [ -n "$_rn" ] || continue
@@ -1740,6 +1757,7 @@ if [ "$moved" = yes ]; then
 fi
 
 echo "tier_run=$want_tier"
+echo "standfast=$standfast"
 echo "guards_run=$ran"
 # The pass's own cost, so a hand reads what it just spent without opening the card (REDS %388).
 echo "guards_seconds=$seconds"
