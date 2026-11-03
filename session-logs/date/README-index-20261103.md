@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261103.020226` | [Zig 0.17 molt-breach send](20261103/20261103-020226_zig-017-molt-breach-send.kyri.md) | Committed 472 files and pushed to origin -- molt-breach landed on main |
 | `20261103.015842` | [Zig 0.17 molt-breach migration complete](20261103/20261103-015842_zig-017-molt-breach-complete.kyri.md) | Full tree migration from Zig 0.16 to 0.17: 1,157 sites across 458 files, rye binary rebuilt |
 | `20261103.010404` | [Lotus tablecloth board and ITINERARY append](20261103/20261103-010404_lotus-tablecloth-itinerary.kyri.md) | Created tablecloth/ project board for Equinox 1, appended Lotus to ITINERARY NOW section |
 | `20261103.005541` | [Lotus Calfive schedule commit](20261103/20261103-005541_lotus-calfive-commit.kyri.md) | Committed the Calfive schedule, session log, and index row together |
