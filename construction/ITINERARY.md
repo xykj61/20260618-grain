@@ -43,6 +43,19 @@ for the watched inputs. That changes the roster runner's contract, so it waits o
 3. (`20260916.004153`) -- **the wire ceiling above**, once Keaton's word names which door it takes.
    `%646` left this queue `20260917`: swept and closed, its 7 hard sites each wanting their own lane.
 
+### LOTUS -- The Working Studio (Equinox 1, active from `20261103.010404`)
+
+**Calfive schedule:** [`../active-designing/date/20261103/20261103-005021_lotus-daw-calfive-schedule.md`](../active-designing/date/20261103/20261103-005021_lotus-daw-calfive-schedule.md)
+**Proposal:** [`../active-designing/date/20261103/20261103-003744_lotus-daw-expansion-proposal.md`](../active-designing/date/20261103/20261103-003744_lotus-daw-expansion-proposal.md)
+**Project board:** [`../tablecloth/20261103-005948_lotus-working-studio/CHECKLIST.md`](../tablecloth/20261103-005948_lotus-working-studio/CHECKLIST.md)
+
+**NOW: Quest 1.1 Orbit 1 -- CoreAudio callback and transport.**
+Wire the Maitreya render graph to a single CoreAudio output. Transport: play, stop, record.
+One mono track backed by a Weave event stream. `lotus/clock.rye` drives real time.
+**SLC gate:** audio plays through CoreAudio without skipping under documented load.
+
+**Grows from:** 240 Lotus modules (241 witnesses), lotus-audio wire shape, macos-native macOS native surface, Skate Swift shell.
+**Waymarks:** lotus-audio (`season-c-lotus-creative-suite-audio-wire-shape`) -- macos-native (`macos-native-surface-rye-backend`).
 
 **Sailed accounts consolidated (`20261101.142320`).** Over forty shelved-account
 pointer blocks -- Pheromone, Incense, Copal, Bakery, Petrichor, Grass, Diffuser,
