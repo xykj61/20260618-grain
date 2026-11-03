@@ -263,7 +263,7 @@ fn link_body(id: []const u8, seq: u8, last: u8, to: []const u8, out: []u8) u32 {
 /// Build and resolve a committing three-link chain: genesis Alice 100 - Bob 50, then
 /// Alice->Bob 100, Bob->Carol 120, Carol->Dave 60 -- every link affords, the braid commits whole.
 fn build_scene() !braid.Ledger {
-    const id = @splat(0x07);
+    const id: [braid.id_len]u8 = @splat(0x07);
     const kf = seeded(0xF0);
     const ka = seeded(0xA1);
     const kb = seeded(0xB2);

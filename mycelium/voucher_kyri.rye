@@ -213,7 +213,7 @@ fn pledge_body(id: []const u8, deadline: u64, to: []const u8, out: []u8) u32 {
 /// Build a Dag: genesis credits Alice 100, Alice pledges 100 to Bob under a far deadline (open) -- so a
 /// voucher over Alice reads balance 0, reserved 100, received 100, the position the wire must carry whole.
 fn build_dag() !cord.Dag {
-    const id = @splat(0x01);
+    const id: [lapse.id_len]u8 = @splat(0x01);
     const kf = seeded(0xF0);
     const ka = seeded(0xA1);
     const kb = seeded(0xB2);

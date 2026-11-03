@@ -202,7 +202,15 @@ fn run_selftest() !u8 {
     //    never overshooting; both channels track it.
     {
         var sc = pan.StereoClip{};
-        try load_stereo(&sc, &(@splat(8000)), &(@splat( -2000, 3000 ))); // left is the louder, steady peak
+        const right_buf = comptime blk: {
+            var arr: [64]i16 = undefined;
+            for (0..32) |i| {
+                arr[i * 2] = -2000;
+                arr[i * 2 + 1] = 3000;
+            }
+            break :blk arr;
+        };
+        try load_stereo(&sc, &(@as([64]i16, @splat(8000))), &right_buf); // left is the louder, steady peak
         try stereo_follow(&sc, 0, 64, 1, 4, 1, 8); // attack 1:4
         const l = sc.left.samples();
         const r = sc.right.samples();
@@ -220,7 +228,7 @@ fn run_selftest() !u8 {
     {
         // linked peak 10000 for one sample (instant attack seats it), then the linked peak holds 2000 -- the release eases DOWN to exactly 2000.
         var sc = pan.StereoClip{};
-        try load_stereo(&sc, &([_]i16{10000} ++ (@splat(2000))), &(@splat( -50 ))); // left carries the linked peak throughout
+        try load_stereo(&sc, &([_]i16{10000} ++ @as([63]i16, @splat(2000))), &(@as([64]i16, @splat(-50)))); // left carries the linked peak throughout
         try stereo_follow(&sc, 0, 64, 1, 1, 1, 3); // instant attack, slow release 1:3
         const l = sc.left.samples();
         if (l[0] != 10000) return error.ReleaseAttackWrong;

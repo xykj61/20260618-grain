@@ -20,13 +20,13 @@ const tally_parse_int = @import("parse_int.rye");
 pub const wov_version = "20260709.224634";
 
 /// Pinned witness seeds -- distinct from MUR (0x61/0x62; was MALA) and Open Asks (0x51-0x53).
-pub const monarch_seed = @splat(0x71);
-pub const holder_a_seed = @splat(0x72);
-pub const holder_b_seed = @splat(0x73);
+pub const monarch_seed: [kumara.seed_length]u8 = @splat(0x71);
+pub const holder_a_seed: [kumara.seed_length]u8 = @splat(0x72);
+pub const holder_b_seed: [kumara.seed_length]u8 = @splat(0x73);
 /// Second monarch for dual-control D1 (twin log lines).
-pub const monarch_b_seed = @splat(0x74);
+pub const monarch_b_seed: [kumara.seed_length]u8 = @splat(0x74);
 
-pub const instance_id_bytes = @splat(0xaa);
+pub const instance_id_bytes: [16]u8 = @splat(0xaa);
 pub const pubkey_hex_len: u32 = 64;
 pub const instance_hex_len: u32 = 32;
 pub const digest_hex_len: u32 = 64;

@@ -116,7 +116,7 @@ pub fn derive_public(seed: *const [32]u8) [32]u8 {
     assert(bytes_eq(&a_bytes, &pt.to_bytes(sm.scalarmul(base_point(), &e.a))));
     // invariant: a clamped nonzero scalar times the prime-order base point is never the identity, so the key names a real point (identity
     // compresses to y = 1, the encoding 01 00...00).
-    var ident = @splat(0);
+    var ident: [32]u8 = @splat(0);
     ident[0] = 1;
     // invariant: a public key equal to the identity point signs nothing anyone can verify, and
     // it is the one derived value this must never publish
@@ -215,7 +215,7 @@ fn run_selftest() !u8 {
     //    and our signature equals Zig's byte-for-byte -- Zig being an independent RFC 8032 implementation.
     var seed_n: u8 = 1;
     while (seed_n <= 8) : (seed_n += 1) {
-        const seed = @splat(seed_n);
+        const seed: [32]u8 = @splat(seed_n);
 
         const kp = ZSig.KeyPair.generateDeterministic(seed) catch return error.KeyGenFailed;
         const zpk = kp.public_key.toBytes();
@@ -245,7 +245,7 @@ fn run_selftest() !u8 {
 
     // 2. The named message bound is enforced before hashing -- a message one byte past the maximum is refused with the named error.
     {
-        const seed = @splat(9);
+        const seed: [32]u8 = @splat(9);
         var big: [max_sign_message_bytes + 1]u8 = undefined;
         var i: u32 = 0;
         while (i < big.len) : (i += 1) big[i] = 0;

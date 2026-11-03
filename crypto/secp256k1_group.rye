@@ -213,7 +213,7 @@ fn run_selftest() !u8 {
 
         // B + (-B) is the point at infinity: its Z coordinate packs to zero.
         const inf = add(pb, neg(pb));
-        var zero_b = @splat(0);
+        var zero_b: [32]u8 = @splat(0);
         if (!bytes_eq(&fe.to_bytes(inf.z), &zero_b)) return error.InfinityNotZeroMismatch;
 
         // -(-B) = B -- double negation returns the same affine point.

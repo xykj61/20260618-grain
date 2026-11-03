@@ -191,8 +191,8 @@ const draft_subkey_hex = "82413b4227b27bfed30e42508a877d73a0f9e4d58a74a853c12ec4
 // lib/std/crypto/chacha20.zig) -- an independent, published anchor for the WHOLE construction, HChaCha20 subkey derivation included. Key
 // 0x45 repeated, nonce 0x2a repeated, the RFC's own 114-byte plaintext, and the associated data "Additional data" seal to exactly this
 // ciphertext and tag. A single wrong step anywhere in the extended-nonce path breaks it at once.
-const kat_key = @splat(69);
-const kat_nonce = @splat(42);
+const kat_key: [key_bytes]u8 = @splat(69);
+const kat_nonce: [xnonce_bytes]u8 = @splat(42);
 const kat_aad = "Additional data";
 const kat_plaintext = "Ladies and Gentlemen of the class of '99: If I could offer you only one tip for the future, sunscreen would be it.";
 const kat_cipher_hex = "994d2dd32333f48e53650c02c7a2abb8e018b0836d7175aec779f52e961780768f815c58f1aa52d211498db89b9216763f569c9433a6bbfcefb4d4a49387a4c5207fbb3b5a92b5941294df30588c6740d39dc16fa1f0e634f7246cf7cdcb978e44347d89381b7a74eb7084f754b90bde9aaf";
@@ -293,8 +293,8 @@ fn run_selftest() !u8 {
     {
         const key = draft_key;
         const msg = "the wide nonce lets a keeper draw at random and never collide";
-        var nonce_a = @splat(0);
-        var nonce_b = @splat(0);
+        var nonce_a: [xnonce_bytes]u8 = @splat(0);
+        var nonce_b: [xnonce_bytes]u8 = @splat(0);
         var i: u32 = 0;
         while (i < xnonce_bytes) : (i += 1) {
             nonce_a[i] = @as(u8, @truncate(i *% 3 +% 1));
@@ -320,7 +320,7 @@ fn run_selftest() !u8 {
     //    AuthFailed -- and none reveals a plaintext byte.
     {
         const key = draft_key;
-        const nonce = @splat(0x11);
+        const nonce: [xnonce_bytes]u8 = @splat(0x11);
         const aad = [_]u8{ 0xaa, 0xbb, 0xcc, 0xdd };
         const msg = "seal me under a wide nonce and prove a single altered byte is caught";
         var cipher: [msg.len]u8 = undefined;
@@ -349,7 +349,7 @@ fn run_selftest() !u8 {
     //    extended-nonce edge too.
     {
         const key = draft_key;
-        const nonce = @splat(0x22);
+        const nonce: [xnonce_bytes]u8 = @splat(0x22);
         var small: [8]u8 = undefined;
         var wrong: [4]u8 = undefined;
         var tag: [tag_bytes]u8 = undefined;

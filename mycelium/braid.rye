@@ -537,7 +537,7 @@ fn seat_chain(id: []const u8, final_amount: u64) ![5]cord.Block {
 }
 
 pub fn main() !void {
-    const id = @splat(0x07);
+    const id: [id_len]u8 = @splat(0x07);
     const ka = seeded(0xA1);
     const kb = seeded(0xB2);
     const kc = seeded(0xC3);

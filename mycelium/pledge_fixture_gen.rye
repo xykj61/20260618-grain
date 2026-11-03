@@ -62,8 +62,8 @@ fn post_body(id: []const u8, out: []u8) u32 {
 /// Alice posts it at round 2 (honored, Bob receives the reserved hundred); Alice pledges 100 to Carol at
 /// round 3 and leaves it open.
 fn seat_dag() !cord.Dag {
-    const id1 = @splat(0x01);
-    const id2 = @splat(0x02);
+    const id1: [pledge.id_len]u8 = @splat(0x01);
+    const id2: [pledge.id_len]u8 = @splat(0x02);
     const kf = seeded(0xF0); // demo funder / genesis credit authority
     const ka = seeded(0xA1); // Alice — the pledger
     const kb = seeded(0xB2); // Bob — the honored recipient

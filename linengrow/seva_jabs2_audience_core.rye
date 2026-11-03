@@ -22,7 +22,7 @@ pub const AudienceLens = struct {
     root: [32]u8,
 };
 
-const viewer2_seed = @splat(0x63);
+const viewer2_seed: [kumara.seed_length]u8 = @splat(0x63);
 
 /// Welcome audience: mixed stream replays multi-signer. Device-free.
 pub fn run_welcome_audience() !AudienceLens {

@@ -15,8 +15,8 @@ const rc = @import("receipt_core.rye");
 const tally_copy = @import("tally_copy.rye");
 
 const oa1_version = "20260707.023512";
-pub const poster_seed = @splat(0x51);
-pub const applicant_seed = @splat(0x52);
+pub const poster_seed: [kumara.seed_length]u8 = @splat(0x51);
+pub const applicant_seed: [kumara.seed_length]u8 = @splat(0x52);
 const oa1_poster_seed = poster_seed;
 const oa1_applicant_seed = applicant_seed;
 
@@ -24,7 +24,7 @@ const oa1_applicant_seed = applicant_seed;
 /// trust between poster and applicant, from acceptance until completion. A
 /// reserved deterministic identity, so a hold and a release name it as an
 /// ordinary account without forking the fact shape.
-pub const escrow_seed = @splat(0x53);
+pub const escrow_seed: [kumara.seed_length]u8 = @splat(0x53);
 
 /// OA-L3 escrow memo prefixes on the receipt-core fact. The hold is the M1
 /// commitment (poster to Nyasa); the release is the M2 delivery (Nyasa to

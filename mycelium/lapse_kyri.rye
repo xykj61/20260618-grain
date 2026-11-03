@@ -267,8 +267,8 @@ fn post_body(id: []const u8, out: []u8) u32 {
 /// 100 to Carol under a far deadline and leaves it open (reserved). The record must carry the
 /// lapsed settlement, the open one, the reserved holding, and each deadline.
 fn build_scene() !lapse.Ledger {
-    const id1 = @splat(0x01);
-    const id2 = @splat(0x02);
+    const id1: [lapse.id_len]u8 = @splat(0x01);
+    const id2: [lapse.id_len]u8 = @splat(0x02);
     const kf = seeded(0xF0);
     const ka = seeded(0xA1);
     const kb = seeded(0xB2);

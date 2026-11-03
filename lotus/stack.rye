@@ -145,7 +145,7 @@ fn run_selftest() !u8 {
     //    sample differs (the filter transient), the settled tail is exactly twice the input.
     {
         var clip = timeline.Clip{};
-        const src = @splat(1000);
+        const src: [30]i16 = @splat(1000);
         try load_clip(&clip, &src);
         try stack(&clip, 0, clip.len, 1, 2, 1, 2, 2, 1, 1, 1, 1, 1); // bass ×2, mid ×1, treble ×1
         const out = clip.samples();
@@ -157,7 +157,7 @@ fn run_selftest() !u8 {
     //    the input: the mid band is zero at direct current (M = x - x - 0), so the knob cannot touch a constant.
     {
         var clip = timeline.Clip{};
-        const src = @splat(1000);
+        const src: [30]i16 = @splat(1000);
         try load_clip(&clip, &src);
         try stack(&clip, 0, clip.len, 1, 2, 1, 2, 1, 1, 5, 1, 1, 1); // bass ×1, mid ×5, treble ×1
         const out = clip.samples();
@@ -168,7 +168,7 @@ fn run_selftest() !u8 {
     //    exactly the input: the high band is zero at direct current, so the knobs are orthogonal.
     {
         var clip = timeline.Clip{};
-        const src = @splat(1000);
+        const src: [30]i16 = @splat(1000);
         try load_clip(&clip, &src);
         try stack(&clip, 0, clip.len, 1, 2, 1, 2, 1, 1, 1, 1, 5, 1); // bass ×1, mid ×1, treble ×5
         const out = clip.samples();
@@ -179,7 +179,7 @@ fn run_selftest() !u8 {
     //    sample_max, never a wrapped negative.
     {
         var clip = timeline.Clip{};
-        const src = @splat(20000);
+        const src: [30]i16 = @splat(20000);
         try load_clip(&clip, &src);
         try stack(&clip, 0, clip.len, 1, 2, 1, 2, 2, 1, 1, 1, 1, 1); // bass ×2 → 40000, clamps to +32767
         const out = clip.samples();

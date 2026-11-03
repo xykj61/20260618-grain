@@ -139,7 +139,7 @@ fn ser32(index: u32) [4]u8 {
 /// exact shape the GREEN crypto/secp256k1_scalar.rye reduce folds -- and reduce returns the canonical residue, which we mirror back to big-endian.
 /// This authors NO new primitive; it lays the sum out for the proven reduction. Both inputs are below n, so the sum is below 2n < 2²⁵⁷.
 fn add_mod_n(a_be: *const [key_bytes]u8, b_be: *const [key_bytes]u8) [key_bytes]u8 {
-    var wide = @splat(0);
+    var wide: [64]u8 = @splat(0);
     var carry: u16 = 0;
     var i: u32 = 0;
     while (i < key_bytes) : (i += 1) {
@@ -388,7 +388,7 @@ pub fn fingerprint_pub(ext: *const ExtPub) Bip32Error![fingerprint_bytes]u8 {
 
 /// The field element 1 -- the Z coordinate that lifts an affine point (x, y) into projective (x : y : 1) for the group law.
 fn fe_one() fe.Field {
-    var one_be = @splat(0);
+    var one_be: [key_bytes]u8 = @splat(0);
     one_be[key_bytes - 1] = 1;
     return fe.from_bytes(&one_be);
 }
@@ -574,10 +574,10 @@ fn run_selftest() !u8 {
 
     // Edge refusals: a seed too short and a seed too long each raise BadSeedLength before the HMAC runs.
     {
-        const short = @splat(0);
+        const short: [8]u8 = @splat(0);
         if (master_from_seed(&short)) |_| return error.SeedLengthSlipped else |err| if (err != error.BadSeedLength) return error.WrongSeedErr;
 
-        const long = @splat(0);
+        const long: [65]u8 = @splat(0);
         if (master_from_seed(&long)) |_| return error.SeedLengthSlipped2 else |err| if (err != error.BadSeedLength) return error.WrongSeedErr2;
     }
 

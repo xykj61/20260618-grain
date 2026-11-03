@@ -130,7 +130,7 @@ fn load32(s: *const [32]u8) [5]u64 {
 fn store32(l: [5]u64) [32]u8 {
     // invariant: only values below L are serialized, so the top limb is empty and the low four limbs hold the whole scalar.
     assert(l[4] == 0);
-    var s = @splat(0);
+    var s: [32]u8 = @splat(0);
     var i: u32 = 0;
     while (i < scalar_bytes) : (i += 1) {
         s[i] = @truncate(l[i >> 3] >> @intCast((i & 7) * 8));
@@ -212,11 +212,11 @@ fn run_selftest() !u8 {
     // 1. Algebraic known-answers anyone can check.
     {
         // 0 reduces to 0.
-        const zero_wide = @splat(0);
+        const zero_wide: [64]u8 = @splat(0);
         if (!bytes_eq(&reduce(&zero_wide), &(@splat(0)))) return error.ZeroReduceMismatch;
 
         // L reduces to 0 -- embed our own L bytes in the low half of a 64-byte value.
-        var l_wide = @splat(0);
+        var l_wide: [64]u8 = @splat(0);
         const lb = l_bytes();
         var i: u32 = 0;
         while (i < 32) : (i += 1) l_wide[i] = lb[i];
@@ -235,7 +235,7 @@ fn run_selftest() !u8 {
             const w = wide_bytes_seed(seed);
             if (!bytes_eq(&reduce(&w), &ZScalar.reduce64(w))) return error.RefReduceMismatch;
         }
-        const ones = @splat(0xff);
+        const ones: [64]u8 = @splat(0xff);
         if (!bytes_eq(&reduce(&ones), &ZScalar.reduce64(ones))) return error.RefReduceOnesMismatch;
     }
 

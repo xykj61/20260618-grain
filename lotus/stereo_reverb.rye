@@ -170,7 +170,7 @@ fn run_selftest() !u8 {
 
         var m = pan.StereoClip{};
         try load_stereo(&m, &tl, &tr);
-        const many = @splat(.{ .delay = 1, .fb_num = 1, .fb_den = 2 });
+        const many: [reverb.max_stages + 1]reverb.CombSpec = @splat(.{ .delay = 1, .fb_num = 1, .fb_den = 2 });
         if (stereo_reverb(&m, 0, 4, &many, &allpasses)) |_| return error.TooManySlipped else |e| if (e != error.TooManyStages) return error.WrongTooMany;
         if (!eq(m.left.samples(), &tl) or !eq(m.right.samples(), &tr) or m.left.len != m.right.len) return error.TooManyRefusalMutated;
 

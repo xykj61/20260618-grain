@@ -61,7 +61,7 @@ pub const Base58Error = error{
 fn reverse_table() [256]u8 {
     // invariant: the alphabet is exactly the 58 symbols base58 indexes.
     assert(alphabet.len == 58);
-    var table = @splat(0xFF);
+    var table: [256]u8 = @splat(0xFF);
     var i: u32 = 0;
     while (i < 58) : (i += 1) table[alphabet[i]] = @as(u8, @intCast(i));
     return table;
@@ -80,7 +80,7 @@ pub fn encode(dest: []u8, source: []const u8) Base58Error![]const u8 {
     while (zeros < n and source[zeros] == 0) : (zeros += 1) {}
 
     // The long-division digit buffer, base-58 digits held big-end-first. size upper-bounds how many digits the payload can produce.
-    var b58 = @splat(0);
+    var b58: [max_encoded_bytes]u8 = @splat(0);
     const size: u32 = ((n * 138) / 100) + 1;
     // invariant: the digit buffer holds the whole worst-case expansion.
     assert(size <= max_encoded_bytes);
@@ -135,7 +135,7 @@ pub fn decode(dest: []u8, source: []const u8) Base58Error![]const u8 {
     while (zeros < m and source[zeros] == alphabet[0]) : (zeros += 1) {}
 
     // The base-256 accumulator, bytes held big-end-first. size upper-bounds the output length: base58 shrinks by log(58)/log(256) ≈ 0.7327.
-    var b256 = @splat(0);
+    var b256: [max_decoded_bytes]u8 = @splat(0);
     const size: u32 = ((m * 733) / 1000) + 1;
     // invariant: the accumulator holds the whole worst-case output.
     assert(size <= max_decoded_bytes);

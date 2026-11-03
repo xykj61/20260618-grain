@@ -13,7 +13,7 @@ const Sha3_256 = @import("std").crypto.hash.sha3.Sha3_256;
 
 var tx: vn.TxQueue = undefined;
 
-const batch_signer_seed = @splat(0x61);
+const batch_signer_seed: [kumara.seed_length]u8 = @splat(0x61);
 
 fn digest_hex_of(content: []const u8, out: *[64]u8) void {
     var digest: [32]u8 = undefined;

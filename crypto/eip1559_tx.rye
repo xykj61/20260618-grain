@@ -160,7 +160,7 @@ fn slice_eq(a: []const u8, b: []const u8) bool {
 fn run_selftest() !u8 {
     // EIP-155's own example test key 0x4646...46 -- a PUBLISHED test key, never a real identity. Its Ethereum address is public and already lives
     // in crypto/eip155_tx.rye as that spec's stated sender; we bind to it below rather than to any secret.
-    const test_key = @splat(0x46);
+    const test_key: [32]u8 = @splat(0x46);
     const address_want = [_]u8{
         0x9d, 0x8a, 0x62, 0xf6, 0x56, 0xa8, 0xd1, 0x61, 0x5c, 0x12,
         0x94, 0xfd, 0x71, 0xe9, 0xcf, 0xb3, 0xe4, 0x85, 0x5a, 0x4f,
@@ -180,7 +180,7 @@ fn run_selftest() !u8 {
 
     // A concrete type-2 transfer: chain id 1, nonce 0, 2 gwei tip, 100 gwei fee ceiling, 21000 gas, a plain 20-byte recipient, 1 ETH, no data,
     // an empty access list. Real-shaped fields, no secret anywhere.
-    const to = @splat(0x35);
+    const to: [20]u8 = @splat(0x35);
     const max_priority = [_]u8{ 0x77, 0x35, 0x94, 0x00 }; // 2 gwei = 2e9
     const max_fee = [_]u8{ 0x17, 0x48, 0x76, 0xe8, 0x00 }; // 100 gwei = 100e9
     const gas = [_]u8{ 0x52, 0x08 }; // 21000

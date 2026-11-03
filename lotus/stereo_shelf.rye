@@ -132,7 +132,7 @@ fn run_selftest() !u8 {
     // 2b. bass moves direct current while treble leaves it untouched, per channel -- a settled constant at bass ×2, treble ×1 doubles the tail; the same constant at bass ×1, treble ×5 leaves the tail exactly the input (the high
     //     band is zero at direct current -- the knobs are orthogonal on both channels).
     {
-        const run = @splat(1000);
+        const run: [30]i16 = @splat(1000);
         var bass = pan.StereoClip{};
         try load_stereo(&bass, &run, &run);
         try stereo_shelf(&bass, 0, 30, 1, 2, 2, 1, 1, 1); // bass ×2

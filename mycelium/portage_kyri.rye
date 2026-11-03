@@ -342,7 +342,7 @@ fn build_record(id: []const u8, from: []const u8, world: []const u8, to: []const
 }
 
 pub fn main() !void {
-    const id = @splat(0x2C);
+    const id: [id_len]u8 = @splat(0x2C);
     const wtag = world_tag("world-b");
     const start: u64 = 100;
     const amount: u64 = 40;

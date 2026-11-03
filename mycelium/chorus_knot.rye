@@ -183,7 +183,7 @@ fn gather(dag: *const cord.Dag, account_pk: []const u8, nodes: []const kumara.Ke
 }
 
 pub fn main() !void {
-    const id = @splat(0x01);
+    const id: [lapse.id_len]u8 = @splat(0x01);
     const nodes = three_nodes();
     const alice_pk = seeded(0xA1).public_key.toBytes();
     const bob_pk = seeded(0xB2).public_key.toBytes();

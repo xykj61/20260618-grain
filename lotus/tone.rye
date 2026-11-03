@@ -199,7 +199,7 @@ fn run_selftest() !u8 {
     //    reached, not merely approached).
     {
         var clip = timeline.Clip{};
-        const src = @splat(1000);
+        const src: [30]i16 = @splat(1000);
         try load_clip(&clip, &src);
         try low_pass(&clip, 0, clip.len, 1, 2); // coefficient 1/2
         const out = clip.samples();
@@ -225,7 +225,7 @@ fn run_selftest() !u8 {
         }
 
         var dc = timeline.Clip{};
-        const run = @splat(800);
+        const run: [40]i16 = @splat(800);
         try load_clip(&dc, &run);
         try high_pass(&dc, 0, dc.len, 1, 4);
         if (dc.samples()[dc.len - 1] != 0) return error.DirectCurrentNotRemoved; // constant → zero after settle
@@ -235,7 +235,7 @@ fn run_selftest() !u8 {
     //    sample_max sample then makes x - lp exceed the ceiling -- it pins to sample_max, never a wrapped negative.
     {
         var clip = timeline.Clip{};
-        const src = @splat(timeline.sample_min) ++ [_]i16{timeline.sample_max};
+        const src: [61]i16 = @as([60]i16, @splat(timeline.sample_min)) ++ [_]i16{timeline.sample_max};
         try load_clip(&clip, &src);
         try high_pass(&clip, 0, clip.len, 1, 4); // small coefficient — the estimate lags, so the jump overshoots the range
         const last = clip.samples()[clip.len - 1];

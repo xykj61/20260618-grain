@@ -174,7 +174,7 @@ fn run_selftest() !u8 {
     // toCompressedSec1 / toUncompressedSec1 byte-for-byte, and our parse must recover its own affine coordinates.
     var seed_byte: u8 = 1;
     while (seed_byte <= 8) : (seed_byte += 1) {
-        const d = @splat(seed_byte); // a small, canonical, nonzero scalar — a TEST key, never a real identity key
+        const d: [32]u8 = @splat(seed_byte);
 
         // Zig's independent public point and its two SEC1 dresses.
         const zp = try ZCurve.basePoint.mul(d, .big);
@@ -210,14 +210,14 @@ fn run_selftest() !u8 {
     // 5. The edges refuse: a wrong length, a compressed tag on a 65-byte frame, and an uncompressed tag on a 33-byte frame each raise their
     //    named error before any coordinate is trusted.
     {
-        const short = @splat(tag_even);
+        const short: [10]u8 = @splat(tag_even);
         if (parse(&short)) |_| return error.LengthSlipped else |err| if (err != error.BadLength) return error.WrongLengthErr;
 
-        var bad_uncompressed = @splat(0);
+        var bad_uncompressed: [uncompressed_bytes]u8 = @splat(0);
         bad_uncompressed[0] = tag_even; // a 65-byte frame wearing a compressed tag
         if (parse(&bad_uncompressed)) |_| return error.TagSlipped else |err| if (err != error.BadTag) return error.WrongTagErr;
 
-        var bad_compressed = @splat(0);
+        var bad_compressed: [compressed_bytes]u8 = @splat(0);
         bad_compressed[0] = tag_uncompressed; // a 33-byte frame wearing the uncompressed tag
         if (parse(&bad_compressed)) |_| return error.TagSlipped2 else |err| if (err != error.BadTag) return error.WrongTagErr2;
     }

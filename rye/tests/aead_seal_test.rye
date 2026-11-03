@@ -13,8 +13,8 @@ const std = @import("std");
 const ChaCha20Poly1305 = std.crypto.aead.chacha_poly.ChaCha20Poly1305;
 
 pub fn main() void {
-    const key = @splat(0x33);
-    const nonce = @splat(0x07);
+    const key: [ChaCha20Poly1305.key_length]u8 = @splat(0x33);
+    const nonce: [ChaCha20Poly1305.nonce_length]u8 = @splat(0x07);
     const ad = "rye-aead-test"; // associated data: authenticated, not encrypted
     const message = "Sealed, yet readable by the right key.";
 

@@ -14,8 +14,8 @@ const X25519 = std.crypto.dh.X25519;
 
 pub fn main() void {
     // Two identities, each from a fixed seed.
-    const seed_a = @splat(0x11);
-    const seed_b = @splat(0x22);
+    const seed_a: [X25519.seed_length]u8 = @splat(0x11);
+    const seed_b: [X25519.seed_length]u8 = @splat(0x22);
     const alice = X25519.KeyPair.generateDeterministic(seed_a) catch unreachable;
     const bob = X25519.KeyPair.generateDeterministic(seed_b) catch unreachable;
 

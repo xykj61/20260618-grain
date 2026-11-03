@@ -171,7 +171,7 @@ fn run_selftest() !u8 {
 
     // 3b. a settled constant is rejected to zero on both channels -- the high-pass stage drops direct current, so a run of one value band-passes to silence at the tail per channel (the band-pass keeps no direct current).
     {
-        const run = @splat(1000);
+        const run: [30]i16 = @splat(1000);
         var sc = pan.StereoClip{};
         try load_stereo(&sc, &run, &run);
         var f = StereoBandpass.init(1, 2, 1, 2);
@@ -181,7 +181,7 @@ fn run_selftest() !u8 {
 
     // 4a. THE RESET LAW -- a run settles a constant toward zero, then reset returns both channels to silence so a fresh run re-opens both transients (the first sample after reset is non-zero, direct current not yet removed).
     {
-        const run = @splat(1000);
+        const run: [40]i16 = @splat(1000);
         var sc = pan.StereoClip{};
         try load_stereo(&sc, &run, &run);
         var f = StereoBandpass.init(1, 2, 1, 2);

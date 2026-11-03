@@ -215,8 +215,8 @@ fn pledge_body(id: []const u8, deadline: u64, to: []const u8, out: []u8) u32 {
 /// deadline (open) and 100 to Carol under a far deadline (open) -- Alice's statement then carries two
 /// open made lines and reserves 200, a line the wire must carry whole.
 fn build_ledger() !lapse.Ledger {
-    const id1 = @splat(0x01);
-    const id2 = @splat(0x02);
+    const id1: [lapse.id_len]u8 = @splat(0x01);
+    const id2: [lapse.id_len]u8 = @splat(0x02);
     const kf = seeded(0xF0);
     const ka = seeded(0xA1);
     const kb = seeded(0xB2);

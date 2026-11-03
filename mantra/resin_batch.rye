@@ -450,7 +450,7 @@ fn run_resync_and_refusal_selftest(signer: kumara.KeyPair, src: *ns.BoltCatalog,
 }
 
 fn run_batch_selftest(_: std.Io) !u8 {
-    const signer_seed = @splat(0x60);
+    const signer_seed: [kumara.seed_length]u8 = @splat(0x60);
     const signer = kumara.keypair_from_seed(&signer_seed);
 
     var src: ns.BoltCatalog = .empty();

@@ -310,7 +310,7 @@ fn three_nodes() [3]kumara.KeyPair {
 }
 
 pub fn main() !void {
-    const id = @splat(0x01);
+    const id: [lapse.id_len]u8 = @splat(0x01);
     const nodes = three_nodes();
     const alice_pk = seeded(0xA1).public_key.toBytes();
 

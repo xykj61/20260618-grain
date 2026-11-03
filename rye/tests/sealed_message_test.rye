@@ -32,7 +32,7 @@ pub fn main() void {
     const bob_x = X25519.KeyPair.fromEd25519(bob_id) catch unreachable;
 
     const message = "Meet me where the rye grows.";
-    const nonce = @splat(0x01);
+    const nonce: [ChaCha20Poly1305.nonce_length]u8 = @splat(0x01);
 
     // --- Alice seals to Bob ---
     const shared_a = X25519.scalarmult(alice_x.secret_key, bob_x.public_key) catch unreachable;

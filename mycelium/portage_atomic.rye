@@ -397,8 +397,8 @@ fn stage_head(s: cord.Block) [cord.hash_len]u8 {
 }
 
 pub fn main() !void {
-    const id = @splat(0x3A);
-    const wtag = @splat(0);
+    const id: [id_len]u8 = @splat(0x3A);
+    const wtag: [portage.world_tag_len]u8 = @splat(0);
     const start: u64 = 100;
     const amount: u64 = 40;
 

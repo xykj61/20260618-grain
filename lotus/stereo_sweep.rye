@@ -136,7 +136,7 @@ fn run_selftest() !u8 {
 
     // 2b. a settled constant sweeps to itself on both channels -- a constant is a fixed point of every legal coefficient and the carried state never restarts, so the swept tail equals the input exactly, per channel.
     {
-        const run = @splat(2500);
+        const run: [48]i16 = @splat(2500);
         var sc = pan.StereoClip{};
         try load_stereo(&sc, &run, &run);
         try stereo_sweep(&sc, 0, 48, 1, 2, 2, 6); // 1/2 → 2/2 in six blocks

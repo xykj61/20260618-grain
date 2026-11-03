@@ -167,8 +167,8 @@ fn resolve_body(tag: u8, id: []const u8, out: []u8) u32 {
 }
 
 pub fn main() !void {
-    const id = @splat(0x01);
-    const id2 = @splat(0x02);
+    const id: [pledge.id_len]u8 = @splat(0x01);
+    const id2: [pledge.id_len]u8 = @splat(0x02);
     const kf = seeded(0xF0); // funder / genesis credit
     const ka = seeded(0xA1); // Alice — pledges inside the prefix, resolves across the cut
     const kb = seeded(0xB2); // Bob — the pledge's recipient

@@ -361,7 +361,7 @@ fn prove_refusals(g: *Gardens, blob_buf: []u8) void {
         if (dup) |_| unreachable else |err| assert(err == GardensError.DuplicateName);
     }
     {
-        const long = @splat('x');
+        const long: [max_name_len + 1]u8 = @splat('x');
         const too_long = g.add(long[0..], blob_buf);
         // invariant: one byte past max_name_len is refused, so the limit this module
         // publishes is the limit it actually keeps

@@ -110,7 +110,7 @@ fn eq32(a: *const [32]u8, b: *const [32]u8) bool {
 /// reduction the reference runs. The big-endian value is reversed into the low 32 bytes of a 64-byte little-endian buffer, then reduced.
 fn hash_to_scalar(be: *const [32]u8) [32]u8 {
     const le = reverse32(be);
-    var wide = @splat(0);
+    var wide: [64]u8 = @splat(0);
     var i: u32 = 0;
     while (i < field_bytes) : (i += 1) {
         // invariant: the reversed value lands entirely in the low half of the wide buffer.
@@ -211,7 +211,7 @@ fn run_selftest() !u8 {
 
         var seed_byte: u8 = 1;
         while (seed_byte <= 8) : (seed_byte += 1) {
-            const seed = @splat(seed_byte);
+            const seed: [32]u8 = @splat(seed_byte);
             const kp = try ZEcdsa.KeyPair.generateDeterministic(seed);
             const aff = kp.public_key.p.affineCoordinates();
             const qx = aff.x.toBytes(.big);
@@ -255,7 +255,7 @@ fn run_selftest() !u8 {
 
                 // Out-of-range r or s (all zero) is refused.
                 {
-                    const zero = @splat(0);
+                    const zero: [32]u8 = @splat(0);
                     if (verify(&qx, &qy, &h, &zero, &s_be)) return error.ZeroRAccepted;
                     if (verify(&qx, &qy, &h, &r_be, &zero)) return error.ZeroSAccepted;
                 }

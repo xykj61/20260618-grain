@@ -127,7 +127,7 @@ fn encode_with(alphabet: []const u8, padded: bool, dest: []u8, source: []const u
 fn reverse_table(alphabet: []const u8) [256]u8 {
     // invariant: the alphabet is the 64 symbols the table inverts.
     assert(alphabet.len == 64);
-    var table = @splat(0xFF);
+    var table: [256]u8 = @splat(0xFF);
     var i: u32 = 0;
     while (i < 64) : (i += 1) table[alphabet[i]] = @as(u8, @intCast(i));
     return table;

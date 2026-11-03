@@ -31,7 +31,7 @@ const seva = @import("seva_session_core.rye");
 const witness_version = "20260715.210500";
 
 // A third seed for a second viewer, distinct from murr's issuer/holder seeds.
-const viewer2_seed = @splat(0x63);
+const viewer2_seed: [kumara.seed_length]u8 = @splat(0x63);
 
 fn run_selftest() !u8 {
     // Broadcaster is the issuer key; viewer one is the holder key; viewer two

@@ -67,7 +67,7 @@ pub fn point_to_hex(p: Edwards25519, out: *[point_len * 2]u8) void {
 fn run_selftest(_: std.Io) !u8 {
     try assert_pinned_h();
 
-    const dew = @splat(0x11);
+    const dew: [scalar_len]u8 = @splat(0x11);
     const c1 = try commit(1000, &dew);
     const c2 = try commit(1000, &dew);
     assert(std.mem.eql(u8, &c1.toBytes(), &c2.toBytes()));

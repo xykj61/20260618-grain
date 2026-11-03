@@ -299,7 +299,7 @@ fn bounds_refuse_by_name() !void {
     assert(overflow == error.ChannelFull);
 
     // An over-long post refuses rather than truncate.
-    const big = @splat('x');
+    const big: [max_text + 1]u8 = @splat('x');
     const too_long = c.post(host_key, big[0..]);
     assert(too_long == error.TextTooLong);
 

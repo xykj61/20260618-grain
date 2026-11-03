@@ -156,7 +156,7 @@ pub fn decode(allocator: std.mem.Allocator, bytes: []const u8) !Pixmap {
     // invariant: the output buffer is exactly four bytes per pixel.
     assert(out.len == @as(usize, pixel_count) * 4);
 
-    var index = @splat(.{ .r = 0, .g = 0, .b = 0, .a = 0 });
+    var index: [64]Rgba = @splat(.{ .r = 0, .g = 0, .b = 0, .a = 0 });
     var px = Rgba{ .r = 0, .g = 0, .b = 0, .a = 255 };
     var run: u32 = 0;
     var p: u32 = header_len; // read cursor into `bytes`
@@ -255,7 +255,7 @@ pub fn encode(pm: *const Pixmap, dst: []u8) !EncodeResult {
     dst[w + 13] = pm.colorspace;
     w = header_len;
 
-    var index = @splat(.{ .r = 0, .g = 0, .b = 0, .a = 0 });
+    var index: [64]Rgba = @splat(.{ .r = 0, .g = 0, .b = 0, .a = 0 });
     var prev = Rgba{ .r = 0, .g = 0, .b = 0, .a = 255 };
     var run: u32 = 0;
 

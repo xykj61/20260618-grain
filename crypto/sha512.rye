@@ -185,7 +185,7 @@ pub fn hash(msg: []const u8) Sha512Error![digest_len]u8 {
     // invariant: the leftover is strictly less than a whole block -- every full block was consumed above.
     assert(rem < block_bytes);
 
-    var tail = @splat(0);
+    var tail: [block_bytes * 2]u8 = @splat(0);
     var j: u32 = 0;
     while (j < rem) : (j += 1) tail[j] = msg[offset + j];
     tail[rem] = 0x80;

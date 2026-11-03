@@ -56,7 +56,7 @@ fn link_body(id: []const u8, seq: u8, last: u8, to: []const u8, out: []u8) u32 {
 /// Seat the reverting five-block Dag -- genesis credits Alice 100 and Bob 50; a three-link braid routes
 /// Alice->Bob 100, Bob->Carol 120, Carol->Dave 200, whose final link overdraws so the whole chain reverses.
 fn seat_dag() !cord.Dag {
-    const id = @splat(0x07);
+    const id: [braid.id_len]u8 = @splat(0x07);
     const kf = seeded(0xF0); // demo funder / genesis credit authority
     const ka = seeded(0xA1); // Alice
     const kb = seeded(0xB2); // Bob

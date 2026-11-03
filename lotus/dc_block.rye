@@ -189,7 +189,7 @@ fn run_selftest() !u8 {
     // 2. A CONSTANT OFFSET SETTLES TO EXACTLY ZERO -- the defining correctness of a DC blocker. A constant span passes its first sample (the transient -- DC not
     //    yet removed) then decays to a tail of EXACTLY 0 (the feedback truncates to nothing in finite steps). The first sample is the input; the last is 0.
     {
-        const run = @splat(3000);
+        const run: [40]i16 = @splat(3000);
         var clip = timeline.Clip{};
         try load_clip(&clip, &run);
         var f = DcBlocker{ .num = 1, .den = 2 };
@@ -248,7 +248,7 @@ fn run_selftest() !u8 {
     // 5. RESET RE-OPENS THE TRANSIENT -- after a settled constant run (tail at zero), reset returns the state to silence, so the next run over a constant passes
     //    its FIRST sample as the input again (a fresh transient), rather than continuing settled at zero.
     {
-        const run = @splat(3000);
+        const run: [30]i16 = @splat(3000);
         var clip = timeline.Clip{};
         try load_clip(&clip, &run);
         var f = DcBlocker{ .num = 1, .den = 2 };
@@ -277,7 +277,7 @@ fn run_selftest() !u8 {
     // 7. SATURATION AT THE RAIL IS HONEST -- a sharp edge whose difference plus feedback runs past the ceiling pins to sample_max rather than wrapping to a
     //    negative. A deep sample_min run drives the output negative; one sample_max sample then makes the difference exceed the ceiling -- it pins.
     {
-        const src = @splat(timeline.sample_min) ++ [_]i16{timeline.sample_max};
+        const src: [9]i16 = @as([8]i16, @splat(timeline.sample_min)) ++ [_]i16{timeline.sample_max};
         var clip = timeline.Clip{};
         try load_clip(&clip, &src);
         var f = DcBlocker{ .num = 1, .den = 2 };

@@ -304,7 +304,7 @@ fn run_selftest() !u8 {
         var clip = timeline.Clip{};
         const three = [_]i16{ 1, 2, 3 };
         try load_clip(&clip, &three);
-        const many = @splat(.{ .delay = 1, .fb_num = 1, .fb_den = 2 });
+        const many: [max_stages + 1]CombSpec = @splat(.{ .delay = 1, .fb_num = 1, .fb_den = 2 });
         const noaps = [_]AllpassSpec{};
         if (reverb(&clip, 0, clip.len, &many, &noaps)) |_| return error.TooManySlipped else |e| if (e != error.TooManyStages) return error.WrongTooMany;
         if (!eq(clip.samples(), &three)) return error.RefusedTooManyMutated;

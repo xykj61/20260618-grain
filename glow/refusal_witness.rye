@@ -143,8 +143,8 @@ pub fn main() !void {
     print("refusal: reason and unit words distinct and printable -- GREEN\n", .{});
 
     // 4 -- a field name one byte past its ceiling refuses; the ceiling itself is admitted.
-    const at_ceiling = @splat('f');
-    const past_ceiling = @splat('f');
+    const at_ceiling: [refusal.max_field_name_bytes]u8 = @splat('f');
+    const past_ceiling: [refusal.max_field_name_bytes + 1]u8 = @splat('f');
     const fits = refusal.Refusal{ .field = at_ceiling[0..], .reason = .too_many_fields };
     _ = try fits.render(buf[0..]);
     const past = refusal.Refusal{ .field = past_ceiling[0..], .reason = .too_many_fields };

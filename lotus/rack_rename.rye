@@ -144,7 +144,7 @@ fn run_selftest() !u8 {
     {
         var r = try two_slot();
         if (rename(&r, "head", "")) |_| return error.EmptySlipped else |e| if (e != error.BadName) return error.WrongEmpty;
-        const huge = @splat('q');
+        const huge: [rack.max_name + 1]u8 = @splat('q');
         if (rename(&r, "head", &huge)) |_| return error.HugeSlipped else |e| if (e != error.BadName) return error.WrongHuge;
         // the rack is untouched -- "head" still answers with its audio.
         if (!std.mem.eql(u8, rack.name_of(&r, 0), "head")) return error.BadNameMutated;

@@ -22,8 +22,8 @@ pub const tiers = [_]u64{ 1000, 5000, 10000 };
 pub const proof_bytes_len: u32 = 64; // A (32) || z (32)
 pub const challenge_domain = "veganreyklah2/slcl4/sigma-tier/v1";
 
-const witness_dew = @splat(0x22);
-const witness_nonce = @splat(0x33);
+const witness_dew: [bud.scalar_len]u8 = @splat(0x22);
+const witness_nonce: [bud.scalar_len]u8 = @splat(0x33);
 const witness_stamp = "20260709.194437";
 const witness_log_digest = "0000000000000000000000000000000000000000000000000000000000000000";
 

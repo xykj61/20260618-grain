@@ -76,7 +76,7 @@ pub fn extract(salt: []const u8, ikm: []const u8) HkdfError![prk_len]u8 {
 
     if (salt.len == 0) {
         // No salt: RFC 5869 keys the extract HMAC on HashLen zero bytes. This buffer is that defined salt.
-        const zero_salt = @splat(0);
+        const zero_salt: [prk_len]u8 = @splat(0);
         // The bounds above put both inputs within HMAC's message and key bounds, so this mac cannot fault -- asserted, not swallowed.
         return hmac.mac(ikm, &zero_salt) catch unreachable;
     }
@@ -274,7 +274,7 @@ fn run_selftest() !u8 {
         const via_hmac = try hmac.mac(ikm, salt);
         if (!block_eq(prk, via_hmac)) return error.ExtractNotHmac;
 
-        const zero_salt = @splat(0);
+        const zero_salt: [prk_len]u8 = @splat(0);
         const prk0 = try extract("", ikm);
         const via_hmac0 = try hmac.mac(ikm, &zero_salt);
         if (!block_eq(prk0, via_hmac0)) return error.EmptySaltNotHmac;

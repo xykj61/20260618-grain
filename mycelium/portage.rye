@@ -381,7 +381,7 @@ fn dag_of(blocks: []const cord.Block) !cord.Dag {
 }
 
 pub fn main() !void {
-    const id = @splat(0x2C);
+    const id: [id_len]u8 = @splat(0x2C);
     const wtag = world_tag("world-b");
     const start: u64 = 100;
     const amount: u64 = 40;

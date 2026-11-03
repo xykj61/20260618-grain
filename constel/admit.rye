@@ -73,7 +73,7 @@ pub fn admit(
 pub fn mask_of(slots: []const u32) [roster.max_piers]bool {
     // invariant: the slot list is bounded by the roster it indexes.
     assert(slots.len <= roster.max_piers);
-    var mask = @splat(false);
+    var mask: [roster.max_piers]bool = @splat(false);
     var i: u32 = 0;
     while (i < slots.len) : (i += 1) {
         // invariant: each slot addresses a pier of the roster directly, so a slot past the

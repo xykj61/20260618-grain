@@ -257,7 +257,7 @@ fn run_selftest() !u8 {
 
     // 2. Silence (all zero) and a full-scale block (alternating i16 min/max) both carry exactly.
     {
-        const silence = @splat(0);
+        const silence: [16]i16 = @splat(0);
         var f = Frame{};
         try frame(.xlr, &silence, &f);
         const a = try deframe(f.bytes());

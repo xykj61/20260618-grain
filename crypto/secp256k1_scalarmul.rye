@@ -97,7 +97,7 @@ fn bytes_eq(a: []const u8, b: []const u8) bool {
 /// Build a 32-byte little-endian scalar from a small unsigned value -- the low eight bytes carry v, the rest are zero. Used to name small
 /// known-answer scalars (1, 2, 5, ...) plainly inside the selftest.
 fn le32(v: u64) [32]u8 {
-    var s = @splat(0);
+    var s: [32]u8 = @splat(0);
     var i: u32 = 0;
     var acc = v;
     while (i < 8) : (i += 1) {
@@ -133,7 +133,7 @@ fn run_selftest() !u8 {
     // 1. Algebraic known-answers anyone can check.
     {
         // 0-G is the point at infinity -- its Z coordinate packs to zero.
-        var zero_b = @splat(0);
+        var zero_b: [32]u8 = @splat(0);
         if (!bytes_eq(&fe.to_bytes(scalarmul(pb, &le32(0)).z), &zero_b)) return error.ZeroScalarMismatch;
 
         // 1-G is G itself.

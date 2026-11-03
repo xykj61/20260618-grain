@@ -384,14 +384,14 @@ fn prove_bounds() void {
 
     // A message exactly the size of the buffer is welcome; the tail it leaves
     // is empty, and `whole` still holds.
-    const full = @splat(1);
+    const full: [max_message_words]u64 = @splat(1);
     assert(try_answer(buffer.send(3, &full, max_extra_caps)) == .no_error);
     assert(buffer.tag.length == max_message_words);
     assert(buffer.tag.extra_caps == max_extra_caps);
     assert(buffer.whole());
 
     // One word past it is refused by name, and seats nothing.
-    const over = @splat(1);
+    const over: [max_message_words + 1]u64 = @splat(1);
     if (buffer.send(3, &over, 0)) |_| {
         assert(false); // invariant: a message past the buffer never seats
     } else |err| {

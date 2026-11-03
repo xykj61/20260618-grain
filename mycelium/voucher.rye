@@ -317,7 +317,7 @@ fn dag_of(blocks: []const cord.Block) !cord.Dag {
 }
 
 pub fn main() !void {
-    const id = @splat(0x01);
+    const id: [lapse.id_len]u8 = @splat(0x01);
     const node = seeded(0x0D);
     const alice_pk = seeded(0xA1).public_key.toBytes();
 

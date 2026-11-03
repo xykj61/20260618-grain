@@ -763,7 +763,7 @@ fn refuse_prefix_snapshot(signer: kumara.KeyPair, snap: []const u8) !void {
 }
 
 fn run_selftest(_: std.Io) !u8 {
-    const signer_seed = @splat(0x61);
+    const signer_seed: [kumara.seed_length]u8 = @splat(0x61);
     const signer = kumara.keypair_from_seed(&signer_seed);
 
     var src: ns.BoltCatalog = .empty();

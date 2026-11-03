@@ -151,7 +151,7 @@ fn run_selftest() !u8 {
     // 4. THE EDGES NEVER MOVE -- a constant input settles to itself at any gain, because its middle is zero at direct current
     //    (M = x - x - 0 = 0), so the bell turns only what lies between the cutoffs. Proven at a large boost AND a full cut.
     {
-        const run = @splat(2500);
+        const run: [60]i16 = @splat(2500);
         // a big boost leaves the settled tail exactly the input.
         var up = timeline.Clip{};
         try load_clip(&up, &run);

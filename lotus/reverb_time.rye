@@ -232,7 +232,7 @@ fn run_selftest() !u8 {
         if (reverb_ms(&clip, c, 0, 3, &none, &noaps)) |_| return error.NoCombsSlipped else |e| if (e != error.NoCombs) return error.WrongNoCombs;
         if (!eq(clip.samples(), &three)) return error.RefusedNoCombsMutated;
         // an over-long comb bank (more than max_stages) refuses TooManyStages before any conversion
-        const many = @splat(.{ .delay_ms = 1, .fb_num = 1, .fb_den = 2 });
+        const many: [reverb.max_stages + 1]CombSpecMs = @splat(.{ .delay_ms = 1, .fb_num = 1, .fb_den = 2 });
         if (reverb_ms(&clip, c, 0, 3, &many, &noaps)) |_| return error.TooManySlipped else |e| if (e != error.TooManyStages) return error.WrongTooMany;
         if (!eq(clip.samples(), &three)) return error.RefusedTooManyMutated;
         // a feedback at unity forwards BadGain

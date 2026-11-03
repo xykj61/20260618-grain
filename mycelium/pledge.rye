@@ -506,7 +506,7 @@ fn seat_equivocation(id: []const u8) ![4]cord.Block {
 }
 
 pub fn main() !void {
-    const id = @splat(0x01);
+    const id: [id_len]u8 = @splat(0x01);
 
     // The crux -- the equivocation is resolved once by the order, identically across every
     // arrival permutation. The verdict: exactly one of post/void settles the pledge, the

@@ -9,7 +9,7 @@ const kumara = @import("kumara.rye");
 const Sha3_256 = std.crypto.hash.sha3.Sha3_256;
 const tally_copy = @import("tally_copy.rye");
 
-pub const slcl1_seed = @splat(0x42);
+pub const slcl1_seed: [kumara.seed_length]u8 = @splat(0x42);
 pub const sig_hex_len: u32 = kumara.signature_length * 2;
 pub const max_fact_len: u32 = 512;
 pub const max_line_len: u32 = sig_hex_len + 1 + max_fact_len * 2;

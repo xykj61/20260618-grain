@@ -232,8 +232,8 @@ fn seat(id: []const u8, deadline: u64) !struct { g: cord.Block, pledge: cord.Blo
 }
 
 pub fn main() !void {
-    const id = @splat(0x01);
-    const id2 = @splat(0x02);
+    const id: [lapse.id_len]u8 = @splat(0x01);
+    const id2: [lapse.id_len]u8 = @splat(0x02);
     const ka = seeded(0xA1);
     const kb = seeded(0xB2);
     const alice_pk = ka.public_key.toBytes();

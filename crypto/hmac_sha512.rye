@@ -68,7 +68,7 @@ fn block_key(key: []const u8) HmacError![block_bytes]u8 {
     // invariant: the key fits the named bound, so hashing it (when long) stays within SHA-512's own reach.
     if (key.len > max_key_bytes) return error.KeyTooLong;
 
-    var k0 = @splat(0);
+    var k0: [block_bytes]u8 = @splat(0);
     if (key.len > block_bytes) {
         // The key exceeds one block: replace it with its SHA-512 digest. The bound above guarantees this hash cannot fault, so the
         // error is unreachable -- asserted, not silently swallowed.

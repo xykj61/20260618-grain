@@ -329,8 +329,8 @@ fn run_selftest() !u8 {
 
     // 4. The r = 0 edge: the all-zero representative maps to the u-coordinate 0 (the point (0, 0)), Monocypher's own r = 0 case.
     {
-        const zero = @splat(0);
-        var zero_u = @splat(0);
+        const zero: [32]u8 = @splat(0);
+        var zero_u: [32]u8 = @splat(0);
         _ = &zero_u;
         if (!bytes_eq(&map(&zero), &zero_u)) return error.ZeroRepresentativeMismatch;
     }
