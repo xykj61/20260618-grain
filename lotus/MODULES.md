@@ -51,7 +51,7 @@ Every gesture that rearranges samples without asking what they sound like. Each 
 | [`selection.rye`](selection.rye) | the selection -- a marked span a keeper edits as ONE across both channels |
 | [`clipboard.rye`](clipboard.rye) | the clipboard -- a held span PASTED anywhere, any number of times, ACROSS masters |
 
-## Transport, clock, and the map -- 10
+## Transport, clock, and the map -- 12
 
 Reading a master the way a keeper hears it -- play, loop, meter, scrub -- and the named places they keep along the way.
 
@@ -67,6 +67,8 @@ Reading a master the way a keeper hears it -- play, loop, meter, scrub -- and th
 | [`cue_sheet.rye`](cue_sheet.rye) | the marker track travels as text -- a cue sheet |
 | [`cue_seal.rye`](cue_seal.rye) | the cue sheet, SEALED -- the arrangement map that verifies before it is trusted |
 | [`track.rye`](track.rye) | the track table -- many placed clips rendered into one master |
+| [`coreaudio_c.rye`](coreaudio_c.rye) | CoreAudio C declarations -- bounded, explicit, manual (Zig 0.17 removed @cImport) |
+| [`coreaudio.rye`](coreaudio.rye) | the CoreAudio engine -- wire the Lotus render graph to macOS audio output |
 
 ## Mix, faders, and the stereo field -- 16
 

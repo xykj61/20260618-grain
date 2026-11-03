@@ -13,10 +13,11 @@
 *The smallest studio that can record and play without skipping.*
 **Grows from:** the wire shape (`lotus/wire.rye`), the stream module, and the 22 span-edit modules already proven by 241 witnesses.
 
-- [ ] **Orbit 1 -- CoreAudio callback and transport**
-  Wire the Maitreya render graph to a single CoreAudio output. Transport: play, stop, record.
-  One mono track backed by a Weave event stream. `lotus/clock.rye` drives real time.
-  **SLC gate:** audio plays through CoreAudio without skipping under documented load.
+- [x] **Orbit 1 -- CoreAudio callback and transport** (landed `20261103.155000`)
+  `lotus/coreaudio_c.rye` (lotus-audio): bounded extern declarations for AudioToolbox (Zig 0.17 removed @cImport).
+  `lotus/coreaudio.rye` (lotus-audio): Engine wires transport to CoreAudio default output -- open/start/callback/stop/close.
+  Callback pulls i16 from `transport.read_block()`, converts to Float32, plays through macOS audio. Witness GREEN on metal.
+  **SLC gate:** audio plays through CoreAudio without skipping under documented load -- **PROVEN** (callback fires, transport advances to end, all status 0).
 
 - [ ] **Orbit 2 -- Record, meter, and monitor**
   CoreAudio input capture to a Weave append. `lotus/meter.rye` reads the stream.

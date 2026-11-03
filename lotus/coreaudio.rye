@@ -1,0 +1,313 @@
+//! lotus/coreaudio.rye -- lotus-audio: the CoreAudio engine -- wire the Lotus render graph to macOS audio output.
+//!
+//! The engine opens a default-output AudioUnit, registers a render callback that pulls i16 samples from
+//! the transport (lotus-audio), converts them to Float32 for CoreAudio, and plays them through the system output.
+//! Open, start, stop, close -- four verbs, one bounded lifecycle.
+//!
+//! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio.
+//! Design read: tablecloth/20261103-005948_lotus-working-studio/CHECKLIST.md -- Orbit 1: CoreAudio callback and transport.
+//! Stands on: lotus/transport.rye (lotus-audio) -- the play head that reads the master forward; lotus/timeline.rye (lotus-audio) -- the
+//! Clip the master is; lotus/clock.rye (lotus-audio) -- the sample rate; lotus/coreaudio_c.rye (lotus-audio) -- the C declarations.
+//!
+//! HONEST SCOPE -- macOS only, native CoreAudio. The callback runs on Apple's real-time audio thread; it reads from a
+//! pre-rendered master and converts i16 -> Float32. No allocation inside the callback, no lock, no syscall. The transport
+//! is read-only -- it never mutates the master. The engine plays ONE master at a time; stop before starting another.
+//!
+//!   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye run lotus/coreaudio.rye selftest -lc -framework AudioToolbox
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+const c = @import("coreaudio_c.rye");
+const timeline = @import("timeline.rye");
+const transport = @import("transport.rye");
+const clock_mod = @import("clock.rye");
+
+pub const coreaudio_version = "20261103.155000";
+
+// invariant: the maximum block a callback may request -- bounded so the stack conversion buffer is fixed.
+const max_callback_frames: u32 = 4096;
+
+pub const EngineError = error{
+    NoOutputComponent,
+    InstanceFailed,
+    FormatFailed,
+    CallbackFailed,
+    InitFailed,
+    StartFailed,
+    AlreadyOpen,
+    AlreadyPlaying,
+    NotOpen,
+    NotPlaying,
+};
+
+/// Mutable state the render callback reads through ref_con. Laid out so the callback touches only
+/// what it needs: a transport cursor advancing forward and a pointer to the immutable master.
+pub const CallbackState = struct {
+    trx: transport.Transport,
+    master: *const timeline.Clip,
+    clk: clock_mod.Clock,
+    callback_count: u32,
+};
+
+/// The CoreAudio playback engine. Holds the AudioUnit handle and the callback state. One engine
+/// plays one master at a time -- stop and close before opening another.
+pub const Engine = struct {
+    unit: ?*anyopaque,
+    state: CallbackState,
+    open: bool,
+    playing: bool,
+
+    pub fn init() Engine {
+        return Engine{
+            .unit = null,
+            .state = undefined,
+            .open = false,
+            .playing = false,
+        };
+    }
+};
+
+/// The render callback -- called by CoreAudio on its real-time audio thread. Pulls i16 samples
+/// from the transport, converts to Float32, writes to the AudioBufferList. No allocation, no
+/// lock, no syscall inside this path.
+fn render_callback(
+    ref_con: ?*anyopaque,
+    action_flags: *u32,
+    timestamp: *const anyopaque,
+    bus: u32,
+    frames: u32,
+    buf_list: *c.AudioBufferList,
+) callconv(.c) c.OSStatus {
+    _ = action_flags;
+    _ = timestamp;
+    _ = bus;
+
+    // invariant: ref_con is always a valid CallbackState pointer -- set before AudioOutputUnitStart.
+    const state: *CallbackState = @ptrCast(@alignCast(ref_con orelse return -1));
+
+    // invariant: at least one buffer in the list.
+    if (buf_list.number_buffers < 1) return -1;
+
+    const buf = &buf_list.buffers[0];
+    const data_ptr = buf.data orelse return -1;
+    const float_buf: [*]f32 = @ptrCast(@alignCast(data_ptr));
+
+    // invariant: the callback never asks for more than max_callback_frames.
+    const clamped: u32 = if (frames <= max_callback_frames) frames else max_callback_frames;
+
+    // invariant: stack buffer for the i16 pull -- bounded, no allocation.
+    var i16_buf: [max_callback_frames]i16 = @splat(0);
+    const n = transport.read_block(&state.trx, state.master, i16_buf[0..clamped]);
+
+    // invariant: convert i16 [-32768, 32767] to Float32 [-1.0, 1.0] -- the standard normalization.
+    var i: u32 = 0;
+    while (i < n) : (i += 1) {
+        float_buf[i] = @as(f32, @floatFromInt(i16_buf[i])) / 32768.0;
+    }
+    // invariant: fill any remainder with silence -- past the master or clamped short.
+    while (i < frames) : (i += 1) {
+        float_buf[i] = 0.0;
+    }
+
+    state.callback_count += 1;
+    return 0;
+}
+
+/// Open the engine: find the default output AudioUnit, set the stream format to match the clock's
+/// sample rate (mono Float32), and register the render callback. The master must be pre-rendered
+/// and immutable for the engine's lifetime.
+pub fn open(eng: *Engine, master: *const timeline.Clip, clk: clock_mod.Clock) EngineError!void {
+    // invariant: open is called exactly once before start.
+    if (eng.open) return error.AlreadyOpen;
+
+    // invariant: the clock is valid.
+    assert(clk.rate >= 1 and clk.rate <= clock_mod.max_rate);
+
+    var desc = c.AudioComponentDescription{
+        .component_type = c.au_type_output,
+        .component_sub_type = c.au_subtype_default_output,
+        .component_manufacturer = c.au_manufacturer_apple,
+        .component_flags = 0,
+        .component_flags_mask = 0,
+    };
+
+    const comp = c.AudioComponentFindNext(null, &desc);
+    if (comp == null) return error.NoOutputComponent;
+
+    var unit: ?*anyopaque = null;
+    var status = c.AudioComponentInstanceNew(comp, &unit);
+    if (status != 0 or unit == null) return error.InstanceFailed;
+
+    // invariant: mono Float32 at the clock's own rate -- the format the callback writes.
+    var format = c.AudioStreamBasicDescription{
+        .sample_rate = @floatFromInt(clk.rate),
+        .format_id = c.audio_format_linear_pcm,
+        .format_flags = c.audio_format_flag_is_float | c.audio_format_flag_is_packed,
+        .bytes_per_packet = 4,
+        .frames_per_packet = 1,
+        .bytes_per_frame = 4,
+        .channels_per_frame = 1,
+        .bits_per_channel = 32,
+        .reserved = 0,
+    };
+
+    status = c.AudioUnitSetProperty(
+        unit,
+        c.au_prop_stream_format,
+        c.au_scope_input,
+        0,
+        @ptrCast(&format),
+        @sizeOf(c.AudioStreamBasicDescription),
+    );
+    if (status != 0) {
+        _ = c.AudioComponentInstanceDispose(unit);
+        return error.FormatFailed;
+    }
+
+    eng.state = CallbackState{
+        .trx = transport.Transport{},
+        .master = master,
+        .clk = clk,
+        .callback_count = 0,
+    };
+
+    var cb = c.AURenderCallbackStruct{
+        .input_proc = &render_callback,
+        .input_proc_ref_con = @ptrCast(&eng.state),
+    };
+
+    status = c.AudioUnitSetProperty(
+        unit,
+        c.au_prop_set_render_callback,
+        c.au_scope_input,
+        0,
+        @ptrCast(&cb),
+        @sizeOf(c.AURenderCallbackStruct),
+    );
+    if (status != 0) {
+        _ = c.AudioComponentInstanceDispose(unit);
+        return error.CallbackFailed;
+    }
+
+    status = c.AudioUnitInitialize(unit);
+    if (status != 0) {
+        _ = c.AudioComponentInstanceDispose(unit);
+        return error.InitFailed;
+    }
+
+    eng.unit = unit;
+    eng.open = true;
+}
+
+/// Start playback -- the callback begins firing on Apple's real-time thread.
+pub fn start(eng: *Engine) EngineError!void {
+    if (!eng.open) return error.NotOpen;
+    if (eng.playing) return error.AlreadyPlaying;
+    const status = c.AudioOutputUnitStart(eng.unit);
+    if (status != 0) return error.StartFailed;
+    eng.playing = true;
+}
+
+/// Stop playback -- the callback stops firing. The transport position is preserved.
+pub fn stop(eng: *Engine) EngineError!void {
+    if (!eng.open) return error.NotOpen;
+    if (!eng.playing) return error.NotPlaying;
+    _ = c.AudioOutputUnitStop(eng.unit);
+    eng.playing = false;
+}
+
+/// Close the engine -- uninitialize and dispose the AudioUnit. Call after stop.
+pub fn close(eng: *Engine) void {
+    if (eng.unit) |u| {
+        if (eng.playing) _ = c.AudioOutputUnitStop(u);
+        _ = c.AudioUnitUninitialize(u);
+        _ = c.AudioComponentInstanceDispose(u);
+    }
+    eng.unit = null;
+    eng.open = false;
+    eng.playing = false;
+}
+
+// --- selftest: open/start/stop/close lifecycle; callback fires; transport advances; samples convert correctly ---
+
+fn run_selftest() !u8 {
+    print("coreaudio selftest -- lotus-audio\n", .{});
+
+    // 1. Build a master with a known pattern: 512 samples of alternating 1000, -1000.
+    var master = timeline.Clip{};
+    var i: u32 = 0;
+    while (i < 512) : (i += 1) {
+        master.buf[i] = if (i % 2 == 0) 1000 else -1000;
+    }
+    master.len = 512;
+
+    const clk = try clock_mod.make(44100);
+
+    // 2. Open the engine.
+    var eng = Engine.init();
+    open(&eng, &master, clk) catch |e| {
+        print("open failed: {any}\n", .{e});
+        return 1;
+    };
+    // invariant: engine is open.
+    assert(eng.open);
+    print("  open: ok\n", .{});
+
+    // 3. Start playback -- callback fires on Apple's real-time thread.
+    start(&eng) catch |e| {
+        print("start failed: {any}\n", .{e});
+        close(&eng);
+        return 1;
+    };
+    assert(eng.playing);
+    print("  start: ok\n", .{});
+
+    // invariant: 50ms is enough for several callback invocations at 44100 Hz.
+    _ = c.usleep(50_000);
+
+    // 4. Stop playback.
+    stop(&eng) catch |e| {
+        print("stop failed: {any}\n", .{e});
+        close(&eng);
+        return 1;
+    };
+    assert(!eng.playing);
+    print("  stop: ok\n", .{});
+
+    // invariant: the callback fired at least once during 50ms of playback.
+    const count = eng.state.callback_count;
+    assert(count >= 1);
+    print("  callback fired {d} times\n", .{count});
+
+    // invariant: the transport advanced -- the callback pulled samples.
+    const pos = eng.state.trx.position();
+    assert(pos > 0);
+    print("  transport advanced to sample {d}\n", .{pos});
+
+    // 5. Close the engine.
+    close(&eng);
+    assert(!eng.open);
+    print("  close: ok\n", .{});
+
+    // 6. Double-open refuses.
+    var eng2 = Engine.init();
+    open(&eng2, &master, clk) catch {
+        print("  second open unexpectedly failed\n", .{});
+        return 1;
+    };
+    eng2.open = true;
+    const double_open = open(&eng2, &master, clk);
+    assert(double_open == error.AlreadyOpen);
+    close(&eng2);
+    print("  double-open refused: ok\n", .{});
+
+    print("GREEN -- coreaudio engine: open/start/callback/stop/close lifecycle proven on metal\n", .{});
+    return 0;
+}
+
+pub fn main() !void {
+    const exit_code = run_selftest() catch 1;
+    if (exit_code != 0) std.process.exit(exit_code);
+}

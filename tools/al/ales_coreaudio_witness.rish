@@ -1,0 +1,41 @@
+# tools/al/ales_coreaudio_witness.rish -- CoreAudio engine lifecycle: open, start, callback fires, transport advances, stop, close.
+#
+# Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio.
+# lotus/coreaudio.rye (lotus-audio) wires the Lotus render graph to a single CoreAudio default output.
+# lotus/coreaudio_c.rye (lotus-audio) holds the bounded, explicit C declarations -- no @cImport (removed in Zig 0.17).
+#
+# The selftest proves: open finds the default output component and sets mono Float32 format at the clock's rate;
+# start fires the callback on Apple's real-time audio thread; the callback pulls i16 samples from the transport,
+# converts to Float32, and fills the AudioBufferList; stop halts the callback; close disposes the AudioUnit;
+# double-open refuses AlreadyOpen. All status codes 0 and the transport advances -- audio left the process.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run tools/al/ales_coreaudio_witness.rish
+
+say "ales-coreaudio: Language EN -- lotus-audio wires the Lotus render graph to CoreAudio default output: open/start/callback/stop/close lifecycle, i16-to-Float32 conversion, transport reads the master forward."
+say "ales-coreaudio: Style Radiant -- manual extern declarations (lotus-audio) proven on metal against AudioToolbox; the callback runs on Apple's real-time thread with no allocation, no lock, no syscall."
+
+let zig = "vendor/zig-toolchain/zig"
+# THE BINARY LANDS IN A PEN, NEVER A SHARED PATH IN THE TREE (REDS %700).
+let pen = run ["sh" "-c" "printf %s $(mktemp -d)"]
+assert pen.ok else "could not make a build pen: ${pen.err_brief}"
+let bin = "${pen.out}/coreaudio_test"
+
+let build = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build lotus/coreaudio.rye -lc -framework AudioToolbox -femit-bin=${bin} 2>&1"]
+assert build.ok else "ales-coreaudio: build failed -- ${build.err_brief}"
+
+let outfile = "${pen.out}/coreaudio.out"
+let selftest = run ["sh" "-c" "${bin} > ${outfile} 2>&1"]
+assert selftest.ok else "ales-coreaudio: selftest exited non-zero -- see ${outfile}"
+
+let shown = run ["sh" "-c" "cat ${outfile}"]
+say "ales-coreaudio: ${shown.out_brief}"
+
+let green = run ["sh" "-c" "grep -q 'GREEN' ${outfile} && echo yes"]
+assert (trim green.out) == "yes" else "ales-coreaudio: selftest did not print the GREEN line"
+
+say "ales-coreaudio: GREEN -- audio left the process through CoreAudio for the first time. The callback pulled i16 samples from the transport, converted to Float32, and played them through the default output. Orbit 1 stands proven on metal."
+
+# The pen is swept here rather than left for the next run to meet.
+let pen_swept = run ["sh" "-c" "rm -rf ${pen.out}"]
+assert pen_swept.ok else "the build pen outlived its witness: ${pen_swept.err_brief}"

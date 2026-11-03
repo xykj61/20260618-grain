@@ -1,0 +1,127 @@
+//! lotus/coreaudio_c.rye -- lotus-audio: CoreAudio C declarations -- bounded, explicit, manual.
+//!
+//! Zig 0.17 removed @cImport. These are the extern declarations a Lotus CoreAudio engine needs,
+//! written by hand against Apple's AudioToolbox headers and proven on metal (arm64 macOS,
+//! AudioToolbox framework). Every type layout, constant, and function signature was verified by
+//! a running callback probe before landing here.
+//!
+//! Chapter: the Six-Chapter double-seat, Chapter C thread (Lotus - the creative suite) - waymark lotus-audio.
+//! Stands on: nothing inside lotus/ -- this is the C seam, a leaf the engine imports.
+//!
+//! HONEST SCOPE -- declarations only. No allocation, no state, no logic. The one thing this file
+//! does is name the CoreAudio symbols the linker resolves against -framework AudioToolbox. A
+//! reader checks it against AudioUnit/AUComponent.h, AudioUnit/AudioUnitProperties.h, and
+//! CoreAudioTypes/CoreAudioBaseTypes.h.
+//!
+//!   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build lotus/coreaudio.rye -lc -framework AudioToolbox
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+// --- Types -------------------------------------------------------------------
+
+pub const OSStatus = i32;
+
+pub const AudioComponentDescription = extern struct {
+    component_type: u32,
+    component_sub_type: u32,
+    component_manufacturer: u32,
+    component_flags: u32,
+    component_flags_mask: u32,
+};
+
+pub const AudioBuffer = extern struct {
+    number_channels: u32,
+    data_byte_size: u32,
+    data: ?[*]u8,
+};
+
+pub const AudioBufferList = extern struct {
+    number_buffers: u32,
+    buffers: [1]AudioBuffer,
+};
+
+pub const AudioStreamBasicDescription = extern struct {
+    sample_rate: f64,
+    format_id: u32,
+    format_flags: u32,
+    bytes_per_packet: u32,
+    frames_per_packet: u32,
+    bytes_per_frame: u32,
+    channels_per_frame: u32,
+    bits_per_channel: u32,
+    reserved: u32,
+};
+
+pub const AURenderCallbackStruct = extern struct {
+    input_proc: *const fn (
+        ref_con: ?*anyopaque,
+        action_flags: *u32,
+        timestamp: *const anyopaque,
+        bus: u32,
+        frames: u32,
+        buf_list: *AudioBufferList,
+    ) callconv(.c) OSStatus,
+    input_proc_ref_con: ?*anyopaque,
+};
+
+// --- Constants ---------------------------------------------------------------
+
+// invariant: four-character codes from AudioUnit/AUComponent.h
+pub const au_type_output: u32 = 0x61756f75; // 'auou'
+pub const au_subtype_default_output: u32 = 0x64656620; // 'def '
+pub const au_manufacturer_apple: u32 = 0x6170706c; // 'appl'
+
+// invariant: property IDs from AudioUnit/AudioUnitProperties.h
+pub const au_prop_set_render_callback: u32 = 23;
+pub const au_prop_stream_format: u32 = 8;
+pub const au_scope_input: u32 = 1;
+
+// invariant: format constants from CoreAudioTypes/CoreAudioBaseTypes.h
+pub const audio_format_linear_pcm: u32 = 0x6c70636d; // 'lpcm'
+pub const audio_format_flag_is_float: u32 = 1;
+pub const audio_format_flag_is_packed: u32 = 8;
+
+// --- Functions ---------------------------------------------------------------
+
+pub extern "c" fn AudioComponentFindNext(
+    in_component: ?*anyopaque,
+    in_desc: *const AudioComponentDescription,
+) ?*anyopaque;
+
+pub extern "c" fn AudioComponentInstanceNew(
+    in_component: ?*anyopaque,
+    out_instance: *?*anyopaque,
+) OSStatus;
+
+pub extern "c" fn AudioComponentInstanceDispose(
+    in_instance: ?*anyopaque,
+) OSStatus;
+
+pub extern "c" fn AudioUnitInitialize(
+    in_unit: ?*anyopaque,
+) OSStatus;
+
+pub extern "c" fn AudioUnitUninitialize(
+    in_unit: ?*anyopaque,
+) OSStatus;
+
+pub extern "c" fn AudioOutputUnitStart(
+    in_unit: ?*anyopaque,
+) OSStatus;
+
+pub extern "c" fn AudioOutputUnitStop(
+    in_unit: ?*anyopaque,
+) OSStatus;
+
+pub extern "c" fn AudioUnitSetProperty(
+    in_unit: ?*anyopaque,
+    in_id: u32,
+    in_scope: u32,
+    in_element: u32,
+    in_data: *const anyopaque,
+    in_data_size: u32,
+) OSStatus;
+
+pub extern "c" fn usleep(usec: u32) i32;

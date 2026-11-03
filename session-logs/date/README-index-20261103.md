@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261103.182944` | [CoreAudio engine landed](20261103/20261103-182944_coreaudio-engine-landed.kyri.md) | lotus-audio engine wires transport to CoreAudio -- Orbit 1 proven on metal, callback fired, transport advanced |
 | `20261103.150239` | [standing roster tutorial in docs-geode](20261103/20261103-150239_standing-roster-tutorial.kyri.md) | Bhakta tutorial: five verdicts, standfast, --full, evidence, workflow |
 | `20261103.145835` | [standfast default for standing equipment](20261103/20261103-145835_standfast-default-standing-equipment.kyri.md) | Halt on first red by default per TAME -- --full overrides |
 | `20261103.101415` | [@splat type annotations committed](20261103/20261103-101415_splat-type-annotations-commit.kyri.md) | 138 files annotated for Zig 0.17 @splat, cold endurance run launched |
