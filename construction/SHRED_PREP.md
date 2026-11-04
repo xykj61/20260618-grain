@@ -276,6 +276,15 @@ and no shred is opened.
 
 ### Class M -- CUT `20260826`, the rune renames -- folded whole to [`archive/shred/SHRED_PREP-rune-rename-cut-20260826.md`](archive/shred/SHRED_PREP-rune-rename-cut-20260826.md) on `20260906.114734`: 19 files renamed, 46 touched, 538 substitutions, and 273 occurrences of the syllable left standing as the scope line rather than a leftover.
 
+### Class M -- waymark retirement, prepped `20261103.202637` (W2 molt + registry archive)
+
+Two artifacts prepped under the waymark retirement decision (Keaton's word `20261103`).
+
+| Elder | Living mutant | Measurement and cut |
+| --- | --- | --- |
+| `.claude/rules/waymark-ladders.md` (elder content: waymark derivation ceremony, SHA3 inputs, 30-draw table) | `.claude/rules/waymark-ladders.md` (W2 molt in place: retirement notice carrying the warm-string translation table, pointer to decision essay, accrete-never-break) | W2 shape: 4 inbound living references (comlink-tendency.md, remember.md, stamp-and-name.md, waymark-ascending-numbers.md) kept intact by holding the path. Walk-back: `git show df413e111b`. Cursor twin `.cursor/rules/waymark-ladders.mdc` updated in the same commit. Cut RED. |
+| `construction/waymark-registry.kyri` (SHA3-512 sealed registry, 30 draws + exclude roster) | `construction/archive/waymark-registry-20261103.kyri` (moved via `git mv`, historical artifact) | No longer maintained or witnessed. Living reference in `debride.md` and `debride.mdc` updated to the archive path. Cut RED. |
+
 ### Class M -- the two syllable-named modules, as prepped
 
 *A fossil here is a **module name**, so the mutant is a rename rather than a fresh stamp. This block

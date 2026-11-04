@@ -1,66 +1,82 @@
-# Waymark Ladders -- Draw Before You Number
+# Waymark Ladders -- retired `20261103` on Keaton's word
 
-**Canon:** `context/specs/20260716-115927_waymark-ladder-naming-and-g0-collision-fix.md` - witness `tools/w/waymark_derive.rish` - Lexicon **Waymark**.
+**Status:** Retired -- molted in place (W2) under checkpoint `20261103.202637`
+**Decision:** [`../../active-designing/date/20261103/20261103-195243_waymark-retirement-and-warm-names.md`](../../active-designing/date/20261103/20261103-195243_waymark-retirement-and-warm-names.md)
+**Kin:** [`stamp-and-name`](stamp-and-name.md) - [`waymark-ascending-numbers`](waymark-ascending-numbers.md) - [`comlink-tendency`](comlink-tendency.md)
+**Walk-back:** `git show df413e111b` restores the elder content
 
-**Immutable registry (single source of truth, seated `20260817`):** `construction/waymark-registry.kyri` is the sealed, self-verifying canonical record of **every** waymark ever drawn -- living, retired, abandoned, transient, hand-seated -- each drawn row carrying its input, index, and status. Witness [`../../tools/w/waymark_registry_witness.rish`](../../tools/w/waymark_registry_witness.rish) proves it GREEN two ways: a **SHA3-512 seal** over the body (any edit breaks it) and a **re-derivation** of every collection mark from its input on metal. This registry is the authority; the table below is its readable face. Because the canonical truth is sealed here, the elder marks in old logs and git history are redundant historical noise -- the naming truth no longer depends on them.
+The waymark system -- four-letter SHA3-drawn names for work ladders, a sealed registry, and
+ascending-number rungs -- is **retired from living prose**. Warm descriptive strings replace the
+four-letter draws. The Comlink tendency governs names from here forward: the clearest, most fun,
+safest word, at whatever length.
 
-## When a ladder opens
+## The warm-string table
 
-Before the first rung is written as `X0` / `X1` / ... in TASKS, ROADMAP, compressors, module titles, or session logs that speak as *now*:
+Each former waymark maps to a descriptive string a newcomer grasps at first sight.
 
-1. Choose a **canonical hyphenated input name** for the ladder (stable, descriptive, lowercase).
-2. Set `input_name` in `tools/w/waymark_derive.rish` and run `rishi/bin/rishi run tools/w/waymark_derive.rish`.
-3. Seat the printed four-letter **waymark** in Lexicon + the script's seated-draws comment + exclude list.
-4. **Mark each step by stamp and name, never by an ascending number** -- amended `20260821.160050` by
-   the mark law ([`stamp-and-name.md`](stamp-and-name.md)). A waymark is a **name** drawn for a
-   ladder and it keeps its place; what retires is the numbered rung after it. Write `pixel-glass -- the
-   glass keyboard lands (20260821-142939)` rather than `pixel-glass`, and count the steps with `git log`
-   rather than carrying a total inside a name. Seated ladders whose rungs are already numbered keep
-   every number they wrote.
-
-## Seated waymarks (do not redraw)
-
-| Waymark | Input | Ladder |
+| Former draw | Warm string | What it named |
 |---|---|---|
-| **pixel-glass** | `grapheneos-pixel-mobile-emulation` | Pixel / GrapheneOS SLC |
-| **glow-publishing** | `glow-application-framework-and-publishing` | App framework / packaging |
-| **glass-keyboard** | `glow-english-qwerty-glass-keyboard-3` | Glass English QWERTY keyboard |
-| **seva-broadcast** | `sala-broadcast-live-session-fold` | Seva broadcast session fold (was bare B0-B3) |
-| **hearth-display** | `glow-glass-hearth-display-and-wired-sync` | Hearth display presets - short home - Wired Glass |
-| **glow-language** | `glow-language-rune-heads-nest-and-lowering-2` | Glow language SLC - rune heads - nest - composition |
-| **usb-hearth** | *(hand-seated; not a word-list draw -- absent from flw)* | USB hearth carry Glass<->Desk |
-| **source-identity** | `source-pier-papers-identity-refresh` | SOURCE.md identity - remotes - apps - onboarding refresh |
-| **djinn-exec** | *(input debrided `20260825` -- it carried a name; hand-seated)* | DJINN -> Bozo exec - Keaton -> Murr exec - Linn->Bozo Capricorn 10 |
-| **compass-language** | `glow-language-runes-stdlib-and-pipeline` | Compass Chapter Equinox 1 -- The Language (Glow runes - stdlib/PLEAC - Brix-infuse - pipeline) |
-| **compass-identity** | `kumara-identity-comlink-and-fractal-network` | Compass Chapter Equinox 2 -- Identity & Network (Kumara - d12/d60 topology - Comlink - settlement) |
-| **compass-surface** | `realidream-surface-and-quin-inference-and-mcp-2` | Compass Chapter Equinox 3 -- Surface & Intelligence (Realidream - Quin voices - MCP-in-Kyri) |
-| **compass-world** | `ship-pilot-publishing-grainphone-and-commerce` | Compass Chapter Equinox 4 -- The World (Ship-Pilot - publishing - Grainphone - commerce) |
-| **harvest-yield** | `harvest-season-equinox-1-yield` | Harvest Chapter Equinox 1 -- Yield (prove built modules on real data) |
-| **harvest-trade** | `harvest-season-equinox-2-trade` | Harvest Chapter Equinox 2 -- Trade (fair-trade certification - cash-first) |
-| **harvest-commons** | `harvest-season-equinox-3-commons` | Harvest Chapter Equinox 3 -- Commons (Skate social layer - community) |
-| **harvest-rest** | `harvest-season-equinox-4-rest` | Harvest Chapter Equinox 4 -- Rest (consolidation - saga close - 3/4 reading) |
-| **cion-molt** | `meta-season-chronological-labeling-molt` | cion-molt Meta-Chapter -- molt-debride-sweep count-up IDs -> chronological/semantic labels (after Compass) |
-| **cion-survey** | `cion-meta-season-equinox-1-survey` | cion-molt Equinox 1 -- Survey (name every living count-up ID: site - gap) |
-| **cion-living-molt** | `cion-molt-living-mutants-and-fossils` | cion-molt Equinox 2 -- Molt (relabel living now-lines chronological/semantic). |
-| **cion-debride** | `cion-meta-season-equinox-3-debride` | cion-molt Equinox 3 -- Debride (word-gated cuts of dead count-up tissue, checkpoints first) |
-| **cion-seal** | `cion-meta-season-equinox-4-seal` | cion-molt Equinox 4 -- Seal (witness the conversion - seat the labeling-law guard) |
-| **front-door** | `root-readme-long-return-foundation-weave-and-seed-legitimacy` | Front-door chapter -- root README rewrite (written to last, favorite words) - long-return foundation, now a pointer - fascia crosslink weave - seed legitimacy + final depersonalized push. Molted from **AHOY** `20261002.153434`. The old draw stays in the registry. |
-| **dimeroll-expansion** | `dimeroll-hr-and-accounting-entities` | Double-seated beside the front-door chapter -- DJINN's Bit Design System over the Skate-Realidream-Brushstroke surface (DVUI/Zig 0.16 in a Swift macOS Dock shell, Glow-Rishi-Rye-.brush impl) - Pond onboarding - Vultr SEA IaC - Dimeroll expansion for Siya Fund + Linengrow PBC HR & accounting. |
-| **open-image** | `season-a-open-image-decode-and-photos-surface` | Six-Chapter expansion Chapter A -- Hardware & Right-to-Repair; opening journey the **open image module** (QOI decode -> bounded RGBA grid, content-addressed in Tablecloth) beneath the parts marketplace and Photos app |
-| **mikrophone** | `season-a-mikrophone-forgetful-capture` | Chapter A second journey -- the **Mikrophone firmware** (the Mantrapod's near-term surface): the *memory that forgets* session buffer, proven pure in Rye before metal -- a bounded capture held only while powered, persisted only on a deliberate commit, provably dissolved on power-down. |
-| **constels-naming** | `constel-local-test-constellations` | **Constels** test-network naming -- self-invented, siloed names for sandbox/testnet/localhost Comlink p2p constellations (fake ships, fake piers) run from inside the jailed pier, elder Urbit fake-galaxy dev nets as ancestor; consonant-only, structurally never a live-valid `@p` (segment lengths never 3), under the placeholder-ship-names law. |
-| **lotus-audio** | `season-c-lotus-creative-suite-audio-wire-shape` | **Lotus** creative suite (Chapter C double-seat) -- the basic audio **wire shape**: a self-describing, Sha256-sealed frame carrying an opaque PCM sample buffer tagged by cable kind (XLR - USB-C - guitar), deframed verify-before-trust. Software carrier only; electrical/pinout specifics and audio-interface hardware stay a paused hardware-research round |
-| **macos-native** | `macos-native-surface-rye-backend` | **The macOS native surface** -- a Rye/AppKit backend beside Brushstroke's Wayland one: the checked Objective-C seam, a real view class, input into Skate's event ring, parity with Wayland, and the iOS door. Drawn `20260828.222500` after two probes proved the platform reachable from Rye alone, zero Swift linked |
-| **slh-dsa** | `slh-dsa-hash-based-signature-ladder` | **Chapter G SLH-DSA ladder** -- authoring SLH-DSA-SHAKE-256s in Rye rung by rung (WOTS+ -> FORS -> XMSS hypertree -> the composed signature), each proven against both the published FIPS 205 answer and the vendored PQClean oracle |
+| pixel-glass | pixel-glass | Pixel / GrapheneOS glass keyboard |
+| glow-publishing | glow-publishing | App framework and packaging |
+| glass-keyboard | glass-keyboard | Glass English QWERTY keyboard |
+| seva-broadcast | seva-broadcast | Seva broadcast session fold |
+| hearth-display | hearth-display | Hearth display presets and Wired Glass |
+| glow-language | glow-language | Glow language SLC -- runes, nest, composition |
+| usb-hearth | usb-hearth | USB hearth carry Glass to Desk |
+| source-identity | source-identity | SOURCE.md identity, remotes, onboarding |
+| djinn-exec | djinn-exec | DJINN and Bozo exec |
+| compass-language | compass-language | Compass Equinox 1 -- the language |
+| compass-identity | compass-identity | Compass Equinox 2 -- identity and network |
+| compass-surface | compass-surface | Compass Equinox 3 -- surface and intelligence |
+| compass-world | compass-world | Compass Equinox 4 -- the world |
+| harvest-yield | harvest-yield | Harvest Equinox 1 -- yield |
+| harvest-trade | harvest-trade | Harvest Equinox 2 -- trade |
+| harvest-commons | harvest-commons | Harvest Equinox 3 -- commons |
+| harvest-rest | harvest-rest | Harvest Equinox 4 -- rest |
+| cion-molt | cion-molt | cion-molt meta-chapter -- chronological labeling molt |
+| cion-survey | cion-survey | cion-molt Equinox 1 -- survey |
+| cion-living-molt | cion-living-molt | cion-molt Equinox 2 -- molt living mutants |
+| cion-debride | cion-debride | cion-molt Equinox 3 -- debride |
+| cion-seal | cion-seal | cion-molt Equinox 4 -- seal |
+| front-door | front-door | Front-door chapter -- root README, long return, seed |
+| dimeroll-expansion | dimeroll-expansion | Dimeroll HR, accounting, Bit Design System |
+| open-image | open-image | Open image decode, Photos app, hardware |
+| mikrophone | mikrophone | Mikrophone firmware -- the memory that forgets |
+| constels-naming | constels-naming | Constels test-network naming |
+| lotus-audio | lotus-audio | Lotus creative suite -- audio wire shape |
+| macos-native | macos-native | macOS native surface -- Rye/AppKit backend |
+| slh-dsa | slh-dsa | SLH-DSA hash-based signature ladder |
 
-**Hand-seated names on the exclude roster** (not waymark draws): **SEVA** (viewer; absent from flw), **MAND** (M vane; in flw), **MONA** (prior name of Mand -- one chapter). **SALA** retired from exclude with the Sala->Seva alias close.
+## What the retirement keeps
 
-Word-list pin: `tools/fixtures/f/flw-four-letter.txt` - witness `tools/w/waymark_derive_witness.rish`.
+- **The sealed registry** rests at `construction/archive/waymark-registry-20261103.kyri` as a
+  historical record. It is no longer maintained or witnessed.
+- **The derivation tools** (`tools/w/waymark_derive.rish`, `tools/w/waymark_derive_witness.rish`,
+  `tools/w/waymark_registry_witness.rish`) stay on disk as historical artifacts. No new draws.
+- **Dated testimony keeps every word it wrote.** Session logs, dated design essays, commit history,
+  and folded shelves carrying waymark names stay exactly as written.
+
+## What the retirement removes from living prose
+
+- **Bare four-letter waymark names** (lotus-audio, glow-language, pixel-glass, etc.) in living files, replaced by their
+  warm strings or by the module filenames they were standing in for.
+- **Ascending-number patterns** (lotus-audio, glow-language, pixel-glass, etc.) in living files, already banned
+  by [`waymark-ascending-numbers`](waymark-ascending-numbers.md).
+- **The waymark derivation ceremony** -- choosing a canonical input, running SHA3, seating a draw,
+  re-sealing the registry. The Comlink tendency's three tests (clear, fun, safe) govern names
+  from here forward, without the four-letter constraint.
+
+## Why it was retired
+
+The waymark system gave the tree collision-free four-letter identifiers drawn from SHA3. It cost
+clarity: a newcomer cannot guess what lotus-audio, glow-language, or compass-surface mean, the registry required maintenance
+and sealing, and the ascending-number rungs violated the stamp-and-name law in spirit. The Comlink
+tendency already governs names, and warm descriptive strings pass all three of its tests where
+four-letter draws pass only one (safe). The decision essay gives the full accounting.
 
 ## Accrete-never-break
 
-Dated logs and research that already say `B0` / `B1` / `B2` stay readable. Living *Now* lines, new modules, new commits, and compressors use **seva-broadcast** (and other seated waymarks) from the draw forward.
+Dated testimony keeps every waymark it ever wrote. This retirement governs living surfaces and
+everything written from here forward.
 
-## Collision
-
-If the derive assert goes RED (word hits a seated module or waymark name), append `-2` to `input_name` and redraw -- same method as the spec.
+*Cursor twin:* `.cursor/rules/waymark-ladders.mdc`

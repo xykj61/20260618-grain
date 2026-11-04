@@ -60,7 +60,7 @@ commit messages; glow-language 348 numbers / 1,711 files; pixel-glass 5, glow-pu
   orphan shed, and fossil cuts combined. Execute in order:
   1. Record the walk-back checkpoint in `construction/CHECKPOINTS.md`.
   2. Molt-breach `waymark-ladders.md` to a living mutant carrying the warm-string table
-     and retire `waymark-registry.kyri` to `construction/archive/`, both onto shred-prep
+     and retire `waymark-registry.kyri` to `construction/archive/waymark-registry-20261103.kyri`, both onto shred-prep
      Class M.
   3. Working-tree sweep: strip ascending-number patterns AND bare waymark names from
      all living files -- headers, cross-references, rosters, and prose. Replace with warm
