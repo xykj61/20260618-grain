@@ -33,6 +33,10 @@ you can check with your own eyes, and that ending is the whole reason this room 
 | [Your First Glow Program](your-first-glow-program.md) | someone who has never written Glow | from nothing to a running program -- bound-tick, face-lit, gate, the six standard operations, and an exercise |
 | [Glow Meets the Screen](glow-meets-the-screen.md) | someone who has run a Glow program and wants to see a window | build the REPL and layout demo, read the layout code, change what appears on screen |
 
+Once you have run a few Glow programs, the [Glow cookbook](../cookbook/README.md#glow-recipes)
+has standalone recipes for each standard library module, and the
+[stdlib reference](../libraries/glow-stdlib.md) lists every function with its type and bounds.
+
 The list is the one copy. The picture is that list, folded into light.
 
 Fold head is the silo's name for the center. The read you can open is `current`.

@@ -68,6 +68,22 @@ The cookbook primitives also live as Rishi builtins, so a `.rish` script calls t
 
 Further chapters grow one witnessed primitive at a time.
 
+## Glow recipes
+
+The Glow language has its own cookbook recipes -- standalone programs you can run and read.
+Each recipe covers one concept with working examples.
+
+| Recipe | What it covers |
+|--------|----------------|
+| [Arithmetic](arithmetic.md) | `lib-core-arith` -- double, inc, dec |
+| [Number Operations](number-ops.md) | `lib-core-number` -- square, half, negate |
+| [Atom Operations](atom-ops.md) | `lib-core-atom-ops` -- lent, pack, unpack |
+| [Conditionals](conditionals.md) | `?:` rune -- choosing between two paths |
+| [Faces and Bindings](faces-and-bindings.md) | `=/` and `=.` -- naming and updating values |
+| [Gates](gates.md) | `\|=` and `\|%` -- functions and multi-arm cores |
+
+The stdlib reference listing every function is at [`../libraries/glow-stdlib.md`](../libraries/glow-stdlib.md).
+
 ---
 
 *Every language owes the same small tasks. This cookbook is where those tasks are proved, one at a time.*

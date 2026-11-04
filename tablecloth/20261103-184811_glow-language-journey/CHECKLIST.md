@@ -204,7 +204,7 @@ the Bhakta register.
   **SLC gate:** the tutorial exists, the Bhakta witness runs GREEN, and a person
   following the steps can modify the layout demo.
 
-- [ ] **Orbit 15 -- docs-geode/cookbook expansion and cross-references**
+- [x] **Orbit 15 -- docs-geode/cookbook expansion and cross-references**
   *Calfive round 15 (sky, dual aether, heart -- Siya's chair) -- "The full orbit."*
   Grow `docs-geode/cookbook/` from 3 files to at least 8 -- one per stdlib module plus
   common patterns (error handling, bounded loops, record composition, list transforms).
