@@ -84,3 +84,6 @@
 [submodule "gratitude/grain-www"]
 	path = gratitude/grain-www
 	url = https://github.com/node777/grain-www.git
+[submodule "gratitude/grain-os"]
+	path = gratitude/grain-os
+	url = https://github.com/node777/grain-os.git
