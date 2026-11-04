@@ -149,7 +149,7 @@ Brushstroke declares each component's grid, role, state, tokens, and motion prof
 
 ## Now -- the eight sailing ship itineraries
 **Git nib:** `29d15756d7`
-**Fascia:** `60.0` -- post-debride baseline, governed by `context/specs/20261103-201746_fascia-health-model.md`. Deep debride landed: warm names replace waymarks, 1,035 orphans and fossils shed, 14,398 commits rewritten and re-signed, history clean. Grade model: 60s are the pre-ship era, 0.01 per proven orbit, larger on Keaton's word.
+**Fascia:** `60.03` -- Orbits 7-9 landed (multi-arm cores, number arithmetic, value model), governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.01 per proven orbit, larger on Keaton's word.
 
 
 ### Incense -- product captain

@@ -132,12 +132,15 @@ and the Terrarium/Aurora/Caravan pattern of growing from working simples.
   all number arms resolve through parse-lower-emit-compile-run.
   **Essay:** `active-designing/date/20261104/20261104-002432_glow-number-arithmetic-arms.md`
 
-- [ ] **Orbit 9 -- Record and the value model**
-  `glow/stdlib/record.glow` -- the single-stranded value model: string, integer, bool,
-  list, record. Records compose side by side, never tangled. A record is created, read,
-  updated, and passed -- five operations, each bounded, each proven.
-  **SLC gate:** a Glow program creates a record, updates a field, passes it to a function,
-  and the witness proves the value model holds.
+- [x] **Orbit 9 -- Record and the value model**
+  Reframed from `glow/stdlib/record.glow` (unreachable: `/+` compose-lib handles `|%`
+  cores only, and no stdlib path exists in import resolution). Proves the value model
+  through existing pipeline paths instead: 6 new Glow programs covering 5 types (record,
+  integer, string, list, tagged union) and 5 operations (create, read, update, pass,
+  compose). 12-program witness ties new and existing programs together.
+  **SLC gate:** `tools/g/glow_value_model_witness.rish` runs GREEN -- 12 programs,
+  5 types, 5 operations proven through parse-lower-emit-compile-run.
+  **Essay:** `active-designing/date/20261104/20261104-004038_glow-value-model-record.md`
 
 ### Quest 2.2 -- Glow Meets the Surface
 

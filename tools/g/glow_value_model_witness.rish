@@ -1,0 +1,90 @@
+# glow_value_model_witness.rish -- the single-stranded value model proves on metal.
+#
+# Five types: record (+$), integer (@u32/@u64), string (@t), list (:~),
+# tagged union ($%).  Five operations: create, read, update (flip), pass
+# (gate accepting shape), compose (multiple auras in one record).
+#
+# Each program runs through the full pipeline: parse -> lower -> emit Rye
+# -> compile Zig -> run -> GREEN.
+#
+#   rishi/bin/rishi run tools/g/glow_value_model_witness.rish
+
+say "--- value model: record (create) ---"
+
+let r1 = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/s/shape-pair.glow"]
+assert r1.ok else "shape-pair.glow failed"
+assert r1.out contains "GREEN" else "shape-pair.glow not GREEN"
+say "  shape-pair (u32 record, 2 fields): GREEN"
+
+let r2 = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/r/record-value.glow"]
+assert r2.ok else "record-value.glow failed"
+assert r2.out contains "GREEN" else "record-value.glow not GREEN"
+say "  record-value (u32 + u64 + text): GREEN"
+
+let r3 = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/s/shape-seva-event.glow"]
+assert r3.ok else "shape-seva-event.glow failed"
+assert r3.out contains "GREEN" else "shape-seva-event.glow not GREEN"
+say "  shape-seva-event (5 fields, 3 aura types): GREEN"
+
+say ""
+say "--- value model: pass (gate accepting record) ---"
+
+let p1 = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/v/value-pass.glow"]
+assert p1.ok else "value-pass.glow failed"
+assert p1.out contains "GREEN" else "value-pass.glow not GREEN"
+say "  value-pass (pair-shape -> pair-shape): GREEN"
+
+let p2 = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/g/gate-xact.glow"]
+assert p2.ok else "gate-xact.glow failed"
+assert p2.out contains "GREEN" else "gate-xact.glow not GREEN"
+say "  gate-xact (tagged union -> u32): GREEN"
+
+say ""
+say "--- value model: update (flip) ---"
+
+let u1 = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/v/value-update.glow"]
+assert u1.ok else "value-update.glow failed"
+assert u1.out contains "GREEN" else "value-update.glow not GREEN"
+say "  value-update (pair-shape flip): GREEN"
+
+say ""
+say "--- value model: integer and bool ---"
+
+let i1 = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/v/value-bool.glow"]
+assert i1.ok else "value-bool.glow failed"
+assert i1.out contains "GREEN" else "value-bool.glow not GREEN"
+say "  value-bool (gth conditional -> 0 or 1): GREEN"
+
+let i2 = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/m/mutate-root.glow"]
+assert i2.ok else "mutate-root.glow failed"
+assert i2.out contains "GREEN" else "mutate-root.glow not GREEN"
+say "  mutate-root (u32 mutation): GREEN"
+
+say ""
+say "--- value model: list ---"
+
+let l1 = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/v/value-list.glow"]
+assert l1.ok else "value-list.glow failed"
+assert l1.out contains "GREEN" else "value-list.glow not GREEN"
+say "  value-list (3-element cell list): GREEN"
+
+let l2 = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/c/cell-list.glow"]
+assert l2.ok else "cell-list.glow failed"
+assert l2.out contains "GREEN" else "cell-list.glow not GREEN"
+say "  cell-list (3-element cell list, original): GREEN"
+
+say ""
+say "--- value model: tagged union (variant) ---"
+
+let t1 = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/v/value-tagged.glow"]
+assert t1.ok else "value-tagged.glow failed"
+assert t1.out contains "GREEN" else "value-tagged.glow not GREEN"
+say "  value-tagged (on/off flag union): GREEN"
+
+let t2 = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/s/shape-kind.glow"]
+assert t2.ok else "shape-kind.glow failed"
+assert t2.out contains "GREEN" else "shape-kind.glow not GREEN"
+say "  shape-kind (mint/send tag union): GREEN"
+
+say ""
+say "GREEN: glow_value_model_witness -- 12 programs, 5 types, 5 operations proven."

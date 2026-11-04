@@ -1,0 +1,7 @@
+::  Record with all three value types -- the value model in one shape.
+::  @u32 (integer), @u64 (wide integer), @t (bounded text).
++$  record-value-shape
+  $:  count=@u32
+      epoch=@u64
+      label=@t
+  ==

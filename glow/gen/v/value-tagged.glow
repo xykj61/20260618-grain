@@ -1,0 +1,6 @@
+::  Tagged union -- the value model's variant type.
+::  Two tags with unit payload: a bool is a two-variant union.
++$  value-flag-shape
+  $%  [%on ~]
+      [%off ~]
+  ==

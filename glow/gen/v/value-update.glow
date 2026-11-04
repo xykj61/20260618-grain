@@ -1,0 +1,4 @@
+::  Update a record -- the value model's update operation.
+::  Gate accepts a pair-shape record and returns it with fields flipped.
+|=  sample=pair-shape
+%-  flip  sample

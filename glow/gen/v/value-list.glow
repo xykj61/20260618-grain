@@ -1,0 +1,3 @@
+::  List of values -- the value model's list type.
+::  Three u32 faces composed side by side.
+:~  count  epoch  label

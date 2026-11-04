@@ -1,0 +1,4 @@
+::  Pass a record to a function -- the value model's pass operation.
+::  Gate accepts a pair-shape record and returns it unchanged.
+|=  sample=pair-shape
+sample
