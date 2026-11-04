@@ -1,4 +1,5 @@
-::  Cross-desk named-cast -- import shape-count then ^- count-shape (glow-language).
+::  Cross-desk named-cast -- import shape-count then ^- count-shape
+::  (glow-language).
 ::  Glow OS primary spelling; shape-count.glow keeps the study twin.
 /+  shape-count
 ^-  count-shape

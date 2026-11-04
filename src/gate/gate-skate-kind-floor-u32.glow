@@ -1,6 +1,7 @@
 ::  name       skate kind floor gate
 ::  shape      kind - int (@u32) -> lawful - int (@u32)
-::  invariant  answers 0 for the unseated kind zero; answers 1 for any named kind
+::  invariant  answers 0 for the unseated kind zero; answers 1 for any named
+::  kind
 ::  example    0 -> 0 - 1 -> 1
 ::  readers    Skate - the native surface - Glow
 ::  nib        loca-skate-binding-v0 - the ceiling's sibling (20260829)

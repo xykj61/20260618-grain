@@ -1,4 +1,5 @@
-::  Library session-root product arm -- payload + nest-left cue-of-jam (glow-language).
+::  Library session-root product arm -- payload + nest-left cue-of-jam
+::  (glow-language).
 |%
 =/  root  5
 ++  session-root  (cue (jam (mix root root) root))

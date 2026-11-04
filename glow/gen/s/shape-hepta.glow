@@ -1,4 +1,5 @@
-::  Multi-field +$ / $: seven @u32 fields -- Glow OS primary desk (glow-language).
+::  Multi-field +$ / $: seven @u32 fields -- Glow OS primary desk
+::  (glow-language).
 ::  hepta-shape is hepta-mold; shape-hepta.glow stays the Hoon study twin.
 +$  hepta-shape
   $:  from=@u32

@@ -1,6 +1,7 @@
 ::  name       consent grant field count
 ::  shape      fields - int (@u32)
-::  invariant  a ConsentGrantFact carries exactly nine fields (schema - grant_id -
+::  invariant  a ConsentGrantFact carries exactly nine fields (schema - grant_id
+::  -
 ::             receipt_id - holder_id - recipient_id - scope - granted_at -
 ::             signer_id - signature)
 ::  example    9

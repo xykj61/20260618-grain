@@ -1,6 +1,7 @@
 ::  name       mantra store dir count
 ::  shape      dirs - int (@u32)
-::  invariant  a Store holds exactly three directory handles (root - mantra - blobs)
+::  invariant  a Store holds exactly three directory handles (root - mantra -
+::  blobs)
 ::  example    3
 ::  readers    Mantra - Glow Tend - Sur museum - Ashvini nest-only
 ::  nib        equinox-e206-mantra-tend-v0

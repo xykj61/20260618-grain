@@ -1,6 +1,7 @@
 ::  name       caravan supervisor exit meanings
 ::  shape      meanings - int (@u32)
-::  invariant  supervised exits carry exactly three meanings (cycle_ok - stop_requested - fall)
+::  invariant  supervised exits carry exactly three meanings (cycle_ok -
+::  stop_requested - fall)
 ::  example    3
 ::  readers    Caravan - Glow Tend - Sur museum - Ashvini nest-only
 ::  nib        equinox-e198-caravan-tend-v0

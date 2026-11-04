@@ -1,6 +1,7 @@
 ::  name       mantra line fields equality gate
 ::  shape      count - int (@u32) -> lawful - int (@u32)
-::  invariant  answers 1 exactly when count is line fields=6; answers 0 otherwise
+::  invariant  answers 1 exactly when count is line fields=6; answers 0
+::  otherwise
 ::  law        mantra/src/weave.rye Line.fields exact
 ::  example    6 -> 1 - 5 -> 0 - 7 -> 0
 ::  readers    Mantra - Glow Tend a1 unfinished - Ashvini

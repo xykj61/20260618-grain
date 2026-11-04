@@ -1,6 +1,7 @@
 ::  name       layout height ceiling gate
 ::  shape      height - int (@u32) -> lawful - int (@u32)
-::  invariant  answers 1 while the height stays at or under 8; answers 0 past the grid
+::  invariant  answers 1 while the height stays at or under 8; answers 0 past
+::  the grid
 ::  law        brushstroke/skate_cell_grid.rye grid_rows=8
 ::  example    1 -> 1 - 8 -> 1 - 9 -> 0
 ::  readers    Brushstroke - Skate - Glow layout

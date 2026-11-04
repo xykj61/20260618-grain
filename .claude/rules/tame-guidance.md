@@ -13,6 +13,8 @@ The highest points, token-dense; the full form is `context/TAME_CORE.md` (core) 
 - **Bound everything** -- every allocation/collection/loop names a max; check at the edge; fail with a **named error**. No unbounded recursion.
 - **Assert invariants first** -- construction - mutation - postcondition, **>=2 per fn**, each `// invariant:`, stated **positively**.
 - **Explicit widths** -- `u32` in-memory - `u64` wire - `usize` **seam-only** (assert bound, `@intCast` at edge). **Say why.** Accrete by tier. One value model (string-int-bool-list-record).
+- **80 columns** -- hard limit all line lengths to 80. Departed from TigerBeetle's 100 toward Urbit's elder discipline, seated `20261104` for accessibility (tablets, phones, split panes, diffs, print). Glow gated; all others ratchet.
+- **Glow `::` comments at column 57** -- code at 1-56, pad, `::` at 57-58, comment to 79. Full-line `::` at indent welcome. Inherited from Hoon's measured pattern (78.5% of Hoon inline comments).
 - **Rye reflexes** -- opening triad (`std`-`assert`-`print`) - `snake_case` - short fns - named errors with `try` - `copy_disjoint` not bare `@memcpy` - unqualified `assert` (never `std.debug.assert(`) - no compound `assert(a and b)` - `garden` arena, never raw `ArenaAllocator`.
 - **Rishi** -- `run` -> `{ out, err, code, ok }`, check `ok` before trusting `out`; no integer div/mod; `run [ ... ]` args on one line.
 - **Reds-first** -- a red books the allocation; a fix closes on a **witness on metal**, never a claim.
@@ -57,6 +59,7 @@ Tiger Style discipline: **`usize` is a boundary type, not a design type.** Read 
 | **Rye** | `u32` bounded, `u64` wire. Seam-only `usize`. Unqualified `assert`. Named errors with `try`. Short functions named with a verb. |
 | **Brix** | Composition language -- declares systems. Evaluates to Kyri. Interfaces with Mantra, targets Aurora + Tally. |
 | **Kyri** | Data notation -- plain key-value, one field per line. Parsed, not evaluated. |
+| **Glow** | `::` comments; column-57 inline pattern (code 1-56, `::` at 57-58, comment to 79). 80-column hard limit. Full-line `::` at indent. Section banners with `::::`. |
 | **Rishi** | `run` always returns `{ out, err, code, ok }`. Check `ok` before trusting `out`. `assert` as a pipeline gate. `if/then/else` for conditionals. `for-each` for iteration. |
 
 ## Chapter memory (Rye only)

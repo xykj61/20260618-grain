@@ -1,4 +1,5 @@
-::  Cross-desk payload tagged named-cast -- import shape-xact then ^- xact-shape (glow-language).
+::  Cross-desk payload tagged named-cast -- import shape-xact then ^- xact-shape
+::  (glow-language).
 ::  Lowered by glow/lower_named_cast.rye; mold library has no main.
 /+  shape-xact
 ^-  xact-shape

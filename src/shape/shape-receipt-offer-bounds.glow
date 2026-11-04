@@ -1,12 +1,14 @@
 ::  name       receipt offer bounds count
 ::  shape      ceilings - int (@u32)
-::  invariant  tally/receipt_offer_bounds.rye publishes exactly twelve typed ceilings
+::  invariant  tally/receipt_offer_bounds.rye publishes exactly twelve typed
+::  ceilings
 ::  example    12
 ::  readers    Tally - Mantra - Glow Tend - shape museum
 ::  nib        tally-tend-7-v0
 ::
 ::  Pheromone -- Tally Glow Tend limb 7. Names how many typed ceilings the first
-::  readable receipt offer publishes in tally/receipt_offer_bounds.rye: identifier,
+::  readable receipt offer publishes in tally/receipt_offer_bounds.rye:
+::  identifier,
 ::  purpose, value-basis, encoded-fact, amount, replay, card width and height,
 ::  product digest length, value unit, return kind, and signature. The count is
 ::  the number the witness reads from the rye rather than copies here.

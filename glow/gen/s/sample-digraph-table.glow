@@ -1,3 +1,7 @@
 ::  Digraph-table sample -- face=lit rows cord (glow-language).
-::  Exact match_rune2 order; twin fixture tools/fixtures/g/glow_digraph_table.txt.
-rows='+$ $% $: ^- =/ =. =* |+ |- |% |= |^ ++ -- /+ ?: ?> ?< ?- ?~ ?& ?| :- :+ :^ :~ %- %+ %^ %*'
+::  Exact match_rune2 order; twin fixture
+::  tools/fixtures/g/glow_digraph_table.txt.
+=/  a  '+$ $% $: ^- =/ =. =* |+ |- |% |= |^'
+=/  b  '++ -- /+ ?: ?> ?< ?- ?~ ?& ?| :- :+ :^ :~'
+=/  c  '%- %+ %^ %*'
+rows=(weld a (weld ' ' (weld b (weld ' ' c))))

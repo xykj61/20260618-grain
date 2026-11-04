@@ -1,3 +1,4 @@
-::  Cross-desk multi-field named-cast -- import shape-quad then ^- quad-shape (glow-language).
+::  Cross-desk multi-field named-cast -- import shape-quad then ^- quad-shape
+::  (glow-language).
 /+  shape-quad
 ^-  quad-shape

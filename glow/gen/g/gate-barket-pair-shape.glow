@@ -1,4 +1,5 @@
 ::  Thin barket -- sample=pair-shape returns sample (glow-language).
-::  pair-shape is the Glow OS shape alias for pair-mold (PairShape - baked from 5 amount 3).
+::  pair-shape is the Glow OS shape alias for pair-mold (PairShape - baked from
+::  5 amount 3).
 |^  sample=pair-shape
 sample

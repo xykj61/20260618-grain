@@ -1,6 +1,7 @@
 ::  name       brush skate cols
 ::  shape      cols - int (@u32)
-::  invariant  thin Skate proof grid width for BrushFrame->skate_grid is forty cells
+::  invariant  thin Skate proof grid width for BrushFrame->skate_grid is forty
+::  cells
 ::  example    40
 ::  readers    Brushstroke - Surface - skate_grid - .brush lower
 ::  nib        surface-p30-v0

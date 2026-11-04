@@ -1,4 +1,5 @@
-::  Seva B0 log-line shape -- sig hex + fact bytes as faces (glow-language / B3).
+::  Seva B0 log-line shape -- sig hex + fact bytes as faces (glow-language /
+::  B3).
 ::  Mirrors elder format_log_line halves (glow-language product wrap).
 ::  glow-language: @t bound 1024 -- sig hex (128) and max fact hex (1024) fit.
 ::  glow-language: cast twin at cast-named-fact-line.glow.

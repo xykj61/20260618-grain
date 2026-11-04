@@ -1,4 +1,5 @@
-::  Thin barket -- sample=xact-shape through closed flip call body (glow-language).
+::  Thin barket -- sample=xact-shape through closed flip call body
+::  (glow-language).
 ::  XactShape flip: .mint -> .send; baked expect .send.
 |^  sample=xact-shape
 %-  flip  sample

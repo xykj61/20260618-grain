@@ -1,4 +1,5 @@
 ::  Thin barket -- sample=xact-shape returns sample (glow-language).
-::  xact-shape is the Glow OS shape alias for xact-mold (XactShape union - baked %mint amount 5).
+::  xact-shape is the Glow OS shape alias for xact-mold (XactShape union - baked
+::  %mint amount 5).
 |^  sample=xact-shape
 sample

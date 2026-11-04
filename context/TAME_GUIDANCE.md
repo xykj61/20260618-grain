@@ -376,7 +376,17 @@ return buf[start .. start + @as(usize, @intCast(n))];
 
 **Types and receivers.** A function that returns a `type` carries a `CamelCase` name ending in `Type` -- `StackType`, `BitSetType` -- so the reader sees a type constructor at a glance. When a method aliases its own type, give the alias the **real type name**, `const Stack = @This();`, rather than the bare `Self`. For the receiver itself, name it after the type in non-generic structs -- `file: SourceFile`, `counter: *IdentifierCounter` -- which reads more clearly than a generic `self`; the plain `self` stays welcome inside generic wrappers where the type name is a parameter.
 
-For everything else, follow the Zig style guide as filtered through **996** (line length, braces, `zig fmt`, and the rest).
+For everything else, follow the Zig style guide as filtered through **996** (braces, `zig fmt`, and the rest).
+
+### Line width -- 80 columns
+
+**Hard limit all line lengths to at most 80 columns.** Seated `20261104` on Keaton's word, departing from TigerBeetle's 100-column standard toward Urbit's elder discipline, for accessibility: 80 fits tablets in portrait, phones in landscape, split-pane terminals, GitHub's diff view, and printed code. Hoon's own kernel (28,132 lines measured) holds 99.8% within 80 by tall-form discipline alone.
+
+The standard applies to every authored family: Rye, Rishi, shell, Glow, Brix, Kyri, Markdown, and comments. A line hidden behind a horizontal scrollbar is a line a reviewer may not read -- safety first.
+
+**Glow comments -- the column-57 `::` pattern.** Inherited from Hoon's inline comment alignment: code at columns 1-56, a space pad, `::` at columns 57-58, comment text to column 79. Full-line `::` comments at the current indent are welcome. Section banners use `::::` with padding. The column number is measured from Hoon rather than chosen: 78.5% of Hoon's own inline comments align `::` at column 57.
+
+**Phase:** Glow is gated at 80 from this stamp (622 lines to fix, the cheapest family). Rye, Rishi, shell, and prose ratchet under a ceiling that only falls.
 
 ### The opening lines
 
@@ -628,7 +638,7 @@ there by [`../tools/l/lint_table_runs_witness.rish`](../tools/l/lint_table_runs_
 | **Amber first lap** (export / verify / restore on fixture tree) | `tools/ce/cellar_first_ring.rish` (live witness, parity **144**, `20260703.051812`) | by hand |
 | **No `Self = @This()`** | `tools/t/tame-check.rish` (witness; the predicate reaches any spacing, `Self=@This()` included) | every lap |
 | **No tabs, no trailing whitespace** | `tools/t/tame-check.rish` (witness; tabs walled at zero, trailing whitespace split -- **1** authored site ratcheted, **2** inside `\\` multiline strings reported as program content the tree emits) | every lap |
-| **Line length <= 100 columns** | `tools/l/line_length_census_witness.rish` (census, seated `20260911`) -- **measured rather than gated**: 4,915 sources, 895,602 lines, **102,153 past a hundred**, of which **54,940 are own-line comments and 18,495 a Rishi `say` or `assert`**, so 72 percent carry a sentence rather than a statement. No ceiling holds the total, since it rises whenever a rung is generated; the one gate is the census's own reach. RUN it rather than reading these figures | every lap |
+| **Line length <= 80 columns** | `tools/l/line_length_census_witness.rish` (census) and `tools/l/line_length_gate_witness.rish` (gate, seated `20261104`). **Glow gated at 80 from `20261104`.** All other families ratchet under a ceiling that only falls. Census figures are FREE -- RUN rather than reading. Departed from TigerBeetle's 100-column standard toward Urbit's 80, on Keaton's word `20261104`, for accessibility | every lap |
 | **One `# Title` per markdown** | `tools/o/one_title_witness.rish` (live witness, seated `20260911`; fence-aware, and an HTML `<h1>` counts, since `README.md` centers its own title that way). **390 living pages, 389 carrying exactly one**; ratchet ceiling **1** | every lap |
 | **Living docs lint (roster advisory)** | `tools/l/living_docs_lint.rish` -- five duties; ratchet advisory; prints in parity ch.1 beside `tame_style`; roster in `tools/fixtures/l/living_docs_lint_roster.sh` | on cadence |
 | **signed-Kumara parity (proven-seat)** | `tools/p/proven_seat_signed_kumara_parity.rish` -- parity ch.2 tail; fetch gates; build+serial when bench staged; jail-safe ADVISE skip | by hand |

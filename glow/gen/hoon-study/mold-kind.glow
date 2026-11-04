@@ -1,4 +1,5 @@
-::  Thin +$ / $% tagged-union mold -- cold atoms with unit payload (glow-language).
+::  Thin +$ / $% tagged-union mold -- cold atoms with unit payload
+::  (glow-language).
 ::  Lowered by glow/lower_mold.rye into ordinary Rye; Rishi stays the shell.
 +$  kind-mold
   $%  [%mint ~]

@@ -1,3 +1,4 @@
-::  Cross-desk multi-field named-cast -- import shape-nona then ^- nona-shape (glow-language).
+::  Cross-desk multi-field named-cast -- import shape-nona then ^- nona-shape
+::  (glow-language).
 /+  shape-nona
 ^-  nona-shape

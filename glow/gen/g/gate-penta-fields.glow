@@ -1,4 +1,5 @@
-::  Thin bartis generator (glow-language): penta-shape identity; five $: fields from Rishi argv.
+::  Thin bartis generator (glow-language): penta-shape identity; five $: fields
+::  from Rishi argv.
 ::  Matching fixture desk: gate-penta.glow (baked welcome).
 ::  Args: <from> <amount> <fee> <nonce> <memo>
 ::  Sample: 3 5 7 11 13

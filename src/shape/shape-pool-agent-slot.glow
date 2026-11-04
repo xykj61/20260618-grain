@@ -7,7 +7,8 @@
 ::
 ::  Surface Chapter p13 -- first resident in src/app (Pool agents).
 ::  Names Pool as Glow's Gall-role host; one slot is the honest first open.
-::  Does not seat glow-publishing packaging - APK - or revive pond/apps (elder Rye stays
+::  Does not seat glow-publishing packaging - APK - or revive pond/apps (elder
+::  Rye stays
 ::  beside until each is revived as a new Glow artifact).
 +$  pool-agent-slot-shape
   $:  slots=@u32

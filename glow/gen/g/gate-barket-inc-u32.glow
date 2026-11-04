@@ -1,4 +1,5 @@
-::  Thin barket generator (glow-language): inc call body; sample from Rishi argv.
+::  Thin barket generator (glow-language): inc call body; sample from Rishi
+::  argv.
 ::  Matching fixture desk: gate-barket-inc.glow (baked welcome).
 ::  Sample: 7
 |^  sample=@u32

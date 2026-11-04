@@ -1,4 +1,5 @@
-::  Refuse desk -- sample=deca-shape is open multi-field $:; not gate-welcome this lap (glow-language).
+::  Refuse desk -- sample=deca-shape is open multi-field $:; not gate-welcome
+::  this lap (glow-language).
 ::  Parse-only; do not glow_run -- nest/type refuses SampleDoesNotNest.
 |=  sample=deca-shape
 sample

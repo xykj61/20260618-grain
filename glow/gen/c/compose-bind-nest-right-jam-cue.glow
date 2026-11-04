@@ -1,4 +1,5 @@
-::  Bind faces then nest-right jam->cue -- product-shaped nest-right pack/unpack (glow-language).
+::  Bind faces then nest-right jam->cue -- product-shaped nest-right pack/unpack
+::  (glow-language).
 =/  from=@u32  5
 =/  amount=@u32  3
 =/  cell-pack=@u32  (jam from (mix from amount))

@@ -1,4 +1,5 @@
-::  Multi-field +$ / $: five @u32 fields -- Glow OS primary desk (glow-language).
+::  Multi-field +$ / $: five @u32 fields -- Glow OS primary desk
+::  (glow-language).
 ::  penta-shape is penta-mold; shape-penta.glow stays the Hoon study twin.
 +$  penta-shape
   $:  from=@u32

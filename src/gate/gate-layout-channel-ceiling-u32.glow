@@ -1,6 +1,7 @@
 ::  name       layout channel ceiling gate
 ::  shape      channel - int (@u32) -> lawful - int (@u32)
-::  invariant  answers 1 while the input channel stays at or under 255; answers 0 past the ceiling
+::  invariant  answers 1 while the input channel stays at or under 255; answers
+::  0 past the ceiling
 ::  law        brushstroke/skate_cell_grid.rye 8-bit palette per channel
 ::  example    128 -> 1 - 256 -> 0
 ::  readers    Brushstroke - Skate - Glow layout

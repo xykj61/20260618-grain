@@ -1,4 +1,5 @@
-::  Thin bartis generator (glow-language): xact-shape identity; payload tag + amount from Rishi argv.
+::  Thin bartis generator (glow-language): xact-shape identity; payload tag +
+::  amount from Rishi argv.
 ::  Matching fixture desk: gate-xact-shape.glow (baked welcome).
 ::  Args: mint <u32> - or send
 ::  Sample: mint 7

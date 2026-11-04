@@ -1,6 +1,7 @@
 ::  name       grant family count
 ::  shape      families - int (@u32)
-::  invariant  Glow carries three GrapheneOS-parallel grant families: Resource Scope - Network Grant - Sensors Grant
+::  invariant  Glow carries three GrapheneOS-parallel grant families: Resource
+::  Scope - Network Grant - Sensors Grant
 ::  example    3
 ::  readers    Pool - glow-publishing - Mand - Surface sec room
 ::  nib        surface-p21-v0

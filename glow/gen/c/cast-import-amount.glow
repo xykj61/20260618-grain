@@ -1,4 +1,5 @@
-::  Cross-desk named-cast -- import shape-amount then ^- amount-shape (glow-language).
+::  Cross-desk named-cast -- import shape-amount then ^- amount-shape
+::  (glow-language).
 ::  Lowered by glow/lower_named_cast.rye; mold library has no main.
 /+  shape-amount
 ^-  amount-shape

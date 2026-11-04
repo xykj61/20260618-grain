@@ -1,6 +1,7 @@
 ::  name       tally maybe poles
 ::  shape      poles - int (@u32)
-::  invariant  maybe welcomes exactly two honest outcomes (true - false) and asserts neither
+::  invariant  maybe welcomes exactly two honest outcomes (true - false) and
+::  asserts neither
 ::  example    2
 ::  readers    Tally - Glow Tend - Caravan - Ashvini nest-only
 ::  nib        equinox-e199-tally-tend-v0

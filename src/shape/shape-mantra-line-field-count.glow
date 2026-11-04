@@ -1,6 +1,7 @@
 ::  name       mantra line field count
 ::  shape      fields - int (@u32)
-::  invariant  a weave Line carries exactly six fields (text - gen - pos - site - run - ord)
+::  invariant  a weave Line carries exactly six fields (text - gen - pos - site
+::  - run - ord)
 ::  law        mantra/src/weave.rye Line.fields exact
 ::  example    6
 ::  readers    Mantra - Glow Tend - Sur museum - Ashvini nest-only

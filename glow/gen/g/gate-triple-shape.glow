@@ -1,4 +1,5 @@
 ::  Thin bartis Glow gate -- sample=triple-shape returns sample (glow-language).
-::  triple-shape is the Glow OS shape alias for triple-mold (TripleShape - baked from 5 amount 3 fee 1).
+::  triple-shape is the Glow OS shape alias for triple-mold (TripleShape - baked
+::  from 5 amount 3 fee 1).
 |=  sample=triple-shape
 sample

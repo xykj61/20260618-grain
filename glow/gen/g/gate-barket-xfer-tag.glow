@@ -1,4 +1,5 @@
-::  Thin barket generator (glow-language): xfer-shape identity; payload tag + from/amount from Rishi argv.
+::  Thin barket generator (glow-language): xfer-shape identity; payload tag +
+::  from/amount from Rishi argv.
 ::  Matching fixture desk: gate-barket-xfer-shape.glow (baked welcome).
 ::  Args: mint <from-u32> <amount-u32> - or send
 ::  Sample: mint 3 7

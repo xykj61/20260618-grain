@@ -1,3 +1,4 @@
-::  Cross-desk multi-field named-cast -- import shape-hexa then ^- hexa-shape (glow-language).
+::  Cross-desk multi-field named-cast -- import shape-hexa then ^- hexa-shape
+::  (glow-language).
 /+  shape-hexa
 ^-  hexa-shape

@@ -1,6 +1,7 @@
 ::  name       mantra weave field count
 ::  shape      fields - int (@u32)
-::  invariant  a Weave carries exactly three fields (lines - next_pos - next_run)
+::  invariant  a Weave carries exactly three fields (lines - next_pos -
+::  next_run)
 ::  example    3
 ::  readers    Mantra - Glow Tend - Sur museum - Ashvini nest-only
 ::  nib        equinox-e204-mantra-tend-v0
