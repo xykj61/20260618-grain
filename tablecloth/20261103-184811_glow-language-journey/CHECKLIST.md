@@ -187,7 +187,7 @@ surface at `loca/`.
 **Grows from:** Quest 2.2's demos, the existing 10 tutorials and 8 lessons in docs-geode,
 the Bhakta register.
 
-- [ ] **Orbit 13 -- docs-geode/tutorials: "Your First Glow Program"**
+- [x] **Orbit 13 -- docs-geode/tutorials: "Your First Glow Program"**
   *Calfive round 13 (sky, cardinal aether, heart) -- "Names the heart page."*
   A Bhakta-at-Door tutorial that walks a newcomer from zero to a running Glow program.
   Assumes no background. Covers: what Glow is (one sentence), how to run a program,

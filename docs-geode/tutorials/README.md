@@ -30,6 +30,7 @@ you can check with your own eyes, and that ending is the whole reason this room 
 | [The two functions](the-two-functions.md) | someone ready to read `apply` and `current` in the file | four source fences, and `docs_geode_span_scan.sh` keeps them equal to the lines |
 | [The sill](the-sill.md) | someone who wants a window where one line can rest | the name Sill, the 24 by 80 grid, and a program that is still a plan |
 | [Running the standing roster](running-the-standing-roster.md) | someone ready to check the tree's own promises | the five verdicts, standfast, `--full`, evidence files, and a day-to-day workflow |
+| [Your First Glow Program](your-first-glow-program.md) | someone who has never written Glow | from nothing to a running program -- bound-tick, face-lit, gate, the six standard operations, and an exercise |
 
 The list is the one copy. The picture is that list, folded into light.
 
