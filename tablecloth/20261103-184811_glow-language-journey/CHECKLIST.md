@@ -27,7 +27,7 @@ commit messages; glow-language 348 numbers / 1,711 files; pixel-glass 5, glow-pu
   **SLC gate:** the census script runs GREEN and the ledger agrees with the `git grep`
   counts to within zero -- no manual enumeration, no memory.
 
-- [ ] **Orbit 2 -- Seat the stamp-and-name rule extension**
+- [x] **Orbit 2 -- Seat the stamp-and-name rule extension**
   Write the rule page that names lotus-audio, glow-language, and all waymark-numbered patterns explicitly
   as subjects of the stamp-and-name law. The spirit already bans them; this orbit gives
   the letter teeth. Record the ruling in `.claude/rules/` and cite it from the debride

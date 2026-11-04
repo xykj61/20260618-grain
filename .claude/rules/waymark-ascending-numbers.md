@@ -1,0 +1,97 @@
+# Waymark Ascending Numbers -- the stamp-and-name law, with teeth
+
+**Seated:** `20261103.193716` on Keaton's word - **Status:** Living
+**Kin:** [`stamp-and-name`](stamp-and-name.md) - [`waymark-ladders`](waymark-ladders.md) - [`comlink-tendency`](comlink-tendency.md) - [`debride`](debride.md)
+**Gate:** [`../../tools/fixtures/w/waymark_rung_drift_scan.sh`](../../tools/fixtures/w/waymark_rung_drift_scan.sh)
+**Census:** [`../../tools/fixtures/w/waymark_ascending_census_scan.sh`](../../tools/fixtures/w/waymark_ascending_census_scan.sh)
+**Journey:** `tablecloth/20261103-184811_glow-language-journey/` (Orbit 2 of Quest 1.1)
+
+**Every `WAYMARK[0-9]+` pattern in this tree is a subject of the stamp-and-name law.** `lotus-audio`,
+`glow-language`, `pixel-glass`, `compass-surface` -- each is a counted rung on planned work, which is exactly what
+stamp-and-name line 2 retires: *a sequence label is a forecast written somewhere it will stay
+uncorrected.* This page gives the letter teeth the spirit already had.
+
+## What the census found
+
+Measured `20261103.192254` by `waymark_ascending_census_scan.sh` over the full tree and its
+git history. **These figures are free** -- run the census rather than trusting this table:
+
+```
+sh tools/fixtures/w/waymark_ascending_census_scan.sh --summary --verify
+```
+
+| Reading | Count |
+|---|---|
+| **Total occurrences** | **41,408** across **21** waymarks |
+| Tier 3 -- living files (sweepable) | 16,731 across 1,572 files |
+| Tier 2 -- dated testimony (keeps every word) | 20,979 across 2,247 files |
+| Tier 1 -- commit messages (only deep debride reaches) | 3,698 |
+
+The five largest: **lotus-audio** 19,485 (10,244 living) -- **glow-language** 10,600 (3,556 living) -- **open-image**
+4,986 (1,399 living) -- **dimeroll-expansion** 1,521 (336 living) -- **compass-surface** 1,215 (343 living). Twelve of
+the 33 seated waymarks carry zero ascending-number citations. One (compass-world) appears only in commits.
+
+## What is banned
+
+**A waymark followed by one or more digits is banned from living prose.** `lotus-audio`, `glow-language`,
+`pixel-glass`, `compass-surface`, `open-image`, `dimeroll-expansion` -- every form, every waymark, every number.
+
+## What to write instead
+
+The filename is the identity. A module is `coreaudio.rye`, and it lives in `lotus/` or in the
+room its function names. A roster groups modules by function -- Transport, Mixer, Effects --
+which is how a reader actually finds what they need. A number between a waymark and a module name
+was overhead that served neither search nor understanding.
+
+For cross-references in prose, name the module: *the CoreAudio engine* rather than *lotus-audio*.
+For ordering, the stamp orders it: `20261103.182944` says when the work landed, and `git log`
+counts how many landed.
+
+## What stands
+
+- **Waymarks themselves stay.** A waymark is a **name** drawn for a ladder, not a number counted
+  up. lotus-audio, glow-language, pixel-glass -- each keeps its draw. What retires is the ascending **number** after the
+  waymark.
+- **Dated testimony keeps every word it wrote.** Session logs, dated design essays, and folded
+  shelves carrying `lotus-audio` or `glow-language` stay exactly as written. The ban governs living surfaces
+  and everything written from here forward.
+- **Commit history keeps every word it wrote.** The 3,698 commit-message occurrences are frozen
+  in git history. Only a deep debride reaches them, and that is a separate circled word
+  ([`debride.md`](debride.md)).
+- **The waymark-rung-to-stamp map stays.** `tools/fixtures/w/waymark_rung_stamp_map.tsv` is a
+  translation table, not a living usage -- it maps each rung to its one-clock stamp so the
+  conversion has a mechanical source of truth.
+
+## What holds it
+
+**Two instruments, at two depths.**
+
+**The gate:** `waymark_rung_drift_scan.sh` counts ascending-number marks in living files against
+a ceiling that only falls. The ceiling stands at **17,212** and the count reads **17,234**
+(measured `20261103.193716`) -- the gate is **RED**, which means every new pattern makes it worse
+and every sweep lowers it. The ceiling falls when a sweep lands, and it never rises. Run it:
+
+```
+sh tools/fixtures/w/waymark_rung_drift_scan.sh
+```
+
+**The census:** `waymark_ascending_census_scan.sh` produces a machine-readable ledger of every
+occurrence across all three tiers -- living, dated, commit -- with file, line, pattern, and
+waymark. It verifies against `git grep` to within zero. It is the measurement; the drift scan
+is the enforcement.
+
+## Accrete-never-break
+
+Sweep living surfaces on touch. Dated testimony and commit history keep every word they wrote.
+This rule governs what is written from here forward. The deep debride that reaches commit
+history is a separate journey ([`../../tablecloth/20261103-184811_glow-language-journey/CHECKLIST.md`](../../tablecloth/20261103-184811_glow-language-journey/CHECKLIST.md),
+Quest 1.2).
+
+## Why the rule exists
+
+Stamp-and-name line 2 already said it: a sequence label on planned work is a forecast that will
+stay uncorrected. The census proved it -- 41,408 times across 21 waymarks, reaching 3,819 files
+and 3,698 commit messages. Giving the letter teeth means a lap writing `lotus-audio` in a living
+file meets a RED gate on the spot rather than discovering the spirit six months later.
+
+*Cursor twin:* `.cursor/rules/waymark-ascending-numbers.mdc`
