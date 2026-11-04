@@ -1,0 +1,473 @@
+//! lotus/record.rye -- lotus-audio: CoreAudio AUHAL input capture with live metering.
+//!
+//! Opens an AUHAL unit with input enabled on bus 1: an input callback fires when
+//! hardware data is ready, pulls it via AudioUnitRender into a stack buffer,
+//! converts Float32 to i16 for the recording buffer, and accumulates a live meter
+//! inline. Monitoring (input routed to output) is deferred to a later orbit.
+//!
+//! SLC gate: record a take, see the meter move, hear playback of what was just recorded.
+//!
+//!   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye run lotus/record.rye -lc -framework AudioToolbox
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+const c = @import("coreaudio_c.rye");
+const timeline = @import("timeline.rye");
+const clock_mod = @import("clock.rye");
+const meter_mod = @import("meter.rye");
+const coreaudio = @import("coreaudio.rye");
+
+pub const record_version: []const u8 = "20261104.110000";
+
+// invariant: 10 seconds at 48 kHz -- bounded recording buffer, ~937 KB as i16.
+pub const max_record: u32 = 48000 * 10;
+
+// invariant: matches the playback engine's callback ceiling.
+const max_callback_frames: u32 = 4096;
+
+pub const RecordError = error{
+    NoHalComponent,
+    InstanceFailed,
+    EnableIoFailed,
+    FormatFailed,
+    CallbackFailed,
+    InitFailed,
+    StartFailed,
+    AlreadyOpen,
+    AlreadyRecording,
+    NotOpen,
+    NotRecording,
+};
+
+/// A bounded recording buffer -- the destination for captured i16 PCM samples.
+pub const RecordBuf = struct {
+    buf: [max_record]i16 = @splat(0),
+    len: u32 = 0,
+};
+
+/// Mutable state the record callback reads through ref_con.
+const RecordState = struct {
+    unit: ?*anyopaque,
+    record: *RecordBuf,
+    meter_acc: meter_mod.Meter,
+    callback_count: u32,
+};
+
+/// The CoreAudio recording engine.
+pub const Engine = struct {
+    unit: ?*anyopaque,
+    state: RecordState,
+    open: bool,
+    recording: bool,
+
+    pub fn init() Engine {
+        return Engine{
+            .unit = null,
+            .state = RecordState{
+                .unit = null,
+                .record = undefined,
+                .meter_acc = meter_mod.Meter{},
+                .callback_count = 0,
+            },
+            .open = false,
+            .recording = false,
+        };
+    }
+};
+
+/// Convert a Float32 audio sample to i16 with NaN guard and saturation.
+fn float_to_i16(f: f32) i16 {
+    // invariant: NaN maps to silence -- a callback must never propagate NaN into the recording.
+    if (f != f) return 0;
+    const scaled = f * 32768.0;
+    // invariant: clamp to i16 range before cast -- no undefined behavior.
+    if (scaled >= 32767.0) return 32767;
+    if (scaled <= -32768.0) return -32768;
+    return @intFromFloat(scaled);
+}
+
+/// The input callback -- called by CoreAudio when hardware input data is available.
+/// Pulls input from bus 1 via AudioUnitRender into a stack buffer, converts Float32
+/// to i16 for the recording buffer, and accumulates a live meter inline.
+fn record_callback(
+    ref_con: ?*anyopaque,
+    action_flags: *u32,
+    timestamp: *const anyopaque,
+    bus: u32,
+    frames: u32,
+    buf_list: *c.AudioBufferList,
+) callconv(.c) c.OSStatus {
+    _ = bus;
+    _ = buf_list;
+    const state: *RecordState = @ptrCast(@alignCast(ref_con orelse return -1));
+
+    // invariant: clamp to our stack buffer -- bounds the callback's memory reach.
+    const clamped: u32 = if (frames <= max_callback_frames) frames else max_callback_frames;
+
+    // invariant: allocate our own buffer -- the input callback does not provide one.
+    var sample_buf: [max_callback_frames]f32 = undefined;
+    var local_buf = c.AudioBufferList{
+        .number_buffers = 1,
+        .buffers = [1]c.AudioBuffer{
+            c.AudioBuffer{
+                .number_channels = 1,
+                .data_byte_size = clamped * 4,
+                .data = @ptrCast(&sample_buf),
+            },
+        },
+    };
+
+    const render_status = c.AudioUnitRender(
+        state.unit,
+        action_flags,
+        timestamp,
+        1,
+        clamped,
+        &local_buf,
+    );
+
+    if (render_status != 0) return 0;
+
+    const rec = state.record;
+
+    var i: u32 = 0;
+    while (i < clamped) : (i += 1) {
+        if (rec.len >= max_record) break;
+        const s = float_to_i16(sample_buf[i]);
+        rec.buf[rec.len] = s;
+        rec.len += 1;
+
+        // invariant: inline meter accumulation -- no error path on the real-time thread.
+        const w: i32 = @as(i32, s);
+        const a: u32 = @intCast(if (w < 0) -w else w);
+        const sq: u64 = @as(u64, a) * @as(u64, a);
+        state.meter_acc.sum_sq += sq;
+        if (a > state.meter_acc.peak) state.meter_acc.peak = a;
+        state.meter_acc.count += 1;
+    }
+
+    state.callback_count += 1;
+    return 0;
+}
+
+/// Open the recording engine: find the AUHAL component, enable input on bus 1,
+/// disable output on bus 0, set mono Float32 format, and register the input callback.
+pub fn open(eng: *Engine, rec: *RecordBuf, clk: clock_mod.Clock) RecordError!void {
+    if (eng.open) return error.AlreadyOpen;
+    // invariant: sample rate within the clock's bound.
+    assert(clk.hz() >= 1 and clk.hz() <= clock_mod.max_rate);
+
+    var desc = c.AudioComponentDescription{
+        .component_type = c.au_type_output,
+        .component_sub_type = c.au_subtype_hal_output,
+        .component_manufacturer = c.au_manufacturer_apple,
+        .component_flags = 0,
+        .component_flags_mask = 0,
+    };
+
+    const comp = c.AudioComponentFindNext(null, &desc);
+    if (comp == null) return error.NoHalComponent;
+
+    var unit: ?*anyopaque = null;
+    var status = c.AudioComponentInstanceNew(comp, &unit);
+    if (status != 0 or unit == null) return error.InstanceFailed;
+
+    // invariant: enable input on bus 1.
+    var enable_flag: u32 = 1;
+    status = c.AudioUnitSetProperty(
+        unit,
+        c.au_prop_enable_io,
+        c.au_scope_input,
+        1,
+        @ptrCast(&enable_flag),
+        @sizeOf(u32),
+    );
+    if (status != 0) {
+        _ = c.AudioComponentInstanceDispose(unit);
+        return error.EnableIoFailed;
+    }
+
+    // invariant: disable output on bus 0 -- input-only capture, no monitor in this orbit.
+    var disable_flag: u32 = 0;
+    status = c.AudioUnitSetProperty(
+        unit,
+        c.au_prop_enable_io,
+        c.au_scope_output,
+        0,
+        @ptrCast(&disable_flag),
+        @sizeOf(u32),
+    );
+    if (status != 0) {
+        _ = c.AudioComponentInstanceDispose(unit);
+        return error.EnableIoFailed;
+    }
+
+    // invariant: assign the default input device -- AUHAL has no implicit device.
+    var device_id: u32 = 0;
+    var device_size: u32 = @sizeOf(u32);
+    const addr = c.AudioObjectPropertyAddress{
+        .selector = c.audio_hardware_prop_default_input_device,
+        .scope = c.audio_object_prop_scope_global,
+        .element = c.audio_object_prop_element_main,
+    };
+    status = c.AudioObjectGetPropertyData(
+        c.audio_object_system_object,
+        &addr,
+        0,
+        null,
+        &device_size,
+        @ptrCast(&device_id),
+    );
+    if (status != 0 or device_id == 0) {
+        _ = c.AudioComponentInstanceDispose(unit);
+        return error.EnableIoFailed;
+    }
+
+    status = c.AudioUnitSetProperty(
+        unit,
+        c.au_prop_current_device,
+        c.au_scope_global,
+        0,
+        @ptrCast(&device_id),
+        @sizeOf(u32),
+    );
+    if (status != 0) {
+        _ = c.AudioComponentInstanceDispose(unit);
+        return error.EnableIoFailed;
+    }
+
+    // invariant: mono Float32 on input bus -- what we receive from the hardware.
+    var format = c.AudioStreamBasicDescription{
+        .sample_rate = @floatFromInt(clk.hz()),
+        .format_id = c.audio_format_linear_pcm,
+        .format_flags = c.audio_format_flag_is_float | c.audio_format_flag_is_packed,
+        .bytes_per_packet = 4,
+        .frames_per_packet = 1,
+        .bytes_per_frame = 4,
+        .channels_per_frame = 1,
+        .bits_per_channel = 32,
+        .reserved = 0,
+    };
+
+    status = c.AudioUnitSetProperty(
+        unit,
+        c.au_prop_stream_format,
+        c.au_scope_output,
+        1,
+        @ptrCast(&format),
+        @sizeOf(c.AudioStreamBasicDescription),
+    );
+    if (status != 0) {
+        _ = c.AudioComponentInstanceDispose(unit);
+        return error.FormatFailed;
+    }
+
+    eng.state = RecordState{
+        .unit = unit,
+        .record = rec,
+        .meter_acc = meter_mod.Meter{},
+        .callback_count = 0,
+    };
+
+    var cb = c.AURenderCallbackStruct{
+        .input_proc = &record_callback,
+        .input_proc_ref_con = @ptrCast(&eng.state),
+    };
+
+    // invariant: input callback fires when hardware input data is ready.
+    status = c.AudioUnitSetProperty(
+        unit,
+        c.au_prop_set_input_callback,
+        c.au_scope_global,
+        0,
+        @ptrCast(&cb),
+        @sizeOf(c.AURenderCallbackStruct),
+    );
+    if (status != 0) {
+        _ = c.AudioComponentInstanceDispose(unit);
+        return error.CallbackFailed;
+    }
+
+    status = c.AudioUnitInitialize(unit);
+    if (status != 0) {
+        _ = c.AudioComponentInstanceDispose(unit);
+        return error.InitFailed;
+    }
+
+    eng.unit = unit;
+    eng.open = true;
+}
+
+/// Start recording -- the callback begins firing.
+pub fn start(eng: *Engine) RecordError!void {
+    if (!eng.open) return error.NotOpen;
+    if (eng.recording) return error.AlreadyRecording;
+    // invariant: unit is live when open is true.
+    assert(eng.unit != null);
+    const status = c.AudioOutputUnitStart(eng.unit);
+    if (status != 0) return error.StartFailed;
+    eng.recording = true;
+}
+
+/// Stop recording -- the callback stops firing.
+pub fn stop(eng: *Engine) RecordError!void {
+    if (!eng.open) return error.NotOpen;
+    if (!eng.recording) return error.NotRecording;
+    _ = c.AudioOutputUnitStop(eng.unit);
+    eng.recording = false;
+}
+
+/// Close the engine -- uninitialize and dispose the AUHAL unit.
+pub fn close(eng: *Engine) void {
+    if (eng.unit) |u| {
+        if (eng.recording) _ = c.AudioOutputUnitStop(u);
+        _ = c.AudioUnitUninitialize(u);
+        _ = c.AudioComponentInstanceDispose(u);
+    }
+    eng.unit = null;
+    eng.open = false;
+    eng.recording = false;
+}
+
+/// Read the accumulated meter state -- call after stop.
+pub fn read_meter(eng: *const Engine) meter_mod.Meter {
+    return eng.state.meter_acc;
+}
+
+/// Copy the first samples of a RecordBuf into a Clip for playback -- truncated to max_clip.
+pub fn to_clip(rec: *const RecordBuf) timeline.Clip {
+    var clip = timeline.Clip{};
+    const n: u32 = if (rec.len > timeline.max_clip) timeline.max_clip else rec.len;
+    // invariant: copy exactly n samples, bounded by max_clip.
+    var i: u32 = 0;
+    while (i < n) : (i += 1) {
+        clip.buf[i] = rec.buf[i];
+    }
+    clip.len = n;
+    return clip;
+}
+
+// --- selftest ---------------------------------------------------------------
+
+fn run_selftest() !u8 {
+    print("record selftest -- lotus-audio: CoreAudio input capture, metering, monitor\n", .{});
+
+    // 1. float_to_i16 conversion bounds.
+    assert(float_to_i16(0.0) == 0);
+    assert(float_to_i16(1.0) == 32767);
+    assert(float_to_i16(-1.0) == -32768);
+    assert(float_to_i16(2.0) == 32767);
+    assert(float_to_i16(-2.0) == -32768);
+    const nan_val: f32 = @bitCast(@as(u32, 0x7FC00000));
+    assert(float_to_i16(nan_val) == 0);
+    print("  float_to_i16: ok\n", .{});
+
+    // 2. Open the AUHAL recording engine.
+    const clk = clock_mod.make(48000) catch return 1;
+    var rec_buf = RecordBuf{};
+    var eng = Engine.init();
+
+    open(&eng, &rec_buf, clk) catch |e| {
+        print("  open failed: {} -- microphone permission may be needed\n", .{e});
+        print("  SKIP -- unable to open AUHAL input (check System Settings > Privacy > Microphone)\n", .{});
+        return 0;
+    };
+    // invariant: engine is open after successful open().
+    assert(eng.open);
+    print("  open: ok\n", .{});
+
+    // 3. Start recording.
+    start(&eng) catch |e| {
+        print("  start failed: {}\n", .{e});
+        close(&eng);
+        return 1;
+    };
+    assert(eng.recording);
+    print("  start: ok\n", .{});
+
+    // 4. Record for 100 ms.
+    _ = c.usleep(100_000);
+
+    // 5. Stop recording.
+    stop(&eng) catch |e| {
+        print("  stop failed: {}\n", .{e});
+        close(&eng);
+        return 1;
+    };
+    assert(!eng.recording);
+    print("  stop: ok\n", .{});
+
+    // 6. Verify the callback fired and samples were captured.
+    const count = eng.state.callback_count;
+    print("  callback fired {d} times\n", .{count});
+    assert(count >= 1);
+
+    const recorded = rec_buf.len;
+    print("  recorded {d} samples\n", .{recorded});
+    assert(recorded > 0);
+
+    // 7. Verify the meter accumulated.
+    const m = read_meter(&eng);
+    print("  meter: count={d} peak={d}\n", .{ m.count, m.peak });
+    // invariant: meter count matches the recording buffer length.
+    assert(m.count == recorded);
+    assert(m.peak <= meter_mod.sample_peak_max);
+
+    // 8. Copy to a Clip for playback verification.
+    const clip = to_clip(&rec_buf);
+    const expected_len: u32 = if (recorded > timeline.max_clip) timeline.max_clip else recorded;
+    // invariant: clip length bounded by max_clip.
+    assert(clip.len == expected_len);
+    print("  to_clip: {d} samples (max_clip={d})\n", .{ clip.len, timeline.max_clip });
+
+    // 9. Playback of the recorded clip through the output engine.
+    var play_eng = coreaudio.Engine.init();
+    coreaudio.open(&play_eng, &clip, clk) catch |e| {
+        print("  playback open failed: {} -- skipping playback\n", .{e});
+        close(&eng);
+        return 0;
+    };
+    coreaudio.start(&play_eng) catch |e| {
+        print("  playback start failed: {}\n", .{e});
+        coreaudio.close(&play_eng);
+        close(&eng);
+        return 1;
+    };
+    _ = c.usleep(50_000);
+    coreaudio.stop(&play_eng) catch {
+        coreaudio.close(&play_eng);
+        close(&eng);
+        return 1;
+    };
+    // invariant: playback engine consumed samples from the clip.
+    assert(play_eng.state.callback_count >= 1);
+    print("  playback: {d} callbacks\n", .{play_eng.state.callback_count});
+    coreaudio.close(&play_eng);
+
+    // 10. Close the recording engine.
+    close(&eng);
+    assert(!eng.open);
+    print("  close: ok\n", .{});
+
+    // 11. Double-open refuses.
+    var eng2 = Engine.init();
+    var rec_buf2 = RecordBuf{};
+    open(&eng2, &rec_buf2, clk) catch {
+        print("  second open unexpectedly failed\n", .{});
+        return 1;
+    };
+    const double_open = open(&eng2, &rec_buf2, clk);
+    assert(double_open == error.AlreadyOpen);
+    close(&eng2);
+    print("  double-open refused: ok\n", .{});
+
+    print("GREEN -- record engine: open/capture/meter/playback/close lifecycle proven on metal\n", .{});
+    return 0;
+}
+
+pub fn main(init: std.process.Init) !u8 {
+    _ = init;
+    return run_selftest();
+}

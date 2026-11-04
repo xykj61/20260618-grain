@@ -1,5 +1,8 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261104.111605` | [Orbit 23 -- AUHAL input capture with live metering](20261104/20261104-111605_orbit-23-auhal-input-capture.kyri.md) | Input callback + device assignment fix; 9 callbacks, 4608 samples, GREEN; fascia 60.053 |
+| `20261104.103121` | [Orbit 2 scoping -- Weave seam check-in](20261104/20261104-103121_orbit-2-scoping-checkin.kyri.md) | Weave vs Clip-first design seam; CoreAudio input needs AUHAL; meter and normalize already exist |
+| `20261104.102357` | [Calfive reading and SSH push confirmation](20261104/20261104-102357_calfive-reading-and-ssh-confirmation.kyri.md) | commit 14,420; round 15 (Siya's chair); Lotus active equinox; Glow tidy complete; SSH confirmed |
 | `20261104.101519` | [Orbit 22 -- twenty-two lower-witness comptime tidy](20261104/20261104-101519_orbit-22-twenty-two-lower-witness-comptime-tidy.kyri.md) | 22 lower_* comptime decl-walking blocks removed; all 22 GREEN, 345 GREEN lines; fascia 60.052 |
 | `20261104.053936` | [Orbit 21 send -- push confirmed](20261104/20261104-053936_orbit-21-send.kyri.md) | SSH push slow but completed; remote confirmed at 67b4cbe6e |
 | `20261104.053433` | [Orbit 21 -- twenty rune-witness comptime tidy](20261104/20261104-053433_orbit-21-twenty-rune-witness-comptime-tidy.kyri.md) | 20 rune_* comptime decl-walking blocks removed; all 20 GREEN, 184 GREEN lines; fascia 60.051 |

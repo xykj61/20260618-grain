@@ -78,6 +78,43 @@ pub const au_prop_set_render_callback: u32 = 23;
 pub const au_prop_stream_format: u32 = 8;
 pub const au_scope_input: u32 = 1;
 
+// invariant: AUHAL subtype from AudioUnit/AUComponent.h -- supports both input and output I/O
+pub const au_subtype_hal_output: u32 = 0x6168616c; // 'ahal'
+
+// invariant: EnableIO property from AudioUnit/AudioUnitProperties.h
+pub const au_prop_enable_io: u32 = 2003;
+
+// invariant: output scope from AudioUnit/AudioUnitProperties.h
+pub const au_scope_output: u32 = 2;
+
+// invariant: global scope from AudioUnit/AudioUnitProperties.h
+pub const au_scope_global: u32 = 0;
+
+// invariant: input callback property from AudioUnit/AudioUnitProperties.h
+pub const au_prop_set_input_callback: u32 = 2005;
+
+// invariant: current device property from AudioUnit/AudioUnitProperties.h
+pub const au_prop_current_device: u32 = 2000;
+
+// invariant: AudioObject property address from CoreAudio/AudioHardwareBase.h
+pub const AudioObjectPropertyAddress = extern struct {
+    selector: u32,
+    scope: u32,
+    element: u32,
+};
+
+// invariant: kAudioObjectSystemObject from CoreAudio/AudioHardware.h
+pub const audio_object_system_object: u32 = 1;
+
+// invariant: kAudioHardwarePropertyDefaultInputDevice from CoreAudio/AudioHardware.h
+pub const audio_hardware_prop_default_input_device: u32 = 0x64496e20; // 'dIn '
+
+// invariant: kAudioObjectPropertyScopeGlobal from CoreAudio/AudioHardwareBase.h
+pub const audio_object_prop_scope_global: u32 = 0x676c6f62; // 'glob'
+
+// invariant: kAudioObjectPropertyElementMain from CoreAudio/AudioHardwareBase.h
+pub const audio_object_prop_element_main: u32 = 0;
+
 // invariant: format constants from CoreAudioTypes/CoreAudioBaseTypes.h
 pub const audio_format_linear_pcm: u32 = 0x6c70636d; // 'lpcm'
 pub const audio_format_flag_is_float: u32 = 1;
@@ -122,6 +159,33 @@ pub extern "c" fn AudioUnitSetProperty(
     in_element: u32,
     in_data: *const anyopaque,
     in_data_size: u32,
+) OSStatus;
+
+pub extern "c" fn AudioUnitGetProperty(
+    in_unit: ?*anyopaque,
+    in_id: u32,
+    in_scope: u32,
+    in_element: u32,
+    out_data: *anyopaque,
+    io_data_size: *u32,
+) OSStatus;
+
+pub extern "c" fn AudioUnitRender(
+    in_unit: ?*anyopaque,
+    io_action_flags: *u32,
+    in_timestamp: *const anyopaque,
+    in_output_bus_number: u32,
+    in_number_frames: u32,
+    io_data: *AudioBufferList,
+) OSStatus;
+
+pub extern "c" fn AudioObjectGetPropertyData(
+    in_object_id: u32,
+    in_address: *const AudioObjectPropertyAddress,
+    in_qualifier_data_size: u32,
+    in_qualifier_data: ?*const anyopaque,
+    io_data_size: *u32,
+    out_data: *anyopaque,
 ) OSStatus;
 
 pub extern "c" fn usleep(usec: u32) i32;
