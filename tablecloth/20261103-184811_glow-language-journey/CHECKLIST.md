@@ -55,7 +55,7 @@ commit messages; glow-language 348 numbers / 1,711 files; pixel-glass 5, glow-pu
 *Rewrite git history to remove every ascending-number rung from every commit.*
 **Grows from:** Quest 1.1's census, rule extension, and waymark decision.
 
-- [ ] **Orbits 4-5 (grouped) -- Checkpoint, sweep, shed, deep debride, force-push**
+- [x] **Orbits 4-5 (grouped) -- Checkpoint, sweep, shed, deep debride, force-push**
   Grouped on Keaton's word (`20261103`). One re-clone pays for waymark retirement,
   orphan shed, and fossil cuts combined. Execute in order:
   1. Record the walk-back checkpoint in `construction/CHECKPOINTS.md`.

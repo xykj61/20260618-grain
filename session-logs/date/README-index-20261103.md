@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261103.230343` | [Orbits 4-5 deep debride and fascia 60.0](20261103/20261103-230343_orbits-4-5-deep-debride-fascia-60.kyri.md) | 14,398 commits rewritten and re-signed, 1,035 files shed, fascia 60.0 |
 | `20261103.202254` | [Seat the fascia health model](20261103/20261103-202254_fascia-health-model-seated.kyri.md) | Readiness metric replaces clutter score -- 58.03 now, 60.0 post-debride, 70 is the far door |
 | `20261103.195243` | [Orbit 3 -- waymark retirement decision](20261103/20261103-195243_waymark-retirement-decision.kyri.md) | Retire the entire waymark system on Keaton's word -- warm descriptive strings replace four-letter draws |
 | `20261103.193716` | [Orbit 2 -- stamp-and-name rule extension](20261103/20261103-193716_stamp-and-name-rule-extension.kyri.md) | Rule page seated naming all WAYMARK[0-9]+ patterns; drift scan RED at 17,234 vs ceiling 17,212 |

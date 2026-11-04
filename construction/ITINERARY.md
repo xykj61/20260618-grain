@@ -148,8 +148,8 @@ The interface uses ASCII as structure, linen as material, and motion as a bounde
 Brushstroke declares each component's grid, role, state, tokens, and motion profile. Skate renders the fixed frame and bounded events. A correspondence witness forces meaning, description, and behavior to change together.
 
 ## Now -- the eight sailing ship itineraries
-**Git nib:** `bcff524070`
-**Fascia:** `58.03` -- manual readiness metric, governed by `context/specs/20261103-201746_fascia-health-model.md`. Baseline 58 (mechanical reading `20261005`), plus 3 proven orbits at 0.01 each. Post-debride target: 60.0 on Keaton's word.
+**Git nib:** `29d15756d7`
+**Fascia:** `60.0` -- post-debride baseline, governed by `context/specs/20261103-201746_fascia-health-model.md`. Deep debride landed: warm names replace waymarks, 1,035 orphans and fossils shed, 14,398 commits rewritten and re-signed, history clean. Grade model: 60s are the pre-ship era, 0.01 per proven orbit, larger on Keaton's word.
 
 
 ### Incense -- product captain
