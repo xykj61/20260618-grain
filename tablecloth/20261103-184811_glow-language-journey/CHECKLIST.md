@@ -35,7 +35,7 @@ commit messages; glow-language 348 numbers / 1,711 files; pixel-glass 5, glow-pu
   **SLC gate:** the rule page exists, names the patterns, and cites the measurements from
   Orbit 1. A planted `lotus-audio` in a living file reds the census.
 
-- [ ] **Orbit 3 -- Waymark concept evaluation and decision**
+- [x] **Orbit 3 -- Waymark concept evaluation and decision**
   Write a design essay evaluating the waymark system against Comlink tendency, stamp-and-name,
   and single-stranded. Honest accounting: what waymarks give (collision-free ladder identity,
   SHA3 derivation, a registry), what they cost (four-letter coinages that violate Comlink
@@ -44,28 +44,40 @@ commit messages; glow-language 348 numbers / 1,711 files; pixel-glass 5, glow-pu
   foundation or a ruling on Keaton's word.
   **SLC gate:** the design essay exists in `active-designing/`, names both sides honestly,
   and the decision is recorded.
+  **Decision:** retire the entire waymark system, on Keaton's word (`20261103`). Warm
+  descriptive strings replace four-letter draws. Deep debride scope expands to include
+  bare waymark names. Molt-breach preps rule page and registry onto shred-prep first.
+  Synergize the tree shed with the deep debride.
+  **Essay:** `active-designing/date/20261103/20261103-195243_waymark-retirement-and-warm-names.md`
 
 ### Quest 1.2 -- The Deep Debride
 
 *Rewrite git history to remove every ascending-number rung from every commit.*
 **Grows from:** Quest 1.1's census, rule extension, and waymark decision.
 
-- [ ] **Orbit 4 -- Checkpoint and working-tree sweep**
-  Record the walk-back checkpoint in `construction/CHECKPOINTS.md`. Sweep all living files:
-  strip `lotus-audio[0-9]+`, `glow-language[0-9]+`, and all waymark-numbered patterns from headers,
-  cross-references, rosters, and prose. Module filenames stay (they carry no number today).
-  Replace cross-references with the module's own filename -- `coreaudio.rye` rather than
-  `lotus-audio`. Update `lotus/LADDER.md`, `lotus/MODULES.md`, and `glow/` headers.
-  **SLC gate:** `git grep -E '(lotus-audio|glow-language|pixel-glass|glow-publishing|glass-keyboard|seva-broadcast|hearth-display|compass-surface)[0-9]+'` returns
-  zero hits on living files outside dated testimony. The census script confirms.
+- [ ] **Orbit 4 -- Checkpoint, molt-breach, and working-tree sweep**
+  Record the walk-back checkpoint in `construction/CHECKPOINTS.md`. Molt-breach
+  `waymark-ladders.md` to a living mutant carrying the warm-string table and retire
+  `waymark-registry.kyri` to `construction/archive/`, both onto shred-prep Class M.
+  Sweep all living files: strip ascending-number patterns AND bare waymark names from
+  headers, cross-references, rosters, and prose. Replace with warm descriptive strings
+  or module filenames. Check `construction/SHRED_PREP.md` for Class O rooms and Class H/M
+  fossils ready to shed in the same pass. Check in with Keaton on the combined scope.
+  **SLC gate:** `git grep -cE '\b(lotus-audio|glow-language|pixel-glass|glow-publishing|glass-keyboard|seva-broadcast|hearth-display|compass-surface|compass-identity|compass-surface|compass-language|compass-world|harvest-yield|harvest-trade|harvest-commons|harvest-rest|cion-molt|cion-survey|cion-living-molt|cion-debride|cion-seal|front-door|dimeroll-expansion|open-image|mikrophone|constels-naming|slh-dsa|macos-native|usb-hearth|source-identity|djinn-exec)\b'`
+  returns zero hits on living files outside dated testimony. Molt-breach artifacts on
+  shred-prep. Warm-string replacements in place.
 
 - [ ] **Orbit 5 -- Deep debride: full history rewrite**
-  Run `git filter-repo --replace-text` to strip the patterns from every commit message
-  and every historical file. Re-sign every commit. Force-push to origin. This costs every
-  clone a re-clone -- the same cost the urbit-lineage drop paid, and the same arithmetic:
-  the tree is cleaner forever, and the re-clone happens once.
-  **SLC gate:** `git log --all --oneline | grep -E '(lotus-audio|glow-language)[0-9]+'` returns zero.
-  Every commit is signed. The census script runs GREEN against the rewritten history.
+  Run `git filter-repo --replace-text` to strip ascending-number patterns AND bare waymark
+  names from every commit message and every historical file. Include any Class O orphans
+  and Class H/M fossils whose opening word Keaton gave in Orbit 4's check-in. Re-sign
+  every commit. Force-push to origin. This costs every clone a re-clone -- the same cost
+  the urbit-lineage drop paid, and the same arithmetic: the tree is cleaner forever, and
+  the re-clone happens once. One re-clone pays for waymark retirement, orphan shed, and
+  fossil cuts combined.
+  **SLC gate:** `git log --all --oneline | grep -iE '\b(lotus-audio|glow-language|pixel-glass|glow-publishing|glass-keyboard)\b'`
+  returns zero. Every commit is signed. The census script runs GREEN against the rewritten
+  history. Fascia health rises toward 90.
 
 - [ ] **Orbit 6 -- pleac/ rename to docs-geode/cookbook/**
   Move `pleac/` (3 files: strings.rye, lists.rye, numbers.rye) to `docs-geode/cookbook/`.
@@ -224,9 +236,10 @@ system to maintain. The collision risk on descriptive names is real yet manageab
 grep the tree before you seat one. The registry answers a question the tree has asked
 six times in its history; whether it will ask it six hundred more is the bet.
 
-This journey does not decide the waymark question -- Orbit 3 writes the evaluation and
-Keaton's word decides. What this journey does decide is that **ascending-number rungs
-are done**, because stamp-and-name already said so and the measurements proved it.
+**Orbit 3 decided the waymark question on Keaton's word (`20261103`): retire the entire
+system.** Warm descriptive strings replace four-letter draws. The deep debride strips
+bare waymark names alongside ascending numbers. The ascending-number rungs were already
+done; now the waymarks themselves follow.
 
 ### Why Glow before Lotus
 

@@ -49,9 +49,11 @@ counts how many landed.
 
 ## What stands
 
-- **Waymarks themselves stay.** A waymark is a **name** drawn for a ladder, not a number counted
-  up. lotus-audio, glow-language, pixel-glass -- each keeps its draw. What retires is the ascending **number** after the
-  waymark.
+- **Waymarks themselves also retire from living prose** -- decided `20261103` on Keaton's word.
+  The bare four-letter names (lotus-audio, glow-language, pixel-glass, etc.) are replaced by warm descriptive strings
+  (`lotus-audio`, `glow-language`, `pixel-glass`, etc.) in the same deep debride that strips the
+  ascending numbers. Design essay:
+  `active-designing/date/20261103/20261103-195243_waymark-retirement-and-warm-names.md`.
 - **Dated testimony keeps every word it wrote.** Session logs, dated design essays, and folded
   shelves carrying `lotus-audio` or `glow-language` stay exactly as written. The ban governs living surfaces
   and everything written from here forward.
