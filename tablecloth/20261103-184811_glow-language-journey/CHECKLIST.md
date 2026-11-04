@@ -162,6 +162,7 @@ surface at `loca/`.
   **Essay:** `active-designing/date/20261104/20261104-014047_glow-layout-shapes-and-ceiling-gates.md`
 
 - [ ] **Orbit 11 -- Interactive Glow REPL in Brushstroke**
+  *Calfive round 11 (Aquarius, fixed air, fun) -- "One clear type, studied."*
   A Skate window with a text input field. Type a Glow expression, see the result below.
   The REPL evaluates through the existing `glow/expr.rye` pipeline. This is how a
   newcomer meets the language -- type something, see what happens.
@@ -169,6 +170,7 @@ surface at `loca/`.
   expression, see a named error. Witness proves both paths.
 
 - [ ] **Orbit 12 -- Glow-driven layout demo**
+  *Calfive round 12 (Pisces, dual water, aesthetics) -- "The wish. One beautiful close."*
   A Skate window where the layout itself is a Glow program: a column of labeled rows,
   each row showing a stdlib operation and its result. The program is a tour of the stdlib
   that also happens to be a working GUI. This proves Glow can describe a real interface.
@@ -182,14 +184,16 @@ surface at `loca/`.
 the Bhakta register.
 
 - [ ] **Orbit 13 -- docs-geode/tutorials: "Your First Glow Program"**
+  *Calfive round 13 (sky, cardinal aether, heart) -- "Names the heart page."*
   A Bhakta-at-Door tutorial that walks a newcomer from zero to a running Glow program.
   Assumes no background. Covers: what Glow is (one sentence), how to run a program,
   the value model (string, integer, bool, list, record), a small exercise. Written in
-  Teacher Style with Kyli voice.
+  Teacher Style with Kyri voice.
   **SLC gate:** the tutorial exists in `docs-geode/tutorials/`, the Bhakta witness
   runs GREEN, and a person following the steps can run a Glow program.
 
 - [ ] **Orbit 14 -- docs-geode/tutorials: "Glow Meets the Screen"**
+  *Calfive round 14 (sky, fixed aether, heart) -- "Holds one page whole."*
   A tutorial that walks a newcomer from the REPL demo (Orbit 11) to the layout demo
   (Orbit 12). Covers: how Glow drives Brushstroke, the layout model, how to change
   what appears on screen. Written in Bhakta at Door.
@@ -197,6 +201,7 @@ the Bhakta register.
   following the steps can modify the layout demo.
 
 - [ ] **Orbit 15 -- docs-geode/cookbook expansion and cross-references**
+  *Calfive round 15 (sky, dual aether, heart -- Siya's chair) -- "The full orbit."*
   Grow `docs-geode/cookbook/` from 3 files to at least 8 -- one per stdlib module plus
   common patterns (error handling, bounded loops, record composition, list transforms).
   Each recipe is a standalone page that runs. Cross-reference from the tutorials.

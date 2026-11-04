@@ -49,11 +49,10 @@ for the watched inputs. That changes the roster runner's contract, so it waits o
 **Proposal:** [`../active-designing/date/20261103/20261103-003744_lotus-daw-expansion-proposal.md`](../active-designing/date/20261103/20261103-003744_lotus-daw-expansion-proposal.md)
 **Project board:** [`../tablecloth/20261103-005948_lotus-working-studio/CHECKLIST.md`](../tablecloth/20261103-005948_lotus-working-studio/CHECKLIST.md)
 
-**Quest 1.1 CLOSED (`20261104`).** Record engine GREEN (Orbit 23), WAV encode/decode round-trip GREEN (Orbit 24). SLC met at the CLI boundary: a person can run Lotus, record a voice, and export a WAV -- proven on metal. The visual surface (waveform display) moves to Quest 1.2.
+**Quest 1.1 CLOSED (`20261104`).** Record engine GREEN (Orbit 23), WAV encode/decode round-trip GREEN (Orbit 24). SLC met at the CLI boundary: a person can run Lotus, record a voice, and export a WAV -- proven on metal.
 
-**NOW: Quest 1.2 -- Brushstroke surface and the visual window.**
-Layout bridge (Orbit 11) and grid shapes (Orbit 10) already proven. Next: AppKit window hosting the recording engine with waveform display and transport controls.
-**SLC gate:** a person can open Lotus in a window, see a waveform of their recording, and play it back.
+**Quest 1.2 -- Brushstroke surface and multi-track.** Window orbit landed (Orbit 25): NSApplication + waveform + AUHAL recording + CoreAudio playback in one standalone selftest. GREEN on metal. Next: multi-track Weave (Orbits 4-7).
+**Paused while the Glow language journey closes rounds 11-15.** The Long Return orders it: the language is the lasting work, and Lotus will import Glow's stdlib. Lotus resumes at Calfive round 1 (Aries, cardinal fire, talent -- "Commence!"). Design: [`../active-designing/date/20261104/20261104-131232_glow-calfive-alignment-and-round-plan.md`](../active-designing/date/20261104/20261104-131232_glow-calfive-alignment-and-round-plan.md).
 
 **Grows from:** 240 Lotus modules (241 witnesses), lotus-audio wire shape, macos-native macOS native surface, Skate Swift shell.
 **Waymarks:** lotus-audio (`season-c-lotus-creative-suite-audio-wire-shape`) -- macos-native (`macos-native-surface-rye-backend`).
@@ -196,7 +195,9 @@ with the log unchanged, and two replays of one log agree field for field (`mantr
 
 ### Pheromone -- Glow product language
 
-**Priority:** HIGH Long Return; VERY HIGH Lila.
+**Priority:** VERY HIGH Long Return; VERY HIGH Lila. **Active journey -- rounds 11-15.**
+
+**NOW: Glow language journey orbits 11-15.** Five remaining orbits map to Calfive rounds 11-15 (Aquarius through sky-15). Interactive REPL, layout demo, two tutorials, cookbook expansion. Design: [`../active-designing/date/20261104/20261104-131232_glow-calfive-alignment-and-round-plan.md`](../active-designing/date/20261104/20261104-131232_glow-calfive-alignment-and-round-plan.md). Project board: [`../tablecloth/20261103-184811_glow-language-journey/CHECKLIST.md`](../tablecloth/20261103-184811_glow-language-journey/CHECKLIST.md).
 
 1. Express the receipt facts and Tally bounds in the smallest Glow form already owned.
 2. Carry them through lowering into Mantra and both projections.

@@ -34,10 +34,9 @@
 *Grow the seed into a multi-track session with a mix bus, with the visual window that Quest 1.1 deferred.*
 **Grows from:** Quest 1.1's single-track seed, layout bridge (Orbit 11), grid shapes (Orbit 10).
 
-- [ ] **Orbit -- Brushstroke/Skate window** (carried from Quest 1.1)
-  AppKit NSApplication host with waveform display, transport bar, meter readout.
-  Layout bridge wires to a real NSView. Skate renders the fixed frame.
-  **SLC gate:** open Lotus in a window, see a waveform of the recording, play it back.
+- [x] **Orbit -- Brushstroke/Skate window** (carried from Quest 1.1, landed `20261104` Orbit 25)
+  `lotus/lotus_window.rye`: NSApplication + menu bar + NSWindow + pixel-buffer waveform + AUHAL recording + CoreAudio playback in one standalone selftest. 19,456 samples recorded, waveform rendered, 4096-sample clip played back. GREEN on metal.
+  **SLC gate:** open Lotus in a window, see a waveform of the recording, play it back -- **PROVEN**.
 
 - [ ] **Orbit 4 -- Multiple tracks in Weave**
   Session model holds N tracks, each a named Weave stream. Add, remove, reorder.
