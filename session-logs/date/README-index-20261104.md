@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261104.053936` | [Orbit 21 send -- push confirmed](20261104/20261104-053936_orbit-21-send.kyri.md) | SSH push slow but completed; remote confirmed at 67b4cbe6e |
 | `20261104.053433` | [Orbit 21 -- twenty rune-witness comptime tidy](20261104/20261104-053433_orbit-21-twenty-rune-witness-comptime-tidy.kyri.md) | 20 rune_* comptime decl-walking blocks removed; all 20 GREEN, 184 GREEN lines; fascia 60.051 |
 | `20261104.051355` | [Orbit 20 -- seven-witness comptime tidy with str_repeat quota fix](20261104/20261104-051355_orbit-20-seven-witness-comptime-tidy.kyri.md) | seven comptime decl-walking blocks removed; str_repeat @setEvalBranchQuota fix; 209 GREEN lines; fascia 60.050 |
 | `20261104.050649` | [Orbit 19 -- four-witness comptime tidy](20261104/20261104-050649_orbit-19-four-witness-comptime-tidy.kyri.md) | four comptime decl-walking blocks removed; all _expect constants live; four witnesses GREEN; fascia 60.049 |
