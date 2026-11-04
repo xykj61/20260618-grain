@@ -148,8 +148,8 @@ The interface uses ASCII as structure, linen as material, and motion as a bounde
 Brushstroke declares each component's grid, role, state, tokens, and motion profile. Skate renders the fixed frame and bounded events. A correspondence witness forces meaning, description, and behavior to change together.
 
 ## Now -- the eight sailing ship itineraries
-**Git nib:** `29d15756d7`
-**Fascia:** `60.03` -- Orbits 7-9 landed (multi-arm cores, number arithmetic, value model), governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.01 per proven orbit, larger on Keaton's word.
+**Git nib:** `d39c9c36dd`
+**Fascia:** `60.04` -- Orbits 7-10 landed (multi-arm cores, number arithmetic, value model, layout shapes), governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.01 per proven orbit, larger on Keaton's word.
 
 
 ### Incense -- product captain

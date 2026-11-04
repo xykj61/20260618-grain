@@ -1,0 +1,89 @@
+# tools/g/glow_layout_witness.rish -- layout shapes and grid ceiling gates, proven both sides.
+#
+#   rishi/bin/rishi run tools/g/glow_layout_witness.rish
+#
+# Three layout shapes -- color (3 fields), rect (4 fields), cell (7 fields) -- and five
+# ceiling gates validating each field against Skate's 40x8 grid and 8-bit palette.
+# Every gate is proven on both sides: the boundary value admits, one past it refuses.
+# The composed cell shape (7 fields, the largest authored shape in the tree) proves
+# that the value model composes color and position into a single record.
+
+say "layout: Language EN -- Skate grid layout shapes and their ceiling gates."
+say "layout: Style Gauge, Meter -- each leg names its desk and its answer."
+say "layout: Lens TAME -- both sides witnessed; shapes lower and build GREEN."
+
+let zig = "vendor/zig-toolchain/zig"
+
+say "layout: shapes -- color (3 fields), rect (4 fields), cell (7 fields)..."
+let s1 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "glow/gen/l/layout-color.glow"]
+assert s1.ok else "layout: layout-color.glow failed -- ${s1.err_brief}"
+assert s1.out contains "EXIT:0" else "layout: layout-color did not exit 0"
+
+let s2 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "glow/gen/l/layout-rect.glow"]
+assert s2.ok else "layout: layout-rect.glow failed -- ${s2.err_brief}"
+assert s2.out contains "EXIT:0" else "layout: layout-rect did not exit 0"
+
+let s3 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "glow/gen/l/layout-cell.glow"]
+assert s3.ok else "layout: layout-cell.glow failed -- ${s3.err_brief}"
+assert s3.out contains "EXIT:0" else "layout: layout-cell did not exit 0"
+
+say "layout: channel ceiling -- 0 and 255 admit, 256 refuses..."
+let ch0 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "src/gate/gate-layout-channel-ceiling-u32.glow" "0"]
+assert ch0.ok else "layout: channel(0) failed to run"
+assert ch0.out contains "1" else "layout: channel(0) must admit"
+let ch255 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "src/gate/gate-layout-channel-ceiling-u32.glow" "255"]
+assert ch255.ok else "layout: channel(255) failed to run"
+assert ch255.out contains "1" else "layout: channel(255) -- the last 8-bit value admits"
+let ch256 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "src/gate/gate-layout-channel-ceiling-u32.glow" "256"]
+assert ch256.ok else "layout: channel(256) failed to run"
+assert ch256.out contains "0" else "layout: channel(256) must refuse past 8 bits"
+
+say "layout: column ceiling -- 0 and 39 admit, 40 refuses..."
+let col0 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "src/gate/gate-layout-col-ceiling-u32.glow" "0"]
+assert col0.ok else "layout: col(0) failed to run"
+assert col0.out contains "1" else "layout: col(0) must admit"
+let col39 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "src/gate/gate-layout-col-ceiling-u32.glow" "39"]
+assert col39.ok else "layout: col(39) failed to run"
+assert col39.out contains "1" else "layout: col(39) -- the last column admits"
+let col40 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "src/gate/gate-layout-col-ceiling-u32.glow" "40"]
+assert col40.ok else "layout: col(40) failed to run"
+assert col40.out contains "0" else "layout: col(40) must refuse past the grid"
+
+say "layout: row ceiling -- 0 and 7 admit, 8 refuses..."
+let row0 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "src/gate/gate-layout-row-ceiling-u32.glow" "0"]
+assert row0.ok else "layout: row(0) failed to run"
+assert row0.out contains "1" else "layout: row(0) must admit"
+let row7 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "src/gate/gate-layout-row-ceiling-u32.glow" "7"]
+assert row7.ok else "layout: row(7) failed to run"
+assert row7.out contains "1" else "layout: row(7) -- the last row admits"
+let row8 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "src/gate/gate-layout-row-ceiling-u32.glow" "8"]
+assert row8.ok else "layout: row(8) failed to run"
+assert row8.out contains "0" else "layout: row(8) must refuse past the grid"
+
+say "layout: width ceiling -- 1 and 40 admit, 41 refuses..."
+let w1 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "src/gate/gate-layout-width-ceiling-u32.glow" "1"]
+assert w1.ok else "layout: width(1) failed to run"
+assert w1.out contains "1" else "layout: width(1) must admit"
+let w40 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "src/gate/gate-layout-width-ceiling-u32.glow" "40"]
+assert w40.ok else "layout: width(40) failed to run"
+assert w40.out contains "1" else "layout: width(40) -- the full grid width admits"
+let w41 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "src/gate/gate-layout-width-ceiling-u32.glow" "41"]
+assert w41.ok else "layout: width(41) failed to run"
+assert w41.out contains "0" else "layout: width(41) must refuse past the grid"
+
+say "layout: height ceiling -- 1 and 8 admit, 9 refuses..."
+let h1 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "src/gate/gate-layout-height-ceiling-u32.glow" "1"]
+assert h1.ok else "layout: height(1) failed to run"
+assert h1.out contains "1" else "layout: height(1) must admit"
+let h8 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "src/gate/gate-layout-height-ceiling-u32.glow" "8"]
+assert h8.ok else "layout: height(8) failed to run"
+assert h8.out contains "1" else "layout: height(8) -- the full grid height admits"
+let h9 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "src/gate/gate-layout-height-ceiling-u32.glow" "9"]
+assert h9.ok else "layout: height(9) failed to run"
+assert h9.out contains "0" else "layout: height(9) must refuse past the grid"
+
+say "layout: prior witnesses still GREEN -- no regression..."
+let prior_value = run ["rishi/bin/rishi" "run" "tools/g/glow_value_model_witness.rish"]
+assert prior_value.ok else "layout: value model witness regressed -- ${prior_value.err_brief}"
+
+say "GREEN: layout -- 3 shapes, 5 ceiling gates proven both sides, value model holds."

@@ -1,0 +1,14 @@
+::  name       layout channel ceiling gate
+::  shape      channel - int (@u32) -> lawful - int (@u32)
+::  invariant  answers 1 while the input channel stays at or under 255; answers 0 past the ceiling
+::  law        brushstroke/skate_cell_grid.rye 8-bit palette per channel
+::  example    128 -> 1 - 256 -> 0
+::  readers    Brushstroke - Skate - Glow layout
+::  nib        glow-language journey Orbit 10 -- layout shapes (20261104)
+::
+::  Skate's cell grid paints each cell with an 8-bit color per channel.
+::  Red, green, and blue each stay at or under 255. This gate is that
+::  ceiling made runnable in Glow; the witness validates all three
+::  channels of layout-color through the same desk.
+|=  sample=@u32
+?:  (gth sample 255)  0  1

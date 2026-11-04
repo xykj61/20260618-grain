@@ -1,0 +1,10 @@
+::  Layout rectangle -- position and dimension on a bounded grid.
+::  col and row are the origin; width and height are the extent.
+::  Skate's cell grid is 40 columns by 8 rows; the gate family
+::  validates each field against those ceilings.
++$  layout-rect-shape
+  $:  col=@u32
+      row=@u32
+      width=@u32
+      height=@u32
+  ==

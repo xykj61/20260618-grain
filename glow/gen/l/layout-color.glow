@@ -1,0 +1,8 @@
+::  Layout color -- three channels bounded by Skate's 8-bit palette.
+::  Each field is a @u32 holding a value 0-255; the gate family
+::  validates each channel against that ceiling.
++$  layout-color-shape
+  $:  red=@u32
+      green=@u32
+      blue=@u32
+  ==

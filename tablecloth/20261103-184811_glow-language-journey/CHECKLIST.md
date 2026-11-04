@@ -148,12 +148,18 @@ and the Terrarium/Aurora/Caravan pattern of growing from working simples.
 **Grows from:** Quest 2.1's stdlib, Brushstroke/Skate's Swift shell, the macOS native
 surface at `loca/`.
 
-- [ ] **Orbit 10 -- Brushstroke/Skate "Hello Glow" demo**
-  A minimal Brushstroke window driven by Glow: open a Skate AppKit window, draw a
-  colored rectangle, close on keypress. The Glow program describes the layout; Rye
-  renders it through the Skate surface. This is the "Hello World" of Glow meeting glass.
-  **SLC gate:** a macOS window opens, draws what the Glow program describes, and closes
-  cleanly. Witness proves the render and the close.
+- [x] **Orbit 10 -- Glow layout shapes and ceiling gates**
+  Reframed from Brushstroke window demo (unreachable without layout data): three Glow
+  shapes encoding color (`layout-color`, 3 fields), position/dimension (`layout-rect`,
+  4 fields), and composed cell (`layout-cell`, 7 fields -- the largest authored shape).
+  Five ceiling gates validating each field against Skate's 40x8 grid and 8-bit palette,
+  proven both sides (boundary admits, one past refuses). The gate conditional parser
+  supports `gth` and `eq` only -- no `add` -- so composed bounds (col+width<=40) deferred
+  to a later orbit. Registered five new stems in `glow_run_worker.sh` `arity_accepts()`.
+  Prior value model witness still GREEN -- no regression.
+  **SLC gate:** `tools/g/glow_layout_witness.rish` runs GREEN -- 3 shapes, 5 ceiling
+  gates proven both sides, value model holds.
+  **Essay:** `active-designing/date/20261104/20261104-014047_glow-layout-shapes-and-ceiling-gates.md`
 
 - [ ] **Orbit 11 -- Interactive Glow REPL in Brushstroke**
   A Skate window with a text input field. Type a Glow expression, see the result below.

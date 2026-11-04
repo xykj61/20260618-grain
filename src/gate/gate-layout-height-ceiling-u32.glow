@@ -1,0 +1,11 @@
+::  name       layout height ceiling gate
+::  shape      height - int (@u32) -> lawful - int (@u32)
+::  invariant  answers 1 while the height stays at or under 8; answers 0 past the grid
+::  law        brushstroke/skate_cell_grid.rye grid_rows=8
+::  example    1 -> 1 - 8 -> 1 - 9 -> 0
+::  readers    Brushstroke - Skate - Glow layout
+::  nib        glow-language journey Orbit 10 -- layout shapes (20261104)
+::
+::  A rectangle's height cannot exceed the grid's row count.
+|=  sample=@u32
+?:  (gth sample 8)  0  1

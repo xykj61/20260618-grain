@@ -1,0 +1,13 @@
+::  Layout cell -- color and position composed in one shape.
+::  Seven fields: the three channels of layout-color plus the four
+::  dimensions of layout-rect. Proves that the value model composes
+::  layout concerns into a single record a gate can validate.
++$  layout-cell-shape
+  $:  red=@u32
+      green=@u32
+      blue=@u32
+      col=@u32
+      row=@u32
+      width=@u32
+      height=@u32
+  ==

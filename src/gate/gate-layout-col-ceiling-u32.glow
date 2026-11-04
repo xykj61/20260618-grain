@@ -1,0 +1,12 @@
+::  name       layout column ceiling gate
+::  shape      col - int (@u32) -> lawful - int (@u32)
+::  invariant  answers 1 while the column stays at or under 39; answers 0 past the grid
+::  law        brushstroke/skate_cell_grid.rye grid_cols=40 (0-indexed)
+::  example    0 -> 1 - 39 -> 1 - 40 -> 0
+::  readers    Brushstroke - Skate - Glow layout
+::  nib        glow-language journey Orbit 10 -- layout shapes (20261104)
+::
+::  Skate's cell grid is 40 columns wide. A column index is valid from
+::  0 through 39. This gate refuses anything past the last column.
+|=  sample=@u32
+?:  (gth sample 39)  0  1

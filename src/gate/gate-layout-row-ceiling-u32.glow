@@ -1,0 +1,12 @@
+::  name       layout row ceiling gate
+::  shape      row - int (@u32) -> lawful - int (@u32)
+::  invariant  answers 1 while the row stays at or under 7; answers 0 past the grid
+::  law        brushstroke/skate_cell_grid.rye grid_rows=8 (0-indexed)
+::  example    0 -> 1 - 7 -> 1 - 8 -> 0
+::  readers    Brushstroke - Skate - Glow layout
+::  nib        glow-language journey Orbit 10 -- layout shapes (20261104)
+::
+::  Skate's cell grid is 8 rows tall. A row index is valid from
+::  0 through 7. This gate refuses anything past the last row.
+|=  sample=@u32
+?:  (gth sample 7)  0  1
