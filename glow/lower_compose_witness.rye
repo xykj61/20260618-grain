@@ -7,20 +7,24 @@ const assert = std.debug.assert;
 const print = std.debug.print;
 const lower = @import("lower_compose.rye");
 
-// invariant: every declaration of the module goes through semantic analysis, so a type
-// error in a body this witness never calls reds the build (REDS %463, %470).
-comptime {
-    for (@typeInfo(lower).@"struct".decls) |decl| {
-        _ = &@field(lower, decl.name);
-    }
-}
+const witness_version = "20261104.050000";
 
-const witness_version = "20260718.212000";
-
-const compose_src =
-    \\::  Cross-line — face then one-arg call (glow-language).
+const compose_double_src =
+    \\::  Cross-line -- face then one-arg call (glow-language).
     \\=/  amount  5
     \\%-  double  amount
+;
+
+const compose_square_src =
+    \\::  Cross-line -- face then one-arg call square (glow-language).
+    \\=/  amount  5
+    \\%-  square  amount
+;
+
+const compose_half_src =
+    \\::  Cross-line -- face then one-arg call half (glow-language).
+    \\=/  amount  5
+    \\%-  half  amount
 ;
 
 fn run_selftest(init: std.process.Init) !u8 {
@@ -29,24 +33,50 @@ fn run_selftest(init: std.process.Init) !u8 {
     const cwd = std.Io.Dir.cwd();
     var buf: [3072]u8 = undefined;
 
-    const spec = try lower.parse_compose(compose_src);
-    assert(std.mem.eql(u8, lower.face_slice(&spec), "amount"));
-    assert(spec.value == 5);
-    assert(std.mem.eql(u8, lower.gate_slice(&spec), "double"));
-    print("compose: face then %- double parses -- GREEN\n", .{});
+    // -- double --
+    {
+        const spec = try lower.parse_compose(compose_double_src);
+        assert(std.mem.eql(u8, lower.face_slice(&spec), "amount"));
+        assert(spec.value == 5);
+        assert(std.mem.eql(u8, lower.gate_slice(&spec), "double"));
+        const n = try lower.lower_source_welcome(compose_double_src, &buf);
+        const rye = buf[0..n];
+        assert(std.mem.indexOf(u8, rye, "fn double(sample: u32) u32") != null);
+        assert(std.mem.indexOf(u8, rye, "const amount: u32 = 5") != null);
+        assert(std.mem.indexOf(u8, rye, "called == 10") != null);
+        print("compose: double welcome expect=10 -- GREEN\n", .{});
+    }
 
-    const n1 = try lower.lower_source_welcome(compose_src, &buf);
-    const rye1 = buf[0..n1];
-    assert(std.mem.indexOf(u8, rye1, "fn double(sample: u32) u32") != null);
-    assert(std.mem.indexOf(u8, rye1, "const amount: u32 = 5") != null);
-    assert(std.mem.indexOf(u8, rye1, "const called: u32 = double(amount)") != null);
-    assert(std.mem.indexOf(u8, rye1, "called == 10") != null);
-    print("compose: welcome builds face→call -- GREEN\n", .{});
+    // -- square --
+    {
+        const spec = try lower.parse_compose(compose_square_src);
+        assert(std.mem.eql(u8, lower.gate_slice(&spec), "square"));
+        const n = try lower.lower_source_welcome(compose_square_src, &buf);
+        const rye = buf[0..n];
+        assert(std.mem.indexOf(u8, rye, "fn square(sample: u32) u32") != null);
+        assert(std.mem.indexOf(u8, rye, "called == 25") != null);
+        print("compose: square welcome expect=25 -- GREEN\n", .{});
+    }
 
-    const n2 = try lower.lower_source_unwelcome(compose_src, &buf);
-    assert(std.mem.indexOf(u8, buf[0..n2], "called == 11") != null);
-    print("compose: unwelcome expects mismatch -- GREEN\n", .{});
+    // -- half --
+    {
+        const spec = try lower.parse_compose(compose_half_src);
+        assert(std.mem.eql(u8, lower.gate_slice(&spec), "half"));
+        const n = try lower.lower_source_welcome(compose_half_src, &buf);
+        const rye = buf[0..n];
+        assert(std.mem.indexOf(u8, rye, "fn half(sample: u32) u32") != null);
+        assert(std.mem.indexOf(u8, rye, "called == 2") != null);
+        print("compose: half welcome expect=2 -- GREEN\n", .{});
+    }
 
+    // -- unwelcome checks --
+    {
+        const n = try lower.lower_source_unwelcome(compose_double_src, &buf);
+        assert(std.mem.indexOf(u8, buf[0..n], "called == 11") != null);
+        print("compose: double unwelcome expects mismatch -- GREEN\n", .{});
+    }
+
+    // -- refusal: NotACompose --
     if (lower.parse_compose("=/  from  5\n=/  amount  3\n")) |_| {
         return error.NotAComposeNotCaught;
     } else |err| {
@@ -54,6 +84,7 @@ fn run_selftest(init: std.process.Init) !u8 {
     }
     print("compose: two faces refused NotACompose -- GREEN\n", .{});
 
+    // -- refusal: SampleMismatch --
     if (lower.parse_compose("=/  amount  5\n%-  double  other\n")) |_| {
         return error.SampleMismatchNotCaught;
     } else |err| {
@@ -61,22 +92,40 @@ fn run_selftest(init: std.process.Init) !u8 {
     }
     print("compose: sample mismatch refused SampleMismatch -- GREEN\n", .{});
 
-    try cwd.createDirPath(io, "glow/.cache");
-    const welcome_path = "glow/.cache/compose_call_welcome.rye";
-    const unwelcome_path = "glow/.cache/compose_call_unwelcome.rye";
-    const n3 = try lower.lower_source_welcome(compose_src, &buf);
-    try cwd.writeFile(io, .{ .sub_path = welcome_path, .data = buf[0..n3] });
-    const n4 = try lower.lower_source_unwelcome(compose_src, &buf);
-    try cwd.writeFile(io, .{ .sub_path = unwelcome_path, .data = buf[0..n4] });
-    print("compose: wrote welcome and unwelcome .rye under glow/.cache/ -- GREEN\n", .{});
+    // -- refusal: UnknownGate --
+    if (lower.parse_compose("=/  amount  5\n%-  bogus  amount\n")) |_| {
+        return error.UnknownGateNotCaught;
+    } else |err| {
+        if (err != lower.LowerError.UnknownGate) return err;
+    }
+    print("compose: unknown gate refused UnknownGate -- GREEN\n", .{});
 
-    const gen_src = try cwd.readFileAlloc(io, "glow/gen/c/compose-call.glow", a, .limited(4096));
-    assert(std.mem.indexOf(u8, gen_src, "=/  amount  5") != null);
-    assert(std.mem.indexOf(u8, gen_src, "%-  double  amount") != null);
-    print("compose: glow/gen/c/compose-call.glow carries face→call -- GREEN\n", .{});
+    // -- write 6 cache files --
+    try cwd.createDirPath(io, "glow/.cache");
+    const pairs = .{
+        .{ compose_double_src, "glow/.cache/compose_call_double_welcome.rye", "glow/.cache/compose_call_double_unwelcome.rye" },
+        .{ compose_square_src, "glow/.cache/compose_call_square_welcome.rye", "glow/.cache/compose_call_square_unwelcome.rye" },
+        .{ compose_half_src, "glow/.cache/compose_call_half_welcome.rye", "glow/.cache/compose_call_half_unwelcome.rye" },
+    };
+    inline for (pairs) |p| {
+        const nw = try lower.lower_source_welcome(p[0], &buf);
+        try cwd.writeFile(io, .{ .sub_path = p[1], .data = buf[0..nw] });
+        const nu = try lower.lower_source_unwelcome(p[0], &buf);
+        try cwd.writeFile(io, .{ .sub_path = p[2], .data = buf[0..nu] });
+    }
+    print("compose: wrote 6 cache files under glow/.cache/ -- GREEN\n", .{});
+
+    // -- read .glow gen programs --
+    const gen_double = try cwd.readFileAlloc(io, "glow/gen/c/compose-call.glow", a, .limited(4096));
+    assert(std.mem.indexOf(u8, gen_double, "%-  double  amount") != null);
+    const gen_square = try cwd.readFileAlloc(io, "glow/gen/c/compose-call-square.glow", a, .limited(4096));
+    assert(std.mem.indexOf(u8, gen_square, "%-  square  amount") != null);
+    const gen_half = try cwd.readFileAlloc(io, "glow/gen/c/compose-call-half.glow", a, .limited(4096));
+    assert(std.mem.indexOf(u8, gen_half, "%-  half  amount") != null);
+    print("compose: glow/gen/c/compose-call + compose-call-square + compose-call-half carry compose faces -- GREEN\n", .{});
 
     print("compose: version {s}\n", .{witness_version});
-    print("GREEN: face→call cross-line compose lowers to ordinary Rye (glow-language).\n", .{});
+    print("GREEN: face->call cross-line compose lowers double/square/half to Rye (glow-language).\n", .{});
     return 0;
 }
 

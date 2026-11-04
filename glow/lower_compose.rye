@@ -4,7 +4,8 @@
 //!   =/  amount  5
 //!   %-  double  amount
 //!
-//! The call sample must name the prior face. Closed demo gate `double`.
+//! The call sample must name the prior face. Dynamic gate dispatch for
+//! double (sample *% 2), square (sample *% sample), half (sample / 2).
 //! Two-face `%+` compose is glow-language (`lower_compose2.rye`). Cores stay later.
 
 const std = @import("std");
@@ -27,7 +28,21 @@ pub const LowerError = rf.ParseError || rc.ParseError || lower_multi.LowerError 
     MalformedValue,
 };
 
-pub const compose_expect: u32 = 10;
+/// Compute the expected result for a one-arg gate applied to a sample.
+pub fn compute_expect(gate: []const u8, sample: u32) LowerError!u32 {
+    if (std.mem.eql(u8, gate, "double")) return sample *% 2;
+    if (std.mem.eql(u8, gate, "square")) return sample *% sample;
+    if (std.mem.eql(u8, gate, "half")) return sample / 2;
+    return error.UnknownGate;
+}
+
+/// The Rye body expression for a one-arg gate.
+fn gate_body(gate: []const u8) LowerError![]const u8 {
+    if (std.mem.eql(u8, gate, "double")) return "sample *% 2";
+    if (std.mem.eql(u8, gate, "square")) return "sample *% sample";
+    if (std.mem.eql(u8, gate, "half")) return "sample / 2";
+    return error.UnknownGate;
+}
 
 fn is_digit(ch: u8) bool {
     return ch >= '0' and ch <= '9';
@@ -105,7 +120,7 @@ pub fn parse_compose(src: []const u8) LowerError!ComposeSpec {
     const gate = rc.gate_slice(&call);
     const sample = rc.sample_slice(&call);
     if (!std.mem.eql(u8, sample, face_slice(&spec))) return error.SampleMismatch;
-    if (!std.mem.eql(u8, gate, "double")) return error.UnknownGate;
+    _ = gate_body(gate) catch return error.UnknownGate;
 
     tally_copy.copy_disjoint(u8, spec.gate[0..gate.len], gate);
     spec.gate_len = gate.len;
@@ -117,17 +132,17 @@ fn emit_compose(spec: *const ComposeSpec, welcome: bool, out: []u8) LowerError!u
     var zg: [rc.max_name_len]u8 = undefined;
     const fn_len = try zig_safe_ident(face_slice(spec), &zf, "face");
     const gn = try zig_safe_ident(gate_slice(spec), &zg, "gate");
-    const expect: u32 = if (welcome) compose_expect else compose_expect +% 1;
-    // double(sample) => sample *% 2; welcome expects 2*value when value is 5 -> 10.
-    // Keep expect fixed at compose_expect for the thin desk (value must be 5).
-    if (spec.value != 5) return error.MalformedValue;
+    const gate = gate_slice(spec);
+    const body = try gate_body(gate);
+    const base_expect = try compute_expect(gate, spec.value);
+    const expect: u32 = if (welcome) base_expect else base_expect +% 1;
 
     const written = std.fmt.bufPrint(out,
         \\const std = @import("std");
         \\
-        \\/// Lowered from Glow face→`%-` compose — cross-line call (glow-language).
+        \\/// Lowered from Glow face->`%-` compose -- cross-line call (glow-language).
         \\fn {s}(sample: u32) u32 {{
-        \\    return sample *% 2;
+        \\    return {s};
         \\}}
         \\
         \\pub fn main(_: std.process.Init) !u8 {{
@@ -138,6 +153,7 @@ fn emit_compose(spec: *const ComposeSpec, welcome: bool, out: []u8) LowerError!u
         \\
     , .{
         zg[0..gn],
+        body,
         zf[0..fn_len],
         spec.value,
         zg[0..gn],

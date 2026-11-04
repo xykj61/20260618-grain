@@ -374,6 +374,16 @@ assert compose.ok else "glow_run compose-call.glow failed"
 assert compose.out contains "GREEN" else "glow_run compose-call.glow not GREEN"
 assert compose.out contains "compose-call.glow" else "glow_run compose-call claim missing path"
 
+let composesq = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/c/compose-call-square.glow"]
+assert composesq.ok else "glow_run compose-call-square.glow failed"
+assert composesq.out contains "GREEN" else "glow_run compose-call-square.glow not GREEN"
+assert composesq.out contains "compose-call-square.glow" else "glow_run compose-call-square claim missing path"
+
+let composehl = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/c/compose-call-half.glow"]
+assert composehl.ok else "glow_run compose-call-half.glow failed"
+assert composehl.out contains "GREEN" else "glow_run compose-call-half.glow not GREEN"
+assert composehl.out contains "compose-call-half.glow" else "glow_run compose-call-half claim missing path"
+
 let composejamcue = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/c/compose-jam-cue.glow"]
 assert composejamcue.ok else "glow_run compose-jam-cue.glow failed"
 assert composejamcue.out contains "GREEN" else "glow_run compose-jam-cue.glow not GREEN"

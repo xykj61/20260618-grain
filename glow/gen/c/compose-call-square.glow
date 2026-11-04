@@ -1,0 +1,3 @@
+::  Cross-line -- face then one-arg call square (glow-language).
+=/  amount  5
+%-  square  amount

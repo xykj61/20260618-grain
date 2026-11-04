@@ -4,10 +4,6 @@
 
 let zig = "vendor/zig-toolchain/zig"
 let bin = "glow/bin/lower_compose_witness"
-let welcome_rye = "glow/.cache/compose_call_welcome.rye"
-let welcome_bin = "glow/bin/compose_call_welcome"
-let unwelcome_rye = "glow/.cache/compose_call_unwelcome.rye"
-let unwelcome_bin = "glow/bin/compose_call_unwelcome"
 
 let build = run ["sh" "-c" "mkdir -p glow/bin glow/.cache && env RYE_ZIG=${zig} sh tools/fixtures/r/rye_build.sh glow/lower_compose_witness.rye -femit-bin=${bin}"]
 assert build.ok else "lower_compose_witness build failed"
@@ -15,19 +11,46 @@ assert build.ok else "lower_compose_witness build failed"
 let selftest = run ["sh" "-c" "${bin} 2>&1"]
 assert selftest.ok else "lower_compose_witness exited non-zero"
 assert selftest.out contains "GREEN" else "lower_compose_witness not GREEN"
-assert selftest.out contains "welcome builds face" else "lower_compose_witness missing welcome claim"
-assert selftest.out contains "carries face" else "lower_compose_witness missing desk claim"
-assert selftest.out contains "SampleMismatch" else "lower_compose_witness missing SampleMismatch"
+assert selftest.out contains "double welcome expect=10" else "missing double welcome claim"
+assert selftest.out contains "square welcome expect=25" else "missing square welcome claim"
+assert selftest.out contains "half welcome expect=2" else "missing half welcome claim"
+assert selftest.out contains "carry compose faces" else "missing desk claim"
+assert selftest.out contains "UnknownGate" else "missing UnknownGate claim"
 
-let build_welcome = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${welcome_rye} -femit-bin=${welcome_bin}"]
-assert build_welcome.ok else "compose welcome .rye build failed"
-let run_welcome = run ["sh" "-c" "${welcome_bin}; echo EXIT:$?"]
-assert run_welcome.ok else "compose welcome binary failed to launch"
-assert run_welcome.out contains "EXIT:0" else "compose welcome binary did not exit 0"
+# -- double welcome/unwelcome --
+let build_dw = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build glow/.cache/compose_call_double_welcome.rye -femit-bin=glow/bin/compose_call_double_welcome"]
+assert build_dw.ok else "double welcome build failed"
+let run_dw = run ["sh" "-c" "glow/bin/compose_call_double_welcome; echo EXIT:$?"]
+assert run_dw.ok else "double welcome failed to launch"
+assert run_dw.out contains "EXIT:0" else "double welcome did not exit 0"
 
-let build_unwelcome = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${unwelcome_rye} -femit-bin=${unwelcome_bin}"]
-assert build_unwelcome.ok else "compose unwelcome .rye build failed"
-let run_unwelcome = run ["sh" "-c" "${unwelcome_bin}; echo EXIT:$?"]
-assert run_unwelcome.out contains "EXIT:1" else "compose unwelcome binary did not exit 1"
+let build_du = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build glow/.cache/compose_call_double_unwelcome.rye -femit-bin=glow/bin/compose_call_double_unwelcome"]
+assert build_du.ok else "double unwelcome build failed"
+let run_du = run ["sh" "-c" "glow/bin/compose_call_double_unwelcome; echo EXIT:$?"]
+assert run_du.out contains "EXIT:1" else "double unwelcome did not exit 1"
 
-say "GREEN: Glow compose hop — face→double; welcome 0 / unwelcome 1; glow-language."
+# -- square welcome/unwelcome --
+let build_sw = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build glow/.cache/compose_call_square_welcome.rye -femit-bin=glow/bin/compose_call_square_welcome"]
+assert build_sw.ok else "square welcome build failed"
+let run_sw = run ["sh" "-c" "glow/bin/compose_call_square_welcome; echo EXIT:$?"]
+assert run_sw.ok else "square welcome failed to launch"
+assert run_sw.out contains "EXIT:0" else "square welcome did not exit 0"
+
+let build_su = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build glow/.cache/compose_call_square_unwelcome.rye -femit-bin=glow/bin/compose_call_square_unwelcome"]
+assert build_su.ok else "square unwelcome build failed"
+let run_su = run ["sh" "-c" "glow/bin/compose_call_square_unwelcome; echo EXIT:$?"]
+assert run_su.out contains "EXIT:1" else "square unwelcome did not exit 1"
+
+# -- half welcome/unwelcome --
+let build_hw = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build glow/.cache/compose_call_half_welcome.rye -femit-bin=glow/bin/compose_call_half_welcome"]
+assert build_hw.ok else "half welcome build failed"
+let run_hw = run ["sh" "-c" "glow/bin/compose_call_half_welcome; echo EXIT:$?"]
+assert run_hw.ok else "half welcome failed to launch"
+assert run_hw.out contains "EXIT:0" else "half welcome did not exit 0"
+
+let build_hu = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build glow/.cache/compose_call_half_unwelcome.rye -femit-bin=glow/bin/compose_call_half_unwelcome"]
+assert build_hu.ok else "half unwelcome build failed"
+let run_hu = run ["sh" "-c" "glow/bin/compose_call_half_unwelcome; echo EXIT:$?"]
+assert run_hu.out contains "EXIT:1" else "half unwelcome did not exit 1"
+
+say "GREEN: Glow compose -- face->call double/square/half; 6 binaries correct; glow-language."
