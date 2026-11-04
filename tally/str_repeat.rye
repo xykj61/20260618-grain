@@ -18,6 +18,7 @@ pub fn str_repeat(comptime s: []const u8, comptime n: usize) *const [s.len * n]u
     // invariant: the repetition count is non-zero
     comptime assert(n > 0);
     return comptime blk: {
+        @setEvalBranchQuota(n + 100);
         var buf: [s.len * n]u8 = undefined;
         for (0..n) |i| {
             @memcpy(buf[i * s.len ..][0..s.len], s);

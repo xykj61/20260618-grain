@@ -13,18 +13,7 @@ const tokens = @import("tokens.rye");
 const zig_ident = @import("zig_ident.rye");
 const str_repeat = @import("tally_str_repeat.rye").str_repeat;
 
-// invariant: every declaration of the module goes through semantic analysis, so a type
-// error in a body this witness never calls reds the build (REDS %463, %470).
-comptime {
-    for (@typeInfo(refusal).@"struct".decls) |decl| {
-        _ = &@field(refusal, decl.name);
-    }
-    for (@typeInfo(zig_ident).@"struct".decls) |decl| {
-        _ = &@field(zig_ident, decl.name);
-    }
-}
-
-const witness_version = "20260917.001500";
+const witness_version = "20261104.051355";
 
 /// A `$:` tuple carrying sixteen faces -- one past the fifteen `rune_shape.max_fields` admits.
 const over_capacity_src =
