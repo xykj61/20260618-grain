@@ -28,4 +28,5 @@ what is next, and works from there.
 | Board | Equinox | Status |
 |---|---|---|
 | [`20261103-005948_lotus-working-studio/`](20261103-005948_lotus-working-studio/README.md) | Lotus DAW Equinox 1 -- The Working Studio | Active |
-| [`20261103-184811_glow-language-journey/`](20261103-184811_glow-language-journey/README.md) | Glow Language Journey -- Clean Foundations, Living Stdlib, Ready for Lotus | Active |
+| [`20261103-184811_glow-language-journey/`](20261103-184811_glow-language-journey/README.md) | Glow Language Journey -- Clean Foundations, Living Stdlib, Ready for Lotus | Complete |
+| [`20261104-161857_terrarium-boot-journey/`](20261104-161857_terrarium-boot-journey/README.md) | Terrarium Boot Journey -- From a Cold Hart to a Living World Under Glass | Active |

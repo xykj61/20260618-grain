@@ -148,7 +148,7 @@ The interface uses ASCII as structure, linen as material, and motion as a bounde
 Brushstroke declares each component's grid, role, state, tokens, and motion profile. Skate renders the fixed frame and bounded events. A correspondence witness forces meaning, description, and behavior to change together.
 
 ## Now -- the eight sailing ship itineraries
-**Git nib:** `85bdf59619`
+**Git nib:** `96d935bade`
 **Fascia:** `60.060` -- Orbits 7-25 and Glow Orbits 11-15 landed (multi-arm cores, number arithmetic, value model, layout shapes, layout bridge, gate dispatch compose2, call2, call3, calln, call, compose, compose-jam-cue tidy, four-witness comptime tidy, seven-witness comptime tidy with str_repeat quota fix, twenty rune-witness comptime tidy, twenty-two lower-witness comptime tidy, AUHAL input capture with live metering, WAV export round-trip, Lotus window with waveform display and playback, interactive Glow REPL in Brushstroke, Glow-driven layout demo, Your First Glow Program tutorial, Glow Meets the Screen tutorial, and cookbook expansion with stdlib reference), governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.001 per proven orbit (three decimal places from `20261104`), larger on Keaton's word.
 
 
@@ -156,10 +156,10 @@ Brushstroke declares each component's grid, role, state, tokens, and motion prof
 
 **Priority:** VERY HIGH Long Return; VERY HIGH Lila.
 
-1. Review and revise the proposed one-page contract for **[The receipt you can read](../active-designing/date/20260912/20260912-201126_the-receipt-you-can-read-contract.md)**: one synthetic input, four public types, module residences, eight acceptance cases, and one falsifier now stand at a checkable edge.
-2. Keep Linengrow meaning and Dimeroll meaning separate over the same Mantra facts during implementation; the `20260913` review accepts this boundary.
-3. Integrate the first whole and stamp its achieved name only after the dual-product witness passes.
-4. **LANDED (`20261103.020226`).** Zig 0.17.0 molt-breach complete: 1,157 migration sites across 471 files, `rye/bin/rye` rebuilt on 0.17.0, three test builds verified. Commit `001e9f24a1`. The standfast at `expanding-prompts/20261005-171200_zig-017-standfast-orbit.md` is closed.
+**NOW: Terrarium boot journey.** RV32I boot sequence from cold hart to living Grain userspace inside Terrarium (macOS native QEMU host). The pill concept applied to real silicon: Glow/Rye/Rishi compilers as raw RISC-V assembly, self-compiling, then bootstrapping Tally, Aurora, Mantra, Caravan in TAME order. Project board: [`../tablecloth/20261104-161857_terrarium-boot-journey/CHECKLIST.md`](../tablecloth/20261104-161857_terrarium-boot-journey/CHECKLIST.md). Reassigned from receipt contract on Keaton's word `20261104`.
+
+1. **LANDED (`20261103.020226`).** Zig 0.17.0 molt-breach complete: 1,157 migration sites across 471 files, `rye/bin/rye` rebuilt on 0.17.0, three test builds verified. Commit `001e9f24a1`.
+2. Receipt contract items (review, dual-product integration) move to the ungated claim-as-override queue for any ship.
 
 **Stop:** product meaning, DJINN design authority, custody, or a new module seat returns to Keaton.
 
@@ -195,9 +195,9 @@ with the log unchanged, and two replays of one log agree field for field (`mantr
 
 ### Pheromone -- Glow product language
 
-**Priority:** VERY HIGH Long Return; VERY HIGH Lila. **Active journey -- rounds 11-15.**
+**Priority:** VERY HIGH Long Return; VERY HIGH Lila.
 
-**NOW: Glow language journey orbits 11-15.** Five remaining orbits map to Calfive rounds 11-15 (Aquarius through sky-15). Interactive REPL, layout demo, two tutorials, cookbook expansion. Design: [`../active-designing/date/20261104/20261104-131232_glow-calfive-alignment-and-round-plan.md`](../active-designing/date/20261104/20261104-131232_glow-calfive-alignment-and-round-plan.md). Project board: [`../tablecloth/20261103-184811_glow-language-journey/CHECKLIST.md`](../tablecloth/20261103-184811_glow-language-journey/CHECKLIST.md).
+**Glow language journey COMPLETE (`20261104.154523`).** All 15 orbits landed across 3 quests: Quest 2.1 (Glow compiler SLC, orbits 1-5), Quest 2.2 (Glow gate dispatch and layout, orbits 6-10), Quest 2.3 (Glow in docs-geode, orbits 11-15). Project board: [`../tablecloth/20261103-184811_glow-language-journey/CHECKLIST.md`](../tablecloth/20261103-184811_glow-language-journey/CHECKLIST.md).
 
 1. Express the receipt facts and Tally bounds in the smallest Glow form already owned.
 2. Carry them through lowering into Mantra and both projections.
