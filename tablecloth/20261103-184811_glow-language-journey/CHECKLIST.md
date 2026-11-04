@@ -74,7 +74,7 @@ commit messages; glow-language 348 numbers / 1,711 files; pixel-glass 5, glow-pu
   8. Update fascia to **60.0** on Keaton's word (post-debride baseline per
      `context/specs/20261103-201746_fascia-health-model.md`).
   **SLC gate (working-tree):**
-  `git grep -cE '\b(lotus-audio|glow-language|pixel-glass|glow-publishing|glass-keyboard|seva-broadcast|hearth-display|compass-surface|compass-identity|compass-language|compass-world|harvest-yield|harvest-trade|harvest-commons|harvest-rest|cion-molt|cion-survey|cion-living-molt|cion-debride|cion-seal|front-door|dimeroll-expansion|open-image|mikrophone|constels-naming|slh-dsa|macos-native|usb-hearth|source-identity|djinn-exec)\b'`
+  `git grep -cP '\b(lotus-audio|glow-language|pixel-glass|glow-publishing|glass-keyboard|seva-broadcast|hearth-display|compass-surface|compass-identity|compass-language|compass-world|harvest-yield|harvest-trade|harvest-commons|harvest-rest|cion-molt|cion-survey|cion-living-molt|cion-debride|cion-seal|front-door|dimeroll-expansion|open-image|mikrophone|constels-naming|slh-dsa|macos-native|usb-hearth|source-identity|djinn-exec)\b'`
   returns zero hits on living files outside dated testimony. Molt-breach artifacts on
   shred-prep. Warm-string replacements in place. Class O rooms and Class H/M fossils gone.
   **SLC gate (history):**
