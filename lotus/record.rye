@@ -5,9 +5,9 @@
 //! converts Float32 to i16 for the recording buffer, and accumulates a live meter
 //! inline. Monitoring (input routed to output) is deferred to a later orbit.
 //!
-//! SLC gate: record a take, see the meter move, hear playback of what was just recorded.
+//! SLC gate: record a take, see the meter move, hear playback, export a WAV.
 //!
-//!   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye run lotus/record.rye -lc -framework AudioToolbox
+//!   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye run lotus/record.rye -lc -framework AudioToolbox -framework CoreAudio
 
 const std = @import("std");
 const assert = std.debug.assert;
@@ -18,6 +18,7 @@ const timeline = @import("timeline.rye");
 const clock_mod = @import("clock.rye");
 const meter_mod = @import("meter.rye");
 const coreaudio = @import("coreaudio.rye");
+const wav = @import("wav.rye");
 
 pub const record_version: []const u8 = "20261104.110000";
 
@@ -463,7 +464,32 @@ fn run_selftest() !u8 {
     close(&eng2);
     print("  double-open refused: ok\n", .{});
 
-    print("GREEN -- record engine: open/capture/meter/playback/close lifecycle proven on metal\n", .{});
+    // 12. WAV export of the recorded clip.
+    var wav_buf: [wav.max_file]u8 = undefined;
+    const wav_len = wav.encode(48000, clip.buf[0..clip.len], &wav_buf) catch |e| {
+        print("  wav encode failed: {}\n", .{e});
+        return 1;
+    };
+    // invariant: encoded length is header + samples * 2.
+    assert(wav_len == wav.header_len + clip.len * wav.sample_bytes);
+    print("  wav encode: {d} bytes ({d} samples)\n", .{ wav_len, clip.len });
+
+    // 13. Round-trip: decode the WAV and verify samples match.
+    var decode_buf: [timeline.max_clip]i16 = undefined;
+    const pcm = wav.decode(wav_buf[0..wav_len], &decode_buf) catch |e| {
+        print("  wav decode failed: {}\n", .{e});
+        return 1;
+    };
+    // invariant: decoded sample count matches the encoded clip.
+    assert(pcm.count == clip.len);
+    // invariant: every decoded sample matches the original clip.
+    var match: u32 = 0;
+    while (match < pcm.count) : (match += 1) {
+        assert(decode_buf[match] == clip.buf[match]);
+    }
+    print("  wav round-trip: {d} samples verified\n", .{pcm.count});
+
+    print("GREEN -- record engine: open/capture/meter/playback/wav-export lifecycle proven on metal\n", .{});
     return 0;
 }
 
