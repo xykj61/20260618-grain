@@ -47,6 +47,9 @@ fn arm_body_sample(arm: []const u8) LowerError![]const u8 {
     if (std.mem.eql(u8, arm, "double")) return "return sample *% 2;";
     if (std.mem.eql(u8, arm, "inc")) return "return sample +% 1;";
     if (std.mem.eql(u8, arm, "dec")) return "return sample -% 1;";
+    if (std.mem.eql(u8, arm, "square")) return "return sample *% sample;";
+    if (std.mem.eql(u8, arm, "half")) return "return sample >> 1;";
+    if (std.mem.eql(u8, arm, "negate")) return "return 0 -% sample;";
     return error.UnknownArm;
 }
 
@@ -60,6 +63,15 @@ fn arm_body_payload(arm: []const u8, face_zig: []const u8, out: []u8) LowerError
     if (std.mem.eql(u8, arm, "dec")) {
         return std.fmt.bufPrint(out, "return self.{s} -% 1;", .{face_zig}) catch return error.Overflow;
     }
+    if (std.mem.eql(u8, arm, "square")) {
+        return std.fmt.bufPrint(out, "return self.{s} *% self.{s};", .{ face_zig, face_zig }) catch return error.Overflow;
+    }
+    if (std.mem.eql(u8, arm, "half")) {
+        return std.fmt.bufPrint(out, "return self.{s} >> 1;", .{face_zig}) catch return error.Overflow;
+    }
+    if (std.mem.eql(u8, arm, "negate")) {
+        return std.fmt.bufPrint(out, "return 0 -% self.{s};", .{face_zig}) catch return error.Overflow;
+    }
     return error.UnknownArm;
 }
 
@@ -67,6 +79,9 @@ fn arm_expect_closed(arm: []const u8, sample: u32) LowerError!u32 {
     if (std.mem.eql(u8, arm, "double")) return sample *% 2;
     if (std.mem.eql(u8, arm, "inc")) return sample +% 1;
     if (std.mem.eql(u8, arm, "dec")) return sample -% 1;
+    if (std.mem.eql(u8, arm, "square")) return sample *% sample;
+    if (std.mem.eql(u8, arm, "half")) return sample >> 1;
+    if (std.mem.eql(u8, arm, "negate")) return 0 -% sample;
     return error.UnknownArm;
 }
 

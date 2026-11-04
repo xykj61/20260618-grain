@@ -1,0 +1,7 @@
+::  Multi-arm number library -- square, half, negate.
+::  All three arms are closed (computed by closed_expect).
+|%
+++  square
+++  half
+++  negate
+--

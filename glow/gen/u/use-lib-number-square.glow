@@ -1,0 +1,3 @@
+/+  lib-core-number
+=/  amount  5
+%-  square  amount

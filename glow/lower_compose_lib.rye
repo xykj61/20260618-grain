@@ -223,6 +223,9 @@ fn closed_expect(arm: []const u8, sample: u32) LowerError!u32 {
     if (std.mem.eql(u8, arm, "double")) return sample *% 2;
     if (std.mem.eql(u8, arm, "inc")) return sample +% 1;
     if (std.mem.eql(u8, arm, "dec")) return sample -% 1;
+    if (std.mem.eql(u8, arm, "square")) return sample *% sample;
+    if (std.mem.eql(u8, arm, "half")) return sample >> 1;
+    if (std.mem.eql(u8, arm, "negate")) return 0 -% sample;
     return error.UnknownArm;
 }
 

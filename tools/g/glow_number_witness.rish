@@ -1,0 +1,32 @@
+# glow_number_witness.rish -- number arithmetic arms prove on metal.
+#
+# One library (lib-core-number), three consumer desks, each calling one
+# closed arithmetic arm: square, half, negate.  Proves the pipeline
+# handles the three new closed arms through parse-lower-emit-compile-run.
+#
+#   rishi/bin/rishi run tools/g/glow_number_witness.rish
+
+say "--- lib-core-number (3 closed arms: square, half, negate) ---"
+
+let lib = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/l/lib-core-number.glow"]
+assert lib.ok else "lib-core-number.glow library build failed"
+assert lib.out contains "GREEN" else "lib-core-number.glow library not GREEN"
+say "  library build: GREEN"
+
+let sq = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/u/use-lib-number-square.glow"]
+assert sq.ok else "use-lib-number-square.glow failed"
+assert sq.out contains "GREEN" else "use-lib-number-square.glow not GREEN"
+say "  consumer square(5) = 25: GREEN"
+
+let hf = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/u/use-lib-number-half.glow"]
+assert hf.ok else "use-lib-number-half.glow failed"
+assert hf.out contains "GREEN" else "use-lib-number-half.glow not GREEN"
+say "  consumer half(5) = 2: GREEN"
+
+let ng = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/u/use-lib-number-negate.glow"]
+assert ng.ok else "use-lib-number-negate.glow failed"
+assert ng.out contains "GREEN" else "use-lib-number-negate.glow not GREEN"
+say "  consumer negate(5) = 4294967291: GREEN"
+
+say ""
+say "GREEN: glow_number_witness -- 1 library, 3 consumers, all number arms resolve."

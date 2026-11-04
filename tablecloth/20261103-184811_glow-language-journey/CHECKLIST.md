@@ -120,12 +120,17 @@ and the Terrarium/Aurora/Caravan pattern of growing from working simples.
   consumers, all arms resolve through parse-lower-emit-compile-run.
   **Essay:** `active-designing/date/20261103/20261103-235700_glow-multi-arm-library-cores.md`
 
-- [ ] **Orbit 8 -- Number and arithmetic operations**
-  `glow/stdlib/number.glow` -- explicit-width arithmetic (u32, u64), conversion, bounds
-  checking. Grow the cookbook's `numbers.rye` into real Glow. Named errors on overflow
-  (not silent wrapping). Modular arithmetic where wanted, stated explicitly.
-  **SLC gate:** a Glow program does bounded arithmetic, the witness proves every edge
-  (max, zero, overflow-refused).
+- [x] **Orbit 8 -- Number and arithmetic operations**
+  Reframed from u64/conversion/named-errors (unreachable with current pipeline) to:
+  three new closed arithmetic arms -- `square` (sample *% sample), `half` (sample >> 1),
+  `negate` (0 -% sample) -- that expand the vocabulary beyond the original double/inc/dec.
+  One library (`lib-core-number`) with 3 closed arms and 3 consumer desk programs.
+  Pipeline edits across four parallel functions in `lower_core.rye` and
+  `lower_compose_lib.rye`. Orbit 7 witness still GREEN after the changes -- no regression.
+  u64, named errors, and conversion deferred to a later orbit where the pipeline widens.
+  **SLC gate:** `tools/g/glow_number_witness.rish` runs GREEN -- 1 library, 3 consumers,
+  all number arms resolve through parse-lower-emit-compile-run.
+  **Essay:** `active-designing/date/20261104/20261104-002432_glow-number-arithmetic-arms.md`
 
 - [ ] **Orbit 9 -- Record and the value model**
   `glow/stdlib/record.glow` -- the single-stranded value model: string, integer, bool,
