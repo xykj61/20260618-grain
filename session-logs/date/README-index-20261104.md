@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261104.173441` | [grain-os fork decisions response](20261104/20261104-173441_grain-os-fork-decisions-response.kyri.md) | twelve points addressed: rv32i, Rye, ZON research, generation revocation, Envoy, Tablecloth, Glow, Kumara, renames, license gate, contributing, Terrarium |
 | `20261104.170344` | [grain-os Hammock-Driven architecture comparison](20261104/20261104-170344_grain-os-hammock-driven-architecture-comparison.kyri.md) | 14 shared modules, 12 fork decisions, 12 questions for Keaton and DJINN |
 | `20261104.164949` | [Orbit 1 -- root consolidation survey](20261104/20261104-164949_orbit-1-root-consolidation-survey.kyri.md) | 89 dirs surveyed; 55 keep, 19 merge, 13 move, 2 retire; proposed 89 -> 68 |
 | `20261104.163346` | [Terrarium RFC revision -- Calfive 5x5 with DX orbits](20261104/20261104-163346_terrarium-rfc-revision.kyri.md) | 25 orbits in 5 quests; Quest 1.1 DX clearing; RFC format; less DJINN reliance |
