@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261103.192254` | [Orbit 1 -- ascending-number census](20261103/20261103-192254_ascending-census-orbit-1.kyri.md) | 41,408 occurrences across 21 waymarks in 3 tiers -- verify=ok against git grep to zero |
 | `20261103.185154` | [Glow Language Journey RFC board](20261103/20261103-185154_glow-journey-rfc-board.kyri.md) | 15 orbits across 5 quests -- deep debride, waymark evaluation, stdlib, Brushstroke demos, docs-geode |
 | `20261103.182944` | [CoreAudio engine landed](20261103/20261103-182944_coreaudio-engine-landed.kyri.md) | lotus-audio engine wires transport to CoreAudio -- Orbit 1 proven on metal, callback fired, transport advanced |
 | `20261103.150239` | [standing roster tutorial in docs-geode](20261103/20261103-150239_standing-roster-tutorial.kyri.md) | Bhakta tutorial: five verdicts, standfast, --full, evidence, workflow |

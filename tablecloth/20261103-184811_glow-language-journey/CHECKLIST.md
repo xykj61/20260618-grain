@@ -20,7 +20,7 @@ the measurements already taken (lotus-audio 241 numbers / 975 files / 10,887 occ
 commit messages; glow-language 348 numbers / 1,711 files; pixel-glass 5, glow-publishing 8, glass-keyboard 7, seva-broadcast 4, hearth-display
 6, compass-surface 7).
 
-- [ ] **Orbit 1 -- Full census of every ascending-number pattern**
+- [x] **Orbit 1 -- Full census of every ascending-number pattern**
   Run a tree-wide scan that finds every `WAYMARK[0-9]+` pattern for all eight waymarks.
   Produce a machine-readable ledger: file, line, pattern, tier (living/dated/commit).
   Record the tier-1 commit-message count (cannot be rewritten without deep debride).
