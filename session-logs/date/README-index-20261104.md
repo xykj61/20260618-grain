@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261104.035625` | [Orbit 16 -- gate dispatch for call double/square/half](20261104/20261104-035625_orbit-16-gate-dispatch-call.kyri.md) | call lowers double/square/half; 6 binaries GREEN; fascia 60.046 |
 | `20261104.032416` | [Orbit 15 -- gate dispatch for calln mix/sub/mul](20261104/20261104-032416_orbit-15-gate-dispatch-calln.kyri.md) | calln lowers mix/sub/mul; 6 binaries GREEN; fascia 60.045 |
 | `20261104.025651` | [Orbit 14 -- gate dispatch for call3 sum/sub/mul](20261104/20261104-025651_orbit-14-gate-dispatch-call3.kyri.md) | call3 lowers sum/sub/mul; 6 binaries GREEN; fascia 60.044 |
 | `20261104.024306` | [Orbit 13 -- call2 gate dispatch for sub and mul](20261104/20261104-024306_orbit-13-call2-gate-dispatch.kyri.md) | call2 lowers add/sub/mul; 6 binaries GREEN; fascia 60.043 |

@@ -1,7 +1,8 @@
 //! glow/lower_call.rye -- lower a parsed `%-` call to runnable `.rye`.
 //!
-//! Thin glow-language face: closed demo gate `double` (sample *% 2) with demo
-//! sample atom 5 -> expect 10. Unknown gates refuse at lower time.
+//! Dynamic gate dispatch for one-arg gates: double (sample *% 2),
+//! square (sample *% sample), half (sample / 2). Demo sample atom 5.
+//! Unknown gates refuse at lower time.
 
 const std = @import("std");
 const assert = std.debug.assert;
@@ -17,7 +18,22 @@ pub const LowerError = rc.ParseError || error{
 };
 
 pub const call_demo_sample: u32 = 5;
-pub const call_demo_expect: u32 = 10;
+
+/// Compute the expected result for a one-arg gate.
+pub fn compute_expect(gate: []const u8, sample: u32) LowerError!u32 {
+    if (std.mem.eql(u8, gate, "double")) return sample *% 2;
+    if (std.mem.eql(u8, gate, "square")) return sample *% sample;
+    if (std.mem.eql(u8, gate, "half")) return sample / 2;
+    return error.UnknownGate;
+}
+
+/// The Rye body expression for a one-arg gate.
+fn gate_body(gate: []const u8) LowerError![]const u8 {
+    if (std.mem.eql(u8, gate, "double")) return "sample *% 2";
+    if (std.mem.eql(u8, gate, "square")) return "sample *% sample";
+    if (std.mem.eql(u8, gate, "half")) return "sample / 2";
+    return error.UnknownGate;
+}
 
 /// The one ident rule, reached through `glow/zig_ident.rye`. The ceiling is this module's
 /// own `rc.max_name_len`; the rule -- hyphen to underscore, then Zig's own identifier bytes -- is the
@@ -44,14 +60,14 @@ fn emit_call_program(
     expect: u32,
     out: []u8,
 ) LowerError!u32 {
-    if (!std.mem.eql(u8, glow_gate, "double")) return error.UnknownGate;
+    const body = gate_body(glow_gate) catch return error.UnknownGate;
 
     const written = std.fmt.bufPrint(out,
         \\const std = @import("std");
         \\
-        \\/// Lowered from Glow `%-  {s}  {s}` — one-arg call of demo gate.
+        \\/// Lowered from Glow `%-  {s}  {s}` -- one-arg call (glow-language).
         \\fn {s}(sample: u32) u32 {{
-        \\    return sample *% 2;
+        \\    return {s};
         \\}}
         \\
         \\pub fn main(_: std.process.Init) !u8 {{
@@ -64,6 +80,7 @@ fn emit_call_program(
         glow_gate,
         glow_sample,
         zig_gate,
+        body,
         zig_sample,
         call_demo_sample,
         zig_gate,
@@ -83,7 +100,8 @@ fn lower_line(line: []const u8, welcome: bool, out: []u8) LowerError!u32 {
     var zs: [rc.max_name_len]u8 = undefined;
     const gn = try zig_safe_ident(gate, &zg, "gate");
     const sn = try zig_safe_ident(sample, &zs, "sample");
-    const expect: u32 = if (welcome) call_demo_expect else call_demo_expect +% 1;
+    const base = compute_expect(gate, call_demo_sample) catch return error.UnknownGate;
+    const expect: u32 = if (welcome) base else base +% 1;
     return emit_call_program(gate, sample, zg[0..gn], zs[0..sn], expect, out);
 }
 

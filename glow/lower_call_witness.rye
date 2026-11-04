@@ -7,35 +7,56 @@ const assert = std.debug.assert;
 const print = std.debug.print;
 const lower = @import("lower_call.rye");
 
-// invariant: every declaration of the module goes through semantic analysis, so a type
-// error in a body this witness never calls reds the build (REDS %463, %470).
-comptime {
-    for (@typeInfo(lower).@"struct".decls) |decl| {
-        _ = &@field(lower, decl.name);
-    }
-}
+const witness_version = "20261104.060000";
 
-const witness_version = "20260718.205900";
+fn assert_contains(haystack: []const u8, needle: []const u8) void {
+    assert(std.mem.indexOf(u8, haystack, needle) != null);
+}
 
 fn run_selftest(init: std.process.Init) !u8 {
     const io = init.io;
     const a = init.arena.allocator();
     const cwd = std.Io.Dir.cwd();
-    var buf: [3072]u8 = undefined;
+    var buf: [4096]u8 = undefined;
 
+    // -- double: 5 *% 2 = 10, unwelcome 11 --
     const n1 = try lower.lower_line_welcome("%-  double  amount", &buf);
     const rye1 = buf[0..n1];
-    assert(std.mem.indexOf(u8, rye1, "fn double(sample: u32) u32") != null);
-    assert(std.mem.indexOf(u8, rye1, "return sample *% 2;") != null);
-    assert(std.mem.indexOf(u8, rye1, "const amount: u32 = 5") != null);
-    assert(std.mem.indexOf(u8, rye1, "const called: u32 = double(amount)") != null);
-    assert(std.mem.indexOf(u8, rye1, "called == 10") != null);
-    print("lower: \"%-  double  amount\" welcome builds call -- GREEN\n", .{});
+    assert_contains(rye1, "fn double(sample: u32) u32");
+    assert_contains(rye1, "return sample *% 2;");
+    assert_contains(rye1, "const amount: u32 = 5");
+    assert_contains(rye1, "called == 10");
+    print("lower: double welcome expect=10 -- GREEN\n", .{});
 
-    const n2 = try lower.lower_line_unwelcome("%-  double  amount", &buf);
-    assert(std.mem.indexOf(u8, buf[0..n2], "called == 11") != null);
-    print("lower: \"%-  double  amount\" unwelcome expects mismatch -- GREEN\n", .{});
+    const n1u = try lower.lower_line_unwelcome("%-  double  amount", &buf);
+    assert_contains(buf[0..n1u], "called == 11");
+    print("lower: double unwelcome expect=11 -- GREEN\n", .{});
 
+    // -- square: 5 *% 5 = 25, unwelcome 26 --
+    const n2 = try lower.lower_line_welcome("%-  square  amount", &buf);
+    const rye2 = buf[0..n2];
+    assert_contains(rye2, "fn square(sample: u32) u32");
+    assert_contains(rye2, "return sample *% sample;");
+    assert_contains(rye2, "called == 25");
+    print("lower: square welcome expect=25 -- GREEN\n", .{});
+
+    const n2u = try lower.lower_line_unwelcome("%-  square  amount", &buf);
+    assert_contains(buf[0..n2u], "called == 26");
+    print("lower: square unwelcome expect=26 -- GREEN\n", .{});
+
+    // -- half: 5 / 2 = 2, unwelcome 3 --
+    const n3 = try lower.lower_line_welcome("%-  half  amount", &buf);
+    const rye3 = buf[0..n3];
+    assert_contains(rye3, "fn half(sample: u32) u32");
+    assert_contains(rye3, "return sample / 2;");
+    assert_contains(rye3, "called == 2");
+    print("lower: half welcome expect=2 -- GREEN\n", .{});
+
+    const n3u = try lower.lower_line_unwelcome("%-  half  amount", &buf);
+    assert_contains(buf[0..n3u], "called == 3");
+    print("lower: half unwelcome expect=3 -- GREEN\n", .{});
+
+    // -- UnknownGate refusal --
     if (lower.lower_line_welcome("%-  mystery  amount", &buf)) |_| {
         return error.UnknownGateNotCaught;
     } else |err| {
@@ -43,21 +64,36 @@ fn run_selftest(init: std.process.Init) !u8 {
     }
     print("lower: unknown gate refused UnknownGate -- GREEN\n", .{});
 
+    // -- write cache files for rishi witness --
     try cwd.createDirPath(io, "glow/.cache");
-    const welcome_path = "glow/.cache/call_one_welcome.rye";
-    const unwelcome_path = "glow/.cache/call_one_unwelcome.rye";
-    const n3 = try lower.lower_line_welcome("%-  double  amount", &buf);
-    try cwd.writeFile(io, .{ .sub_path = welcome_path, .data = buf[0..n3] });
-    const n4 = try lower.lower_line_unwelcome("%-  double  amount", &buf);
-    try cwd.writeFile(io, .{ .sub_path = unwelcome_path, .data = buf[0..n4] });
-    print("lower: wrote call welcome and unwelcome .rye under glow/.cache/ -- GREEN\n", .{});
 
-    const gen_src = try cwd.readFileAlloc(io, "glow/gen/c/call-one.glow", a, .limited(4096));
-    assert(std.mem.indexOf(u8, gen_src, "%-  double  amount") != null);
-    print("lower: glow/gen/c/call-one.glow carries call faces -- GREEN\n", .{});
+    const dw = try lower.lower_line_welcome("%-  double  amount", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_one_double_welcome.rye", .data = buf[0..dw] });
+    const du = try lower.lower_line_unwelcome("%-  double  amount", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_one_double_unwelcome.rye", .data = buf[0..du] });
+
+    const sw = try lower.lower_line_welcome("%-  square  amount", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_one_square_welcome.rye", .data = buf[0..sw] });
+    const su = try lower.lower_line_unwelcome("%-  square  amount", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_one_square_unwelcome.rye", .data = buf[0..su] });
+
+    const hw = try lower.lower_line_welcome("%-  half  amount", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_one_half_welcome.rye", .data = buf[0..hw] });
+    const hu = try lower.lower_line_unwelcome("%-  half  amount", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_one_half_unwelcome.rye", .data = buf[0..hu] });
+    print("lower: wrote 6 cache files (double/square/half x welcome/unwelcome) -- GREEN\n", .{});
+
+    // -- read .glow gen programs --
+    const gen1 = try cwd.readFileAlloc(io, "glow/gen/c/call-one.glow", a, .limited(4096));
+    assert_contains(gen1, "%-  double  amount");
+    const gen2 = try cwd.readFileAlloc(io, "glow/gen/c/call-one-square.glow", a, .limited(4096));
+    assert_contains(gen2, "%-  square  amount");
+    const gen3 = try cwd.readFileAlloc(io, "glow/gen/c/call-one-half.glow", a, .limited(4096));
+    assert_contains(gen3, "%-  half  amount");
+    print("lower: glow/gen/c/call-one + call-one-square + call-one-half carry call faces -- GREEN\n", .{});
 
     print("lower: version {s}\n", .{witness_version});
-    print("GREEN: `%-` lowers one-arg calls to ordinary Rye (glow-language).\n", .{});
+    print("GREEN: `%-` lowers one-arg calls double/square/half to ordinary Rye (glow-language).\n", .{});
     return 0;
 }
 

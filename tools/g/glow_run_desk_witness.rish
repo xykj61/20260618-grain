@@ -309,6 +309,16 @@ assert call.ok else "glow_run call-one.glow failed"
 assert call.out contains "GREEN" else "glow_run call-one.glow not GREEN"
 assert call.out contains "call-one.glow" else "glow_run call-one claim missing path"
 
+let callsquare = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/c/call-one-square.glow"]
+assert callsquare.ok else "glow_run call-one-square.glow failed"
+assert callsquare.out contains "GREEN" else "glow_run call-one-square.glow not GREEN"
+assert callsquare.out contains "call-one-square.glow" else "glow_run call-one-square claim missing path"
+
+let callhalf = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/c/call-one-half.glow"]
+assert callhalf.ok else "glow_run call-one-half.glow failed"
+assert callhalf.out contains "GREEN" else "glow_run call-one-half.glow not GREEN"
+assert callhalf.out contains "call-one-half.glow" else "glow_run call-one-half claim missing path"
+
 let call2 = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/c/call-two.glow"]
 assert call2.ok else "glow_run call-two.glow failed"
 assert call2.out contains "GREEN" else "glow_run call-two.glow not GREEN"
