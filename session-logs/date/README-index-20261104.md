@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261104.114120` | [Quest 1.1 closed -- visual surface deferred](20261104/20261104-114120_quest-1-1-closed-visual-surface-deferred.kyri.md) | CLI SLC met; Brushstroke window carried to Quest 1.2 |
 | `20261104.112458` | [Orbit 24 -- WAV export round-trip](20261104/20261104-112458_orbit-24-wav-export-round-trip.kyri.md) | wav.encode/decode round-trip 4096 samples, 8236 bytes; fascia 60.054 |
 | `20261104.111605` | [Orbit 23 -- AUHAL input capture with live metering](20261104/20261104-111605_orbit-23-auhal-input-capture.kyri.md) | Input callback + device assignment fix; 9 callbacks, 4608 samples, GREEN; fascia 60.053 |
 | `20261104.103121` | [Orbit 2 scoping -- Weave seam check-in](20261104/20261104-103121_orbit-2-scoping-checkin.kyri.md) | Weave vs Clip-first design seam; CoreAudio input needs AUHAL; meter and normalize already exist |

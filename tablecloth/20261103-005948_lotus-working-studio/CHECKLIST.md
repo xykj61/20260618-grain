@@ -19,20 +19,25 @@
   Callback pulls i16 from `transport.read_block()`, converts to Float32, plays through macOS audio. Witness GREEN on metal.
   **SLC gate:** audio plays through CoreAudio without skipping under documented load -- **PROVEN** (callback fires, transport advances to end, all status 0).
 
-- [ ] **Orbit 2 -- Record, meter, and monitor**
-  CoreAudio input capture to a Weave append. `lotus/meter.rye` reads the stream.
-  Monitor path so the performer hears themselves. Peak normalization (`lotus/normalize.rye`).
-  **SLC gate:** record a take, see the meter move, hear playback of what was just recorded.
+- [x] **Orbit 2 -- Record, meter, and monitor** (landed `20261104`, Orbit 23)
+  `lotus/record.rye`: AUHAL input capture with live metering. Float32-to-i16 conversion, RecordBuf accumulation, Clip truncation (max 4096), monitor playback through CoreAudio output. Peak normalization available (`lotus/normalize.rye`).
+  **SLC gate:** record a take, see the meter move, hear playback of what was just recorded -- **PROVEN** (9 callbacks, 4608 samples, meter count matches, playback verified).
 
-- [ ] **Orbit 3 -- WAV export and the Brushstroke surface**
-  `lotus/wav.rye` renders the session to a file. Minimal Brushstroke/Skate window: waveform
-  display, transport bar, meter readout. The whole loop closes.
-  **SLC gate:** open Lotus, record a voice, see the waveform, export a WAV. **Quest 1.1 SLC.**
+- [x] **Orbit 3 -- WAV export** (landed `20261104`, Orbit 24)
+  `lotus/wav.rye` encode/decode round-trip from recording buffer. 44-byte RIFF/WAVE header + mono 16-bit PCM samples. Every sample round-trips exactly.
+  **SLC gate (narrowed on Keaton's word `20261104`):** run Lotus, record a voice, export a WAV -- **PROVEN** (8236 bytes, 4096 samples verified). Visual surface (waveform display) deferred to Quest 1.2.
+
+**Quest 1.1 CLOSED (`20261104`).** CLI boundary SLC met: record, meter, playback, WAV export -- all GREEN on metal.
 
 ### Quest 1.2 -- Multi-track and the Mixer (Rung 2)
 
-*Grow the seed into a multi-track session with a mix bus.*
-**Grows from:** Quest 1.1's single-track seed.
+*Grow the seed into a multi-track session with a mix bus, with the visual window that Quest 1.1 deferred.*
+**Grows from:** Quest 1.1's single-track seed, layout bridge (Orbit 11), grid shapes (Orbit 10).
+
+- [ ] **Orbit -- Brushstroke/Skate window** (carried from Quest 1.1)
+  AppKit NSApplication host with waveform display, transport bar, meter readout.
+  Layout bridge wires to a real NSView. Skate renders the fixed frame.
+  **SLC gate:** open Lotus in a window, see a waveform of the recording, play it back.
 
 - [ ] **Orbit 4 -- Multiple tracks in Weave**
   Session model holds N tracks, each a named Weave stream. Add, remove, reorder.
@@ -92,7 +97,7 @@
 
 | Quest | Orbits | Status |
 |---|---|---|
-| 1.1 Lotus Seed | 1-3 | **Active -- Orbit 1** |
-| 1.2 Multi-track and Mixer | 4-7 | Waiting on Quest 1.1 |
+| 1.1 Lotus Seed | 1-3 | **CLOSED** (`20261104`) -- CLI SLC met |
+| 1.2 Multi-track and Mixer | 4-7 + window | **Active** -- visual surface carried from 1.1 |
 | 2.1 FX Chain | 8-10 | Waiting on Quest 1.2 |
 | 2.2 Refinement | 11 | Waiting on Quest 2.1 |

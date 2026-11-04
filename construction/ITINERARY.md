@@ -49,10 +49,11 @@ for the watched inputs. That changes the roster runner's contract, so it waits o
 **Proposal:** [`../active-designing/date/20261103/20261103-003744_lotus-daw-expansion-proposal.md`](../active-designing/date/20261103/20261103-003744_lotus-daw-expansion-proposal.md)
 **Project board:** [`../tablecloth/20261103-005948_lotus-working-studio/CHECKLIST.md`](../tablecloth/20261103-005948_lotus-working-studio/CHECKLIST.md)
 
-**NOW: Quest 1.1 Orbit 3 -- WAV export and the Brushstroke surface.**
-Record engine GREEN (Orbit 23). WAV encode/decode round-trip GREEN (Orbit 24).
-Next: Brushstroke/Skate window with waveform display, transport bar, meter readout.
-**SLC gate:** a person can open Lotus, record a voice, see the waveform, and export a WAV.
+**Quest 1.1 CLOSED (`20261104`).** Record engine GREEN (Orbit 23), WAV encode/decode round-trip GREEN (Orbit 24). SLC met at the CLI boundary: a person can run Lotus, record a voice, and export a WAV -- proven on metal. The visual surface (waveform display) moves to Quest 1.2.
+
+**NOW: Quest 1.2 -- Brushstroke surface and the visual window.**
+Layout bridge (Orbit 11) and grid shapes (Orbit 10) already proven. Next: AppKit window hosting the recording engine with waveform display and transport controls.
+**SLC gate:** a person can open Lotus in a window, see a waveform of their recording, and play it back.
 
 **Grows from:** 240 Lotus modules (241 witnesses), lotus-audio wire shape, macos-native macOS native surface, Skate Swift shell.
 **Waymarks:** lotus-audio (`season-c-lotus-creative-suite-audio-wire-shape`) -- macos-native (`macos-native-surface-rye-backend`).
@@ -148,7 +149,7 @@ The interface uses ASCII as structure, linen as material, and motion as a bounde
 Brushstroke declares each component's grid, role, state, tokens, and motion profile. Skate renders the fixed frame and bounded events. A correspondence witness forces meaning, description, and behavior to change together.
 
 ## Now -- the eight sailing ship itineraries
-**Git nib:** `9bbf0582cc`
+**Git nib:** `8cea4566bb`
 **Fascia:** `60.054` -- Orbits 7-24 landed (multi-arm cores, number arithmetic, value model, layout shapes, layout bridge, gate dispatch compose2, call2, call3, calln, call, compose, compose-jam-cue tidy, four-witness comptime tidy, seven-witness comptime tidy with str_repeat quota fix, twenty rune-witness comptime tidy, twenty-two lower-witness comptime tidy, AUHAL input capture with live metering, and WAV export round-trip), governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.001 per proven orbit (three decimal places from `20261104`), larger on Keaton's word.
 
 
