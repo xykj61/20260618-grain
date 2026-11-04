@@ -75,8 +75,6 @@ pub const LowerError = rf.ParseError || expr.ParseError || lower_multi.LowerErro
     ValueNotYetLowered,
 };
 
-pub const jam_cue_expect: u32 = 3;
-
 /// The one ident rule, reached through `glow/zig_ident.rye`. The ceiling is this module's
 /// own `rf.max_name_len`; the rule -- hyphen to underscore, then Zig's own identifier bytes
 /// -- is the room's, and stood in 29 copies before it moved.
