@@ -42,7 +42,7 @@ side of the years, while a workaround decays the moment it ships.
 - **Lila and the Long Return:** [`../../foundations/20261002-111449_lila-and-the-long-return.md`](../../foundations/20261002-111449_lila-and-the-long-return.md)
 - **Glow modules:** 128 authored modules + 70 witnesses in `glow/`
 - **Lotus board:** [`../20261103-005948_lotus-working-studio/README.md`](../20261103-005948_lotus-working-studio/README.md)
-- **pleac/ (to become docs-geode/cookbook/):** [`../../pleac/README.md`](../../pleac/README.md)
+- **docs-geode/cookbook/ (renamed from pleac/):** [`../../docs-geode/cookbook/README.md`](../../docs-geode/cookbook/README.md)
 
 ## The order
 

@@ -93,8 +93,7 @@ allow vault
 # -- this season: logo asset + compass-language/AHOY code modules (clean, no name) --
 allow assets
 allow brix
-allow pleac
-allow programming
+allow docs-geode/cookbook
 # -- teaching (clean-authored; personal sub-parts sub_excluded) --
 allow manual
 allow docs
@@ -272,8 +271,7 @@ template  tally                           # bounded allocation
 template  tools                           # witnesses and gates; gitignored secrets never enter; scrub any name on touch
 template  assets                          # the Grain logo (archetype wheat-sephirot SVG, no personal art, no name)
 template  brix                            # Brix composition language module (infuse) -- clean code, no name
-template  programming                     # the cookbook (strings/lists/numbers) -- clean code, no name
-template  pleac                           # pointer at programming/; the elder path stays
+template  docs-geode/cookbook               # the cookbook (strings/lists/numbers) -- clean code, no name
 
 # ---- code modules that name the maintainer in comments (scrub the name, ship the code) ----
 scrub     kumara                          # identity module -- tilak comments name the maintainer

@@ -1,16 +1,16 @@
-# pleac_lists_witness.rish -- the PLEAC lists cookbook (chunk - window - flatten).
+# pleac_lists_witness.rish -- the lists cookbook (chunk - window - flatten).
 #
-# compass-language. Proves pleac/lists.rye: chunk cuts a list into consecutive groups of a size
+# Proves docs-geode/cookbook/lists.rye: chunk cuts a list into consecutive groups of a size
 # (last may be shorter); window yields every overlapping run of a size, in order; both
 # are zero-copy slices into the source; flatten(chunk(xs, n)) == xs (grouping lossless);
 # a window count is len - size + 1, a short list yields no window; a zero size and a
 # too-small flatten output are refused.
 #
-# Build first:  rye build pleac/lists.rye -femit-bin=tools/.build/pleac_lists
+# Build first:  rye build docs-geode/cookbook/lists.rye -femit-bin=tools/.build/pleac_lists
 #   rishi/bin/rishi run tools/p/pleac_lists_witness.rish
 
 let zig = "vendor/zig-toolchain/zig"
-let build = run ["sh" "-c" "mkdir -p tools/.build && env RYE_ZIG=${zig} sh tools/fixtures/r/rye_build.sh pleac/lists.rye -femit-bin=tools/.build/pleac_lists"]
+let build = run ["sh" "-c" "mkdir -p tools/.build && env RYE_ZIG=${zig} sh tools/fixtures/r/rye_build.sh docs-geode/cookbook/lists.rye -femit-bin=tools/.build/pleac_lists"]
 assert build.ok else "pleac lists build failed"
 
 let st = run ["tools/.build/pleac_lists" "selftest"]

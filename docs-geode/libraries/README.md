@@ -53,9 +53,8 @@ find tools -name '*_witness.rish' | tr '\n' '\0' | xargs -0 grep -l 'rishi/' | w
 | [`manual/`](../../manual/README.md) | 1 | 14 |
 | [`mikrophone/`](../../mikrophone/README.md) | 16 | 19 |
 | [`mycelium/`](../../mycelium/README.md) | 97 | 87 |
-| [`pleac/`](../../pleac/README.md) | 3 | 7 |
+| [`docs-geode/cookbook/`](../cookbook/README.md) | 3 | 7 |
 | [`pond/`](../../pond/README.md) | 156 | 167 |
-| [`programming/`](../../programming/README.md) | 3 | 0 |
 | [`rishi/`](../../rishi/README.md) | 2 | 19 |
 | [`rye/`](../../rye/README.md) | 117 | 116 |
 | [`scribble/`](../../scribble/README.md) | 2 | 2 |

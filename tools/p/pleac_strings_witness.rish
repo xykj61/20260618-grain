@@ -1,16 +1,16 @@
-# pleac_strings_witness.rish -- the PLEAC strings cookbook (join - split).
+# pleac_strings_witness.rish -- the strings cookbook (join - split).
 #
-# compass-language. Proves pleac/strings.rye: join glues a list with a separator between pieces
+# Proves docs-geode/cookbook/strings.rye: join glues a list with a separator between pieces
 # (never trailing); split cuts a string on a separator into pieces, zero-copy; the pair
 # are inverses (split(join(xs, sep), sep) == xs when no piece holds the separator); a
 # no-separator source yields one whole piece; an empty separator and a too-small join
 # output are refused.
 #
-# Build first:  rye build pleac/strings.rye -femit-bin=tools/.build/pleac_strings
+# Build first:  rye build docs-geode/cookbook/strings.rye -femit-bin=tools/.build/pleac_strings
 #   rishi/bin/rishi run tools/p/pleac_strings_witness.rish
 
 let zig = "vendor/zig-toolchain/zig"
-let build = run ["sh" "-c" "mkdir -p tools/.build && env RYE_ZIG=${zig} sh tools/fixtures/r/rye_build.sh pleac/strings.rye -femit-bin=tools/.build/pleac_strings"]
+let build = run ["sh" "-c" "mkdir -p tools/.build && env RYE_ZIG=${zig} sh tools/fixtures/r/rye_build.sh docs-geode/cookbook/strings.rye -femit-bin=tools/.build/pleac_strings"]
 assert build.ok else "pleac strings build failed"
 
 let st = run ["tools/.build/pleac_strings" "selftest"]

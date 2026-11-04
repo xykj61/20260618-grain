@@ -1,4 +1,4 @@
-//! programming/lists.rye -- the list cookbook: chunk, window, flatten.
+//! docs-geode/cookbook/lists.rye -- the list cookbook: chunk, window, flatten.
 //!
 //! The lists chapter's canonical grouping trio, over a bounded list of `u32`:
 //!
@@ -11,7 +11,7 @@
 //! Zero-copy on the cut -- `chunk` and `window` return slices into the source; only
 //! `flatten` writes fresh. Bounded throughout.
 //!
-//!   rye build programming/lists.rye -femit-bin=tools/.build/pleac_lists
+//!   rye build docs-geode/cookbook/lists.rye -femit-bin=tools/.build/pleac_lists
 //!   tools/.build/pleac_lists selftest
 
 const std = @import("std");

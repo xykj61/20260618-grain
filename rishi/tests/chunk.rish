@@ -1,6 +1,6 @@
 # chunk.rish -- tests for the `chunk`, `window`, and `flatten` list builtins.
 #
-# Wired from the PLEAC lists cookbook (spec: pleac/lists.rye). chunk cuts into
+# Wired from the lists cookbook (spec: docs-geode/cookbook/lists.rye). chunk cuts into
 # consecutive groups; window yields overlapping runs; flatten concatenates lists.
 # (Rishi indexes one level at a time, so inner lists are bound before indexing.)
 

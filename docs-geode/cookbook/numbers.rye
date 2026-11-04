@@ -1,4 +1,4 @@
-//! programming/numbers.rye -- the number cookbook: clamp, parse, to_str.
+//! docs-geode/cookbook/numbers.rye -- the number cookbook: clamp, parse, to_str.
 //!
 //! The numbers chapter's canonical primitives, over `u32`:
 //!
@@ -9,7 +9,7 @@
 //! `parse(to_str(n)) == n` for every `u32`. Bounded and total: every bad input is a
 //! named refusal, never a silent wrong answer.
 //!
-//!   rye build programming/numbers.rye -femit-bin=tools/.build/pleac_numbers
+//!   rye build docs-geode/cookbook/numbers.rye -femit-bin=tools/.build/pleac_numbers
 //!   tools/.build/pleac_numbers selftest
 
 const std = @import("std");

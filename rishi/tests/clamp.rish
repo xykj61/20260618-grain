@@ -1,7 +1,7 @@
 # clamp.rish -- tests for the `clamp` integer builtin.
 #
-# `clamp <x> <lo> <hi>` bounds x to [lo, hi]. Wired from the PLEAC numbers cookbook
-# (spec: pleac/numbers.rye). The interpreter reimplements the cookbook primitive.
+# `clamp <x> <lo> <hi>` bounds x to [lo, hi]. Wired from the numbers cookbook
+# (spec: docs-geode/cookbook/numbers.rye). The interpreter reimplements the cookbook primitive.
 
 # in range -- unchanged
 assert (clamp 5 1 10) == 5 else "clamp: in-range failed"

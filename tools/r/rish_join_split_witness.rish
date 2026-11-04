@@ -7,7 +7,7 @@
 # witness is that ear: both test scripts run GREEN (the string-direction round-trips, and the
 # exact list-direction inverse split(join(xs, sep), sep) == xs), and a planted fixture whose
 # only act is  split "a,b" ""  dies with SplitEmptySeparator named in its refusal, because an
-# empty separator names no cut. The Rye-side pair in pleac/strings.rye keeps its own witness,
+# empty separator names no cut. The Rye-side pair in docs-geode/cookbook/strings.rye keeps its own witness,
 # tools/p/pleac_strings_witness.rish; this one hears the interpreter's.
 #
 # No network, no key, no funds.

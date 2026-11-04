@@ -82,7 +82,7 @@ commit messages; glow-language 348 numbers / 1,711 files; pixel-glass 5, glow-pu
   returns zero. Every commit is signed. The census script runs GREEN against the rewritten
   history. Fascia reads **60.0** on both README and ITINERARY.
 
-- [ ] **Orbit 6 -- pleac/ rename to docs-geode/cookbook/**
+- [x] **Orbit 6 -- pleac/ rename to docs-geode/cookbook/**
   Move `pleac/` (3 files: strings.rye, lists.rye, numbers.rye) to `docs-geode/cookbook/`.
   The name "pleac" is an inherited external acronym ("Programming Language Examples Alike
   Cookbook") that violates the Comlink tendency -- a newcomer cannot guess what it means.

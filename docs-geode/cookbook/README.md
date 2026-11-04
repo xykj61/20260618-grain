@@ -1,14 +1,14 @@
-# Programming -- the cookbook
+# Cookbook -- the stdlib by example
 
 **Language:** EN
 **Status:** Living -- strings `20260811.190026` - lists `20260811.190458` - numbers `20260811.190916`
-**Style:** Gauge, Door setting (see [`../context/GAUGE_STYLE.md`](../context/GAUGE_STYLE.md))
-**Where this sits:** home is [`../README.md`](../README.md) - a first hour in your hands is
-[`../docs-geode/tutorials/the-first-hour.md`](../docs-geode/tutorials/the-first-hour.md) - the whole
-path from nothing to a signed, sandboxed home is [`../SOURCE.md`](../SOURCE.md)
+**Style:** Bhakta at the Door setting, with Radiant warmth (see [`../../context/BHAKTA_STYLE.md`](../../context/BHAKTA_STYLE.md))
+**Where this sits:** home is [`../../README.md`](../../README.md) - a first hour in your hands is
+[`../tutorials/the-first-hour.md`](../tutorials/the-first-hour.md) - the whole
+path from nothing to a signed, sandboxed home is [`../../SOURCE.md`](../../SOURCE.md)
 **Voice:** Kyri
 
-This module is the standard library grown by the common tasks every language owes -- strings, lists, numbers -- each a bounded, witnessed primitive. The lessons sit at `docs-geode/edu/yonder/programming/README.md`. The elder path [`../pleac/README.md`](../pleac/README.md) points here.
+The cookbook is the standard library grown by the common tasks every language owes -- strings, lists, numbers -- each a bounded, witnessed primitive. The lessons sit at `docs-geode/edu/yonder/programming/README.md`.
 
 ## Strings (`strings.rye`, landed `20260811`)
 
@@ -20,7 +20,7 @@ The canonical pair, inverse for separator-free pieces:
 `split(join(xs, sep), sep) == xs`, proven by `prove_strings`, along with a separator-free source yielding one whole piece and both bound declines. Bounded by `max_parts` and `max_out`.
 
 ```
-rye build programming/strings.rye -femit-bin=tools/.build/pleac_strings
+rye build docs-geode/cookbook/strings.rye -femit-bin=tools/.build/pleac_strings
 tools/.build/pleac_strings selftest
 rishi/bin/rishi run tools/p/pleac_strings_witness.rish
 ```
@@ -36,7 +36,7 @@ The grouping trio over a bounded list of `u32`:
 `flatten(chunk(xs, n)) == xs` (grouping is lossless), proven by `prove_lists`, with the window count, the short-list-yields-zero-windows case, and the zero-size / too-small refusals. Bounded by `max_groups` and `max_flat`.
 
 ```
-rye build programming/lists.rye -femit-bin=tools/.build/pleac_lists
+rye build docs-geode/cookbook/lists.rye -femit-bin=tools/.build/pleac_lists
 tools/.build/pleac_lists selftest
 rishi/bin/rishi run tools/p/pleac_lists_witness.rish
 ```
@@ -52,7 +52,7 @@ The number primitives over `u32`, total (every bad input a named decline):
 `parse(to_str(n)) == n` across the range, proven by `prove_numbers`, with clamp's edges and every decline. Bounded by `max_digits`.
 
 ```
-rye build programming/numbers.rye -femit-bin=tools/.build/pleac_numbers
+rye build docs-geode/cookbook/numbers.rye -femit-bin=tools/.build/pleac_numbers
 tools/.build/pleac_numbers selftest
 rishi/bin/rishi run tools/p/pleac_numbers_witness.rish
 ```
