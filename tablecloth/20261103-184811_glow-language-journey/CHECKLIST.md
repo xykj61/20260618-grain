@@ -55,29 +55,32 @@ commit messages; glow-language 348 numbers / 1,711 files; pixel-glass 5, glow-pu
 *Rewrite git history to remove every ascending-number rung from every commit.*
 **Grows from:** Quest 1.1's census, rule extension, and waymark decision.
 
-- [ ] **Orbit 4 -- Checkpoint, molt-breach, and working-tree sweep**
-  Record the walk-back checkpoint in `construction/CHECKPOINTS.md`. Molt-breach
-  `waymark-ladders.md` to a living mutant carrying the warm-string table and retire
-  `waymark-registry.kyri` to `construction/archive/`, both onto shred-prep Class M.
-  Sweep all living files: strip ascending-number patterns AND bare waymark names from
-  headers, cross-references, rosters, and prose. Replace with warm descriptive strings
-  or module filenames. Check `construction/SHRED_PREP.md` for Class O rooms and Class H/M
-  fossils ready to shed in the same pass. Check in with Keaton on the combined scope.
-  **SLC gate:** `git grep -cE '\b(lotus-audio|glow-language|pixel-glass|glow-publishing|glass-keyboard|seva-broadcast|hearth-display|compass-surface|compass-identity|compass-surface|compass-language|compass-world|harvest-yield|harvest-trade|harvest-commons|harvest-rest|cion-molt|cion-survey|cion-living-molt|cion-debride|cion-seal|front-door|dimeroll-expansion|open-image|mikrophone|constels-naming|slh-dsa|macos-native|usb-hearth|source-identity|djinn-exec)\b'`
+- [ ] **Orbits 4-5 (grouped) -- Checkpoint, sweep, shed, deep debride, force-push**
+  Grouped on Keaton's word (`20261103`). One re-clone pays for waymark retirement,
+  orphan shed, and fossil cuts combined. Execute in order:
+  1. Record the walk-back checkpoint in `construction/CHECKPOINTS.md`.
+  2. Molt-breach `waymark-ladders.md` to a living mutant carrying the warm-string table
+     and retire `waymark-registry.kyri` to `construction/archive/`, both onto shred-prep
+     Class M.
+  3. Working-tree sweep: strip ascending-number patterns AND bare waymark names from
+     all living files -- headers, cross-references, rosters, and prose. Replace with warm
+     descriptive strings or module filenames.
+  4. Class O orphan removal (1,165 across 10 rooms) and Class H/M fossil cuts (9 prepped),
+     per `construction/SHRED_PREP.md`. Approved by Keaton `20261103`.
+  5. Deep debride: `git filter-repo --replace-text` to strip ascending-number patterns
+     AND bare waymark names from every commit message and every historical file.
+  6. Re-sign every commit (`filter-branch --commit-filter 'git commit-tree -S'`).
+  7. Force-push to origin. Every clone re-clones once.
+  8. Update fascia to **60.0** on Keaton's word (post-debride baseline per
+     `context/specs/20261103-201746_fascia-health-model.md`).
+  **SLC gate (working-tree):**
+  `git grep -cE '\b(lotus-audio|glow-language|pixel-glass|glow-publishing|glass-keyboard|seva-broadcast|hearth-display|compass-surface|compass-identity|compass-language|compass-world|harvest-yield|harvest-trade|harvest-commons|harvest-rest|cion-molt|cion-survey|cion-living-molt|cion-debride|cion-seal|front-door|dimeroll-expansion|open-image|mikrophone|constels-naming|slh-dsa|macos-native|usb-hearth|source-identity|djinn-exec)\b'`
   returns zero hits on living files outside dated testimony. Molt-breach artifacts on
-  shred-prep. Warm-string replacements in place.
-
-- [ ] **Orbit 5 -- Deep debride: full history rewrite**
-  Run `git filter-repo --replace-text` to strip ascending-number patterns AND bare waymark
-  names from every commit message and every historical file. Include any Class O orphans
-  and Class H/M fossils whose opening word Keaton gave in Orbit 4's check-in. Re-sign
-  every commit. Force-push to origin. This costs every clone a re-clone -- the same cost
-  the urbit-lineage drop paid, and the same arithmetic: the tree is cleaner forever, and
-  the re-clone happens once. One re-clone pays for waymark retirement, orphan shed, and
-  fossil cuts combined.
-  **SLC gate:** `git log --all --oneline | grep -iE '\b(lotus-audio|glow-language|pixel-glass|glow-publishing|glass-keyboard)\b'`
+  shred-prep. Warm-string replacements in place. Class O rooms and Class H/M fossils gone.
+  **SLC gate (history):**
+  `git log --all --oneline | grep -iE '\b(lotus-audio|glow-language|pixel-glass|glow-publishing|glass-keyboard)\b'`
   returns zero. Every commit is signed. The census script runs GREEN against the rewritten
-  history. Fascia health rises toward 90.
+  history. Fascia reads **60.0** on both README and ITINERARY.
 
 - [ ] **Orbit 6 -- pleac/ rename to docs-geode/cookbook/**
   Move `pleac/` (3 files: strings.rye, lists.rye, numbers.rye) to `docs-geode/cookbook/`.
@@ -189,7 +192,7 @@ the Bhakta register.
 | Quest | Orbits | Focus |
 |---|---|---|
 | 1.1 Survey and Seat | 1-3 | Measure, rule, decide |
-| 1.2 Deep Debride | 4-6 | Sweep, rewrite, rename |
+| 1.2 Deep Debride | 4-5 (grouped), 6 | Sweep+shed+rewrite, rename |
 | 2.1 Stdlib Seed | 7-9 | String, list, number, record |
 | 2.2 Glow Meets the Surface | 10-12 | Brushstroke demos |
 | 2.3 Glow in docs-geode | 13-15 | Tutorials and cookbook |
