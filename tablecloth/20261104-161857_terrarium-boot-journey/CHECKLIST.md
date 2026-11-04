@@ -104,9 +104,9 @@ emulation, and Aurora's proven stages port to the smaller ISA.*
   Terrarium's macOS window shows it.
 
 - [ ] **Orbit 10 -- Terrarium wire protocol (host-guest channel)**
-  Establish the wire between Terrarium (HOST) and the RV32I guest -- virtio, shared
-  memory, or a serial protocol. Prove bidirectional communication: the guest sends a
-  fact, the host acknowledges. This wire carries Mantra facts in Quest 1.4.
+  Establish the Comlink wire between Terrarium (HOST) and the RV32I guest -- virtio,
+  shared memory, or a serial protocol. Prove bidirectional communication: the guest
+  sends a fact, the host acknowledges. This wire carries Mantra facts in Quest 1.4.
   **SLC gate:** a message sent from the RV32I guest arrives at the Terrarium host and
   a response travels back; the round-trip is logged on both sides.
 
@@ -146,12 +146,13 @@ runs on the bare hart. By the end, the pill compiles itself.*
   a gap analysis document names every missing feature with line counts.
 
 - [ ] **Orbit 15 -- Self-compile proof (Stage 1: the keystone)**
-  The pill carries the Glow, Rye, and Rishi compilers. On boot, the Rishi interpreter
-  orchestrates: each compiler compiles its own source code. The output binaries are
-  compared (hash or byte-for-byte) against the compilers in the pill. Identity proves
-  the compilers are real. This is the journey's keystone orbit.
-  **SLC gate:** the self-compile runs on QEMU RV32I and the hash of each compiled
-  output matches the hash of the compiler that compiled it.
+  The pill carries the Glow, Rye, and Rishi compilers as Amphora-sealed vessels --
+  content-addressed, hash-identified. On boot, the Rishi interpreter orchestrates:
+  each compiler compiles its own source code. The output is sealed and its hash
+  compared against the vessel that compiled it. Identity proves the compilers are real.
+  This is the journey's keystone orbit.
+  **SLC gate:** the self-compile runs on QEMU RV32I and each compiled output's
+  Amphora hash matches the sealed vessel that compiled it.
 
 ## Quest 1.4 -- The TAME Boot (safety, then visibility, then replay)
 
@@ -174,11 +175,11 @@ from here is bounded, observable, and recorded.*
   visible in Terrarium's window; framebuffer allocation is bounded by Tally's arena.
 
 - [ ] **Orbit 18 -- Mantra event log on freestanding RV32I (Stage 4)**
-  Mantra's append-only signed event log runs on the bare hart. Facts are appended, and
-  a replay of the log produces identical state. Allocation is bounded by Tally; display
-  goes through Aurora.
-  **SLC gate:** a sequence of Mantra facts appended during boot replays to identical
-  state, proven by hash comparison, visible on Aurora's console.
+  Mantra's append-only event log runs on the bare hart, each fact signed by Kumara
+  (the identity and signing layer). Facts are appended, and a replay of the log
+  produces identical state. Allocation is bounded by Tally; display goes through Aurora.
+  **SLC gate:** a sequence of Kumara-signed Mantra facts appended during boot replays
+  to identical state, proven by hash comparison, visible on Aurora's console.
 
 - [ ] **Orbit 19 -- Mantra persistence through the wire**
   Mantra facts sync through the wire established in Orbit 10. The green line between
@@ -200,9 +201,10 @@ from here is bounded, observable, and recorded.*
 arrives, and a living world opens under glass.*
 
 - [ ] **Orbit 21 -- Caravan capability model on RV32I (Stage 5)**
-  Port Caravan's capability and domain model to freestanding RV32I. A domain holds
-  named capabilities with bounded leases; a capability can be conferred and revoked.
-  Allocation bounded by Tally, displayed by Aurora, logged by Mantra.
+  Port Caravan's capability and domain model to freestanding RV32I. Each domain runs
+  inside a Pond enclosure with named capabilities and bounded leases; a capability
+  can be conferred and revoked. Allocation bounded by Tally, displayed by Aurora,
+  logged by Mantra.
   **SLC gate:** a domain creates a capability, confers it to a dependent, the
   dependent exercises it, and the capability expires -- all visible on Aurora's console
   and recorded in Mantra's log.

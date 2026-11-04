@@ -24,8 +24,8 @@ pipeline archive, build toolchain, module survey. A complex system that works ev
 from a simple system that worked (Gall's Law), and the simple system starts with a tree
 a newcomer can navigate.
 
-Grain's own modules -- Aurora, Tally, Mantra, Caravan -- already hold proven Rye code
-for each stage of the boot. DJINN's grain-www (`gratitude/grain-www/`) proved that
+Grain's own modules -- Aurora, Tally, Mantra, Caravan, Kumara, Amphora, Comlink,
+Pond -- already hold proven Rye code for each stage of the boot. DJINN's grain-www (`gratitude/grain-www/`) proved that
 RISC-V can compile to WASM and drive a full desktop surface. That proof stands as
 validated inspiration, and our own Brix, our own capability model, and our own
 supervision design grow from our tree's own foundations rather than copying any single
@@ -75,7 +75,7 @@ See `CHECKLIST.md` for the full orbit-by-orbit plan.
 | **1 -- Self-compile** | Compilers compile their own source code | Proves the compilers are real; the system can rebuild itself |
 | **2 -- Tally** | Bounded allocation: arena, ceiling, named budget | Safety first -- every later allocation is bounded from this moment |
 | **3 -- Aurora** | Display: framebuffer, console, visible boot | Makes the boot observable and debuggable; performance second |
-| **4 -- Mantra** | Event log: append-only, signed, replayable facts | Deterministic replay; every state change from here is recorded |
+| **4 -- Mantra** | Event log: append-only, Kumara-signed, replayable facts | Deterministic replay; every state change from here is recorded |
 | **5 -- Caravan** | Supervisor: capabilities, domains, named leases | The microkernel; everything runs under supervision from here |
 
 After Stage 5, Steward (the root supervisor) loads a Brix manifest and brings up Grain
@@ -149,7 +149,7 @@ Terrarium (macOS native HOST -- AppKit/SwiftUI)
   |           +-- Grain userspace (applications under supervision)
   |
   +-- Host-side display (Terrarium window showing Aurora's framebuffer)
-  +-- Host-side wire (virtio or shared memory -- Mantra facts travel through)
+  +-- Host-side Comlink wire (virtio or shared memory -- Mantra facts travel through)
   +-- Host-side console (serial output during early boot)
 ```
 
