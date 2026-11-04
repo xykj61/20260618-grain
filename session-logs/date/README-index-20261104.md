@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261104.050649` | [Orbit 19 -- four-witness comptime tidy](20261104/20261104-050649_orbit-19-four-witness-comptime-tidy.kyri.md) | four comptime decl-walking blocks removed; all _expect constants live; four witnesses GREEN; fascia 60.049 |
 | `20261104.045955` | [Deploy key generation for 20260618-grain](20261104/20261104-045955_deploy-key-generation.kyri.md) | fresh ed25519 deploy key; -F /dev/null isolates from global config; push and fetch verified |
 | `20261104.045214` | [SSH key decoupling and Orbit 18 nib amend](20261104/20261104-045214_ssh-decouple-and-nib-amend.kyri.md) | single-stranded core.sshCommand per clone; nib amended to 69162c201d; SSH keys broken, gh fallback |
 | `20261104.043723` | [Orbit 18 -- compose-jam-cue tidy](20261104/20261104-043723_orbit-18-compose-jam-cue-tidy.kyri.md) | dead constant and comptime block removed; witness GREEN; fascia 60.048 |
