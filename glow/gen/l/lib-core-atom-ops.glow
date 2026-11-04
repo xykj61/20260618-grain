@@ -1,0 +1,7 @@
+::  Multi-arm atom operations library -- lent, jam, cue.
+::  First multi-arm core in the tree (max_arms = 3).
+|%
+++  lent  (lent sample)
+++  pack  (jam sample sample)
+++  unpack  (cue (jam sample sample))
+--

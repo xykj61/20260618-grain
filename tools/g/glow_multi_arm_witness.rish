@@ -1,0 +1,57 @@
+# glow_multi_arm_witness.rish -- multi-arm library cores prove on metal.
+#
+# Two libraries, six consumer desks, each calling one arm of a multi-arm core.
+# Proves the parser, lowerer, and compose path handle max_arms = 3.
+#
+#   rishi/bin/rishi run tools/g/glow_multi_arm_witness.rish
+
+# -- lib-core-arith: three closed arms (double, inc, dec) --
+
+say "--- lib-core-arith (3 closed arms) ---"
+
+let arith = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/l/lib-core-arith.glow"]
+assert arith.ok else "lib-core-arith.glow library build failed"
+assert arith.out contains "GREEN" else "lib-core-arith.glow library not GREEN"
+say "  library build: GREEN"
+
+let arith_double = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/u/use-lib-arith-double.glow"]
+assert arith_double.ok else "use-lib-arith-double.glow failed"
+assert arith_double.out contains "GREEN" else "use-lib-arith-double.glow not GREEN"
+say "  consumer double: GREEN"
+
+let arith_inc = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/u/use-lib-arith-inc.glow"]
+assert arith_inc.ok else "use-lib-arith-inc.glow failed"
+assert arith_inc.out contains "GREEN" else "use-lib-arith-inc.glow not GREEN"
+say "  consumer inc: GREEN"
+
+let arith_dec = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/u/use-lib-arith-dec.glow"]
+assert arith_dec.ok else "use-lib-arith-dec.glow failed"
+assert arith_dec.out contains "GREEN" else "use-lib-arith-dec.glow not GREEN"
+say "  consumer dec: GREEN"
+
+# -- lib-core-atom-ops: three open arms (lent, pack, unpack) --
+
+say "--- lib-core-atom-ops (3 open arms) ---"
+
+let atom = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/l/lib-core-atom-ops.glow"]
+assert atom.ok else "lib-core-atom-ops.glow library build failed"
+assert atom.out contains "GREEN" else "lib-core-atom-ops.glow library not GREEN"
+say "  library build: GREEN"
+
+let atom_lent = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/u/use-lib-atom-ops-lent.glow"]
+assert atom_lent.ok else "use-lib-atom-ops-lent.glow failed"
+assert atom_lent.out contains "GREEN" else "use-lib-atom-ops-lent.glow not GREEN"
+say "  consumer lent: GREEN"
+
+let atom_pack = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/u/use-lib-atom-ops-pack.glow"]
+assert atom_pack.ok else "use-lib-atom-ops-pack.glow failed"
+assert atom_pack.out contains "GREEN" else "use-lib-atom-ops-pack.glow not GREEN"
+say "  consumer pack: GREEN"
+
+let atom_unpack = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/u/use-lib-atom-ops-unpack.glow"]
+assert atom_unpack.ok else "use-lib-atom-ops-unpack.glow failed"
+assert atom_unpack.out contains "GREEN" else "use-lib-atom-ops-unpack.glow not GREEN"
+say "  consumer unpack: GREEN"
+
+say ""
+say "GREEN: glow_multi_arm_witness -- 2 libraries, 6 consumers, all arms resolve."

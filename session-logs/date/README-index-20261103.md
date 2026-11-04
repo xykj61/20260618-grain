@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261103.235837` | [Orbit 7 -- multi-arm library cores](20261103/20261103-235837_orbit-7-multi-arm-library-cores.kyri.md) | 2 multi-arm libraries, 6 consumers GREEN; fixed lent_of unused-parameter emit in lower_core.rye |
 | `20261103.232317` | [Orbit 6 -- pleac/ rename to docs-geode/cookbook/](20261103/20261103-232317_orbit-6-pleac-rename-cookbook.kyri.md) | fossil pleac/ and successor programming/ converge into docs-geode/cookbook/; 22 files, all references resolved |
 | `20261103.230343` | [Orbits 4-5 deep debride and fascia 60.0](20261103/20261103-230343_orbits-4-5-deep-debride-fascia-60.kyri.md) | 14,398 commits rewritten and re-signed, 1,035 files shed, fascia 60.0 |
 | `20261103.202254` | [Seat the fascia health model](20261103/20261103-202254_fascia-health-model-seated.kyri.md) | Readiness metric replaces clutter score -- 58.03 now, 60.0 post-debride, 70 is the far door |

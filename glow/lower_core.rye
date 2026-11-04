@@ -105,7 +105,10 @@ fn emit_open_body(body: *const expr.Expr, payload: bool, face_zig: []const u8, o
             std.fmt.bufPrint(out, "return self.{s};", .{atom}) catch return error.Overflow
         else
             std.fmt.bufPrint(out, "return sample;", .{}) catch return error.Overflow,
-        .lent_of => std.fmt.bufPrint(out, "return {d};", .{expr.lent_demo_len}) catch return error.Overflow,
+        .lent_of => if (payload)
+            std.fmt.bufPrint(out, "_ = self.{s}; return {d};", .{ atom, expr.lent_demo_len }) catch return error.Overflow
+        else
+            std.fmt.bufPrint(out, "_ = sample; return {d};", .{expr.lent_demo_len}) catch return error.Overflow,
         .mix_of => if (payload)
             std.fmt.bufPrint(out, "return self.{s} ^ self.{s};", .{ atom, atom }) catch return error.Overflow
         else

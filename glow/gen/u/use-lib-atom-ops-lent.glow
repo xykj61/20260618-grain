@@ -1,0 +1,3 @@
+/+  lib-core-atom-ops
+=/  amount  5
+%-  lent  amount

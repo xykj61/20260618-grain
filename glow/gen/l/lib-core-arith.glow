@@ -1,0 +1,7 @@
+::  Multi-arm arithmetic library -- double, inc, dec.
+::  All three arms are closed (computed by closed_expect).
+|%
+++  double
+++  inc
+++  dec
+--

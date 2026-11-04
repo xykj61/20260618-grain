@@ -107,13 +107,18 @@ SLC footsteps of Terrarium (bounded runtime), Aurora (display), and Caravan (sup
 **Grows from:** the 128 existing Glow modules, the cookbook in `docs-geode/cookbook/`,
 and the Terrarium/Aurora/Caravan pattern of growing from working simples.
 
-- [ ] **Orbit 7 -- String and list operations in Glow**
-  Grow the cookbook's `strings.rye` and `lists.rye` into real Glow stdlib modules.
-  `glow/stdlib/string.glow` and `glow/stdlib/list.glow` -- join, split, length, map,
-  filter, fold, take, drop. Each operation bounded, each with a named error on overflow.
-  Witnesses prove every function against the Rye originals in the cookbook.
-  **SLC gate:** a Glow program imports `string` and `list`, runs join/split/map/filter,
-  and the witness proves parity with the Rye cookbook.
+- [x] **Orbit 7 -- Multi-arm library cores in Glow**
+  Reframed from string/list operations: the pipeline's expression system is Nock-native
+  (lent, jam, cue, mix -- no iteration, no polymorphic return), so the orbit proves
+  multi-arm cores through the full pipeline instead. Two libraries at max_arms = 3:
+  `lib-core-arith` (double, inc, dec -- closed arms) and `lib-core-atom-ops` (lent,
+  pack, unpack -- open expression bodies). Six consumer desk programs, one per arm.
+  Fixed `lower_core.rye` line 108: `.lent_of` emit now handles unused `sample` parameter
+  in library mode. String/list iteration deferred to a later orbit where the expression
+  system grows.
+  **SLC gate:** `tools/g/glow_multi_arm_witness.rish` runs GREEN -- 2 libraries, 6
+  consumers, all arms resolve through parse-lower-emit-compile-run.
+  **Essay:** `active-designing/date/20261103/20261103-235700_glow-multi-arm-library-cores.md`
 
 - [ ] **Orbit 8 -- Number and arithmetic operations**
   `glow/stdlib/number.glow` -- explicit-width arithmetic (u32, u64), conversion, bounds

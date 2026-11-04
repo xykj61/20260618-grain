@@ -1,0 +1,3 @@
+/+  lib-core-arith
+=/  amount  5
+%-  double  amount
