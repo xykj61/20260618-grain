@@ -1,0 +1,4 @@
+::  Cross-line -- two faces then %+ sub (glow-language).
+=/  from  5
+=/  amount  3
+%+  sub  from  amount

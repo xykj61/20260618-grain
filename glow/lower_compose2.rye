@@ -27,7 +27,21 @@ pub const LowerError = rf.ParseError || r2.ParseError || lower_multi.LowerError 
     MalformedValue,
 };
 
-pub const compose2_expect: u32 = 8;
+/// Compute the expected result for a two-arg gate.
+pub fn compute_expect(gate: []const u8, a: u32, b: u32) LowerError!u32 {
+    if (std.mem.eql(u8, gate, "add")) return a +% b;
+    if (std.mem.eql(u8, gate, "sub")) return a -% b;
+    if (std.mem.eql(u8, gate, "mul")) return a *% b;
+    return error.UnknownGate;
+}
+
+/// The Rye operator for a two-arg gate.
+fn gate_op(gate: []const u8) LowerError![]const u8 {
+    if (std.mem.eql(u8, gate, "add")) return "+%";
+    if (std.mem.eql(u8, gate, "sub")) return "-%";
+    if (std.mem.eql(u8, gate, "mul")) return "*%";
+    return error.UnknownGate;
+}
 
 fn is_digit(ch: u8) bool {
     return ch >= '0' and ch <= '9';
@@ -116,8 +130,7 @@ pub fn parse_compose2(src: []const u8) LowerError!Compose2Spec {
     const sb = r2.b_slice(&call);
     if (!std.mem.eql(u8, sa, a_slice(&spec))) return error.SampleMismatch;
     if (!std.mem.eql(u8, sb, b_slice(&spec))) return error.SampleMismatch;
-    if (!std.mem.eql(u8, gate, "add")) return error.UnknownGate;
-    if (spec.a_value != 5 or spec.b_value != 3) return error.MalformedValue;
+    _ = try gate_op(gate);
 
     @memcpy(spec.gate[0..gate.len], gate);
     spec.gate_len = gate.len;
@@ -131,14 +144,17 @@ fn emit_compose2(spec: *const Compose2Spec, welcome: bool, out: []u8) LowerError
     const an = try zig_safe_ident(a_slice(spec), &za, "a");
     const bn = try zig_safe_ident(b_slice(spec), &zb, "b");
     const gn = try zig_safe_ident(gate_slice(spec), &zg, "gate");
-    const expect: u32 = if (welcome) compose2_expect else compose2_expect +% 1;
+    const gate = gate_slice(spec);
+    const op = gate_op(gate) catch return error.UnknownGate;
+    const base = compute_expect(gate, spec.a_value, spec.b_value) catch return error.UnknownGate;
+    const expect: u32 = if (welcome) base else base +% 1;
 
     const written = std.fmt.bufPrint(out,
         \\const std = @import("std");
         \\
-        \\/// Lowered from Glow face→face→`%+` compose — cross-line (glow-language).
+        \\/// Lowered from Glow face->face->`%+` compose -- cross-line (glow-language).
         \\fn {s}(left: u32, right: u32) u32 {{
-        \\    return left +% right;
+        \\    return left {s} right;
         \\}}
         \\
         \\pub fn main(_: std.process.Init) !u8 {{
@@ -150,6 +166,7 @@ fn emit_compose2(spec: *const Compose2Spec, welcome: bool, out: []u8) LowerError
         \\
     , .{
         zg[0..gn],
+        op,
         za[0..an],
         spec.a_value,
         zb[0..bn],

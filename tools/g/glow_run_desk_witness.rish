@@ -399,6 +399,16 @@ assert compose2.ok else "glow_run compose-add.glow failed"
 assert compose2.out contains "GREEN" else "glow_run compose-add.glow not GREEN"
 assert compose2.out contains "compose-add.glow" else "glow_run compose-add claim missing path"
 
+let compose2sub = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/c/compose-sub.glow"]
+assert compose2sub.ok else "glow_run compose-sub.glow failed"
+assert compose2sub.out contains "GREEN" else "glow_run compose-sub.glow not GREEN"
+assert compose2sub.out contains "compose-sub.glow" else "glow_run compose-sub claim missing path"
+
+let compose2mul = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/c/compose-mul.glow"]
+assert compose2mul.ok else "glow_run compose-mul.glow failed"
+assert compose2mul.out contains "GREEN" else "glow_run compose-mul.glow not GREEN"
+assert compose2mul.out contains "compose-mul.glow" else "glow_run compose-mul claim missing path"
+
 let typed = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/m/multi-typed.glow"]
 assert typed.ok else "glow_run multi-typed.glow failed"
 assert typed.out contains "GREEN" else "glow_run multi-typed.glow not GREEN"

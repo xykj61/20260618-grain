@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261104.022718` | [Orbit 12 -- gate dispatch for sub and mul](20261104/20261104-022718_orbit-12-gate-dispatch.kyri.md) | compose2 lowers add/sub/mul; 6 binaries GREEN; fascia 60.042 |
 | `20261104.020429` | [Orbit 11 -- Glow layout bridge to Skate grid](20261104/20261104-020429_orbit-11-layout-bridge.kyri.md) | Bridge module, consumer with 8 assertions, fascia 60.041 |
 | `20261104.014627` | [Orbit 10 send -- push and nib](20261104/20261104-014627_orbit-10-send.kyri.md) | Pushed Orbit 10, amended git nib to d39c9c36dd |
 | `20261104.014047` | [Orbit 10 -- layout shapes and ceiling gates](20261104/20261104-014047_orbit-10-layout-shapes.kyri.md) | 3 shapes, 5 ceiling gates proven both sides, fascia 60.04 |

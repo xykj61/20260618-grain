@@ -1,13 +1,9 @@
-# glow_lower_compose2_witness.rish -- face->face->`%+` compose.
+# glow_lower_compose2_witness.rish -- face->face->`%+` compose for add, sub, mul.
 #
 #   rishi/bin/rishi run tools/g/glow_lower_compose2_witness.rish
 
 let zig = "vendor/zig-toolchain/zig"
 let bin = "glow/bin/lower_compose2_witness"
-let welcome_rye = "glow/.cache/compose_add_welcome.rye"
-let welcome_bin = "glow/bin/compose_add_welcome"
-let unwelcome_rye = "glow/.cache/compose_add_unwelcome.rye"
-let unwelcome_bin = "glow/bin/compose_add_unwelcome"
 
 let build = run ["sh" "-c" "mkdir -p glow/bin glow/.cache && env RYE_ZIG=${zig} sh tools/fixtures/r/rye_build.sh glow/lower_compose2_witness.rye -femit-bin=${bin}"]
 assert build.ok else "lower_compose2_witness build failed"
@@ -15,19 +11,62 @@ assert build.ok else "lower_compose2_witness build failed"
 let selftest = run ["sh" "-c" "${bin} 2>&1"]
 assert selftest.ok else "lower_compose2_witness exited non-zero"
 assert selftest.out contains "GREEN" else "lower_compose2_witness not GREEN"
-assert selftest.out contains "welcome builds face" else "lower_compose2_witness missing welcome claim"
-assert selftest.out contains "carries face" else "lower_compose2_witness missing desk claim"
+assert selftest.out contains "add welcome builds face" else "lower_compose2_witness missing add welcome claim"
+assert selftest.out contains "sub welcome builds face" else "lower_compose2_witness missing sub welcome claim"
+assert selftest.out contains "mul welcome builds face" else "lower_compose2_witness missing mul welcome claim"
+assert selftest.out contains "carry face" else "lower_compose2_witness missing desk claim"
 assert selftest.out contains "SampleMismatch" else "lower_compose2_witness missing SampleMismatch"
+assert selftest.out contains "UnknownGate" else "lower_compose2_witness missing UnknownGate"
 
-let build_welcome = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${welcome_rye} -femit-bin=${welcome_bin}"]
-assert build_welcome.ok else "compose2 welcome .rye build failed"
-let run_welcome = run ["sh" "-c" "${welcome_bin}; echo EXIT:$?"]
-assert run_welcome.ok else "compose2 welcome binary failed to launch"
-assert run_welcome.out contains "EXIT:0" else "compose2 welcome binary did not exit 0"
+# -- add welcome/unwelcome --
+let add_welcome_rye = "glow/.cache/compose_add_welcome.rye"
+let add_welcome_bin = "glow/bin/compose_add_welcome"
+let add_unwelcome_rye = "glow/.cache/compose_add_unwelcome.rye"
+let add_unwelcome_bin = "glow/bin/compose_add_unwelcome"
 
-let build_unwelcome = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${unwelcome_rye} -femit-bin=${unwelcome_bin}"]
-assert build_unwelcome.ok else "compose2 unwelcome .rye build failed"
-let run_unwelcome = run ["sh" "-c" "${unwelcome_bin}; echo EXIT:$?"]
-assert run_unwelcome.out contains "EXIT:1" else "compose2 unwelcome binary did not exit 1"
+let build_add_w = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${add_welcome_rye} -femit-bin=${add_welcome_bin}"]
+assert build_add_w.ok else "compose2 add welcome .rye build failed"
+let run_add_w = run ["sh" "-c" "${add_welcome_bin}; echo EXIT:$?"]
+assert run_add_w.ok else "compose2 add welcome binary failed to launch"
+assert run_add_w.out contains "EXIT:0" else "compose2 add welcome binary did not exit 0"
 
-say "GREEN: Glow compose2 hop — face→face→add; welcome 0 / unwelcome 1; glow-language."
+let build_add_u = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${add_unwelcome_rye} -femit-bin=${add_unwelcome_bin}"]
+assert build_add_u.ok else "compose2 add unwelcome .rye build failed"
+let run_add_u = run ["sh" "-c" "${add_unwelcome_bin}; echo EXIT:$?"]
+assert run_add_u.out contains "EXIT:1" else "compose2 add unwelcome binary did not exit 1"
+
+# -- sub welcome/unwelcome --
+let sub_welcome_rye = "glow/.cache/compose_sub_welcome.rye"
+let sub_welcome_bin = "glow/bin/compose_sub_welcome"
+let sub_unwelcome_rye = "glow/.cache/compose_sub_unwelcome.rye"
+let sub_unwelcome_bin = "glow/bin/compose_sub_unwelcome"
+
+let build_sub_w = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${sub_welcome_rye} -femit-bin=${sub_welcome_bin}"]
+assert build_sub_w.ok else "compose2 sub welcome .rye build failed"
+let run_sub_w = run ["sh" "-c" "${sub_welcome_bin}; echo EXIT:$?"]
+assert run_sub_w.ok else "compose2 sub welcome binary failed to launch"
+assert run_sub_w.out contains "EXIT:0" else "compose2 sub welcome binary did not exit 0"
+
+let build_sub_u = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${sub_unwelcome_rye} -femit-bin=${sub_unwelcome_bin}"]
+assert build_sub_u.ok else "compose2 sub unwelcome .rye build failed"
+let run_sub_u = run ["sh" "-c" "${sub_unwelcome_bin}; echo EXIT:$?"]
+assert run_sub_u.out contains "EXIT:1" else "compose2 sub unwelcome binary did not exit 1"
+
+# -- mul welcome/unwelcome --
+let mul_welcome_rye = "glow/.cache/compose_mul_welcome.rye"
+let mul_welcome_bin = "glow/bin/compose_mul_welcome"
+let mul_unwelcome_rye = "glow/.cache/compose_mul_unwelcome.rye"
+let mul_unwelcome_bin = "glow/bin/compose_mul_unwelcome"
+
+let build_mul_w = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${mul_welcome_rye} -femit-bin=${mul_welcome_bin}"]
+assert build_mul_w.ok else "compose2 mul welcome .rye build failed"
+let run_mul_w = run ["sh" "-c" "${mul_welcome_bin}; echo EXIT:$?"]
+assert run_mul_w.ok else "compose2 mul welcome binary failed to launch"
+assert run_mul_w.out contains "EXIT:0" else "compose2 mul welcome binary did not exit 0"
+
+let build_mul_u = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${mul_unwelcome_rye} -femit-bin=${mul_unwelcome_bin}"]
+assert build_mul_u.ok else "compose2 mul unwelcome .rye build failed"
+let run_mul_u = run ["sh" "-c" "${mul_unwelcome_bin}; echo EXIT:$?"]
+assert run_mul_u.out contains "EXIT:1" else "compose2 mul unwelcome binary did not exit 1"
+
+say "GREEN: Glow compose2 -- face->face->add/sub/mul; welcome 0 / unwelcome 1; glow-language."
