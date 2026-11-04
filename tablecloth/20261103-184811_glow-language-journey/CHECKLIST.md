@@ -196,7 +196,7 @@ the Bhakta register.
   **SLC gate:** the tutorial exists in `docs-geode/tutorials/`, the Bhakta witness
   runs GREEN, and a person following the steps can run a Glow program.
 
-- [ ] **Orbit 14 -- docs-geode/tutorials: "Glow Meets the Screen"**
+- [x] **Orbit 14 -- docs-geode/tutorials: "Glow Meets the Screen"**
   *Calfive round 14 (sky, fixed aether, heart) -- "Holds one page whole."*
   A tutorial that walks a newcomer from the REPL demo (Orbit 11) to the layout demo
   (Orbit 12). Covers: how Glow drives Brushstroke, the layout model, how to change

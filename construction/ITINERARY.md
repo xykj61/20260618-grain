@@ -148,8 +148,8 @@ The interface uses ASCII as structure, linen as material, and motion as a bounde
 Brushstroke declares each component's grid, role, state, tokens, and motion profile. Skate renders the fixed frame and bounded events. A correspondence witness forces meaning, description, and behavior to change together.
 
 ## Now -- the eight sailing ship itineraries
-**Git nib:** `eaeb5b7c3d`
-**Fascia:** `60.058` -- Orbits 7-25 and Glow Orbits 11-13 landed (multi-arm cores, number arithmetic, value model, layout shapes, layout bridge, gate dispatch compose2, call2, call3, calln, call, compose, compose-jam-cue tidy, four-witness comptime tidy, seven-witness comptime tidy with str_repeat quota fix, twenty rune-witness comptime tidy, twenty-two lower-witness comptime tidy, AUHAL input capture with live metering, WAV export round-trip, Lotus window with waveform display and playback, interactive Glow REPL in Brushstroke, Glow-driven layout demo, and Your First Glow Program tutorial), governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.001 per proven orbit (three decimal places from `20261104`), larger on Keaton's word.
+**Git nib:** `cf539c7a7a`
+**Fascia:** `60.059` -- Orbits 7-25 and Glow Orbits 11-14 landed (multi-arm cores, number arithmetic, value model, layout shapes, layout bridge, gate dispatch compose2, call2, call3, calln, call, compose, compose-jam-cue tidy, four-witness comptime tidy, seven-witness comptime tidy with str_repeat quota fix, twenty rune-witness comptime tidy, twenty-two lower-witness comptime tidy, AUHAL input capture with live metering, WAV export round-trip, Lotus window with waveform display and playback, interactive Glow REPL in Brushstroke, Glow-driven layout demo, Your First Glow Program tutorial, and Glow Meets the Screen tutorial), governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.001 per proven orbit (three decimal places from `20261104`), larger on Keaton's word.
 
 
 ### Incense -- product captain
