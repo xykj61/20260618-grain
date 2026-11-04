@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261104.025651` | [Orbit 14 -- gate dispatch for call3 sum/sub/mul](20261104/20261104-025651_orbit-14-gate-dispatch-call3.kyri.md) | call3 lowers sum/sub/mul; 6 binaries GREEN; fascia 60.044 |
 | `20261104.024306` | [Orbit 13 -- call2 gate dispatch for sub and mul](20261104/20261104-024306_orbit-13-call2-gate-dispatch.kyri.md) | call2 lowers add/sub/mul; 6 binaries GREEN; fascia 60.043 |
 | `20261104.022718` | [Orbit 12 -- gate dispatch for sub and mul](20261104/20261104-022718_orbit-12-gate-dispatch.kyri.md) | compose2 lowers add/sub/mul; 6 binaries GREEN; fascia 60.042 |
 | `20261104.020429` | [Orbit 11 -- Glow layout bridge to Skate grid](20261104/20261104-020429_orbit-11-layout-bridge.kyri.md) | Bridge module, consumer with 8 assertions, fascia 60.041 |

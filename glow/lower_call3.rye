@@ -1,7 +1,7 @@
 //! glow/lower_call3.rye -- lower a parsed `%^` call to runnable `.rye`.
 //!
-//! Thin glow-language face: closed demo gate `sum` (a +% b +% c) with demo atoms
-//! 5, 3, 1 -> expect 9. Unknown gates refuse at lower time.
+//! Thin glow-language face: closed demo gates sum/sub/mul with demo atoms 5, 3,
+//! 1. Gate dispatch is content-based; unknown gates refuse at lower time.
 
 const std = @import("std");
 const assert = std.debug.assert;
@@ -19,7 +19,20 @@ pub const LowerError = r3.ParseError || error{
 pub const call3_demo_a: u32 = 5;
 pub const call3_demo_b: u32 = 3;
 pub const call3_demo_c: u32 = 1;
-pub const call3_demo_expect: u32 = 9;
+
+pub fn compute_expect(gate: []const u8, a: u32, b: u32, c: u32) LowerError!u32 {
+    if (std.mem.eql(u8, gate, "sum")) return a +% b +% c;
+    if (std.mem.eql(u8, gate, "sub")) return a -% b -% c;
+    if (std.mem.eql(u8, gate, "mul")) return a *% b *% c;
+    return error.UnknownGate;
+}
+
+fn gate_op(gate: []const u8) LowerError![]const u8 {
+    if (std.mem.eql(u8, gate, "sum")) return "+%";
+    if (std.mem.eql(u8, gate, "sub")) return "-%";
+    if (std.mem.eql(u8, gate, "mul")) return "*%";
+    return error.UnknownGate;
+}
 
 /// The one ident rule, reached through `glow/zig_ident.rye`. The ceiling is this module's
 /// own `r3.max_name_len`; the rule -- hyphen to underscore, then Zig's own identifier bytes -- is
@@ -50,14 +63,14 @@ fn emit_call3_program(
     expect: u32,
     out: []u8,
 ) LowerError!u32 {
-    if (!std.mem.eql(u8, glow_gate, "sum")) return error.UnknownGate;
+    const op = gate_op(glow_gate) catch return error.UnknownGate;
 
     const written = std.fmt.bufPrint(out,
         \\const std = @import("std");
         \\
-        \\/// Lowered from Glow `%^  {s}  {s}  {s}  {s}` — three-arg call.
+        \\/// Lowered from Glow `%^  {s}  {s}  {s}  {s}` -- three-arg call of demo gate.
         \\fn {s}(x: u32, y: u32, z: u32) u32 {{
-        \\    return x +% y +% z;
+        \\    return x {s} y {s} z;
         \\}}
         \\
         \\pub fn main(_: std.process.Init) !u8 {{
@@ -74,6 +87,8 @@ fn emit_call3_program(
         glow_b,
         glow_c,
         zig_gate,
+        op,
+        op,
         zig_a,
         call3_demo_a,
         zig_b,
@@ -105,7 +120,8 @@ fn lower_line(line: []const u8, welcome: bool, out: []u8) LowerError!u32 {
     const an = try zig_safe_ident(a, &za, "a");
     const bn = try zig_safe_ident(b, &zb, "b");
     const cn = try zig_safe_ident(c, &zc, "c");
-    const expect: u32 = if (welcome) call3_demo_expect else call3_demo_expect +% 1;
+    const base = compute_expect(gate, call3_demo_a, call3_demo_b, call3_demo_c) catch return error.UnknownGate;
+    const expect: u32 = if (welcome) base else base +% 1;
     return emit_call3_program(
         gate,
         a,

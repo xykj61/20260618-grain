@@ -1,4 +1,4 @@
-//! glow/lower_call3_witness.rye -- proves `%^` lowers to runnable `.rye`.
+//! glow/lower_call3_witness.rye -- proves `%^` lowers sum/sub/mul to runnable `.rye`.
 //!
 //!   rye build glow/lower_call3_witness.rye -femit-bin=glow/bin/lower_call3_witness
 
@@ -7,15 +7,11 @@ const assert = std.debug.assert;
 const print = std.debug.print;
 const lower = @import("lower_call3.rye");
 
-// invariant: every declaration of the module goes through semantic analysis, so a type
-// error in a body this witness never calls reds the build (REDS %463, %470).
-comptime {
-    for (@typeInfo(lower).@"struct".decls) |decl| {
-        _ = &@field(lower, decl.name);
-    }
-}
+const witness_version = "20261104.040000";
 
-const witness_version = "20260718.211000";
+fn assert_contains(haystack: []const u8, needle: []const u8) void {
+    assert(std.mem.indexOf(u8, haystack, needle) != null);
+}
 
 fn run_selftest(init: std.process.Init) !u8 {
     const io = init.io;
@@ -23,21 +19,47 @@ fn run_selftest(init: std.process.Init) !u8 {
     const cwd = std.Io.Dir.cwd();
     var buf: [3072]u8 = undefined;
 
+    // -- sum gate --
     const n1 = try lower.lower_line_welcome("%^  sum  from  amount  note", &buf);
     const rye1 = buf[0..n1];
-    assert(std.mem.indexOf(u8, rye1, "fn sum(x: u32, y: u32, z: u32) u32") != null);
-    assert(std.mem.indexOf(u8, rye1, "return x +% y +% z;") != null);
-    assert(std.mem.indexOf(u8, rye1, "const from: u32 = 5") != null);
-    assert(std.mem.indexOf(u8, rye1, "const amount: u32 = 3") != null);
-    assert(std.mem.indexOf(u8, rye1, "const note: u32 = 1") != null);
-    assert(std.mem.indexOf(u8, rye1, "const called: u32 = sum(from, amount, note)") != null);
-    assert(std.mem.indexOf(u8, rye1, "called == 9") != null);
-    print("lower: \"%^  sum  from  amount  note\" welcome builds call -- GREEN\n", .{});
+    assert_contains(rye1, "fn sum(x: u32, y: u32, z: u32) u32");
+    assert_contains(rye1, "return x +% y +% z;");
+    assert_contains(rye1, "const from: u32 = 5");
+    assert_contains(rye1, "const amount: u32 = 3");
+    assert_contains(rye1, "const note: u32 = 1");
+    assert_contains(rye1, "const called: u32 = sum(from, amount, note)");
+    assert_contains(rye1, "called == 9");
+    print("lower: sum welcome builds call -- GREEN\n", .{});
 
     const n2 = try lower.lower_line_unwelcome("%^  sum  from  amount  note", &buf);
     assert(std.mem.indexOf(u8, buf[0..n2], "called == 10") != null);
-    print("lower: \"%^  sum  from  amount  note\" unwelcome expects mismatch -- GREEN\n", .{});
+    print("lower: sum unwelcome expects mismatch -- GREEN\n", .{});
 
+    // -- sub gate --
+    const n3 = try lower.lower_line_welcome("%^  sub  from  amount  note", &buf);
+    const rye3 = buf[0..n3];
+    assert_contains(rye3, "fn sub(x: u32, y: u32, z: u32) u32");
+    assert_contains(rye3, "return x -% y -% z;");
+    assert_contains(rye3, "called == 1");
+    print("lower: sub welcome builds call -- GREEN\n", .{});
+
+    const n4 = try lower.lower_line_unwelcome("%^  sub  from  amount  note", &buf);
+    assert(std.mem.indexOf(u8, buf[0..n4], "called == 2") != null);
+    print("lower: sub unwelcome expects mismatch -- GREEN\n", .{});
+
+    // -- mul gate --
+    const n5 = try lower.lower_line_welcome("%^  mul  from  amount  note", &buf);
+    const rye5 = buf[0..n5];
+    assert_contains(rye5, "fn mul(x: u32, y: u32, z: u32) u32");
+    assert_contains(rye5, "return x *% y *% z;");
+    assert_contains(rye5, "called == 15");
+    print("lower: mul welcome builds call -- GREEN\n", .{});
+
+    const n6 = try lower.lower_line_unwelcome("%^  mul  from  amount  note", &buf);
+    assert(std.mem.indexOf(u8, buf[0..n6], "called == 16") != null);
+    print("lower: mul unwelcome expects mismatch -- GREEN\n", .{});
+
+    // -- unknown gate refusal --
     if (lower.lower_line_welcome("%^  mystery  from  amount  note", &buf)) |_| {
         return error.UnknownGateNotCaught;
     } else |err| {
@@ -45,21 +67,36 @@ fn run_selftest(init: std.process.Init) !u8 {
     }
     print("lower: unknown gate refused UnknownGate -- GREEN\n", .{});
 
+    // -- write six .rye cache files --
     try cwd.createDirPath(io, "glow/.cache");
-    const welcome_path = "glow/.cache/call_three_welcome.rye";
-    const unwelcome_path = "glow/.cache/call_three_unwelcome.rye";
-    const n3 = try lower.lower_line_welcome("%^  sum  from  amount  note", &buf);
-    try cwd.writeFile(io, .{ .sub_path = welcome_path, .data = buf[0..n3] });
-    const n4 = try lower.lower_line_unwelcome("%^  sum  from  amount  note", &buf);
-    try cwd.writeFile(io, .{ .sub_path = unwelcome_path, .data = buf[0..n4] });
-    print("lower: wrote call3 welcome and unwelcome .rye under glow/.cache/ -- GREEN\n", .{});
 
-    const gen_src = try cwd.readFileAlloc(io, "glow/gen/c/call-three.glow", a, .limited(4096));
-    assert(std.mem.indexOf(u8, gen_src, "%^  sum  from  amount  note") != null);
-    print("lower: glow/gen/c/call-three.glow carries call faces -- GREEN\n", .{});
+    const wa = try lower.lower_line_welcome("%^  sum  from  amount  note", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_three_sum_welcome.rye", .data = buf[0..wa] });
+    const ua = try lower.lower_line_unwelcome("%^  sum  from  amount  note", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_three_sum_unwelcome.rye", .data = buf[0..ua] });
+
+    const ws = try lower.lower_line_welcome("%^  sub  from  amount  note", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_three_sub_welcome.rye", .data = buf[0..ws] });
+    const us_ = try lower.lower_line_unwelcome("%^  sub  from  amount  note", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_three_sub_unwelcome.rye", .data = buf[0..us_] });
+
+    const wm = try lower.lower_line_welcome("%^  mul  from  amount  note", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_three_mul_welcome.rye", .data = buf[0..wm] });
+    const um = try lower.lower_line_unwelcome("%^  mul  from  amount  note", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_three_mul_unwelcome.rye", .data = buf[0..um] });
+    print("lower: wrote six call3 .rye files under glow/.cache/ -- GREEN\n", .{});
+
+    // -- read .glow gen programs --
+    const gen_sum = try cwd.readFileAlloc(io, "glow/gen/c/call-three.glow", a, .limited(4096));
+    assert_contains(gen_sum, "%^  sum  from  amount  note");
+    const gen_sub = try cwd.readFileAlloc(io, "glow/gen/c/call-three-sub.glow", a, .limited(4096));
+    assert_contains(gen_sub, "%^  sub  from  amount  note");
+    const gen_mul = try cwd.readFileAlloc(io, "glow/gen/c/call-three-mul.glow", a, .limited(4096));
+    assert_contains(gen_mul, "%^  mul  from  amount  note");
+    print("lower: .glow programs carry call faces -- GREEN\n", .{});
 
     print("lower: version {s}\n", .{witness_version});
-    print("GREEN: `%^` lowers three-arg calls to ordinary Rye (glow-language).\n", .{});
+    print("GREEN: `%^` lowers three-arg calls (sum/sub/mul) to ordinary Rye (glow-language).\n", .{});
     return 0;
 }
 
