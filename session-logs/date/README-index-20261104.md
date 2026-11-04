@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261104.135911` | [Orbit 11 send -- push confirmed](20261104/20261104-135911_orbit-11-send-confirmed.kyri.md) | commit 2a55e6aeb pushed to origin; nib 8b4903786d |
 | `20261104.135504` | [Orbit 11 -- Interactive Glow REPL in Brushstroke](20261104/20261104-135504_orbit-11-glow-repl-brushstroke.kyri.md) | Skate window REPL with repl_eval.rye evaluator; both SLC paths GREEN on metal; fascia 60.056 |
 | `20261104.131752` | [Calfive Glow alignment and round plan](20261104/20261104-131752_calfive-glow-alignment-round-plan.kyri.md) | maps Glow orbits 11-15 to Calfive rounds 11-15; Glow priority before Lotus; no superfluous commits |
 | `20261104.123016` | [Orbit 25 send -- push confirmed](20261104/20261104-123016_orbit-25-send.kyri.md) | commit 8e6c3dbb2 pushed to origin; nib 74d1a94f8d |
