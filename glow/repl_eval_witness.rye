@@ -1,0 +1,117 @@
+//! glow/repl_eval_witness.rye -- proves the REPL evaluator.
+//!
+//!   rye build glow/repl_eval_witness.rye -femit-bin=glow/bin/repl_eval_witness
+//!   glow/bin/repl_eval_witness
+//!
+//! SLC gate: (add 2 3) -> 5, malformed -> named error. Both paths proven.
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+const repl_eval = @import("repl_eval.rye");
+
+const witness_version = "20261104.140000";
+
+fn run_selftest(_: std.process.Init) !u8 {
+    // -- SLC path 1: (add 2 3) shows 5 --
+    {
+        const result = try repl_eval.evaluate("(add 2 3)");
+        assert(result == 5);
+        print("repl_eval: (add 2 3) == 5 -- GREEN\n", .{});
+    }
+    // -- arithmetic ops --
+    {
+        const result = try repl_eval.evaluate("(sub 10 3)");
+        assert(result == 7);
+        print("repl_eval: (sub 10 3) == 7 -- GREEN\n", .{});
+    }
+    {
+        const result = try repl_eval.evaluate("(mul 6 7)");
+        assert(result == 42);
+        print("repl_eval: (mul 6 7) == 42 -- GREEN\n", .{});
+    }
+    // -- mix matches expr.rye demo: 5 ^ 3 == 6 --
+    {
+        const result = try repl_eval.evaluate("(mix 5 3)");
+        assert(result == 6);
+        print("repl_eval: (mix 5 3) == 6 -- GREEN\n", .{});
+    }
+    // -- jam matches expr.rye demo: (5 << 16) | 3 == 327683 --
+    {
+        const result = try repl_eval.evaluate("(jam 5 3)");
+        assert(result == 327683);
+        print("repl_eval: (jam 5 3) == 327683 -- GREEN\n", .{});
+    }
+    // -- cue extracts low 16 bits: 327683 & 0xFFFF == 3 --
+    {
+        const result = try repl_eval.evaluate("(cue 327683)");
+        assert(result == 3);
+        print("repl_eval: (cue 327683) == 3 -- GREEN\n", .{});
+    }
+    // -- bare decimal --
+    {
+        const result = try repl_eval.evaluate("42");
+        assert(result == 42);
+        print("repl_eval: bare decimal 42 -- GREEN\n", .{});
+    }
+    // -- whitespace tolerance --
+    {
+        const result = try repl_eval.evaluate("  (add  2  3)  ");
+        assert(result == 5);
+        print("repl_eval: whitespace-padded (add 2 3) -- GREEN\n", .{});
+    }
+
+    // -- SLC path 2: malformed expression shows named error --
+    if (repl_eval.evaluate("")) |_| {
+        assert(false);
+    } else |err| {
+        assert(err == repl_eval.EvalError.EmptyInput);
+        print("repl_eval: empty input -> EmptyInput -- GREEN\n", .{});
+    }
+    if (repl_eval.evaluate("(foo 1 2)")) |_| {
+        assert(false);
+    } else |err| {
+        assert(err == repl_eval.EvalError.UnknownOp);
+        print("repl_eval: unknown op -> UnknownOp -- GREEN\n", .{});
+    }
+    if (repl_eval.evaluate("(add 2)")) |_| {
+        assert(false);
+    } else |err| {
+        assert(err == repl_eval.EvalError.MalformedExpr);
+        print("repl_eval: missing arg -> MalformedExpr -- GREEN\n", .{});
+    }
+    if (repl_eval.evaluate("hello")) |_| {
+        assert(false);
+    } else |err| {
+        assert(err == repl_eval.EvalError.MalformedExpr);
+        print("repl_eval: non-numeric -> MalformedExpr -- GREEN\n", .{});
+    }
+    if (repl_eval.evaluate("(add 2 3 4)")) |_| {
+        assert(false);
+    } else |err| {
+        assert(err == repl_eval.EvalError.MalformedExpr);
+        print("repl_eval: extra arg -> MalformedExpr -- GREEN\n", .{});
+    }
+    // -- overflow --
+    if (repl_eval.evaluate("(add 4294967295 1)")) |_| {
+        assert(false);
+    } else |err| {
+        assert(err == repl_eval.EvalError.Overflow);
+        print("repl_eval: overflow -> Overflow -- GREEN\n", .{});
+    }
+    if (repl_eval.evaluate("(jam 65536 0)")) |_| {
+        assert(false);
+    } else |err| {
+        assert(err == repl_eval.EvalError.Overflow);
+        print("repl_eval: jam overflow -> Overflow -- GREEN\n", .{});
+    }
+
+    print("\nGREEN: REPL evaluator -- 8 success paths, 7 error paths. SLC gate met: (add 2 3) -> 5, malformed -> named error.\n", .{});
+
+    _ = witness_version;
+    return 0;
+}
+
+pub fn main(init: std.process.Init) !u8 {
+    return run_selftest(init);
+}

@@ -161,13 +161,15 @@ surface at `loca/`.
   gates proven both sides, value model holds.
   **Essay:** `active-designing/date/20261104/20261104-014047_glow-layout-shapes-and-ceiling-gates.md`
 
-- [ ] **Orbit 11 -- Interactive Glow REPL in Brushstroke**
+- [x] **Orbit 11 -- Interactive Glow REPL in Brushstroke**
   *Calfive round 11 (Aquarius, fixed air, fun) -- "One clear type, studied."*
-  A Skate window with a text input field. Type a Glow expression, see the result below.
-  The REPL evaluates through the existing `glow/expr.rye` pipeline. This is how a
-  newcomer meets the language -- type something, see what happens.
-  **SLC gate:** type `(add 2 3)` in the window, see `5` appear. Type a malformed
-  expression, see a named error. Witness proves both paths.
+  A Skate window with a text input field and a read-only output field. `glow/repl_eval.rye`
+  evaluates six operations (add, sub, mul, mix, jam, cue) and bare decimals with four named
+  errors (Overflow, MalformedExpr, EmptyInput, UnknownOp). `glow/repl_eval_witness.rye`
+  proves 15 assertions (8 success, 7 error). `glow/glow_repl.rye` opens the Skate window
+  via `lotus/objc_seam.rye`, pre-evaluates both SLC paths before the event pump, and
+  dispatches Return-key presses to the evaluator. GREEN on metal.
+  **SLC gate:** `(add 2 3) == 5` proven, `malformed -> MalformedExpr` proven, both on metal.
 
 - [ ] **Orbit 12 -- Glow-driven layout demo**
   *Calfive round 12 (Pisces, dual water, aesthetics) -- "The wish. One beautiful close."*

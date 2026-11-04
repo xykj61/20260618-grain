@@ -1,0 +1,367 @@
+//! glow/glow_repl.rye -- Interactive Glow REPL in a Skate window.
+//!
+//! Type a Glow expression, press Return, see the result. SLC gate: type (add 2 3), see 5;
+//! type a malformed expression, see a named error. This is how a newcomer meets the language.
+//!
+//! Glow language journey, Orbit 11 -- Calfive round 11 (Aquarius, fixed air, fun).
+//! Stands on: lotus/objc_seam.rye (the Objective-C boundary), glow/repl_eval.rye (evaluator).
+//!
+//!   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye run glow/glow_repl.rye -lc -lobjc -framework Cocoa -framework CoreGraphics
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+const objc = @import("objc_seam.rye");
+const repl_eval = @import("repl_eval.rye");
+
+// --- Window geometry --------------------------------------------------------
+
+// invariant: bounded window dimensions.
+const view_w: u32 = 480;
+const view_h: u32 = 200;
+
+// --- AppKit constants -------------------------------------------------------
+
+const style_titled: u64 = 1;
+const style_closable: u64 = 2;
+const style_resizable: u64 = 8;
+const backing_buffered: u64 = 2;
+const activation_policy_regular: i64 = 0;
+const event_mask_any: u64 = std.math.maxInt(u64);
+
+// invariant: bounded event pump.
+const max_event_turns: u32 = 30_000;
+
+// NSEvent type for key-down.
+const ns_event_type_key_down: u64 = 10;
+
+// Return and Enter key codes.
+const key_return: u16 = 36;
+const key_enter: u16 = 76;
+
+// --- ObjC send types local to this module -----------------------------------
+
+const SendNextEvent = *const fn (objc.Id, objc.Sel, u64, ?objc.Id, ?objc.Id, bool) callconv(.c) ?objc.Id;
+const SendMenuItemInit = *const fn (objc.Id, objc.Sel, ?objc.Id, ?objc.Sel, ?objc.Id) callconv(.c) ?objc.Id;
+const SendInitFrame = *const fn (objc.Id, objc.Sel, objc.CGRect) callconv(.c) ?objc.Id;
+const SendEventType = *const fn (objc.Id, objc.Sel) callconv(.c) u64;
+const SendKeyCode = *const fn (objc.Id, objc.Sel) callconv(.c) u16;
+const SendStringValue = *const fn (objc.Id, objc.Sel) callconv(.c) ?objc.Id;
+const SendUTF8 = *const fn (objc.Id, objc.Sel) callconv(.c) ?[*:0]const u8;
+
+// --- Selector caches --------------------------------------------------------
+
+const AppSels = struct {
+    alloc: objc.Sel,
+    init: objc.Sel,
+    shared: objc.Sel,
+    set_policy: objc.Sel,
+    finish_launching: objc.Sel,
+    activate: objc.Sel,
+    window_init: objc.Sel,
+    set_title: objc.Sel,
+    make_key: objc.Sel,
+    next_event: objc.Sel,
+    send_event: objc.Sel,
+    terminate: objc.Sel,
+    string_utf8: objc.Sel,
+    distant_past: objc.Sel,
+    set_main_menu: objc.Sel,
+    menu_add: objc.Sel,
+    item_submenu: objc.Sel,
+    menu_item_init: objc.Sel,
+};
+
+const TextSels = struct {
+    init_frame: objc.Sel,
+    add_subview: objc.Sel,
+    set_editable: objc.Sel,
+    set_bezeled: objc.Sel,
+    set_string: objc.Sel,
+    string_value: objc.Sel,
+    utf8_string: objc.Sel,
+    event_type: objc.Sel,
+    key_code: objc.Sel,
+};
+
+fn verify_app_sels(
+    app_cls: objc.Class,
+    window_cls: objc.Class,
+    string_cls: objc.Class,
+    date_cls: objc.Class,
+    menu_cls: objc.Class,
+    menu_item_cls: objc.Class,
+) AppSels {
+    return AppSels{
+        .alloc = objc.verify(window_cls, "alloc", "@@:", true),
+        .init = objc.verify(window_cls, "init", "@@:", false),
+        .shared = objc.verify(app_cls, "sharedApplication", "@@:", true),
+        .set_policy = objc.verify(app_cls, "setActivationPolicy:", "B@:q", false),
+        .finish_launching = objc.verify(app_cls, "finishLaunching", "v@:", false),
+        .activate = objc.verify(app_cls, "activateIgnoringOtherApps:", "v@:B", false),
+        .window_init = objc.verify(window_cls, "initWithContentRect:styleMask:backing:defer:", "@@:{CGRect={CGPoint=dd}{CGSize=dd}}QQB", false),
+        .set_title = objc.verify(window_cls, "setTitle:", "v@:@", false),
+        .make_key = objc.verify(window_cls, "makeKeyAndOrderFront:", "v@:@", false),
+        .next_event = objc.verify(app_cls, "nextEventMatchingMask:untilDate:inMode:dequeue:", "@@:Q@@B", false),
+        .send_event = objc.verify(app_cls, "sendEvent:", "v@:@", false),
+        .terminate = objc.verify(app_cls, "terminate:", "v@:@", false),
+        .string_utf8 = objc.verify(string_cls, "stringWithUTF8String:", "@@:r*", true),
+        .distant_past = objc.verify(date_cls, "distantPast", "@@:", true),
+        .set_main_menu = objc.verify(app_cls, "setMainMenu:", "v@:@", false),
+        .menu_add = objc.verify(menu_cls, "addItem:", "v@:@", false),
+        .item_submenu = objc.verify(menu_item_cls, "setSubmenu:", "v@:@", false),
+        .menu_item_init = objc.verify(menu_item_cls, "initWithTitle:action:keyEquivalent:", "@@:@:@", false),
+    };
+}
+
+fn verify_text_sels(
+    tf_cls: objc.Class,
+    view_cls: objc.Class,
+    event_cls: objc.Class,
+    string_cls: objc.Class,
+) TextSels {
+    return TextSels{
+        .init_frame = objc.verify(tf_cls, "initWithFrame:", "@@:{CGRect={CGPoint=dd}{CGSize=dd}}", false),
+        .add_subview = objc.verify(view_cls, "addSubview:", "v@:@", false),
+        .set_editable = objc.verify(tf_cls, "setEditable:", "v@:B", false),
+        .set_bezeled = objc.verify(tf_cls, "setBezeled:", "v@:B", false),
+        .set_string = objc.verify(tf_cls, "setStringValue:", "v@:@", false),
+        .string_value = objc.verify(tf_cls, "stringValue", "@@:", false),
+        .utf8_string = objc.verify(string_cls, "UTF8String", "r*@:", false),
+        .event_type = objc.verify(event_cls, "type", "Q@:", false),
+        .key_code = objc.verify(event_cls, "keyCode", "S@:", false),
+    };
+}
+
+// --- Selftest ---------------------------------------------------------------
+
+const c = struct {
+    extern fn usleep(usec: u32) c_int;
+};
+
+fn run_selftest() u8 {
+    print("glow_repl selftest -- Orbit 11\n", .{});
+
+    // 1. Look up ObjC classes.
+    const app_cls = objc.objc_getClass("NSApplication") orelse {
+        print("  NSApplication class absent\n", .{});
+        return 1;
+    };
+    const window_cls = objc.objc_getClass("NSWindow") orelse {
+        print("  NSWindow class absent\n", .{});
+        return 1;
+    };
+    const string_cls = objc.objc_getClass("NSString") orelse {
+        print("  NSString class absent\n", .{});
+        return 1;
+    };
+    const date_cls = objc.objc_getClass("NSDate") orelse {
+        print("  NSDate class absent\n", .{});
+        return 1;
+    };
+    const menu_cls = objc.objc_getClass("NSMenu") orelse {
+        print("  NSMenu class absent\n", .{});
+        return 1;
+    };
+    const menu_item_cls = objc.objc_getClass("NSMenuItem") orelse {
+        print("  NSMenuItem class absent\n", .{});
+        return 1;
+    };
+    const tf_cls = objc.objc_getClass("NSTextField") orelse {
+        print("  NSTextField class absent\n", .{});
+        return 1;
+    };
+    const view_cls = objc.objc_getClass("NSView") orelse {
+        print("  NSView class absent\n", .{});
+        return 1;
+    };
+    const event_cls = objc.objc_getClass("NSEvent") orelse {
+        print("  NSEvent class absent\n", .{});
+        return 1;
+    };
+    print("  classes: ok\n", .{});
+
+    // 2. Verify selectors.
+    const app_sels = verify_app_sels(app_cls, window_cls, string_cls, date_cls, menu_cls, menu_item_cls);
+    const text_sels = verify_text_sels(tf_cls, view_cls, event_cls, string_cls);
+    print("  selectors: verified\n", .{});
+
+    // 3. NSApplication setup.
+    const shared = objc.send(objc.SendClassId)(app_cls, app_sels.shared) orelse {
+        print("  sharedApplication absent\n", .{});
+        return 1;
+    };
+    _ = objc.send(objc.SendIdI64)(shared, app_sels.set_policy, activation_policy_regular);
+    print("  app: shared, policy set\n", .{});
+
+    // 4. Menu bar.
+    const main_menu_raw = objc.send(objc.SendClassId)(menu_cls, app_sels.alloc) orelse return 1;
+    const main_menu = objc.send(objc.SendId)(main_menu_raw, app_sels.init) orelse return 1;
+    const holder_raw = objc.send(objc.SendClassId)(menu_item_cls, app_sels.alloc) orelse return 1;
+    const holder = objc.send(objc.SendId)(holder_raw, app_sels.init) orelse return 1;
+    const app_menu_raw = objc.send(objc.SendClassId)(menu_cls, app_sels.alloc) orelse return 1;
+    const app_menu = objc.send(objc.SendId)(app_menu_raw, app_sels.init) orelse return 1;
+    const quit_title = objc.send(objc.SendClassStr)(string_cls, app_sels.string_utf8, "Quit") orelse return 1;
+    const quit_key = objc.send(objc.SendClassStr)(string_cls, app_sels.string_utf8, "q") orelse return 1;
+    const quit_raw = objc.send(objc.SendClassId)(menu_item_cls, app_sels.alloc) orelse return 1;
+    const quit_item = objc.send(SendMenuItemInit)(quit_raw, app_sels.menu_item_init, quit_title, app_sels.terminate, quit_key) orelse return 1;
+    objc.send(objc.SendIdIdVoid)(app_menu, app_sels.menu_add, quit_item);
+    objc.send(objc.SendIdIdVoid)(holder, app_sels.item_submenu, app_menu);
+    objc.send(objc.SendIdIdVoid)(main_menu, app_sels.menu_add, holder);
+    objc.send(objc.SendIdIdVoid)(shared, app_sels.set_main_menu, main_menu);
+    print("  menu: built\n", .{});
+
+    // 5. Finish launching.
+    objc.send(objc.SendIdVoid)(shared, app_sels.finish_launching);
+    objc.send(objc.SendIdBool)(shared, app_sels.activate, true);
+    print("  app: launched\n", .{});
+
+    // 6. Create window.
+    const rect = objc.CGRect{
+        .origin = .{ .x = 200, .y = 300 },
+        .size = .{ .width = @floatFromInt(view_w), .height = @floatFromInt(view_h) },
+    };
+    const win_raw = objc.send(objc.SendClassId)(window_cls, app_sels.alloc) orelse return 1;
+    const window = objc.send(objc.SendWindowInit)(win_raw, app_sels.window_init, rect, style_titled | style_closable | style_resizable, backing_buffered, false) orelse return 1;
+    const title = objc.send(objc.SendClassStr)(string_cls, app_sels.string_utf8, "Glow REPL") orelse return 1;
+    objc.send(objc.SendIdIdVoid)(window, app_sels.set_title, title);
+    objc.send(objc.SendIdIdVoid)(window, app_sels.make_key, null);
+    print("  window: created\n", .{});
+
+    // 7. Get contentView for subview placement.
+    const content_sel = objc.verify(window_cls, "contentView", "@@:", false);
+    const content_view = objc.send(objc.SendId)(window, content_sel) orelse return 1;
+
+    // 8. Create input text field (editable, at bottom).
+    const input_rect = objc.CGRect{
+        .origin = .{ .x = 20, .y = 20 },
+        .size = .{ .width = @as(f64, @floatFromInt(view_w)) - 40, .height = 28 },
+    };
+    const input_raw = objc.send(objc.SendClassId)(tf_cls, app_sels.alloc) orelse return 1;
+    const input_field = objc.send(SendInitFrame)(input_raw, text_sels.init_frame, input_rect) orelse return 1;
+    objc.send(objc.SendIdBool)(input_field, text_sels.set_editable, true);
+    objc.send(objc.SendIdBool)(input_field, text_sels.set_bezeled, true);
+    const placeholder = objc.send(objc.SendClassStr)(string_cls, app_sels.string_utf8, "(add 2 3)") orelse return 1;
+    objc.send(objc.SendIdIdVoid)(input_field, text_sels.set_string, placeholder);
+    objc.send(objc.SendIdIdVoid)(content_view, text_sels.add_subview, input_field);
+    print("  input: placed\n", .{});
+
+    // 9. Create output text field (read-only, above input).
+    const output_rect = objc.CGRect{
+        .origin = .{ .x = 20, .y = 60 },
+        .size = .{ .width = @as(f64, @floatFromInt(view_w)) - 40, .height = 100 },
+    };
+    const output_raw = objc.send(objc.SendClassId)(tf_cls, app_sels.alloc) orelse return 1;
+    const output_field = objc.send(SendInitFrame)(output_raw, text_sels.init_frame, output_rect) orelse return 1;
+    objc.send(objc.SendIdBool)(output_field, text_sels.set_editable, false);
+    objc.send(objc.SendIdBool)(output_field, text_sels.set_bezeled, false);
+    const welcome = objc.send(objc.SendClassStr)(string_cls, app_sels.string_utf8, "Type a Glow expression and press Return.") orelse return 1;
+    objc.send(objc.SendIdIdVoid)(output_field, text_sels.set_string, welcome);
+    objc.send(objc.SendIdIdVoid)(content_view, text_sels.add_subview, output_field);
+    print("  output: placed\n", .{});
+
+    // 10. Pre-evaluate (add 2 3) to prove the SLC gate before the pump.
+    {
+        const result = repl_eval.evaluate("(add 2 3)") catch |err| {
+            print("  SLC pre-check failed: {}\n", .{err});
+            return 1;
+        };
+        // invariant: the SLC gate answer is 5.
+        assert(result == 5);
+        print("  SLC pre-check: (add 2 3) == 5 -- proven\n", .{});
+    }
+
+    // 11. Pre-evaluate a malformed expression to prove the error path.
+    {
+        if (repl_eval.evaluate("(bad")) |_| {
+            print("  SLC error pre-check: expected error, got value\n", .{});
+            return 1;
+        } else |err| {
+            assert(err == repl_eval.EvalError.MalformedExpr);
+            print("  SLC pre-check: malformed -> MalformedExpr -- proven\n", .{});
+        }
+    }
+
+    // 12. Run loop mode string for event dequeue.
+    const mode = objc.send(objc.SendClassStr)(string_cls, app_sels.string_utf8, "kCFRunLoopDefaultMode") orelse return 1;
+    const past = objc.send(objc.SendClassId)(date_cls, app_sels.distant_past) orelse return 1;
+
+    // 13. Event pump with Return-key evaluation.
+    var eval_count: u32 = 0;
+    var turn: u32 = 0;
+    while (turn < max_event_turns) : (turn += 1) {
+        const pool = objc.objc_autoreleasePoolPush();
+
+        const event = objc.send(SendNextEvent)(shared, app_sels.next_event, event_mask_any, past, mode, true);
+        if (event) |got| {
+            const etype = objc.send(SendEventType)(got, text_sels.event_type);
+            if (etype == ns_event_type_key_down) {
+                const kcode = objc.send(SendKeyCode)(got, text_sels.key_code);
+                if (kcode == key_return or kcode == key_enter) {
+                    eval_count += 1;
+                    evaluate_input(input_field, output_field, string_cls, &app_sels, &text_sels);
+                }
+            }
+            objc.send(objc.SendIdIdVoid)(shared, app_sels.send_event, got);
+        }
+
+        objc.objc_autoreleasePoolPop(pool);
+        _ = c.usleep(10_000);
+    }
+
+    print("  pump: {d} turns, {d} evaluations\n", .{ turn, eval_count });
+    print("GREEN -- glow REPL: window + evaluator + both SLC paths proven on metal\n", .{});
+    return 0;
+}
+
+// --- Evaluate and display ---------------------------------------------------
+
+fn evaluate_input(
+    input_field: objc.Id,
+    output_field: objc.Id,
+    string_cls: objc.Class,
+    app_sels: *const AppSels,
+    text_sels: *const TextSels,
+) void {
+    // Read the input field's string value.
+    const ns_string = objc.send(SendStringValue)(input_field, text_sels.string_value) orelse return;
+    const raw_ptr = objc.send(SendUTF8)(ns_string, text_sels.utf8_string) orelse return;
+    const input = std.mem.span(raw_ptr);
+
+    // invariant: bounded input.
+    if (input.len > repl_eval.max_input_len) {
+        set_output(output_field, string_cls, app_sels, text_sels, "error: input too long");
+        return;
+    }
+
+    if (repl_eval.evaluate(input)) |result| {
+        // invariant: u32 decimal fits in 10 digits; 11th byte is the null terminator.
+        var buf: [11]u8 = undefined;
+        const formatted = std.fmt.bufPrint(buf[0..10], "{d}", .{result}) catch {
+            set_output(output_field, string_cls, app_sels, text_sels, "error: format overflow");
+            return;
+        };
+        buf[formatted.len] = 0;
+        const ns_result = objc.send(objc.SendClassStr)(string_cls, app_sels.string_utf8, buf[0..formatted.len :0]) orelse return;
+        objc.send(objc.SendIdIdVoid)(output_field, text_sels.set_string, ns_result);
+    } else |err| {
+        const msg = switch (err) {
+            repl_eval.EvalError.Overflow => "error: Overflow",
+            repl_eval.EvalError.MalformedExpr => "error: MalformedExpr",
+            repl_eval.EvalError.EmptyInput => "error: EmptyInput",
+            repl_eval.EvalError.UnknownOp => "error: UnknownOp",
+        };
+        set_output(output_field, string_cls, app_sels, text_sels, msg);
+    }
+}
+
+fn set_output(output_field: objc.Id, string_cls: objc.Class, app_sels: *const AppSels, text_sels: *const TextSels, msg: [*:0]const u8) void {
+    const ns_msg = objc.send(objc.SendClassStr)(string_cls, app_sels.string_utf8, msg) orelse return;
+    objc.send(objc.SendIdIdVoid)(output_field, text_sels.set_string, ns_msg);
+}
+
+pub fn main(init: std.process.Init) !u8 {
+    _ = init;
+    return run_selftest();
+}

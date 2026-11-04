@@ -1,0 +1,144 @@
+//! glow/repl_eval.rye -- evaluate a Glow expression from text to a u32 result.
+//!
+//! The REPL evaluator: takes a line of text, returns a number.
+//! Supported forms: bare decimal, (add a b), (sub a b), (mul a b),
+//! (mix a b), (jam a b), (cue a). Named errors on every refusal path.
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+// invariant: input ceiling matches the bounded text field.
+pub const max_input_len: u32 = 256;
+
+pub const EvalError = error{
+    Overflow,
+    MalformedExpr,
+    EmptyInput,
+    UnknownOp,
+};
+
+// invariant: op count bounded -- six binary ops plus one unary.
+const BinaryOp = enum { add, sub, mul, mix, jam };
+
+/// Evaluate a single Glow expression. Returns the u32 result or a named error.
+pub fn evaluate(input: []const u8) EvalError!u32 {
+    const trimmed = trim(input);
+    if (trimmed.len == 0) return error.EmptyInput;
+    // invariant: input length never exceeds the text field ceiling.
+    if (trimmed.len > max_input_len) return error.Overflow;
+
+    if (trimmed[0] == '(') {
+        // invariant: a paren form has at least three bytes: ( x ).
+        if (trimmed.len < 3) return error.MalformedExpr;
+        if (trimmed[trimmed.len - 1] != ')') return error.MalformedExpr;
+        const inner = trim(trimmed[1 .. trimmed.len - 1]);
+        if (inner.len == 0) return error.MalformedExpr;
+        return eval_paren(inner);
+    }
+
+    return parse_decimal_whole(trimmed);
+}
+
+/// Parse a full decimal -- every byte must be a digit, nothing left over.
+fn parse_decimal_whole(input: []const u8) EvalError!u32 {
+    if (input.len == 0) return error.MalformedExpr;
+    const result = try parse_decimal_prefix(input);
+    const after = trim(result.rest);
+    if (after.len != 0) return error.MalformedExpr;
+    return result.value;
+}
+
+/// Parse leading decimal digits, return value and remaining bytes.
+fn parse_decimal_prefix(input: []const u8) EvalError!struct { value: u32, rest: []const u8 } {
+    if (input.len == 0) return error.MalformedExpr;
+    if (input[0] < '0' or input[0] > '9') return error.MalformedExpr;
+
+    var value: u32 = 0;
+    var i: u32 = 0;
+    // invariant: index bounded by input length.
+    const len: u32 = @intCast(input.len);
+    while (i < len) : (i += 1) {
+        const c = input[i];
+        if (c < '0' or c > '9') break;
+        const digit: u32 = c - '0';
+        // invariant: overflow caught before accumulation.
+        value = std.math.mul(u32, value, 10) catch return error.Overflow;
+        value = std.math.add(u32, value, digit) catch return error.Overflow;
+    }
+    return .{ .value = value, .rest = input[i..] };
+}
+
+/// Dispatch a parenthesized form by op name.
+fn eval_paren(inner: []const u8) EvalError!u32 {
+    const op_end = find_space(inner);
+    if (op_end == 0) return error.MalformedExpr;
+    const op_name = inner[0..op_end];
+    const args = trim(inner[op_end..]);
+
+    if (str_eq(op_name, "add")) return eval_binary(args, .add);
+    if (str_eq(op_name, "sub")) return eval_binary(args, .sub);
+    if (str_eq(op_name, "mul")) return eval_binary(args, .mul);
+    if (str_eq(op_name, "mix")) return eval_binary(args, .mix);
+    if (str_eq(op_name, "jam")) return eval_binary(args, .jam);
+    if (str_eq(op_name, "cue")) return eval_cue(args);
+
+    return error.UnknownOp;
+}
+
+/// Evaluate a binary op on two decimal arguments.
+fn eval_binary(args: []const u8, op: BinaryOp) EvalError!u32 {
+    const first = try parse_decimal_prefix(args);
+    const after_first = trim(first.rest);
+    const second = try parse_decimal_prefix(after_first);
+    const after_second = trim(second.rest);
+    if (after_second.len != 0) return error.MalformedExpr;
+
+    const a = first.value;
+    const b = second.value;
+
+    return switch (op) {
+        .add => std.math.add(u32, a, b) catch return error.Overflow,
+        .sub => std.math.sub(u32, a, b) catch return error.Overflow,
+        .mul => std.math.mul(u32, a, b) catch return error.Overflow,
+        .mix => a ^ b,
+        .jam => blk: {
+            // invariant: left fits in 16 bits for the thin cell-pack.
+            if (a > 0xFFFF or b > 0xFFFF) return error.Overflow;
+            break :blk (a << 16) | b;
+        },
+    };
+}
+
+/// Evaluate (cue x) -- extract low 16 bits from a jam cell-pack.
+fn eval_cue(args: []const u8) EvalError!u32 {
+    const trimmed = trim(args);
+    const result = try parse_decimal_prefix(trimmed);
+    const after = trim(result.rest);
+    if (after.len != 0) return error.MalformedExpr;
+    return result.value & 0xFFFF;
+}
+
+// -- helpers --
+
+fn trim(input: []const u8) []const u8 {
+    var start: usize = 0;
+    while (start < input.len and input[start] == ' ') : (start += 1) {}
+    var end: usize = input.len;
+    while (end > start and input[end - 1] == ' ') : (end -= 1) {}
+    return input[start..end];
+}
+
+fn find_space(input: []const u8) usize {
+    var i: usize = 0;
+    while (i < input.len and input[i] != ' ') : (i += 1) {}
+    return i;
+}
+
+fn str_eq(a: []const u8, b: []const u8) bool {
+    if (a.len != b.len) return false;
+    for (a, b) |x, y| {
+        if (x != y) return false;
+    }
+    return true;
+}
