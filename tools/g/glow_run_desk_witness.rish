@@ -314,6 +314,16 @@ assert call2.ok else "glow_run call-two.glow failed"
 assert call2.out contains "GREEN" else "glow_run call-two.glow not GREEN"
 assert call2.out contains "call-two.glow" else "glow_run call-two claim missing path"
 
+let call2sub = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/c/call-two-sub.glow"]
+assert call2sub.ok else "glow_run call-two-sub.glow failed"
+assert call2sub.out contains "GREEN" else "glow_run call-two-sub.glow not GREEN"
+assert call2sub.out contains "call-two-sub.glow" else "glow_run call-two-sub claim missing path"
+
+let call2mul = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/c/call-two-mul.glow"]
+assert call2mul.ok else "glow_run call-two-mul.glow failed"
+assert call2mul.out contains "GREEN" else "glow_run call-two-mul.glow not GREEN"
+assert call2mul.out contains "call-two-mul.glow" else "glow_run call-two-mul claim missing path"
+
 let call3 = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/c/call-three.glow"]
 assert call3.ok else "glow_run call-three.glow failed"
 assert call3.out contains "GREEN" else "glow_run call-three.glow not GREEN"
