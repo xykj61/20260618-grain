@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261104.163346` | [Terrarium RFC revision -- Calfive 5x5 with DX orbits](20261104/20261104-163346_terrarium-rfc-revision.kyri.md) | 25 orbits in 5 quests; Quest 1.1 DX clearing; RFC format; less DJINN reliance |
 | `20261104.162400` | [Terrarium boot journey -- scoping and project board](20261104/20261104-162400_terrarium-boot-journey-scoping.kyri.md) | 23 orbits across 4 journeys scoped; RV32I pill-to-Caravan; Incense reallocated; DJINN Brix studied |
 | `20261104.154523` | [Orbit 15 -- cookbook expansion and stdlib reference](20261104/20261104-154523_orbit-15-cookbook-expansion.kyri.md) | 6 Glow cookbook pages + stdlib ref; 9 recipes total; Bhakta GREEN; fascia 60.060 |
 | `20261104.153430` | [Orbit 14 -- Glow Meets the Screen tutorial](20261104/20261104-153430_orbit-14-glow-meets-the-screen.kyri.md) | Bhakta-at-Door tutorial from REPL to layout demo to changing the screen; fascia 60.059 |
