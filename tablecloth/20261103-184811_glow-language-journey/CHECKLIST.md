@@ -171,13 +171,15 @@ surface at `loca/`.
   dispatches Return-key presses to the evaluator. GREEN on metal.
   **SLC gate:** `(add 2 3) == 5` proven, `malformed -> MalformedExpr` proven, both on metal.
 
-- [ ] **Orbit 12 -- Glow-driven layout demo**
+- [x] **Orbit 12 -- Glow-driven layout demo**
   *Calfive round 12 (Pisces, dual water, aesthetics) -- "The wish. One beautiful close."*
   A Skate window where the layout itself is a Glow program: a column of labeled rows,
   each row showing a stdlib operation and its result. The program is a tour of the stdlib
   that also happens to be a working GUI. This proves Glow can describe a real interface.
   **SLC gate:** the window opens, shows at least five stdlib operations with their results,
   and resizes cleanly. Witness proves the layout and the operations.
+  **Landed `20261104`.** Six operations (add, sub, mul, mix, jam, cue) with computed results
+  in a 520x284 Skate window. Witness proves all six operations and geometry bounds. GREEN on metal.
 
 ### Quest 2.3 -- Glow in docs-geode
 

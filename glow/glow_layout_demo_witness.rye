@@ -1,0 +1,61 @@
+//! glow/glow_layout_demo_witness.rye -- prove the layout demo's operations and geometry.
+//!
+//! Standalone witness: no AppKit. Proves six operations match their expected
+//! results and that the layout geometry is bounded and non-overlapping.
+//!
+//!   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye run glow/glow_layout_demo_witness.rye -lc
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+const repl_eval = @import("repl_eval.rye");
+const demo = @import("glow_layout_demo.rye");
+
+pub fn main(init: std.process.Init) !u8 {
+    _ = init;
+    print("glow_layout_demo_witness -- Orbit 12\n", .{});
+
+    // 1. Prove every operation matches its expected result.
+    var ops_ok: u32 = 0;
+    for (demo.entries) |entry| {
+        const input = std.mem.span(entry.expr);
+        const result = repl_eval.evaluate(input) catch |err| {
+            print("  FAIL: {s} -> {}\n", .{ entry.expr, err });
+            return 1;
+        };
+        // invariant: result matches expected.
+        assert(result == entry.expected);
+        ops_ok += 1;
+    }
+    print("  operations: {d}/{d} proven\n", .{ ops_ok, demo.max_rows });
+
+    // 2. Prove layout geometry bounds.
+    // invariant: every row fits within the view height.
+    var i: u32 = 0;
+    while (i < demo.max_rows) : (i += 1) {
+        const y = demo.row_y(i);
+        // invariant: field bottom edge within view.
+        assert(y + demo.field_height <= demo.view_h);
+    }
+    print("  geometry: all {d} rows fit within {d}x{d}\n", .{ demo.max_rows, demo.view_w, demo.view_h });
+
+    // invariant: header fits within the view.
+    assert(demo.header_y + demo.field_height <= demo.view_h);
+    print("  header: fits at y={d}\n", .{demo.header_y});
+
+    // invariant: label column ends before result column begins.
+    assert(demo.label_x + demo.label_w <= demo.result_x);
+    print("  alignment: label ends at {d}, result starts at {d}\n", .{ demo.label_x + demo.label_w, demo.result_x });
+
+    // invariant: result column fits within view width.
+    assert(demo.result_x + demo.result_w <= demo.view_w);
+    print("  width: result column ends at {d}, view is {d}\n", .{ demo.result_x + demo.result_w, demo.view_w });
+
+    // invariant: rows do not overlap vertically.
+    assert(demo.row_height >= demo.field_height);
+    print("  spacing: row_height {d} >= field_height {d}\n", .{ demo.row_height, demo.field_height });
+
+    print("GREEN -- layout demo: {d} operations and geometry proven\n", .{ops_ok});
+    return 0;
+}

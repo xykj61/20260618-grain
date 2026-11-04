@@ -1,0 +1,333 @@
+//! glow/glow_layout_demo.rye -- Glow stdlib tour in a Skate window.
+//!
+//! A column of labeled rows, each showing a stdlib operation and its computed
+//! result. The layout is a table of six expressions evaluated on startup --
+//! a tour of the language that also happens to be a working GUI.
+//!
+//! Glow language journey, Orbit 12 -- Calfive round 12 (Pisces, dual water, aesthetics).
+//! Stands on: lotus/objc_seam.rye (ObjC boundary), glow/repl_eval.rye (evaluator).
+//!
+//!   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye run glow/glow_layout_demo.rye -lc -lobjc -framework Cocoa -framework CoreGraphics
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+const objc = @import("objc_seam.rye");
+const repl_eval = @import("repl_eval.rye");
+
+// --- Layout table -----------------------------------------------------------
+
+pub const Entry = struct {
+    expr: [*:0]const u8,
+    expected: u32,
+};
+
+// invariant: bounded row count.
+pub const max_rows: u32 = 6;
+
+pub const entries = [max_rows]Entry{
+    .{ .expr = "(add 2 3)", .expected = 5 },
+    .{ .expr = "(sub 10 3)", .expected = 7 },
+    .{ .expr = "(mul 4 5)", .expected = 20 },
+    .{ .expr = "(mix 255 128)", .expected = 127 },
+    .{ .expr = "(jam 3 7)", .expected = 196615 },
+    .{ .expr = "(cue 196615)", .expected = 7 },
+};
+
+// --- Layout geometry (public for the witness) -------------------------------
+
+pub const row_height: u32 = 36;
+pub const margin: u32 = 20;
+pub const field_height: u32 = 24;
+pub const label_x: u32 = 20;
+pub const label_w: u32 = 180;
+pub const result_x: u32 = 220;
+pub const result_w: u32 = 260;
+pub const header_y: u32 = margin + max_rows * row_height;
+pub const view_w: u32 = 520;
+pub const view_h: u32 = header_y + 48;
+
+// invariant: row y position bounded within the view, top-to-bottom reading order.
+pub fn row_y(i: u32) u32 {
+    // invariant: index within row count.
+    assert(i < max_rows);
+    return margin + (max_rows - 1 - i) * row_height;
+}
+
+// --- AppKit constants -------------------------------------------------------
+
+const style_titled: u64 = 1;
+const style_closable: u64 = 2;
+const style_resizable: u64 = 8;
+const backing_buffered: u64 = 2;
+const activation_policy_regular: i64 = 0;
+const event_mask_any: u64 = std.math.maxInt(u64);
+
+// invariant: bounded event pump.
+const max_event_turns: u32 = 30_000;
+
+// --- ObjC send types local to this module -----------------------------------
+
+const SendNextEvent = *const fn (objc.Id, objc.Sel, u64, ?objc.Id, ?objc.Id, bool) callconv(.c) ?objc.Id;
+const SendMenuItemInit = *const fn (objc.Id, objc.Sel, ?objc.Id, ?objc.Sel, ?objc.Id) callconv(.c) ?objc.Id;
+const SendInitFrame = *const fn (objc.Id, objc.Sel, objc.CGRect) callconv(.c) ?objc.Id;
+
+// --- Selector caches --------------------------------------------------------
+
+const AppSels = struct {
+    alloc: objc.Sel,
+    init: objc.Sel,
+    shared: objc.Sel,
+    set_policy: objc.Sel,
+    finish_launching: objc.Sel,
+    activate: objc.Sel,
+    window_init: objc.Sel,
+    set_title: objc.Sel,
+    make_key: objc.Sel,
+    next_event: objc.Sel,
+    send_event: objc.Sel,
+    terminate: objc.Sel,
+    string_utf8: objc.Sel,
+    distant_past: objc.Sel,
+    set_main_menu: objc.Sel,
+    menu_add: objc.Sel,
+    item_submenu: objc.Sel,
+    menu_item_init: objc.Sel,
+};
+
+const TextSels = struct {
+    init_frame: objc.Sel,
+    add_subview: objc.Sel,
+    set_editable: objc.Sel,
+    set_bezeled: objc.Sel,
+    set_string: objc.Sel,
+};
+
+fn verify_app_sels(
+    app_cls: objc.Class,
+    window_cls: objc.Class,
+    string_cls: objc.Class,
+    date_cls: objc.Class,
+    menu_cls: objc.Class,
+    menu_item_cls: objc.Class,
+) AppSels {
+    return AppSels{
+        .alloc = objc.verify(window_cls, "alloc", "@@:", true),
+        .init = objc.verify(window_cls, "init", "@@:", false),
+        .shared = objc.verify(app_cls, "sharedApplication", "@@:", true),
+        .set_policy = objc.verify(app_cls, "setActivationPolicy:", "B@:q", false),
+        .finish_launching = objc.verify(app_cls, "finishLaunching", "v@:", false),
+        .activate = objc.verify(app_cls, "activateIgnoringOtherApps:", "v@:B", false),
+        .window_init = objc.verify(window_cls, "initWithContentRect:styleMask:backing:defer:", "@@:{CGRect={CGPoint=dd}{CGSize=dd}}QQB", false),
+        .set_title = objc.verify(window_cls, "setTitle:", "v@:@", false),
+        .make_key = objc.verify(window_cls, "makeKeyAndOrderFront:", "v@:@", false),
+        .next_event = objc.verify(app_cls, "nextEventMatchingMask:untilDate:inMode:dequeue:", "@@:Q@@B", false),
+        .send_event = objc.verify(app_cls, "sendEvent:", "v@:@", false),
+        .terminate = objc.verify(app_cls, "terminate:", "v@:@", false),
+        .string_utf8 = objc.verify(string_cls, "stringWithUTF8String:", "@@:r*", true),
+        .distant_past = objc.verify(date_cls, "distantPast", "@@:", true),
+        .set_main_menu = objc.verify(app_cls, "setMainMenu:", "v@:@", false),
+        .menu_add = objc.verify(menu_cls, "addItem:", "v@:@", false),
+        .item_submenu = objc.verify(menu_item_cls, "setSubmenu:", "v@:@", false),
+        .menu_item_init = objc.verify(menu_item_cls, "initWithTitle:action:keyEquivalent:", "@@:@:@", false),
+    };
+}
+
+fn verify_text_sels(
+    tf_cls: objc.Class,
+    view_cls: objc.Class,
+) TextSels {
+    return TextSels{
+        .init_frame = objc.verify(tf_cls, "initWithFrame:", "@@:{CGRect={CGPoint=dd}{CGSize=dd}}", false),
+        .add_subview = objc.verify(view_cls, "addSubview:", "v@:@", false),
+        .set_editable = objc.verify(tf_cls, "setEditable:", "v@:B", false),
+        .set_bezeled = objc.verify(tf_cls, "setBezeled:", "v@:B", false),
+        .set_string = objc.verify(tf_cls, "setStringValue:", "v@:@", false),
+    };
+}
+
+// --- Helpers ----------------------------------------------------------------
+
+const c = struct {
+    extern fn usleep(usec: u32) c_int;
+};
+
+fn make_field(
+    tf_cls: objc.Class,
+    content_view: objc.Id,
+    app_sels: *const AppSels,
+    text_sels: *const TextSels,
+    string_cls: objc.Class,
+    rect: objc.CGRect,
+    text: [*:0]const u8,
+    bezeled: bool,
+) void {
+    const raw = objc.send(objc.SendClassId)(tf_cls, app_sels.alloc) orelse return;
+    const field = objc.send(SendInitFrame)(raw, text_sels.init_frame, rect) orelse return;
+    objc.send(objc.SendIdBool)(field, text_sels.set_editable, false);
+    objc.send(objc.SendIdBool)(field, text_sels.set_bezeled, bezeled);
+    const ns_text = objc.send(objc.SendClassStr)(string_cls, app_sels.string_utf8, text) orelse return;
+    objc.send(objc.SendIdIdVoid)(field, text_sels.set_string, ns_text);
+    objc.send(objc.SendIdIdVoid)(content_view, text_sels.add_subview, field);
+}
+
+// --- Demo -------------------------------------------------------------------
+
+fn run_demo() u8 {
+    print("glow_layout_demo -- Orbit 12, Glow Stdlib Tour\n", .{});
+
+    // 1. Look up ObjC classes.
+    const app_cls = objc.objc_getClass("NSApplication") orelse {
+        print("  NSApplication absent\n", .{});
+        return 1;
+    };
+    const window_cls = objc.objc_getClass("NSWindow") orelse {
+        print("  NSWindow absent\n", .{});
+        return 1;
+    };
+    const string_cls = objc.objc_getClass("NSString") orelse {
+        print("  NSString absent\n", .{});
+        return 1;
+    };
+    const date_cls = objc.objc_getClass("NSDate") orelse {
+        print("  NSDate absent\n", .{});
+        return 1;
+    };
+    const menu_cls = objc.objc_getClass("NSMenu") orelse {
+        print("  NSMenu absent\n", .{});
+        return 1;
+    };
+    const menu_item_cls = objc.objc_getClass("NSMenuItem") orelse {
+        print("  NSMenuItem absent\n", .{});
+        return 1;
+    };
+    const tf_cls = objc.objc_getClass("NSTextField") orelse {
+        print("  NSTextField absent\n", .{});
+        return 1;
+    };
+    const view_cls = objc.objc_getClass("NSView") orelse {
+        print("  NSView absent\n", .{});
+        return 1;
+    };
+    print("  classes: ok\n", .{});
+
+    // 2. Verify selectors.
+    const app_sels = verify_app_sels(app_cls, window_cls, string_cls, date_cls, menu_cls, menu_item_cls);
+    const text_sels = verify_text_sels(tf_cls, view_cls);
+    print("  selectors: verified\n", .{});
+
+    // 3. NSApplication setup.
+    const shared = objc.send(objc.SendClassId)(app_cls, app_sels.shared) orelse {
+        print("  sharedApplication absent\n", .{});
+        return 1;
+    };
+    _ = objc.send(objc.SendIdI64)(shared, app_sels.set_policy, activation_policy_regular);
+
+    // 4. Menu bar (Quit with Cmd+Q).
+    const main_menu_raw = objc.send(objc.SendClassId)(menu_cls, app_sels.alloc) orelse return 1;
+    const main_menu = objc.send(objc.SendId)(main_menu_raw, app_sels.init) orelse return 1;
+    const holder_raw = objc.send(objc.SendClassId)(menu_item_cls, app_sels.alloc) orelse return 1;
+    const holder = objc.send(objc.SendId)(holder_raw, app_sels.init) orelse return 1;
+    const app_menu_raw = objc.send(objc.SendClassId)(menu_cls, app_sels.alloc) orelse return 1;
+    const app_menu = objc.send(objc.SendId)(app_menu_raw, app_sels.init) orelse return 1;
+    const quit_title = objc.send(objc.SendClassStr)(string_cls, app_sels.string_utf8, "Quit") orelse return 1;
+    const quit_key = objc.send(objc.SendClassStr)(string_cls, app_sels.string_utf8, "q") orelse return 1;
+    const quit_raw = objc.send(objc.SendClassId)(menu_item_cls, app_sels.alloc) orelse return 1;
+    const quit_item = objc.send(SendMenuItemInit)(quit_raw, app_sels.menu_item_init, quit_title, app_sels.terminate, quit_key) orelse return 1;
+    objc.send(objc.SendIdIdVoid)(app_menu, app_sels.menu_add, quit_item);
+    objc.send(objc.SendIdIdVoid)(holder, app_sels.item_submenu, app_menu);
+    objc.send(objc.SendIdIdVoid)(main_menu, app_sels.menu_add, holder);
+    objc.send(objc.SendIdIdVoid)(shared, app_sels.set_main_menu, main_menu);
+
+    // 5. Finish launching.
+    objc.send(objc.SendIdVoid)(shared, app_sels.finish_launching);
+    objc.send(objc.SendIdBool)(shared, app_sels.activate, true);
+    print("  app: launched\n", .{});
+
+    // 6. Create window.
+    const rect = objc.CGRect{
+        .origin = .{ .x = 200, .y = 200 },
+        .size = .{ .width = @floatFromInt(view_w), .height = @floatFromInt(view_h) },
+    };
+    const win_raw = objc.send(objc.SendClassId)(window_cls, app_sels.alloc) orelse return 1;
+    const window = objc.send(objc.SendWindowInit)(win_raw, app_sels.window_init, rect, style_titled | style_closable | style_resizable, backing_buffered, false) orelse return 1;
+    const title_str = objc.send(objc.SendClassStr)(string_cls, app_sels.string_utf8, "Glow Stdlib Tour") orelse return 1;
+    objc.send(objc.SendIdIdVoid)(window, app_sels.set_title, title_str);
+    objc.send(objc.SendIdIdVoid)(window, app_sels.make_key, null);
+
+    // 7. Get contentView.
+    const content_sel = objc.verify(window_cls, "contentView", "@@:", false);
+    const content_view = objc.send(objc.SendId)(window, content_sel) orelse return 1;
+    print("  window: created {d}x{d}\n", .{ view_w, view_h });
+
+    // 8. Header field.
+    const hdr_rect = objc.CGRect{
+        .origin = .{ .x = @floatFromInt(label_x), .y = @floatFromInt(header_y) },
+        .size = .{ .width = @as(f64, @floatFromInt(view_w)) - @as(f64, @floatFromInt(margin * 2)), .height = @floatFromInt(field_height) },
+    };
+    make_field(tf_cls, content_view, &app_sels, &text_sels, string_cls, hdr_rect, "Glow Stdlib Tour -- six operations", false);
+    print("  header: placed\n", .{});
+
+    // 9. Evaluate each entry, assert the result, and create label + result fields.
+    var proven: u32 = 0;
+    var buf: [11]u8 = undefined;
+    for (entries, 0..) |entry, idx| {
+        const input = std.mem.span(entry.expr);
+        const result = repl_eval.evaluate(input) catch |err| {
+            print("  FAIL row {d}: {s} -> {}\n", .{ idx, entry.expr, err });
+            return 1;
+        };
+        // invariant: result matches expected.
+        assert(result == entry.expected);
+
+        const i: u32 = @intCast(idx);
+        const y = row_y(i);
+
+        // Label field (expression text, no border).
+        const label_rect = objc.CGRect{
+            .origin = .{ .x = @floatFromInt(label_x), .y = @floatFromInt(y) },
+            .size = .{ .width = @floatFromInt(label_w), .height = @floatFromInt(field_height) },
+        };
+        make_field(tf_cls, content_view, &app_sels, &text_sels, string_cls, label_rect, entry.expr, false);
+
+        // Result field (computed value, with border).
+        const formatted = std.fmt.bufPrint(buf[0..10], "{d}", .{result}) catch {
+            print("  format overflow at row {d}\n", .{idx});
+            return 1;
+        };
+        buf[formatted.len] = 0;
+        const result_rect = objc.CGRect{
+            .origin = .{ .x = @floatFromInt(result_x), .y = @floatFromInt(y) },
+            .size = .{ .width = @floatFromInt(result_w), .height = @floatFromInt(field_height) },
+        };
+        make_field(tf_cls, content_view, &app_sels, &text_sels, string_cls, result_rect, buf[0..formatted.len :0], true);
+
+        proven += 1;
+        print("  row {d}: {s} -> {d}\n", .{ idx, entry.expr, result });
+    }
+    print("  layout: {d}/{d} rows placed and proven\n", .{ proven, max_rows });
+
+    // 10. Event pump -- forward events to keep the window alive.
+    const mode = objc.send(objc.SendClassStr)(string_cls, app_sels.string_utf8, "kCFRunLoopDefaultMode") orelse return 1;
+    const past = objc.send(objc.SendClassId)(date_cls, app_sels.distant_past) orelse return 1;
+
+    var turn: u32 = 0;
+    while (turn < max_event_turns) : (turn += 1) {
+        const pool = objc.objc_autoreleasePoolPush();
+        const event = objc.send(SendNextEvent)(shared, app_sels.next_event, event_mask_any, past, mode, true);
+        if (event) |got| {
+            objc.send(objc.SendIdIdVoid)(shared, app_sels.send_event, got);
+        }
+        objc.objc_autoreleasePoolPop(pool);
+        _ = c.usleep(10_000);
+    }
+
+    print("GREEN -- layout demo: {d} operations proven, window displayed\n", .{proven});
+    return 0;
+}
+
+pub fn main(init: std.process.Init) !u8 {
+    _ = init;
+    return run_demo();
+}
