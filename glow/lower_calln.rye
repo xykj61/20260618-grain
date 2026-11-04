@@ -1,7 +1,8 @@
 //! glow/lower_calln.rye -- lower a parsed `%*` call to runnable `.rye`.
 //!
-//! Thin glow-language face: closed demo gate `mix` with a named-sample struct
-//! `{ left, right }` -- demos 5 and 3 -> expect 8. Unknown gates refuse.
+//! Thin glow-language face: closed demo gates mix/sub/mul with a named-sample
+//! struct `{ left, right }` -- demos 5 and 3. Gate dispatch is content-based;
+//! unknown gates refuse at lower time.
 
 const std = @import("std");
 const assert = std.debug.assert;
@@ -19,7 +20,22 @@ pub const LowerError = rn.ParseError || error{
 
 pub const calln_demo_a: u32 = 5;
 pub const calln_demo_b: u32 = 3;
-pub const calln_demo_expect: u32 = 8;
+
+/// Content-based gate dispatch -- returns the expected result for the named gate.
+fn compute_expect(gate: []const u8, a: u32, b: u32) error{UnknownGate}!u32 {
+    if (std.mem.eql(u8, gate, "mix")) return a +% b;
+    if (std.mem.eql(u8, gate, "sub")) return a -% b;
+    if (std.mem.eql(u8, gate, "mul")) return a *% b;
+    return error.UnknownGate;
+}
+
+/// Returns the Rye operator string for the named gate.
+fn gate_op(gate: []const u8) error{UnknownGate}![]const u8 {
+    if (std.mem.eql(u8, gate, "mix")) return "+%";
+    if (std.mem.eql(u8, gate, "sub")) return "-%";
+    if (std.mem.eql(u8, gate, "mul")) return "*%";
+    return error.UnknownGate;
+}
 
 /// The one ident rule, reached through `glow/zig_ident.rye`. The ceiling is this module's
 /// own `rn.max_name_len`; the rule -- hyphen to underscore, then Zig's own identifier bytes -- is the
@@ -48,17 +64,17 @@ fn emit_calln_program(
     expect: u32,
     out: []u8,
 ) LowerError!u32 {
-    if (!std.mem.eql(u8, glow_gate, "mix")) return error.UnknownGate;
+    const op = gate_op(glow_gate) catch return error.UnknownGate;
     if (!std.mem.eql(u8, glow_left, "left")) return error.BadNames;
     if (!std.mem.eql(u8, glow_right, "right")) return error.BadNames;
 
     const written = std.fmt.bufPrint(out,
         \\const std = @import("std");
         \\
-        \\/// Lowered from Glow `%*  {s}  {s}  {s}` — named-arg call.
+        \\/// Lowered from Glow `%*  {s}  {s}  {s}` -- named-arg call.
         \\const Sample = struct {{ left: u32, right: u32 }};
         \\fn {s}(sample: Sample) u32 {{
-        \\    return sample.left +% sample.right;
+        \\    return sample.left {s} sample.right;
         \\}}
         \\
         \\pub fn main(_: std.process.Init) !u8 {{
@@ -73,6 +89,7 @@ fn emit_calln_program(
         glow_left,
         glow_right,
         zig_gate,
+        op,
         zig_left,
         calln_demo_a,
         zig_right,
@@ -101,7 +118,8 @@ fn lower_line(line: []const u8, welcome: bool, out: []u8) LowerError!u32 {
     const gn = try zig_safe_ident(gate, &zg, "gate");
     const ln = try zig_safe_ident(left, &zl, "left");
     const rn_len = try zig_safe_ident(right, &zr, "right");
-    const expect: u32 = if (welcome) calln_demo_expect else calln_demo_expect +% 1;
+    const base = compute_expect(gate, calln_demo_a, calln_demo_b) catch return error.UnknownGate;
+    const expect: u32 = if (welcome) base else base +% 1;
     return emit_calln_program(gate, left, right, zg[0..gn], zl[0..ln], zr[0..rn_len], expect, out);
 }
 

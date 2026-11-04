@@ -1,13 +1,9 @@
-# glow_lower_calln_witness.rish -- `%*` lowers to Rye; emitted program runs.
+# glow_lower_calln_witness.rish -- `%*` lowers mix/sub/mul to Rye; emitted programs run.
 #
 #   rishi/bin/rishi run tools/g/glow_lower_calln_witness.rish
 
 let zig = "vendor/zig-toolchain/zig"
 let bin = "glow/bin/lower_calln_witness"
-let welcome_rye = "glow/.cache/call_named_welcome.rye"
-let welcome_bin = "glow/bin/call_named_welcome"
-let unwelcome_rye = "glow/.cache/call_named_unwelcome.rye"
-let unwelcome_bin = "glow/bin/call_named_unwelcome"
 
 let build = run ["sh" "-c" "mkdir -p glow/bin glow/.cache && env RYE_ZIG=${zig} sh tools/fixtures/r/rye_build.sh glow/lower_calln_witness.rye -femit-bin=${bin}"]
 assert build.ok else "lower_calln_witness build failed"
@@ -15,20 +11,62 @@ assert build.ok else "lower_calln_witness build failed"
 let selftest = run ["sh" "-c" "${bin} 2>&1"]
 assert selftest.ok else "lower_calln_witness exited non-zero"
 assert selftest.out contains "GREEN" else "lower_calln_witness not GREEN"
-assert selftest.out contains "welcome builds call" else "lower_calln_witness missing welcome claim"
+assert selftest.out contains "mix welcome builds call" else "lower_calln_witness missing mix welcome claim"
+assert selftest.out contains "sub welcome builds call" else "lower_calln_witness missing sub welcome claim"
+assert selftest.out contains "mul welcome builds call" else "lower_calln_witness missing mul welcome claim"
 assert selftest.out contains "carries call faces" else "lower_calln_witness missing desk claim"
 assert selftest.out contains "UnknownGate" else "lower_calln_witness missing UnknownGate"
 assert selftest.out contains "BadNames" else "lower_calln_witness missing BadNames"
 
-let build_welcome = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${welcome_rye} -femit-bin=${welcome_bin}"]
-assert build_welcome.ok else "calln welcome .rye build failed"
-let run_welcome = run ["sh" "-c" "${welcome_bin}; echo EXIT:$?"]
-assert run_welcome.ok else "calln welcome binary failed to launch"
-assert run_welcome.out contains "EXIT:0" else "calln welcome binary did not exit 0"
+# -- mix welcome/unwelcome --
+let mix_w_rye = "glow/.cache/call_named_mix_welcome.rye"
+let mix_w_bin = "glow/bin/call_named_mix_welcome"
+let mix_u_rye = "glow/.cache/call_named_mix_unwelcome.rye"
+let mix_u_bin = "glow/bin/call_named_mix_unwelcome"
 
-let build_unwelcome = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${unwelcome_rye} -femit-bin=${unwelcome_bin}"]
-assert build_unwelcome.ok else "calln unwelcome .rye build failed"
-let run_unwelcome = run ["sh" "-c" "${unwelcome_bin}; echo EXIT:$?"]
-assert run_unwelcome.out contains "EXIT:1" else "calln unwelcome binary did not exit 1"
+let build_mix_w = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${mix_w_rye} -femit-bin=${mix_w_bin}"]
+assert build_mix_w.ok else "calln mix welcome .rye build failed"
+let run_mix_w = run ["sh" "-c" "${mix_w_bin}; echo EXIT:$?"]
+assert run_mix_w.ok else "calln mix welcome binary failed to launch"
+assert run_mix_w.out contains "EXIT:0" else "calln mix welcome binary did not exit 0"
 
-say "GREEN: Glow `%*` call hop — named mix; welcome 0 / unwelcome 1; glow-language."
+let build_mix_u = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${mix_u_rye} -femit-bin=${mix_u_bin}"]
+assert build_mix_u.ok else "calln mix unwelcome .rye build failed"
+let run_mix_u = run ["sh" "-c" "${mix_u_bin}; echo EXIT:$?"]
+assert run_mix_u.out contains "EXIT:1" else "calln mix unwelcome binary did not exit 1"
+
+# -- sub welcome/unwelcome --
+let sub_w_rye = "glow/.cache/call_named_sub_welcome.rye"
+let sub_w_bin = "glow/bin/call_named_sub_welcome"
+let sub_u_rye = "glow/.cache/call_named_sub_unwelcome.rye"
+let sub_u_bin = "glow/bin/call_named_sub_unwelcome"
+
+let build_sub_w = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${sub_w_rye} -femit-bin=${sub_w_bin}"]
+assert build_sub_w.ok else "calln sub welcome .rye build failed"
+let run_sub_w = run ["sh" "-c" "${sub_w_bin}; echo EXIT:$?"]
+assert run_sub_w.ok else "calln sub welcome binary failed to launch"
+assert run_sub_w.out contains "EXIT:0" else "calln sub welcome binary did not exit 0"
+
+let build_sub_u = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${sub_u_rye} -femit-bin=${sub_u_bin}"]
+assert build_sub_u.ok else "calln sub unwelcome .rye build failed"
+let run_sub_u = run ["sh" "-c" "${sub_u_bin}; echo EXIT:$?"]
+assert run_sub_u.out contains "EXIT:1" else "calln sub unwelcome binary did not exit 1"
+
+# -- mul welcome/unwelcome --
+let mul_w_rye = "glow/.cache/call_named_mul_welcome.rye"
+let mul_w_bin = "glow/bin/call_named_mul_welcome"
+let mul_u_rye = "glow/.cache/call_named_mul_unwelcome.rye"
+let mul_u_bin = "glow/bin/call_named_mul_unwelcome"
+
+let build_mul_w = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${mul_w_rye} -femit-bin=${mul_w_bin}"]
+assert build_mul_w.ok else "calln mul welcome .rye build failed"
+let run_mul_w = run ["sh" "-c" "${mul_w_bin}; echo EXIT:$?"]
+assert run_mul_w.ok else "calln mul welcome binary failed to launch"
+assert run_mul_w.out contains "EXIT:0" else "calln mul welcome binary did not exit 0"
+
+let build_mul_u = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${mul_u_rye} -femit-bin=${mul_u_bin}"]
+assert build_mul_u.ok else "calln mul unwelcome .rye build failed"
+let run_mul_u = run ["sh" "-c" "${mul_u_bin}; echo EXIT:$?"]
+assert run_mul_u.out contains "EXIT:1" else "calln mul unwelcome binary did not exit 1"
+
+say "GREEN: Glow `%*` call hop -- named mix/sub/mul; welcome 0 / unwelcome 1; glow-language."

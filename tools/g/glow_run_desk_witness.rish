@@ -344,6 +344,16 @@ assert calln.ok else "glow_run call-named.glow failed"
 assert calln.out contains "GREEN" else "glow_run call-named.glow not GREEN"
 assert calln.out contains "call-named.glow" else "glow_run call-named claim missing path"
 
+let callnsub = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/c/call-named-sub.glow"]
+assert callnsub.ok else "glow_run call-named-sub.glow failed"
+assert callnsub.out contains "GREEN" else "glow_run call-named-sub.glow not GREEN"
+assert callnsub.out contains "call-named-sub.glow" else "glow_run call-named-sub claim missing path"
+
+let callnmul = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/c/call-named-mul.glow"]
+assert callnmul.ok else "glow_run call-named-mul.glow failed"
+assert callnmul.out contains "GREEN" else "glow_run call-named-mul.glow not GREEN"
+assert callnmul.out contains "call-named-mul.glow" else "glow_run call-named-mul claim missing path"
+
 let multi = run ["rishi/bin/rishi" "run" "tools/g/glow_run.rish" "glow/gen/m/multi-face.glow"]
 assert multi.ok else "glow_run multi-face.glow failed"
 assert multi.out contains "GREEN" else "glow_run multi-face.glow not GREEN"

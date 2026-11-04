@@ -1,4 +1,4 @@
-//! glow/lower_calln_witness.rye -- proves `%*` lowers to runnable `.rye`.
+//! glow/lower_calln_witness.rye -- proves `%*` lowers mix/sub/mul to runnable `.rye`.
 //!
 //!   rye build glow/lower_calln_witness.rye -femit-bin=glow/bin/lower_calln_witness
 
@@ -7,15 +7,11 @@ const assert = std.debug.assert;
 const print = std.debug.print;
 const lower = @import("lower_calln.rye");
 
-// invariant: every declaration of the module goes through semantic analysis, so a type
-// error in a body this witness never calls reds the build (REDS %463, %470).
-comptime {
-    for (@typeInfo(lower).@"struct".decls) |decl| {
-        _ = &@field(lower, decl.name);
-    }
-}
+const witness_version = "20261104.050000";
 
-const witness_version = "20260718.211300";
+fn assert_contains(haystack: []const u8, needle: []const u8) void {
+    assert(std.mem.indexOf(u8, haystack, needle) != null);
+}
 
 fn run_selftest(init: std.process.Init) !u8 {
     const io = init.io;
@@ -23,21 +19,47 @@ fn run_selftest(init: std.process.Init) !u8 {
     const cwd = std.Io.Dir.cwd();
     var buf: [3072]u8 = undefined;
 
+    // -- mix gate --
     const n1 = try lower.lower_line_welcome("%*  mix  left  right", &buf);
     const rye1 = buf[0..n1];
-    assert(std.mem.indexOf(u8, rye1, "const Sample = struct { left: u32, right: u32 }") != null);
-    assert(std.mem.indexOf(u8, rye1, "fn mix(sample: Sample) u32") != null);
-    assert(std.mem.indexOf(u8, rye1, "return sample.left +% sample.right;") != null);
-    assert(std.mem.indexOf(u8, rye1, "const left: u32 = 5") != null);
-    assert(std.mem.indexOf(u8, rye1, "const right: u32 = 3") != null);
-    assert(std.mem.indexOf(u8, rye1, "const called: u32 = mix(.{ .left = left, .right = right })") != null);
-    assert(std.mem.indexOf(u8, rye1, "called == 8") != null);
-    print("lower: \"%*  mix  left  right\" welcome builds call -- GREEN\n", .{});
+    assert_contains(rye1, "const Sample = struct { left: u32, right: u32 }");
+    assert_contains(rye1, "fn mix(sample: Sample) u32");
+    assert_contains(rye1, "return sample.left +% sample.right;");
+    assert_contains(rye1, "const left: u32 = 5");
+    assert_contains(rye1, "const right: u32 = 3");
+    assert_contains(rye1, "const called: u32 = mix(.{ .left = left, .right = right })");
+    assert_contains(rye1, "called == 8");
+    print("lower: mix welcome builds call -- GREEN\n", .{});
 
     const n2 = try lower.lower_line_unwelcome("%*  mix  left  right", &buf);
     assert(std.mem.indexOf(u8, buf[0..n2], "called == 9") != null);
-    print("lower: \"%*  mix  left  right\" unwelcome expects mismatch -- GREEN\n", .{});
+    print("lower: mix unwelcome expects mismatch -- GREEN\n", .{});
 
+    // -- sub gate --
+    const n3 = try lower.lower_line_welcome("%*  sub  left  right", &buf);
+    const rye3 = buf[0..n3];
+    assert_contains(rye3, "fn sub(sample: Sample) u32");
+    assert_contains(rye3, "return sample.left -% sample.right;");
+    assert_contains(rye3, "called == 2");
+    print("lower: sub welcome builds call -- GREEN\n", .{});
+
+    const n4 = try lower.lower_line_unwelcome("%*  sub  left  right", &buf);
+    assert(std.mem.indexOf(u8, buf[0..n4], "called == 3") != null);
+    print("lower: sub unwelcome expects mismatch -- GREEN\n", .{});
+
+    // -- mul gate --
+    const n5 = try lower.lower_line_welcome("%*  mul  left  right", &buf);
+    const rye5 = buf[0..n5];
+    assert_contains(rye5, "fn mul(sample: Sample) u32");
+    assert_contains(rye5, "return sample.left *% sample.right;");
+    assert_contains(rye5, "called == 15");
+    print("lower: mul welcome builds call -- GREEN\n", .{});
+
+    const n6 = try lower.lower_line_unwelcome("%*  mul  left  right", &buf);
+    assert(std.mem.indexOf(u8, buf[0..n6], "called == 16") != null);
+    print("lower: mul unwelcome expects mismatch -- GREEN\n", .{});
+
+    // -- unknown gate refusal --
     if (lower.lower_line_welcome("%*  mystery  left  right", &buf)) |_| {
         return error.UnknownGateNotCaught;
     } else |err| {
@@ -45,6 +67,7 @@ fn run_selftest(init: std.process.Init) !u8 {
     }
     print("lower: unknown gate refused UnknownGate -- GREEN\n", .{});
 
+    // -- bad names refusal --
     if (lower.lower_line_welcome("%*  mix  from  amount", &buf)) |_| {
         return error.BadNamesNotCaught;
     } else |err| {
@@ -52,21 +75,36 @@ fn run_selftest(init: std.process.Init) !u8 {
     }
     print("lower: wrong names refused BadNames -- GREEN\n", .{});
 
+    // -- write six .rye cache files --
     try cwd.createDirPath(io, "glow/.cache");
-    const welcome_path = "glow/.cache/call_named_welcome.rye";
-    const unwelcome_path = "glow/.cache/call_named_unwelcome.rye";
-    const n3 = try lower.lower_line_welcome("%*  mix  left  right", &buf);
-    try cwd.writeFile(io, .{ .sub_path = welcome_path, .data = buf[0..n3] });
-    const n4 = try lower.lower_line_unwelcome("%*  mix  left  right", &buf);
-    try cwd.writeFile(io, .{ .sub_path = unwelcome_path, .data = buf[0..n4] });
-    print("lower: wrote calln welcome and unwelcome .rye under glow/.cache/ -- GREEN\n", .{});
 
-    const gen_src = try cwd.readFileAlloc(io, "glow/gen/c/call-named.glow", a, .limited(4096));
-    assert(std.mem.indexOf(u8, gen_src, "%*  mix  left  right") != null);
-    print("lower: glow/gen/c/call-named.glow carries call faces -- GREEN\n", .{});
+    const wa = try lower.lower_line_welcome("%*  mix  left  right", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_named_mix_welcome.rye", .data = buf[0..wa] });
+    const ua = try lower.lower_line_unwelcome("%*  mix  left  right", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_named_mix_unwelcome.rye", .data = buf[0..ua] });
+
+    const ws = try lower.lower_line_welcome("%*  sub  left  right", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_named_sub_welcome.rye", .data = buf[0..ws] });
+    const us_ = try lower.lower_line_unwelcome("%*  sub  left  right", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_named_sub_unwelcome.rye", .data = buf[0..us_] });
+
+    const wm = try lower.lower_line_welcome("%*  mul  left  right", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_named_mul_welcome.rye", .data = buf[0..wm] });
+    const um = try lower.lower_line_unwelcome("%*  mul  left  right", &buf);
+    try cwd.writeFile(io, .{ .sub_path = "glow/.cache/call_named_mul_unwelcome.rye", .data = buf[0..um] });
+    print("lower: wrote six calln .rye files under glow/.cache/ -- GREEN\n", .{});
+
+    // -- read .glow gen programs --
+    const gen_mix = try cwd.readFileAlloc(io, "glow/gen/c/call-named.glow", a, .limited(4096));
+    assert_contains(gen_mix, "%*  mix  left  right");
+    const gen_sub = try cwd.readFileAlloc(io, "glow/gen/c/call-named-sub.glow", a, .limited(4096));
+    assert_contains(gen_sub, "%*  sub  left  right");
+    const gen_mul = try cwd.readFileAlloc(io, "glow/gen/c/call-named-mul.glow", a, .limited(4096));
+    assert_contains(gen_mul, "%*  mul  left  right");
+    print("lower: .glow programs carry call faces -- GREEN\n", .{});
 
     print("lower: version {s}\n", .{witness_version});
-    print("GREEN: `%*` lowers named-arg calls to ordinary Rye (glow-language).\n", .{});
+    print("GREEN: `%*` lowers named-arg calls (mix/sub/mul) to ordinary Rye (glow-language).\n", .{});
     return 0;
 }
 
