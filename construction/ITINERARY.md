@@ -148,8 +148,8 @@ The interface uses ASCII as structure, linen as material, and motion as a bounde
 Brushstroke declares each component's grid, role, state, tokens, and motion profile. Skate renders the fixed frame and bounded events. A correspondence witness forces meaning, description, and behavior to change together.
 
 ## Now -- the eight sailing ship itineraries
-**Git nib:** `08f03c0c2d`
-**Fascia:** `60.050` -- Orbits 7-20 landed (multi-arm cores, number arithmetic, value model, layout shapes, layout bridge, gate dispatch compose2, call2, call3, calln, call, compose, compose-jam-cue tidy, four-witness comptime tidy, and seven-witness comptime tidy with str_repeat quota fix), governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.001 per proven orbit (three decimal places from `20261104`), larger on Keaton's word.
+**Git nib:** `df57995f5b`
+**Fascia:** `60.051` -- Orbits 7-21 landed (multi-arm cores, number arithmetic, value model, layout shapes, layout bridge, gate dispatch compose2, call2, call3, calln, call, compose, compose-jam-cue tidy, four-witness comptime tidy, seven-witness comptime tidy with str_repeat quota fix, and twenty rune-witness comptime tidy), governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.001 per proven orbit (three decimal places from `20261104`), larger on Keaton's word.
 
 
 ### Incense -- product captain
