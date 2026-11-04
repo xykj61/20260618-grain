@@ -1,0 +1,51 @@
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+// Skate grid bounds -- the same constraints the Orbit 10 ceiling gates enforce in Glow.
+// invariant: these match the ceiling gates at src/gate/gate-layout-*-u32.glow
+pub const max_channel: u32 = 255;
+pub const max_col: u32 = 39;
+pub const max_row: u32 = 7;
+pub const max_width: u32 = 40;
+pub const max_height: u32 = 8;
+
+// The layout cell -- same struct the Glow lowering produces for +$ layout-cell-shape,
+// field for field, type for type, so Glow and Rye describe one record.
+pub const LayoutCell = struct {
+    red: u32 = 0,
+    green: u32 = 0,
+    blue: u32 = 0,
+    col: u32 = 0,
+    row: u32 = 0,
+    width: u32 = 0,
+    height: u32 = 0,
+};
+
+pub const ValidateResult = struct {
+    ok: bool,
+    reason: []const u8,
+};
+
+// Validate a layout cell against Skate grid bounds. Returns ok=true when every
+// field sits within the ceiling the Glow gates enforce.
+pub fn validate(cell: LayoutCell) ValidateResult {
+    if (cell.red > max_channel) return .{ .ok = false, .reason = "red exceeds 255" };
+    if (cell.green > max_channel) return .{ .ok = false, .reason = "green exceeds 255" };
+    if (cell.blue > max_channel) return .{ .ok = false, .reason = "blue exceeds 255" };
+    if (cell.col > max_col) return .{ .ok = false, .reason = "col exceeds 39" };
+    if (cell.row > max_row) return .{ .ok = false, .reason = "row exceeds 7" };
+    if (cell.width > max_width) return .{ .ok = false, .reason = "width exceeds 40" };
+    if (cell.height > max_height) return .{ .ok = false, .reason = "height exceeds 8" };
+    return .{ .ok = true, .reason = "" };
+}
+
+// Convert a validated layout cell's color channels to Skate's u8 Color.
+// Caller must validate first -- this asserts the bounds hold.
+pub fn to_skate_color(cell: LayoutCell) [3]u8 {
+    // invariant: each channel fits in u8
+    assert(cell.red <= max_channel);
+    assert(cell.green <= max_channel);
+    assert(cell.blue <= max_channel);
+    return .{ @intCast(cell.red), @intCast(cell.green), @intCast(cell.blue) };
+}

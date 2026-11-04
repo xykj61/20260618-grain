@@ -32,13 +32,13 @@ and nothing before a shipped product with real users earns it.**
 
 ## Increment discipline
 
-**0.01 per proven orbit.** Each orbit that lands with its SLC gate green adds 0.01 to the
+**0.001 per proven orbit.** Each orbit that lands with its SLC gate green adds 0.001 to the
 fascia number. A breakthrough orbit -- one that ships a real capability or closes a
-significant gap -- earns **0.1 or more on Keaton's word**. The metric stays conservative,
-and Keaton's hand stays on the dial.
+significant gap -- earns **0.01 or more on Keaton's word**. The metric stays conservative,
+and Keaton's hand stays on the dial. Three decimal places from `20261104` on Keaton's word.
 
-**Why 0.01 and not more.** A 15-orbit journey moves the needle 0.15. That is honest for
-a housekeeping journey. The distance from 60 to 70 is 1,000 proven orbits at the base
+**Why 0.001 and not more.** A 15-orbit journey moves the needle 0.015. That is honest for
+a housekeeping journey. The distance from 60 to 70 is 10,000 proven orbits at the base
 rate, which maps to the real distance between a clean tree and a shipped product. Larger
 jumps come from Keaton's word when the work earns them.
 

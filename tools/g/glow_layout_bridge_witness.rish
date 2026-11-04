@@ -1,0 +1,53 @@
+# tools/g/glow_layout_bridge_witness.rish -- Glow layout bridge, proven on both sides.
+#
+#   rishi/bin/rishi run tools/g/glow_layout_bridge_witness.rish
+#
+# The bridge module mirrors Glow's lowered layout-cell struct in Rye, adds Skate grid
+# bounds and a validate function. The consumer constructs valid and invalid cells and
+# asserts validate catches each violation. The Glow shapes must still lower and build.
+
+say "bridge: Language EN -- Glow layout bridge to Skate grid."
+say "bridge: Style Gauge, Meter -- each leg names its desk and its answer."
+say "bridge: Lens TAME -- both sides witnessed; shapes lower, bridge builds GREEN."
+
+let zig = "vendor/zig-toolchain/zig"
+
+say "bridge: lowering Glow shapes (prerequisite -- the bridge mirrors these types)..."
+let s1 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "glow/gen/l/layout-color.glow"]
+assert s1.ok else "bridge: layout-color.glow failed -- ${s1.err_brief}"
+assert s1.out contains "EXIT:0" else "bridge: layout-color did not exit 0"
+
+let s2 = run ["env" "RYE_ZIG=${zig}" "sh" "tools/g/glow_run_worker.sh" "glow/gen/l/layout-cell.glow"]
+assert s2.ok else "bridge: layout-cell.glow failed -- ${s2.err_brief}"
+assert s2.out contains "EXIT:0" else "bridge: layout-cell did not exit 0"
+
+say "bridge: building and running consumer (valid cells, invalid cells, boundary cells)..."
+let build = run ["sh" "tools/fixtures/r/rye_build.sh" "tools/rye/layout_bridge_consumer.rye"]
+assert build.ok else "bridge: consumer build failed -- ${build.err_brief}"
+
+say "bridge: checking struct parity -- lowered cell has 7 fields, bridge has 7 fields..."
+let lowered = run ["sh" "-c" "grep -c 'u32 = 0' glow/.cache/layout-cell.rye"]
+assert lowered.ok else "bridge: could not count lowered fields"
+assert lowered.out contains "7" else "bridge: lowered layout-cell must have 7 u32 fields"
+
+let authored = run ["sh" "-c" "grep -c 'u32 = 0' tools/rye/layout_bridge.rye"]
+assert authored.ok else "bridge: could not count bridge fields"
+assert authored.out contains "7" else "bridge: bridge LayoutCell must have 7 u32 fields"
+
+say "bridge: checking bound constants match ceiling gates..."
+let ch_bound = run ["sh" "-c" "grep 'max_channel.*=.*255' tools/rye/layout_bridge.rye"]
+assert ch_bound.ok else "bridge: max_channel must be 255"
+let col_bound = run ["sh" "-c" "grep 'max_col.*=.*39' tools/rye/layout_bridge.rye"]
+assert col_bound.ok else "bridge: max_col must be 39"
+let row_bound = run ["sh" "-c" "grep 'max_row.*=.*7' tools/rye/layout_bridge.rye"]
+assert row_bound.ok else "bridge: max_row must be 7"
+let w_bound = run ["sh" "-c" "grep 'max_width.*=.*40' tools/rye/layout_bridge.rye"]
+assert w_bound.ok else "bridge: max_width must be 40"
+let h_bound = run ["sh" "-c" "grep 'max_height.*=.*8' tools/rye/layout_bridge.rye"]
+assert h_bound.ok else "bridge: max_height must be 8"
+
+say "bridge: prior layout witness still GREEN..."
+let prior = run ["rishi/bin/rishi" "run" "tools/g/glow_layout_witness.rish"]
+assert prior.ok else "bridge: layout witness regressed -- ${prior.err_brief}"
+
+say "GREEN: bridge -- Glow shapes lower, Rye bridge builds, consumer validates both sides."

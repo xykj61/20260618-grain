@@ -1,0 +1,76 @@
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+const bridge = @import("layout_bridge.rye");
+const LayoutCell = bridge.LayoutCell;
+
+pub fn main(_: std.process.Init) !u8 {
+    // Valid cell -- sits within every Skate bound
+    const valid = LayoutCell{
+        .red = 128,
+        .green = 255,
+        .blue = 0,
+        .col = 10,
+        .row = 3,
+        .width = 5,
+        .height = 2,
+    };
+    const vr = bridge.validate(valid);
+    // invariant: a cell within bounds validates ok
+    assert(vr.ok);
+
+    // Color conversion -- u32 channels become u8 triple
+    const rgb = bridge.to_skate_color(valid);
+    // invariant: channel values survive the cast
+    assert(rgb[0] == 128);
+    assert(rgb[1] == 255);
+    assert(rgb[2] == 0);
+
+    // Invalid cell -- red channel exceeds 255
+    const bad_color = LayoutCell{ .red = 256 };
+    const bc = bridge.validate(bad_color);
+    // invariant: over-ceiling channel is caught
+    assert(!bc.ok);
+
+    // Invalid cell -- col exceeds 39
+    const bad_col = LayoutCell{ .col = 40 };
+    const cc = bridge.validate(bad_col);
+    // invariant: over-ceiling col is caught
+    assert(!cc.ok);
+
+    // Invalid cell -- row exceeds 7
+    const bad_row = LayoutCell{ .row = 8 };
+    const rc = bridge.validate(bad_row);
+    // invariant: over-ceiling row is caught
+    assert(!rc.ok);
+
+    // Invalid cell -- width exceeds 40
+    const bad_width = LayoutCell{ .width = 41 };
+    const wc = bridge.validate(bad_width);
+    // invariant: over-ceiling width is caught
+    assert(!wc.ok);
+
+    // Invalid cell -- height exceeds 8
+    const bad_height = LayoutCell{ .height = 9 };
+    const hc = bridge.validate(bad_height);
+    // invariant: over-ceiling height is caught
+    assert(!hc.ok);
+
+    // Boundary cells -- exactly at the ceiling, valid
+    const edge = LayoutCell{
+        .red = 255,
+        .green = 255,
+        .blue = 255,
+        .col = 39,
+        .row = 7,
+        .width = 40,
+        .height = 8,
+    };
+    const er = bridge.validate(edge);
+    // invariant: ceiling values are valid, not off-by-one
+    assert(er.ok);
+
+    print("layout_bridge_consumer: 8 of 8 assertions passed\n", .{});
+    return 0;
+}
