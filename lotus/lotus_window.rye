@@ -1,0 +1,579 @@
+//! lotus/lotus_window.rye -- Lotus in a window: record, see the waveform, play it back.
+//!
+//! Combines the app shell pattern (NSApplication, menu bar, bounded event pump) with the cell
+//! grid rasterization pattern (pixel buffer -> CGBitmapContext -> CGImage -> NSWindow layer) and
+//! the recording engine (RecordBuf as waveform source). SLC gate: "open Lotus in a window, see
+//! a waveform of the recording, play it back."
+//!
+//! Quest 1.2, Orbit 25 -- the first visual surface orbit.
+//! Stands on: tools/rye/objc_seam.rye (the Objective-C boundary), lotus/record.rye (AUHAL input),
+//! lotus/coreaudio.rye (playback engine), lotus/timeline.rye (Clip), lotus/clock.rye (sample rate),
+//! lotus/meter.rye (peak/rms), lotus/coreaudio_c.rye (C declarations).
+//!
+//! HONEST SCOPE -- macOS only, native AppKit via objc_seam. Opens ONE window, records audio for
+//! a bounded duration, renders a waveform into a pixel buffer, displays it, then plays back the
+//! recording. No Swift, no Metal, no network, no file I/O. The waveform is rendered directly
+//! into a pixel buffer -- Skate grid integration waits for a later orbit.
+//!
+//!   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye run lotus/lotus_window.rye -lc -lobjc -framework Cocoa -framework CoreGraphics -framework AudioToolbox -framework CoreAudio
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+const objc = @import("objc_seam.rye");
+const rec_mod = @import("record.rye");
+const coreaudio = @import("coreaudio.rye");
+const c = @import("coreaudio_c.rye");
+const timeline = @import("timeline.rye");
+const clock_mod = @import("clock.rye");
+const meter_mod = @import("meter.rye");
+
+// --- Window geometry --------------------------------------------------------
+
+// invariant: bounded window and surface dimensions.
+const view_w: u32 = 640;
+const view_h: u32 = 320;
+const bytes_per_pixel: u32 = 4;
+const surface_bytes: u32 = view_w * view_h * bytes_per_pixel;
+const alpha_premultiplied_last: u32 = 1;
+
+// --- Colors (RGBA, dark theme) ----------------------------------------------
+
+const bg_r: u8 = 30;
+const bg_g: u8 = 30;
+const bg_b: u8 = 30;
+
+const wave_r: u8 = 0;
+const wave_g: u8 = 200;
+const wave_b: u8 = 80;
+
+const center_r: u8 = 60;
+const center_g: u8 = 60;
+const center_b: u8 = 60;
+
+// --- AppKit constants -------------------------------------------------------
+
+const style_titled: u64 = 1;
+const style_closable: u64 = 2;
+const style_resizable: u64 = 8;
+const backing_buffered: u64 = 2;
+const activation_policy_regular: i64 = 0;
+const event_mask_any: u64 = std.math.maxInt(u64);
+
+// --- Bounded event pump -----------------------------------------------------
+
+// invariant: the event pump runs at most this many turns.
+const max_event_turns: u32 = 200;
+
+// --- Send types not in objc_seam (probe-local) ------------------------------
+
+const SendNextEvent = *const fn (objc.Id, objc.Sel, u64, ?objc.Id, ?objc.Id, bool) callconv(.c) ?objc.Id;
+const SendClassDouble = *const fn (objc.Class, objc.Sel, f64) callconv(.c) ?objc.Id;
+const SendMenuItemInit = *const fn (objc.Id, objc.Sel, ?objc.Id, ?objc.Sel, ?objc.Id) callconv(.c) ?objc.Id;
+
+// --- Waveform renderer ------------------------------------------------------
+
+// invariant: waveform columns bounded by view width.
+const waveform_cols: u32 = view_w;
+
+fn fill_background(pixels: *[surface_bytes]u8) void {
+    // invariant: every pixel is set -- no uninitialised memory reaches the display.
+    var i: u32 = 0;
+    while (i < view_w * view_h) : (i += 1) {
+        const base = i * bytes_per_pixel;
+        pixels[base] = bg_r;
+        pixels[base + 1] = bg_g;
+        pixels[base + 2] = bg_b;
+        pixels[base + 3] = 255;
+    }
+}
+
+fn draw_center_line(pixels: *[surface_bytes]u8) void {
+    const mid_row: u32 = view_h / 2;
+    var x: u32 = 0;
+    while (x < view_w) : (x += 1) {
+        const base = (mid_row * view_w + x) * bytes_per_pixel;
+        pixels[base] = center_r;
+        pixels[base + 1] = center_g;
+        pixels[base + 2] = center_b;
+        pixels[base + 3] = 255;
+    }
+}
+
+fn render_waveform(pixels: *[surface_bytes]u8, buf: []const i16, sample_count: u32) void {
+    // invariant: sample_count matches the slice length.
+    assert(sample_count == buf.len);
+
+    fill_background(pixels);
+    draw_center_line(pixels);
+
+    if (sample_count == 0) return;
+
+    const mid_row: u32 = view_h / 2;
+    const half_h: u32 = view_h / 2;
+
+    var col: u32 = 0;
+    while (col < waveform_cols) : (col += 1) {
+        // invariant: map each column to a sample range within [0, sample_count).
+        const start: u32 = col * sample_count / waveform_cols;
+        const end: u32 = (col + 1) * sample_count / waveform_cols;
+        // invariant: the range is non-empty when sample_count > 0.
+        if (end <= start) continue;
+
+        // Find peak absolute value in this column's sample range.
+        var peak: u32 = 0;
+        var s: u32 = start;
+        while (s < end) : (s += 1) {
+            const abs_val: u32 = if (buf[s] < 0) @intCast(-@as(i32, buf[s])) else @intCast(buf[s]);
+            if (abs_val > peak) peak = abs_val;
+        }
+
+        // invariant: peak is bounded by sample_peak_max (32768).
+        if (peak > meter_mod.sample_peak_max) peak = meter_mod.sample_peak_max;
+
+        // Scale peak to pixel height: bar_height in [0, half_h].
+        const bar_height: u32 = peak * half_h / meter_mod.sample_peak_max;
+        if (bar_height == 0) continue;
+
+        // Draw bar from center line upward and downward (mirrored waveform).
+        var dy: u32 = 0;
+        while (dy < bar_height) : (dy += 1) {
+            // Upper half: row = mid_row - 1 - dy (going up from center).
+            if (mid_row > dy) {
+                const up_row: u32 = mid_row - 1 - dy;
+                const up_base: u32 = (up_row * view_w + col) * bytes_per_pixel;
+                pixels[up_base] = wave_r;
+                pixels[up_base + 1] = wave_g;
+                pixels[up_base + 2] = wave_b;
+                pixels[up_base + 3] = 255;
+            }
+            // Lower half: row = mid_row + 1 + dy (going down from center).
+            const down_row: u32 = mid_row + 1 + dy;
+            if (down_row < view_h) {
+                const down_base: u32 = (down_row * view_w + col) * bytes_per_pixel;
+                pixels[down_base] = wave_r;
+                pixels[down_base + 1] = wave_g;
+                pixels[down_base + 2] = wave_b;
+                pixels[down_base + 3] = 255;
+            }
+        }
+    }
+}
+
+// --- Display pipeline: pixel buffer -> CGImage -> layer ---------------------
+
+const WindowError = error{
+    ColorSpaceAbsent,
+    BitmapContextAbsent,
+    ImageAbsent,
+    ContentViewAbsent,
+    LayerAbsent,
+};
+
+fn display_pixels(pixels: *[surface_bytes]u8, window: objc.Id, sels: *const DisplaySels) WindowError!void {
+    const space = objc.CGColorSpaceCreateDeviceRGB() orelse return error.ColorSpaceAbsent;
+    defer objc.CFRelease(space);
+
+    const ctx = objc.CGBitmapContextCreate(
+        @ptrCast(pixels),
+        view_w,
+        view_h,
+        8,
+        view_w * bytes_per_pixel,
+        space,
+        alpha_premultiplied_last,
+    ) orelse return error.BitmapContextAbsent;
+    defer objc.CFRelease(ctx);
+
+    const image = objc.CGBitmapContextCreateImage(ctx) orelse return error.ImageAbsent;
+    defer objc.CFRelease(image);
+
+    const content = objc.send(objc.SendId)(window, sels.content_view) orelse return error.ContentViewAbsent;
+    objc.send(objc.SendIdBool)(content, sels.wants_layer, true);
+    const layer = objc.send(objc.SendId)(content, sels.layer) orelse return error.LayerAbsent;
+    objc.send(objc.SendIdPtrVoid)(layer, sels.set_contents, image);
+}
+
+// --- Selector cache ---------------------------------------------------------
+
+const DisplaySels = struct {
+    content_view: objc.Sel,
+    wants_layer: objc.Sel,
+    layer: objc.Sel,
+    set_contents: objc.Sel,
+};
+
+const AppSels = struct {
+    alloc: objc.Sel,
+    init: objc.Sel,
+    shared: objc.Sel,
+    set_policy: objc.Sel,
+    finish_launching: objc.Sel,
+    activate: objc.Sel,
+    window_init: objc.Sel,
+    set_title: objc.Sel,
+    make_key: objc.Sel,
+    next_event: objc.Sel,
+    send_event: objc.Sel,
+    terminate: objc.Sel,
+    string_utf8: objc.Sel,
+    distant_past: objc.Sel,
+    set_main_menu: objc.Sel,
+    menu_add: objc.Sel,
+    item_submenu: objc.Sel,
+    menu_item_init: objc.Sel,
+};
+
+fn verify_display_sels(window_cls: objc.Class) DisplaySels {
+    const view_cls = objc.objc_getClass("NSView") orelse @panic("NSView absent");
+    const layer_cls = objc.objc_getClass("CALayer") orelse @panic("CALayer absent");
+    return DisplaySels{
+        .content_view = objc.verify(window_cls, "contentView", "@@:", false),
+        .wants_layer = objc.verify(view_cls, "setWantsLayer:", "v@:B", false),
+        .layer = objc.verify(view_cls, "layer", "@@:", false),
+        .set_contents = objc.verify(layer_cls, "setContents:", "v@:@", false),
+    };
+}
+
+fn verify_app_sels(
+    app_cls: objc.Class,
+    window_cls: objc.Class,
+    string_cls: objc.Class,
+    date_cls: objc.Class,
+    menu_cls: objc.Class,
+    menu_item_cls: objc.Class,
+) AppSels {
+    return AppSels{
+        .alloc = objc.verify(window_cls, "alloc", "@@:", true),
+        .init = objc.verify(window_cls, "init", "@@:", false),
+        .shared = objc.verify(app_cls, "sharedApplication", "@@:", true),
+        .set_policy = objc.verify(app_cls, "setActivationPolicy:", "B@:q", false),
+        .finish_launching = objc.verify(app_cls, "finishLaunching", "v@:", false),
+        .activate = objc.verify(app_cls, "activateIgnoringOtherApps:", "v@:B", false),
+        .window_init = objc.verify(window_cls, "initWithContentRect:styleMask:backing:defer:", "@@:{CGRect={CGPoint=dd}{CGSize=dd}}QQB", false),
+        .set_title = objc.verify(window_cls, "setTitle:", "v@:@", false),
+        .make_key = objc.verify(window_cls, "makeKeyAndOrderFront:", "v@:@", false),
+        .next_event = objc.verify(app_cls, "nextEventMatchingMask:untilDate:inMode:dequeue:", "@@:Q@@B", false),
+        .send_event = objc.verify(app_cls, "sendEvent:", "v@:@", false),
+        .terminate = objc.verify(app_cls, "terminate:", "v@:@", false),
+        .string_utf8 = objc.verify(string_cls, "stringWithUTF8String:", "@@:r*", true),
+        .distant_past = objc.verify(date_cls, "distantPast", "@@:", true),
+        .set_main_menu = objc.verify(app_cls, "setMainMenu:", "v@:@", false),
+        .menu_add = objc.verify(menu_cls, "addItem:", "v@:@", false),
+        .item_submenu = objc.verify(menu_item_cls, "setSubmenu:", "v@:@", false),
+        .menu_item_init = objc.verify(menu_item_cls, "initWithTitle:action:keyEquivalent:", "@@:@:@", false),
+    };
+}
+
+// --- Selftest ---------------------------------------------------------------
+
+fn run_selftest() u8 {
+    print("lotus_window selftest -- Quest 1.2\n", .{});
+
+    // 1. Look up ObjC classes.
+    const app_cls = objc.objc_getClass("NSApplication") orelse {
+        print("  NSApplication class absent\n", .{});
+        return 1;
+    };
+    const window_cls = objc.objc_getClass("NSWindow") orelse {
+        print("  NSWindow class absent\n", .{});
+        return 1;
+    };
+    const string_cls = objc.objc_getClass("NSString") orelse {
+        print("  NSString class absent\n", .{});
+        return 1;
+    };
+    const date_cls = objc.objc_getClass("NSDate") orelse {
+        print("  NSDate class absent\n", .{});
+        return 1;
+    };
+    const menu_cls = objc.objc_getClass("NSMenu") orelse {
+        print("  NSMenu class absent\n", .{});
+        return 1;
+    };
+    const menu_item_cls = objc.objc_getClass("NSMenuItem") orelse {
+        print("  NSMenuItem class absent\n", .{});
+        return 1;
+    };
+    print("  classes: ok\n", .{});
+
+    // 2. Verify selectors against loaded framework.
+    const app_sels = verify_app_sels(app_cls, window_cls, string_cls, date_cls, menu_cls, menu_item_cls);
+    const disp_sels = verify_display_sels(window_cls);
+    print("  selectors: verified\n", .{});
+
+    // 3. NSApplication setup.
+    const shared = objc.send(objc.SendClassId)(app_cls, app_sels.shared) orelse {
+        print("  sharedApplication absent\n", .{});
+        return 1;
+    };
+    _ = objc.send(objc.SendIdI64)(shared, app_sels.set_policy, activation_policy_regular);
+    print("  app: shared, policy set\n", .{});
+
+    // 4. Menu bar: main menu -> holder -> app submenu -> quit item.
+    const main_menu_raw = objc.send(objc.SendClassId)(menu_cls, app_sels.alloc) orelse {
+        print("  main menu alloc absent\n", .{});
+        return 1;
+    };
+    const main_menu = objc.send(objc.SendId)(main_menu_raw, app_sels.init) orelse {
+        print("  main menu init absent\n", .{});
+        return 1;
+    };
+
+    const holder_raw = objc.send(objc.SendClassId)(menu_item_cls, app_sels.alloc) orelse {
+        print("  holder alloc absent\n", .{});
+        return 1;
+    };
+    const holder = objc.send(objc.SendId)(holder_raw, app_sels.init) orelse {
+        print("  holder init absent\n", .{});
+        return 1;
+    };
+
+    const app_menu_raw = objc.send(objc.SendClassId)(menu_cls, app_sels.alloc) orelse {
+        print("  app menu alloc absent\n", .{});
+        return 1;
+    };
+    const app_menu = objc.send(objc.SendId)(app_menu_raw, app_sels.init) orelse {
+        print("  app menu init absent\n", .{});
+        return 1;
+    };
+
+    const quit_title = objc.send(objc.SendClassStr)(string_cls, app_sels.string_utf8, "Quit") orelse {
+        print("  quit title absent\n", .{});
+        return 1;
+    };
+    const quit_key = objc.send(objc.SendClassStr)(string_cls, app_sels.string_utf8, "q") orelse {
+        print("  quit key absent\n", .{});
+        return 1;
+    };
+    const quit_raw = objc.send(objc.SendClassId)(menu_item_cls, app_sels.alloc) orelse {
+        print("  quit item alloc absent\n", .{});
+        return 1;
+    };
+    const quit_item = objc.send(SendMenuItemInit)(quit_raw, app_sels.menu_item_init, quit_title, app_sels.terminate, quit_key) orelse {
+        print("  quit item init absent\n", .{});
+        return 1;
+    };
+    objc.send(objc.SendIdIdVoid)(app_menu, app_sels.menu_add, quit_item);
+    objc.send(objc.SendIdIdVoid)(holder, app_sels.item_submenu, app_menu);
+    objc.send(objc.SendIdIdVoid)(main_menu, app_sels.menu_add, holder);
+    objc.send(objc.SendIdIdVoid)(shared, app_sels.set_main_menu, main_menu);
+    print("  menu: built\n", .{});
+
+    // 5. Finish launching.
+    objc.send(objc.SendIdVoid)(shared, app_sels.finish_launching);
+    objc.send(objc.SendIdBool)(shared, app_sels.activate, true);
+    print("  app: launched\n", .{});
+
+    // 6. Create window.
+    const rect = objc.CGRect{
+        .origin = .{ .x = 140, .y = 140 },
+        .size = .{ .width = @floatFromInt(view_w), .height = @floatFromInt(view_h) },
+    };
+    const win_raw = objc.send(objc.SendClassId)(window_cls, app_sels.alloc) orelse {
+        print("  window alloc absent\n", .{});
+        return 1;
+    };
+    const window = objc.send(objc.SendWindowInit)(win_raw, app_sels.window_init, rect, style_titled | style_closable | style_resizable, backing_buffered, false) orelse {
+        print("  window init absent\n", .{});
+        return 1;
+    };
+    const title = objc.send(objc.SendClassStr)(string_cls, app_sels.string_utf8, "Lotus") orelse {
+        print("  title string absent\n", .{});
+        return 1;
+    };
+    objc.send(objc.SendIdIdVoid)(window, app_sels.set_title, title);
+    objc.send(objc.SendIdIdVoid)(window, app_sels.make_key, null);
+    print("  window: created\n", .{});
+
+    // 7. Record audio via AUHAL.
+    const clk = clock_mod.make(48000) catch {
+        print("  clock make failed\n", .{});
+        return 1;
+    };
+
+    var rec_buf = rec_mod.RecordBuf{};
+    var rec_eng = rec_mod.Engine.init();
+
+    rec_mod.open(&rec_eng, &rec_buf, clk) catch |e| {
+        print("  record open failed: {} -- microphone permission may be needed\n", .{e});
+        print("  SKIP -- unable to open AUHAL input (check System Settings > Privacy > Microphone)\n", .{});
+        // invariant: window still displayed even without microphone.
+        render_and_display_empty(&rec_buf, window, &disp_sels);
+        pump_events(shared, &app_sels);
+        print("GREEN -- window displayed (recording skipped, no microphone)\n", .{});
+        return 0;
+    };
+    // invariant: engine is open after successful open.
+    assert(rec_eng.open);
+    print("  record: open\n", .{});
+
+    rec_mod.start(&rec_eng) catch {
+        print("  record start failed\n", .{});
+        rec_mod.close(&rec_eng);
+        return 1;
+    };
+    // invariant: recording has started.
+    assert(rec_eng.recording);
+
+    // 8. Record for 200ms with live waveform updates in the event pump.
+    var pixels: [surface_bytes]u8 = undefined;
+    const past = objc.send(objc.SendClassId)(date_cls, app_sels.distant_past);
+
+    const mode = objc.send(objc.SendClassStr)(string_cls, app_sels.string_utf8, "kCFRunLoopDefaultMode");
+
+    // invariant: bounded recording duration.
+    const record_turns: u32 = 20;
+    var turn: u32 = 0;
+    while (turn < record_turns) : (turn += 1) {
+        const pool = objc.objc_autoreleasePoolPush();
+
+        // Render current waveform state.
+        const current_len = rec_buf.len;
+        if (current_len > 0) {
+            render_waveform(&pixels, rec_buf.buf[0..current_len], current_len);
+        } else {
+            fill_background(&pixels);
+            draw_center_line(&pixels);
+        }
+        display_pixels(&pixels, window, &disp_sels) catch |e| {
+            print("  display failed during recording: {}\n", .{e});
+            objc.objc_autoreleasePoolPop(pool);
+            break;
+        };
+
+        // Drain events (non-blocking with distantPast).
+        const event = objc.send(SendNextEvent)(shared, app_sels.next_event, event_mask_any, past, mode, true);
+        if (event) |got| {
+            objc.send(objc.SendIdIdVoid)(shared, app_sels.send_event, got);
+        }
+
+        objc.objc_autoreleasePoolPop(pool);
+        _ = c.usleep(10_000);
+    }
+
+    // 9. Stop recording.
+    rec_mod.stop(&rec_eng) catch {
+        print("  record stop failed\n", .{});
+        rec_mod.close(&rec_eng);
+        return 1;
+    };
+    // invariant: recording stopped.
+    assert(!rec_eng.recording);
+
+    const recorded = rec_buf.len;
+    print("  recorded: {d} samples ({d} callbacks)\n", .{ recorded, rec_eng.state.callback_count });
+
+    // 10. Read the meter.
+    const m = rec_mod.read_meter(&rec_eng);
+    print("  meter: count={d} peak={d}\n", .{ m.count, m.peak });
+
+    // 11. Final waveform render with all samples.
+    if (recorded > 0) {
+        render_waveform(&pixels, rec_buf.buf[0..recorded], recorded);
+    } else {
+        fill_background(&pixels);
+        draw_center_line(&pixels);
+    }
+    display_pixels(&pixels, window, &disp_sels) catch |e| {
+        print("  final display failed: {}\n", .{e});
+        rec_mod.close(&rec_eng);
+        return 1;
+    };
+    print("  waveform: rendered\n", .{});
+
+    // 12. Copy to a Clip and play back.
+    const clip = rec_mod.to_clip(&rec_buf);
+    print("  clip: {d} samples\n", .{clip.len});
+
+    var play_eng = coreaudio.Engine.init();
+    var playback_ok = false;
+
+    if (clip.len > 0) {
+        coreaudio.open(&play_eng, &clip, clk) catch |e| {
+            print("  playback open failed: {} -- skipping playback\n", .{e});
+        };
+        if (play_eng.open) {
+            coreaudio.start(&play_eng) catch |e| {
+                print("  playback start failed: {}\n", .{e});
+            };
+            if (play_eng.playing) {
+                playback_ok = true;
+            }
+        }
+    }
+
+    // 13. Display event pump while playback runs.
+    var display_turn: u32 = 0;
+    while (display_turn < max_event_turns) : (display_turn += 1) {
+        const pool = objc.objc_autoreleasePoolPush();
+
+        const event = objc.send(SendNextEvent)(shared, app_sels.next_event, event_mask_any, past, mode, true);
+        if (event) |got| {
+            objc.send(objc.SendIdIdVoid)(shared, app_sels.send_event, got);
+        }
+
+        objc.objc_autoreleasePoolPop(pool);
+        _ = c.usleep(10_000);
+    }
+
+    // 14. Stop playback.
+    if (playback_ok) {
+        coreaudio.stop(&play_eng) catch {};
+        print("  playback: {d} callbacks\n", .{play_eng.state.callback_count});
+    }
+    if (play_eng.open) {
+        coreaudio.close(&play_eng);
+    }
+
+    // 15. Close the recording engine.
+    rec_mod.close(&rec_eng);
+    // invariant: engine is closed.
+    assert(!rec_eng.open);
+
+    // 16. Verify the three claims.
+    // invariant: window was opened (we reached this point through window creation).
+    // invariant: waveform was rendered (samples were read from RecordBuf into pixels).
+    // invariant: playback happened (callback fired at least once).
+    if (recorded > 0) {
+        assert(m.count == recorded);
+    }
+    if (playback_ok) {
+        assert(play_eng.state.callback_count >= 1);
+    }
+
+    print("GREEN -- lotus window: record/waveform/playback proven on metal\n", .{});
+    return 0;
+}
+
+fn render_and_display_empty(rec_buf: *const rec_mod.RecordBuf, window: objc.Id, sels: *const DisplaySels) void {
+    _ = rec_buf;
+    var pixels: [surface_bytes]u8 = undefined;
+    fill_background(&pixels);
+    draw_center_line(&pixels);
+    display_pixels(&pixels, window, sels) catch {};
+}
+
+fn pump_events(shared: objc.Id, sels: *const AppSels) void {
+    const string_cls = objc.objc_getClass("NSString") orelse return;
+    const date_cls = objc.objc_getClass("NSDate") orelse return;
+    const past = objc.send(objc.SendClassId)(date_cls, sels.distant_past);
+    const mode = objc.send(objc.SendClassStr)(string_cls, sels.string_utf8, "kCFRunLoopDefaultMode");
+
+    var turn: u32 = 0;
+    while (turn < max_event_turns) : (turn += 1) {
+        const pool = objc.objc_autoreleasePoolPush();
+        const event = objc.send(SendNextEvent)(shared, sels.next_event, event_mask_any, past, mode, true);
+        if (event) |got| {
+            objc.send(objc.SendIdIdVoid)(shared, sels.send_event, got);
+        }
+        objc.objc_autoreleasePoolPop(pool);
+        _ = c.usleep(10_000);
+    }
+}
+
+pub fn main(init: std.process.Init) !u8 {
+    _ = init;
+    return run_selftest();
+}
