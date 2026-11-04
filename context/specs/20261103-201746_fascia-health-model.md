@@ -17,9 +17,9 @@ score from four signals: orphan files, ratchet counts, class-A hits, and over-70
 That instrument stays as one input into the reading. **The number on the door is Keaton's
 word**, governed by this model rather than derived from a formula.
 
-## The decade model
+## The grade model
 
-The tree is pre-alpha. The entire 60s decade is the pre-ship era. **70 is the far door,
+The tree is pre-alpha. The entire 60s range is the pre-ship era. **70 is the far door,
 and nothing before a shipped product with real users earns it.**
 
 | Fascia | What earns it |

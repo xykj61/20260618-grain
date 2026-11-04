@@ -1,5 +1,10 @@
 # Checkpoints -- the walk-back markers before every debride
 
+**Checkpoint `20261103.202637` -- Orbits 4-5: waymark retirement deep debride.**
+- **Walk-back nib:** `df413e111b` -- `git show df413e111b` restores the tree before the waymark sweep, shed, and history rewrite.
+- **Swept:** all bare waymark names (lotus-audio, glow-language, pixel-glass, etc.) and ascending-number patterns (lotus-audio, glow-language, etc.) from living files. Warm descriptive strings replace them. `waymark-ladders.md` molted. `waymark-registry.kyri` retired to archive. Class O orphans (1,165 across 10 rooms) and Class H/M fossils (9) shed. Deep debride rewrites entire git history and re-signs every commit.
+- **What waits there, worth recalling:** the waymark system's full sealed registry, the derivation ceremony, the four-letter SHA3-drawn names, and the ascending-number scheme -- all serving the tree faithfully from `20260716` through `20261103`. The warm descriptive strings that replace them are a simplification, not a correction: what was there worked, and what replaces it works with less.
+
 **Checkpoint `20261101.142320` -- stack molt-breach of the operator card.**
 - **Walk-back nib:** `ac19440927` -- `git show ac19440927:construction/ITINERARY.md` restores the pre-consolidation card.
 - **Swept:** over forty shelved-account pointer blocks (lines 46-241) consolidated to a single summary paragraph. Open YOURS questions from Copal, Bakery, Patchouli, and the pier-filled account lifted to Open Doors. Module road expanded with Terrarium and Steward. Stack vision referenced.
