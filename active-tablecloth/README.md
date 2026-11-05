@@ -6,8 +6,8 @@
 **Status:** Living
 **Room:** Checkable
 
-Tablecloth is the Brix-facing application database and artifact store. In this tree it also
-holds **project boards** -- self-contained task management, checklist, and progress tracking
+Project boards for living work -- decoupled from `tablecloth/` (the Brix database module) on
+Keaton's word `20261105`. Self-contained task management, checklist, and progress tracking
 folders for each active equinox or initiative. Inspired by `construction/` (the work-in-progress
 stack), each board carries everything a new session needs to pick up the work cold: a checklist,
 a progress log, scoping documents, and links back to the design and the ITINERARY.

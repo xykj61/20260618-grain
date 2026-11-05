@@ -4,7 +4,7 @@
 **Stamp:** `20261105.014745`
 **Room:** checkable
 **Style:** Gauge at Field
-**Grows from:** Terrarium boot journey (`tablecloth/20261104-161857_terrarium-boot-journey/CHECKLIST.md`), 25 orbits landed on freestanding RV32I
+**Grows from:** Terrarium boot journey (`active-tablecloth/20261104-161857_terrarium-boot-journey/CHECKLIST.md`), 25 orbits landed on freestanding RV32I
 
 ## What stands
 

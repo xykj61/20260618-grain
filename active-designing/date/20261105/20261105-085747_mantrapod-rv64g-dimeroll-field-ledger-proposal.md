@@ -185,7 +185,7 @@ whole (Gall's Law). Act II extends it with a real application (the finishing edg
 Act III brings it to real silicon (the Long Return -- work that reads true on the far
 side of the years).
 
-The full checklist lives at `tablecloth/20261105-085747_mantrapod-rv64g-journey/CHECKLIST.md`.
+The full checklist lives at `active-tablecloth/20261105-085747_mantrapod-rv64g-journey/CHECKLIST.md`.
 
 ## VI. What does not move
 

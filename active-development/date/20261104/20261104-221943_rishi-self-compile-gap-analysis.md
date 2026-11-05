@@ -142,4 +142,4 @@ the rebuild. The rest of Rishi arrives with Caravan in Quest 1.5.
 
 ---
 
-Related: `tablecloth/20261104-161857_terrarium-boot-journey/CHECKLIST.md` Orbit 14
+Related: `active-tablecloth/20261104-161857_terrarium-boot-journey/CHECKLIST.md` Orbit 14

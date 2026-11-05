@@ -4,7 +4,7 @@
 **Room:** active-development (scopes a round; would not outlive the code)
 **Stamp:** `20261104.192809`
 **Journey:** Terrarium boot journey, Orbit 4
-**Board:** `tablecloth/20261104-161857_terrarium-boot-journey/CHECKLIST.md`
+**Board:** `active-tablecloth/20261104-161857_terrarium-boot-journey/CHECKLIST.md`
 
 This survey names every gap between the current hosted codebase and a
 freestanding RV32I target (`riscv32-freestanding-none`). Each module
