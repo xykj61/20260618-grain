@@ -29,4 +29,5 @@ what is next, and works from there.
 |---|---|---|
 | [`20261103-005948_lotus-working-studio/`](20261103-005948_lotus-working-studio/README.md) | Lotus DAW Equinox 1 -- The Working Studio | Active |
 | [`20261103-184811_glow-language-journey/`](20261103-184811_glow-language-journey/README.md) | Glow Language Journey -- Clean Foundations, Living Stdlib, Ready for Lotus | Complete |
-| [`20261104-161857_terrarium-boot-journey/`](20261104-161857_terrarium-boot-journey/README.md) | Terrarium Boot Journey -- From a Cold Hart to a Living World Under Glass | Active |
+| [`20261104-161857_terrarium-boot-journey/`](20261104-161857_terrarium-boot-journey/README.md) | Terrarium Boot Journey -- From a Cold Hart to a Living World Under Glass | Complete |
+| [`20261105-085747_mantrapod-rv64g-journey/`](20261105-085747_mantrapod-rv64g-journey/README.md) | Mantrapod RV64G Journey -- From a Working Hart to a Living Server | Active |
