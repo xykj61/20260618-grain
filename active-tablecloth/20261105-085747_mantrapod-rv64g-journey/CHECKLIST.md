@@ -44,10 +44,14 @@ unchanged in what it does, wider in how it addresses.*
   **Witness:** `terrarium/tally64_witness.rish` -- build, ceiling refusal, ELF.
   **GREEN on metal.**
 
-- [ ] **Orbit 4 -- Aurora and Mantra on RV64I**
-  Aurora draws to the framebuffer, Mantra appends and replays facts, both on the
-  wider hart. The wire protocol sends facts to the Swift host and MVERIFY confirms.
-  **SLC gate:** Aurora console + Mantra log + wire verify all GREEN on RV64I.
+- [x] **Orbit 4 -- Aurora and Mantra on RV64I** (`20261105.102031`)
+  Aurora console, Mantra event log, and Mantra wire persistence all proven on
+  `qemu-system-riscv64` with zero source changes to any `.rye` file. State hash
+  `0xbc186e04` matches RV32I identically. Swift host launches `qemu-system-riscv64`
+  and MVERIFY confirms. The explicit-`u32` discipline carries display, persistence,
+  and wire layers across the register-width boundary unchanged.
+  **Witness:** `terrarium/aurora_mantra64_witness.rish` -- three stages, ELF identity.
+  **GREEN on metal.**
 
 - [ ] **Orbit 5 -- Caravan and Steward on RV64I**
   Caravan capabilities, process supervision, and Steward domain boot on the 64-bit

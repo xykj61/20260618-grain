@@ -22,6 +22,8 @@ let isFramebufStage = stage == "framebuf"
     || stage == "aurora_console"
 let isWireStage = stage == "wire"
 let isMantraWireStage = stage == "mantra_wire"
+    || stage == "mantra_wire64"
+let is64Bit = stage.hasSuffix("64")
 
 let repoRoot: String = {
     let url = URL(fileURLWithPath: #filePath)
@@ -558,10 +560,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func findQemu() -> String {
+        let arch = is64Bit ? "riscv64" : "riscv32"
         let candidates = [
-            "/opt/homebrew/bin/qemu-system-riscv32",
-            "/usr/local/bin/qemu-system-riscv32",
-            "/usr/bin/qemu-system-riscv32"
+            "/opt/homebrew/bin/qemu-system-\(arch)",
+            "/usr/local/bin/qemu-system-\(arch)",
+            "/usr/bin/qemu-system-\(arch)"
         ]
         for c in candidates {
             if FileManager.default
@@ -570,7 +573,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 return c
             }
         }
-        return "qemu-system-riscv32"
+        return "qemu-system-\(arch)"
     }
 }
 

@@ -1,0 +1,67 @@
+#!/usr/bin/env rishi
+# terrarium/aurora_mantra64_witness.rish
+# Mantrapod RV64G Orbit 4: Aurora console + Mantra log + Mantra wire on RV64I
+#
+# Proves all three mid-stack stages build and run on riscv64-freestanding-none
+# with zero source changes. The explicit-u32 discipline carries the same
+# arithmetic; Zig widens pointers automatically for the 64-bit target.
+
+say "Mantrapod RV64G Orbit 4 -- Aurora and Mantra on RV64I"
+say ""
+
+# -- Stage 1: Aurora console -- framebuffer and console on 64-bit hart
+
+say "=== stage 1/3: aurora_console on RV64I ==="
+
+let build_aurora = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/aurora_console.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -femit-bin=terrarium/.build/aurora_console64.elf 2>&1"]
+assert build_aurora.code == 0 else "aurora_console 64-bit build failed"
+
+let run_aurora = run ["timeout" "10" "qemu-system-riscv64" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/aurora_console64.elf"]
+assert run_aurora.code == 0 else "aurora_console 64-bit qemu failed"
+assert run_aurora.out contains "aurora_console: Orbit 17 complete" else "aurora_console must complete on RV64I"
+
+let elf_aurora = run ["file" "terrarium/.build/aurora_console64.elf"]
+assert elf_aurora.out contains "ELF 64-bit" else "aurora_console ELF must be 64-bit"
+assert elf_aurora.out contains "RISC-V" else "aurora_console ELF must target RISC-V"
+
+say "stage 1/3 GREEN: Aurora console on RV64I"
+say ""
+
+# -- Stage 2: Mantra event log -- append, replay, integrity on 64-bit hart
+
+say "=== stage 2/3: mantra_log on RV64I ==="
+
+let build_mantra = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/mantra_log.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -femit-bin=terrarium/.build/mantra_log64.elf 2>&1"]
+assert build_mantra.code == 0 else "mantra_log 64-bit build failed"
+
+let run_mantra = run ["timeout" "10" "qemu-system-riscv64" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/mantra_log64.elf"]
+assert run_mantra.code == 0 else "mantra_log 64-bit qemu failed"
+assert run_mantra.out contains "REPLAY MATCHES: identical state proven" else "mantra replay must match on RV64I"
+assert run_mantra.out contains "GREEN: Mantra event log" else "mantra_log must report GREEN on RV64I"
+
+let elf_mantra = run ["file" "terrarium/.build/mantra_log64.elf"]
+assert elf_mantra.out contains "ELF 64-bit" else "mantra_log ELF must be 64-bit"
+assert elf_mantra.out contains "RISC-V" else "mantra_log ELF must target RISC-V"
+
+say "stage 2/3 GREEN: Mantra replay produces identical state on RV64I"
+say ""
+
+# -- Stage 3: Mantra wire persistence -- facts travel through UART to Swift host
+
+say "=== stage 3/3: mantra_wire on RV64I ==="
+
+let build_wire = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/mantra_wire.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -femit-bin=terrarium/.build/mantra_wire64.elf 2>&1"]
+assert build_wire.code == 0 else "mantra_wire 64-bit build failed"
+
+let build_app = run ["sh" "-c" "swiftc -o terrarium/.build/Terrarium terrarium/app/main.swift -framework AppKit 2>&1"]
+assert build_app.code == 0 else "terrarium Swift app build failed"
+
+let run_wire = run ["timeout" "30" "terrarium/.build/Terrarium" "mantra_wire64"]
+assert run_wire.code == 0 else "mantra_wire 64-bit failed"
+assert run_wire.out contains "GREEN: Mantra persistence through the wire" else "wire persistence must report GREEN on RV64I"
+
+say "stage 3/3 GREEN: Mantra facts persist through the wire on RV64I"
+say ""
+
+say "ALL THREE STAGES GREEN -- Aurora and Mantra on RV64I"
+say "Orbit 4 complete"
