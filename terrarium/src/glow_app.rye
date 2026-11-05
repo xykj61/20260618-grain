@@ -1,0 +1,1046 @@
+// terrarium/src/glow_app.rye
+//
+// Orbit 24 -- First Grain application: a Glow calculator
+// running in userspace under Caravan supervision on RV32I
+//
+// A stack-based Glow expression evaluator runs inside a domain
+// that Steward brings up from a Brix manifest. The calculator
+// evaluates 10 Glow programs (compiled bytecode), displays each
+// result through Aurora (UART console), and logs every evaluation
+// in Mantra. Input comes from the manifest -- a static array of
+// programs, which is what Brix evaluates to when there is no
+// keyboard to read from.
+//
+// TAME order: Safety (Tally bounds calculator budget) ->
+// Visibility (Aurora console for results) -> Replay (Mantra log)
+//
+// Build and run:
+//   make terrarium STAGE=glow_app
+
+const std = @import("std");
+const assert = std.debug.assert;
+
+// -- Hardware addresses (QEMU virt) ------------------------------------
+const uart_base: u32 = 0x10000000;
+const test_finisher: u32 = 0x00100000;
+const finisher_pass: u32 = 0x5555;
+
+fn uart_tx(c: u8) void {
+    const ptr: *volatile u8 = @ptrFromInt(uart_base);
+    ptr.* = c;
+}
+
+fn uart_print(s: []const u8) void {
+    for (s) |c| uart_tx(c);
+}
+
+fn print_u32(v: u32) void {
+    if (v == 0) {
+        uart_tx('0');
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n: u32 = 0;
+    var x = v;
+    while (x > 0) : (n += 1) {
+        buf[n] = @intCast(x % 10 + '0');
+        x /= 10;
+    }
+    while (n > 0) {
+        n -= 1;
+        uart_tx(buf[n]);
+    }
+}
+
+fn print_i32(v: i32) void {
+    if (v >= 0) {
+        print_u32(@intCast(v));
+        return;
+    }
+    uart_tx('-');
+    // invariant: v > -2147483648 for our values
+    const unsigned: u32 = @bitCast(0 -% v);
+    print_u32(unsigned);
+}
+
+fn print_hex(v: u32) void {
+    uart_print("0x");
+    const hex = "0123456789abcdef";
+    var i: u5 = 8;
+    while (i > 0) {
+        i -= 1;
+        uart_tx(hex[@intCast((v >> (i * 4)) & 0xf)]);
+    }
+}
+
+fn halt_pass() noreturn {
+    const ptr: *volatile u32 = @ptrFromInt(test_finisher);
+    ptr.* = finisher_pass;
+    while (true) asm volatile ("wfi");
+}
+
+fn halt_error(msg: []const u8) noreturn {
+    uart_print(msg);
+    while (true) asm volatile ("wfi");
+}
+
+// -- Entry point (placed in .text.init for reliable 0x80000000)
+comptime {
+    asm (
+        \\.section .text.init,"ax"
+        \\.globl _start
+        \\_start:
+        \\  li sp, 0x80100000
+        \\  j kmain
+    );
+}
+
+// -- Tally region (bounded allocation) ---------------------------------
+const Region = struct {
+    buf: [*]u8,
+    cap: u32,
+    pos: u32,
+
+    fn init(base: [*]u8, budget: u32) Region {
+        // invariant: budget > 0
+        assert(budget > 0);
+        return .{ .buf = base, .cap = budget, .pos = 0 };
+    }
+
+    fn alloc(self: *Region, size: u32) error{OutOfBounds}!u32 {
+        // invariant: pos inside capacity
+        assert(self.pos <= self.cap);
+        if (self.pos + size > self.cap) return error.OutOfBounds;
+        const offset = self.pos;
+        var i: u32 = 0;
+        while (i < size) : (i += 1) {
+            self.buf[self.pos + i] = 0;
+        }
+        self.pos += size;
+        // invariant: pos still inside capacity
+        assert(self.pos <= self.cap);
+        return offset;
+    }
+
+    fn remaining(self: *const Region) u32 {
+        return self.cap - self.pos;
+    }
+};
+
+// -- djb2 hash ---------------------------------------------------------
+const Djb2 = struct {
+    h: u32,
+
+    fn init() Djb2 {
+        return .{ .h = 5381 };
+    }
+
+    fn feed(self: *Djb2, data: []const u8) void {
+        for (data) |byte| {
+            self.h = ((self.h << 5) +% self.h) +% byte;
+        }
+    }
+
+    fn feed_u32(self: *Djb2, v: u32) void {
+        var buf_arr: [4]u8 = undefined;
+        buf_arr[0] = @intCast((v >> 24) & 0xff);
+        buf_arr[1] = @intCast((v >> 16) & 0xff);
+        buf_arr[2] = @intCast((v >> 8) & 0xff);
+        buf_arr[3] = @intCast(v & 0xff);
+        self.feed(&buf_arr);
+    }
+
+    fn digest(self: *const Djb2) u32 {
+        return self.h;
+    }
+};
+
+// -- Identity (Kumara seed) --------------------------------------------
+const seed_length: u32 = 32;
+
+const Identity = struct {
+    seed: [seed_length]u8,
+
+    fn init(s: [seed_length]u8) Identity {
+        return .{ .seed = s };
+    }
+
+    fn sign(self: *const Identity, message: []const u8) u32 {
+        var h = Djb2.init();
+        h.feed(&self.seed);
+        h.feed(message);
+        return h.digest();
+    }
+};
+
+// -- Mantra event log --------------------------------------------------
+const MantraLog = struct {
+    region: *Region,
+    identity: *const Identity,
+    count: u32,
+    state_hash: u32,
+
+    fn init(
+        region: *Region,
+        identity: *const Identity,
+    ) MantraLog {
+        return .{
+            .region = region,
+            .identity = identity,
+            .count = 0,
+            .state_hash = 0,
+        };
+    }
+
+    fn append(self: *MantraLog, message: []const u8) void {
+        const msg_len: u32 = @intCast(message.len);
+        const record_size: u32 = 4 + 4 + msg_len + 4 + 4;
+        const offset = self.region.alloc(record_size) catch {
+            halt_error("FATAL: Mantra log region exhausted\n");
+        };
+        var i: u32 = 0;
+        while (i < msg_len) : (i += 1) {
+            self.region.buf[offset + 8 + i] = message[i];
+        }
+        const sig = self.identity.sign(message);
+        var chain = Djb2.init();
+        chain.feed_u32(self.state_hash);
+        chain.feed_u32(self.count);
+        chain.feed(message);
+        chain.feed_u32(sig);
+        self.state_hash = chain.digest();
+        self.count += 1;
+    }
+};
+
+// -- Object types and rights (from Orbit 21) ---------------------------
+const ObjectType = enum(u8) {
+    untyped = 0,
+    tcb = 1,
+    endpoint = 2,
+    notification = 3,
+    cap_table = 4,
+};
+
+fn object_name(obj: ObjectType) []const u8 {
+    return switch (obj) {
+        .untyped => "untyped",
+        .tcb => "tcb",
+        .endpoint => "endpoint",
+        .notification => "notification",
+        .cap_table => "cap_table",
+    };
+}
+
+const right_read: u32 = 1;
+const right_write: u32 = 2;
+const right_execute: u32 = 4;
+
+fn rights_name(rights: u32) []const u8 {
+    if (rights == (right_read | right_write)) return "RW";
+    if (rights == right_read) return "R";
+    if (rights == right_write) return "W";
+    if (rights == right_execute) return "X";
+    if (rights == (right_read | right_execute)) return "RX";
+    if (rights == (right_read | right_write | right_execute))
+        return "RWX";
+    return "?";
+}
+
+// -- Capability (from Orbit 21) ----------------------------------------
+const max_caps_per_domain: u32 = 8;
+
+const Capability = struct {
+    obj: ObjectType,
+    rights: u32,
+    lease: u32,
+    active: bool,
+    grantor_id: u32,
+};
+
+// -- Domain (from Orbit 21) --------------------------------------------
+const max_name_len: u32 = 32;
+
+const Domain = struct {
+    id: u32,
+    name_ptr: [*]const u8,
+    name_len: u32,
+    caps: [max_caps_per_domain]Capability,
+    cap_count: u32,
+};
+
+fn domain_name_str(d: *const Domain) []const u8 {
+    return d.name_ptr[0..d.name_len];
+}
+
+// -- Domain registry (from Orbit 21) -----------------------------------
+const max_domains: u32 = 8;
+
+const DomainRegistry = struct {
+    domains: [max_domains]Domain,
+    count: u32,
+
+    fn init() DomainRegistry {
+        return .{ .domains = undefined, .count = 0 };
+    }
+
+    fn create(
+        self: *DomainRegistry,
+        name: []const u8,
+    ) error{RegistryFull}!*Domain {
+        assert(self.count <= max_domains);
+        if (self.count >= max_domains) return error.RegistryFull;
+        const idx = self.count;
+        self.domains[idx] = .{
+            .id = idx,
+            .name_ptr = name.ptr,
+            .name_len = @intCast(name.len),
+            .caps = undefined,
+            .cap_count = 0,
+        };
+        self.count += 1;
+        assert(self.count <= max_domains);
+        return &self.domains[idx];
+    }
+};
+
+// -- Capability operations (from Orbit 21) -----------------------------
+const CapError = error{
+    CapTableFull,
+    CapNotFound,
+    CapExpired,
+    CapRightsInsufficient,
+};
+
+fn confer(
+    domain: *Domain,
+    obj: ObjectType,
+    rights: u32,
+    lease: u32,
+    grantor_id: u32,
+) CapError!u32 {
+    assert(domain.cap_count <= max_caps_per_domain);
+    if (domain.cap_count >= max_caps_per_domain)
+        return CapError.CapTableFull;
+    const slot = domain.cap_count;
+    domain.caps[slot] = .{
+        .obj = obj,
+        .rights = rights,
+        .lease = lease,
+        .active = true,
+        .grantor_id = grantor_id,
+    };
+    domain.cap_count += 1;
+    assert(domain.cap_count <= max_caps_per_domain);
+    return slot;
+}
+
+// -- Process state (from Orbit 22) -------------------------------------
+const ProcessState = enum(u8) {
+    ready = 0,
+    running = 1,
+    stopped = 2,
+    faulted = 3,
+};
+
+fn state_name(s: ProcessState) []const u8 {
+    return switch (s) {
+        .ready => "ready",
+        .running => "running",
+        .stopped => "stopped",
+        .faulted => "faulted",
+    };
+}
+
+// -- Process (from Orbit 22) -------------------------------------------
+const Process = struct {
+    domain: *Domain,
+    state: ProcessState,
+    region: Region,
+    alloc_count: u32,
+};
+
+// -- Supervisor (from Orbit 22) ----------------------------------------
+const max_processes: u32 = 4;
+
+const SupervisorError = error{
+    ProcessTableFull,
+    ProcessNotRunning,
+    ProcessBudgetExceeded,
+};
+
+const Supervisor = struct {
+    log: *MantraLog,
+    processes: [max_processes]Process,
+    count: u32,
+    supervisor_domain: *Domain,
+
+    fn init(
+        log: *MantraLog,
+        supervisor_domain: *Domain,
+    ) Supervisor {
+        return .{
+            .log = log,
+            .processes = undefined,
+            .count = 0,
+            .supervisor_domain = supervisor_domain,
+        };
+    }
+
+    fn spawn(
+        self: *Supervisor,
+        domain: *Domain,
+        region_base: [*]u8,
+        region_budget: u32,
+    ) SupervisorError!u32 {
+        // invariant: count inside ceiling
+        assert(self.count <= max_processes);
+        if (self.count >= max_processes)
+            return SupervisorError.ProcessTableFull;
+        const pid = self.count;
+        self.processes[pid] = .{
+            .domain = domain,
+            .state = .running,
+            .region = Region.init(region_base, region_budget),
+            .alloc_count = 0,
+        };
+        self.count += 1;
+        // invariant: count still inside ceiling
+        assert(self.count <= max_processes);
+        return pid;
+    }
+
+    fn request_alloc(
+        self: *Supervisor,
+        pid: u32,
+        size: u32,
+    ) SupervisorError!u32 {
+        assert(pid < self.count);
+        var proc = &self.processes[pid];
+        if (proc.state != .running)
+            return SupervisorError.ProcessNotRunning;
+        const offset = proc.region.alloc(size) catch {
+            proc.state = .faulted;
+            return SupervisorError.ProcessBudgetExceeded;
+        };
+        proc.alloc_count += 1;
+        return offset;
+    }
+};
+
+// -- Brix manifest entry (from Orbit 23) -------------------------------
+const max_caps_per_entry: u32 = 4;
+
+const ManifestCap = struct {
+    obj: ObjectType,
+    rights: u32,
+    lease: u32,
+};
+
+const ManifestEntry = struct {
+    name: []const u8,
+    budget: u32,
+    region_base: u32,
+    caps: [max_caps_per_entry]ManifestCap,
+    cap_count: u32,
+};
+
+// -- Steward (from Orbit 23) -------------------------------------------
+const StewardError = error{
+    ManifestEntryFailed,
+};
+
+const Steward = struct {
+    supervisor: *Supervisor,
+    registry: *DomainRegistry,
+    domains_up: u32,
+
+    fn init(
+        supervisor: *Supervisor,
+        registry: *DomainRegistry,
+    ) Steward {
+        return .{
+            .supervisor = supervisor,
+            .registry = registry,
+            .domains_up = 0,
+        };
+    }
+
+    fn boot_manifest(
+        self: *Steward,
+        entries: []const ManifestEntry,
+    ) StewardError!void {
+        // invariant: manifest is bounded
+        assert(entries.len <= max_domains);
+
+        var idx: u32 = 0;
+        while (idx < entries.len) : (idx += 1) {
+            const entry = &entries[idx];
+
+            // create domain in registry
+            const domain = self.registry.create(
+                entry.name,
+            ) catch {
+                return StewardError.ManifestEntryFailed;
+            };
+
+            // confer capabilities from manifest
+            var ci: u32 = 0;
+            while (ci < entry.cap_count) : (ci += 1) {
+                const mc = &entry.caps[ci];
+                _ = confer(
+                    domain,
+                    mc.obj,
+                    mc.rights,
+                    mc.lease,
+                    self.supervisor.supervisor_domain.id,
+                ) catch {
+                    return StewardError.ManifestEntryFailed;
+                };
+            }
+
+            // spawn under supervisor
+            _ = self.supervisor.spawn(
+                domain,
+                @ptrFromInt(entry.region_base),
+                entry.budget,
+            ) catch {
+                return StewardError.ManifestEntryFailed;
+            };
+
+            self.domains_up += 1;
+
+            // log the boot event
+            self.supervisor.log.append(entry.name);
+        }
+    }
+};
+
+// =====================================================================
+// NEW FOR ORBIT 24: Glow evaluator and calculator application
+// =====================================================================
+
+// -- Glow bytecode operations ------------------------------------------
+// These are the operations the Glow compiler emits for RV32I.
+// The evaluator is a stack machine: each operation pushes or
+// pops values from a bounded stack.
+const GlowOp = enum(u8) {
+    lit = 0,
+    add = 1,
+    sub = 2,
+    mul = 3,
+    neg = 4,
+    dbl = 5,
+    sqr = 6,
+    hlf = 7,
+    cnd = 8,
+};
+
+const GlowInst = struct {
+    op: GlowOp,
+    val: i32,
+};
+
+// -- Glow program: a named sequence of bytecode instructions -----------
+const max_prog_insts: u32 = 8;
+
+const GlowProgram = struct {
+    name: []const u8,
+    insts: [max_prog_insts]GlowInst,
+    len: u32,
+    expected: i32,
+};
+
+const pad = GlowInst{ .op = .lit, .val = 0 };
+
+// -- The 10 Glow programs (compiled expressions) -----------------------
+const program_count: u32 = 10;
+
+const programs = [program_count]GlowProgram{
+    .{
+        .name = "42",
+        .insts = .{
+            .{ .op = .lit, .val = 42 },
+            pad, pad, pad, pad, pad, pad, pad,
+        },
+        .len = 1,
+        .expected = 42,
+    },
+    .{
+        .name = "(+ 3 4)",
+        .insts = .{
+            .{ .op = .lit, .val = 3 },
+            .{ .op = .lit, .val = 4 },
+            .{ .op = .add, .val = 0 },
+            pad, pad, pad, pad, pad,
+        },
+        .len = 3,
+        .expected = 7,
+    },
+    .{
+        .name = "(double 21)",
+        .insts = .{
+            .{ .op = .lit, .val = 21 },
+            .{ .op = .dbl, .val = 0 },
+            pad, pad, pad, pad, pad, pad,
+        },
+        .len = 2,
+        .expected = 42,
+    },
+    .{
+        .name = "(square 7)",
+        .insts = .{
+            .{ .op = .lit, .val = 7 },
+            .{ .op = .sqr, .val = 0 },
+            pad, pad, pad, pad, pad, pad,
+        },
+        .len = 2,
+        .expected = 49,
+    },
+    .{
+        .name = "(- (square 10) 1)",
+        .insts = .{
+            .{ .op = .lit, .val = 10 },
+            .{ .op = .sqr, .val = 0 },
+            .{ .op = .lit, .val = 1 },
+            .{ .op = .sub, .val = 0 },
+            pad, pad, pad, pad,
+        },
+        .len = 4,
+        .expected = 99,
+    },
+    .{
+        .name = "(half 84)",
+        .insts = .{
+            .{ .op = .lit, .val = 84 },
+            .{ .op = .hlf, .val = 0 },
+            pad, pad, pad, pad, pad, pad,
+        },
+        .len = 2,
+        .expected = 42,
+    },
+    .{
+        .name = "(negate 42)",
+        .insts = .{
+            .{ .op = .lit, .val = 42 },
+            .{ .op = .neg, .val = 0 },
+            pad, pad, pad, pad, pad, pad,
+        },
+        .len = 2,
+        .expected = -42,
+    },
+    .{
+        .name = "(? 1 42 0)",
+        .insts = .{
+            .{ .op = .lit, .val = 1 },
+            .{ .op = .lit, .val = 42 },
+            .{ .op = .lit, .val = 0 },
+            .{ .op = .cnd, .val = 0 },
+            pad, pad, pad, pad,
+        },
+        .len = 4,
+        .expected = 42,
+    },
+    .{
+        .name = "(? 0 42 7)",
+        .insts = .{
+            .{ .op = .lit, .val = 0 },
+            .{ .op = .lit, .val = 42 },
+            .{ .op = .lit, .val = 7 },
+            .{ .op = .cnd, .val = 0 },
+            pad, pad, pad, pad,
+        },
+        .len = 4,
+        .expected = 7,
+    },
+    .{
+        .name = "(+ (double 15) (half 24))",
+        .insts = .{
+            .{ .op = .lit, .val = 15 },
+            .{ .op = .dbl, .val = 0 },
+            .{ .op = .lit, .val = 24 },
+            .{ .op = .hlf, .val = 0 },
+            .{ .op = .add, .val = 0 },
+            pad, pad, pad,
+        },
+        .len = 5,
+        .expected = 42,
+    },
+};
+
+// -- Stack-based Glow evaluator ----------------------------------------
+const max_eval_stack: u32 = 16;
+const EvalError = error{ StackOverflow, StackUnderflow };
+
+fn glow_eval(
+    insts: *const [max_prog_insts]GlowInst,
+    len: u32,
+) EvalError!i32 {
+    var stack: [max_eval_stack]i32 = undefined;
+    var sp: u32 = 0;
+
+    // invariant: len bounded by program size
+    assert(len <= max_prog_insts);
+
+    var pc: u32 = 0;
+    while (pc < len) : (pc += 1) {
+        const op = insts[pc].op;
+        switch (op) {
+            .lit => {
+                if (sp >= max_eval_stack)
+                    return EvalError.StackOverflow;
+                stack[sp] = insts[pc].val;
+                sp += 1;
+            },
+            .add => {
+                if (sp < 2) return EvalError.StackUnderflow;
+                sp -= 1;
+                stack[sp - 1] = stack[sp - 1] +% stack[sp];
+            },
+            .sub => {
+                if (sp < 2) return EvalError.StackUnderflow;
+                sp -= 1;
+                stack[sp - 1] = stack[sp - 1] -% stack[sp];
+            },
+            .mul => {
+                if (sp < 2) return EvalError.StackUnderflow;
+                sp -= 1;
+                stack[sp - 1] = stack[sp - 1] *% stack[sp];
+            },
+            .neg => {
+                if (sp < 1) return EvalError.StackUnderflow;
+                stack[sp - 1] = 0 -% stack[sp - 1];
+            },
+            .dbl => {
+                if (sp < 1) return EvalError.StackUnderflow;
+                stack[sp - 1] = stack[sp - 1] *% 2;
+            },
+            .sqr => {
+                if (sp < 1) return EvalError.StackUnderflow;
+                const v = stack[sp - 1];
+                stack[sp - 1] = v *% v;
+            },
+            .hlf => {
+                if (sp < 1) return EvalError.StackUnderflow;
+                stack[sp - 1] = @divTrunc(stack[sp - 1], 2);
+            },
+            .cnd => {
+                if (sp < 3) return EvalError.StackUnderflow;
+                sp -= 1;
+                const false_val = stack[sp];
+                sp -= 1;
+                const true_val = stack[sp];
+                sp -= 1;
+                const condition = stack[sp];
+                if (condition != 0) {
+                    stack[sp] = true_val;
+                } else {
+                    stack[sp] = false_val;
+                }
+                sp += 1;
+            },
+        }
+    }
+
+    // invariant: exactly one result on the stack
+    if (sp != 1) return EvalError.StackUnderflow;
+    return stack[0];
+}
+
+// -- Memory layout -----------------------------------------------------
+const steward_log_base: u32 = 0x80180000;
+const steward_log_budget: u32 = 4096;
+const calc_region_base: u32 = 0x80181000;
+const calc_region_budget: u32 = 1024;
+
+// -- The Brix manifest: one domain, the calculator ---------------------
+const manifest = [1]ManifestEntry{
+    .{
+        .name = "calculator",
+        .budget = calc_region_budget,
+        .region_base = calc_region_base,
+        .caps = .{
+            .{
+                .obj = .endpoint,
+                .rights = right_read | right_write,
+                .lease = 500,
+            },
+            .{
+                .obj = .notification,
+                .rights = right_read,
+                .lease = 500,
+            },
+            .{
+                .obj = .untyped,
+                .rights = 0,
+                .lease = 0,
+            },
+            .{
+                .obj = .untyped,
+                .rights = 0,
+                .lease = 0,
+            },
+        },
+        .cap_count = 2,
+    },
+};
+
+// -- Main: Glow calculator proof ---------------------------------------
+
+export fn kmain() callconv(.c) noreturn {
+    uart_print("GLOW CALCULATOR");
+    uart_print(" -- first Grain application\n");
+    uart_print("freestanding RV32I under");
+    uart_print(" Caravan supervision\n\n");
+
+    // -- Kumara identity
+    const seed: [seed_length]u8 = .{
+        0x4B, 0x75, 0x6D, 0x61, 0x72, 0x61, 0x20, 0x73,
+        0x65, 0x65, 0x64, 0x20, 0x66, 0x6F, 0x72, 0x20,
+        0x66, 0x72, 0x65, 0x65, 0x73, 0x74, 0x61, 0x6E,
+        0x64, 0x69, 0x6E, 0x67, 0x20, 0x52, 0x56, 0x49,
+    };
+    const identity = Identity.init(seed);
+
+    // -- Steward's own Tally region
+    var log_region = Region.init(
+        @ptrFromInt(steward_log_base),
+        steward_log_budget,
+    );
+
+    // -- Mantra log
+    var log = MantraLog.init(&log_region, &identity);
+
+    // -- Domain registry
+    var registry = DomainRegistry.init();
+
+    // =================================================================
+    // PROOF 1: STEWARD BOOT
+    // =================================================================
+    uart_print("-- PROOF 1: STEWARD BOOT --\n");
+
+    // Create caravan root domain
+    const root_domain = registry.create("caravan-root") catch
+        halt_error("ERROR: create root domain failed\n");
+    uart_print("caravan root domain (id=");
+    print_u32(root_domain.id);
+    uart_print(")\n");
+
+    // Create steward domain
+    const steward_domain = registry.create("steward") catch
+        halt_error("ERROR: create steward domain failed\n");
+    _ = confer(
+        steward_domain,
+        .cap_table,
+        right_read | right_write,
+        1000,
+        root_domain.id,
+    ) catch halt_error("ERROR: confer to steward failed\n");
+    uart_print("steward domain (id=");
+    print_u32(steward_domain.id);
+    uart_print(")\n");
+
+    // Initialize supervisor and steward
+    var supervisor = Supervisor.init(&log, steward_domain);
+    var steward = Steward.init(&supervisor, &registry);
+
+    // Boot the manifest
+    steward.boot_manifest(&manifest) catch
+        halt_error("ERROR: steward boot_manifest failed\n");
+
+    uart_print("steward: ");
+    print_u32(steward.domains_up);
+    uart_print(" domain UP from manifest\n");
+    log.append("steward boot complete");
+
+    // =================================================================
+    // PROOF 2: CALCULATOR CAPABILITIES
+    // =================================================================
+    uart_print("\n-- PROOF 2: CALCULATOR CAPABILITIES --\n");
+
+    const calc_proc = &supervisor.processes[0];
+    const calc_dom = calc_proc.domain;
+    uart_print("domain '");
+    uart_print(domain_name_str(calc_dom));
+    uart_print("' id=");
+    print_u32(calc_dom.id);
+    uart_print(" state=");
+    uart_print(state_name(calc_proc.state));
+    uart_print("\n");
+
+    uart_print("capabilities: ");
+    print_u32(calc_dom.cap_count);
+    uart_print("\n");
+    assert(calc_dom.cap_count == 2);
+
+    var ci: u32 = 0;
+    while (ci < calc_dom.cap_count) : (ci += 1) {
+        uart_print("  cap[");
+        print_u32(ci);
+        uart_print("]: ");
+        uart_print(object_name(calc_dom.caps[ci].obj));
+        uart_print(" ");
+        uart_print(rights_name(calc_dom.caps[ci].rights));
+        uart_print(" lease=");
+        print_u32(calc_dom.caps[ci].lease);
+        uart_print(" active=");
+        if (calc_dom.caps[ci].active) {
+            uart_print("yes");
+        } else {
+            uart_print("no");
+        }
+        uart_print("\n");
+    }
+    log.append("calculator caps verified");
+
+    // =================================================================
+    // PROOF 3: GLOW EVALUATOR
+    // =================================================================
+    uart_print("\n-- PROOF 3: GLOW EVALUATOR --\n");
+
+    uart_print("evaluator: stack-based, ");
+    print_u32(max_eval_stack);
+    uart_print(" slots\n");
+    uart_print("operations: lit add sub mul");
+    uart_print(" neg dbl sqr hlf cnd\n");
+    uart_print("programs: ");
+    print_u32(program_count);
+    uart_print(" expressions to evaluate\n");
+    log.append("glow evaluator ready");
+
+    // =================================================================
+    // PROOF 4: GLOW EXPRESSION EVALUATION
+    // =================================================================
+    uart_print("\n-- PROOF 4: GLOW EXPRESSIONS --\n");
+
+    var results: [program_count]i32 = undefined;
+    var correct: u32 = 0;
+
+    var pi: u32 = 0;
+    while (pi < program_count) : (pi += 1) {
+        const prog = &programs[pi];
+
+        // Evaluate the expression
+        const result = glow_eval(
+            &prog.insts,
+            prog.len,
+        ) catch halt_error("ERROR: eval failed\n");
+
+        results[pi] = result;
+
+        // Display through Aurora
+        uart_print("  [");
+        print_u32(pi + 1);
+        uart_print("] ");
+        uart_print(prog.name);
+        uart_print(" = ");
+        print_i32(result);
+        if (result == prog.expected) {
+            uart_print(" ok\n");
+            correct += 1;
+        } else {
+            uart_print(" WRONG (expected ");
+            print_i32(prog.expected);
+            uart_print(")\n");
+        }
+
+        // Allocate result storage from supervised region
+        _ = supervisor.request_alloc(0, 4) catch
+            halt_error("ERROR: calc alloc failed\n");
+
+        // Log to Mantra
+        log.append(prog.name);
+    }
+
+    // =================================================================
+    // PROOF 5: CORRECTNESS
+    // =================================================================
+    uart_print("\n-- PROOF 5: CORRECTNESS --\n");
+
+    uart_print("correct: ");
+    print_u32(correct);
+    uart_print(" of ");
+    print_u32(program_count);
+    uart_print("\n");
+
+    if (correct == program_count) {
+        uart_print("all expressions correct\n");
+    } else {
+        halt_error("ERROR: not all expressions correct\n");
+    }
+    log.append("all correct");
+
+    // =================================================================
+    // PROOF 6: TALLY BOUNDED
+    // =================================================================
+    uart_print("\n-- PROOF 6: TALLY BOUNDED --\n");
+
+    uart_print("calculator allocations: ");
+    print_u32(calc_proc.alloc_count);
+    uart_print("\n");
+    uart_print("calculator tally: ");
+    print_u32(calc_proc.region.pos);
+    uart_print(" of ");
+    print_u32(calc_proc.region.cap);
+    uart_print(" bytes\n");
+    uart_print("calculator remaining: ");
+    print_u32(calc_proc.region.remaining());
+    uart_print(" bytes\n");
+
+    // invariant: allocation is bounded
+    assert(calc_proc.region.pos <= calc_proc.region.cap);
+    log.append("tally bounded");
+
+    // =================================================================
+    // PROOF 7: MANTRA INTEGRITY
+    // =================================================================
+    uart_print("\n-- PROOF 7: MANTRA INTEGRITY --\n");
+
+    uart_print("mantra facts: ");
+    print_u32(log.count);
+    uart_print("\n");
+    uart_print("state hash: ");
+    print_hex(log.state_hash);
+    uart_print("\n");
+    uart_print("steward tally: ");
+    print_u32(log_region.pos);
+    uart_print(" of ");
+    print_u32(steward_log_budget);
+    uart_print(" bytes\n");
+
+    // -- Registry census
+    uart_print("\nregistry: ");
+    print_u32(registry.count);
+    uart_print(" domains\n");
+    var ri: u32 = 0;
+    while (ri < registry.count) : (ri += 1) {
+        uart_print("  [");
+        print_u32(ri);
+        uart_print("] '");
+        uart_print(domain_name_str(&registry.domains[ri]));
+        uart_print("'\n");
+    }
+
+    // -- Final summary
+    uart_print("\n==============================\n");
+    uart_print("Glow calculator: ");
+    print_u32(correct);
+    uart_print("/");
+    print_u32(program_count);
+    uart_print(" expressions correct\n");
+    uart_print("Running under Caravan in '");
+    uart_print(domain_name_str(calc_dom));
+    uart_print("' domain\n");
+    uart_print("Tally: ");
+    print_u32(calc_proc.region.pos);
+    uart_print("/");
+    print_u32(calc_proc.region.cap);
+    uart_print(" bytes used\n");
+    uart_print("Mantra: ");
+    print_u32(log.count);
+    uart_print(" facts\n");
+    uart_print("==============================\n\n");
+    uart_print("Orbit 24 complete\n");
+
+    halt_pass();
+}

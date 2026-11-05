@@ -223,7 +223,7 @@ arrives, and a living world opens under glass.*
   **SLC gate:** Caravan boots, starts Steward, Steward reads a Brix manifest, and
   the domain comes up -- visible in Terrarium's window.
 
-- [ ] **Orbit 24 -- First Grain application**
+- [x] **Orbit 24 -- First Grain application** -- landed `20261105`
   A Glow application (a calculator or REPL) runs in Grain userspace under Caravan's
   supervision. It receives input through Terrarium, computes, and displays output
   through Aurora. Every allocation bounded by Tally, every event logged by Mantra,

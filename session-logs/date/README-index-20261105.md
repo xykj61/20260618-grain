@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.013227` | [Orbit 24 -- first Grain application: Glow calculator on freestanding RV32I](20261105/20261105-013227_orbit24-glow-calculator-application.kyri.md) | Glow stack-based calculator with 9 ops evaluating 10 expressions under Caravan supervision, 10/10 correct, 40/1024 Tally, 16 Mantra facts, 7 proofs GREEN on QEMU |
 | `20261105.011410` | [Orbit 23 -- Steward root supervisor on freestanding RV32I](20261105/20261105-011410_orbit23-steward-root-supervisor.kyri.md) | Steward reads 2-entry Brix manifest, boots console and compute domains under Caravan, 4 domains in registry, 9 proofs GREEN on QEMU |
 | `20261105.010312` | [Orbit 22 -- Caravan process supervision on freestanding RV32I](20261105/20261105-010312_orbit22-caravan-supervision.kyri.md) | Supervisor mediates dependent allocations, faults overbudget greedy, stops it, worker unaffected, 11 proofs GREEN on QEMU |
 | `20261105.004644` | [Orbit 21 -- Caravan capability model on freestanding RV32I](20261105/20261105-004644_orbit21-caravan-cap-model.kyri.md) | 5 portable kernel object types, 3-bit rights mask with W xor X, bounded leases, 9 proofs GREEN on QEMU |

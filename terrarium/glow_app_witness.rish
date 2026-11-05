@@ -1,0 +1,84 @@
+# terrarium/glow_app_witness.rish
+#
+# Orbit 24 witness -- First Grain application: a Glow calculator
+# running in userspace under Caravan supervision on freestanding RV32I.
+
+say "glow_app_witness: building glow_app.rye for riscv32-freestanding-none"
+
+let build = run ["sh" "-c" "mkdir -p terrarium/.build && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/glow_app.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/glow_app.elf 2>&1"]
+assert build.code == 0 else "build failed"
+say "glow_app_witness: build ok"
+
+say "glow_app_witness: running on qemu-system-riscv32"
+
+let result = run ["timeout" "10" "qemu-system-riscv32" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/glow_app.elf"]
+assert result.code == 0 else "qemu exited nonzero"
+say "glow_app_witness: qemu exited 0"
+
+# -- PROOF 1: Steward boot
+assert result.out contains "PROOF 1: STEWARD BOOT" else "missing proof 1"
+assert result.out contains "caravan root domain (id=0)" else "root domain failed"
+assert result.out contains "steward domain (id=1)" else "steward domain failed"
+assert result.out contains "1 domain UP from manifest" else "manifest boot failed"
+say "glow_app_witness: proof 1 -- steward boot ok"
+
+# -- PROOF 2: Calculator capabilities
+assert result.out contains "PROOF 2: CALCULATOR CAPABILITIES" else "missing proof 2"
+assert result.out contains "domain 'calculator' id=2 state=running" else "calculator not running"
+assert result.out contains "capabilities: 2" else "cap count wrong"
+assert result.out contains "endpoint RW lease=500 active=yes" else "endpoint cap wrong"
+assert result.out contains "notification R lease=500 active=yes" else "notification cap wrong"
+say "glow_app_witness: proof 2 -- calculator capabilities ok"
+
+# -- PROOF 3: Glow evaluator
+assert result.out contains "PROOF 3: GLOW EVALUATOR" else "missing proof 3"
+assert result.out contains "stack-based, 16 slots" else "stack wrong"
+assert result.out contains "operations: lit add sub mul neg dbl sqr hlf cnd" else "ops wrong"
+assert result.out contains "programs: 10 expressions" else "program count wrong"
+say "glow_app_witness: proof 3 -- glow evaluator ok"
+
+# -- PROOF 4: Glow expressions (all 10)
+assert result.out contains "PROOF 4: GLOW EXPRESSIONS" else "missing proof 4"
+assert result.out contains "[1] 42 = 42 ok" else "expr 1 failed"
+assert result.out contains "[2] (+ 3 4) = 7 ok" else "expr 2 failed"
+assert result.out contains "[3] (double 21) = 42 ok" else "expr 3 failed"
+assert result.out contains "[4] (square 7) = 49 ok" else "expr 4 failed"
+assert result.out contains "[5] (- (square 10) 1) = 99 ok" else "expr 5 failed"
+assert result.out contains "[6] (half 84) = 42 ok" else "expr 6 failed"
+assert result.out contains "[7] (negate 42) = -42 ok" else "expr 7 failed"
+assert result.out contains "[8] (? 1 42 0) = 42 ok" else "expr 8 failed"
+assert result.out contains "[9] (? 0 42 7) = 7 ok" else "expr 9 failed"
+assert result.out contains "[10] (+ (double 15) (half 24)) = 42 ok" else "expr 10 failed"
+say "glow_app_witness: proof 4 -- all 10 glow expressions correct"
+
+# -- PROOF 5: Correctness
+assert result.out contains "PROOF 5: CORRECTNESS" else "missing proof 5"
+assert result.out contains "correct: 10 of 10" else "correctness count wrong"
+assert result.out contains "all expressions correct" else "not all correct"
+say "glow_app_witness: proof 5 -- correctness 10/10 ok"
+
+# -- PROOF 6: Tally bounded
+assert result.out contains "PROOF 6: TALLY BOUNDED" else "missing proof 6"
+assert result.out contains "calculator allocations: 10" else "alloc count wrong"
+assert result.out contains "calculator tally: 40 of 1024 bytes" else "calculator tally wrong"
+say "glow_app_witness: proof 6 -- tally bounded ok"
+
+# -- PROOF 7: Mantra integrity
+assert result.out contains "PROOF 7: MANTRA INTEGRITY" else "missing proof 7"
+assert result.out contains "mantra facts: 16" else "mantra count wrong"
+assert result.out contains "state hash: 0x04ace710" else "state hash wrong"
+say "glow_app_witness: proof 7 -- mantra integrity ok"
+
+# -- Tally
+assert result.out contains "steward tally: 467 of 4096 bytes" else "steward tally wrong"
+say "glow_app_witness: steward tally -- 467 of 4096 ok"
+
+# -- Registry
+assert result.out contains "registry: 3 domains" else "registry count wrong"
+assert result.out contains "'calculator'" else "calculator missing from registry"
+say "glow_app_witness: registry -- 3 domains ok"
+
+# -- Final
+assert result.out contains "10/10 expressions correct" else "summary wrong"
+assert result.out contains "Orbit 24 complete" else "orbit incomplete"
+say "glow_app_witness: GREEN -- Orbit 24 first Grain application complete"
