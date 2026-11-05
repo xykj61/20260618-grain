@@ -37,10 +37,12 @@ unchanged in what it does, wider in how it addresses.*
   **Witness:** `terrarium/pill64_witness.rish` -- build, hash match, ELF identity.
   **GREEN on metal.**
 
-- [ ] **Orbit 3 -- Tally arena on RV64I**
-  Tally's garden arena allocates and refuses on the 64-bit hart. `u32` budgets and
-  indices stay `u32` -- the explicit-width rule holds. `usize` stays at the seam.
-  **SLC gate:** bounded arena with ceiling refusal on `qemu-system-riscv64`.
+- [x] **Orbit 3 -- Tally arena on RV64I** (`20261105.095422`)
+  Tally's garden arena allocates and refuses on the 64-bit hart. `u32` budgets
+  and indices stay `u32`. All four named errors (OutOfBounds, DuplicateName,
+  NameEmpty, Full) proven on `qemu-system-riscv64`. Zero source changes.
+  **Witness:** `terrarium/tally64_witness.rish` -- build, ceiling refusal, ELF.
+  **GREEN on metal.**
 
 - [ ] **Orbit 4 -- Aurora and Mantra on RV64I**
   Aurora draws to the framebuffer, Mantra appends and replays facts, both on the

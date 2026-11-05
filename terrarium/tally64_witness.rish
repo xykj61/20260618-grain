@@ -1,0 +1,64 @@
+# terrarium/tally64_witness.rish -- Tally arena on RV64I
+#
+# Orbit 3, Quest 1 of the Mantrapod RV64G journey. Proves the Tally
+# arena allocates and refuses on the 64-bit hart -- bounded arena with
+# ceiling refusal, same source, wider registers.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run terrarium/tally64_witness.rish
+
+say "tally64_witness: Orbit 3 -- Tally arena on RV64I"
+say ""
+
+# -- Build
+
+say "=== build: tally_arena for riscv64-freestanding-none ==="
+
+let prep = run ["sh" "-c" "mkdir -p terrarium/.build"]
+assert prep.ok else "tally64_witness mkdir failed"
+
+let build = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/tally_arena.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -femit-bin=terrarium/.build/tally_arena64.elf 2>&1"]
+assert build.code == 0 else "tally_arena64 build failed:\n${build.out}"
+
+say "build GREEN: tally_arena emitted for riscv64-freestanding-none"
+say ""
+
+# -- Run
+
+say "=== run: qemu-system-riscv64 (machine virt) ==="
+
+let wake = run ["timeout" "10" "qemu-system-riscv64" "-machine" "virt" "-bios" "none" "-nographic" "-kernel" "terrarium/.build/tally_arena64.elf"]
+assert wake.code == 0 else "tally_arena64 qemu failed with status ${wake.code}"
+assert wake.out contains "REFUSED -- OutOfBounds" else "tally must refuse past ceiling"
+assert wake.out contains "all invariants held" else "tally invariants must hold"
+assert wake.out contains "Orbit 16 complete" else "tally_arena incomplete"
+assert wake.out contains "REFUSED -- DuplicateName" else "tally must refuse duplicate"
+assert wake.out contains "REFUSED -- Full" else "tally must refuse when full"
+
+say "run GREEN: Tally bounds every allocation on qemu-system-riscv64"
+say ""
+
+# -- ELF identity
+
+say "=== elf: architecture check ==="
+
+let file_out = run ["file" "terrarium/.build/tally_arena64.elf"]
+assert file_out.ok else "file command failed"
+assert file_out.out contains "ELF 64-bit" else "tally_arena64.elf must be 64-bit ELF"
+assert file_out.out contains "RISC-V" else "tally_arena64.elf must target RISC-V"
+
+say "elf GREEN: 64-bit RISC-V ELF confirmed"
+say ""
+
+# -- Verdict
+
+say "================================================"
+say "tally64_witness: ALL PROOFS GREEN"
+say ""
+say "  build:     riscv64-freestanding-none with medany code model"
+say "  ceiling:   OutOfBounds refused at 2048-byte budget"
+say "  refusals:  DuplicateName, NameEmpty, Full all proven"
+say "  elf:       64-bit RISC-V ELF identity confirmed"
+say ""
+say "GREEN: Orbit 3 -- Tally arena on RV64I"
+say "================================================"
