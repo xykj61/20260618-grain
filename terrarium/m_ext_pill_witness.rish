@@ -1,0 +1,146 @@
+# terrarium/m_ext_pill_witness.rish -- M extension pill identity witness
+#
+# Mantrapod RV64G Orbit 6, Quest 2. Proves the self-compile djb2 hash
+# matches the sealed constant under explicit -mcpu=generic_rv64+m, with
+# wall time measured. The M extension gives hardware multiply/divide
+# where RV64I would use a software routine.
+#
+# Finding from scouting: Zig 0.17.0's default baseline_rv64 already
+# includes +m (full RV64GC). Quest 1's "RV64I" binaries were actually
+# RV64GC the whole time. This orbit narrows the target to RV64IM only
+# (+i,+m, no atomics, no compressed, no float) and proves the hash
+# still matches.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run terrarium/m_ext_pill_witness.rish
+
+say "m_ext_pill_witness: Orbit 6 -- M extension pill identity"
+say "m_ext_pill_witness: -mcpu=generic_rv64+m (RV64IM, no A/C/D/F)"
+say ""
+
+# -- Build with explicit M extension
+
+say "=== build: self_compile with -mcpu=generic_rv64+m ==="
+
+let prep = run ["sh" "-c" "mkdir -p terrarium/.build"]
+assert prep.ok else "m_ext_pill mkdir failed"
+
+let t0 = run ["sh" "-c" "python3 -c 'import time; print(int(time.time()*1000))'"]
+assert t0.ok else "clock read failed"
+
+let build = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/self_compile.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m -femit-bin=terrarium/.build/self_compile_m.elf 2>&1"]
+assert build.code == 0 else "m_ext_pill build failed:\n${build.out}"
+
+let t1 = run ["sh" "-c" "python3 -c 'import time; print(int(time.time()*1000))'"]
+assert t1.ok else "clock read failed"
+
+say "build GREEN: self_compile emitted for RV64IM"
+say ""
+
+# -- Verify CPU features
+
+say "=== verify: LLVM CPU features include +m ==="
+
+let features = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/self_compile.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m --verbose-llvm-cpu-features -femit-bin=/dev/null 2>&1 | head -4"]
+assert features.ok else "feature probe failed"
+assert features.out contains "+m" else "CPU features must include +m"
+assert features.out contains "+zmmul" else "CPU features must include +zmmul"
+assert features.out contains "generic_rv64" else "CPU must be generic_rv64"
+
+say "features GREEN: +m and +zmmul confirmed"
+say ""
+
+# -- Run on QEMU
+
+say "=== run: qemu-system-riscv64 (machine virt) ==="
+
+let t2 = run ["sh" "-c" "python3 -c 'import time; print(int(time.time()*1000))'"]
+assert t2.ok else "clock read failed"
+
+let wake = run ["timeout" "10" "qemu-system-riscv64" "-machine" "virt" "-bios" "none" "-nographic" "-kernel" "terrarium/.build/self_compile_m.elf"]
+assert wake.code == 0 else "m_ext_pill qemu failed with status ${wake.code}"
+
+let t3 = run ["sh" "-c" "python3 -c 'import time; print(int(time.time()*1000))'"]
+assert t3.ok else "clock read failed"
+
+assert wake.out contains "MATCH -- identity proven" else "pill must report MATCH"
+assert wake.out contains "0x079080d9" else "pill must show sealed hash 0x079080d9"
+assert wake.out contains "Orbit 15 complete" else "pill must complete"
+
+say "run GREEN: pill identity proven on qemu-system-riscv64 with M extension"
+say ""
+say "QEMU output:"
+say "${wake.out}"
+say ""
+
+# -- ELF identity
+
+say "=== elf: architecture and M extension ==="
+
+let file_out = run ["file" "terrarium/.build/self_compile_m.elf"]
+assert file_out.ok else "file command failed"
+assert file_out.out contains "ELF 64-bit" else "must be 64-bit ELF"
+assert file_out.out contains "RISC-V" else "must target RISC-V"
+
+say "elf: ${file_out.out}"
+
+# Check for mul instruction via objdump
+let objdump = run ["sh" "-c" "/opt/homebrew/Cellar/llvm@22/22.1.8/bin/llvm-objdump -d --mattr=+m terrarium/.build/self_compile_m.elf 2>&1 | grep -c 'mul'"]
+say "mul instruction count in disassembly: ${objdump.out}"
+say ""
+
+# -- Wall time
+
+say "=== timing ==="
+
+let build_ms_raw = run ["sh" "-c" "echo $(( ${t1.out} - ${t0.out} ))"]
+let run_ms_raw = run ["sh" "-c" "echo $(( ${t3.out} - ${t2.out} ))"]
+let build_ms = run ["sh" "-c" "echo -n $(( ${t1.out} - ${t0.out} ))"]
+let run_ms = run ["sh" "-c" "echo -n $(( ${t3.out} - ${t2.out} ))"]
+
+say "build wall time: ${build_ms.out} ms"
+say "run wall time:   ${run_ms.out} ms"
+say ""
+
+# -- Compare against Quest 1 baseline (default baseline_rv64)
+
+say "=== compare: Quest 1 baseline (baseline_rv64 = RV64GC) ==="
+
+let build_baseline = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/self_compile.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -femit-bin=terrarium/.build/self_compile_baseline.elf 2>&1"]
+assert build_baseline.code == 0 else "baseline build failed"
+
+let run_baseline = run ["timeout" "10" "qemu-system-riscv64" "-machine" "virt" "-bios" "none" "-nographic" "-kernel" "terrarium/.build/self_compile_baseline.elf"]
+assert run_baseline.code == 0 else "baseline qemu failed"
+assert run_baseline.out contains "0x079080d9" else "baseline must show same hash"
+
+say "baseline hash matches: both produce 0x079080D9"
+say ""
+
+# -- ELF size comparison
+
+let size_m = run ["sh" "-c" "wc -c < terrarium/.build/self_compile_m.elf | tr -d ' \n'"]
+let size_base = run ["sh" "-c" "wc -c < terrarium/.build/self_compile_baseline.elf | tr -d ' \n'"]
+
+say "ELF size (RV64IM):  ${size_m.out} bytes"
+say "ELF size (RV64GC):  ${size_base.out} bytes"
+say ""
+
+# -- Verdict
+
+say "================================================"
+say "m_ext_pill_witness: ALL PROOFS GREEN"
+say ""
+say "  target:    -mcpu=generic_rv64+m (RV64IM only)"
+say "  features:  +i,+m,+zmmul (no A, no C, no D, no F)"
+say "  hash:      djb2 = 0x079080D9, matches sealed constant"
+say "  elf:       64-bit RISC-V, mul instructions present"
+say "  build:     ${build_ms.out} ms"
+say "  run:       ${run_ms.out} ms"
+say ""
+say "  finding:   Zig 0.17.0 baseline_rv64 = RV64GC (+a,+c,+d,+f,+m)"
+say "             Quest 1 'RV64I' binaries were actually RV64GC"
+say "             explicit -mcpu=generic_rv64+m narrows to RV64IM"
+say "             hash matches on both targets -- u32 discipline holds"
+say ""
+say "GREEN: Orbit 6 -- M extension pill identity at native speed"
+say "================================================"

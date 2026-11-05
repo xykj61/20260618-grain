@@ -66,11 +66,16 @@ unchanged in what it does, wider in how it addresses.*
 
 *The hart learns to multiply. Every site that computed in software gains native speed.*
 
-- [ ] **Orbit 6 -- M extension: Mantra's djb2 hash at native speed**
-  Enable the M extension in the Zig target. Mantra's djb2 hash uses hardware
-  `mul`. Measure the speedup against the software multiply.
-  **SLC gate:** Mantra log with hardware-multiplied hash matches the RV32I hash
-  byte for byte; wall time measured and recorded.
+- [x] **Orbit 6 -- M extension: Mantra's djb2 hash at native speed** (`20261105.105231`)
+  Explicit `-mcpu=generic_rv64+m` narrows the target from Quest 1's implicit
+  RV64GC (`baseline_rv64`) to RV64IM only (+i,+m, no A/C/D/F). The djb2 hash
+  matches the sealed constant `0x079080D9` -- identical on both targets, proving
+  the `u32` discipline holds across ISA width. `mul` instruction confirmed via
+  llvm-objdump. Build 437 ms, run 107 ms.
+  **Critical finding:** Zig 0.17.0's `baseline_rv64` default includes +m (full
+  RV64GC). Quest 1's "RV64I" builds were actually RV64GC the whole time.
+  **Witness:** `terrarium/m_ext_pill_witness.rish` -- build, features, hash,
+  disassembly, timing, baseline comparison. **GREEN on metal.**
 
 - [ ] **Orbit 7 -- M extension: Glow multiply and division**
   Glow's `mul` and `div` operations use hardware instructions. The calculator

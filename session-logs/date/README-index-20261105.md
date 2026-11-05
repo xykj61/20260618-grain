@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.105427` | [Mantrapod RV64G Orbit 6 -- M extension pill identity](20261105/20261105-105427_mantrapod-orbit6-m-ext-pill.kyri.md) | Explicit -mcpu=generic_rv64+m (RV64IM), djb2 0x079080D9 matches, mul confirmed via objdump, Zig baseline_rv64 = RV64GC finding recorded |
 | `20261105.103219` | [Mantrapod RV64G Orbit 5 -- full boot witness on RV64I](20261105/20261105-103219_mantrapod-orbit5-full-boot-rv64i.kyri.md) | All nine stages GREEN on qemu-system-riscv64 with zero .rye source changes -- pill 0x079080D9, Mantra 0xbc186e04, Glow 10/10, Quest 1 complete |
 | `20261105.102031` | [Mantrapod RV64G Orbit 4 -- Aurora and Mantra on RV64I](20261105/20261105-102031_mantrapod-orbit4-aurora-mantra-rv64i.kyri.md) | Aurora console, Mantra log, and Mantra wire all GREEN on RV64I with zero .rye source changes -- state hash 0xbc186e04 identical, Swift host MVERIFY:ok |
 | `20261105.095422` | [Mantrapod RV64G Orbit 3 -- Tally arena on RV64I](20261105/20261105-095422_mantrapod-orbit3-tally-arena-rv64i.kyri.md) | Region allocates, hits ceiling with OutOfBounds, Gardens refuses DuplicateName/NameEmpty/Full -- all u32 widths portable, zero source changes |
