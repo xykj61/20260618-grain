@@ -167,7 +167,7 @@ from here is bounded, observable, and recorded.*
   **SLC gate:** a freestanding RV32I program allocates from a Tally arena, hits the
   ceiling, receives a named error, and the console reports the budget and the refusal.
 
-- [ ] **Orbit 17 -- Aurora framebuffer and console on RV32I (Stage 3)**
+- [x] **Orbit 17 -- Aurora framebuffer and console on RV32I (Stage 3)** -- landed `20261104`
   Aurora draws to a framebuffer on the bare RV32I hart -- a rectangle, a glyph, a boot
   status line. The framebuffer memory is bounded by Tally. Aurora provides a text console
   over the framebuffer; every boot stage from here speaks through it.

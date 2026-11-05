@@ -19,6 +19,7 @@ let stage: String = CommandLine.arguments.count > 1
     : "hello"
 
 let isFramebufStage = stage == "framebuf"
+    || stage == "aurora_console"
 let isWireStage = stage == "wire"
 
 let repoRoot: String = {

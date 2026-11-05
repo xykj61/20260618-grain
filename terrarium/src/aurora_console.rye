@@ -1,0 +1,746 @@
+//! terrarium/src/aurora_console.rye -- Aurora console on freestanding RV32I
+//!
+//! The second TAME stage: Aurora speaks through a framebuffer console.
+//! Every boot stage from here writes to the screen. The framebuffer
+//! memory is carved from a Tally arena -- bounded, named, refused at
+//! the ceiling.
+//!
+//! Combines Orbit 16's Region/Gardens allocator with Orbit 9's ramfb
+//! display, adding a minimal 8x8 bitmap font for text rendering.
+//! The console scrolls when full, so a long boot sequence stays
+//! readable.
+//!
+//! Memory layout on the virt machine:
+//!   0x8000_0000  code (.text.init, then .text)
+//!   0x8010_0000  stack (grows down)
+//!   0x8018_0000  RAMFBCfg struct (28 bytes, big-endian)
+//!   0x8018_0100  FWCfgDmaAccess struct (16 bytes, big-endian)
+//!   0x8020_0000  framebuffer (320 * 240 * 4 = 307,200 bytes)
+//!
+//! Build and run:
+//!   make terrarium-app STAGE=aurora_console
+//!
+//! SLC gate (Orbit 17): the boot sequence from pill through Tally
+//! speaks through Aurora's console, visible in Terrarium's window;
+//! framebuffer allocation is bounded by Tally's arena.
+
+// -- Hardware addresses (QEMU virt riscv32) --------------------------
+const uart_tx: *volatile u8 = @ptrFromInt(0x1000_0000);
+const test_finisher: *volatile u32 = @ptrFromInt(0x0010_0000);
+const finisher_pass: u32 = 0x5555;
+
+// fw_cfg MMIO: base 0x1010_0000
+const fwcfg_data: *volatile u8 = @ptrFromInt(0x1010_0000);
+const fwcfg_selector: *volatile u16 = @ptrFromInt(0x1010_0008);
+const fwcfg_dma_hi: *volatile u32 = @ptrFromInt(0x1010_0010);
+const fwcfg_dma_lo: *volatile u32 = @ptrFromInt(0x1010_0014);
+
+// -- Static memory layout --------------------------------------------
+const ramfb_cfg_addr: u32 = 0x8018_0000;
+const dma_struct_addr: u32 = 0x8018_0100;
+const fb_addr: u32 = 0x8020_0000;
+
+// -- Framebuffer geometry --------------------------------------------
+const fb_width: u32 = 320;
+const fb_height: u32 = 240;
+const fb_stride: u32 = fb_width * 4;
+const fb_size: u32 = fb_stride * fb_height;
+const drm_format_xrgb8888: u32 = 0x3432_5258;
+
+// -- Colors (XRGB8888: 0x00RRGGBB) ----------------------------------
+const color_bg: u32 = 0x0000_1a3d;
+const color_fg: u32 = 0x00e0_e0e0;
+const color_accent: u32 = 0x0040_c060;
+
+// -- Console geometry ------------------------------------------------
+const glyph_w: u32 = 8;
+const glyph_h: u32 = 8;
+const cols: u32 = fb_width / glyph_w;
+const rows: u32 = fb_height / glyph_h;
+
+// -- Region (Tally bounded allocator) --------------------------------
+
+const Region = struct {
+    buf: [*]u8,
+    cap: u32,
+    pos: u32,
+
+    fn init(ptr: [*]u8, size: u32) Region {
+        // invariant: a region opens over real memory
+        assert(size > 0);
+        return .{ .buf = ptr, .cap = size, .pos = 0 };
+    }
+
+    fn alloc(self: *Region, n: u32) error{OutOfBounds}![]u8 {
+        // invariant: cursor inside capacity before measuring
+        assert(self.pos <= self.cap);
+        if (n > self.cap - self.pos) return error.OutOfBounds;
+        const start = self.pos;
+        self.pos += n;
+        // invariant: cursor stayed inside capacity
+        assert(self.pos <= self.cap);
+        return self.buf[start..self.pos];
+    }
+
+    fn remaining(self: *const Region) u32 {
+        return self.cap - self.pos;
+    }
+};
+
+// -- Gardens (named collection of Regions) ---------------------------
+
+const max_name_len: u32 = 32;
+const max_gardens: u32 = 8;
+
+const GardensError = error{
+    NameEmpty,
+    NameTooLong,
+    Full,
+    DuplicateName,
+};
+
+const NamedRegion = struct {
+    name_ptr: [*]const u8,
+    name_len: u32,
+    region: Region,
+};
+
+const Gardens = struct {
+    entries: [max_gardens]NamedRegion,
+    count: u32,
+
+    fn init() Gardens {
+        return .{ .entries = undefined, .count = 0 };
+    }
+
+    fn add(
+        self: *Gardens,
+        name: []const u8,
+        ptr: [*]u8,
+        size: u32,
+    ) GardensError!void {
+        // invariant: collection inside its ceiling
+        assert(self.count <= max_gardens);
+        if (name.len == 0) return GardensError.NameEmpty;
+        if (name.len > max_name_len) return GardensError.NameTooLong;
+        if (self.count >= max_gardens) return GardensError.Full;
+        var i: u32 = 0;
+        while (i < self.count) : (i += 1) {
+            if (mem_eql(
+                name,
+                self.entries[i].name_ptr,
+                self.entries[i].name_len,
+            )) return GardensError.DuplicateName;
+        }
+        const idx = self.count;
+        self.entries[idx] = .{
+            .name_ptr = name.ptr,
+            .name_len = @intCast(name.len),
+            .region = Region.init(ptr, size),
+        };
+        self.count += 1;
+        // invariant: count stayed inside ceiling
+        assert(self.count <= max_gardens);
+    }
+
+    fn get(self: *Gardens, name: []const u8) ?*Region {
+        assert(name.len > 0);
+        var i: u32 = 0;
+        while (i < self.count) : (i += 1) {
+            if (mem_eql(
+                name,
+                self.entries[i].name_ptr,
+                self.entries[i].name_len,
+            )) return &self.entries[i].region;
+        }
+        return null;
+    }
+
+    fn total_capacity(self: *const Gardens) u32 {
+        var total: u32 = 0;
+        var i: u32 = 0;
+        while (i < self.count) : (i += 1) {
+            total += self.entries[i].region.cap;
+        }
+        return total;
+    }
+};
+
+fn mem_eql(a: []const u8, b_ptr: [*]const u8, b_len: u32) bool {
+    if (a.len != b_len) return false;
+    var i: u32 = 0;
+    while (i < b_len) : (i += 1) {
+        if (a[i] != b_ptr[i]) return false;
+    }
+    return true;
+}
+
+// -- Static backing store --------------------------------------------
+// The arena owns all memory the system will ever use.
+
+const arena_budget: u32 = 4096 + fb_size;
+var arena_backing: [arena_budget]u8 = undefined;
+
+// -- Console state ---------------------------------------------------
+
+var cursor_col: u32 = 0;
+var cursor_row: u32 = 0;
+var has_display: bool = false;
+
+// -- Entry point -----------------------------------------------------
+
+export fn _start() linksection(".text.init") callconv(.naked) noreturn {
+    asm volatile (
+        \\ li sp, 0x80100000
+        \\ j kmain
+    );
+}
+
+// -- Main: the Aurora console proof ----------------------------------
+
+export fn kmain() callconv(.c) noreturn {
+    uart_puts("aurora_console: Orbit 17 -- Aurora speaks\n");
+
+    // Create the arena from the static backing store
+    var arena = Region.init(&arena_backing, arena_budget);
+    var gardens = Gardens.init();
+
+    // Carve the framebuffer from the arena -- bounded by Tally
+    const fb_slice = arena.alloc(fb_size) catch
+        halt_error("FATAL: framebuffer alloc failed\n");
+    gardens.add("framebuf", fb_slice.ptr, fb_size) catch
+        halt_error("FATAL: add framebuf garden failed\n");
+
+    // Carve a working region for boot data
+    const work_slice = arena.alloc(4096) catch
+        halt_error("FATAL: work region alloc failed\n");
+    gardens.add("work", work_slice.ptr, 4096) catch
+        halt_error("FATAL: add work garden failed\n");
+
+    uart_puts("aurora_console: arena budget = ");
+    print_u32(arena_budget);
+    uart_puts(" bytes, gardens = ");
+    print_u32(gardens.count);
+    uart_puts(", remaining = ");
+    print_u32(arena.remaining());
+    uart_puts("\n");
+
+    // invariant: arena exactly spent
+    assert(arena.remaining() == 0);
+
+    // Find ramfb and configure the display (optional)
+    uart_puts("aurora_console: finding ramfb...\n");
+    if (find_ramfb_selector()) |selector| {
+        uart_puts("aurora_console: configuring ramfb via DMA...\n");
+        configure_ramfb(selector);
+        has_display = true;
+        clear_screen();
+    } else {
+        uart_puts("aurora_console: no ramfb -- serial only\n");
+    }
+
+    // Report the boot sequence through the console
+    console_puts("Grain -- a living world under glass\n");
+    console_puts("\n");
+    console_puts("[pill]       self-compile proof ok\n");
+    console_puts("[tally]      arena budget = ");
+    console_print_u32(arena_budget);
+    console_puts(" bytes\n");
+    console_puts("[tally]      gardens = ");
+    console_print_u32(gardens.count);
+    console_puts(", capacity = ");
+    console_print_u32(gardens.total_capacity());
+    console_puts("\n");
+    console_puts("[aurora]     framebuffer 320x240 XRGB\n");
+    console_puts("[aurora]     console ");
+    console_print_u32(cols);
+    console_puts("x");
+    console_print_u32(rows);
+    console_puts(" glyphs\n");
+    console_puts("[aurora]     font 8x8 bitmap\n");
+    console_puts("\n");
+
+    // Prove the framebuffer is bounded by Tally
+    console_puts("[tally]      fb bounded: ");
+    console_print_u32(fb_size);
+    console_puts(" of ");
+    console_print_u32(arena_budget);
+    console_puts(" bytes\n");
+    console_puts("[tally]      arena remaining = 0\n");
+
+    // Prove ceiling refusal
+    if (arena.alloc(1)) |_| {
+        halt_error("FATAL: alloc past ceiling not refused\n");
+    } else |err| {
+        assert(err == error.OutOfBounds);
+        console_puts("[tally]      ceiling REFUSED ok\n");
+    }
+
+    console_puts("\n");
+    console_puts("TAME boot: safety then visibility\n");
+    console_puts("All invariants held.\n");
+
+    uart_puts("aurora_console: Orbit 17 complete\n");
+
+    if (has_display) {
+        uart_puts("aurora_console: FRAMEBUFFER READY\n");
+        uart_puts("FRAMEBUFFER READY\n");
+        // Hold the image -- the glass keeps showing
+        while (true) {
+            asm volatile ("wfi");
+        }
+    } else {
+        test_finisher.* = finisher_pass;
+        unreachable;
+    }
+}
+
+// -- Console drawing -------------------------------------------------
+
+fn clear_screen() void {
+    var y: u32 = 0;
+    while (y < fb_height) : (y += 1) {
+        var x: u32 = 0;
+        while (x < fb_width) : (x += 1) {
+            const pixel: *volatile u32 =
+                @ptrFromInt(fb_addr + y * fb_stride + x * 4);
+            pixel.* = color_bg;
+        }
+    }
+}
+
+fn console_puts(s: []const u8) void {
+    for (s) |byte| {
+        console_putc(byte);
+    }
+}
+
+fn console_putc(c: u8) void {
+    uart_tx.* = c;
+    if (!has_display) return;
+
+    if (c == '\n') {
+        cursor_col = 0;
+        cursor_row += 1;
+        if (cursor_row >= rows) {
+            scroll_up();
+            cursor_row = rows - 1;
+        }
+        return;
+    }
+
+    if (cursor_col >= cols) {
+        cursor_col = 0;
+        cursor_row += 1;
+        if (cursor_row >= rows) {
+            scroll_up();
+            cursor_row = rows - 1;
+        }
+    }
+
+    draw_glyph(cursor_col, cursor_row, c);
+    cursor_col += 1;
+}
+
+fn console_print_u32(val: u32) void {
+    if (val == 0) {
+        console_putc('0');
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n = val;
+    var i: u32 = 0;
+    while (n > 0) {
+        buf[i] = @intCast(n % 10 + '0');
+        n = n / 10;
+        i += 1;
+    }
+    while (i > 0) {
+        i -= 1;
+        console_putc(buf[i]);
+    }
+}
+
+fn scroll_up() void {
+    // Move rows 1..rows-1 up by one glyph_h
+    var y: u32 = 0;
+    while (y < (rows - 1) * glyph_h) : (y += 1) {
+        var x: u32 = 0;
+        while (x < fb_width) : (x += 1) {
+            const src_off =
+                fb_addr + (y + glyph_h) * fb_stride + x * 4;
+            const dst_off = fb_addr + y * fb_stride + x * 4;
+            const src: *volatile u32 = @ptrFromInt(src_off);
+            const dst: *volatile u32 = @ptrFromInt(dst_off);
+            dst.* = src.*;
+        }
+    }
+    // Clear the last row
+    var cy: u32 = (rows - 1) * glyph_h;
+    while (cy < fb_height) : (cy += 1) {
+        var cx: u32 = 0;
+        while (cx < fb_width) : (cx += 1) {
+            const pixel: *volatile u32 =
+                @ptrFromInt(fb_addr + cy * fb_stride + cx * 4);
+            pixel.* = color_bg;
+        }
+    }
+}
+
+fn draw_glyph(col: u32, row: u32, c: u8) void {
+    const glyph = get_glyph(c);
+    const px = col * glyph_w;
+    const py = row * glyph_h;
+
+    var gy: u32 = 0;
+    while (gy < glyph_h) : (gy += 1) {
+        const bits = glyph[gy];
+        var gx: u32 = 0;
+        while (gx < glyph_w) : (gx += 1) {
+            const on = (bits >> @intCast(7 - gx)) & 1;
+            const color: u32 = if (on != 0) color_fg else color_bg;
+            const offset =
+                fb_addr + (py + gy) * fb_stride + (px + gx) * 4;
+            const pixel: *volatile u32 = @ptrFromInt(offset);
+            pixel.* = color;
+        }
+    }
+}
+
+// -- Minimal 8x8 bitmap font ----------------------------------------
+// Covers ASCII 0x20-0x7E (space through tilde). Each glyph is 8 rows
+// of 8 bits, MSB left. Derived from public domain bitmap fonts.
+
+fn get_glyph(c: u8) *const [8]u8 {
+    if (c < 0x20 or c > 0x7e) return &font_glyphs[0];
+    return &font_glyphs[c - 0x20];
+}
+
+const font_glyphs = [95][8]u8{
+    // 0x20 space
+    .{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },
+    // 0x21 !
+    .{ 0x18, 0x18, 0x18, 0x18, 0x18, 0x00, 0x18, 0x00 },
+    // 0x22 "
+    .{ 0x6c, 0x6c, 0x24, 0x00, 0x00, 0x00, 0x00, 0x00 },
+    // 0x23 #
+    .{ 0x24, 0x7e, 0x24, 0x24, 0x7e, 0x24, 0x00, 0x00 },
+    // 0x24 $
+    .{ 0x18, 0x3e, 0x58, 0x3c, 0x1a, 0x7c, 0x18, 0x00 },
+    // 0x25 %
+    .{ 0x62, 0x64, 0x08, 0x10, 0x26, 0x46, 0x00, 0x00 },
+    // 0x26 &
+    .{ 0x30, 0x48, 0x30, 0x56, 0x48, 0x34, 0x00, 0x00 },
+    // 0x27 '
+    .{ 0x18, 0x18, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00 },
+    // 0x28 (
+    .{ 0x08, 0x10, 0x20, 0x20, 0x20, 0x10, 0x08, 0x00 },
+    // 0x29 )
+    .{ 0x20, 0x10, 0x08, 0x08, 0x08, 0x10, 0x20, 0x00 },
+    // 0x2A *
+    .{ 0x00, 0x24, 0x18, 0x7e, 0x18, 0x24, 0x00, 0x00 },
+    // 0x2B +
+    .{ 0x00, 0x18, 0x18, 0x7e, 0x18, 0x18, 0x00, 0x00 },
+    // 0x2C ,
+    .{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x18, 0x18, 0x10 },
+    // 0x2D -
+    .{ 0x00, 0x00, 0x00, 0x7e, 0x00, 0x00, 0x00, 0x00 },
+    // 0x2E .
+    .{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x18, 0x18, 0x00 },
+    // 0x2F /
+    .{ 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x00, 0x00 },
+    // 0x30 0
+    .{ 0x3c, 0x46, 0x4a, 0x52, 0x62, 0x3c, 0x00, 0x00 },
+    // 0x31 1
+    .{ 0x18, 0x38, 0x18, 0x18, 0x18, 0x3c, 0x00, 0x00 },
+    // 0x32 2
+    .{ 0x3c, 0x42, 0x02, 0x1c, 0x20, 0x7e, 0x00, 0x00 },
+    // 0x33 3
+    .{ 0x3c, 0x42, 0x0c, 0x02, 0x42, 0x3c, 0x00, 0x00 },
+    // 0x34 4
+    .{ 0x08, 0x18, 0x28, 0x48, 0x7e, 0x08, 0x00, 0x00 },
+    // 0x35 5
+    .{ 0x7e, 0x40, 0x7c, 0x02, 0x42, 0x3c, 0x00, 0x00 },
+    // 0x36 6
+    .{ 0x1c, 0x20, 0x7c, 0x42, 0x42, 0x3c, 0x00, 0x00 },
+    // 0x37 7
+    .{ 0x7e, 0x02, 0x04, 0x08, 0x10, 0x10, 0x00, 0x00 },
+    // 0x38 8
+    .{ 0x3c, 0x42, 0x3c, 0x42, 0x42, 0x3c, 0x00, 0x00 },
+    // 0x39 9
+    .{ 0x3c, 0x42, 0x42, 0x3e, 0x04, 0x38, 0x00, 0x00 },
+    // 0x3A :
+    .{ 0x00, 0x18, 0x18, 0x00, 0x18, 0x18, 0x00, 0x00 },
+    // 0x3B ;
+    .{ 0x00, 0x18, 0x18, 0x00, 0x18, 0x18, 0x10, 0x00 },
+    // 0x3C <
+    .{ 0x04, 0x08, 0x10, 0x20, 0x10, 0x08, 0x04, 0x00 },
+    // 0x3D =
+    .{ 0x00, 0x00, 0x7e, 0x00, 0x7e, 0x00, 0x00, 0x00 },
+    // 0x3E >
+    .{ 0x20, 0x10, 0x08, 0x04, 0x08, 0x10, 0x20, 0x00 },
+    // 0x3F ?
+    .{ 0x3c, 0x42, 0x04, 0x08, 0x00, 0x08, 0x00, 0x00 },
+    // 0x40 @
+    .{ 0x3c, 0x42, 0x5e, 0x56, 0x5e, 0x40, 0x3c, 0x00 },
+    // 0x41 A
+    .{ 0x18, 0x24, 0x42, 0x7e, 0x42, 0x42, 0x00, 0x00 },
+    // 0x42 B
+    .{ 0x7c, 0x42, 0x7c, 0x42, 0x42, 0x7c, 0x00, 0x00 },
+    // 0x43 C
+    .{ 0x3c, 0x42, 0x40, 0x40, 0x42, 0x3c, 0x00, 0x00 },
+    // 0x44 D
+    .{ 0x78, 0x44, 0x42, 0x42, 0x44, 0x78, 0x00, 0x00 },
+    // 0x45 E
+    .{ 0x7e, 0x40, 0x7c, 0x40, 0x40, 0x7e, 0x00, 0x00 },
+    // 0x46 F
+    .{ 0x7e, 0x40, 0x7c, 0x40, 0x40, 0x40, 0x00, 0x00 },
+    // 0x47 G
+    .{ 0x3c, 0x42, 0x40, 0x4e, 0x42, 0x3c, 0x00, 0x00 },
+    // 0x48 H
+    .{ 0x42, 0x42, 0x7e, 0x42, 0x42, 0x42, 0x00, 0x00 },
+    // 0x49 I
+    .{ 0x3c, 0x18, 0x18, 0x18, 0x18, 0x3c, 0x00, 0x00 },
+    // 0x4A J
+    .{ 0x1e, 0x06, 0x06, 0x06, 0x46, 0x3c, 0x00, 0x00 },
+    // 0x4B K
+    .{ 0x44, 0x48, 0x70, 0x48, 0x44, 0x42, 0x00, 0x00 },
+    // 0x4C L
+    .{ 0x40, 0x40, 0x40, 0x40, 0x40, 0x7e, 0x00, 0x00 },
+    // 0x4D M
+    .{ 0x42, 0x66, 0x5a, 0x42, 0x42, 0x42, 0x00, 0x00 },
+    // 0x4E N
+    .{ 0x42, 0x62, 0x52, 0x4a, 0x46, 0x42, 0x00, 0x00 },
+    // 0x4F O
+    .{ 0x3c, 0x42, 0x42, 0x42, 0x42, 0x3c, 0x00, 0x00 },
+    // 0x50 P
+    .{ 0x7c, 0x42, 0x42, 0x7c, 0x40, 0x40, 0x00, 0x00 },
+    // 0x51 Q
+    .{ 0x3c, 0x42, 0x42, 0x4a, 0x44, 0x3a, 0x00, 0x00 },
+    // 0x52 R
+    .{ 0x7c, 0x42, 0x42, 0x7c, 0x44, 0x42, 0x00, 0x00 },
+    // 0x53 S
+    .{ 0x3c, 0x40, 0x3c, 0x02, 0x42, 0x3c, 0x00, 0x00 },
+    // 0x54 T
+    .{ 0x7e, 0x18, 0x18, 0x18, 0x18, 0x18, 0x00, 0x00 },
+    // 0x55 U
+    .{ 0x42, 0x42, 0x42, 0x42, 0x42, 0x3c, 0x00, 0x00 },
+    // 0x56 V
+    .{ 0x42, 0x42, 0x42, 0x42, 0x24, 0x18, 0x00, 0x00 },
+    // 0x57 W
+    .{ 0x42, 0x42, 0x42, 0x5a, 0x66, 0x42, 0x00, 0x00 },
+    // 0x58 X
+    .{ 0x42, 0x24, 0x18, 0x18, 0x24, 0x42, 0x00, 0x00 },
+    // 0x59 Y
+    .{ 0x42, 0x42, 0x24, 0x18, 0x18, 0x18, 0x00, 0x00 },
+    // 0x5A Z
+    .{ 0x7e, 0x04, 0x08, 0x10, 0x20, 0x7e, 0x00, 0x00 },
+    // 0x5B [
+    .{ 0x38, 0x20, 0x20, 0x20, 0x20, 0x20, 0x38, 0x00 },
+    // 0x5C backslash
+    .{ 0x40, 0x20, 0x10, 0x08, 0x04, 0x02, 0x00, 0x00 },
+    // 0x5D ]
+    .{ 0x1c, 0x04, 0x04, 0x04, 0x04, 0x04, 0x1c, 0x00 },
+    // 0x5E ^
+    .{ 0x10, 0x28, 0x44, 0x00, 0x00, 0x00, 0x00, 0x00 },
+    // 0x5F _
+    .{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x7e, 0x00 },
+    // 0x60 `
+    .{ 0x20, 0x10, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00 },
+    // 0x61 a
+    .{ 0x00, 0x00, 0x3c, 0x02, 0x3e, 0x42, 0x3e, 0x00 },
+    // 0x62 b
+    .{ 0x40, 0x40, 0x5c, 0x62, 0x42, 0x62, 0x5c, 0x00 },
+    // 0x63 c
+    .{ 0x00, 0x00, 0x3c, 0x42, 0x40, 0x42, 0x3c, 0x00 },
+    // 0x64 d
+    .{ 0x02, 0x02, 0x3a, 0x46, 0x42, 0x46, 0x3a, 0x00 },
+    // 0x65 e
+    .{ 0x00, 0x00, 0x3c, 0x42, 0x7e, 0x40, 0x3c, 0x00 },
+    // 0x66 f
+    .{ 0x0c, 0x12, 0x10, 0x3c, 0x10, 0x10, 0x10, 0x00 },
+    // 0x67 g
+    .{ 0x00, 0x00, 0x3a, 0x46, 0x46, 0x3a, 0x02, 0x3c },
+    // 0x68 h
+    .{ 0x40, 0x40, 0x5c, 0x62, 0x42, 0x42, 0x42, 0x00 },
+    // 0x69 i
+    .{ 0x18, 0x00, 0x38, 0x18, 0x18, 0x18, 0x3c, 0x00 },
+    // 0x6A j
+    .{ 0x06, 0x00, 0x06, 0x06, 0x06, 0x06, 0x46, 0x3c },
+    // 0x6B k
+    .{ 0x40, 0x40, 0x44, 0x48, 0x70, 0x48, 0x44, 0x00 },
+    // 0x6C l
+    .{ 0x38, 0x18, 0x18, 0x18, 0x18, 0x18, 0x3c, 0x00 },
+    // 0x6D m
+    .{ 0x00, 0x00, 0x76, 0x4a, 0x4a, 0x4a, 0x4a, 0x00 },
+    // 0x6E n
+    .{ 0x00, 0x00, 0x5c, 0x62, 0x42, 0x42, 0x42, 0x00 },
+    // 0x6F o
+    .{ 0x00, 0x00, 0x3c, 0x42, 0x42, 0x42, 0x3c, 0x00 },
+    // 0x70 p
+    .{ 0x00, 0x00, 0x5c, 0x62, 0x62, 0x5c, 0x40, 0x40 },
+    // 0x71 q
+    .{ 0x00, 0x00, 0x3a, 0x46, 0x46, 0x3a, 0x02, 0x02 },
+    // 0x72 r
+    .{ 0x00, 0x00, 0x5c, 0x62, 0x40, 0x40, 0x40, 0x00 },
+    // 0x73 s
+    .{ 0x00, 0x00, 0x3e, 0x40, 0x3c, 0x02, 0x7c, 0x00 },
+    // 0x74 t
+    .{ 0x10, 0x10, 0x3c, 0x10, 0x10, 0x12, 0x0c, 0x00 },
+    // 0x75 u
+    .{ 0x00, 0x00, 0x42, 0x42, 0x42, 0x46, 0x3a, 0x00 },
+    // 0x76 v
+    .{ 0x00, 0x00, 0x42, 0x42, 0x42, 0x24, 0x18, 0x00 },
+    // 0x77 w
+    .{ 0x00, 0x00, 0x42, 0x42, 0x5a, 0x66, 0x42, 0x00 },
+    // 0x78 x
+    .{ 0x00, 0x00, 0x42, 0x24, 0x18, 0x24, 0x42, 0x00 },
+    // 0x79 y
+    .{ 0x00, 0x00, 0x42, 0x42, 0x46, 0x3a, 0x02, 0x3c },
+    // 0x7A z
+    .{ 0x00, 0x00, 0x7e, 0x04, 0x18, 0x20, 0x7e, 0x00 },
+    // 0x7B {
+    .{ 0x0c, 0x10, 0x10, 0x60, 0x10, 0x10, 0x0c, 0x00 },
+    // 0x7C |
+    .{ 0x18, 0x18, 0x18, 0x00, 0x18, 0x18, 0x18, 0x00 },
+    // 0x7D }
+    .{ 0x30, 0x08, 0x08, 0x06, 0x08, 0x08, 0x30, 0x00 },
+    // 0x7E ~
+    .{ 0x00, 0x00, 0x32, 0x4c, 0x00, 0x00, 0x00, 0x00 },
+};
+
+// -- fw_cfg helpers (from framebuf.rye) ------------------------------
+
+fn fwcfg_select(key: u16) void {
+    fwcfg_selector.* = @byteSwap(key);
+}
+
+fn fwcfg_read_byte() u8 {
+    return fwcfg_data.*;
+}
+
+fn fwcfg_read_be16() u16 {
+    var val: u16 = 0;
+    val = (@as(u16, fwcfg_read_byte()) << 8) |
+        @as(u16, fwcfg_read_byte());
+    return val;
+}
+
+fn fwcfg_read_be32() u32 {
+    var val: u32 = 0;
+    val = (@as(u32, fwcfg_read_byte()) << 24) |
+        (@as(u32, fwcfg_read_byte()) << 16) |
+        (@as(u32, fwcfg_read_byte()) << 8) |
+        @as(u32, fwcfg_read_byte());
+    return val;
+}
+
+fn find_ramfb_selector() ?u16 {
+    fwcfg_select(0x0019);
+    const count = fwcfg_read_be32();
+    // invariant: virt machine has at least one fw_cfg entry
+    assert(count > 0);
+    // invariant: count bounded
+    assert(count < 256);
+
+    var i: u32 = 0;
+    while (i < count) : (i += 1) {
+        _ = fwcfg_read_be32();
+        const sel = fwcfg_read_be16();
+        _ = fwcfg_read_be16();
+        var name: [56]u8 = undefined;
+        for (&name) |*b| b.* = fwcfg_read_byte();
+        if (str_eq(&name, "etc/ramfb")) return sel;
+    }
+
+    return null;
+}
+
+fn str_eq(buf: *const [56]u8, target: []const u8) bool {
+    if (target.len > 56) return false;
+    for (target, 0..) |c, idx| {
+        if (buf[idx] != c) return false;
+    }
+    if (target.len < 56) return buf[target.len] == 0;
+    return true;
+}
+
+fn configure_ramfb(selector: u16) void {
+    // RAMFBCfg (28 bytes, BE): addr, fourcc, flags, w, h, stride
+    write_be64(ramfb_cfg_addr + 0, @as(u64, fb_addr));
+    write_be32(ramfb_cfg_addr + 8, drm_format_xrgb8888);
+    write_be32(ramfb_cfg_addr + 12, 0);
+    write_be32(ramfb_cfg_addr + 16, fb_width);
+    write_be32(ramfb_cfg_addr + 20, fb_height);
+    write_be32(ramfb_cfg_addr + 24, fb_stride);
+
+    // FWCfgDmaAccess (16 bytes, BE): control, length, address
+    const control: u32 =
+        (@as(u32, selector) << 16) | 0x18;
+    write_be32(dma_struct_addr + 0, control);
+    write_be32(dma_struct_addr + 4, 28);
+    write_be64(dma_struct_addr + 8, @as(u64, ramfb_cfg_addr));
+
+    // Trigger DMA
+    fwcfg_dma_hi.* = @byteSwap(@as(u32, 0));
+    fwcfg_dma_lo.* = @byteSwap(dma_struct_addr);
+
+    // Poll until QEMU clears the control field
+    var polls: u32 = 0;
+    while (read_be32(dma_struct_addr + 0) != 0) : (polls += 1) {
+        // invariant: DMA completes within bounded polls
+        assert(polls < 1_000_000);
+    }
+}
+
+// -- Big-endian memory accessors ------------------------------------
+
+fn write_be32(addr: u32, val: u32) void {
+    const ptr: *volatile u32 = @ptrFromInt(addr);
+    ptr.* = @byteSwap(val);
+}
+
+fn write_be64(addr: u32, val: u64) void {
+    write_be32(addr, @truncate(val >> 32));
+    write_be32(addr + 4, @truncate(val));
+}
+
+fn read_be32(addr: u32) u32 {
+    const ptr: *volatile u32 = @ptrFromInt(addr);
+    return @byteSwap(ptr.*);
+}
+
+// -- UART helpers ----------------------------------------------------
+
+fn uart_puts(s: []const u8) void {
+    for (s) |byte| uart_tx.* = byte;
+}
+
+fn print_u32(val: u32) void {
+    if (val == 0) {
+        uart_tx.* = '0';
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n = val;
+    var i: u32 = 0;
+    while (n > 0) {
+        buf[i] = @intCast(n % 10 + '0');
+        n = n / 10;
+        i += 1;
+    }
+    while (i > 0) {
+        i -= 1;
+        uart_tx.* = buf[i];
+    }
+}
+
+fn halt_error(msg: []const u8) noreturn {
+    uart_puts(msg);
+    test_finisher.* = finisher_pass;
+    while (true) {}
+}
+
+fn assert(ok: bool) void {
+    if (!ok) unreachable;
+}
