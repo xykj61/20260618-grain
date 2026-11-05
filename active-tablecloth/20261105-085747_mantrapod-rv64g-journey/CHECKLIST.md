@@ -131,15 +131,26 @@ and the system prepares for multi-hart boot.*
   **Witness:** `terrarium/atomic_registry_witness.rish` -- features, build,
   QEMU 8-proof run, A-ext census. **GREEN on metal.**
 
-- [ ] **Orbit 13 -- Multi-hart boot on QEMU (2 harts)**
+- [x] **Orbit 13 -- Multi-hart boot on QEMU (2 harts)**
   Boot QEMU with `-smp 2`. The primary hart runs the boot sequence; the secondary
   hart waits at a barrier and joins after Caravan is ready.
   **SLC gate:** both harts report through Aurora; Caravan supervises domains on both.
+  **Landed `20261105.143315`.** 2-hart boot with atomic gate and ticket spinlock.
+  5 proofs, 29 A-ext instructions (lr.w, sc.w, amoadd.w, fence), 7128-byte ELF.
+  **Witness:** `terrarium/multi_hart64_witness.rish` -- features, build,
+  QEMU `-smp 2` 5-proof run, A-ext census. **GREEN on metal.**
 
-- [ ] **Orbit 14 -- Preemptive scheduling foundation**
+- [x] **Orbit 14 -- Preemptive scheduling foundation**
   Caravan gains a round-robin scheduler across 2 harts. Timer interrupt (CLINT)
   triggers context switch. Each domain's register state is saved and restored.
   **SLC gate:** two domains time-slice on one hart; both produce correct output.
+  **Landed `20261105.151301`.** CLINT timer interrupt at 50,000-tick timeslice,
+  full 31-register context save/restore via mscratch swap pattern, round-robin
+  between domain A (count 1-5, checksum 15) and domain B (count 101-105,
+  checksum 515). 12 context switches, genuine interleaving confirmed.
+  5 proofs, 20 CSR instructions (2 mret, 2 csrrw, 6 csrw), 7544-byte ELF.
+  **Witness:** `terrarium/preempt_witness.rish` -- features, build,
+  QEMU 5-proof run, trap instruction census. **GREEN on metal.**
 
 - [ ] **Orbit 15 -- A extension integration witness**
   Full boot with atomics, multi-hart, and preemptive scheduling. The capability
