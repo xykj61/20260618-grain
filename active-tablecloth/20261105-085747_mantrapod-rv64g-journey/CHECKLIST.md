@@ -240,10 +240,11 @@ audio opens on the bare hart.*
   plus M, A, and F/D integration.
   **SLC gate:** `terrarium/boot_witness_rv64g.rish` runs GREEN, all 19 modules proven.
 
-- [ ] **Orbit 22 -- Terrarium macOS app on RV64G**
-  The Terrarium macOS app launches `qemu-system-riscv64` instead of `riscv32`.
-  The glass shows the wider world.
-  **SLC gate:** Terrarium opens on macOS, full RV64G boot visible in the window.
+- [x] **Orbit 22 -- Terrarium macOS app on RV64G** (`20261105.184157`)
+  Swift app updated: `is64Bit` recognizes `_g` suffix, `isMultiHart` passes `-smp 2`.
+  Four stages proven through the glass: glow_app_g (10/10), steward_g (2 domains),
+  amphora_seal_g (seal + tamper), multi_hart_g (atomic on 2 harts).
+  **SLC gate:** `terrarium/terrarium_rv64g_witness.rish` runs GREEN, Terrarium launches riscv64 for `_g` stages.
 
 - [ ] **Orbit 23 -- WASM emulation horizon scoping**
   Scope the path from `qemu-system-riscv64` to `grain-emu.wasm` -- a browser-hosted

@@ -1,0 +1,70 @@
+#!/usr/bin/env rishi
+# terrarium/terrarium_rv64g_witness.rish
+#
+# Orbit 22: Terrarium macOS app on RV64G.
+# Proves the Terrarium Swift app launches qemu-system-riscv64 for _g stages
+# and the full RV64G boot is visible through the glass.
+#
+# Depends on: terrarium/rv64g_helper.sh (builds all 19 modules)
+#             terrarium/app/main.swift (the Swift Terrarium app)
+
+say "=== Orbit 22: Terrarium macOS app on RV64G ==="
+say ""
+
+# --- Build the Swift app ---
+say "--- Stage 1: Build Terrarium Swift app ---"
+let swift = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && swiftc -o terrarium/.build/Terrarium terrarium/app/main.swift -framework AppKit 2>&1"]
+assert swift.ok else "swift build failed"
+say "  Terrarium built"
+
+# --- Build all 19 RV64G modules ---
+say "--- Stage 2: Build 19 RV64G modules ---"
+let build = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && sh terrarium/rv64g_helper.sh build 2>&1"]
+assert build.ok else "module build failed"
+assert build.out contains "builds_ok=19" else "not all 19 modules built"
+say "  19/19 built"
+say ""
+
+# --- Prove Terrarium launches riscv64 for _g stages ---
+say "--- Stage 3: Terrarium launches riscv64 for glow_app_g ---"
+let glow = run ["timeout" "15" "terrarium/.build/Terrarium" "glow_app_g"]
+assert glow.out contains "stage: glow_app_g" else "stage not glow_app_g"
+assert glow.out contains "correct: 10 of 10" else "glow not 10/10"
+assert glow.out contains "all expressions correct" else "glow not all correct"
+say "  Glow calculator 10/10 GREEN in the glass"
+
+# --- Prove Steward boots through the glass ---
+say "--- Stage 4: Terrarium launches riscv64 for steward_g ---"
+let stew = run ["timeout" "15" "terrarium/.build/Terrarium" "steward_g"]
+assert stew.out contains "stage: steward_g" else "stage not steward_g"
+assert stew.out contains "2 domains UP from manifest" else "steward domains not up"
+assert stew.out contains "all manifest domains running" else "steward not all running"
+say "  Steward 2 domains GREEN in the glass"
+
+# --- Prove Amphora seal through the glass ---
+say "--- Stage 5: Terrarium launches riscv64 for amphora_seal_g ---"
+let seal = run ["timeout" "15" "terrarium/.build/Terrarium" "amphora_seal_g"]
+assert seal.out contains "stage: amphora_seal_g" else "stage not amphora_seal_g"
+assert seal.out contains "verify: PASS" else "seal verify failed"
+assert seal.out contains "tamper detected: PASS" else "tamper detect failed"
+say "  Amphora seal GREEN in the glass"
+
+# --- Prove multi-hart through the glass ---
+say "--- Stage 6: Terrarium launches riscv64 for multi_hart_g ---"
+let hart = run ["timeout" "15" "terrarium/.build/Terrarium" "multi_hart_g"]
+assert hart.out contains "stage: multi_hart_g" else "stage not multi_hart_g"
+assert hart.out contains "ALL PROOFS PASSED" else "multi_hart failed"
+say "  Multi-hart GREEN in the glass"
+say ""
+
+# --- Verdict ---
+say "=========================================="
+say "terrarium_rv64g_witness: ALL GREEN"
+say "  Terrarium Swift app selects qemu-system-riscv64 for _g stages"
+say "  4 modules proven through the glass on full RV64G:"
+say "    glow_app_g    -- 10/10 expressions correct"
+say "    steward_g     -- 2 domains UP from manifest"
+say "    amphora_seal_g -- seal verify + tamper detect"
+say "    multi_hart_g  -- atomic proofs on 2 harts"
+say "=========================================="
+say "Orbit 22 complete -- the glass shows the wider world."

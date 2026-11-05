@@ -1,8 +1,8 @@
 // Terrarium -- a living world under glass.
 //
-// A macOS window that launches qemu-system-riscv32 as a dependent
-// process and captures its serial output.  For framebuffer stages,
-// the window also displays QEMU's framebuffer via QMP screendump.
+// A macOS window that launches qemu-system-riscv32 or riscv64 as a
+// dependent process and captures its serial output.  For framebuffer
+// stages, the window also displays QEMU's framebuffer via QMP screendump.
 //
 // Build:  swiftc -o terrarium/.build/Terrarium terrarium/app/main.swift
 // Run:    terrarium/.build/Terrarium [stage]
@@ -24,6 +24,8 @@ let isWireStage = stage == "wire"
 let isMantraWireStage = stage == "mantra_wire"
     || stage == "mantra_wire64"
 let is64Bit = stage.hasSuffix("64")
+    || stage.hasSuffix("_g")
+let isMultiHart = stage.hasPrefix("multi_hart")
 
 let repoRoot: String = {
     let url = URL(fileURLWithPath: #filePath)
@@ -175,12 +177,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 "-kernel", elfPath
             ]
         } else {
-            proc.arguments = [
+            var args = [
                 "-machine", "virt",
                 "-bios", "none",
                 "-nographic",
                 "-kernel", elfPath
             ]
+            if isMultiHart { args += ["-smp", "2"] }
+            proc.arguments = args
         }
 
         if isWireStage || isMantraWireStage {
