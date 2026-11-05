@@ -1,0 +1,90 @@
+#!/usr/bin/env rishi
+# terrarium/caravan_supervision_witness.rish
+#
+# Orbit 22 -- Caravan process supervision witness
+# Proves: supervisor spawns dependents with own Tally budgets,
+# mediates allocations, faults and stops an overbudget dependent,
+# refuses a stopped dependent, process table ceiling, and
+# supervisor region bounded separately from dependents.
+
+say "=== Orbit 22: Caravan process supervision witness ==="
+
+say "-- build --"
+let build = run ["sh" "-c" "mkdir -p terrarium/.build && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/caravan_supervision.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/caravan_supervision.elf 2>&1"]
+assert build.ok else "build failed"
+say "  build: GREEN"
+
+say "-- run on QEMU --"
+let qemu = run ["timeout" "10" "qemu-system-riscv32" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/caravan_supervision.elf"]
+assert qemu.ok else "QEMU run failed"
+say "  qemu: exited cleanly"
+
+say "-- proof 1: supervisor domain created --"
+assert qemu.out contains "supervisor domain created"
+say "  supervisor domain: GREEN"
+
+say "-- proof 2: spawn worker with own budget --"
+assert qemu.out contains "spawned worker"
+assert qemu.out contains "budget=256 bytes"
+say "  spawn worker: GREEN"
+
+say "-- proof 3: worker allocates within budget --"
+assert qemu.out contains "worker ALLOCATED 128 bytes"
+say "  worker alloc: GREEN"
+
+say "-- proof 4: spawn greedy dependent --"
+assert qemu.out contains "spawned greedy"
+assert qemu.out contains "budget=64 bytes"
+say "  spawn greedy: GREEN"
+
+say "-- proof 5: greedy first allocation --"
+assert qemu.out contains "greedy ALLOCATED 32 bytes"
+say "  greedy first alloc: GREEN"
+
+say "-- proof 6: greedy exceeds budget --"
+assert qemu.out contains "greedy OVERBUDGET"
+assert qemu.out contains "process faulted"
+say "  overbudget fault: GREEN"
+
+say "-- proof 7: supervisor stops faulted --"
+assert qemu.out contains "supervisor STOPPED 1 faulted"
+assert qemu.out contains "greedy state=stopped"
+say "  stop faulted: GREEN"
+
+say "-- proof 8: stopped dependent refused --"
+assert qemu.out contains "greedy allocation REFUSED -- process stopped"
+say "  stopped refused: GREEN"
+
+say "-- proof 9: worker still healthy --"
+assert qemu.out contains "worker ALLOCATED 64 more bytes"
+assert qemu.out contains "state=running"
+say "  worker healthy: GREEN"
+
+say "-- proof 10: process table ceiling --"
+assert qemu.out contains "REFUSED -- ProcessTableFull at 4"
+say "  table ceiling: GREEN"
+
+say "-- proof 11: supervisor region separate --"
+assert qemu.out contains "supervisor tally used:"
+assert qemu.out contains "worker tally used:"
+assert qemu.out contains "greedy tally used:"
+say "  separate regions: GREEN"
+
+say "-- Mantra integrity --"
+assert qemu.out contains "mantra facts: 10"
+assert qemu.out contains "state hash: 0x40a03a12"
+say "  mantra: 10 facts, hash 0x40a03a12: GREEN"
+
+say "-- Tally budget --"
+assert qemu.out contains "540 of 2048 bytes"
+say "  tally: 540 of 2048: GREEN"
+
+say "-- orbit complete --"
+assert qemu.out contains "Orbit 22 complete"
+say "  orbit marker: GREEN"
+
+say ""
+say "=== Orbit 22: ALL PROOFS GREEN ==="
+say "  Caravan process supervision on freestanding RV32I"
+say "  11 proofs, 10 Mantra facts, state hash 0x40a03a12"
+say "=== WITNESS PASSED ==="

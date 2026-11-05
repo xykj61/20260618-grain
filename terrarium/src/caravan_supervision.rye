@@ -1,0 +1,797 @@
+// terrarium/src/caravan_supervision.rye
+//
+// Orbit 22 -- Caravan process supervision on freestanding RV32I
+//
+// Extends Orbit 21's capability model with process supervision:
+// each dependent gets its own Tally region (bounded budget),
+// the supervisor mediates allocations, and a dependent that
+// exceeds its budget is stopped. The supervisor's own allocation
+// (for Mantra logging) is bounded separately from its dependents'.
+//
+// TAME order: Safety (Tally bounds per dependent) -> Visibility
+// (Aurora console) -> Replay (Mantra event log with chain integrity)
+
+const std = @import("std");
+const assert = std.debug.assert;
+
+// -- Hardware addresses (QEMU virt) ------------------------------------
+const uart_base: u32 = 0x10000000;
+const test_finisher: u32 = 0x00100000;
+const finisher_pass: u32 = 0x5555;
+
+fn uart_tx(c: u8) void {
+    const ptr: *volatile u8 = @ptrFromInt(uart_base);
+    ptr.* = c;
+}
+
+fn uart_print(s: []const u8) void {
+    for (s) |c| uart_tx(c);
+}
+
+fn print_u32(v: u32) void {
+    if (v == 0) {
+        uart_tx('0');
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n: u32 = 0;
+    var x = v;
+    while (x > 0) : (n += 1) {
+        buf[n] = @intCast(x % 10 + '0');
+        x /= 10;
+    }
+    while (n > 0) {
+        n -= 1;
+        uart_tx(buf[n]);
+    }
+}
+
+fn print_hex(v: u32) void {
+    uart_print("0x");
+    const hex = "0123456789abcdef";
+    var i: u5 = 8;
+    while (i > 0) {
+        i -= 1;
+        uart_tx(hex[@intCast((v >> (i * 4)) & 0xf)]);
+    }
+}
+
+fn halt_pass() noreturn {
+    const ptr: *volatile u32 = @ptrFromInt(test_finisher);
+    ptr.* = finisher_pass;
+    while (true) asm volatile ("wfi");
+}
+
+fn halt_error(msg: []const u8) noreturn {
+    uart_print(msg);
+    while (true) asm volatile ("wfi");
+}
+
+// -- Entry point (placed in .text.init so the linker script puts it first)
+comptime {
+    asm (
+        \\.section .text.init,"ax"
+        \\.globl _start
+        \\_start:
+        \\  li sp, 0x80100000
+        \\  j kmain
+    );
+}
+
+// -- Tally region (bounded allocation) ---------------------------------
+const Region = struct {
+    buf: [*]u8,
+    cap: u32,
+    pos: u32,
+
+    fn init(base: [*]u8, budget: u32) Region {
+        // invariant: budget > 0
+        assert(budget > 0);
+        return .{ .buf = base, .cap = budget, .pos = 0 };
+    }
+
+    fn alloc(self: *Region, size: u32) error{OutOfBounds}!u32 {
+        // invariant: pos inside capacity
+        assert(self.pos <= self.cap);
+        if (self.pos + size > self.cap) return error.OutOfBounds;
+        const offset = self.pos;
+        var i: u32 = 0;
+        while (i < size) : (i += 1) {
+            self.buf[self.pos + i] = 0;
+        }
+        self.pos += size;
+        // invariant: pos still inside capacity
+        assert(self.pos <= self.cap);
+        return offset;
+    }
+
+    fn remaining(self: *const Region) u32 {
+        return self.cap - self.pos;
+    }
+};
+
+// -- djb2 hash ---------------------------------------------------------
+const Djb2 = struct {
+    h: u32,
+
+    fn init() Djb2 {
+        return .{ .h = 5381 };
+    }
+
+    fn feed(self: *Djb2, data: []const u8) void {
+        for (data) |byte| {
+            self.h = ((self.h << 5) +% self.h) +% byte;
+        }
+    }
+
+    fn feed_u32(self: *Djb2, v: u32) void {
+        var buf: [4]u8 = undefined;
+        buf[0] = @intCast((v >> 24) & 0xff);
+        buf[1] = @intCast((v >> 16) & 0xff);
+        buf[2] = @intCast((v >> 8) & 0xff);
+        buf[3] = @intCast(v & 0xff);
+        self.feed(&buf);
+    }
+
+    fn digest(self: *const Djb2) u32 {
+        return self.h;
+    }
+};
+
+// -- Identity (Kumara seed) --------------------------------------------
+const seed_length: u32 = 32;
+
+const Identity = struct {
+    seed: [seed_length]u8,
+
+    fn init(s: [seed_length]u8) Identity {
+        return .{ .seed = s };
+    }
+
+    fn sign(self: *const Identity, message: []const u8) u32 {
+        var h = Djb2.init();
+        h.feed(&self.seed);
+        h.feed(message);
+        return h.digest();
+    }
+};
+
+// -- Mantra event log --------------------------------------------------
+const MantraLog = struct {
+    region: *Region,
+    identity: *const Identity,
+    count: u32,
+    state_hash: u32,
+
+    fn init(region: *Region, identity: *const Identity) MantraLog {
+        return .{
+            .region = region,
+            .identity = identity,
+            .count = 0,
+            .state_hash = 0,
+        };
+    }
+
+    fn append(self: *MantraLog, message: []const u8) void {
+        const msg_len: u32 = @intCast(message.len);
+        const record_size: u32 = 4 + 4 + msg_len + 4 + 4;
+        const offset = self.region.alloc(record_size) catch {
+            halt_error("FATAL: Mantra log region exhausted\n");
+        };
+        var i: u32 = 0;
+        while (i < msg_len) : (i += 1) {
+            self.region.buf[offset + 8 + i] = message[i];
+        }
+        const sig = self.identity.sign(message);
+        var chain = Djb2.init();
+        chain.feed_u32(self.state_hash);
+        chain.feed_u32(self.count);
+        chain.feed(message);
+        chain.feed_u32(sig);
+        self.state_hash = chain.digest();
+        self.count += 1;
+    }
+};
+
+// -- Object types and rights (from Orbit 21) ---------------------------
+const ObjectType = enum(u8) {
+    untyped = 0,
+    tcb = 1,
+    endpoint = 2,
+    notification = 3,
+    cap_table = 4,
+};
+
+const right_read: u32 = 1;
+const right_write: u32 = 2;
+const right_execute: u32 = 4;
+
+// -- Capability (from Orbit 21) ----------------------------------------
+const max_caps_per_domain: u32 = 8;
+
+const Capability = struct {
+    obj: ObjectType,
+    rights: u32,
+    lease: u32,
+    active: bool,
+    grantor_id: u32,
+};
+
+// -- Domain (from Orbit 21) --------------------------------------------
+const max_name_len: u32 = 32;
+
+const Domain = struct {
+    id: u32,
+    name_ptr: [*]const u8,
+    name_len: u32,
+    caps: [max_caps_per_domain]Capability,
+    cap_count: u32,
+};
+
+fn domain_name(d: *const Domain) []const u8 {
+    return d.name_ptr[0..d.name_len];
+}
+
+// -- Domain registry (from Orbit 21) -----------------------------------
+const max_domains: u32 = 8;
+
+const DomainRegistry = struct {
+    domains: [max_domains]Domain,
+    count: u32,
+
+    fn init() DomainRegistry {
+        return .{ .domains = undefined, .count = 0 };
+    }
+
+    fn create(
+        self: *DomainRegistry,
+        name: []const u8,
+    ) error{RegistryFull}!*Domain {
+        assert(self.count <= max_domains);
+        if (self.count >= max_domains) return error.RegistryFull;
+        const idx = self.count;
+        self.domains[idx] = .{
+            .id = idx,
+            .name_ptr = name.ptr,
+            .name_len = @intCast(name.len),
+            .caps = undefined,
+            .cap_count = 0,
+        };
+        self.count += 1;
+        assert(self.count <= max_domains);
+        return &self.domains[idx];
+    }
+};
+
+// -- Capability operations (from Orbit 21) -----------------------------
+const CapError = error{
+    CapTableFull,
+    CapNotFound,
+    CapExpired,
+    CapRightsInsufficient,
+};
+
+fn confer(
+    domain: *Domain,
+    obj: ObjectType,
+    rights: u32,
+    lease: u32,
+    grantor_id: u32,
+) CapError!u32 {
+    assert(domain.cap_count <= max_caps_per_domain);
+    if (domain.cap_count >= max_caps_per_domain)
+        return CapError.CapTableFull;
+    const slot = domain.cap_count;
+    domain.caps[slot] = .{
+        .obj = obj,
+        .rights = rights,
+        .lease = lease,
+        .active = true,
+        .grantor_id = grantor_id,
+    };
+    domain.cap_count += 1;
+    assert(domain.cap_count <= max_caps_per_domain);
+    return slot;
+}
+
+fn tick_leases(domain: *Domain) u32 {
+    var expired: u32 = 0;
+    var i: u32 = 0;
+    while (i < domain.cap_count) : (i += 1) {
+        if (domain.caps[i].active and domain.caps[i].lease > 0) {
+            domain.caps[i].lease -= 1;
+            if (domain.caps[i].lease == 0) {
+                domain.caps[i].active = false;
+                expired += 1;
+            }
+        }
+    }
+    return expired;
+}
+
+// =====================================================================
+// NEW FOR ORBIT 22: Process supervision
+// =====================================================================
+
+// -- Process state -----------------------------------------------------
+const ProcessState = enum(u8) {
+    ready = 0,
+    running = 1,
+    stopped = 2,
+    faulted = 3,
+};
+
+fn state_name(s: ProcessState) []const u8 {
+    return switch (s) {
+        .ready => "ready",
+        .running => "running",
+        .stopped => "stopped",
+        .faulted => "faulted",
+    };
+}
+
+// -- Process -----------------------------------------------------------
+// Each supervised dependent is a process with its own Tally region.
+// The supervisor mediates allocations and stops a process that
+// exceeds its budget.
+
+const Process = struct {
+    domain: *Domain,
+    state: ProcessState,
+    region: Region,
+    alloc_count: u32,
+};
+
+// -- Supervisor --------------------------------------------------------
+// The supervisor owns its own Tally region (for Mantra logging)
+// and manages a bounded array of processes.
+
+const max_processes: u32 = 4;
+
+const SupervisorError = error{
+    ProcessTableFull,
+    ProcessNotRunning,
+    ProcessBudgetExceeded,
+};
+
+const Supervisor = struct {
+    log: *MantraLog,
+    processes: [max_processes]Process,
+    count: u32,
+    supervisor_domain: *Domain,
+
+    fn init(
+        log: *MantraLog,
+        supervisor_domain: *Domain,
+    ) Supervisor {
+        return .{
+            .log = log,
+            .processes = undefined,
+            .count = 0,
+            .supervisor_domain = supervisor_domain,
+        };
+    }
+
+    fn spawn(
+        self: *Supervisor,
+        domain: *Domain,
+        region_base: [*]u8,
+        region_budget: u32,
+    ) SupervisorError!u32 {
+        // invariant: count inside ceiling
+        assert(self.count <= max_processes);
+        if (self.count >= max_processes)
+            return SupervisorError.ProcessTableFull;
+        const pid = self.count;
+        self.processes[pid] = .{
+            .domain = domain,
+            .state = .running,
+            .region = Region.init(region_base, region_budget),
+            .alloc_count = 0,
+        };
+        self.count += 1;
+        // invariant: count still inside ceiling
+        assert(self.count <= max_processes);
+        return pid;
+    }
+
+    fn request_alloc(
+        self: *Supervisor,
+        pid: u32,
+        size: u32,
+    ) SupervisorError!u32 {
+        assert(pid < self.count);
+        var proc = &self.processes[pid];
+        if (proc.state != .running)
+            return SupervisorError.ProcessNotRunning;
+        const offset = proc.region.alloc(size) catch {
+            // dependent exceeded its Tally budget -- fault it
+            proc.state = .faulted;
+            return SupervisorError.ProcessBudgetExceeded;
+        };
+        proc.alloc_count += 1;
+        return offset;
+    }
+
+    fn stop_faulted(self: *Supervisor) u32 {
+        var stopped: u32 = 0;
+        var i: u32 = 0;
+        while (i < self.count) : (i += 1) {
+            if (self.processes[i].state == .faulted) {
+                self.processes[i].state = .stopped;
+                stopped += 1;
+            }
+        }
+        return stopped;
+    }
+
+    fn process_name(self: *const Supervisor, pid: u32) []const u8 {
+        assert(pid < self.count);
+        return domain_name(self.processes[pid].domain);
+    }
+};
+
+// -- Memory layout -----------------------------------------------------
+// Supervisor log region: 2048 bytes at 0x80180000
+// Worker region:          256 bytes at 0x80180800
+// Greedy region:           64 bytes at 0x80180840
+const supervisor_region_base: u32 = 0x80180000;
+const supervisor_region_budget: u32 = 2048;
+const worker_region_base: u32 = 0x80180800;
+const worker_region_budget: u32 = 256;
+const greedy_region_base: u32 = 0x80180900;
+const greedy_region_budget: u32 = 64;
+
+// -- Main: Caravan supervision proof -----------------------------------
+
+export fn kmain() callconv(.c) noreturn {
+    uart_print("CARAVAN PROCESS SUPERVISION");
+    uart_print(" -- freestanding RV32I\n");
+    uart_print("TAME stage 5b: Caravan supervises");
+    uart_print(" dependents\n\n");
+
+    // -- Kumara identity
+    const seed: [seed_length]u8 = .{
+        0x4B, 0x75, 0x6D, 0x61, 0x72, 0x61, 0x20, 0x73,
+        0x65, 0x65, 0x64, 0x20, 0x66, 0x6F, 0x72, 0x20,
+        0x66, 0x72, 0x65, 0x65, 0x73, 0x74, 0x61, 0x6E,
+        0x64, 0x69, 0x6E, 0x67, 0x20, 0x52, 0x56, 0x49,
+    };
+    const identity = Identity.init(seed);
+
+    // -- Supervisor's own Tally region (for Mantra)
+    var sup_region = Region.init(
+        @ptrFromInt(supervisor_region_base),
+        supervisor_region_budget,
+    );
+    uart_print("supervisor tally: ");
+    print_u32(supervisor_region_budget);
+    uart_print(" bytes at ");
+    print_hex(supervisor_region_base);
+    uart_print("\n");
+
+    // -- Mantra log (in supervisor's region)
+    var log = MantraLog.init(&sup_region, &identity);
+
+    // -- Domain registry
+    var registry = DomainRegistry.init();
+
+    // === PROOF 1: Create supervisor domain ===
+    uart_print("\n-- CREATE SUPERVISOR --\n");
+
+    const sup_domain = registry.create("supervisor") catch
+        halt_error("ERROR: create supervisor domain failed\n");
+    uart_print("supervision: supervisor domain created");
+    uart_print(" (id=");
+    print_u32(sup_domain.id);
+    uart_print(")\n");
+    log.append("supervision: supervisor domain created");
+
+    // -- Initialize supervisor
+    var supervisor = Supervisor.init(&log, sup_domain);
+
+    // === PROOF 2: Spawn a well-behaved dependent ===
+    uart_print("\n-- SPAWN WORKER --\n");
+
+    const worker_dom = registry.create("worker") catch
+        halt_error("ERROR: create worker domain failed\n");
+    _ = confer(
+        worker_dom,
+        .tcb,
+        right_read | right_write,
+        100,
+        sup_domain.id,
+    ) catch halt_error("ERROR: confer to worker failed\n");
+
+    const worker_pid = supervisor.spawn(
+        worker_dom,
+        @ptrFromInt(worker_region_base),
+        worker_region_budget,
+    ) catch halt_error("ERROR: spawn worker failed\n");
+    uart_print("supervision: spawned worker (pid=");
+    print_u32(worker_pid);
+    uart_print(", budget=");
+    print_u32(worker_region_budget);
+    uart_print(" bytes, state=");
+    uart_print(state_name(
+        supervisor.processes[worker_pid].state,
+    ));
+    uart_print(")\n");
+    log.append("supervision: worker spawned");
+
+    // === PROOF 3: Worker allocates within budget ===
+    uart_print("\n-- WORKER ALLOCATES WITHIN BUDGET --\n");
+
+    const worker_alloc_size: u32 = 128;
+    _ = supervisor.request_alloc(
+        worker_pid,
+        worker_alloc_size,
+    ) catch halt_error("ERROR: worker alloc should succeed\n");
+    uart_print("supervision: worker ALLOCATED ");
+    print_u32(worker_alloc_size);
+    uart_print(" bytes (");
+    print_u32(
+        supervisor.processes[worker_pid].region.pos,
+    );
+    uart_print("/");
+    print_u32(worker_region_budget);
+    uart_print(" used, state=");
+    uart_print(state_name(
+        supervisor.processes[worker_pid].state,
+    ));
+    uart_print(")\n");
+    log.append("supervision: worker allocated within budget");
+
+    // === PROOF 4: Spawn a greedy dependent ===
+    uart_print("\n-- SPAWN GREEDY DEPENDENT --\n");
+
+    const greedy_dom = registry.create("greedy") catch
+        halt_error("ERROR: create greedy domain failed\n");
+    _ = confer(
+        greedy_dom,
+        .tcb,
+        right_read,
+        50,
+        sup_domain.id,
+    ) catch halt_error("ERROR: confer to greedy failed\n");
+
+    const greedy_pid = supervisor.spawn(
+        greedy_dom,
+        @ptrFromInt(greedy_region_base),
+        greedy_region_budget,
+    ) catch halt_error("ERROR: spawn greedy failed\n");
+    uart_print("supervision: spawned greedy (pid=");
+    print_u32(greedy_pid);
+    uart_print(", budget=");
+    print_u32(greedy_region_budget);
+    uart_print(" bytes, state=");
+    uart_print(state_name(
+        supervisor.processes[greedy_pid].state,
+    ));
+    uart_print(")\n");
+    log.append("supervision: greedy spawned");
+
+    // === PROOF 5: Greedy allocates within budget first ===
+    uart_print("\n-- GREEDY FIRST ALLOCATION --\n");
+
+    const greedy_first: u32 = 32;
+    _ = supervisor.request_alloc(
+        greedy_pid,
+        greedy_first,
+    ) catch halt_error(
+        "ERROR: greedy first alloc should succeed\n",
+    );
+    uart_print("supervision: greedy ALLOCATED ");
+    print_u32(greedy_first);
+    uart_print(" bytes (");
+    print_u32(
+        supervisor.processes[greedy_pid].region.pos,
+    );
+    uart_print("/");
+    print_u32(greedy_region_budget);
+    uart_print(" used, state=");
+    uart_print(state_name(
+        supervisor.processes[greedy_pid].state,
+    ));
+    uart_print(")\n");
+    log.append("supervision: greedy allocated within budget");
+
+    // === PROOF 6: Greedy exceeds its Tally budget ===
+    uart_print("\n-- GREEDY EXCEEDS BUDGET --\n");
+
+    const greedy_second: u32 = 48;
+    uart_print("supervision: greedy requests ");
+    print_u32(greedy_second);
+    uart_print(" bytes (would need ");
+    print_u32(
+        supervisor.processes[greedy_pid].region.pos
+            + greedy_second,
+    );
+    uart_print("/");
+    print_u32(greedy_region_budget);
+    uart_print(")\n");
+
+    if (supervisor.request_alloc(
+        greedy_pid,
+        greedy_second,
+    )) |_| {
+        halt_error("ERROR: greedy overalloc should fail\n");
+    } else |err| {
+        assert(err == SupervisorError.ProcessBudgetExceeded);
+        uart_print("supervision: greedy OVERBUDGET");
+        uart_print(" -- Tally refused, process faulted\n");
+    }
+    // dependent is now faulted
+    assert(
+        supervisor.processes[greedy_pid].state == .faulted,
+    );
+    uart_print("supervision: greedy state=");
+    uart_print(state_name(
+        supervisor.processes[greedy_pid].state,
+    ));
+    uart_print("\n");
+    log.append("supervision: greedy exceeded tally budget");
+
+    // === PROOF 7: Supervisor stops the faulted dependent ===
+    uart_print("\n-- SUPERVISOR STOPS FAULTED --\n");
+
+    const stopped = supervisor.stop_faulted();
+    uart_print("supervision: supervisor STOPPED ");
+    print_u32(stopped);
+    uart_print(" faulted dependent(s)\n");
+    assert(stopped == 1);
+    assert(
+        supervisor.processes[greedy_pid].state == .stopped,
+    );
+    uart_print("supervision: greedy state=");
+    uart_print(state_name(
+        supervisor.processes[greedy_pid].state,
+    ));
+    uart_print("\n");
+    log.append("supervision: greedy stopped by supervisor");
+
+    // === PROOF 8: Stopped dependent cannot allocate ===
+    uart_print("\n-- STOPPED DEPENDENT REFUSED --\n");
+
+    if (supervisor.request_alloc(greedy_pid, 1)) |_| {
+        halt_error(
+            "ERROR: stopped dependent should be refused\n",
+        );
+    } else |err| {
+        assert(err == SupervisorError.ProcessNotRunning);
+        uart_print("supervision: greedy allocation");
+        uart_print(" REFUSED -- process stopped\n");
+    }
+    log.append(
+        "supervision: stopped dependent refused alloc",
+    );
+
+    // === PROOF 9: Worker still running ===
+    uart_print("\n-- WORKER STILL HEALTHY --\n");
+
+    const worker_second: u32 = 64;
+    _ = supervisor.request_alloc(
+        worker_pid,
+        worker_second,
+    ) catch halt_error(
+        "ERROR: worker second alloc should succeed\n",
+    );
+    assert(
+        supervisor.processes[worker_pid].state == .running,
+    );
+    uart_print("supervision: worker ALLOCATED ");
+    print_u32(worker_second);
+    uart_print(" more bytes (");
+    print_u32(
+        supervisor.processes[worker_pid].region.pos,
+    );
+    uart_print("/");
+    print_u32(worker_region_budget);
+    uart_print(" used, state=");
+    uart_print(state_name(
+        supervisor.processes[worker_pid].state,
+    ));
+    uart_print(")\n");
+    log.append("supervision: worker still healthy");
+
+    // === PROOF 10: Process table ceiling ===
+    uart_print("\n-- PROCESS TABLE CEILING --\n");
+
+    var fill: u32 = supervisor.count;
+    while (fill < max_processes) : (fill += 1) {
+        const filler_dom = registry.create("filler") catch
+            halt_error("ERROR: create filler domain\n");
+        _ = supervisor.spawn(
+            filler_dom,
+            @ptrFromInt(greedy_region_base),
+            16,
+        ) catch halt_error("ERROR: spawn filler\n");
+    }
+    assert(supervisor.count == max_processes);
+    uart_print("supervision: process table filled to ");
+    print_u32(max_processes);
+    uart_print("\n");
+
+    // one more should be refused
+    const extra_dom = registry.create("overflow") catch
+        halt_error("ERROR: create overflow domain\n");
+    if (supervisor.spawn(
+        extra_dom,
+        @ptrFromInt(greedy_region_base),
+        16,
+    )) |_| {
+        halt_error(
+            "ERROR: process table overflow not refused\n",
+        );
+    } else |err| {
+        assert(err == SupervisorError.ProcessTableFull);
+        uart_print("supervision: REFUSED");
+        uart_print(" -- ProcessTableFull at ");
+        print_u32(max_processes);
+        uart_print("\n");
+    }
+    log.append("supervision: process table ceiling enforced");
+
+    // === PROOF 11: Supervisor's own region bounded ===
+    uart_print("\n-- SUPERVISOR REGION BOUNDED --\n");
+
+    uart_print("supervision: supervisor tally used: ");
+    print_u32(sup_region.pos);
+    uart_print(" of ");
+    print_u32(supervisor_region_budget);
+    uart_print(" bytes\n");
+    uart_print("supervision: worker tally used: ");
+    print_u32(
+        supervisor.processes[worker_pid].region.pos,
+    );
+    uart_print(" of ");
+    print_u32(worker_region_budget);
+    uart_print(" bytes\n");
+    uart_print("supervision: greedy tally used: ");
+    print_u32(
+        supervisor.processes[greedy_pid].region.pos,
+    );
+    uart_print(" of ");
+    print_u32(greedy_region_budget);
+    uart_print(" bytes\n");
+
+    // -- supervisor region is separate from dependents
+    assert(sup_region.pos > 0);
+    assert(sup_region.pos <= supervisor_region_budget);
+    assert(
+        supervisor.processes[worker_pid].region.pos > 0,
+    );
+    assert(
+        supervisor.processes[greedy_pid].region.pos
+            < greedy_region_budget,
+    );
+
+    // -- Final report
+    uart_print("\n========================================\n");
+    uart_print("supervision: ALL PROOFS PASSED\n\n");
+    uart_print("  spawn:     dependents with own budgets\n");
+    uart_print("  allocate:  supervisor mediates requests\n");
+    uart_print("  overbudget: Tally refuses, process ");
+    uart_print("faulted\n");
+    uart_print("  stop:      supervisor stops faulted\n");
+    uart_print("  refuse:    stopped cannot allocate\n");
+    uart_print("  healthy:   unaffected dependent runs\n");
+    uart_print("  ceiling:   process table bounded at ");
+    print_u32(max_processes);
+    uart_print("\n");
+    uart_print("  separate:  supervisor region apart from");
+    uart_print(" dependents\n\n");
+    uart_print("  mantra facts: ");
+    print_u32(log.count);
+    uart_print(", state hash: ");
+    print_hex(log.state_hash);
+    uart_print("\n  supervisor tally: ");
+    print_u32(sup_region.pos);
+    uart_print(" of ");
+    print_u32(supervisor_region_budget);
+    uart_print(" bytes\n\n");
+    uart_print("supervision: Orbit 22 complete\n");
+    uart_print("========================================\n");
+
+    halt_pass();
+}

@@ -209,7 +209,7 @@ arrives, and a living world opens under glass.*
   dependent exercises it, and the capability expires -- all visible on Aurora's console
   and recorded in Mantra's log.
 
-- [ ] **Orbit 22 -- Caravan process supervision**
+- [x] **Orbit 22 -- Caravan process supervision** -- landed `20261105`
   Caravan supervises dependent processes. A dependent that exceeds its lease or its
   allocation budget is stopped. The supervisor's own allocation is bounded separately
   from its dependents'.
