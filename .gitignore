@@ -28,6 +28,7 @@
 !/PUBKEYS.template.md
 !/PUBKEYS.md
 !/CONTRIBUTING.md
+!/Makefile
 !/GLOW_HOST.template.kyri
 !/GLOW_PROFILE.template.kyri
 !/template-manifest.kyri

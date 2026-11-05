@@ -80,6 +80,7 @@ The **module ring** is the machinery, each home with its own witnesses. Take the
 | [`tally/`](tally/) | bounds |
 | [`caravan/`](caravan/) | supervision |
 | [`aurora/`](aurora/) | the boot |
+| [`terrarium/`](terrarium/) | a living world under glass (RV32I) |
 | [`pond/`](pond/) | the enclosure |
 | [`mand/`](mand/README.md) | authority |
 | [`brushstroke/`](brushstroke/) | drawing |

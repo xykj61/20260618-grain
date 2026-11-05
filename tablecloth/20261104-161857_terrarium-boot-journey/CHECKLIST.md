@@ -61,7 +61,7 @@ and each reversible.*
   **SLC gate:** a survey document in `active-development/` with a table per module naming
   every gap, its severity, and its proposed orbit.
 
-- [ ] **Orbit 5 -- Developer workflow and DX foundations**
+- [x] **Orbit 5 -- Developer workflow and DX foundations** (landed `20261104.200217`)
   Land the DX improvements the surveys proposed. At minimum: a `Makefile` or `build.rish`
   that builds, runs, and tests an RV32I target from the tree root; a `.lap/` convention
   document; a `MAP.md` update reflecting any root consolidation landed in Orbit 1. Prove
