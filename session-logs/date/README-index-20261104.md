@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261104.193104` | [Orbit 4 -- module readiness survey for freestanding RV32I](20261104/20261104-193104_orbit4-module-readiness-survey.kyri.md) | 7 modules surveyed; Aurora+Tally ready, Mantra+Glow partial, Caravan not ready; 12-18 orbit port cost |
 | `20261104.190813` | [Orbit 3 -- RV32I cross-compilation toolchain](20261104/20261104-190813_orbit3-rv32i-toolchain.kyri.md) | RV32I hello UART proven on metal; Zig cross-compiles to riscv32-freestanding-none; docs-geode page written |
 | `20261104.185624` | [Orbit 2 -- Nock archive repoint](20261104/20261104-185624_orbit2-nock-archive-repoint.kyri.md) | 9 files archived; all 8 witness .rish files repointed; 20 living docs updated; zero living refs to old path |
 | `20261104.181932` | [seat 80-char standard and Glow gate GREEN](20261104/20261104-181932_seat-80-char-glow-gate-green.kyri.md) | 80-col seated in TAME; 602 comment lines + 4 code lines wrapped across 253 Glow files; gate GREEN glow_over=0 |

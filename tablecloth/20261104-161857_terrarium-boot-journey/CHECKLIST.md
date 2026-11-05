@@ -53,7 +53,7 @@ and each reversible.*
   **SLC gate:** a bare-metal RV32I program builds, runs on `qemu-system-riscv32`, prints
   to the UART, and exits cleanly; a `docs-geode/` page walks through the setup.
 
-- [ ] **Orbit 4 -- Module readiness survey for freestanding RV32I**
+- [x] **Orbit 4 -- Module readiness survey for freestanding RV32I**
   Survey each module room that the boot sequence touches (Aurora, Tally, Mantra, Caravan,
   Glow, Rye, Rishi) and name: hosted dependencies, `std` usage, allocation patterns,
   syscall assumptions, and what a freestanding RV32I port requires. Produce a gap analysis
