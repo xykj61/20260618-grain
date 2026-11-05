@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.103219` | [Mantrapod RV64G Orbit 5 -- full boot witness on RV64I](20261105/20261105-103219_mantrapod-orbit5-full-boot-rv64i.kyri.md) | All nine stages GREEN on qemu-system-riscv64 with zero .rye source changes -- pill 0x079080D9, Mantra 0xbc186e04, Glow 10/10, Quest 1 complete |
 | `20261105.102031` | [Mantrapod RV64G Orbit 4 -- Aurora and Mantra on RV64I](20261105/20261105-102031_mantrapod-orbit4-aurora-mantra-rv64i.kyri.md) | Aurora console, Mantra log, and Mantra wire all GREEN on RV64I with zero .rye source changes -- state hash 0xbc186e04 identical, Swift host MVERIFY:ok |
 | `20261105.095422` | [Mantrapod RV64G Orbit 3 -- Tally arena on RV64I](20261105/20261105-095422_mantrapod-orbit3-tally-arena-rv64i.kyri.md) | Region allocates, hits ceiling with OutOfBounds, Gardens refuses DuplicateName/NameEmpty/Full -- all u32 widths portable, zero source changes |
 | `20261105.094643` | [Mantrapod RV64G Orbit 2 -- pill identity on RV64I](20261105/20261105-094643_mantrapod-orbit2-pill-identity-rv64i.kyri.md) | djb2 hash 0x079080D9 matches sealed constant identically on RV64I, zero source changes, explicit u32 arithmetic is fully portable |

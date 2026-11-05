@@ -1,0 +1,207 @@
+#!/usr/bin/env rishi
+# terrarium/boot_witness_rv64.rish -- full Terrarium boot witness on RV64I
+#
+# Mantrapod RV64G Orbit 5 SLC gate. Proves the complete boot sequence on
+# QEMU RV64I: pill -> self-compile -> Tally -> Aurora -> Mantra -> Caravan
+# -> Steward -> userspace application. Every stage bounded, observable,
+# recorded. Zero source changes to any .rye file -- the explicit-u32
+# discipline carries every stage across the register-width boundary.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run terrarium/boot_witness_rv64.rish
+
+say "boot_witness_rv64: Orbit 5 -- full Terrarium boot witness on RV64I"
+say "boot_witness_rv64: proving pill -> Tally -> Aurora -> Mantra -> Caravan -> Steward -> application (9 stages)"
+say ""
+
+# -- Stage 1: Self-compile (pill identity) on RV64I
+
+say "=== stage 1/9: self_compile on RV64I ==="
+
+let build_1 = run ["sh" "-c" "mkdir -p terrarium/.build && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/self_compile.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -femit-bin=terrarium/.build/self_compile64.elf 2>&1"]
+assert build_1.code == 0 else "self_compile 64-bit build failed"
+
+let run_1 = run ["timeout" "10" "qemu-system-riscv64" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/self_compile64.elf"]
+assert run_1.code == 0 else "self_compile 64-bit qemu failed"
+assert run_1.out contains "self_compile: MATCH -- identity proven" else "pill identity not proven on RV64I"
+assert run_1.out contains "Orbit 15 complete" else "self_compile incomplete on RV64I"
+
+let elf_1 = run ["file" "terrarium/.build/self_compile64.elf"]
+assert elf_1.out contains "ELF 64-bit" else "self_compile ELF must be 64-bit"
+assert elf_1.out contains "RISC-V" else "self_compile ELF must target RISC-V"
+
+say "stage 1/9 GREEN: pill identity proven on RV64I"
+say ""
+
+# -- Stage 2: Tally arena (safety) on RV64I
+
+say "=== stage 2/9: tally_arena on RV64I ==="
+
+let build_2 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/tally_arena.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -femit-bin=terrarium/.build/tally_arena64.elf 2>&1"]
+assert build_2.code == 0 else "tally_arena 64-bit build failed"
+
+let run_2 = run ["timeout" "10" "qemu-system-riscv64" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/tally_arena64.elf"]
+assert run_2.code == 0 else "tally_arena 64-bit qemu failed"
+assert run_2.out contains "tally_arena: REFUSED -- OutOfBounds" else "tally must refuse past ceiling on RV64I"
+assert run_2.out contains "tally_arena: all invariants held" else "tally invariants must hold on RV64I"
+assert run_2.out contains "Orbit 16 complete" else "tally_arena incomplete on RV64I"
+
+let elf_2 = run ["file" "terrarium/.build/tally_arena64.elf"]
+assert elf_2.out contains "ELF 64-bit" else "tally_arena ELF must be 64-bit"
+
+say "stage 2/9 GREEN: Tally bounds every allocation on RV64I"
+say ""
+
+# -- Stage 3: Aurora console (visibility) on RV64I
+
+say "=== stage 3/9: aurora_console on RV64I ==="
+
+let build_3 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/aurora_console.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -femit-bin=terrarium/.build/aurora_console64.elf 2>&1"]
+assert build_3.code == 0 else "aurora_console 64-bit build failed"
+
+let run_3 = run ["timeout" "10" "qemu-system-riscv64" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/aurora_console64.elf"]
+assert run_3.code == 0 else "aurora_console 64-bit qemu failed"
+assert run_3.out contains "aurora_console: Orbit 17 complete" else "aurora_console incomplete on RV64I"
+
+let elf_3 = run ["file" "terrarium/.build/aurora_console64.elf"]
+assert elf_3.out contains "ELF 64-bit" else "aurora_console ELF must be 64-bit"
+
+say "stage 3/9 GREEN: Aurora speaks through the console on RV64I"
+say ""
+
+# -- Stage 4: Mantra event log (replay) on RV64I
+
+say "=== stage 4/9: mantra_log on RV64I ==="
+
+let build_4 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/mantra_log.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -femit-bin=terrarium/.build/mantra_log64.elf 2>&1"]
+assert build_4.code == 0 else "mantra_log 64-bit build failed"
+
+let run_4 = run ["timeout" "10" "qemu-system-riscv64" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/mantra_log64.elf"]
+assert run_4.code == 0 else "mantra_log 64-bit qemu failed"
+assert run_4.out contains "REPLAY MATCHES: identical state proven" else "mantra replay must match on RV64I"
+assert run_4.out contains "GREEN: Mantra event log" else "mantra_log must report GREEN on RV64I"
+
+let elf_4 = run ["file" "terrarium/.build/mantra_log64.elf"]
+assert elf_4.out contains "ELF 64-bit" else "mantra_log ELF must be 64-bit"
+
+say "stage 4/9 GREEN: Mantra replay produces identical state on RV64I"
+say ""
+
+# -- Stage 5: Mantra wire persistence on RV64I
+
+say "=== stage 5/9: mantra_wire on RV64I ==="
+
+let build_5 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/mantra_wire.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -femit-bin=terrarium/.build/mantra_wire64.elf 2>&1"]
+assert build_5.code == 0 else "mantra_wire 64-bit build failed"
+
+let build_app = run ["sh" "-c" "swiftc -o terrarium/.build/Terrarium terrarium/app/main.swift -framework AppKit 2>&1"]
+assert build_app.code == 0 else "terrarium app build failed"
+
+let run_5 = run ["timeout" "30" "terrarium/.build/Terrarium" "mantra_wire64"]
+assert run_5.code == 0 else "mantra_wire 64-bit qemu failed"
+assert run_5.out contains "GREEN: Mantra persistence through the wire" else "wire persistence must report GREEN on RV64I"
+
+say "stage 5/9 GREEN: Mantra facts persist through the wire on RV64I"
+say ""
+
+# -- Stage 6: Caravan capability model on RV64I
+
+say "=== stage 6/9: caravan_cap on RV64I ==="
+
+let build_6 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/caravan_cap.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -femit-bin=terrarium/.build/caravan_cap64.elf 2>&1"]
+assert build_6.code == 0 else "caravan_cap 64-bit build failed"
+
+let run_6 = run ["timeout" "10" "qemu-system-riscv64" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/caravan_cap64.elf"]
+assert run_6.code == 0 else "caravan_cap 64-bit qemu failed"
+assert run_6.out contains "W xor X" else "W xor X must be enforced on RV64I"
+assert run_6.out contains "ALL PROOFS PASSED" else "caravan_cap proofs must pass on RV64I"
+assert run_6.out contains "Orbit 21 complete" else "caravan_cap incomplete on RV64I"
+
+let elf_6 = run ["file" "terrarium/.build/caravan_cap64.elf"]
+assert elf_6.out contains "ELF 64-bit" else "caravan_cap ELF must be 64-bit"
+
+say "stage 6/9 GREEN: Caravan capabilities with bounded leases on RV64I"
+say ""
+
+# -- Stage 7: Caravan process supervision on RV64I
+
+say "=== stage 7/9: caravan_supervision on RV64I ==="
+
+let build_7 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/caravan_supervision.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -femit-bin=terrarium/.build/caravan_supervision64.elf 2>&1"]
+assert build_7.code == 0 else "caravan_supervision 64-bit build failed"
+
+let run_7 = run ["timeout" "10" "qemu-system-riscv64" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/caravan_supervision64.elf"]
+assert run_7.code == 0 else "caravan_supervision 64-bit qemu failed"
+assert run_7.out contains "greedy OVERBUDGET" else "supervisor must fault overbudget dependent on RV64I"
+assert run_7.out contains "worker ALLOCATED 64 more bytes" else "sibling must survive peer fault on RV64I"
+assert run_7.out contains "ALL PROOFS PASSED" else "caravan_supervision proofs must pass on RV64I"
+assert run_7.out contains "Orbit 22 complete" else "caravan_supervision incomplete on RV64I"
+
+let elf_7 = run ["file" "terrarium/.build/caravan_supervision64.elf"]
+assert elf_7.out contains "ELF 64-bit" else "caravan_supervision ELF must be 64-bit"
+
+say "stage 7/9 GREEN: Caravan supervisor stops overbudget dependents on RV64I"
+say ""
+
+# -- Stage 8: Steward root supervisor on RV64I
+
+say "=== stage 8/9: steward on RV64I ==="
+
+let build_8 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/steward.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -femit-bin=terrarium/.build/steward64.elf 2>&1"]
+assert build_8.code == 0 else "steward 64-bit build failed"
+
+let run_8 = run ["timeout" "10" "qemu-system-riscv64" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/steward64.elf"]
+assert run_8.code == 0 else "steward 64-bit qemu failed"
+assert run_8.out contains "2 domains UP from manifest" else "manifest boot must succeed on RV64I"
+assert run_8.out contains "all manifest domains running" else "all domains must run on RV64I"
+assert run_8.out contains "Orbit 23 complete" else "steward incomplete on RV64I"
+
+let elf_8 = run ["file" "terrarium/.build/steward64.elf"]
+assert elf_8.out contains "ELF 64-bit" else "steward ELF must be 64-bit"
+
+say "stage 8/9 GREEN: Steward boots domains from Brix manifest on RV64I"
+say ""
+
+# -- Stage 9: Glow application on RV64I
+
+say "=== stage 9/9: glow_app on RV64I ==="
+
+let build_9 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/glow_app.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -femit-bin=terrarium/.build/glow_app64.elf 2>&1"]
+assert build_9.code == 0 else "glow_app 64-bit build failed"
+
+let run_9 = run ["timeout" "10" "qemu-system-riscv64" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/glow_app64.elf"]
+assert run_9.code == 0 else "glow_app 64-bit qemu failed"
+assert run_9.out contains "correct: 10 of 10" else "glow expressions must be correct on RV64I"
+assert run_9.out contains "all expressions correct" else "all expressions must be correct on RV64I"
+assert run_9.out contains "10/10 expressions correct" else "summary must confirm correctness on RV64I"
+assert run_9.out contains "Orbit 24 complete" else "glow_app incomplete on RV64I"
+
+let elf_9 = run ["file" "terrarium/.build/glow_app64.elf"]
+assert elf_9.out contains "ELF 64-bit" else "glow_app ELF must be 64-bit"
+
+say "stage 9/9 GREEN: Glow calculator evaluates 10/10 expressions on RV64I"
+say ""
+
+# -- Verdict
+
+say "================================================"
+say "boot_witness_rv64: ALL NINE STAGES GREEN ON RV64I"
+say ""
+say "  1. pill:         self-compile identity proven"
+say "  2. tally:        arena bounded, ceiling enforced"
+say "  3. aurora:       console speaks through the framebuffer"
+say "  4. mantra:       event log replays to identical state"
+say "  5. wire:         facts persist through the Terrarium wire"
+say "  6. caravan cap:  capabilities with bounded leases"
+say "  7. supervision:  supervisor stops overbudget dependents"
+say "  8. steward:      root supervisor boots domains from Brix manifest"
+say "  9. glow_app:     first application evaluates Glow expressions"
+say ""
+say "  zero source changes to any .rye file"
+say "  explicit u32 widths carry every stage unchanged"
+say "  TAME order: safety -> visibility -> replay"
+say "  then: capability -> supervision -> steward -> application"
+say ""
+say "GREEN: Orbit 5 -- full Terrarium boot on RV64I"
+say "Quest 1 complete -- RV64I base target proven"
+say "================================================"

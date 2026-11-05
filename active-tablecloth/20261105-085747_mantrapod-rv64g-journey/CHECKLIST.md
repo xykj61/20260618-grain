@@ -53,10 +53,14 @@ unchanged in what it does, wider in how it addresses.*
   **Witness:** `terrarium/aurora_mantra64_witness.rish` -- three stages, ELF identity.
   **GREEN on metal.**
 
-- [ ] **Orbit 5 -- Caravan and Steward on RV64I**
-  Caravan capabilities, process supervision, and Steward domain boot on the 64-bit
-  hart. The Glow calculator runs in userspace. Full nine-stage boot on RV64I.
-  **SLC gate:** `terrarium/boot_witness_rv64.rish` proves all nine stages GREEN.
+- [x] **Orbit 5 -- Full boot witness on RV64I** (`20261105.103219`)
+  All nine boot stages proven on `qemu-system-riscv64` with zero source changes to
+  any `.rye` file: pill identity, Tally arena, Aurora console, Mantra log, Mantra
+  wire (via Swift host with `mantra_wire64`), Caravan capabilities, Caravan
+  supervision, Steward domain boot, and Glow calculator. The explicit-`u32`
+  discipline carries the complete boot sequence across the register-width boundary.
+  **Witness:** `terrarium/boot_witness_rv64.rish` -- nine stages, ELF identity.
+  **GREEN on metal. Quest 1 complete.**
 
 ### Quest 1.2 -- Hardware Arithmetic (M extension)
 
