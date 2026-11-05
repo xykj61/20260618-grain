@@ -1,0 +1,126 @@
+//! terrarium/src/wire.rye -- bidirectional UART wire.
+//!
+//! The first Comlink wire: the guest sends a structured fact over
+//! UART and waits for the host to acknowledge. This proves that a
+//! message sent from the RV32I guest arrives at the Terrarium host
+//! and a response travels back -- the channel that carries Mantra
+//! facts in Quest 1.4.
+//!
+//! UART 16550 on QEMU virt (base 0x1000_0000):
+//!   +0x00  THR (write) / RBR (read)
+//!   +0x05  LSR -- bit 0 Data Ready, bit 5 THR Empty
+//!
+//! Build and run:
+//!   make terrarium-app STAGE=wire
+
+// -- hardware addresses (QEMU virt riscv32) -----------------------
+
+const uart_base: u32 = 0x1000_0000;
+const uart_thr: *volatile u8 = @ptrFromInt(uart_base);
+const uart_rbr: *volatile u8 = @ptrFromInt(uart_base);
+const uart_lsr: *volatile u8 =
+    @ptrFromInt(uart_base + 5);
+const test_finisher: *volatile u32 =
+    @ptrFromInt(0x0010_0000);
+const finisher_pass: u32 = 0x5555;
+
+// -- protocol -----------------------------------------------------
+
+const fact = "WIRE:fact=terrarium.orbit.10\n";
+const expected_ack = "ACK:terrarium.orbit.10\n";
+const ack_max: u32 = 64;
+// invariant: poll limit bounds the busy-wait
+const poll_limit: u32 = 200_000_000;
+
+// -- entry points -------------------------------------------------
+
+export fn _start()
+    linksection(".text.init") callconv(.naked) noreturn
+{
+    asm volatile (
+        \\ li sp, 0x80100000
+        \\ j kmain
+    );
+}
+
+export fn kmain() callconv(.c) noreturn {
+    uart_puts("wire: Comlink wire protocol\n");
+
+    // 1. Send a fact to the host
+    uart_puts("wire: sending fact...\n");
+    uart_puts(fact);
+
+    // 2. Wait for the host's acknowledgment
+    uart_puts("wire: awaiting ACK...\n");
+    var buf: [ack_max]u8 = undefined;
+    const len = uart_read_line(&buf);
+
+    // 3. Verify the round-trip
+    if (str_eq(&buf, len, expected_ack)) {
+        uart_puts("WIRE ROUND-TRIP CONFIRMED\n");
+    } else {
+        uart_puts("wire: ACK mismatch -- got ");
+        uart_write_n(&buf, len);
+        uart_puts("\n");
+    }
+
+    // Clean exit via sifive test finisher
+    test_finisher.* = finisher_pass;
+    while (true) asm volatile ("wfi");
+}
+
+// -- UART I/O -----------------------------------------------------
+
+fn uart_puts(s: []const u8) void {
+    for (s) |b| uart_thr.* = b;
+}
+
+fn uart_data_ready() bool {
+    // LSR bit 0: Data Ready
+    return (uart_lsr.* & 0x01) != 0;
+}
+
+fn uart_read_line(buf: *[ack_max]u8) u32 {
+    var len: u32 = 0;
+    var polls: u32 = 0;
+    while (len < ack_max and polls < poll_limit)
+        : (polls += 1)
+    {
+        if (uart_data_ready()) {
+            const b = uart_rbr.*;
+            buf[len] = b;
+            len += 1;
+            polls = 0; // reset on each received byte
+            if (b == '\n') break;
+        }
+    }
+    return len;
+}
+
+fn uart_write_n(
+    buf: *const [ack_max]u8,
+    len: u32,
+) void {
+    var i: u32 = 0;
+    while (i < len) : (i += 1) uart_thr.* = buf[i];
+}
+
+// -- string comparison --------------------------------------------
+
+fn str_eq(
+    buf: *const [ack_max]u8,
+    len: u32,
+    target: []const u8,
+) bool {
+    if (len != target.len) return false;
+    var i: u32 = 0;
+    while (i < len) : (i += 1) {
+        if (buf[i] != target[i]) return false;
+    }
+    return true;
+}
+
+// invariant: a failed proof halts immediately
+fn assert(ok: bool) void {
+    if (!ok) unreachable;
+}

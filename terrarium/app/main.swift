@@ -19,6 +19,7 @@ let stage: String = CommandLine.arguments.count > 1
     : "hello"
 
 let isFramebufStage = stage == "framebuf"
+let isWireStage = stage == "wire"
 
 let repoRoot: String = {
     let url = URL(fileURLWithPath: #filePath)
@@ -41,6 +42,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var qmpSocketPath: String?
     var screendumpDone = false
     var serialBuffer = ""
+    var inputPipe: Pipe?
+    var wireAckSent = false
 
     func applicationDidFinishLaunching(_ note: Notification) {
         var mask: NSWindow.StyleMask = [
@@ -158,6 +161,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 "unix:\(sockPath),server=on,wait=off",
                 "-kernel", elfPath
             ]
+        } else if isWireStage {
+            proc.arguments = [
+                "-machine", "virt",
+                "-bios", "none",
+                "-display", "none",
+                "-serial", "stdio",
+                "-kernel", elfPath
+            ]
         } else {
             proc.arguments = [
                 "-machine", "virt",
@@ -165,6 +176,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 "-nographic",
                 "-kernel", elfPath
             ]
+        }
+
+        if isWireStage {
+            let inp = Pipe()
+            proc.standardInput = inp
+            inputPipe = inp
         }
 
         outputPipe = Pipe()
@@ -188,6 +205,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                            )
                         {
                             self?.captureFramebuffer()
+                        }
+                        if isWireStage,
+                           !(self?.wireAckSent
+                               ?? true),
+                           let buf =
+                               self?.serialBuffer,
+                           buf.range(
+                               of: "WIRE:fact=.+\n",
+                               options:
+                                   .regularExpression
+                           ) != nil
+                        {
+                            self?.handleWireFact()
                         }
                     }
                 }
@@ -291,6 +321,36 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     self?.qemuProcess?.terminate()
                 }
             }
+        }
+    }
+
+    // -- Wire protocol ------------------------------------------------
+
+    func handleWireFact() {
+        guard !wireAckSent else { return }
+        wireAckSent = true
+
+        let lines = serialBuffer.components(
+            separatedBy: "\n"
+        )
+        guard let factLine = lines.first(
+            where: { $0.hasPrefix("WIRE:fact=") }
+        ) else { return }
+
+        let value = String(
+            factLine.dropFirst("WIRE:fact=".count)
+        )
+        appendLine(
+            "--- host received fact: \(value)"
+        )
+
+        let ack = "ACK:\(value)\n"
+        if let data = ack.data(using: .utf8) {
+            inputPipe?.fileHandleForWriting
+                .write(data)
+            appendLine(
+                "--- host sent ACK: \(value)"
+            )
         }
     }
 

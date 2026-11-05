@@ -103,7 +103,7 @@ emulation, and Aurora's proven stages port to the smaller ISA.*
   **SLC gate:** Aurora draws a rectangle or status line on the RV32I framebuffer and
   Terrarium's macOS window shows it.
 
-- [ ] **Orbit 10 -- Terrarium wire protocol (host-guest channel)**
+- [x] **Orbit 10 -- Terrarium wire protocol (host-guest channel)**
   Establish the Comlink wire between Terrarium (HOST) and the RV32I guest -- virtio,
   shared memory, or a serial protocol. Prove bidirectional communication: the guest
   sends a fact, the host acknowledges. This wire carries Mantra facts in Quest 1.4.
