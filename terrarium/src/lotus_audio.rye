@@ -1,0 +1,240 @@
+// terrarium/src/lotus_audio.rye
+//
+// Orbit 19: Lotus audio sample type on the bare hart
+//
+// A 256-sample triangle wave is generated and a gain of 0.5 is applied
+// using hardware f64 multiply on the bare RV64FD hart. The triangle's
+// first 128 samples ramp 0.0 -> 1.0, the next 128 ramp 1.0 -> 0.0.
+// The symmetric shape makes the checksum exact: sum of all gained
+// samples equals 64.00 (6400 cents), and each half contributes 32.00.
+//
+// This is Lotus's proof of concept on the Mantrapod -- audio sample
+// processing on bare metal with Tally-bounded buffers.
+
+const std = @import("std");
+const assert = std.debug.assert;
+
+// -- UART at 0x1000_0000 (QEMU virt) --
+const uart_tx: *volatile u8 = @ptrFromInt(0x10000000);
+
+fn uart_char(c: u8) void {
+    uart_tx.* = c;
+}
+
+fn uart_str(s: []const u8) void {
+    for (s) |c| uart_char(c);
+}
+
+fn uart_newline() void {
+    uart_char('\n');
+}
+
+// -- Print an unsigned integer in decimal --
+fn uart_u32(val: u32) void {
+    if (val == 0) {
+        uart_char('0');
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n = val;
+    var i: u32 = 0;
+    while (n > 0) : (i += 1) {
+        buf[i] = @truncate(n % 10 + '0');
+        n /= 10;
+    }
+    while (i > 0) {
+        i -= 1;
+        uart_char(buf[i]);
+    }
+}
+
+// -- Print f64 with 2 decimal places --
+fn print_f64_2dp(val: f64) void {
+    var v = val;
+    if (v < 0.0) {
+        uart_char('-');
+        v = -v;
+    }
+    const scaled: u64 = @intFromFloat(v * 100.0 + 0.5);
+    const integer_part: u32 = @truncate(scaled / 100);
+    const frac_part: u32 = @truncate(scaled % 100);
+    uart_u32(integer_part);
+    uart_char('.');
+    if (frac_part < 10) uart_char('0');
+    uart_u32(frac_part);
+}
+
+fn to_cents(val: f64) u32 {
+    return @truncate(@as(u64, @intFromFloat(val * 100.0 + 0.5)));
+}
+
+// -- Audio constants --
+// invariant: sample_count is a power of two, Tally-bounded
+const sample_count: u32 = 256;
+const half: u32 = 128;
+const ramp_max: f64 = 127.0;
+const gain: f64 = 0.5;
+
+// Expected values (integer cents):
+// Triangle wave sum = 128.0 (symmetric), after gain 0.5 = 64.0
+// Each half contributes 32.0. Peak = 1.0, after gain = 0.5.
+const expected_sum_cents: u32 = 6400;
+const expected_peak_cents: u32 = 50;
+const expected_half_sum_cents: u32 = 3200;
+
+var proof_count: u32 = 0;
+var proof_pass: u32 = 0;
+
+fn check_proof(
+    name: []const u8,
+    got: u32,
+    expected: u32,
+) void {
+    proof_count += 1;
+    uart_str("  ");
+    uart_str(name);
+    uart_str(": ");
+    uart_u32(got);
+    if (got == expected) {
+        uart_str(" PROOF PASS");
+        proof_pass += 1;
+    } else {
+        uart_str(" PROOF FAIL (expected ");
+        uart_u32(expected);
+        uart_str(")");
+    }
+    uart_newline();
+}
+
+// -- test_finisher: QEMU virt test device at 0x100000 --
+const test_finisher: *volatile u32 = @ptrFromInt(0x00100000);
+
+fn exit_qemu() noreturn {
+    test_finisher.* = 0x5555;
+    while (true) {}
+}
+
+// -- Entry point --
+export fn _start() linksection(".text.init") callconv(.naked) noreturn {
+    asm volatile (
+        \\li sp, 0x80080000
+        \\
+        \\.option push
+        \\.option norelax
+        \\la gp, __global_pointer$
+        \\.option pop
+        \\
+        // Enable FPU: mstatus.FS = Dirty (11)
+        \\li t0, (3 << 13)
+        \\csrs mstatus, t0
+        \\
+        \\call %[main]
+        \\
+        :
+        : [main] "S" (&main),
+    );
+    unreachable;
+}
+
+fn main() callconv(.c) noreturn {
+    uart_str("Lotus audio: 256-sample gain on RV64FD");
+    uart_newline();
+    uart_newline();
+
+    // -- Generate triangle wave --
+    // invariant: 256 samples, first half ramps up, second ramps down
+    var samples: [256]f64 = undefined;
+
+    var i: u32 = 0;
+    while (i < half) : (i += 1) {
+        const idx: usize = @intCast(i);
+        samples[idx] = @as(f64, @floatFromInt(i)) / ramp_max;
+    }
+    while (i < sample_count) : (i += 1) {
+        const idx: usize = @intCast(i);
+        const mirror: u32 = sample_count - 1 - i;
+        samples[idx] = @as(f64, @floatFromInt(mirror)) / ramp_max;
+    }
+
+    uart_str("Triangle wave: ");
+    uart_u32(sample_count);
+    uart_str(" samples, peak ");
+    print_f64_2dp(1.0);
+    uart_newline();
+
+    // -- Apply gain --
+    var peak: f64 = 0.0;
+    i = 0;
+    while (i < sample_count) : (i += 1) {
+        const idx: usize = @intCast(i);
+        samples[idx] = samples[idx] * gain;
+        if (samples[idx] > peak) peak = samples[idx];
+    }
+
+    uart_str("Gain: ");
+    print_f64_2dp(gain);
+    uart_newline();
+
+    // -- Compute sums (first half / second half separately) --
+    var first_half_sum: f64 = 0.0;
+    i = 0;
+    while (i < half) : (i += 1) {
+        first_half_sum += samples[@as(usize, @intCast(i))];
+    }
+    var second_half_sum: f64 = 0.0;
+    while (i < sample_count) : (i += 1) {
+        second_half_sum += samples[@as(usize, @intCast(i))];
+    }
+    const sum = first_half_sum + second_half_sum;
+
+    uart_str("Output: sum ");
+    print_f64_2dp(sum);
+    uart_str(", peak ");
+    print_f64_2dp(peak);
+    uart_newline();
+
+    // SLC gate line
+    uart_str("Lotus: ");
+    uart_u32(sample_count);
+    uart_str(" samples, gain ");
+    print_f64_2dp(gain);
+    uart_str(", sum ");
+    print_f64_2dp(sum);
+    uart_newline();
+    uart_newline();
+
+    // -- Proofs --
+    check_proof("sum_cents", to_cents(sum), expected_sum_cents);
+    check_proof("peak_cents", to_cents(peak), expected_peak_cents);
+    check_proof(
+        "first_half_sum",
+        to_cents(first_half_sum),
+        expected_half_sum_cents,
+    );
+    check_proof(
+        "second_half_sum",
+        to_cents(second_half_sum),
+        expected_half_sum_cents,
+    );
+    check_proof("sample_0", to_cents(samples[0]), 0);
+    check_proof("sample_255", to_cents(samples[255]), 0);
+
+    uart_newline();
+    uart_str("proofs: ");
+    uart_u32(proof_pass);
+    uart_str("/");
+    uart_u32(proof_count);
+    uart_newline();
+
+    if (proof_pass == proof_count) {
+        uart_str("ALL PROOFS PASSED");
+        uart_newline();
+        uart_str("Orbit 19 complete");
+        uart_newline();
+    } else {
+        uart_str("SOME PROOFS FAILED");
+        uart_newline();
+    }
+
+    exit_qemu();
+}

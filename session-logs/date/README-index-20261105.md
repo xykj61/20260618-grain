@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.175252` | [Mantrapod RV64G Orbit 19 -- Lotus audio sample type on RV64FD](20261105/20261105-175252_mantrapod-orbit19-lotus-audio.kyri.md) | 4 stages GREEN: 256-sample triangle wave with gain 0.5, 6 integer-cent checksums, 64 FP instructions, 6496-byte ELF |
 | `20261105.174309` | [Mantrapod RV64G Orbit 18 -- Dimeroll price arithmetic on RV64FD](20261105/20261105-174309_mantrapod-orbit18-dimeroll-price.kyri.md) | 4 stages GREEN: 4 field-ledger transactions with revenue/expense/net/tax, 8 integer-cent checksums, 50 FP instructions, 6512-byte ELF |
 | `20261105.172652` | [Mantrapod RV64G Orbit 17 -- Caravan FP context save/restore on RV64FD](20261105/20261105-172652_mantrapod-orbit17-fp-context.kyri.md) | 4 stages GREEN: 65-slot extended context (30 GP + mepc + 32 FP + fcsr), two FP domains through 12 preemptive switches, @atomicLoad freestanding fix, 105 FP instructions, 8912-byte ELF |
 | `20261105.160234` | [Mantrapod RV64G Orbit 16 -- Glow floating-point on RV64FD](20261105/20261105-160234_mantrapod-orbit16-glow-fp.kyri.md) | 4 stages GREEN: 8 IEEE 754 f64 expressions on RV64FD, SLC gate (* 3.14 2.0) = 6.28, 44 F/D instructions, 7808-byte ELF, Quest 1.4 opened |

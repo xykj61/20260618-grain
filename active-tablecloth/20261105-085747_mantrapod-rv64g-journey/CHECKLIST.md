@@ -201,11 +201,19 @@ audio opens on the bare hart.*
   **Witness:** `terrarium/dimeroll_price_witness.rish` -- features, build,
   QEMU 8-proof run, FP instruction census. **GREEN on metal.**
 
-- [ ] **Orbit 19 -- Lotus audio sample type on the bare hart**
+- [x] **Orbit 19 -- Lotus audio sample type on the bare hart**
   A single Lotus audio operation (a gain or fade) runs on the bare hart using
   hardware FP. The sample buffer is Tally-bounded. Proof of concept for Lotus
   on the Mantrapod.
-  **SLC gate:** 256-sample gain operation produces correct output on RV64FD.
+  **SLC gate:** 256-sample gain operation produces correct output on RV64FD -- PROVEN.
+  **Landing:** 256-sample triangle wave (first 128 ramp 0.0 -> 1.0, next 128
+  ramp 1.0 -> 0.0) with gain 0.5 applied via hardware fmul.d. Sum after gain
+  = 64.00 (6400 cents), peak = 0.50 (50 cents), each half sum = 32.00 (3200
+  cents), endpoints 0.00. All 6 integer-cent checksums verified. FP census: 64
+  instructions (8 fmul.d, 10 fadd.d, 2 fdiv.d, 9 fsd, 5 fld, 9 fcvt, 19 fmv,
+  2 flt.d). 6496-byte ELF.
+  **Witness:** `terrarium/lotus_audio_witness.rish` -- features, build,
+  QEMU 6-proof run, FP instruction census. **GREEN on metal.**
 
 - [ ] **Orbit 20 -- F/D extension integration witness**
   Full boot with all G extensions: I + M + A + F + D. The complete RV64G stack

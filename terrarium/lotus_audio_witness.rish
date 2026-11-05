@@ -1,0 +1,71 @@
+#!/usr/bin/env rishi
+# terrarium/lotus_audio_witness.rish
+#
+# Orbit 19 witness: Lotus audio sample type on the bare hart.
+# Four stages: CPU features, build, QEMU proof run, FP instruction census.
+
+say "=== Orbit 19 witness: Lotus audio 256-sample gain on RV64FD ==="
+say ""
+
+# -- Stage 1: CPU feature probe --
+say "--- Stage 1: CPU features ---"
+let features = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/hello64.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+f+d --verbose-llvm-cpu-features -femit-bin=/dev/null 2>&1 | head -4"]
+assert features.out contains "+m" else "missing M extension"
+say "  +m confirmed"
+assert features.out contains "+f" else "missing F extension"
+say "  +f confirmed"
+assert features.out contains "+d" else "missing D extension"
+say "  +d confirmed"
+say "  Stage 1 GREEN"
+say ""
+
+# -- Stage 2: Build --
+say "--- Stage 2: Build ---"
+let build = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && sh terrarium/lotus_audio_helper.sh build 2>&1"]
+assert build.ok else "build failed: ${build.err}"
+assert build.out contains "build ok" else "build did not complete"
+say "  Build succeeded"
+say "  Stage 2 GREEN"
+say ""
+
+# -- Stage 3: QEMU proof run (6 proofs) --
+say "--- Stage 3: QEMU proof run ---"
+let qemu = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/lotus_audio.elf 2>/dev/null"]
+say "  QEMU output:"
+say "${qemu.out}"
+
+# Proofs
+assert qemu.out contains "sum_cents: 6400 PROOF PASS" else "sum proof failed"
+assert qemu.out contains "peak_cents: 50 PROOF PASS" else "peak proof failed"
+assert qemu.out contains "first_half_sum: 3200 PROOF PASS" else "first half sum proof failed"
+assert qemu.out contains "second_half_sum: 3200 PROOF PASS" else "second half sum proof failed"
+assert qemu.out contains "sample_0: 0 PROOF PASS" else "sample 0 proof failed"
+assert qemu.out contains "sample_255: 0 PROOF PASS" else "sample 255 proof failed"
+
+# Overall verdict
+assert qemu.out contains "6/6" else "not all 6 proofs passed"
+assert qemu.out contains "ALL PROOFS PASSED" else "overall verdict not ALL PROOFS PASSED"
+assert qemu.out contains "Orbit 19 complete" else "orbit completion marker missing"
+
+# SLC gate: 256-sample gain operation produces correct output on RV64FD
+assert qemu.out contains "Lotus: 256 samples, gain 0.50, sum 64.00" else "SLC gate failed: 256-sample gain output incorrect"
+
+say "  All 6 proofs verified"
+say "  SLC gate: Lotus 256 samples, gain 0.50, sum 64.00 confirmed"
+say "  Stage 3 GREEN"
+say ""
+
+# -- Stage 4: FP instruction census --
+say "--- Stage 4: FP instruction census ---"
+let census = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && sh terrarium/lotus_audio_helper.sh census 2>&1"]
+assert census.ok else "census failed: ${census.err}"
+assert census.out contains "census ok" else "census did not complete"
+assert census.out contains "fmul_d=" else "no fmul.d count"
+assert census.out contains "fadd_d=" else "no fadd.d count"
+assert census.out contains "fdiv_d=" else "no fdiv.d count"
+say "${census.out}"
+say "  Stage 4 GREEN"
+say ""
+
+say "=== All 4 stages GREEN ==="
+say "=== Orbit 19 witness complete ==="
