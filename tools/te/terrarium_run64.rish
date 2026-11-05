@@ -1,0 +1,37 @@
+# terrarium_run64.rish -- Terrarium RV64I build + QEMU wake.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run tools/te/terrarium_run64.rish
+#   rishi/bin/rishi run tools/te/terrarium_run64.rish hello64
+#
+# Builds a freestanding riscv64 ELF with rye build and wakes it
+# in qemu-system-riscv64 (machine virt). The hello64 stage is the
+# Orbit 1 proof -- a hart speaks to the UART and halts on 64-bit.
+
+let zig_raw = env "RYE_ZIG"
+if zig_raw == "" then let zig = "vendor/zig-toolchain/zig" else let zig = zig_raw
+let stage_arg = join args ""
+if stage_arg == "" then let stage = "hello64" else let stage = stage_arg
+
+let src = "terrarium/src/${stage}.rye"
+let elf = "terrarium/.build/${stage}.elf"
+
+let check = run ["test" "-f" "${src}"]
+if check.ok == false then say "terrarium: no such stage: ${src}"
+if check.ok == false then exit 2
+
+let prep = run ["sh" "-c" "mkdir -p terrarium/.build"]
+assert prep.ok else "terrarium run64 mkdir failed"
+
+say "building '${stage}' (freestanding riscv64) ..."
+let build = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${src} -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -femit-bin=${elf}"]
+assert build.ok else "terrarium stage build failed:\n${build.out_brief}\n${build.err_brief}"
+
+say "waking '${stage}' in qemu-system-riscv64 (machine virt) ..."
+let wake = run ["timeout" "10" "qemu-system-riscv64" "-machine" "virt" "-bios" "none" "-nographic" "-kernel" "${elf}"]
+say "----"
+say wake.out
+say "----"
+let status = wake.code
+say "qemu exited with status ${status}"
+exit status

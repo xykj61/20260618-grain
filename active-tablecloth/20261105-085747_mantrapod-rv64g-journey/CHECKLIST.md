@@ -23,12 +23,12 @@ that surface. No new features in Act I -- the working system moves.*
 *The hart wakes on 64 bits. Every stage that spoke on RV32I speaks again on RV64I,
 unchanged in what it does, wider in how it addresses.*
 
-- [ ] **Orbit 1 -- RV64I linker script and hello on UART**
-  Update `terrarium/layout.ld` to `OUTPUT_FORMAT("elf64-littleriscv")`, change the
-  Zig target to `riscv64-freestanding-none`, and prove a bare-metal hello on
-  `qemu-system-riscv64 -machine virt`. The seed speaks on the wider hart.
-  **SLC gate:** a freestanding RV64I program builds, runs on `qemu-system-riscv64`,
-  prints to the UART, and exits cleanly via sifive test finisher.
+- [x] **Orbit 1 -- RV64I linker script and hello on UART** (`20261105.093245`)
+  The hart wakes on 64 bits. `terrarium/src/hello64.rye` builds to a 64-bit
+  RISC-V ELF with `-mcmodel=medany` (the medlow code model cannot reach
+  0x80000000 on RV64) and speaks one line to the UART on `qemu-system-riscv64`.
+  **Witness:** `terrarium/hello64_witness.rish` -- build, wake, ELF identity.
+  **GREEN on metal.**
 
 - [ ] **Orbit 2 -- Pill identity on RV64I**
   The self-compile stage builds and its djb2 hash matches on the 64-bit target.

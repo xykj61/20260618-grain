@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.093753` | [Mantrapod RV64G Orbit 1 -- RV64I build target and UART hello](20261105/20261105-093753_mantrapod-orbit1-rv64i-hello.kyri.md) | RV64I hello on qemu-system-riscv64, medany code model discovered, -OReleaseSmall -mcmodel=medany is the standing RV64 recipe |
 | `20261105.091848` | [Housekeeping -- tablecloth molt-breach, active-development fold, fascia badge](20261105/20261105-091848_housekeeping-molt-fold-fascia.kyri.md) | Molt-breach boards to active-tablecloth/, fold 75 flat files into date/ shelves, fascia badge 60.060 -> 60.083 |
 | `20261105.090553` | [Mantrapod RV64G journey -- tablecloth board and RFC proposal](20261105/20261105-090553_mantrapod-rv64g-journey-proposal.kyri.md) | Tablecloth board for the 50-orbit Mantrapod journey (3 acts: RV64G port, Dimeroll field ledger, real hardware), RFC design essay, index updated |
 | `20261105.014745` | [Orbit 25 -- full boot witness and RV64G horizon scoping](20261105/20261105-014745_orbit25-full-boot-witness.kyri.md) | Full 9-stage boot witness all GREEN on QEMU, RV64G scoping document with 6 gaps and 5-quest journey, Terrarium boot journey complete -- 25 orbits across 5 quests |

@@ -1,0 +1,60 @@
+# terrarium/hello64_witness.rish -- RV64I hello witness
+#
+# Orbit 1, Quest 1 of the Mantrapod RV64G journey. Proves a hart
+# wakes on a 64-bit RISC-V machine, speaks to the UART, and halts
+# cleanly -- the same proof hello.rye gives on 32-bit, widened.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run terrarium/hello64_witness.rish
+
+say "hello64_witness: Orbit 1 -- RV64I build target + UART hello"
+say ""
+
+# -- Build
+
+say "=== build: riscv64-freestanding-none, medany ==="
+
+let prep = run ["sh" "-c" "mkdir -p terrarium/.build"]
+assert prep.ok else "hello64_witness mkdir failed"
+
+let build = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/hello64.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -femit-bin=terrarium/.build/hello64.elf 2>&1"]
+assert build.code == 0 else "hello64 build failed:\n${build.out}"
+
+say "build GREEN: riscv64-freestanding-none ELF emitted"
+say ""
+
+# -- Wake
+
+say "=== wake: qemu-system-riscv64 (machine virt) ==="
+
+let wake = run ["timeout" "10" "qemu-system-riscv64" "-machine" "virt" "-bios" "none" "-nographic" "-kernel" "terrarium/.build/hello64.elf"]
+assert wake.code == 0 else "hello64 qemu failed with status ${wake.code}"
+assert wake.out contains "a hart woke on RV64I" else "hello64 must name RV64I"
+assert wake.out contains "spoke this line, and halted" else "hello64 must complete"
+
+say "wake GREEN: hart spoke and halted on qemu-system-riscv64"
+say ""
+
+# -- ELF identity
+
+say "=== elf: architecture check ==="
+
+let file_out = run ["file" "terrarium/.build/hello64.elf"]
+assert file_out.ok else "file command failed"
+assert file_out.out contains "ELF 64-bit" else "hello64.elf must be 64-bit ELF"
+assert file_out.out contains "RISC-V" else "hello64.elf must target RISC-V"
+
+say "elf GREEN: 64-bit RISC-V ELF confirmed"
+say ""
+
+# -- Verdict
+
+say "================================================"
+say "hello64_witness: ALL PROOFS GREEN"
+say ""
+say "  build:  riscv64-freestanding-none with medany code model"
+say "  wake:   hart spoke to UART on qemu-system-riscv64"
+say "  elf:    64-bit RISC-V ELF identity confirmed"
+say ""
+say "GREEN: Orbit 1 -- RV64I build target + UART hello"
+say "================================================"
