@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.180656` | [Mantrapod RV64G Orbit 20 -- full RV64G integration witness](20261105/20261105-180656_mantrapod-orbit20-rv64g-integration.kyri.md) | 10 stages GREEN: 19 modules on full IMAFD, census M=42 A=117 FP=184 CSR=23, Quest 1.4 complete, Act I complete |
 | `20261105.175252` | [Mantrapod RV64G Orbit 19 -- Lotus audio sample type on RV64FD](20261105/20261105-175252_mantrapod-orbit19-lotus-audio.kyri.md) | 4 stages GREEN: 256-sample triangle wave with gain 0.5, 6 integer-cent checksums, 64 FP instructions, 6496-byte ELF |
 | `20261105.174309` | [Mantrapod RV64G Orbit 18 -- Dimeroll price arithmetic on RV64FD](20261105/20261105-174309_mantrapod-orbit18-dimeroll-price.kyri.md) | 4 stages GREEN: 4 field-ledger transactions with revenue/expense/net/tax, 8 integer-cent checksums, 50 FP instructions, 6512-byte ELF |
 | `20261105.172652` | [Mantrapod RV64G Orbit 17 -- Caravan FP context save/restore on RV64FD](20261105/20261105-172652_mantrapod-orbit17-fp-context.kyri.md) | 4 stages GREEN: 65-slot extended context (30 GP + mepc + 32 FP + fcsr), two FP domains through 12 preemptive switches, @atomicLoad freestanding fix, 105 FP instructions, 8912-byte ELF |

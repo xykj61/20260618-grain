@@ -215,10 +215,20 @@ audio opens on the bare hart.*
   **Witness:** `terrarium/lotus_audio_witness.rish` -- features, build,
   QEMU 6-proof run, FP instruction census. **GREEN on metal.**
 
-- [ ] **Orbit 20 -- F/D extension integration witness**
-  Full boot with all G extensions: I + M + A + F + D. The complete RV64G stack
-  from pill through Glow application, all proven.
-  **SLC gate:** `terrarium/rv64g_witness.rish` proves all stages GREEN on RV64G.
+- [x] **Orbit 20 -- F/D extension integration witness** (`20261105.182500`)
+  Full boot with all G extensions: I + M + A + F + D. 19 modules rebuilt with
+  `-mcpu=generic_rv64+m+a+f+d`, each run on QEMU and all proofs verified. 10
+  stages: CPU features (+m +a +f +d), build 19/19, pill 0x079080D9, Glow M-ext
+  6/6, Amphora seal/verify/tamper, full boot 8/8 (Tally, Aurora, Mantra log,
+  Mantra wire via Terrarium, Caravan cap, supervision, Steward, Glow app 10/10),
+  A-ext 4/4 (atomic_cap, atomic_registry, multi_hart -smp 2, preempt),
+  F/D 4/4 (glow_fp 8/8, fp_context 6 proofs, dimeroll_price 8/8, lotus_audio
+  6/6), combined census: M=42, A=117, FP=184, CSR=23 across 19 modules.
+  **SLC gate:** `terrarium/rv64g_witness.rish` proves all 10 stages GREEN on
+  RV64G -- PROVEN.
+  **Witness:** `terrarium/rv64g_witness.rish` + `terrarium/rv64g_helper.sh` --
+  10 stages, 19 modules, all extensions proven. **GREEN on metal.**
+  **Quest 1.4 complete.**
 
 ### Quest 1.5 -- The Wider World (full RV64G boot and WASM horizon)
 

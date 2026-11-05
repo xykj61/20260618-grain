@@ -1,0 +1,202 @@
+#!/usr/bin/env rishi
+# terrarium/rv64g_witness.rish
+#
+# Orbit 20 witness: Full RV64G integration -- all extensions I+M+A+F+D.
+# 19 modules built and proven on the complete RV64G target.
+#
+# 10 stages:
+#   1. CPU features (RV64G: +m, +a, +f, +d)
+#   2. Build all 19 modules
+#   3. Pill identity on RV64G
+#   4. Glow calculator (M-ext expressions)
+#   5. Amphora seal (M-ext hash)
+#   6. Full boot sequence (8 substages: Tally -> Aurora -> Mantra -> wire -> Caravan cap -> supervision -> Steward -> Glow app)
+#   7. A-extension modules (atomic_cap, atomic_registry, multi_hart, preempt)
+#   8. F/D modules (glow_fp, fp_context, dimeroll_price, lotus_audio)
+#   9. Combined instruction census (M + A + F/D + CSR)
+#  10. Verdict
+
+say "=== Orbit 20 witness: Full RV64G integration (IMAFD) ==="
+say ""
+
+# --- Stage 1: CPU features ---
+say "--- Stage 1: CPU features ---"
+let features = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/hello64.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+a+f+d --verbose-llvm-cpu-features -femit-bin=/dev/null 2>&1 | head -4"]
+assert features.out contains "+m" else "missing M extension"
+say "  +m confirmed"
+assert features.out contains "+a" else "missing A extension"
+say "  +a confirmed"
+assert features.out contains "+f" else "missing F extension"
+say "  +f confirmed"
+assert features.out contains "+d" else "missing D extension"
+say "  +d confirmed"
+say "  Stage 1 GREEN"
+say ""
+
+# --- Stage 2: Build all 19 modules ---
+say "--- Stage 2: Build all 19 modules ---"
+let build = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && sh terrarium/rv64g_helper.sh build 2>&1"]
+assert build.ok else "build failed"
+assert build.out contains "builds_ok=19" else "not all 19 modules built"
+assert build.out contains "builds_fail=0" else "some modules failed"
+assert build.out contains "build ok" else "build did not complete"
+say "  19/19 modules built for RV64G"
+say "  Stage 2 GREEN"
+say ""
+
+# --- Stage 3: Pill identity ---
+say "--- Stage 3: Pill identity ---"
+let pill = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/self_compile_g.elf 2>/dev/null"]
+assert pill.out contains "MATCH -- identity proven" else "pill identity mismatch"
+assert pill.out contains "0x079080d9" else "pill hash not 0x079080D9"
+say "  Pill 0x079080D9 proven on RV64G"
+say "  Stage 3 GREEN"
+say ""
+
+# --- Stage 4: Glow M-ext calculator ---
+say "--- Stage 4: Glow M-ext calculator ---"
+let glow = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/glow_m_ext_g.elf 2>/dev/null"]
+assert glow.out contains "correct: 6 of 6" else "not all 6 expressions correct"
+assert glow.out contains "(* 7 8) = 56 ok" else "(* 7 8) != 56"
+say "  6/6 Glow M-ext expressions correct"
+say "  Stage 4 GREEN"
+say ""
+
+# --- Stage 5: Amphora seal ---
+say "--- Stage 5: Amphora seal ---"
+let seal = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/amphora_seal_g.elf 2>/dev/null"]
+assert seal.out contains "verify: PASS" else "verify failed"
+assert seal.out contains "tamper detected: PASS" else "tamper detection failed"
+assert seal.out contains "4 KiB vessel sealed and verified" else "vessel not sealed"
+say "  Seal, verify, tamper on RV64G"
+say "  Stage 5 GREEN"
+say ""
+
+# --- Stage 6: Full boot sequence (8 substages) ---
+say "--- Stage 6: Full boot sequence ---"
+
+say "  6a: tally arena"
+let tally = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/tally_arena_g.elf 2>/dev/null"]
+assert tally.out contains "all invariants held" else "tally invariants not held"
+say "  6a GREEN"
+
+say "  6b: aurora console"
+let aurora = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/aurora_console_g.elf 2>/dev/null"]
+assert aurora.out contains "aurora_console: Orbit 17 complete" else "aurora not complete"
+say "  6b GREEN"
+
+say "  6c: mantra log"
+let mantra_log = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/mantra_log_g.elf 2>/dev/null"]
+assert mantra_log.out contains "REPLAY MATCHES: identical state proven" else "mantra log replay mismatch"
+say "  6c GREEN"
+
+say "  6d: mantra wire"
+let wire_build = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && cp terrarium/.build/mantra_wire64_g.elf terrarium/.build/mantra_wire64.elf 2>&1"]
+let wire = run ["timeout" "30" "terrarium/.build/Terrarium" "mantra_wire64"]
+assert wire.out contains "GREEN: Mantra persistence through the wire" else "mantra wire not GREEN"
+say "  6d GREEN"
+
+say "  6e: caravan cap"
+let cap = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/caravan_cap_g.elf 2>/dev/null"]
+assert cap.out contains "ALL PROOFS PASSED" else "caravan cap proofs not passed"
+say "  6e GREEN"
+
+say "  6f: caravan supervision"
+let sup = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/caravan_supervision_g.elf 2>/dev/null"]
+assert sup.out contains "ALL PROOFS PASSED" else "supervision proofs not passed"
+say "  6f GREEN"
+
+say "  6g: steward"
+let steward = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/steward_g.elf 2>/dev/null"]
+assert steward.out contains "all manifest domains running" else "steward not all running"
+say "  6g GREEN"
+
+say "  6h: glow app"
+let glow_app = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/glow_app_g.elf 2>/dev/null"]
+assert glow_app.out contains "correct: 10 of 10" else "glow app not 10/10"
+say "  6h GREEN"
+
+say "  Stage 6 GREEN: full boot 8/8"
+say ""
+
+# --- Stage 7: A-extension modules ---
+say "--- Stage 7: A-extension modules ---"
+
+say "  7a: atomic_cap"
+let acap = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/atomic_cap_g.elf 2>/dev/null"]
+assert acap.out contains "ALL PROOFS PASSED" else "atomic_cap proofs failed"
+say "  7a GREEN"
+
+say "  7b: atomic_registry"
+let areg = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/atomic_registry_g.elf 2>/dev/null"]
+assert areg.out contains "ALL PROOFS PASSED" else "atomic_registry proofs failed"
+say "  7b GREEN"
+
+say "  7c: multi_hart"
+let hart = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -smp 2 -display none -serial stdio -kernel terrarium/.build/multi_hart_g.elf 2>/dev/null"]
+assert hart.out contains "ALL PROOFS PASSED" else "multi_hart proofs failed"
+say "  7c GREEN"
+
+say "  7d: preempt"
+let pre = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/preempt_g.elf 2>/dev/null"]
+assert pre.out contains "ALL PROOFS PASSED" else "preempt proofs failed"
+say "  7d GREEN"
+
+say "  Stage 7 GREEN: A-ext 4/4"
+say ""
+
+# --- Stage 8: F/D modules ---
+say "--- Stage 8: F/D modules ---"
+
+say "  8a: glow_fp"
+let gfp = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/glow_fp_g.elf 2>/dev/null"]
+assert gfp.out contains "8/8 expressions correct" else "glow_fp not 8/8"
+say "  8a GREEN"
+
+say "  8b: fp_context"
+let fpc = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/fp_context_g.elf 2>/dev/null"]
+assert fpc.out contains "ALL PROOFS PASSED" else "fp_context proofs failed"
+say "  8b GREEN"
+
+say "  8c: dimeroll_price"
+let dim = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/dimeroll_price_g.elf 2>/dev/null"]
+assert dim.out contains "ALL PROOFS PASSED" else "dimeroll_price proofs failed"
+say "  8c GREEN"
+
+say "  8d: lotus_audio"
+let lot = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/lotus_audio_g.elf 2>/dev/null"]
+assert lot.out contains "ALL PROOFS PASSED" else "lotus_audio proofs failed"
+say "  8d GREEN"
+
+say "  Stage 8 GREEN: F/D 4/4"
+say ""
+
+# --- Stage 9: Combined census ---
+say "--- Stage 9: Combined instruction census ---"
+let census = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && sh terrarium/rv64g_helper.sh census 2>&1"]
+assert census.ok else "census failed"
+assert census.out contains "census_modules=" else "module count missing"
+assert census.out contains "census_m_total=" else "M census missing"
+assert census.out contains "census_a_total=" else "A census missing"
+assert census.out contains "census_fp_total=" else "FP census missing"
+assert census.out contains "census_csr_total=" else "CSR census missing"
+assert census.out contains "census ok" else "census did not complete"
+say "${census.out}"
+say "  Stage 9 GREEN"
+say ""
+
+# --- Stage 10: Verdict ---
+say "=========================================="
+say "rv64g_witness: ALL 10 STAGES GREEN"
+say "  CPU features: +m +a +f +d on generic_rv64"
+say "  19/19 modules built for full RV64G (IMAFD)"
+say "  Pill identity: 0x079080D9"
+say "  Glow calculator: 6/6 with hardware mul/div"
+say "  Amphora seal: seal, verify, tamper"
+say "  Full boot: 8/8 stages"
+say "  A-extension: 4/4 modules"
+say "  F/D extension: 4/4 modules"
+say "  Combined census: M + A + F/D + CSR"
+say "=========================================="
+say "Orbit 20 complete -- Quest 1.4 complete"
+say "The complete RV64G stack from pill through Glow application, all proven."
