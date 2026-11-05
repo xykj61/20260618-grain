@@ -167,10 +167,16 @@ and the system prepares for multi-hart boot.*
 *The hart learns floating point. Glow gains real numbers, and the door to Lotus
 audio opens on the bare hart.*
 
-- [ ] **Orbit 16 -- F/D extensions: Glow floating-point expressions**
+- [x] **Orbit 16 -- F/D extensions: Glow floating-point expressions** (`20261105.160234`)
   The Glow evaluator handles `3.14`, `2.718`, and arithmetic on them. IEEE 754
-  double precision. Results display with two decimal places on Aurora.
-  **SLC gate:** Glow evaluates `3.14 * 2.0` correctly on RV64FD.
+  double precision. Results display with two decimal places on Aurora. FPU enabled
+  via `mstatus.FS` in `_start`. 8 expressions: 2 literals, mul (`3.14 * 2.0` =
+  6.28, SLC gate), add, sub, div (22/7 and 355/113), composite add+mul. All 8/8
+  correct with epsilon comparison (0.005). F/D census: 44 instructions (8 arith:
+  2 fadd.d, 3 fsub.d, 2 fmul.d, 1 fdiv.d; 21 load/store: 14 fld, 7 fsd;
+  5 flt.d comparisons; 3 fcvt, 6 fmv, 1 fneg.d). 7808-byte ELF.
+  **Witness:** `terrarium/glow_fp_witness.rish` -- features, build, QEMU
+  8-expression run with 11 proofs, F/D instruction census. **GREEN on metal.**
 
 - [ ] **Orbit 17 -- F/D extensions: Caravan FP context save/restore**
   Caravan saves and restores `f0`-`f31`, `fcsr`, `fflags`, and `frm` on context

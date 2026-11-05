@@ -1,0 +1,362 @@
+// terrarium/src/glow_fp.rye
+//
+// Orbit 16 -- Glow floating-point expressions on RV64FD
+//
+// IEEE 754 double precision. The evaluator handles real-number
+// literals and arithmetic on them. Results display with two
+// decimal places through Aurora (UART). Built with
+// -mcpu=generic_rv64+m+f+d so the compiler emits hardware
+// fadd.d, fsub.d, fmul.d, fdiv.d instructions.
+//
+// Eight expressions exercising F/D extension instructions:
+//   3.14                     = 3.14   literal
+//   2.718                    = 2.72   literal (rounds to 2dp)
+//   (* 3.14 2.0)             = 6.28   multiply (SLC gate)
+//   (+ 1.5 2.5)              = 4.00   add
+//   (- 10.0 3.75)            = 6.25   subtract
+//   (/ 22.0 7.0)             = 3.14   divide (pi approx)
+//   (* (+ 1.0 0.5) 4.0)      = 6.00   composite add+mul
+//   (/ 355.0 113.0)          = 3.14   divide (better pi)
+//
+// Build:
+//   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build \
+//     terrarium/src/glow_fp.rye \
+//     -target riscv64-freestanding-none -fno-entry \
+//     -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany \
+//     -mcpu=generic_rv64+m+f+d \
+//     -femit-bin=terrarium/.build/glow_fp.elf
+
+const std = @import("std");
+const assert = std.debug.assert;
+
+// -- Hardware addresses (QEMU virt)
+const uart_base: u32 = 0x10000000;
+const test_finisher: u32 = 0x00100000;
+const finisher_pass: u32 = 0x5555;
+
+fn uart_tx(c: u8) void {
+    const ptr: *volatile u8 = @ptrFromInt(uart_base);
+    ptr.* = c;
+}
+
+fn uart_print(s: []const u8) void {
+    for (s) |c| uart_tx(c);
+}
+
+fn print_u32(v: u32) void {
+    if (v == 0) {
+        uart_tx('0');
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n: u32 = 0;
+    var x = v;
+    while (x > 0) : (n += 1) {
+        buf[n] = @intCast(x % 10 + '0');
+        x /= 10;
+    }
+    while (n > 0) {
+        n -= 1;
+        uart_tx(buf[n]);
+    }
+}
+
+// Display f64 with two decimal places through Aurora
+// invariant: all values in this module are finite and small
+fn print_f64_2dp(v: f64) void {
+    if (v < 0.0) {
+        uart_tx('-');
+        print_f64_2dp(-v);
+        return;
+    }
+    // invariant: round to 2dp by adding half a cent
+    const rounded = v + 0.005;
+    const int_part: u32 = @intFromFloat(rounded);
+    var frac = (rounded - @as(f64, @floatFromInt(int_part))) * 100.0;
+    // invariant: guard negative frac from float precision
+    if (frac < 0.0) frac = 0.0;
+    const frac_part: u32 = @intFromFloat(frac);
+    print_u32(int_part);
+    uart_tx('.');
+    if (frac_part < 10) uart_tx('0');
+    print_u32(frac_part);
+}
+
+fn halt_pass() noreturn {
+    const ptr: *volatile u32 = @ptrFromInt(test_finisher);
+    ptr.* = finisher_pass;
+    while (true) asm volatile ("wfi");
+}
+
+fn halt_error(msg: []const u8) noreturn {
+    uart_print(msg);
+    while (true) asm volatile ("wfi");
+}
+
+// -- Entry point: enable FPU before jumping to Zig
+comptime {
+    asm (
+        \\.section .text.init,"ax"
+        \\.globl _start
+        \\_start:
+        \\  li sp, 0x80100000
+        \\  li t0, 0x6000
+        \\  csrs mstatus, t0
+        \\  j kmain
+    );
+}
+
+// -- Glow bytecode operations (floating-point)
+const GlowOp = enum(u8) {
+    lit = 0,
+    add = 1,
+    sub = 2,
+    mul = 3,
+    div = 4,
+};
+
+const GlowInst = struct {
+    op: GlowOp,
+    val: f64,
+};
+
+// -- Glow program
+const max_prog_insts: u32 = 8;
+
+const GlowProgram = struct {
+    name: []const u8,
+    insts: [max_prog_insts]GlowInst,
+    len: u32,
+    expected: f64,
+};
+
+const pad = GlowInst{ .op = .lit, .val = 0.0 };
+
+// -- The 8 expressions exercising F/D extension arithmetic
+const program_count: u32 = 8;
+
+const programs = [program_count]GlowProgram{
+    .{
+        .name = "3.14",
+        .insts = .{
+            .{ .op = .lit, .val = 3.14 },
+            pad, pad, pad, pad, pad, pad, pad,
+        },
+        .len = 1,
+        .expected = 3.14,
+    },
+    .{
+        .name = "2.718",
+        .insts = .{
+            .{ .op = .lit, .val = 2.718 },
+            pad, pad, pad, pad, pad, pad, pad,
+        },
+        .len = 1,
+        .expected = 2.718,
+    },
+    .{
+        .name = "(* 3.14 2.0)",
+        .insts = .{
+            .{ .op = .lit, .val = 3.14 },
+            .{ .op = .lit, .val = 2.0 },
+            .{ .op = .mul, .val = 0.0 },
+            pad, pad, pad, pad, pad,
+        },
+        .len = 3,
+        .expected = 6.28,
+    },
+    .{
+        .name = "(+ 1.5 2.5)",
+        .insts = .{
+            .{ .op = .lit, .val = 1.5 },
+            .{ .op = .lit, .val = 2.5 },
+            .{ .op = .add, .val = 0.0 },
+            pad, pad, pad, pad, pad,
+        },
+        .len = 3,
+        .expected = 4.0,
+    },
+    .{
+        .name = "(- 10.0 3.75)",
+        .insts = .{
+            .{ .op = .lit, .val = 10.0 },
+            .{ .op = .lit, .val = 3.75 },
+            .{ .op = .sub, .val = 0.0 },
+            pad, pad, pad, pad, pad,
+        },
+        .len = 3,
+        .expected = 6.25,
+    },
+    .{
+        .name = "(/ 22.0 7.0)",
+        .insts = .{
+            .{ .op = .lit, .val = 22.0 },
+            .{ .op = .lit, .val = 7.0 },
+            .{ .op = .div, .val = 0.0 },
+            pad, pad, pad, pad, pad,
+        },
+        .len = 3,
+        .expected = 3.142857,
+    },
+    .{
+        .name = "(* (+ 1.0 0.5) 4.0)",
+        .insts = .{
+            .{ .op = .lit, .val = 1.0 },
+            .{ .op = .lit, .val = 0.5 },
+            .{ .op = .add, .val = 0.0 },
+            .{ .op = .lit, .val = 4.0 },
+            .{ .op = .mul, .val = 0.0 },
+            pad, pad, pad,
+        },
+        .len = 5,
+        .expected = 6.0,
+    },
+    .{
+        .name = "(/ 355.0 113.0)",
+        .insts = .{
+            .{ .op = .lit, .val = 355.0 },
+            .{ .op = .lit, .val = 113.0 },
+            .{ .op = .div, .val = 0.0 },
+            pad, pad, pad, pad, pad,
+        },
+        .len = 3,
+        .expected = 3.14159292,
+    },
+};
+
+// -- Stack-based floating-point evaluator
+const max_eval_stack: u32 = 16;
+const EvalError = error{ StackOverflow, StackUnderflow };
+
+fn glow_eval(
+    insts: *const [max_prog_insts]GlowInst,
+    len: u32,
+) EvalError!f64 {
+    var stack: [max_eval_stack]f64 = undefined;
+    var sp: u32 = 0;
+
+    // invariant: len bounded by program size
+    assert(len <= max_prog_insts);
+
+    var pc: u32 = 0;
+    while (pc < len) : (pc += 1) {
+        const op = insts[pc].op;
+        switch (op) {
+            .lit => {
+                if (sp >= max_eval_stack)
+                    return EvalError.StackOverflow;
+                stack[sp] = insts[pc].val;
+                sp += 1;
+            },
+            .add => {
+                if (sp < 2) return EvalError.StackUnderflow;
+                sp -= 1;
+                // D extension: compiles to hardware fadd.d
+                stack[sp - 1] = stack[sp - 1] + stack[sp];
+            },
+            .sub => {
+                if (sp < 2) return EvalError.StackUnderflow;
+                sp -= 1;
+                // D extension: compiles to hardware fsub.d
+                stack[sp - 1] = stack[sp - 1] - stack[sp];
+            },
+            .mul => {
+                if (sp < 2) return EvalError.StackUnderflow;
+                sp -= 1;
+                // D extension: compiles to hardware fmul.d
+                stack[sp - 1] = stack[sp - 1] * stack[sp];
+            },
+            .div => {
+                if (sp < 2) return EvalError.StackUnderflow;
+                sp -= 1;
+                // D extension: compiles to hardware fdiv.d
+                stack[sp - 1] = stack[sp - 1] / stack[sp];
+            },
+        }
+    }
+
+    // invariant: exactly one result on the stack
+    if (sp != 1) return EvalError.StackUnderflow;
+    return stack[0];
+}
+
+// Approximate equality for floating-point comparison
+// invariant: epsilon = half a cent at 2dp display
+fn f64_close(a: f64, b: f64) bool {
+    const eps: f64 = 0.005;
+    const diff = a - b;
+    if (diff < 0.0) return -diff < eps;
+    return diff < eps;
+}
+
+// -- Main
+export fn kmain() callconv(.c) noreturn {
+    uart_print("GLOW FLOATING-POINT CALCULATOR");
+    uart_print(" -- Orbit 16\n");
+    uart_print("IEEE 754 double precision on RV64FD\n\n");
+
+    uart_print("operations: lit add sub mul div\n");
+    uart_print("programs: ");
+    print_u32(program_count);
+    uart_print(" expressions\n\n");
+
+    uart_print("-- EXPRESSIONS --\n");
+
+    var correct: u32 = 0;
+    var pi: u32 = 0;
+    while (pi < program_count) : (pi += 1) {
+        const prog = &programs[pi];
+
+        const result = glow_eval(
+            &prog.insts,
+            prog.len,
+        ) catch halt_error("ERROR: eval failed\n");
+
+        uart_print("  [");
+        print_u32(pi + 1);
+        uart_print("] ");
+        uart_print(prog.name);
+        uart_print(" = ");
+        print_f64_2dp(result);
+        if (f64_close(result, prog.expected)) {
+            uart_print(" ok\n");
+            correct += 1;
+        } else {
+            uart_print(" WRONG (expected ");
+            print_f64_2dp(prog.expected);
+            uart_print(")\n");
+        }
+    }
+
+    uart_print("\n-- RESULT --\n");
+    uart_print("correct: ");
+    print_u32(correct);
+    uart_print(" of ");
+    print_u32(program_count);
+    uart_print("\n");
+
+    if (correct == program_count) {
+        uart_print("all expressions correct\n");
+    } else {
+        halt_error("ERROR: not all correct\n");
+    }
+
+    uart_print(
+        \\
+        \\==============================
+        \\Glow floating-point calculator
+        \\
+    );
+    print_u32(correct);
+    uart_print("/");
+    print_u32(program_count);
+    uart_print(
+        \\ expressions correct
+        \\IEEE 754 double precision proven
+        \\Orbit 16 complete
+        \\==============================
+        \\
+    );
+
+    halt_pass();
+}

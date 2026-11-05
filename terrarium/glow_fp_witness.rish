@@ -1,0 +1,92 @@
+#!/usr/bin/env rishi
+# terrarium/glow_fp_witness.rish
+#
+# Orbit 16 witness: Glow floating-point expressions on RV64FD
+#
+# 4 stages:
+#   1. CPU features probe (RV64IMAFD: +f, +d)
+#   2. Build via helper
+#   3. QEMU run with proof assertions
+#   4. F/D extension instruction census
+
+say "=== glow_fp_witness: Orbit 16 ==="
+say "Glow floating-point expressions on RV64FD"
+say ""
+
+# --- stage 1: CPU features ---
+say "--- stage 1: CPU features ---"
+let features = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/hello64.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+f+d --verbose-llvm-cpu-features -femit-bin=/dev/null 2>&1 | head -4"]
+say "CPU features output captured"
+assert features.out contains "+f"
+say "  +f (single-precision float) confirmed"
+assert features.out contains "+d"
+say "  +d (double-precision float) confirmed"
+assert features.out contains "+m"
+say "  +m (multiply) confirmed"
+say "stage 1: GREEN"
+say ""
+
+# --- stage 2: build ---
+say "--- stage 2: build glow_fp.rye ---"
+let build = run ["sh" "-c" "sh terrarium/glow_fp_helper.sh build 2>&1"]
+assert build.ok
+assert build.out contains "build_ok=yes"
+say "  build succeeded"
+assert build.out contains "elf_bytes="
+say "  ELF size reported"
+say "stage 2: GREEN"
+say ""
+
+# --- stage 3: QEMU run ---
+say "--- stage 3: QEMU run (8 FP expressions) ---"
+let qemu = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/glow_fp.elf 2>/dev/null || true"]
+say "  QEMU output captured"
+
+assert qemu.out contains "IEEE 754 double precision on RV64FD"
+say "  proof 1: banner confirmed"
+assert qemu.out contains "3.14 = 3.14 ok"
+say "  proof 2: literal 3.14 ok"
+assert qemu.out contains "2.718 = 2.72 ok"
+say "  proof 3: literal 2.718 ok (rounds to 2.72)"
+assert qemu.out contains "(* 3.14 2.0) = 6.28 ok"
+say "  proof 4: multiply 3.14 * 2.0 = 6.28 ok (SLC gate)"
+assert qemu.out contains "(+ 1.5 2.5) = 4.00 ok"
+say "  proof 5: add 1.5 + 2.5 = 4.00 ok"
+assert qemu.out contains "(- 10.0 3.75) = 6.25 ok"
+say "  proof 6: subtract 10.0 - 3.75 = 6.25 ok"
+assert qemu.out contains "(/ 22.0 7.0) = 3.14 ok"
+say "  proof 7: divide 22/7 = 3.14 ok"
+assert qemu.out contains "(* (+ 1.0 0.5) 4.0) = 6.00 ok"
+say "  proof 8: composite (1.0 + 0.5) * 4.0 = 6.00 ok"
+assert qemu.out contains "(/ 355.0 113.0) = 3.14 ok"
+say "  proof 9: divide 355/113 = 3.14 ok"
+assert qemu.out contains "8/8 expressions correct"
+say "  proof 10: all 8 expressions correct"
+assert qemu.out contains "Orbit 16 complete"
+say "  proof 11: Orbit 16 complete marker"
+say "stage 3: GREEN"
+say ""
+
+# --- stage 4: F/D instruction census ---
+say "--- stage 4: F/D instruction census ---"
+let census = run ["sh" "-c" "sh terrarium/glow_fp_helper.sh census 2>&1"]
+assert census.ok
+say "  census output captured"
+
+assert census.out contains "census_fmul="
+say "  fmul.d count reported"
+assert census.out contains "census_fdiv="
+say "  fdiv.d count reported"
+assert census.out contains "census_fadd="
+say "  fadd.d count reported"
+assert census.out contains "census_fsub="
+say "  fsub.d count reported"
+assert census.out contains "census_fld="
+say "  fld (FP load double) count reported"
+assert census.out contains "census_fd_total="
+say "  F/D total reported"
+say "stage 4: GREEN"
+say ""
+
+say "=== ALL 4 STAGES GREEN ==="
+say "Orbit 16: Glow floating-point on RV64FD proven"

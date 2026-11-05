@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.160234` | [Mantrapod RV64G Orbit 16 -- Glow floating-point on RV64FD](20261105/20261105-160234_mantrapod-orbit16-glow-fp.kyri.md) | 4 stages GREEN: 8 IEEE 754 f64 expressions on RV64FD, SLC gate (* 3.14 2.0) = 6.28, 44 F/D instructions, 7808-byte ELF, Quest 1.4 opened |
 | `20261105.154640` | [Mantrapod RV64G Orbit 15 -- A extension integration witness](20261105/20261105-154640_mantrapod-orbit15-a-extension-integration.kyri.md) | 7 stages GREEN: all 4 A-ext modules on 2-hart RV64IMA, 25 proofs, 37 A-ext + 21 CSR instructions, 33832-byte total ELF -- Quest 1.3 complete |
 | `20261105.151301` | [Mantrapod RV64G Orbit 14 -- preemptive scheduling foundation](20261105/20261105-151301_mantrapod-orbit14-preemptive-scheduling.kyri.md) | 4 stages GREEN: CLINT timer, 31-register context save/restore, round-robin 2 domains on 1 hart, 12 switches, 5 proofs, 20 CSR instructions, 7544-byte ELF |
 | `20261105.143315` | [Mantrapod RV64G Orbit 13 -- multi-hart boot with atomic spinlock](20261105/20261105-143315_mantrapod-orbit13-multi-hart-boot.kyri.md) | 4 stages GREEN: 2 harts on QEMU -smp 2, atomic gate + ticket lock, 5 proofs, 29 A-ext instructions, 7128-byte ELF |
