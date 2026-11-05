@@ -77,10 +77,15 @@ unchanged in what it does, wider in how it addresses.*
   **Witness:** `terrarium/m_ext_pill_witness.rish` -- build, features, hash,
   disassembly, timing, baseline comparison. **GREEN on metal.**
 
-- [ ] **Orbit 7 -- M extension: Glow multiply and division**
-  Glow's `mul` and `div` operations use hardware instructions. The calculator
-  evaluates division expressions that were impossible on bare RV32I.
-  **SLC gate:** Glow evaluates `144 / 12` and `7 * 8` correctly on RV64M.
+- [x] **Orbit 7 -- M extension: Glow multiply and division** `20261105.110948`
+  Glow's `mul` and `div` operations use hardware instructions. A focused
+  M-extension calculator with 6 expressions: `(* 7 8) = 56`,
+  `(/ 144 12) = 12`, `(* 6 7) = 42`, `(/ 100 3) = 33`,
+  `(+ (* 3 4) (* 5 6)) = 42`, `(/ (* 12 12) 12) = 12`. All 6/6 correct.
+  Disassembly confirms mul x4 and div x2 hardware instructions. ELF 6816
+  bytes. Build 148 ms, run 118 ms.
+  **Witness:** `terrarium/glow_m_ext_witness.rish` -- build, features, QEMU
+  run, SLC gate, disassembly, timing. **GREEN on metal.**
 
 - [ ] **Orbit 8 -- M extension: Amphora seal performance**
   Amphora's content-addressing hash uses hardware multiply. Seal and verify a

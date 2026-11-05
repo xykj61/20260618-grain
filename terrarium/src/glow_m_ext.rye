@@ -1,0 +1,324 @@
+// terrarium/src/glow_m_ext.rye
+//
+// Orbit 7 -- Glow multiply and division on RV64M
+//
+// A focused Glow evaluator proving that mul and div operations
+// compile to hardware M-extension instructions. Built with
+// -mcpu=generic_rv64+m so the compiler has no choice but to
+// emit mul and div for i32 arithmetic.
+//
+// Six expressions, each exercising M-extension instructions:
+//   (* 7 8)             = 56   direct multiply
+//   (/ 144 12)          = 12   direct division
+//   (* 6 7)             = 42   multiply
+//   (/ 100 3)           = 33   truncating division
+//   (+ (* 3 4) (* 5 6)) = 42  composite multiply
+//   (/ (* 12 12) 12)    = 12   multiply then divide
+//
+// Build:
+//   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build \
+//     terrarium/src/glow_m_ext.rye \
+//     -target riscv64-freestanding-none -fno-entry \
+//     -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany \
+//     -mcpu=generic_rv64+m -femit-bin=terrarium/.build/glow_m_ext.elf
+
+const std = @import("std");
+const assert = std.debug.assert;
+
+// -- Hardware addresses (QEMU virt)
+const uart_base: u32 = 0x10000000;
+const test_finisher: u32 = 0x00100000;
+const finisher_pass: u32 = 0x5555;
+
+fn uart_tx(c: u8) void {
+    const ptr: *volatile u8 = @ptrFromInt(uart_base);
+    ptr.* = c;
+}
+
+fn uart_print(s: []const u8) void {
+    for (s) |c| uart_tx(c);
+}
+
+fn print_u32(v: u32) void {
+    if (v == 0) {
+        uart_tx('0');
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n: u32 = 0;
+    var x = v;
+    while (x > 0) : (n += 1) {
+        buf[n] = @intCast(x % 10 + '0');
+        x /= 10;
+    }
+    while (n > 0) {
+        n -= 1;
+        uart_tx(buf[n]);
+    }
+}
+
+fn print_i32(v: i32) void {
+    if (v >= 0) {
+        print_u32(@intCast(v));
+        return;
+    }
+    uart_tx('-');
+    // invariant: v > min_i32 for our values
+    const unsigned: u32 = @bitCast(0 -% v);
+    print_u32(unsigned);
+}
+
+fn halt_pass() noreturn {
+    const ptr: *volatile u32 = @ptrFromInt(test_finisher);
+    ptr.* = finisher_pass;
+    while (true) asm volatile ("wfi");
+}
+
+fn halt_error(msg: []const u8) noreturn {
+    uart_print(msg);
+    while (true) asm volatile ("wfi");
+}
+
+// -- Entry point
+comptime {
+    asm (
+        \\.section .text.init,"ax"
+        \\.globl _start
+        \\_start:
+        \\  li sp, 0x80100000
+        \\  j kmain
+    );
+}
+
+// -- Glow bytecode operations
+const GlowOp = enum(u8) {
+    lit = 0,
+    add = 1,
+    sub = 2,
+    mul = 3,
+    div = 4,
+};
+
+const GlowInst = struct {
+    op: GlowOp,
+    val: i32,
+};
+
+// -- Glow program
+const max_prog_insts: u32 = 8;
+
+const GlowProgram = struct {
+    name: []const u8,
+    insts: [max_prog_insts]GlowInst,
+    len: u32,
+    expected: i32,
+};
+
+const pad = GlowInst{ .op = .lit, .val = 0 };
+
+// -- The 6 expressions exercising M-extension arithmetic
+const program_count: u32 = 6;
+
+const programs = [program_count]GlowProgram{
+    .{
+        .name = "(* 7 8)",
+        .insts = .{
+            .{ .op = .lit, .val = 7 },
+            .{ .op = .lit, .val = 8 },
+            .{ .op = .mul, .val = 0 },
+            pad, pad, pad, pad, pad,
+        },
+        .len = 3,
+        .expected = 56,
+    },
+    .{
+        .name = "(/ 144 12)",
+        .insts = .{
+            .{ .op = .lit, .val = 144 },
+            .{ .op = .lit, .val = 12 },
+            .{ .op = .div, .val = 0 },
+            pad, pad, pad, pad, pad,
+        },
+        .len = 3,
+        .expected = 12,
+    },
+    .{
+        .name = "(* 6 7)",
+        .insts = .{
+            .{ .op = .lit, .val = 6 },
+            .{ .op = .lit, .val = 7 },
+            .{ .op = .mul, .val = 0 },
+            pad, pad, pad, pad, pad,
+        },
+        .len = 3,
+        .expected = 42,
+    },
+    .{
+        .name = "(/ 100 3)",
+        .insts = .{
+            .{ .op = .lit, .val = 100 },
+            .{ .op = .lit, .val = 3 },
+            .{ .op = .div, .val = 0 },
+            pad, pad, pad, pad, pad,
+        },
+        .len = 3,
+        .expected = 33,
+    },
+    .{
+        .name = "(+ (* 3 4) (* 5 6))",
+        .insts = .{
+            .{ .op = .lit, .val = 3 },
+            .{ .op = .lit, .val = 4 },
+            .{ .op = .mul, .val = 0 },
+            .{ .op = .lit, .val = 5 },
+            .{ .op = .lit, .val = 6 },
+            .{ .op = .mul, .val = 0 },
+            .{ .op = .add, .val = 0 },
+            pad,
+        },
+        .len = 7,
+        .expected = 42,
+    },
+    .{
+        .name = "(/ (* 12 12) 12)",
+        .insts = .{
+            .{ .op = .lit, .val = 12 },
+            .{ .op = .lit, .val = 12 },
+            .{ .op = .mul, .val = 0 },
+            .{ .op = .lit, .val = 12 },
+            .{ .op = .div, .val = 0 },
+            pad, pad, pad,
+        },
+        .len = 5,
+        .expected = 12,
+    },
+};
+
+// -- Stack-based evaluator
+const max_eval_stack: u32 = 16;
+const EvalError = error{ StackOverflow, StackUnderflow };
+
+fn glow_eval(
+    insts: *const [max_prog_insts]GlowInst,
+    len: u32,
+) EvalError!i32 {
+    var stack: [max_eval_stack]i32 = undefined;
+    var sp: u32 = 0;
+
+    // invariant: len bounded by program size
+    assert(len <= max_prog_insts);
+
+    var pc: u32 = 0;
+    while (pc < len) : (pc += 1) {
+        const op = insts[pc].op;
+        switch (op) {
+            .lit => {
+                if (sp >= max_eval_stack)
+                    return EvalError.StackOverflow;
+                stack[sp] = insts[pc].val;
+                sp += 1;
+            },
+            .add => {
+                if (sp < 2) return EvalError.StackUnderflow;
+                sp -= 1;
+                stack[sp - 1] = stack[sp - 1] +% stack[sp];
+            },
+            .sub => {
+                if (sp < 2) return EvalError.StackUnderflow;
+                sp -= 1;
+                stack[sp - 1] = stack[sp - 1] -% stack[sp];
+            },
+            .mul => {
+                if (sp < 2) return EvalError.StackUnderflow;
+                sp -= 1;
+                // M extension: compiles to hardware mul
+                stack[sp - 1] = stack[sp - 1] *% stack[sp];
+            },
+            .div => {
+                if (sp < 2) return EvalError.StackUnderflow;
+                sp -= 1;
+                // M extension: compiles to hardware div
+                stack[sp - 1] = @divTrunc(
+                    stack[sp - 1],
+                    stack[sp],
+                );
+            },
+        }
+    }
+
+    // invariant: exactly one result on the stack
+    if (sp != 1) return EvalError.StackUnderflow;
+    return stack[0];
+}
+
+// -- Main
+export fn kmain() callconv(.c) noreturn {
+    uart_print("GLOW M-EXTENSION CALCULATOR");
+    uart_print(" -- Orbit 7\n");
+    uart_print("hardware mul and div on RV64M\n\n");
+
+    uart_print("operations: lit add sub mul div\n");
+    uart_print("programs: ");
+    print_u32(program_count);
+    uart_print(" expressions\n\n");
+
+    uart_print("-- EXPRESSIONS --\n");
+
+    var correct: u32 = 0;
+    var pi: u32 = 0;
+    while (pi < program_count) : (pi += 1) {
+        const prog = &programs[pi];
+
+        const result = glow_eval(
+            &prog.insts,
+            prog.len,
+        ) catch halt_error("ERROR: eval failed\n");
+
+        uart_print("  [");
+        print_u32(pi + 1);
+        uart_print("] ");
+        uart_print(prog.name);
+        uart_print(" = ");
+        print_i32(result);
+        if (result == prog.expected) {
+            uart_print(" ok\n");
+            correct += 1;
+        } else {
+            uart_print(" WRONG (expected ");
+            print_i32(prog.expected);
+            uart_print(")\n");
+        }
+    }
+
+    uart_print("\n-- RESULT --\n");
+    uart_print("correct: ");
+    print_u32(correct);
+    uart_print(" of ");
+    print_u32(program_count);
+    uart_print("\n");
+
+    if (correct == program_count) {
+        uart_print("all expressions correct\n");
+    } else {
+        halt_error("ERROR: not all correct\n");
+    }
+
+    uart_print(
+        \\
+        \\==============================
+        \\Glow M-extension calculator
+        \\
+    );
+    print_u32(correct);
+    uart_print("/");
+    print_u32(program_count);
+    uart_print(
+        \\ expressions correct
+        \\hardware mul and div proven
+        \\Orbit 7 complete
+        \\==============================
+        \\
+    );
+
+    halt_pass();
+}

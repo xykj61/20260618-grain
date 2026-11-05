@@ -1,0 +1,113 @@
+# terrarium/glow_m_ext_witness.rish -- Glow M-extension calculator witness
+#
+# Mantrapod RV64G Orbit 7, Quest 2. Proves the Glow evaluator with
+# mul and div opcodes compiles to hardware M-extension instructions
+# and evaluates correctly on QEMU RV64.
+#
+# SLC gate: (* 7 8) = 56 and (/ 144 12) = 12
+#
+# Run from the repository root:
+#   rishi/bin/rishi run terrarium/glow_m_ext_witness.rish
+
+say "glow_m_ext_witness: Orbit 7 -- Glow M-extension calculator"
+say "glow_m_ext_witness: -mcpu=generic_rv64+m (RV64IM)"
+say ""
+
+# -- Stage 1: verify CPU features
+
+say "=== verify: CPU features include +m ==="
+
+let features = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/glow_m_ext.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m --verbose-llvm-cpu-features -femit-bin=/dev/null 2>&1 | head -4"]
+assert features.ok else "CPU feature probe failed"
+assert features.out contains "+m" else "missing +m in CPU features"
+assert features.out contains "+zmmul" else "missing +zmmul in CPU features"
+assert features.out contains "generic_rv64" else "not targeting generic_rv64"
+
+say "features GREEN: +m and +zmmul confirmed on generic_rv64"
+say ""
+
+# -- Stage 2: build
+
+say "=== build: glow_m_ext for RV64IM ==="
+
+let prep = run ["sh" "-c" "mkdir -p terrarium/.build"]
+assert prep.ok else "mkdir failed"
+
+let t0 = run ["sh" "-c" "python3 -c 'import time; print(int(time.time()*1000))'"]
+assert t0.ok else "clock read failed"
+
+let build = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/glow_m_ext.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m -femit-bin=terrarium/.build/glow_m_ext.elf 2>&1"]
+assert build.code == 0 else "build failed"
+
+let t1 = run ["sh" "-c" "python3 -c 'import time; print(int(time.time()*1000))'"]
+assert t1.ok else "clock read failed"
+
+let elf_size = run ["sh" "-c" "wc -c < terrarium/.build/glow_m_ext.elf | tr -d ' \\n'"]
+assert elf_size.ok else "ELF size check failed"
+
+say "build GREEN: ${elf_size.out} bytes"
+say ""
+
+# -- Stage 3: run on QEMU
+
+say "=== run: qemu-system-riscv64 ==="
+
+let t2 = run ["sh" "-c" "python3 -c 'import time; print(int(time.time()*1000))'"]
+assert t2.ok else "clock read failed"
+
+let qemu = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/glow_m_ext.elf 2>/dev/null"]
+
+let t3 = run ["sh" "-c" "python3 -c 'import time; print(int(time.time()*1000))'"]
+assert t3.ok else "clock read failed"
+
+assert qemu.out contains "correct: 6 of 6" else "not all expressions correct"
+assert qemu.out contains "all expressions correct" else "missing all-correct banner"
+assert qemu.out contains "6/6 expressions correct" else "missing 6/6 banner"
+assert qemu.out contains "Orbit 7 complete" else "missing orbit complete banner"
+
+# SLC gate assertions
+assert qemu.out contains "(* 7 8) = 56 ok" else "SLC GATE FAILED: (* 7 8) != 56"
+assert qemu.out contains "(/ 144 12) = 12 ok" else "SLC GATE FAILED: (/ 144 12) != 12"
+
+say "run GREEN: 6/6 expressions correct"
+say "SLC gate: (* 7 8) = 56 -- passed"
+say "SLC gate: (/ 144 12) = 12 -- passed"
+say ""
+
+# -- Stage 4: disassembly -- confirm hardware instructions
+
+say "=== disassembly: confirm mul and div instructions ==="
+
+let mul_count = run ["sh" "-c" "/opt/homebrew/Cellar/llvm@22/22.1.8/bin/llvm-objdump -d --mattr=+m terrarium/.build/glow_m_ext.elf | grep -wc 'mul'"]
+let div_count = run ["sh" "-c" "/opt/homebrew/Cellar/llvm@22/22.1.8/bin/llvm-objdump -d --mattr=+m terrarium/.build/glow_m_ext.elf | grep -wcE 'divw|divuw|div'"]
+
+assert mul_count.ok else "no mul instructions found in disassembly"
+assert div_count.ok else "no div instructions found in disassembly"
+
+say "disassembly GREEN: mul x${mul_count.out}, div x${div_count.out}"
+say ""
+
+# -- Stage 5: wall time
+
+say "=== wall time ==="
+
+let build_ms = run ["sh" "-c" "echo $(( ${t1.out} - ${t0.out} ))"]
+let run_ms = run ["sh" "-c" "echo $(( ${t3.out} - ${t2.out} ))"]
+
+say "build: ${build_ms.out} ms"
+say "run:   ${run_ms.out} ms"
+say ""
+
+# -- Verdict
+
+say "========================================"
+say "VERDICT: ALL PROOFS GREEN"
+say ""
+say "  CPU features: +m +zmmul on generic_rv64"
+say "  expressions:  6/6 correct"
+say "  SLC gate:     (* 7 8) = 56, (/ 144 12) = 12"
+say "  hardware:     mul x${mul_count.out}, div x${div_count.out}"
+say "  ELF size:     ${elf_size.out} bytes"
+say "  build time:   ${build_ms.out} ms"
+say "  run time:     ${run_ms.out} ms"
+say "========================================"
