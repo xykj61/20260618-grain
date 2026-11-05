@@ -87,10 +87,14 @@ unchanged in what it does, wider in how it addresses.*
   **Witness:** `terrarium/glow_m_ext_witness.rish` -- build, features, QEMU
   run, SLC gate, disassembly, timing. **GREEN on metal.**
 
-- [ ] **Orbit 8 -- M extension: Amphora seal performance**
-  Amphora's content-addressing hash uses hardware multiply. Seal and verify a
-  vessel; measure the throughput.
-  **SLC gate:** Amphora seals a 4 KiB vessel, verifies it, reports wall time.
+- [x] **Orbit 8 -- M extension: Amphora seal performance** `20261105.112723`
+  Amphora's content-addressing hash (djb2, `h *% 33`) compiles to hardware
+  `mul` instruction on RV64IM. A 4 KiB vessel (128 header + 3968 cargo) is
+  sealed, verified, and tamper-tested: seal hash `0x3f401b51`, verify PASS,
+  tamper detected. Disassembly confirms 1 `mul` + 2 `divu`/`divuw` = 3
+  M-extension instructions. ELF 6792 bytes. Build 156 ms, run 120 ms.
+  **Witness:** `terrarium/amphora_seal_witness.rish` -- features, build,
+  QEMU run, disassembly, timing. **GREEN on metal.**
 
 - [ ] **Orbit 9 -- M extension: software division removal survey**
   Survey every site in the freestanding tree that uses software division or

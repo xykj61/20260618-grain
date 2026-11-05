@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.113114` | [Mantrapod RV64G Orbit 8 -- Amphora seal performance](20261105/20261105-113114_mantrapod-orbit8-amphora-seal.kyri.md) | djb2 h *% 33 compiles to hardware mul on RV64IM, 4 KiB vessel sealed hash 0x3f401b51, verify PASS, tamper detected |
 | `20261105.111338` | [Mantrapod RV64G Orbit 7 -- Glow M-extension calculator](20261105/20261105-111338_mantrapod-orbit7-glow-m-ext.kyri.md) | 6 expressions with mul and div opcodes, 6/6 correct, 4 mul + 2 div hardware instructions confirmed via objdump, ELF 6816 bytes |
 | `20261105.105427` | [Mantrapod RV64G Orbit 6 -- M extension pill identity](20261105/20261105-105427_mantrapod-orbit6-m-ext-pill.kyri.md) | Explicit -mcpu=generic_rv64+m (RV64IM), djb2 0x079080D9 matches, mul confirmed via objdump, Zig baseline_rv64 = RV64GC finding recorded |
 | `20261105.103219` | [Mantrapod RV64G Orbit 5 -- full boot witness on RV64I](20261105/20261105-103219_mantrapod-orbit5-full-boot-rv64i.kyri.md) | All nine stages GREEN on qemu-system-riscv64 with zero .rye source changes -- pill 0x079080D9, Mantra 0xbc186e04, Glow 10/10, Quest 1 complete |

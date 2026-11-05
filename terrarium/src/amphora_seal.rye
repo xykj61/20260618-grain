@@ -1,0 +1,308 @@
+// terrarium/src/amphora_seal.rye
+//
+// Orbit 8 -- Amphora seal performance on RV64M
+//
+// A freestanding Amphora vessel sealed and verified with djb2
+// content-addressing hash. The hash's multiply step (h *% 33)
+// compiles to hardware M-extension instructions on RV64IM.
+//
+// The vessel is 4 KiB of structured payload: a header declaring
+// format, stamp, and shoulder, followed by cargo bytes filled
+// with a repeating pattern. The seal is the djb2 hash of the
+// entire vessel. Verification recomputes the hash and compares.
+//
+// Build:
+//   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build \
+//     terrarium/src/amphora_seal.rye \
+//     -target riscv64-freestanding-none -fno-entry \
+//     -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany \
+//     -mcpu=generic_rv64+m -femit-bin=terrarium/.build/amphora_seal.elf
+
+const std = @import("std");
+const assert = std.debug.assert;
+
+// -- Hardware addresses (QEMU virt)
+const uart_base: u32 = 0x10000000;
+const test_finisher: u32 = 0x00100000;
+const finisher_pass: u32 = 0x5555;
+
+fn uart_tx(c: u8) void {
+    const ptr: *volatile u8 = @ptrFromInt(uart_base);
+    ptr.* = c;
+}
+
+fn uart_print(s: []const u8) void {
+    for (s) |c| uart_tx(c);
+}
+
+fn print_u32(v: u32) void {
+    if (v == 0) {
+        uart_tx('0');
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n: u32 = 0;
+    var x = v;
+    while (x > 0) : (n += 1) {
+        buf[n] = @intCast(x % 10 + '0');
+        x /= 10;
+    }
+    while (n > 0) {
+        n -= 1;
+        uart_tx(buf[n]);
+    }
+}
+
+fn print_hex32(v: u32) void {
+    const hex = "0123456789abcdef";
+    uart_print("0x");
+    var shift: u5 = 28;
+    while (true) {
+        const nibble: u4 = @intCast((v >> shift) & 0xf);
+        uart_tx(hex[nibble]);
+        if (shift == 0) break;
+        shift -= 4;
+    }
+}
+
+fn halt_pass() noreturn {
+    const ptr: *volatile u32 = @ptrFromInt(test_finisher);
+    ptr.* = finisher_pass;
+    while (true) asm volatile ("wfi");
+}
+
+fn halt_error(msg: []const u8) noreturn {
+    uart_print(msg);
+    while (true) asm volatile ("wfi");
+}
+
+// -- Entry point
+comptime {
+    asm (
+        \\.section .text.init,"ax"
+        \\.globl _start
+        \\_start:
+        \\  li sp, 0x80100000
+        \\  j kmain
+    );
+}
+
+// -- djb2 content-addressing hash ------------------------------------
+// invariant: h starts at 5381, update is h *% 33 +% byte
+// The explicit *% 33 compiles to hardware mul on RV64M.
+
+const Djb2 = struct {
+    h: u32,
+
+    fn init() Djb2 {
+        return .{ .h = 5381 };
+    }
+
+    fn feed_byte(self: *Djb2, byte: u8) void {
+        // invariant: wrapping multiply for u32 content-addressing
+        self.h = self.h *% 33 +% @as(u32, byte);
+    }
+
+    fn feed(self: *Djb2, data: []const u8) void {
+        for (data) |byte| self.feed_byte(byte);
+    }
+
+    fn digest(self: *const Djb2) u32 {
+        return self.h;
+    }
+};
+
+// -- Vessel structure ------------------------------------------------
+// A simplified freestanding Amphora vessel: header + cargo payload.
+
+const vessel_format = "amphora-v1";
+const vessel_stamp = "20261105.111338";
+const vessel_shoulder = "terrarium-orbit8";
+
+const header_size: u32 = 128;
+const cargo_size: u32 = 4096 - header_size;
+const vessel_size: u32 = 4096;
+
+// invariant: vessel fits in one page
+comptime {
+    assert(header_size + cargo_size == vessel_size);
+}
+
+const Vessel = struct {
+    header: [header_size]u8,
+    cargo: [cargo_size]u8,
+    seal_hash: u32,
+    verified: bool,
+};
+
+// -- Build a vessel with structured payload --------------------------
+
+fn build_vessel(v: *Vessel) void {
+    // Zero the header
+    for (&v.header) |*b| b.* = 0;
+
+    // Write format string into header
+    const fmt = vessel_format;
+    for (fmt, 0..) |c, i| v.header[i] = c;
+
+    // Write stamp after format (offset 16)
+    const stmp = vessel_stamp;
+    for (stmp, 0..) |c, i| v.header[16 + i] = c;
+
+    // Write shoulder after stamp (offset 48)
+    const shld = vessel_shoulder;
+    for (shld, 0..) |c, i| v.header[48 + i] = c;
+
+    // Fill cargo with a repeating pattern that exercises the hash
+    // Pattern: alternating bytes 0x00..0xFF across the payload
+    var i: u32 = 0;
+    while (i < cargo_size) : (i += 1) {
+        v.cargo[i] = @intCast(i % 256);
+    }
+
+    v.seal_hash = 0;
+    v.verified = false;
+}
+
+// -- Seal: compute djb2 over the entire vessel -----------------------
+
+fn seal_vessel(v: *Vessel) void {
+    var h = Djb2.init();
+
+    // Hash the header
+    h.feed(&v.header);
+
+    // Hash the cargo
+    h.feed(&v.cargo);
+
+    v.seal_hash = h.digest();
+}
+
+// -- Verify: recompute and compare -----------------------------------
+
+fn verify_vessel(v: *Vessel) bool {
+    var h = Djb2.init();
+    h.feed(&v.header);
+    h.feed(&v.cargo);
+    const recomputed = h.digest();
+
+    v.verified = (recomputed == v.seal_hash);
+    return v.verified;
+}
+
+// -- RDCYCLE for timing on RISC-V ------------------------------------
+
+fn rdcycle() u64 {
+    return asm volatile ("rdcycle %[out]"
+        : [out] "=r" (-> u64),
+    );
+}
+
+// -- Main ------------------------------------------------------------
+
+var vessel: Vessel = undefined;
+
+export fn kmain() callconv(.c) noreturn {
+    uart_print("AMPHORA SEAL PERFORMANCE");
+    uart_print(" -- Orbit 8\n");
+    uart_print("content-addressing hash on RV64M\n\n");
+
+    // Build
+    uart_print("building vessel: ");
+    print_u32(vessel_size);
+    uart_print(" bytes (");
+    print_u32(header_size);
+    uart_print(" header + ");
+    print_u32(cargo_size);
+    uart_print(" cargo)\n");
+
+    build_vessel(&vessel);
+    uart_print("vessel built\n\n");
+
+    // Seal with timing
+    uart_print("-- SEAL --\n");
+    const t0 = rdcycle();
+    seal_vessel(&vessel);
+    const t1 = rdcycle();
+
+    uart_print("seal hash: ");
+    print_hex32(vessel.seal_hash);
+    uart_print("\n");
+
+    const seal_cycles = t1 - t0;
+    uart_print("seal cycles: ");
+    print_u32(@intCast(seal_cycles & 0xFFFFFFFF));
+    uart_print("\n\n");
+
+    // Verify with timing
+    uart_print("-- VERIFY --\n");
+    const t2 = rdcycle();
+    const ok = verify_vessel(&vessel);
+    const t3 = rdcycle();
+
+    if (ok) {
+        uart_print("verify: PASS\n");
+    } else {
+        halt_error("ERROR: verify FAILED\n");
+    }
+
+    const verify_cycles = t3 - t2;
+    uart_print("verify cycles: ");
+    print_u32(@intCast(verify_cycles & 0xFFFFFFFF));
+    uart_print("\n\n");
+
+    // Tamper test -- flip one byte in cargo, verify should fail
+    uart_print("-- TAMPER TEST --\n");
+    vessel.cargo[0] ^= 0xFF;
+    var h2 = Djb2.init();
+    h2.feed(&vessel.header);
+    h2.feed(&vessel.cargo);
+    const tampered_hash = h2.digest();
+
+    if (tampered_hash != vessel.seal_hash) {
+        uart_print("tamper detected: PASS (hash changed)\n");
+        uart_print("tampered hash: ");
+        print_hex32(tampered_hash);
+        uart_print("\n");
+    } else {
+        halt_error("ERROR: tamper not detected\n");
+    }
+
+    // Restore
+    vessel.cargo[0] ^= 0xFF;
+    uart_print("\n");
+
+    // Summary
+    const total_cycles = seal_cycles + verify_cycles;
+    uart_print("-- RESULT --\n");
+    uart_print("vessel size: ");
+    print_u32(vessel_size);
+    uart_print(" bytes\n");
+    uart_print("seal hash: ");
+    print_hex32(vessel.seal_hash);
+    uart_print("\n");
+    uart_print("seal+verify cycles: ");
+    print_u32(@intCast(total_cycles & 0xFFFFFFFF));
+    uart_print("\n");
+    uart_print("bytes per cycle: ");
+    // 4096 bytes sealed + 4096 bytes verified = 8192 bytes total
+    const total_bytes: u64 = vessel_size * 2;
+    if (total_cycles > 0) {
+        const bpc = total_bytes * 100 / total_cycles;
+        print_u32(@intCast(bpc & 0xFFFFFFFF));
+        uart_print(" (x100)\n");
+    }
+
+    uart_print(
+        \\
+        \\==============================
+        \\Amphora seal performance
+        \\4 KiB vessel sealed and verified
+        \\content-addressing hash on RV64M
+        \\Orbit 8 complete
+        \\==============================
+        \\
+    );
+
+    halt_pass();
+}

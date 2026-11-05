@@ -1,0 +1,116 @@
+# terrarium/amphora_seal_witness.rish -- Amphora seal performance witness
+#
+# Mantrapod RV64G Orbit 8, Quest 2. Proves Amphora's content-addressing
+# hash (djb2 with h *% 33) compiles to hardware mul on RV64IM, seals
+# and verifies a 4 KiB vessel, and detects tampering.
+#
+# SLC gate: seal hash present, verify passes, tamper detected
+#
+# Run from the repository root:
+#   rishi/bin/rishi run terrarium/amphora_seal_witness.rish
+
+say "amphora_seal_witness: Orbit 8 -- Amphora seal performance"
+say "amphora_seal_witness: -mcpu=generic_rv64+m (RV64IM)"
+say ""
+
+# -- Stage 1: verify CPU features
+
+say "=== verify: CPU features include +m ==="
+
+let features = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/amphora_seal.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m --verbose-llvm-cpu-features -femit-bin=/dev/null 2>&1 | head -4"]
+assert features.ok else "CPU feature probe failed"
+assert features.out contains "+m" else "missing +m in CPU features"
+assert features.out contains "+zmmul" else "missing +zmmul in CPU features"
+assert features.out contains "generic_rv64" else "not targeting generic_rv64"
+
+say "features GREEN: +m and +zmmul confirmed on generic_rv64"
+say ""
+
+# -- Stage 2: build
+
+say "=== build: amphora_seal for RV64IM ==="
+
+let prep = run ["sh" "-c" "mkdir -p terrarium/.build"]
+assert prep.ok else "mkdir failed"
+
+let t0 = run ["sh" "-c" "python3 -c 'import time; print(int(time.time()*1000))'"]
+assert t0.ok else "clock read failed"
+
+let build = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/amphora_seal.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m -femit-bin=terrarium/.build/amphora_seal.elf 2>&1"]
+assert build.code == 0 else "build failed"
+
+let t1 = run ["sh" "-c" "python3 -c 'import time; print(int(time.time()*1000))'"]
+assert t1.ok else "clock read failed"
+
+let elf_size = run ["sh" "-c" "wc -c < terrarium/.build/amphora_seal.elf | tr -d ' \\n'"]
+assert elf_size.ok else "ELF size check failed"
+
+say "build GREEN: ${elf_size.out} bytes"
+say ""
+
+# -- Stage 3: run on QEMU
+
+say "=== run: qemu-system-riscv64 ==="
+
+let t2 = run ["sh" "-c" "python3 -c 'import time; print(int(time.time()*1000))'"]
+assert t2.ok else "clock read failed"
+
+let qemu = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/amphora_seal.elf 2>/dev/null"]
+
+let t3 = run ["sh" "-c" "python3 -c 'import time; print(int(time.time()*1000))'"]
+assert t3.ok else "clock read failed"
+
+# Seal hash present
+assert qemu.out contains "seal hash: 0x" else "seal hash missing from output"
+
+# Verify passed
+assert qemu.out contains "verify: PASS" else "verify did not pass"
+
+# Tamper detection
+assert qemu.out contains "tamper detected: PASS" else "tamper detection failed"
+
+# Orbit complete banner
+assert qemu.out contains "Orbit 8 complete" else "missing orbit complete banner"
+
+# SLC gates
+assert qemu.out contains "4 KiB vessel sealed and verified" else "SLC gate: vessel not sealed and verified"
+
+say "run GREEN: seal, verify, tamper detection all passed"
+say ""
+
+# -- Stage 4: disassembly -- confirm hardware mul
+
+say "=== disassembly: confirm mul instruction ==="
+
+let mul_count = run ["sh" "-c" "/opt/homebrew/Cellar/llvm@22/22.1.8/bin/llvm-objdump -d --mattr=+m terrarium/.build/amphora_seal.elf | grep -wc 'mul'"]
+let m_ext_count = run ["sh" "-c" "/opt/homebrew/Cellar/llvm@22/22.1.8/bin/llvm-objdump -d --mattr=+m terrarium/.build/amphora_seal.elf | grep -wcE 'mul|mulw|mulh|mulhu|divu|divuw|divw|div|remu|remuw|remw|rem'"]
+
+assert mul_count.ok else "no mul instructions found in disassembly"
+
+say "disassembly GREEN: mul x${mul_count.out}, M-ext total x${m_ext_count.out}"
+say ""
+
+# -- Stage 5: wall time
+
+say "=== wall time ==="
+
+let build_ms = run ["sh" "-c" "echo $(( ${t1.out} - ${t0.out} ))"]
+let run_ms = run ["sh" "-c" "echo $(( ${t3.out} - ${t2.out} ))"]
+
+say "build: ${build_ms.out} ms"
+say "run:   ${run_ms.out} ms"
+say ""
+
+# -- Verdict
+
+say "========================================"
+say "VERDICT: ALL PROOFS GREEN"
+say ""
+say "  CPU features: +m +zmmul on generic_rv64"
+say "  seal:         hash present, verified"
+say "  tamper:       detected (hash changed)"
+say "  hardware:     mul x${mul_count.out}, M-ext total x${m_ext_count.out}"
+say "  ELF size:     ${elf_size.out} bytes"
+say "  build time:   ${build_ms.out} ms"
+say "  run time:     ${run_ms.out} ms"
+say "========================================"
