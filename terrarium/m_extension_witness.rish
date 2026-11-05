@@ -1,0 +1,182 @@
+# terrarium/m_extension_witness.rish -- M extension integration witness
+#
+# Mantrapod RV64G Orbit 10, Quest 2. A single witness proving all
+# M-extension work with hardware arithmetic throughout: pill identity,
+# Glow calculator, Amphora seal, and full boot sequence -- 11 modules
+# built for explicit RV64IM, run on QEMU, with a hardware instruction
+# census confirming M-ext use across the entire suite.
+#
+# SLC gate: terrarium/m_extension_witness.rish runs GREEN on RV64M
+#
+# Run from the repository root:
+#   rishi/bin/rishi run terrarium/m_extension_witness.rish
+
+say "m_extension_witness: Orbit 10 -- M extension integration"
+say "m_extension_witness: -mcpu=generic_rv64+m (RV64IM explicit)"
+say ""
+
+# -- Stage 1: CPU features -- verify +m, +zmmul, generic_rv64
+
+say "=== Stage 1: CPU features ==="
+
+let features = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/hello64.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m --verbose-llvm-cpu-features -femit-bin=/dev/null 2>&1 | head -4"]
+assert features.ok else "CPU feature probe failed"
+assert features.out contains "+m" else "missing +m in CPU features"
+assert features.out contains "+zmmul" else "missing +zmmul in CPU features"
+assert features.out contains "generic_rv64" else "not targeting generic_rv64"
+
+say "Stage 1 GREEN: +m and +zmmul confirmed on generic_rv64"
+say ""
+
+# -- Stage 2: build all 11 modules + Swift app
+
+say "=== Stage 2: build all 11 modules ==="
+
+let t0 = run ["python3" "-c" "import time; print(int(time.time()*1000))"]
+
+let builds = run ["sh" "terrarium/m_extension_helper.sh" "build"]
+assert builds.ok else "build stage failed"
+assert builds.out contains "builds_ok=11" else "not all 11 modules built"
+assert builds.out contains "builds_fail=0" else "some modules failed to build"
+
+let swift = run ["sh" "terrarium/m_extension_helper.sh" "swift"]
+assert swift.ok else "Swift app build failed"
+assert swift.out contains "swift_build=ok" else "Swift app build did not report ok"
+
+let t1 = run ["python3" "-c" "import time; print(int(time.time()*1000))"]
+
+say "Stage 2 GREEN: 11/11 modules + Swift app built"
+say ""
+
+# -- Stage 3: pill identity on RV64IM
+
+say "=== Stage 3: pill identity ==="
+
+let pill = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/self_compile_m.elf 2>/dev/null"]
+assert pill.out contains "MATCH -- identity proven" else "pill identity mismatch"
+assert pill.out contains "0x079080d9" else "pill hash not 0x079080D9"
+assert pill.out contains "Orbit 15 complete" else "pill orbit not complete"
+
+say "Stage 3 GREEN: pill 0x079080D9 proven on RV64IM"
+say ""
+
+# -- Stage 4: Glow M-ext calculator
+
+say "=== Stage 4: Glow M-ext calculator ==="
+
+let glow = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/glow_m_ext_m.elf 2>/dev/null"]
+assert glow.out contains "correct: 6 of 6" else "not all 6 expressions correct"
+assert glow.out contains "(* 7 8) = 56 ok" else "SLC GATE: (* 7 8) != 56"
+assert glow.out contains "(/ 144 12) = 12 ok" else "SLC GATE: (/ 144 12) != 12"
+assert glow.out contains "(* 6 7) = 42 ok" else "(* 6 7) != 42"
+assert glow.out contains "(/ 100 3) = 33 ok" else "(/ 100 3) != 33"
+assert glow.out contains "(+ (* 3 4) (* 5 6)) = 42 ok" else "nested mul != 42"
+assert glow.out contains "(/ (* 12 12) 12) = 12 ok" else "nested mul-div != 12"
+
+say "Stage 4 GREEN: 6/6 expressions correct with hardware mul/div"
+say ""
+
+# -- Stage 5: Amphora seal
+
+say "=== Stage 5: Amphora seal ==="
+
+let seal = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/amphora_seal_m.elf 2>/dev/null"]
+assert seal.out contains "seal hash: 0x" else "seal hash missing"
+assert seal.out contains "verify: PASS" else "verify did not pass"
+assert seal.out contains "tamper detected: PASS" else "tamper detection failed"
+assert seal.out contains "4 KiB vessel sealed and verified" else "SLC gate: vessel not sealed"
+
+say "Stage 5 GREEN: seal, verify, and tamper detection on RV64IM"
+say ""
+
+# -- Stage 6: full boot sequence (8 stages)
+
+say "=== Stage 6: full boot sequence on RV64IM ==="
+
+# 6a: tally arena
+say "  6a: tally arena"
+let tally = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/tally_arena_m.elf 2>/dev/null"]
+assert tally.out contains "REFUSED -- OutOfBounds" else "tally missing OutOfBounds"
+assert tally.out contains "all invariants held" else "tally invariants not held"
+assert tally.out contains "Orbit 16 complete" else "tally orbit not complete"
+say "  6a GREEN"
+
+# 6b: aurora console
+say "  6b: aurora console"
+let aurora = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/aurora_console_m.elf 2>/dev/null"]
+assert aurora.out contains "aurora_console: Orbit 17 complete" else "aurora orbit not complete"
+say "  6b GREEN"
+
+# 6c: mantra log
+say "  6c: mantra log"
+let mantra_log = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/mantra_log_m.elf 2>/dev/null"]
+assert mantra_log.out contains "REPLAY MATCHES: identical state proven" else "mantra log replay mismatch"
+assert mantra_log.out contains "GREEN: Mantra event log" else "mantra log not GREEN"
+say "  6c GREEN"
+
+# 6d: mantra wire (via Terrarium Swift app)
+say "  6d: mantra wire"
+let wire = run ["timeout" "30" "terrarium/.build/Terrarium" "mantra_wire64"]
+assert wire.out contains "GREEN: Mantra persistence through the wire" else "mantra wire not GREEN"
+say "  6d GREEN"
+
+# 6e: caravan cap
+say "  6e: caravan cap"
+let cap = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/caravan_cap_m.elf 2>/dev/null"]
+assert cap.out contains "W xor X" else "caravan cap missing W xor X"
+assert cap.out contains "ALL PROOFS PASSED" else "caravan cap proofs not passed"
+assert cap.out contains "Orbit 21 complete" else "caravan cap orbit not complete"
+say "  6e GREEN"
+
+# 6f: caravan supervision
+say "  6f: caravan supervision"
+let sup = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/caravan_supervision_m.elf 2>/dev/null"]
+assert sup.out contains "greedy OVERBUDGET" else "supervision missing overbudget"
+assert sup.out contains "worker ALLOCATED 64 more bytes" else "worker allocation missing"
+assert sup.out contains "ALL PROOFS PASSED" else "supervision proofs not passed"
+assert sup.out contains "Orbit 22 complete" else "supervision orbit not complete"
+say "  6f GREEN"
+
+# 6g: steward
+say "  6g: steward"
+let steward = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/steward_m.elf 2>/dev/null"]
+assert steward.out contains "2 domains UP from manifest" else "steward domains missing"
+assert steward.out contains "all manifest domains running" else "steward not all running"
+assert steward.out contains "Orbit 23 complete" else "steward orbit not complete"
+say "  6g GREEN"
+
+# 6h: glow app (the full calculator, 10 expressions)
+say "  6h: glow app"
+let glow_app = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/glow_app_m.elf 2>/dev/null"]
+assert glow_app.out contains "correct: 10 of 10" else "glow app not 10/10"
+assert glow_app.out contains "all expressions correct" else "glow app not all correct"
+assert glow_app.out contains "Orbit 24 complete" else "glow app orbit not complete"
+say "  6h GREEN"
+
+say "Stage 6 GREEN: full boot sequence proven on RV64IM"
+say ""
+
+# -- Stage 7: hardware M-ext instruction census
+
+say "=== Stage 7: hardware instruction census ==="
+
+let census = run ["sh" "terrarium/m_extension_helper.sh" "census"]
+assert census.ok else "census stage failed"
+assert census.out contains "census_modules_total=11" else "census did not cover all 11 modules"
+
+say "Stage 7 GREEN: census complete"
+say ""
+
+# -- verdict
+
+say "========================================"
+say "m_extension_witness: ALL 7 STAGES GREEN"
+say "  CPU features: +m, +zmmul on generic_rv64"
+say "  11/11 modules built for explicit RV64IM"
+say "  pill identity: 0x079080D9"
+say "  Glow calculator: 6/6 with hardware mul/div"
+say "  Amphora seal: seal, verify, tamper"
+say "  Full boot: 8/8 stages"
+say "  Hardware census: M-ext instructions confirmed"
+say "========================================"
+say "Orbit 10 complete -- Quest 2 complete"

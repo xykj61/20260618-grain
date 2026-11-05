@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.131000` | [Mantrapod RV64G Orbit 10 -- M extension integration](20261105/20261105-131000_mantrapod-orbit10-m-extension-integration.kyri.md) | 7 stages GREEN: 11/11 modules on RV64IM, pill 0x079080D9, Glow 6/6, Amphora seal, full boot 8/8, M-ext census -- Quest 2 complete |
 | `20261105.115320` | [Mantrapod RV64G Orbit 9 -- software division survey](20261105/20261105-115320_mantrapod-orbit9-division-survey.kyri.md) | 59 arithmetic sites across 17 sources surveyed, zero software multiply/divide in authored Rye, 17/17 builds, 13/13 hardware M-ext confirmed |
 | `20261105.113114` | [Mantrapod RV64G Orbit 8 -- Amphora seal performance](20261105/20261105-113114_mantrapod-orbit8-amphora-seal.kyri.md) | djb2 h *% 33 compiles to hardware mul on RV64IM, 4 KiB vessel sealed hash 0x3f401b51, verify PASS, tamper detected |
 | `20261105.111338` | [Mantrapod RV64G Orbit 7 -- Glow M-extension calculator](20261105/20261105-111338_mantrapod-orbit7-glow-m-ext.kyri.md) | 6 expressions with mul and div opcodes, 6/6 correct, 4 mul + 2 div hardware instructions confirmed via objdump, ELF 6816 bytes |

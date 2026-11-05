@@ -105,7 +105,7 @@ unchanged in what it does, wider in how it addresses.*
   17/17 builds, 13/13 arithmetic modules with hardware M-ext, 0 software
   division. **GREEN on metal.**
 
-- [ ] **Orbit 10 -- M extension integration witness**
+- [x] **Orbit 10 -- M extension integration witness**
   A single witness proves all M-extension work: hash, calculator, seal, and
   the full boot sequence with hardware arithmetic throughout.
   **SLC gate:** `terrarium/m_extension_witness.rish` runs GREEN on RV64M.
