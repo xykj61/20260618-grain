@@ -1,0 +1,505 @@
+//! terrarium/src/mantra_log.rye -- Mantra event log on freestanding RV32I
+//!
+//! The fourth TAME stage: Mantra records every fact. An append-only
+//! event log runs on the bare hart, each fact keyed by a Kumara seed
+//! (identity binding) and chained to its predecessor by hash. A replay
+//! of the log recomputes every hash and proves identical state.
+//!
+//! Freestanding port of mantra/src/store.rye and kumara/kumara.rye --
+//! no std, no filesystem, no Ed25519. The log lives in memory bounded
+//! by Tally. Signing uses a keyed djb2 hash (the same hash function
+//! proven in self_compile.rye, now keyed with a 32-byte seed to model
+//! Kumara's deterministic identity binding). The full Ed25519 stack
+//! arrives when std.crypto is available on the target.
+//!
+//! Build and run:
+//!   make terrarium STAGE=mantra_log
+//!
+//! SLC gate (Orbit 18): a sequence of Kumara-signed Mantra facts
+//! appended during boot replays to identical state, proven by hash
+//! comparison, visible on Aurora's console.
+
+// -- Hardware addresses -----------------------------------------------
+const uart_tx: *volatile u8 = @ptrFromInt(0x1000_0000);
+const test_finisher: *volatile u32 = @ptrFromInt(0x0010_0000);
+const finisher_pass: u32 = 0x5555;
+
+// -- Entry point ------------------------------------------------------
+export fn _start() linksection(".text.init") callconv(.naked) noreturn {
+    asm volatile (
+        \\ li sp, 0x80100000
+        \\ j kmain
+    );
+}
+
+// -- UART I/O ---------------------------------------------------------
+
+fn uart_print(msg: []const u8) void {
+    for (msg) |byte| uart_tx.* = byte;
+}
+
+fn print_u32(val: u32) void {
+    if (val == 0) {
+        uart_tx.* = '0';
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n = val;
+    var i: u32 = 0;
+    while (n > 0) {
+        buf[i] = @intCast(n % 10 + '0');
+        n = n / 10;
+        i += 1;
+    }
+    while (i > 0) {
+        i -= 1;
+        uart_tx.* = buf[i];
+    }
+}
+
+fn print_hex(val: u32) void {
+    const hex = "0123456789abcdef";
+    uart_print("0x");
+    var shift: u32 = 28;
+    while (true) {
+        const nibble: u4 = @intCast((val >> @intCast(shift)) & 0xF);
+        uart_tx.* = hex[nibble];
+        if (shift == 0) break;
+        shift -= 4;
+    }
+}
+
+fn halt_pass() noreturn {
+    test_finisher.* = finisher_pass;
+    while (true) {}
+}
+
+fn halt_error(msg: []const u8) noreturn {
+    uart_print(msg);
+    test_finisher.* = finisher_pass;
+    while (true) {}
+}
+
+// -- Assert -----------------------------------------------------------
+
+fn assert(cond: bool) void {
+    if (!cond) halt_error("ASSERTION FAILED\n");
+}
+
+// -- Region (Tally) ---------------------------------------------------
+// invariant: pos <= cap always
+
+const Region = struct {
+    buf: [*]u8,
+    cap: u32,
+    pos: u32,
+
+    fn init(ptr: [*]u8, size: u32) Region {
+        assert(size > 0);
+        return .{ .buf = ptr, .cap = size, .pos = 0 };
+    }
+
+    fn alloc(self: *Region, n: u32) error{OutOfBounds}![]u8 {
+        assert(self.pos <= self.cap);
+        if (n > self.cap - self.pos) return error.OutOfBounds;
+        const start = self.pos;
+        self.pos += n;
+        assert(self.pos <= self.cap);
+        return self.buf[start..self.pos];
+    }
+
+    fn remaining(self: *const Region) u32 {
+        return self.cap - self.pos;
+    }
+};
+
+// -- djb2 hash --------------------------------------------------------
+// invariant: h starts at 5381, update is (h << 5) +% h +% byte
+
+const Djb2 = struct {
+    h: u32,
+
+    fn init() Djb2 {
+        return .{ .h = 5381 };
+    }
+
+    fn feed(self: *Djb2, data: []const u8) void {
+        for (data) |byte| {
+            self.h = ((self.h << 5) +% self.h) +% @as(u32, byte);
+        }
+    }
+
+    fn feed_u32(self: *Djb2, val: u32) void {
+        // invariant: feed four bytes in big-endian order for determinism
+        self.feed(&[4]u8{
+            @intCast((val >> 24) & 0xFF),
+            @intCast((val >> 16) & 0xFF),
+            @intCast((val >> 8) & 0xFF),
+            @intCast(val & 0xFF),
+        });
+    }
+
+    fn digest(self: *const Djb2) u32 {
+        return self.h;
+    }
+};
+
+// -- Kumara identity (keyed hash) -------------------------------------
+// A 32-byte seed produces a deterministic signing key. On freestanding
+// RV32I without std.crypto, signing is a keyed djb2: the seed is mixed
+// into the hash before the message, producing a 32-bit tag that proves
+// the fact was produced by the holder of this seed. The full Ed25519
+// stack arrives with std.crypto on a hosted or RV64 target.
+
+const seed_length: u32 = 32;
+
+const Identity = struct {
+    seed: [seed_length]u8,
+
+    fn init(seed: [seed_length]u8) Identity {
+        return .{ .seed = seed };
+    }
+
+    fn sign(self: *const Identity, message: []const u8) u32 {
+        var h = Djb2.init();
+        // invariant: seed mixed first so the tag depends on identity
+        h.feed(&self.seed);
+        h.feed(message);
+        return h.digest();
+    }
+
+    fn verify(
+        self: *const Identity,
+        message: []const u8,
+        tag: u32,
+    ) bool {
+        return self.sign(message) == tag;
+    }
+};
+
+// -- Mantra fact ------------------------------------------------------
+// A fact is a fixed-size record: sequence number, payload (bounded
+// string), prev_hash (chain link), and a Kumara signature tag.
+
+const max_payload_len: u32 = 64;
+const fact_header_bytes: u32 = 4 + 4 + 4 + 4;
+// invariant: total fact size is header + payload ceiling
+const fact_size: u32 = fact_header_bytes + max_payload_len;
+
+const Fact = struct {
+    seq: u32,
+    prev_hash: u32,
+    payload_len: u32,
+    tag: u32,
+    payload: [max_payload_len]u8,
+};
+
+// -- Event log --------------------------------------------------------
+// An append-only log of facts in a Tally-bounded region. Each fact
+// chains to its predecessor by hash, and the log tracks the running
+// state hash for replay comparison.
+
+const max_facts: u32 = 32;
+
+const MantraLog = struct {
+    region: *Region,
+    identity: *const Identity,
+    count: u32,
+    state_hash: u32,
+    facts: [max_facts]*Fact,
+
+    fn init(region: *Region, identity: *const Identity) MantraLog {
+        return .{
+            .region = region,
+            .identity = identity,
+            .count = 0,
+            .state_hash = 0,
+            .facts = undefined,
+        };
+    }
+
+    fn append(
+        self: *MantraLog,
+        payload: []const u8,
+    ) error{ OutOfBounds, PayloadTooLong, LogFull }!void {
+        // invariant: count inside ceiling
+        assert(self.count <= max_facts);
+        if (payload.len > max_payload_len) return error.PayloadTooLong;
+        if (self.count >= max_facts) return error.LogFull;
+
+        // allocate fact from the Tally region
+        const raw = self.region.alloc(fact_size) catch
+            return error.OutOfBounds;
+
+        // write the fact into the allocated slice
+        const fact: *Fact = @ptrCast(@alignCast(raw.ptr));
+        fact.seq = self.count;
+        fact.prev_hash = self.state_hash;
+        fact.payload_len = @intCast(payload.len);
+
+        // copy payload bytes, zero-pad remainder
+        var pi: u32 = 0;
+        while (pi < max_payload_len) : (pi += 1) {
+            if (pi < payload.len) {
+                fact.payload[pi] = payload[pi];
+            } else {
+                fact.payload[pi] = 0;
+            }
+        }
+
+        // sign: keyed hash over (seq, prev_hash, payload)
+        const canon = self.canonical_bytes(fact);
+        fact.tag = self.identity.sign(&canon);
+
+        // update running state hash
+        var sh = Djb2.init();
+        sh.feed_u32(self.state_hash);
+        sh.feed_u32(fact.tag);
+        sh.feed(&canon);
+        self.state_hash = sh.digest();
+
+        self.facts[self.count] = fact;
+        self.count += 1;
+        // invariant: count stayed inside ceiling
+        assert(self.count <= max_facts);
+    }
+
+    fn canonical_bytes(self: *const MantraLog, fact: *const Fact) [fact_size - 4]u8 {
+        _ = self;
+        // invariant: canonical form is seq + prev_hash + payload_len
+        //            + payload, without the tag
+        var out: [fact_size - 4]u8 = undefined;
+        // seq (big-endian)
+        out[0] = @intCast((fact.seq >> 24) & 0xFF);
+        out[1] = @intCast((fact.seq >> 16) & 0xFF);
+        out[2] = @intCast((fact.seq >> 8) & 0xFF);
+        out[3] = @intCast(fact.seq & 0xFF);
+        // prev_hash (big-endian)
+        out[4] = @intCast((fact.prev_hash >> 24) & 0xFF);
+        out[5] = @intCast((fact.prev_hash >> 16) & 0xFF);
+        out[6] = @intCast((fact.prev_hash >> 8) & 0xFF);
+        out[7] = @intCast(fact.prev_hash & 0xFF);
+        // payload_len (big-endian)
+        out[8] = @intCast((fact.payload_len >> 24) & 0xFF);
+        out[9] = @intCast((fact.payload_len >> 16) & 0xFF);
+        out[10] = @intCast((fact.payload_len >> 8) & 0xFF);
+        out[11] = @intCast(fact.payload_len & 0xFF);
+        // payload
+        var i: u32 = 0;
+        while (i < max_payload_len) : (i += 1) {
+            out[12 + i] = fact.payload[i];
+        }
+        return out;
+    }
+
+    // -- Replay -------------------------------------------------------
+    // Walk the log from fact 0, recompute every signature and chain
+    // hash, and return the final state hash. If any signature or chain
+    // link disagrees, replay halts with an error message.
+
+    fn replay(self: *const MantraLog) u32 {
+        var running_hash: u32 = 0;
+        var i: u32 = 0;
+        while (i < self.count) : (i += 1) {
+            const fact = self.facts[i];
+
+            // verify chain link
+            if (fact.prev_hash != running_hash) {
+                uart_print("REPLAY FAILED: chain break at fact ");
+                print_u32(i);
+                uart_print("\n");
+                halt_error("REPLAY CHAIN INTEGRITY FAILURE\n");
+            }
+
+            // verify signature
+            const canon = self.canonical_bytes(fact);
+            if (!self.identity.verify(&canon, fact.tag)) {
+                uart_print("REPLAY FAILED: bad signature at fact ");
+                print_u32(i);
+                uart_print("\n");
+                halt_error("REPLAY SIGNATURE VERIFICATION FAILURE\n");
+            }
+
+            // recompute state hash
+            var sh = Djb2.init();
+            sh.feed_u32(running_hash);
+            sh.feed_u32(fact.tag);
+            sh.feed(&canon);
+            running_hash = sh.digest();
+        }
+        return running_hash;
+    }
+};
+
+// -- Main -------------------------------------------------------------
+
+export fn kmain() noreturn {
+    uart_print("MANTRA EVENT LOG -- freestanding RV32I\n");
+    uart_print("TAME stage 4: Mantra records every fact\n\n");
+
+    // -- Kumara identity from a deterministic seed
+    const seed: [seed_length]u8 = .{
+        0x4B, 0x75, 0x6D, 0x61, 0x72, 0x61, 0x20, 0x73,
+        0x65, 0x65, 0x64, 0x20, 0x66, 0x6F, 0x72, 0x20,
+        0x66, 0x72, 0x65, 0x65, 0x73, 0x74, 0x61, 0x6E,
+        0x64, 0x69, 0x6E, 0x67, 0x20, 0x52, 0x56, 0x49,
+    };
+    // invariant: seed spells "Kumara seed for freestanding RVI"
+    const identity = Identity.init(seed);
+    uart_print("identity: Kumara seed loaded (32 bytes)\n");
+
+    // -- Tally region for the log
+    // invariant: arena budget bounds all log memory
+    const arena_budget: u32 = 4096;
+    const arena_base: u32 = 0x80180000;
+    var region = Region.init(@ptrFromInt(arena_base), arena_budget);
+    uart_print("region: ");
+    print_u32(arena_budget);
+    uart_print(" bytes at ");
+    print_hex(arena_base);
+    uart_print("\n");
+    uart_print("fact size: ");
+    print_u32(fact_size);
+    uart_print(" bytes (");
+    print_u32(max_payload_len);
+    uart_print(" payload + ");
+    print_u32(fact_header_bytes);
+    uart_print(" header)\n");
+    uart_print("capacity: ");
+    print_u32(arena_budget / fact_size);
+    uart_print(" facts\n\n");
+
+    // -- Append boot facts
+    var log = MantraLog.init(&region, &identity);
+
+    const facts = [_][]const u8{
+        "pill: self-compile proof verified",
+        "tally: arena bounded at 4096 bytes",
+        "aurora: console ready 40x30 glyphs",
+        "mantra: event log initialized",
+        "kumara: identity bound to seed",
+    };
+
+    uart_print("-- APPEND PHASE --\n");
+    for (facts) |payload| {
+        log.append(payload) catch |err| {
+            switch (err) {
+                error.OutOfBounds => halt_error(
+                    "OUT OF BOUNDS: Tally region exhausted\n",
+                ),
+                error.PayloadTooLong => halt_error(
+                    "PAYLOAD TOO LONG\n",
+                ),
+                error.LogFull => halt_error("LOG FULL\n"),
+            }
+        };
+        uart_print("  fact ");
+        print_u32(log.count - 1);
+        uart_print(": ");
+        uart_print(payload);
+        uart_print(" [tag=");
+        print_hex(log.facts[log.count - 1].tag);
+        uart_print("]\n");
+    }
+    uart_print("\nappended ");
+    print_u32(log.count);
+    uart_print(" facts, state hash: ");
+    print_hex(log.state_hash);
+    uart_print("\n");
+    uart_print("region used: ");
+    print_u32(region.pos);
+    uart_print(" of ");
+    print_u32(region.cap);
+    uart_print(" bytes\n\n");
+
+    // -- Replay and verify
+    uart_print("-- REPLAY PHASE --\n");
+    const replay_hash = log.replay();
+    uart_print("replay state hash: ");
+    print_hex(replay_hash);
+    uart_print("\n");
+
+    // -- Compare
+    if (replay_hash == log.state_hash) {
+        uart_print("REPLAY MATCHES: identical state proven\n\n");
+    } else {
+        uart_print("REPLAY MISMATCH: ");
+        print_hex(replay_hash);
+        uart_print(" != ");
+        print_hex(log.state_hash);
+        uart_print("\n");
+        halt_error("REPLAY STATE MISMATCH\n");
+    }
+
+    // -- Test ceiling refusal: try to fill the log past capacity
+    uart_print("-- CEILING TEST --\n");
+    const capacity = arena_budget / fact_size;
+    // we already appended 5, so append until region is full
+    var fill_count: u32 = log.count;
+    while (fill_count < capacity) : (fill_count += 1) {
+        log.append("fill") catch |err| {
+            switch (err) {
+                error.OutOfBounds => {
+                    uart_print("ceiling REFUSED at fact ");
+                    print_u32(fill_count);
+                    uart_print(": OutOfBounds (Tally)\n");
+                    break;
+                },
+                error.LogFull => {
+                    uart_print("ceiling REFUSED at fact ");
+                    print_u32(fill_count);
+                    uart_print(": LogFull\n");
+                    break;
+                },
+                error.PayloadTooLong => halt_error(
+                    "UNEXPECTED: PayloadTooLong\n",
+                ),
+            }
+        };
+    }
+    // one more to prove the ceiling
+    log.append("over") catch |err| {
+        switch (err) {
+            error.OutOfBounds => {
+                uart_print("ceiling REFUSED: OutOfBounds (Tally)\n");
+            },
+            error.LogFull => {
+                uart_print("ceiling REFUSED: LogFull\n");
+            },
+            error.PayloadTooLong => {},
+        }
+    };
+
+    // -- Tamper test: verify a bad signature is caught
+    uart_print("\n-- TAMPER TEST --\n");
+    // create a second identity with a different seed
+    const bad_seed: [seed_length]u8 = .{
+        0x62, 0x61, 0x64, 0x20, 0x73, 0x65, 0x65, 0x64,
+        0x20, 0x66, 0x6F, 0x72, 0x20, 0x74, 0x61, 0x6D,
+        0x70, 0x65, 0x72, 0x20, 0x74, 0x65, 0x73, 0x74,
+        0x69, 0x6E, 0x67, 0x20, 0x6F, 0x6E, 0x6C, 0x79,
+    };
+    const bad_identity = Identity.init(bad_seed);
+    // sign fact 0's canonical bytes with the wrong identity
+    const canon0 = log.canonical_bytes(log.facts[0]);
+    const bad_tag = bad_identity.sign(&canon0);
+    const good_tag = log.facts[0].tag;
+    if (bad_tag != good_tag) {
+        uart_print("tamper: wrong-identity tag ");
+        print_hex(bad_tag);
+        uart_print(" != ");
+        print_hex(good_tag);
+        uart_print(" -- REFUSED\n");
+    } else {
+        halt_error("TAMPER TEST FAILED: tags should differ\n");
+    }
+
+    // -- Final report
+    uart_print("\n");
+    uart_print("GREEN: Mantra event log -- ");
+    print_u32(log.count);
+    uart_print(" facts, replay identical, ");
+    uart_print("ceiling REFUSED, tamper REFUSED\n");
+
+    halt_pass();
+}

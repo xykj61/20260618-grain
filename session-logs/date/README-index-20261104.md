@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261104.235033` | [Orbit 18 -- Mantra event log on freestanding RV32I](20261104/20261104-235033_orbit18-mantra-log-rv32i.kyri.md) | Append-only log with keyed djb2 signing, chain integrity, replay identical state hash 0xbc186e04, LogFull and tamper REFUSED |
 | `20261104.234010` | [Orbit 17 -- Aurora framebuffer and console on freestanding RV32I](20261104/20261104-234010_orbit17-aurora-console-rv32i.kyri.md) | Tally-bounded ramfb DMA framebuffer, 8x8 bitmap font console 40x30 glyphs, optional display with serial fallback, both modes GREEN on QEMU |
 | `20261104.232140` | [Orbit 16 -- Tally arena on freestanding RV32I](20261104/20261104-232140_orbit16-tally-arena-rv32i.kyri.md) | Region bump allocator and Gardens with 4 named errors; 4096-byte arena budget; OutOfBounds ceiling refusal proven on QEMU; Quest 1.4 open |
 | `20261104.230642` | [Orbit 15 -- self-compile proof, the keystone](20261104/20261104-230642_orbit15-self-compile-proof.kyri.md) | pill embeds Glow source, compiles to assembly in memory, djb2 hash 0x079080d9 matches sealed vessel on QEMU; Quest 1.3 complete |

@@ -174,7 +174,7 @@ from here is bounded, observable, and recorded.*
   **SLC gate:** the boot sequence from pill through Tally speaks through Aurora's console,
   visible in Terrarium's window; framebuffer allocation is bounded by Tally's arena.
 
-- [ ] **Orbit 18 -- Mantra event log on freestanding RV32I (Stage 4)**
+- [x] **Orbit 18 -- Mantra event log on freestanding RV32I (Stage 4)** -- landed `20261104`
   Mantra's append-only event log runs on the bare hart, each fact signed by Kumara
   (the identity and signing layer). Facts are appended, and a replay of the log
   produces identical state. Allocation is bounded by Tally; display goes through Aurora.
