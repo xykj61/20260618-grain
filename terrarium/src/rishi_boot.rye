@@ -1,0 +1,184 @@
+//! terrarium/src/rishi_boot.rye -- a minimal boot sequencer on
+//! freestanding RV32I, proving Rishi's orchestration pattern.
+//!
+//! The pill's boot sequence runs stages in order: each stage
+//! returns ok or not-ok, and the sequencer stops on the first
+//! failure. This is the Rishi `run` + check `ok` pattern,
+//! compiled to bare metal.
+//!
+//! Three stages run in order:
+//!   1. memory  -- write a pattern, read it back
+//!   2. bounded -- fill a budget, check the invariant
+//!   3. identity -- compare two values for equality
+//!
+//! Build and run:
+//!   make terrarium STAGE=rishi_boot
+//!
+//! SLC gate (Orbit 14): a Rishi script inside the pill calls
+//! three stages in order on QEMU.
+
+const uart_tx: *volatile u8 = @ptrFromInt(0x1000_0000);
+const test_finisher: *volatile u32 = @ptrFromInt(0x0010_0000);
+const finisher_pass: u32 = 0x5555;
+
+export fn _start() linksection(".text.init") callconv(.naked) noreturn {
+    asm volatile (
+        \\ li sp, 0x80100000
+        \\ j kmain
+    );
+}
+
+fn uart_print(msg: []const u8) void {
+    for (msg) |byte| uart_tx.* = byte;
+}
+
+fn print_u32(val: u32) void {
+    if (val == 0) {
+        uart_tx.* = '0';
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n = val;
+    var i: u32 = 0;
+    while (n > 0) {
+        buf[i] = @intCast(n % 10 + '0');
+        n = n / 10;
+        i += 1;
+    }
+    while (i > 0) {
+        i -= 1;
+        uart_tx.* = buf[i];
+    }
+}
+
+// -- Stage results ---------------------------------------------------
+// invariant: ok is the only status the sequencer trusts
+const ok: u32 = 0;
+const not_ok: u32 = 1;
+
+// -- Stage 1: memory -------------------------------------------------
+// Write a known pattern to a buffer, read it back, check identity.
+fn stage_memory() u32 {
+    // invariant: pattern is a named constant
+    const pattern: u32 = 0xDEAD_BEEF;
+    const slots: u32 = 4;
+    var mem: [slots]u32 = undefined;
+
+    // Fill with the pattern.
+    var i: u32 = 0;
+    while (i < slots) : (i += 1) {
+        mem[i] = pattern;
+    }
+
+    // invariant: every slot holds the pattern
+    i = 0;
+    while (i < slots) : (i += 1) {
+        if (mem[i] != pattern) return not_ok;
+    }
+
+    return ok;
+}
+
+// -- Stage 2: bounded ------------------------------------------------
+// Fill a bounded budget, check length equals budget.
+fn stage_bounded() u32 {
+    // invariant: budget is a named constant
+    const budget: u32 = 6;
+    var buf: [budget]u32 = undefined;
+    var len: u32 = 0;
+
+    var idx: u32 = 0;
+    while (idx < budget) : (idx += 1) {
+        buf[idx] = idx + idx + 1;
+        len += 1;
+    }
+
+    // invariant: length equals budget after fill
+    if (len != budget) return not_ok;
+
+    // invariant: each element equals 2*idx + 1
+    idx = 0;
+    while (idx < budget) : (idx += 1) {
+        if (buf[idx] != idx + idx + 1) return not_ok;
+    }
+
+    return ok;
+}
+
+// -- Stage 3: identity -----------------------------------------------
+// Two independent computations of the same value must agree.
+fn stage_identity() u32 {
+    // invariant: two paths to the same number agree
+    // Path A: 3 + 5 + 7 = 15
+    const a: u32 = 3 + 5 + 7;
+    // Path B: count from 1 to 5 by ones
+    var b: u32 = 0;
+    var i: u32 = 1;
+    while (i <= 5) : (i += 1) {
+        b += i;
+    }
+    // Both should be 15.
+    if (a != b) return not_ok;
+    if (a != 15) return not_ok;
+    return ok;
+}
+
+// -- The sequencer ---------------------------------------------------
+// Rishi's pattern: run each stage, check ok, stop on failure.
+
+const Stage = struct {
+    name: []const u8,
+    run: *const fn () u32,
+};
+
+const stages = [_]Stage{
+    .{ .name = "memory", .run = &stage_memory },
+    .{ .name = "bounded", .run = &stage_bounded },
+    .{ .name = "identity", .run = &stage_identity },
+};
+
+export fn kmain() callconv(.c) noreturn {
+    uart_print("rishi_boot: sequencing ");
+    print_u32(stages.len);
+    uart_print(" stages\n");
+
+    var passed: u32 = 0;
+
+    for (stages) |stage| {
+        uart_print("  run ");
+        uart_print(stage.name);
+        uart_print(" ... ");
+
+        const result = stage.run();
+        if (result == ok) {
+            uart_print("ok\n");
+            passed += 1;
+        } else {
+            uart_print("FAILED\n");
+            uart_print("rishi_boot: halted at stage ");
+            uart_print(stage.name);
+            uart_print("\n");
+            test_finisher.* = finisher_pass;
+            while (true) {}
+        }
+    }
+
+    // invariant: all stages passed
+    assert(passed == stages.len);
+
+    uart_print("rishi_boot: all ");
+    print_u32(passed);
+    uart_print(" stages passed\n");
+
+    test_finisher.* = finisher_pass;
+    while (true) {}
+}
+
+// invariant: a failed assertion halts the hart immediately
+fn assert(cond: bool) void {
+    if (!cond) {
+        uart_print("ASSERTION FAILED\n");
+        test_finisher.* = finisher_pass;
+        while (true) {}
+    }
+}

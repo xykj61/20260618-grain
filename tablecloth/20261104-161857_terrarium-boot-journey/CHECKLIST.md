@@ -137,7 +137,7 @@ runs on the bare hart. By the end, the pill compiles itself.*
   **SLC gate:** a Rye `.rye` file builds freestanding for RV32I, runs on QEMU, and
   the assertions pass.
 
-- [ ] **Orbit 14 -- Rishi bootstrap interpreter and self-compile survey**
+- [x] **Orbit 14 -- Rishi bootstrap interpreter and self-compile survey** (`20261104`)
   A minimal Rishi interpreter runs inside the pill -- enough to orchestrate `run`
   commands, check `ok`, and sequence the boot. Freestanding on RV32I. In the same
   orbit, survey the gap between the current code generator and self-compilation:

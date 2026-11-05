@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261104.222321` | [Orbit 14 -- Rishi boot sequencer and self-compile gap analysis](20261104/20261104-222321_orbit14-rishi-boot-gap-analysis.kyri.md) | rishi_boot.rye with 3-stage function pointer dispatch GREEN on QEMU; gap analysis measures 5,014-line Rishi and 290-line Glow codegen against self-compilation |
 | `20261104.221336` | [Orbit 13 -- Rye bounded array freestanding on RV32I](20261104/20261104-221336_orbit13-rye-bounded-rv32i.kyri.md) | bounded.rye with 4 invariant assertions builds freestanding for RV32I and all GREEN on QEMU |
 | `20261104.220502` | [Orbit 12 -- Glow stdlib operations in generated RV32I](20261104/20261104-220502_orbit12-glow-stdlib-rv32i.kyri.md) | IR-based code generator with face bindings, stdlib calls, conditionals, unsigned print; 8/8 programs GREEN on QEMU |
 | `20261104.215315` | [Orbit 11 -- Glow-to-RV32I code generator](20261104/20261104-215315_orbit11-glow-to-rv32i.kyri.md) | glow_to_rv32i.sh reads fortytwo.glow, emits .S with print_u32 via repeated subtraction, assembles to ELF, QEMU prints 42 and exits cleanly |
