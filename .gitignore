@@ -87,6 +87,7 @@
 !/tablecloth/
 !/rishi/
 !/aurora/
+!/terrarium/
 !/tally/
 !/caravan/
 !/brushstroke/
@@ -238,6 +239,7 @@
 /.dream-state/
 /mantra/bin/
 /aurora/.build/
+/terrarium/.build/
 /linengrow/bin/
 # Witness-seated symlink into glow/.cache (glow-language A import seam).
 /linengrow/lib_session_root_nest_cue_jam.rye

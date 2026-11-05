@@ -44,7 +44,7 @@ and each reversible.*
   the reason; `glow/README.md` names the RV32I backend direction; zero living references
   point at the old path as the active pipeline.
 
-- [ ] **Orbit 3 -- RV32I cross-compilation toolchain**
+- [x] **Orbit 3 -- RV32I cross-compilation toolchain**
   Establish a working RV32I build path: a cross-compiler (GCC or LLVM targeting
   `riscv32-unknown-elf`), a linker, QEMU `qemu-system-riscv32`, and a minimal linker
   script. Prove the toolchain by building and running a bare-metal "hello UART" in C or
