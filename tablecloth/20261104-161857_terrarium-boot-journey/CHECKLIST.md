@@ -130,7 +130,7 @@ runs on the bare hart. By the end, the pill compiles itself.*
   **SLC gate:** at least 6 Glow programs from `glow/gen/` compile to RV32I and produce
   correct output on QEMU.
 
-- [ ] **Orbit 13 -- Rye freestanding RV32I module**
+- [x] **Orbit 13 -- Rye freestanding RV32I module** (`20261104`)
   A Rye source file compiles to a freestanding RV32I ELF (extending Aurora's existing
   freestanding build). Prove a small Rye module -- a bounded array with assertions --
   runs on the bare 32-bit hart.

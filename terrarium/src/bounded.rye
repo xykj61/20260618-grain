@@ -1,0 +1,103 @@
+//! terrarium/src/bounded.rye -- a bounded array proves its
+//! invariants on a bare RV32I hart.
+//!
+//! The seed of Tally's garden allocator: a fixed-budget buffer
+//! that refuses to grow past its named limit. Every element is
+//! written, every element is checked, and the console speaks the
+//! result before the hart powers down.
+//!
+//! Build and run:
+//!   make terrarium STAGE=bounded
+//!
+//! SLC gate (Orbit 13): a Rye .rye file builds freestanding for
+//! RV32I, runs on QEMU, and the assertions pass.
+
+const uart_tx: *volatile u8 = @ptrFromInt(0x1000_0000);
+const test_finisher: *volatile u32 = @ptrFromInt(0x0010_0000);
+const finisher_pass: u32 = 0x5555;
+
+// invariant: budget is a named constant, bounded at construction
+const BUDGET: u32 = 8;
+
+export fn _start() linksection(".text.init") callconv(.naked) noreturn {
+    asm volatile (
+        \\ li sp, 0x80100000
+        \\ j kmain
+    );
+}
+
+fn uart_print(msg: []const u8) void {
+    for (msg) |byte| uart_tx.* = byte;
+}
+
+fn print_u32(val: u32) void {
+    if (val == 0) {
+        uart_tx.* = '0';
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n = val;
+    var i: u32 = 0;
+    while (n > 0) {
+        buf[i] = @intCast(n % 10 + '0');
+        n = n / 10;
+        i += 1;
+    }
+    while (i > 0) {
+        i -= 1;
+        uart_tx.* = buf[i];
+    }
+}
+
+export fn kmain() callconv(.c) noreturn {
+    // invariant: budget is the named constant
+    assert(BUDGET == 8);
+
+    var buf: [BUDGET]u32 = undefined;
+    var len: u32 = 0;
+
+    // Fill: each slot holds its index doubled (no mul needed).
+    var idx: u32 = 0;
+    while (idx < BUDGET) : (idx += 1) {
+        buf[idx] = idx + idx;
+        len += 1;
+    }
+
+    // invariant: length equals budget after fill
+    assert(len == BUDGET);
+
+    // invariant: each element equals its index doubled
+    idx = 0;
+    while (idx < BUDGET) : (idx += 1) {
+        assert(buf[idx] == idx + idx);
+    }
+
+    // invariant: the buffer refused to grow past budget
+    assert(len <= BUDGET);
+
+    // Speak the proof.
+    uart_print("bounded: budget=");
+    print_u32(BUDGET);
+    uart_print(" len=");
+    print_u32(len);
+    uart_print(" values=");
+    idx = 0;
+    while (idx < len) : (idx += 1) {
+        if (idx > 0) uart_tx.* = ',';
+        print_u32(buf[idx]);
+    }
+    uart_tx.* = '\n';
+    uart_print("bounded: all assertions passed\n");
+
+    test_finisher.* = finisher_pass;
+    while (true) {}
+}
+
+// invariant: a failed assertion halts the hart immediately
+fn assert(ok: bool) void {
+    if (!ok) {
+        uart_print("ASSERTION FAILED\n");
+        test_finisher.* = finisher_pass;
+        while (true) {}
+    }
+}

@@ -1,5 +1,7 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261104.221336` | [Orbit 13 -- Rye bounded array freestanding on RV32I](20261104/20261104-221336_orbit13-rye-bounded-rv32i.kyri.md) | bounded.rye with 4 invariant assertions builds freestanding for RV32I and all GREEN on QEMU |
+| `20261104.220502` | [Orbit 12 -- Glow stdlib operations in generated RV32I](20261104/20261104-220502_orbit12-glow-stdlib-rv32i.kyri.md) | IR-based code generator with face bindings, stdlib calls, conditionals, unsigned print; 8/8 programs GREEN on QEMU |
 | `20261104.215315` | [Orbit 11 -- Glow-to-RV32I code generator](20261104/20261104-215315_orbit11-glow-to-rv32i.kyri.md) | glow_to_rv32i.sh reads fortytwo.glow, emits .S with print_u32 via repeated subtraction, assembles to ELF, QEMU prints 42 and exits cleanly |
 | `20261104.213020` | [Orbit 10 -- Comlink wire protocol](20261104/20261104-213020_orbit10-comlink-wire-protocol.kyri.md) | wire.rye sends fact over UART TX, main.swift detects complete line via regex, writes ACK through stdin pipe to guest UART RX; round-trip confirmed on metal |
 | `20261104.204331` | [Orbit 9 -- Terrarium display integration](20261104/20261104-204331_orbit9-terrarium-display-integration.kyri.md) | framebuf.rye draws to ramfb via DMA; main.swift serialBuffer fix catches trigger across chunk splits; QMP screendump + PPM parse + NSImageView display proven on metal |
