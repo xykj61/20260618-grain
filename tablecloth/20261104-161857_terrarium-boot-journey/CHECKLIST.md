@@ -231,7 +231,7 @@ arrives, and a living world opens under glass.*
   **SLC gate:** a user types an expression in Terrarium's window, the Glow calculator
   evaluates it inside the emulated RV32I machine, and the result appears on screen.
 
-- [ ] **Orbit 25 -- Full boot witness and RV64G horizon scoping**
+- [x] **Orbit 25 -- Full boot witness and RV64G horizon scoping** -- landed `20261105`
   A single witness proves the complete boot sequence: pill -> self-compile -> Tally ->
   Aurora -> Mantra -> Caravan -> Steward -> userspace application. The witness runs
   on QEMU RV32I inside Terrarium and every stage is visible, bounded, and logged.

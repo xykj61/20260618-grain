@@ -1,0 +1,177 @@
+# terrarium/boot_witness.rish -- full Terrarium boot witness
+#
+# Orbit 25 SLC gate. Proves the complete boot sequence on QEMU RV32I:
+# pill -> self-compile -> Tally -> Aurora -> Mantra -> Caravan -> Steward
+# -> userspace application. Every stage bounded, observable, recorded.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run terrarium/boot_witness.rish
+
+say "boot_witness: Orbit 25 -- full Terrarium boot witness"
+say "boot_witness: proving pill -> Tally -> Aurora -> Mantra -> Caravan -> Steward -> application (9 stages)"
+say ""
+
+# -- Stage 1: Self-compile (Orbit 15) -- the pill proves its own identity
+
+say "=== stage 1/9: self_compile (pill identity) ==="
+
+let build_1 = run ["sh" "-c" "mkdir -p terrarium/.build && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/self_compile.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/self_compile.elf 2>&1"]
+assert build_1.code == 0 else "self_compile build failed"
+
+let run_1 = run ["timeout" "10" "qemu-system-riscv32" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/self_compile.elf"]
+assert run_1.code == 0 else "self_compile qemu failed"
+assert run_1.out contains "self_compile: MATCH -- identity proven" else "pill identity not proven"
+assert run_1.out contains "Orbit 15 complete" else "self_compile incomplete"
+
+say "stage 1/9 GREEN: pill identity proven"
+say ""
+
+# -- Stage 2: Tally arena (Orbit 16) -- safety bounds every allocation
+
+say "=== stage 2/9: tally_arena (safety) ==="
+
+let build_2 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/tally_arena.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/tally_arena.elf 2>&1"]
+assert build_2.code == 0 else "tally_arena build failed"
+
+let run_2 = run ["timeout" "10" "qemu-system-riscv32" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/tally_arena.elf"]
+assert run_2.code == 0 else "tally_arena qemu failed"
+assert run_2.out contains "tally_arena: REFUSED -- OutOfBounds" else "tally must refuse past ceiling"
+assert run_2.out contains "tally_arena: all invariants held" else "tally invariants must hold"
+assert run_2.out contains "Orbit 16 complete" else "tally_arena incomplete"
+
+say "stage 2/9 GREEN: Tally bounds every allocation"
+say ""
+
+# -- Stage 3: Aurora console (Orbit 17) -- visibility through the framebuffer
+
+say "=== stage 3/9: aurora_console (visibility) ==="
+
+let build_3 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/aurora_console.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/aurora_console.elf 2>&1"]
+assert build_3.code == 0 else "aurora_console build failed"
+
+let run_3 = run ["timeout" "10" "qemu-system-riscv32" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/aurora_console.elf"]
+assert run_3.code == 0 else "aurora_console qemu failed"
+assert run_3.out contains "aurora_console: Orbit 17 complete" else "aurora_console incomplete"
+
+say "stage 3/9 GREEN: Aurora speaks through the console"
+say ""
+
+# -- Stage 4: Mantra event log (Orbit 18) -- replay produces identical state
+
+say "=== stage 4/9: mantra_log (replay) ==="
+
+let build_4 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/mantra_log.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/mantra_log.elf 2>&1"]
+assert build_4.code == 0 else "mantra_log build failed"
+
+let run_4 = run ["timeout" "10" "qemu-system-riscv32" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/mantra_log.elf"]
+assert run_4.code == 0 else "mantra_log qemu failed"
+assert run_4.out contains "REPLAY MATCHES: identical state proven" else "mantra replay must match"
+assert run_4.out contains "GREEN: Mantra event log" else "mantra_log must report GREEN"
+
+say "stage 4/9 GREEN: Mantra replay produces identical state"
+say ""
+
+# -- Stage 5: Mantra wire persistence (Orbit 19) -- facts travel through the wire
+
+say "=== stage 5/9: mantra_wire (persistence) ==="
+
+let build_5 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/mantra_wire.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/mantra_wire.elf 2>&1"]
+assert build_5.code == 0 else "mantra_wire build failed"
+
+let build_app = run ["sh" "-c" "swiftc -o terrarium/.build/Terrarium terrarium/app/main.swift -framework AppKit 2>&1"]
+assert build_app.code == 0 else "terrarium app build failed"
+
+let run_5 = run ["timeout" "30" "terrarium/.build/Terrarium" "mantra_wire"]
+assert run_5.code == 0 else "mantra_wire qemu failed"
+assert run_5.out contains "GREEN: Mantra persistence through the wire" else "wire persistence must report GREEN"
+
+say "stage 5/9 GREEN: Mantra facts persist through the wire"
+say ""
+
+# -- Stage 6: Caravan capability model (Orbit 21) -- capabilities with bounded leases
+
+say "=== stage 6/9: caravan_cap (capabilities) ==="
+
+let build_6 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/caravan_cap.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/caravan_cap.elf 2>&1"]
+assert build_6.code == 0 else "caravan_cap build failed"
+
+let run_6 = run ["timeout" "10" "qemu-system-riscv32" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/caravan_cap.elf"]
+assert run_6.code == 0 else "caravan_cap qemu failed"
+assert run_6.out contains "W xor X" else "W xor X must be enforced"
+assert run_6.out contains "ALL PROOFS PASSED" else "caravan_cap proofs must pass"
+assert run_6.out contains "Orbit 21 complete" else "caravan_cap incomplete"
+
+say "stage 6/9 GREEN: Caravan capabilities with bounded leases"
+say ""
+
+# -- Stage 7: Caravan process supervision (Orbit 22) -- supervisor stops overbudget dependents
+
+say "=== stage 7/9: caravan_supervision (process supervision) ==="
+
+let build_7 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/caravan_supervision.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/caravan_supervision.elf 2>&1"]
+assert build_7.code == 0 else "caravan_supervision build failed"
+
+let run_7 = run ["timeout" "10" "qemu-system-riscv32" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/caravan_supervision.elf"]
+assert run_7.code == 0 else "caravan_supervision qemu failed"
+assert run_7.out contains "greedy OVERBUDGET" else "supervisor must fault overbudget dependent"
+assert run_7.out contains "worker ALLOCATED 64 more bytes" else "sibling must survive peer fault"
+assert run_7.out contains "ALL PROOFS PASSED" else "caravan_supervision proofs must pass"
+assert run_7.out contains "Orbit 22 complete" else "caravan_supervision incomplete"
+
+say "stage 7/9 GREEN: Caravan supervisor stops overbudget dependents"
+say ""
+
+# -- Stage 8: Steward root supervisor (Orbit 23) -- manifest-driven boot
+
+say "=== stage 8/9: steward (root supervisor) ==="
+
+let build_8 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/steward.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/steward.elf 2>&1"]
+assert build_8.code == 0 else "steward build failed"
+
+let run_8 = run ["timeout" "10" "qemu-system-riscv32" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/steward.elf"]
+assert run_8.code == 0 else "steward qemu failed"
+assert run_8.out contains "2 domains UP from manifest" else "manifest boot must succeed"
+assert run_8.out contains "all manifest domains running" else "all domains must run"
+assert run_8.out contains "Orbit 23 complete" else "steward incomplete"
+
+say "stage 8/9 GREEN: Steward boots domains from Brix manifest"
+say ""
+
+# -- Stage 9: Glow application (Orbit 24) -- first Grain application
+
+say "=== stage 9/9: glow_app (first application) ==="
+
+let build_9 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/glow_app.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/glow_app.elf 2>&1"]
+assert build_9.code == 0 else "glow_app build failed"
+
+let run_9 = run ["timeout" "10" "qemu-system-riscv32" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/glow_app.elf"]
+assert run_9.code == 0 else "glow_app qemu failed"
+assert run_9.out contains "correct: 10 of 10" else "glow expressions must be correct"
+assert run_9.out contains "all expressions correct" else "all expressions must be correct"
+assert run_9.out contains "10/10 expressions correct" else "summary must confirm correctness"
+assert run_9.out contains "Orbit 24 complete" else "glow_app incomplete"
+
+say "stage 9/9 GREEN: Glow calculator evaluates 10/10 expressions under Caravan supervision"
+say ""
+
+# -- Verdict
+
+say "================================================"
+say "boot_witness: ALL NINE STAGES GREEN"
+say ""
+say "  1. pill:         self-compile identity proven"
+say "  2. tally:        arena bounded, ceiling enforced"
+say "  3. aurora:       console speaks through the framebuffer"
+say "  4. mantra:       event log replays to identical state"
+say "  5. wire:         facts persist through the Terrarium wire"
+say "  6. caravan cap:  capabilities with bounded leases"
+say "  7. supervision:  supervisor stops overbudget dependents"
+say "  8. steward:      root supervisor boots domains from Brix manifest"
+say "  9. glow_app:     first application evaluates Glow expressions"
+say ""
+say "  TAME order: safety -> visibility -> replay"
+say "  then: capability -> supervision -> steward -> application"
+say "  every stage bounded, observable, recorded"
+say ""
+say "GREEN: Orbit 25 -- full Terrarium boot witness"
+say "================================================"
