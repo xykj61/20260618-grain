@@ -1,0 +1,62 @@
+# terrarium/pill64_witness.rish -- pill identity on RV64I
+#
+# Orbit 2, Quest 1 of the Mantrapod RV64G journey. Proves the
+# self-compile stage builds on riscv64-freestanding-none and its
+# djb2 hash matches the sealed constant 0x079080D9 -- the same
+# pill, the wider registers.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run terrarium/pill64_witness.rish
+
+say "pill64_witness: Orbit 2 -- pill identity on RV64I"
+say ""
+
+# -- Build
+
+say "=== build: self_compile for riscv64-freestanding-none ==="
+
+let prep = run ["sh" "-c" "mkdir -p terrarium/.build"]
+assert prep.ok else "pill64_witness mkdir failed"
+
+let build = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/self_compile.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -femit-bin=terrarium/.build/self_compile64.elf 2>&1"]
+assert build.code == 0 else "pill64 build failed:\n${build.out}"
+
+say "build GREEN: self_compile emitted for riscv64-freestanding-none"
+say ""
+
+# -- Run
+
+say "=== run: qemu-system-riscv64 (machine virt) ==="
+
+let wake = run ["timeout" "10" "qemu-system-riscv64" "-machine" "virt" "-bios" "none" "-nographic" "-kernel" "terrarium/.build/self_compile64.elf"]
+assert wake.code == 0 else "pill64 qemu failed with status ${wake.code}"
+assert wake.out contains "MATCH -- identity proven" else "pill64 must report MATCH"
+assert wake.out contains "0x079080d9" else "pill64 must show sealed hash 0x079080d9"
+assert wake.out contains "Orbit 15 complete" else "pill64 must complete"
+
+say "run GREEN: pill identity proven on qemu-system-riscv64"
+say ""
+
+# -- ELF identity
+
+say "=== elf: architecture check ==="
+
+let file_out = run ["file" "terrarium/.build/self_compile64.elf"]
+assert file_out.ok else "file command failed"
+assert file_out.out contains "ELF 64-bit" else "self_compile64.elf must be 64-bit ELF"
+assert file_out.out contains "RISC-V" else "self_compile64.elf must target RISC-V"
+
+say "elf GREEN: 64-bit RISC-V ELF confirmed"
+say ""
+
+# -- Verdict
+
+say "================================================"
+say "pill64_witness: ALL PROOFS GREEN"
+say ""
+say "  build:  riscv64-freestanding-none with medany code model"
+say "  hash:   djb2 = 0x079080D9, sealed constant matches"
+say "  elf:    64-bit RISC-V ELF identity confirmed"
+say ""
+say "GREEN: Orbit 2 -- pill identity on RV64I"
+say "================================================"

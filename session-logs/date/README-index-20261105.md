@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.094643` | [Mantrapod RV64G Orbit 2 -- pill identity on RV64I](20261105/20261105-094643_mantrapod-orbit2-pill-identity-rv64i.kyri.md) | djb2 hash 0x079080D9 matches sealed constant identically on RV64I, zero source changes, explicit u32 arithmetic is fully portable |
 | `20261105.093753` | [Mantrapod RV64G Orbit 1 -- RV64I build target and UART hello](20261105/20261105-093753_mantrapod-orbit1-rv64i-hello.kyri.md) | RV64I hello on qemu-system-riscv64, medany code model discovered, -OReleaseSmall -mcmodel=medany is the standing RV64 recipe |
 | `20261105.091848` | [Housekeeping -- tablecloth molt-breach, active-development fold, fascia badge](20261105/20261105-091848_housekeeping-molt-fold-fascia.kyri.md) | Molt-breach boards to active-tablecloth/, fold 75 flat files into date/ shelves, fascia badge 60.060 -> 60.083 |
 | `20261105.090553` | [Mantrapod RV64G journey -- tablecloth board and RFC proposal](20261105/20261105-090553_mantrapod-rv64g-journey-proposal.kyri.md) | Tablecloth board for the 50-orbit Mantrapod journey (3 acts: RV64G port, Dimeroll field ledger, real hardware), RFC design essay, index updated |

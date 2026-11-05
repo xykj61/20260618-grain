@@ -30,10 +30,12 @@ unchanged in what it does, wider in how it addresses.*
   **Witness:** `terrarium/hello64_witness.rish` -- build, wake, ELF identity.
   **GREEN on metal.**
 
-- [ ] **Orbit 2 -- Pill identity on RV64I**
-  The self-compile stage builds and its djb2 hash matches on the 64-bit target.
-  No new logic -- the same pill, the wider registers.
-  **SLC gate:** `terrarium/boot_witness.rish` stage 1 equivalent runs GREEN on RV64I.
+- [x] **Orbit 2 -- Pill identity on RV64I** (`20261105.094456`)
+  The self-compile stage builds on `riscv64-freestanding-none` and its djb2 hash
+  matches the sealed constant `0x079080D9` -- identical to RV32I, because the hash
+  operates over string constants in explicit `u32` arithmetic. Zero source changes.
+  **Witness:** `terrarium/pill64_witness.rish` -- build, hash match, ELF identity.
+  **GREEN on metal.**
 
 - [ ] **Orbit 3 -- Tally arena on RV64I**
   Tally's garden arena allocates and refuses on the 64-bit hart. `u32` budgets and
