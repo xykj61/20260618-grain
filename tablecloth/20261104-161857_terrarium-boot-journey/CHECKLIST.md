@@ -200,7 +200,7 @@ from here is bounded, observable, and recorded.*
 *The boot is proven: self-compiling, bounded, visible, recorded. Now the microkernel
 arrives, and a living world opens under glass.*
 
-- [ ] **Orbit 21 -- Caravan capability model on RV32I (Stage 5)**
+- [x] **Orbit 21 -- Caravan capability model on RV32I (Stage 5)** -- landed `20261105`
   Port Caravan's capability and domain model to freestanding RV32I. Each domain runs
   inside a Pond enclosure with named capabilities and bounded leases; a capability
   can be conferred and revoked. Allocation bounded by Tally, displayed by Aurora,

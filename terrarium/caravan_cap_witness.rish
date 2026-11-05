@@ -1,0 +1,91 @@
+#!/usr/bin/env rishi
+# terrarium/caravan_cap_witness.rish -- Orbit 21 SLC gate
+#
+# Proves the Caravan capability model on freestanding RV32I:
+#   1. Domains created and bounded
+#   2. Capability conferred with lease
+#   3. Capability exercised (both walls)
+#   4. Rights wall -- execute refused on RW cap
+#   5. Lease countdown and auto-expire
+#   6. Exercise after expiry refused
+#   7. Capability revoked
+#   8. Cap table ceiling enforced
+#   9. Domain registry ceiling enforced
+#  10. Mantra log records all events
+#  11. Tally bounds all allocation
+
+say "=== Orbit 21 -- Caravan capability model witness ==="
+say ""
+
+# Build
+say "building caravan_cap for riscv32-freestanding-none ..."
+let build = run ["sh" "-c" "mkdir -p terrarium/.build && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/caravan_cap.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/caravan_cap.elf"]
+assert build.ok else "BUILD FAILED:\n${build.err}"
+say "build: ok"
+
+# Run on QEMU
+say "running on qemu-system-riscv32 ..."
+let result = run ["timeout" "10" "qemu-system-riscv32" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/caravan_cap.elf"]
+assert result.ok else "QEMU run failed"
+say result.out
+
+# -- Domain creation
+assert result.out contains "domain created -- steward" else "MISSING: steward domain"
+assert result.out contains "domain created -- worker" else "MISSING: worker domain"
+say "domains: steward + worker created"
+
+# -- Confer
+assert result.out contains "capability CONFERRED to worker" else "MISSING: confer"
+assert result.out contains "obj=endpoint" else "MISSING: endpoint object type"
+assert result.out contains "rights=RW" else "MISSING: RW rights"
+assert result.out contains "lease=3 ticks" else "MISSING: lease countdown"
+say "confer: capability granted with lease"
+
+# -- Exercise (read + write)
+assert result.out contains "capability EXERCISED -- worker read on endpoint" else "MISSING: exercise read"
+assert result.out contains "capability EXERCISED -- worker write on endpoint" else "MISSING: exercise write"
+say "exercise: read + write both walls passed"
+
+# -- Rights wall
+assert result.out contains "exercise REFUSED -- worker execute on endpoint" else "MISSING: rights wall"
+assert result.out contains "rights insufficient" else "MISSING: rights insufficient message"
+say "rights wall: execute refused on RW cap (W xor X)"
+
+# -- Tick and expire
+assert result.out contains "tick 1 -- lease=2" else "MISSING: tick 1"
+assert result.out contains "tick 2 -- lease=1" else "MISSING: tick 2"
+assert result.out contains "tick 3 -- lease=0, EXPIRED 1" else "MISSING: tick 3 expiry"
+say "tick: lease countdown 3 -> 0, auto-expired"
+
+# -- Exercise after expiry
+assert result.out contains "exercise REFUSED -- worker capability expired" else "MISSING: expired exercise refusal"
+say "expire: exercise after expiry refused"
+
+# -- Revoke
+assert result.out contains "capability REVOKED -- worker slot=1" else "MISSING: revoke"
+assert result.out contains "exercise after revoke REFUSED" else "MISSING: post-revoke refusal"
+say "revoke: capability withdrawn, exercise refused"
+
+# -- Cap table ceiling
+assert result.out contains "REFUSED -- CapTableFull at 8 slots" else "MISSING: cap table ceiling"
+say "ceiling: cap table bounded at 8 slots"
+
+# -- Domain registry ceiling
+assert result.out contains "REFUSED -- RegistryFull at 4 domains" else "MISSING: registry ceiling"
+say "ceiling: domain registry bounded at 4 domains"
+
+# -- Mantra log
+assert result.out contains "mantra facts: 11" else "MISSING: mantra fact count"
+assert result.out contains "state hash: 0xcb853e4a" else "WRONG: state hash mismatch"
+say "mantra: 11 facts, state hash 0xcb853e4a"
+
+# -- Tally bounds
+assert result.out contains "tally used: 880 of 4096 bytes" else "MISSING: tally report"
+say "tally: 880 of 4096 bytes used"
+
+# -- Orbit complete
+assert result.out contains "Orbit 21 complete" else "MISSING: orbit 21 complete marker"
+assert result.code == 0 else "QEMU must exit cleanly (got ${result.code})"
+
+say ""
+say "=== Orbit 21 -- Caravan capability model: GREEN ==="
