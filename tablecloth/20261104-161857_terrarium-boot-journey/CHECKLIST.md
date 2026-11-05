@@ -96,7 +96,7 @@ emulation, and Aurora's proven stages port to the smaller ISA.*
   **SLC gate:** `aurora/run.sh relay` and `aurora/run.sh named` both GREEN on RV32I;
   content-name matches the hosted test byte for byte.
 
-- [ ] **Orbit 9 -- Terrarium display integration**
+- [x] **Orbit 9 -- Terrarium display integration**
   Terrarium captures Aurora's framebuffer output (via QEMU's `-display` or shared memory)
   and renders it in the native macOS window. The boot is no longer serial-only -- the
   glass shows what Aurora draws.

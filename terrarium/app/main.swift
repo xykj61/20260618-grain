@@ -1,14 +1,15 @@
 // Terrarium -- a living world under glass.
 //
 // A macOS window that launches qemu-system-riscv32 as a dependent
-// process and captures its serial output.  The glass you look
-// through.
+// process and captures its serial output.  For framebuffer stages,
+// the window also displays QEMU's framebuffer via QMP screendump.
 //
 // Build:  swiftc -o terrarium/.build/Terrarium terrarium/app/main.swift
 // Run:    terrarium/.build/Terrarium [stage]
 //         (defaults to "hello")
 
 import AppKit
+import Darwin
 import Foundation
 
 // -- Configuration --------------------------------------------------
@@ -16,6 +17,8 @@ import Foundation
 let stage: String = CommandLine.arguments.count > 1
     ? CommandLine.arguments[1]
     : "hello"
+
+let isFramebufStage = stage == "framebuf"
 
 let repoRoot: String = {
     let url = URL(fileURLWithPath: #filePath)
@@ -32,22 +35,65 @@ let elfPath = "\(repoRoot)/terrarium/.build/\(stage).elf"
 class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
     var textView: NSTextView!
+    var imageView: NSImageView?
     var qemuProcess: Process?
     var outputPipe: Pipe!
+    var qmpSocketPath: String?
+    var screendumpDone = false
+    var serialBuffer = ""
 
     func applicationDidFinishLaunching(_ note: Notification) {
-        let frame = NSRect(x: 200, y: 200, width: 720, height: 480)
+        var mask: NSWindow.StyleMask = [
+            .titled, .closable, .miniaturizable
+        ]
+        let winW: CGFloat = 720
+        var winH: CGFloat = 480
+
+        if isFramebufStage {
+            winH = 760
+        } else {
+            mask.insert(.resizable)
+        }
+
+        let frame = NSRect(
+            x: 200, y: 100, width: winW, height: winH
+        )
         window = NSWindow(
             contentRect: frame,
-            styleMask: [.titled, .closable, .resizable,
-                        .miniaturizable],
+            styleMask: mask,
             backing: .buffered,
             defer: false
         )
         window.title = "Terrarium -- \(stage)"
         window.minSize = NSSize(width: 400, height: 240)
 
-        let scrollView = NSScrollView(frame: window.contentView!.bounds)
+        let contentBounds = window.contentView!.bounds
+        var textFrame = contentBounds
+
+        if isFramebufStage {
+            let imgH: CGFloat = 480
+            let imgFrame = NSRect(
+                x: 0,
+                y: contentBounds.height - imgH,
+                width: contentBounds.width,
+                height: imgH
+            )
+            let iv = NSImageView(frame: imgFrame)
+            iv.imageScaling = .scaleProportionallyUpOrDown
+            iv.wantsLayer = true
+            iv.layer?.backgroundColor =
+                NSColor.black.cgColor
+            window.contentView?.addSubview(iv)
+            imageView = iv
+
+            textFrame = NSRect(
+                x: 0, y: 0,
+                width: contentBounds.width,
+                height: contentBounds.height - imgH
+            )
+        }
+
+        let scrollView = NSScrollView(frame: textFrame)
         scrollView.autoresizingMask = [.width, .height]
         scrollView.hasVerticalScroller = true
 
@@ -82,24 +128,44 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // -- QEMU launch ------------------------------------------------
 
     func launchQemu() {
-        guard FileManager.default.fileExists(atPath: elfPath) else {
-            appendLine(
-                "error: \(elfPath) not found"
-            )
-            appendLine(
-                "run 'make terrarium-build' first"
-            )
+        guard FileManager.default.fileExists(
+            atPath: elfPath
+        ) else {
+            appendLine("error: \(elfPath) not found")
+            appendLine("run 'make terrarium-build' first")
             return
         }
 
         let proc = Process()
-        proc.executableURL = URL(fileURLWithPath: findQemu())
-        proc.arguments = [
-            "-machine", "virt",
-            "-bios", "none",
-            "-nographic",
-            "-kernel", elfPath
-        ]
+        proc.executableURL = URL(
+            fileURLWithPath: findQemu()
+        )
+
+        if isFramebufStage {
+            let sockPath = NSTemporaryDirectory()
+                + "terrarium-qmp.sock"
+            try? FileManager.default
+                .removeItem(atPath: sockPath)
+            qmpSocketPath = sockPath
+
+            proc.arguments = [
+                "-machine", "virt",
+                "-bios", "none",
+                "-display", "none",
+                "-serial", "stdio",
+                "-device", "ramfb",
+                "-qmp",
+                "unix:\(sockPath),server=on,wait=off",
+                "-kernel", elfPath
+            ]
+        } else {
+            proc.arguments = [
+                "-machine", "virt",
+                "-bios", "none",
+                "-nographic",
+                "-kernel", elfPath
+            ]
+        }
 
         outputPipe = Pipe()
         proc.standardOutput = outputPipe
@@ -109,9 +175,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .readabilityHandler = { [weak self] handle in
                 let data = handle.availableData
                 guard !data.isEmpty else { return }
-                if let text = String(data: data, encoding: .utf8) {
+                if let text = String(
+                    data: data, encoding: .utf8
+                ) {
                     DispatchQueue.main.async {
                         self?.appendText(text)
+                        self?.serialBuffer += text
+                        if isFramebufStage,
+                           let buf = self?.serialBuffer,
+                           buf.contains(
+                               "FRAMEBUFFER READY"
+                           )
+                        {
+                            self?.captureFramebuffer()
+                        }
                     }
                 }
             }
@@ -119,31 +196,101 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         proc.terminationHandler = { [weak self] p in
             DispatchQueue.main.async {
                 self?.appendLine(
-                    "--- qemu exited with status \(p.terminationStatus)"
+                    "--- qemu exited "
+                    + "(\(p.terminationStatus))"
                 )
-                self?.dumpAndExit(status: p.terminationStatus)
+                self?.dumpAndExit(
+                    status: p.terminationStatus
+                )
             }
         }
 
         do {
             try proc.run()
             qemuProcess = proc
-            appendLine("qemu-system-riscv32 launched (pid \(proc.processIdentifier))")
+            appendLine(
+                "qemu launched "
+                + "(pid \(proc.processIdentifier))"
+            )
 
+            let timeout: Double =
+                isFramebufStage ? 20 : 10
             DispatchQueue.global().asyncAfter(
-                deadline: .now() + 10
+                deadline: .now() + timeout
             ) { [weak self] in
                 if proc.isRunning {
                     proc.terminate()
                     DispatchQueue.main.async {
                         self?.appendLine(
-                            "--- 10s timeout, QEMU terminated"
+                            "--- \(Int(timeout))s timeout"
                         )
                     }
                 }
             }
         } catch {
             appendLine("error launching qemu: \(error)")
+        }
+    }
+
+    // -- Framebuffer capture via QMP screendump ---------------------
+
+    func captureFramebuffer() {
+        guard !screendumpDone else { return }
+        screendumpDone = true
+
+        appendLine(
+            "--- capturing framebuffer via QMP..."
+        )
+
+        DispatchQueue.global().async { [weak self] in
+            usleep(300_000)
+
+            guard let sockPath = self?.qmpSocketPath
+            else { return }
+
+            let ppmPath = NSTemporaryDirectory()
+                + "terrarium-fb.ppm"
+
+            let ok = qmpScreendump(
+                socketPath: sockPath,
+                outputPath: ppmPath
+            )
+
+            if ok {
+                usleep(500_000)
+                if let image = parsePPM(path: ppmPath)
+                {
+                    DispatchQueue.main.async {
+                        self?.imageView?.image = image
+                        self?.appendLine(
+                            "--- framebuffer displayed"
+                        )
+                        DispatchQueue.global()
+                            .asyncAfter(
+                                deadline: .now() + 2
+                            ) {
+                                self?.qemuProcess?
+                                    .terminate()
+                            }
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self?.appendLine(
+                            "--- error: PPM parse "
+                            + "failed"
+                        )
+                        self?.qemuProcess?.terminate()
+                    }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self?.appendLine(
+                        "--- error: QMP screendump "
+                        + "failed"
+                    )
+                    self?.qemuProcess?.terminate()
+                }
+            }
         }
     }
 
@@ -159,7 +306,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 ofSize: 14, weight: .regular
             ),
             .foregroundColor: NSColor(
-                red: 0.0, green: 0.9, blue: 0.4, alpha: 1.0
+                red: 0.0, green: 0.9,
+                blue: 0.4, alpha: 1.0
             )
         ]
         let attrStr = NSAttributedString(
@@ -183,12 +331,183 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             "/usr/bin/qemu-system-riscv32"
         ]
         for c in candidates {
-            if FileManager.default.isExecutableFile(atPath: c) {
+            if FileManager.default
+                .isExecutableFile(atPath: c)
+            {
                 return c
             }
         }
         return "qemu-system-riscv32"
     }
+}
+
+// -- QMP over Unix socket -------------------------------------------
+
+func qmpScreendump(
+    socketPath: String,
+    outputPath: String
+) -> Bool {
+    let fd = socket(AF_UNIX, SOCK_STREAM, 0)
+    guard fd >= 0 else { return false }
+    defer { Darwin.close(fd) }
+
+    var addr = sockaddr_un()
+    addr.sun_family = sa_family_t(AF_UNIX)
+    withUnsafeMutablePointer(
+        to: &addr.sun_path.0
+    ) { dst in
+        socketPath.withCString { src in
+            _ = strcpy(dst, src)
+        }
+    }
+
+    let connectOK = withUnsafePointer(to: &addr) {
+        $0.withMemoryRebound(
+            to: sockaddr.self, capacity: 1
+        ) {
+            connect(
+                fd, $0,
+                socklen_t(
+                    MemoryLayout<sockaddr_un>.size
+                )
+            )
+        }
+    }
+    guard connectOK == 0 else { return false }
+
+    _ = qmpRecv(fd)
+
+    let cap =
+        "{\"execute\":\"qmp_capabilities\"}\n"
+    qmpSend(fd, cap)
+    _ = qmpRecv(fd)
+
+    let cmd = "{\"execute\":\"screendump\","
+        + "\"arguments\":{\"filename\":\""
+        + outputPath + "\"}}\n"
+    qmpSend(fd, cmd)
+    let resp = qmpRecv(fd)
+
+    return resp.contains("return")
+}
+
+func qmpSend(_ fd: Int32, _ msg: String) {
+    let bytes = Array(msg.utf8)
+    _ = Darwin.write(fd, bytes, bytes.count)
+}
+
+func qmpRecv(_ fd: Int32) -> String {
+    var pfd = pollfd(
+        fd: fd, events: Int16(POLLIN), revents: 0
+    )
+    let ready = poll(&pfd, 1, 3000)
+    guard ready > 0 else { return "" }
+
+    var buf = [UInt8](repeating: 0, count: 4096)
+    let n = Darwin.read(fd, &buf, buf.count - 1)
+    guard n > 0 else { return "" }
+    return String(
+        bytes: buf[0..<n], encoding: .utf8
+    ) ?? ""
+}
+
+// -- PPM parsing ----------------------------------------------------
+
+func parsePPM(path: String) -> NSImage? {
+    guard let data = try? Data(
+        contentsOf: URL(fileURLWithPath: path)
+    ) else {
+        return nil
+    }
+
+    guard data.count > 10,
+          data[0] == 0x50, data[1] == 0x36
+    else { return nil }
+
+    var off = 2
+
+    func skipWS() {
+        while off < data.count {
+            let c = data[off]
+            if c == 0x23 {
+                while off < data.count,
+                      data[off] != 0x0a
+                {
+                    off += 1
+                }
+            } else if c == 0x20 || c == 0x09
+                        || c == 0x0a || c == 0x0d
+            {
+                off += 1
+            } else {
+                break
+            }
+        }
+    }
+
+    func readInt() -> Int {
+        skipWS()
+        var val = 0
+        while off < data.count {
+            let c = data[off]
+            if c >= 0x30, c <= 0x39 {
+                val = val * 10 + Int(c - 0x30)
+                off += 1
+            } else {
+                break
+            }
+        }
+        return val
+    }
+
+    let width = readInt()
+    let height = readInt()
+    _ = readInt()
+    guard width > 0, height > 0 else { return nil }
+
+    off += 1
+
+    let pixels = width * height
+    guard data.count >= off + pixels * 3 else {
+        return nil
+    }
+
+    var rgba = [UInt8](
+        repeating: 255, count: pixels * 4
+    )
+    for i in 0..<pixels {
+        let s = off + i * 3
+        rgba[i * 4 + 0] = data[s + 0]
+        rgba[i * 4 + 1] = data[s + 1]
+        rgba[i * 4 + 2] = data[s + 2]
+        rgba[i * 4 + 3] = 255
+    }
+
+    guard let provider = CGDataProvider(
+        data: Data(rgba) as CFData
+    ) else { return nil }
+
+    guard let cgImg = CGImage(
+        width: width,
+        height: height,
+        bitsPerComponent: 8,
+        bitsPerPixel: 32,
+        bytesPerRow: width * 4,
+        space: CGColorSpaceCreateDeviceRGB(),
+        bitmapInfo: CGBitmapInfo(
+            rawValue: CGImageAlphaInfo
+                .premultipliedLast.rawValue
+        ),
+        provider: provider,
+        decode: nil,
+        shouldInterpolate: false,
+        intent: .defaultIntent
+    ) else { return nil }
+
+    return NSImage(
+        cgImage: cgImg,
+        size: NSSize(width: width, height: height)
+    )
 }
 
 // -- Main -----------------------------------------------------------

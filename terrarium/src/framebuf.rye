@@ -1,0 +1,252 @@
+//! terrarium/src/framebuf.rye -- Aurora draws on the bare hart's screen.
+//!
+//! The first visual stage: a single hart wakes on a 32-bit RISC-V
+//! machine, paints a framebuffer in RAM, programs QEMU's ramfb device
+//! through the fw_cfg DMA interface, and holds the image on screen.
+//! The boot is no longer serial-only -- the glass shows what Aurora
+//! draws.
+//!
+//! The framebuffer is 320x240 XRGB8888: a dark blue field with a
+//! centered white rectangle. The ramfb device reads a RAMFBCfg
+//! struct (28 bytes, big-endian) via fw_cfg DMA, pointing QEMU at
+//! the guest's framebuffer memory. Once configured, the display
+//! holds whatever the guest wrote to that region.
+//!
+//! Memory layout on the virt machine:
+//!   0x8000_0000  code (.text.init, then .text)
+//!   0x8010_0000  stack (grows down)
+//!   0x8018_0000  RAMFBCfg struct (28 bytes, big-endian)
+//!   0x8018_0100  FWCfgDmaAccess struct (16 bytes, big-endian)
+//!   0x8020_0000  framebuffer (320 * 240 * 4 = 307,200 bytes)
+//!
+//! Build and run:
+//!   make terrarium-app STAGE=framebuf
+
+// -- hardware addresses (QEMU virt riscv32) -----------------------
+
+const uart_tx: *volatile u8 = @ptrFromInt(0x1000_0000);
+const test_finisher: *volatile u32 = @ptrFromInt(0x0010_0000);
+const finisher_pass: u32 = 0x5555;
+
+// fw_cfg MMIO: base 0x1010_0000
+// data port at base+0x00 (8-bit), selector at base+0x08 (16-bit),
+// DMA address at base+0x10 (high 32) and base+0x14 (low 32).
+// QEMU marks these regions DEVICE_BIG_ENDIAN, so a little-endian
+// guest must byte-swap 16-bit and 32-bit writes.
+const fwcfg_data: *volatile u8 = @ptrFromInt(0x1010_0000);
+const fwcfg_selector: *volatile u16 = @ptrFromInt(0x1010_0008);
+const fwcfg_dma_hi: *volatile u32 = @ptrFromInt(0x1010_0010);
+const fwcfg_dma_lo: *volatile u32 = @ptrFromInt(0x1010_0014);
+
+// -- memory layout ------------------------------------------------
+
+const ramfb_cfg_addr: u32 = 0x8018_0000;
+const dma_struct_addr: u32 = 0x8018_0100;
+const fb_addr: u32 = 0x8020_0000;
+
+// -- framebuffer geometry -----------------------------------------
+
+const fb_width: u32 = 320;
+const fb_height: u32 = 240;
+const fb_stride: u32 = fb_width * 4;
+// DRM_FORMAT_XRGB8888
+const drm_format_xrgb8888: u32 = 0x3432_5258;
+
+// -- colors (XRGB8888: 0x00RRGGBB) --------------------------------
+
+const color_blue: u32 = 0x0000_1a3d;
+const color_white: u32 = 0x00ff_ffff;
+
+// -- rectangle geometry -------------------------------------------
+
+const rect_x: u32 = 80;
+const rect_y: u32 = 80;
+const rect_w: u32 = 160;
+const rect_h: u32 = 80;
+
+// -- entry points -------------------------------------------------
+
+export fn _start() linksection(".text.init") callconv(.naked) noreturn {
+    asm volatile (
+        \\ li sp, 0x80100000
+        \\ j kmain
+    );
+}
+
+export fn kmain() callconv(.c) noreturn {
+    uart_puts("framebuf: drawing to RAM...\n");
+    draw_framebuffer();
+
+    uart_puts("framebuf: finding ramfb selector...\n");
+    const selector = find_ramfb_selector();
+
+    uart_puts("framebuf: configuring ramfb via DMA...\n");
+    configure_ramfb(selector);
+
+    uart_puts("FRAMEBUFFER READY\n");
+
+    // Hold the image on screen. The hart rests, the glass keeps showing.
+    while (true) {
+        asm volatile ("wfi");
+    }
+}
+
+// -- framebuffer drawing ------------------------------------------
+
+fn draw_framebuffer() void {
+    // invariant: the framebuffer region fits in RAM
+    assert(fb_addr + fb_stride * fb_height <= 0x8400_0000);
+
+    var y: u32 = 0;
+    while (y < fb_height) : (y += 1) {
+        var x: u32 = 0;
+        while (x < fb_width) : (x += 1) {
+            const inside_rect =
+                x >= rect_x and x < rect_x + rect_w and
+                y >= rect_y and y < rect_y + rect_h;
+            const color: u32 = if (inside_rect)
+                color_white
+            else
+                color_blue;
+            const offset = fb_addr + y * fb_stride + x * 4;
+            const pixel: *volatile u32 = @ptrFromInt(offset);
+            pixel.* = color;
+        }
+    }
+}
+
+// -- fw_cfg helpers -----------------------------------------------
+
+fn fwcfg_select(key: u16) void {
+    // DEVICE_BIG_ENDIAN: byte-swap selector on LE guest
+    fwcfg_selector.* = @byteSwap(key);
+}
+
+fn fwcfg_read_byte() u8 {
+    return fwcfg_data.*;
+}
+
+fn fwcfg_read_be16() u16 {
+    var val: u16 = 0;
+    val = (@as(u16, fwcfg_read_byte()) << 8) |
+        @as(u16, fwcfg_read_byte());
+    return val;
+}
+
+fn fwcfg_read_be32() u32 {
+    var val: u32 = 0;
+    val = (@as(u32, fwcfg_read_byte()) << 24) |
+        (@as(u32, fwcfg_read_byte()) << 16) |
+        (@as(u32, fwcfg_read_byte()) << 8) |
+        @as(u32, fwcfg_read_byte());
+    return val;
+}
+
+// -- find "etc/ramfb" in fw_cfg directory -------------------------
+
+fn find_ramfb_selector() u16 {
+    // fw_cfg directory is key 0x0019
+    fwcfg_select(0x0019);
+
+    const count = fwcfg_read_be32();
+    // invariant: a real virt machine has at least one fw_cfg entry
+    assert(count > 0);
+    // invariant: count is bounded -- virt typically has under 32
+    assert(count < 256);
+
+    var i: u32 = 0;
+    while (i < count) : (i += 1) {
+        // each entry: size(u32 BE), select(u16 BE), reserved(u16),
+        //             name([56]u8)
+        _ = fwcfg_read_be32();
+        const sel = fwcfg_read_be16();
+        _ = fwcfg_read_be16();
+
+        var name: [56]u8 = undefined;
+        for (&name) |*b| b.* = fwcfg_read_byte();
+
+        if (str_eq(&name, "etc/ramfb")) return sel;
+    }
+
+    // invariant: ramfb must be present when -device ramfb is given
+    uart_puts("framebuf: FATAL -- etc/ramfb not found\n");
+    unreachable;
+}
+
+fn str_eq(buf: *const [56]u8, target: []const u8) bool {
+    if (target.len > 56) return false;
+    for (target, 0..) |c, idx| {
+        if (buf[idx] != c) return false;
+    }
+    // the name is NUL-terminated in the directory
+    if (target.len < 56) {
+        return buf[target.len] == 0;
+    }
+    return true;
+}
+
+// -- configure ramfb via DMA --------------------------------------
+
+fn configure_ramfb(selector: u16) void {
+    // Write the RAMFBCfg struct at ramfb_cfg_addr (28 bytes, BE):
+    //   addr(u64), fourcc(u32), flags(u32),
+    //   width(u32), height(u32), stride(u32)
+    write_be64(ramfb_cfg_addr + 0, @as(u64, fb_addr));
+    write_be32(ramfb_cfg_addr + 8, drm_format_xrgb8888);
+    write_be32(ramfb_cfg_addr + 12, 0);
+    write_be32(ramfb_cfg_addr + 16, fb_width);
+    write_be32(ramfb_cfg_addr + 20, fb_height);
+    write_be32(ramfb_cfg_addr + 24, fb_stride);
+
+    // Write the FWCfgDmaAccess struct at dma_struct_addr
+    // (16 bytes, BE):
+    //   control(u32), length(u32), address(u64)
+    // control = (selector << 16) | 0x18 (SELECT | WRITE)
+    const control: u32 =
+        (@as(u32, selector) << 16) | 0x18;
+    write_be32(dma_struct_addr + 0, control);
+    write_be32(dma_struct_addr + 4, 28);
+    write_be64(dma_struct_addr + 8, @as(u64, ramfb_cfg_addr));
+
+    // Trigger the DMA: write the struct address to the DMA register.
+    // High 32 bits first (zero for a 32-bit address), then low 32.
+    // Both writes are byte-swapped for DEVICE_BIG_ENDIAN.
+    fwcfg_dma_hi.* = @byteSwap(@as(u32, 0));
+    fwcfg_dma_lo.* = @byteSwap(dma_struct_addr);
+
+    // Poll the control field until QEMU clears it (reads as zero)
+    var polls: u32 = 0;
+    while (read_be32(dma_struct_addr + 0) != 0) : (polls += 1) {
+        // invariant: DMA completes within a bounded number of polls
+        assert(polls < 1_000_000);
+    }
+}
+
+// -- big-endian memory accessors ----------------------------------
+
+fn write_be32(addr: u32, val: u32) void {
+    const ptr: *volatile u32 = @ptrFromInt(addr);
+    ptr.* = @byteSwap(val);
+}
+
+fn write_be64(addr: u32, val: u64) void {
+    // write high 32 first, then low 32
+    write_be32(addr, @truncate(val >> 32));
+    write_be32(addr + 4, @truncate(val));
+}
+
+fn read_be32(addr: u32) u32 {
+    const ptr: *volatile u32 = @ptrFromInt(addr);
+    return @byteSwap(ptr.*);
+}
+
+// -- UART helpers -------------------------------------------------
+
+fn uart_puts(s: []const u8) void {
+    for (s) |byte| uart_tx.* = byte;
+}
+
+// invariant: a failed proof halts immediately
+fn assert(ok: bool) void {
+    if (!ok) unreachable;
+}

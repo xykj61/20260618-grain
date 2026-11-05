@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261104.204331` | [Orbit 9 -- Terrarium display integration](20261104/20261104-204331_orbit9-terrarium-display-integration.kyri.md) | framebuf.rye draws to ramfb via DMA; main.swift serialBuffer fix catches trigger across chunk splits; QMP screendump + PPM parse + NSImageView display proven on metal |
 | `20261104.200223` | [Orbit 8 -- RV32I relay and named stages](20261104/20261104-200223_orbit8-rv32i-relay-named.kyri.md) | relay and named both GREEN on RV32I with zero code changes; SHA3-512 matches hosted byte for byte |
 | `20261104.195858` | [Orbit 7 -- RV32I Aurora seed port](20261104/20261104-195858_orbit7-rv32i-aurora-seed.kyri.md) | seed code already RV32I-compatible; three-line build pipeline change; both SLC gates proven on metal |
 | `20261104.194849` | [Orbit 6 -- Terrarium macOS application shell](20261104/20261104-194849_orbit6-terrarium-macos-app.kyri.md) | AppKit window + QEMU dependent + serial capture; hello speaks through the glass |
