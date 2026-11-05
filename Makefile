@@ -8,19 +8,22 @@
 #   rishi/bin/rishi             (the Rishi shell -- rye build rishi/)
 #   qemu-system-riscv32         (Homebrew: brew install qemu)
 
-.PHONY: terrarium terrarium-build terrarium-app help
+.PHONY: terrarium terrarium-build terrarium-glow terrarium-glow-build terrarium-app help
 
 STAGE ?= hello
 
 help:
 	@echo "Grain Makefile -- run from the repository root"
 	@echo ""
-	@echo "  make terrarium          build + run RV32I hello on QEMU"
-	@echo "  make terrarium STAGE=x  build + run a named stage"
-	@echo "  make terrarium-build    build the RV32I ELF only"
-	@echo "  make terrarium-app      build + run the macOS Terrarium window"
+	@echo "  make terrarium              build + run RV32I hello on QEMU"
+	@echo "  make terrarium STAGE=x      build + run a named stage"
+	@echo "  make terrarium-build        build the RV32I ELF only"
+	@echo "  make terrarium-glow GLOW=x  compile .glow to RV32I + run"
+	@echo "  make terrarium-glow-build   compile .glow to RV32I ELF only"
+	@echo "  make terrarium-app          build + run macOS Terrarium window"
 	@echo ""
 	@echo "STAGE searches terrarium/src/ then aurora/src/."
+	@echo "GLOW names a .glow file under terrarium/glow/."
 	@echo ""
 	@echo "Prerequisites: vendor/zig-toolchain/zig, rishi/bin/rishi,"
 	@echo "               qemu-system-riscv32, swiftc (Xcode)"
@@ -46,6 +49,28 @@ terrarium-build:
 		-target riscv32-freestanding-none -fno-entry \
 		-T $$LD \
 		-femit-bin=terrarium/.build/$(STAGE).elf
+
+GLOW ?= fortytwo
+
+terrarium-glow-build:
+	@mkdir -p terrarium/.build
+	@test -f terrarium/glow/$(GLOW).glow \
+		|| { echo "error: terrarium/glow/$(GLOW).glow not found"; exit 1; }
+	sh terrarium/tools/glow_to_rv32i.sh \
+		terrarium/glow/$(GLOW).glow \
+		terrarium/.build/$(GLOW).S
+	vendor/zig-toolchain/zig cc \
+		-target riscv32-freestanding-none \
+		-nostdlib \
+		-Wl,-T,terrarium/layout.ld \
+		-o terrarium/.build/$(GLOW).elf \
+		terrarium/.build/$(GLOW).S
+
+terrarium-glow: terrarium-glow-build
+	qemu-system-riscv32 \
+		-machine virt -bios none \
+		-display none -serial stdio \
+		-kernel terrarium/.build/$(GLOW).elf
 
 terrarium-app: terrarium-build
 	@mkdir -p terrarium/.build
