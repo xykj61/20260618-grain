@@ -82,7 +82,7 @@ emulation, and Aurora's proven stages port to the smaller ISA.*
   **SLC gate:** Terrarium launches on macOS, QEMU starts inside it, and the hello
   program's console output appears in the window.
 
-- [ ] **Orbit 7 -- RV32I Aurora seed port**
+- [x] **Orbit 7 -- RV32I Aurora seed port** -- landed `20261104.195858`
   Port Aurora's existing seed (`aurora/src/seed.rye`) from RV64 to RV32I. One hart
   wakes on `qemu-system-riscv32 -machine virt`, gives itself a stack, speaks over the
   console, and rests. The same seed, the smaller ISA.

@@ -1,4 +1,4 @@
-/* aurora/layout.ld — where a freestanding stage lives in memory.
+/* aurora/layout.ld -- where a freestanding RV32I stage lives in memory.
  *
  * QEMU's `virt` machine begins executing at the base of RAM, 0x8000_0000, so we
  * lay `_start` down there and make it the entry. `.text.init` is placed first,

@@ -15,10 +15,12 @@ STAGE ?= hello
 help:
 	@echo "Grain Makefile -- run from the repository root"
 	@echo ""
-	@echo "  make terrarium         build + run RV32I hello on QEMU"
-	@echo "  make terrarium STAGE=x build + run a named stage"
-	@echo "  make terrarium-build   build the RV32I ELF only"
-	@echo "  make terrarium-app     build + run the macOS Terrarium window"
+	@echo "  make terrarium          build + run RV32I hello on QEMU"
+	@echo "  make terrarium STAGE=x  build + run a named stage"
+	@echo "  make terrarium-build    build the RV32I ELF only"
+	@echo "  make terrarium-app      build + run the macOS Terrarium window"
+	@echo ""
+	@echo "STAGE searches terrarium/src/ then aurora/src/."
 	@echo ""
 	@echo "Prerequisites: vendor/zig-toolchain/zig, rishi/bin/rishi,"
 	@echo "               qemu-system-riscv32, swiftc (Xcode)"
@@ -30,10 +32,19 @@ terrarium:
 
 terrarium-build:
 	@mkdir -p terrarium/.build
+	@if [ -f terrarium/src/$(STAGE).rye ]; then \
+		SRC=terrarium/src/$(STAGE).rye; \
+		LD=terrarium/layout.ld; \
+	elif [ -f aurora/src/$(STAGE).rye ]; then \
+		SRC=aurora/src/$(STAGE).rye; \
+		LD=aurora/layout.ld; \
+	else \
+		echo "error: no source for stage '$(STAGE)'"; exit 1; \
+	fi; \
 	env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build \
-		terrarium/src/$(STAGE).rye \
+		$$SRC \
 		-target riscv32-freestanding-none -fno-entry \
-		-T terrarium/layout.ld \
+		-T $$LD \
 		-femit-bin=terrarium/.build/$(STAGE).elf
 
 terrarium-app: terrarium-build
