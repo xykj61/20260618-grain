@@ -8,7 +8,7 @@
 #   rishi/bin/rishi             (the Rishi shell -- rye build rishi/)
 #   qemu-system-riscv32         (Homebrew: brew install qemu)
 
-.PHONY: terrarium help
+.PHONY: terrarium terrarium-build terrarium-app help
 
 STAGE ?= hello
 
@@ -17,11 +17,28 @@ help:
 	@echo ""
 	@echo "  make terrarium         build + run RV32I hello on QEMU"
 	@echo "  make terrarium STAGE=x build + run a named stage"
+	@echo "  make terrarium-build   build the RV32I ELF only"
+	@echo "  make terrarium-app     build + run the macOS Terrarium window"
 	@echo ""
 	@echo "Prerequisites: vendor/zig-toolchain/zig, rishi/bin/rishi,"
-	@echo "               qemu-system-riscv32"
+	@echo "               qemu-system-riscv32, swiftc (Xcode)"
 
 terrarium:
 	@test -x rishi/bin/rishi \
 		|| { echo "error: rishi/bin/rishi not found"; exit 1; }
 	rishi/bin/rishi run tools/te/terrarium_run.rish $(STAGE)
+
+terrarium-build:
+	@mkdir -p terrarium/.build
+	env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build \
+		terrarium/src/$(STAGE).rye \
+		-target riscv32-freestanding-none -fno-entry \
+		-T terrarium/layout.ld \
+		-femit-bin=terrarium/.build/$(STAGE).elf
+
+terrarium-app: terrarium-build
+	@mkdir -p terrarium/.build
+	swiftc -o terrarium/.build/Terrarium \
+		terrarium/app/main.swift \
+		-framework AppKit
+	terrarium/.build/Terrarium $(STAGE)

@@ -74,7 +74,7 @@ and each reversible.*
 *The glass before the world inside it. A macOS native application wraps QEMU RISC-V
 emulation, and Aurora's proven stages port to the smaller ISA.*
 
-- [ ] **Orbit 6 -- Terrarium macOS application shell**
+- [x] **Orbit 6 -- Terrarium macOS application shell** (landed `20261104.194849`)
   A native macOS window (AppKit or SwiftUI) that launches `qemu-system-riscv32` as a
   dependent process and captures its framebuffer or serial output. The glass you look
   through. Prove the window opens, QEMU starts, and the Orbit 3 hello program speaks
