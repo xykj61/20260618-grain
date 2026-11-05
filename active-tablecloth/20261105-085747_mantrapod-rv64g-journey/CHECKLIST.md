@@ -234,11 +234,11 @@ audio opens on the bare hart.*
 
 *The full stack runs on the wider hart. The browser horizon opens.*
 
-- [ ] **Orbit 21 -- Full RV64G boot witness**
+- [x] **Orbit 21 -- Full RV64G boot witness** (`20261105.190200`)
   A single witness proves the complete boot on RV64G: pill, Tally, Aurora, Mantra,
   wire, Caravan caps, Caravan supervision, Steward, Glow app -- all nine stages
   plus M, A, and F/D integration.
-  **SLC gate:** `terrarium/boot_witness_rv64g.rish` runs GREEN, all stages proven.
+  **SLC gate:** `terrarium/boot_witness_rv64g.rish` runs GREEN, all 19 modules proven.
 
 - [ ] **Orbit 22 -- Terrarium macOS app on RV64G**
   The Terrarium macOS app launches `qemu-system-riscv64` instead of `riscv32`.

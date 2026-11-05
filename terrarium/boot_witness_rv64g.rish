@@ -1,0 +1,145 @@
+#!/usr/bin/env rishi
+# terrarium/boot_witness_rv64g.rish
+#
+# Orbit 21: Full RV64G boot witness.
+# Proves the complete boot on RV64G in one clean sequence:
+#   pill -> Tally -> Aurora -> Mantra -> wire -> Caravan -> Steward -> Glow
+# Plus M, A, and F/D integration -- all nine boot stages on IMAFD.
+#
+# Depends on: terrarium/rv64g_helper.sh (builds all 19 modules)
+#             terrarium/.build/Terrarium (Swift host for wire stage)
+
+say "=== Orbit 21: Full RV64G boot witness ==="
+say ""
+
+# --- Build all 19 modules for full RV64G ---
+say "--- Build: 19 modules for RV64G (IMAFD) ---"
+let build = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && sh terrarium/rv64g_helper.sh build 2>&1"]
+assert build.ok else "build failed"
+assert build.out contains "builds_ok=19" else "not all 19 modules built"
+assert build.out contains "builds_fail=0" else "some modules failed"
+say "  19/19 built"
+say ""
+
+# --- Boot stage 1: Pill identity ---
+say "--- Boot 1: Pill identity (self-compile hash) ---"
+let pill = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/self_compile_g.elf 2>/dev/null"]
+assert pill.out contains "MATCH -- identity proven" else "pill identity mismatch"
+assert pill.out contains "0x079080d9" else "pill hash not 0x079080D9"
+say "  Pill 0x079080D9 GREEN"
+
+# --- Boot stage 2: Tally arena ---
+say "--- Boot 2: Tally arena (bounded allocation) ---"
+let tally = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/tally_arena_g.elf 2>/dev/null"]
+assert tally.out contains "all invariants held" else "tally invariants failed"
+say "  Tally arena GREEN"
+
+# --- Boot stage 3: Aurora console ---
+say "--- Boot 3: Aurora console (UART display) ---"
+let aurora = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/aurora_console_g.elf 2>/dev/null"]
+assert aurora.out contains "aurora_console: Orbit 17 complete" else "aurora console not complete"
+say "  Aurora console GREEN"
+
+# --- Boot stage 4: Mantra log ---
+say "--- Boot 4: Mantra log (append-only fact store) ---"
+let mantra = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/mantra_log_g.elf 2>/dev/null"]
+assert mantra.out contains "REPLAY MATCHES: identical state proven" else "mantra replay mismatch"
+say "  Mantra log GREEN"
+
+# --- Boot stage 5: Mantra wire (via Swift host) ---
+say "--- Boot 5: Mantra wire (persistence through the wire) ---"
+let wire_cp = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && cp terrarium/.build/mantra_wire64_g.elf terrarium/.build/mantra_wire64.elf 2>&1"]
+let wire = run ["timeout" "30" "terrarium/.build/Terrarium" "mantra_wire64"]
+assert wire.out contains "GREEN: Mantra persistence through the wire" else "mantra wire failed"
+say "  Mantra wire GREEN"
+
+# --- Boot stage 6: Caravan capabilities ---
+say "--- Boot 6: Caravan capabilities (W xor X, bounded leases) ---"
+let cap = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/caravan_cap_g.elf 2>/dev/null"]
+assert cap.out contains "W xor X" else "W xor X not proven"
+assert cap.out contains "ALL PROOFS PASSED" else "caravan cap proofs failed"
+say "  Caravan cap GREEN"
+
+# --- Boot stage 7: Caravan supervision ---
+say "--- Boot 7: Caravan supervision (dependent lifecycle) ---"
+let sup = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/caravan_supervision_g.elf 2>/dev/null"]
+assert sup.out contains "greedy OVERBUDGET" else "overbudget not caught"
+assert sup.out contains "ALL PROOFS PASSED" else "supervision proofs failed"
+say "  Caravan supervision GREEN"
+
+# --- Boot stage 8: Steward ---
+say "--- Boot 8: Steward (root supervisor, manifest boot) ---"
+let steward = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/steward_g.elf 2>/dev/null"]
+assert steward.out contains "2 domains UP from manifest" else "steward domains not up"
+assert steward.out contains "all manifest domains running" else "steward not all running"
+say "  Steward GREEN"
+
+# --- Boot stage 9: Glow application ---
+say "--- Boot 9: Glow application (stack calculator) ---"
+let glow = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/glow_app_g.elf 2>/dev/null"]
+assert glow.out contains "correct: 10 of 10" else "glow app not 10/10"
+assert glow.out contains "all expressions correct" else "glow not all correct"
+say "  Glow app GREEN"
+say ""
+
+# --- M-extension: hardware multiply/divide ---
+say "--- M-extension: Glow calculator with mul/div ---"
+let gm = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/glow_m_ext_g.elf 2>/dev/null"]
+assert gm.out contains "correct: 6 of 6" else "M-ext not 6/6"
+say "  M-ext 6/6 GREEN"
+
+say "--- M-extension: Amphora seal (djb2 hash) ---"
+let seal = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/amphora_seal_g.elf 2>/dev/null"]
+assert seal.out contains "verify: PASS" else "seal verify failed"
+assert seal.out contains "tamper detected: PASS" else "tamper detect failed"
+say "  Amphora seal GREEN"
+say ""
+
+# --- A-extension: atomics and multi-hart ---
+say "--- A-extension: atomic operations and multi-hart ---"
+let acap = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/atomic_cap_g.elf 2>/dev/null"]
+assert acap.out contains "ALL PROOFS PASSED" else "atomic_cap failed"
+say "  atomic_cap GREEN"
+
+let areg = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/atomic_registry_g.elf 2>/dev/null"]
+assert areg.out contains "ALL PROOFS PASSED" else "atomic_registry failed"
+say "  atomic_registry GREEN"
+
+let hart = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -smp 2 -display none -serial stdio -kernel terrarium/.build/multi_hart_g.elf 2>/dev/null"]
+assert hart.out contains "ALL PROOFS PASSED" else "multi_hart failed"
+say "  multi_hart GREEN"
+
+let pre = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/preempt_g.elf 2>/dev/null"]
+assert pre.out contains "ALL PROOFS PASSED" else "preempt failed"
+say "  preempt GREEN"
+say ""
+
+# --- F/D extension: floating-point ---
+say "--- F/D extension: IEEE 754 double-precision ---"
+let gfp = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/glow_fp_g.elf 2>/dev/null"]
+assert gfp.out contains "8/8 expressions correct" else "glow_fp not 8/8"
+say "  glow_fp GREEN"
+
+let fpc = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/fp_context_g.elf 2>/dev/null"]
+assert fpc.out contains "ALL PROOFS PASSED" else "fp_context failed"
+say "  fp_context GREEN"
+
+let dim = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/dimeroll_price_g.elf 2>/dev/null"]
+assert dim.out contains "ALL PROOFS PASSED" else "dimeroll_price failed"
+say "  dimeroll_price GREEN"
+
+let lot = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/lotus_audio_g.elf 2>/dev/null"]
+assert lot.out contains "ALL PROOFS PASSED" else "lotus_audio failed"
+say "  lotus_audio GREEN"
+say ""
+
+# --- Verdict ---
+say "=========================================="
+say "boot_witness_rv64g: ALL GREEN"
+say "  9 boot stages proven on full RV64G"
+say "  M-extension: 2 modules (Glow mul/div + Amphora seal)"
+say "  A-extension: 4 modules (atomics + multi-hart + preempt)"
+say "  F/D extension: 4 modules (Glow FP + context + Dimeroll + Lotus)"
+say "  19 modules total, all on IMAFD"
+say "=========================================="
+say "Orbit 21 complete -- full RV64G boot proven."
