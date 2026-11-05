@@ -1,0 +1,4 @@
+::  Orbit 12 -- double via face binding and call.
+::  Expected output: 10
+=/  amount  5
+%-  double  amount

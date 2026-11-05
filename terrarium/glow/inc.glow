@@ -1,0 +1,4 @@
+::  Orbit 12 -- increment via face binding and call.
+::  Expected output: 6
+=/  amount  5
+%-  inc  amount

@@ -123,7 +123,7 @@ runs on the bare hart. By the end, the pill compiles itself.*
   **SLC gate:** a Glow source file compiles to a `.S` file, assembles to an ELF, runs
   on `qemu-system-riscv32`, and prints the correct value.
 
-- [ ] **Orbit 12 -- Glow stdlib operations in generated RV32I**
+- [x] **Orbit 12 -- Glow stdlib operations in generated RV32I** (`20261104`)
   Extend the code generator to handle Glow stdlib operations proven in the glow-language
   journey: arithmetic (double, inc, dec), number ops (square, half, negate), conditionals
   (?:), and face bindings (=/). Each operation compiles and runs freestanding.

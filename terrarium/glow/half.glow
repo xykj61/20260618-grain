@@ -1,0 +1,4 @@
+::  Orbit 12 -- half via face binding and call.
+::  Expected output: 5
+=/  amount  10
+%-  half  amount

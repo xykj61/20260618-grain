@@ -1,0 +1,4 @@
+::  Orbit 12 -- decrement via face binding and call.
+::  Expected output: 4
+=/  amount  5
+%-  dec  amount

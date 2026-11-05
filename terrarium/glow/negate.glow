@@ -1,0 +1,5 @@
+::  Orbit 12 -- negate via face binding and call.
+::  Negate of 5 is -5; as unsigned 32-bit: 4294967291.
+::  Expected output: 4294967291
+=/  amount  5
+%-  negate  amount

@@ -1,0 +1,4 @@
+::  Orbit 12 -- square via face binding and call.
+::  Expected output: 25
+=/  amount  5
+%-  square  amount
