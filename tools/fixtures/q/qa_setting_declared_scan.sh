@@ -30,7 +30,7 @@
 # rewritten, and why the numbers in this paragraph come from the scan that prints them.
 #
 # THE LANTERN FIRED TWICE, which is what earns an instrument rather than a repair. On
-# `20260910.082330` the same question was priced at **eight points** on `glow/nock/README.md` and
+# `20260910.082330` the same question was priced at **eight points** on `gratitude/glow-nock-archive/README.md` and
 # carried to the card as one page's ask; this scan makes it one ruling with a population attached.
 #
 # COUNTED, NEVER GATED, for the reason its rota sibling gives: a page may honestly need no setting

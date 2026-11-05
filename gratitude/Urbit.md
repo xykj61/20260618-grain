@@ -9,7 +9,7 @@ Urbit dreamed a bold dream out loud — that a person could own a whole computer
 - **The personal server** — identity and data a person holds themselves, rather than renting from a distant tower.
 - **Owned identity** — the notion that a name can be a durable, cryptographic possession. We took the *legibility* of its tier idea and built our own mechanism, over an Ed25519 root, on our own terms.
 
-Our own path diverges by choice, in gratitude rather than critique: Grain compiles through Rye to **RISC-V**, an open hardware floor, rather than to a virtual machine; determinism moves from the VM into the discipline — bounds, asserts, witnesses on metal. We keep a small bridge to that world (`glow/nock/`) so the two can meet and check each other, and we study the ideas here in the clean room, writing our own code beneath our own names.
+Our own path diverges by choice, in gratitude rather than critique: Grain compiles through Rye to **RISC-V**, an open hardware floor, rather than to a virtual machine; determinism moves from the VM into the discipline — bounds, asserts, witnesses on metal. We keep a small bridge to that world (`gratitude/glow-nock-archive/`) so the two can meet and check each other, and we study the ideas here in the clean room, writing our own code beneath our own names.
 
 Grain's worth stands on its own users and values; Urbit's place is here, in gratitude, where a real ancestor belongs.
 

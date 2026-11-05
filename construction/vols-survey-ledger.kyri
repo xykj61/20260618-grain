@@ -5,8 +5,8 @@ sites 144
 handles 144
 prose_gaps 0
 guarded_sites 0
-site ./glow/nock/nock_lap2_witness.rye handle gap
-site ./glow/nock/nock_lap3_witness.rye handle gap
+site ./gratitude/glow-nock-archive/nock_lap2_witness.rye handle gap
+site ./gratitude/glow-nock-archive/nock_lap3_witness.rye handle gap
 site ./tools/gen/amphora/amphora_lap1.rish handle gap
 site ./tools/gen/amphora/amphora_lap2.rish handle gap
 site ./tools/gen/amphora/amphora_lap3.rish handle gap

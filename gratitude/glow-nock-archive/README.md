@@ -1,9 +1,18 @@
+# Nock Pipeline Archive
+
+**Archived:** `20261104` from `glow/nock/` -- Terrarium boot journey, Orbit 2
+**Reason:** Glow's compilation target pivots to RV32I assembly. Nock remains an
+optional interop target for Urbit-world verification; this archive preserves the
+proven pipeline as a historical artifact with gratitude.
+
+---
+
 # Nock -- the Second Backend, for Interop and Verification
 
 **Language:** EN
 **Last updated:** 2026-07-17 (loobean kept here; Glow ambient truth is Zig -- seam named)
 **Style:** Gauge (see `../../context/GAUGE_STYLE.md`)
-**Status:** Checkable -- opcodes 0 through 11, GREEN
+**Status:** Archived -- opcodes 0 through 11 were GREEN at time of archive
 **Where this sits:** home is [`../../README.md`](../../README.md) - a first hour in your hands is
 [`../../docs-geode/tutorials/the-first-hour.md`](../../docs-geode/tutorials/the-first-hour.md) - the whole
 path from nothing to a signed, sandboxed home is [`../../SOURCE.md`](../../SOURCE.md)
@@ -12,7 +21,7 @@ path from nothing to a signed, sandboxed home is [`../../SOURCE.md`](../../SOURC
 
 **Nock is Glow's second backend; RISC-V through Zig is its execution floor.** Per `../active-reviving/20260715-213500_glow-revives-hoon-runes-targets-riscv.md`, Glow's primary path compiles straight through Zig to RISC-V. That path is proven, green, and byte-identical across nine keystone pieces -- this interpreter's own three laps and its first jet among them (see [`../tools/g/glow_riscv_target_witness.rish`](../../tools/g/glow_riscv_target_witness.rish)). This interpreter exists for one purpose only: Urbit-world interop and verification. It lets Glow meet the Nock world and be checked against it, the way Hoon itself once needed Nock as the floor a decade before RISC-V existed to be one.
 
-**Loobeans stay Nock's own law here.** Opcode 6 treats atom **0 as yes** and **1 as no**. That reading is correct for Nock and distinct from Glow ambient truth. Glow uses Zig/`bool` and POSIX exits; crossing into this interpreter converts through [`../glow/truth_semantics.rye`](../truth_semantics.rye). Ruling: [`../context/specs/20260717-154943_glow-truth-zig-ambient-nock-loobean-seam.md`](../../context/specs/20260717-154943_glow-truth-zig-ambient-nock-loobean-seam.md).
+**Loobeans stay Nock's own law here.** Opcode 6 treats atom **0 as yes** and **1 as no**. That reading is correct for Nock and distinct from Glow ambient truth. Glow uses Zig/`bool` and POSIX exits; crossing into this interpreter converts through [`../glow/truth_semantics.rye`](../../glow/truth_semantics.rye). Ruling: [`../context/specs/20260717-154943_glow-truth-zig-ambient-nock-loobean-seam.md`](../../context/specs/20260717-154943_glow-truth-zig-ambient-nock-loobean-seam.md).
 
 ## The Primitive Core
 

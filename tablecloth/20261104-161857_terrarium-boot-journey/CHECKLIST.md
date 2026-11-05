@@ -19,7 +19,7 @@ simple system that works comes first, and that system starts with a tree a devel
 navigate. These orbits propose molt-breaches for the living `20260618` tree, each bounded
 and each reversible.*
 
-- [ ] **Orbit 1 -- Root directory consolidation survey**
+- [x] **Orbit 1 -- Root directory consolidation survey** (landed `20261104.164623`)
   Walk the 89 root directories. For each, name: what it holds, how many tracked files,
   inbound reference count, whether it belongs at root or under a parent room. Produce a
   consolidation proposal -- which directories merge, which stay, which new parent rooms
@@ -35,7 +35,7 @@ and each reversible.*
   **SLC gate:** a survey document in `active-development/` naming every root directory with
   its verdict (keep / merge / move), inbound reference counts, and the proposed tree shape.
 
-- [ ] **Orbit 2 -- Nock pipeline archive and Glow backend pivot**
+- [x] **Orbit 2 -- Nock pipeline archive and Glow backend pivot**
   Archive `glow/nock/` (9 files -- the Nock compilation pipeline) to `gratitude/` as a
   historical artifact with attribution. Update `glow/README.md` to name the new direction:
   Glow -> RV32I assembly, with Nock as an optional interop target only. Remove any living

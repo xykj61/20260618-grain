@@ -25,7 +25,7 @@ Welcome, traveler. Something over a hundred doors face you at this root -- `ls -
 | **1 - The Front Door** | What orients a newcomer before they dive | `README` - `MAP` - `SOURCE` - `CLAUDE` - `CONTRIBUTING` - `ORGANIZING` - licenses - `.template` files - `llms.txt` - `template-manifest.kyri` |
 | **2 - The Law** | The disciplines we keep on purpose | `context/` - `.claude/rules/` |
 | **3 - The Why** | The reasons beneath the work | `foundations/` - `saga/` |
-| **4 - The Language & the Machines** | Glow and the module ring | `glow/` (with `glow/nock/`) - `src/` - the ring |
+| **4 - The Language & the Machines** | Glow and the module ring | `glow/` - `src/` - the ring |
 | **5 - The Teaching** | Pages that teach only what runs | `docs/` - `docs-geode/` - `manual/` - `docs-geode/edu/yonder/` - `nixos-guide/` |
 | **6 - The Workrooms** | Where the work is shaped and recorded | `active-designing/` - `active-reviving/` - `waymarks/` - `expanding-prompts/` - `construction/` - `counsel/` - `session-logs/` - `composition/` - `kyri-resins/` - `tools/` |
 | **7 - The Reading Room** | The world, studied whole with thanks | `external-research/` - `study/` - `gratitude/` - `vendor/` |
@@ -68,7 +68,7 @@ Everything in [`context/`](context/README.md) is a promise we keep on purpose, a
 
 ### 4 - The Language & the Machines
 
-[`glow/`](glow/README.md) is **Glow** -- Hoon's runes over bounded, asserted semantics, lowering to ordinary Rye. Beside it now, [`glow/nock/`](glow/nock/README.md) is the interop backend nested where it belongs: Nock is Glow's second backend for Urbit-world verification, never its execution floor. [`src/`](src/README.md) is the **Glow userland** -- rooms for code written *in* Glow -- with [`docs-geode/edu/yonder/`](docs-geode/edu/yonder/README.md) the learning floor beside it.
+[`glow/`](glow/README.md) is **Glow** -- Hoon's runes over bounded, asserted semantics, lowering to ordinary Rye. The Nock interop pipeline is archived at [`gratitude/glow-nock-archive/`](gratitude/glow-nock-archive/README.md) -- Nock was Glow's second backend for Urbit-world verification, never its execution floor; the primary path targets RISC-V. [`src/`](src/README.md) is the **Glow userland** -- rooms for code written *in* Glow -- with [`docs-geode/edu/yonder/`](docs-geode/edu/yonder/README.md) the learning floor beside it.
 
 The **module ring** is the machinery, each home with its own witnesses. Take them one at a time; each README says what its room proves.
 

@@ -17,7 +17,7 @@ path from nothing to a signed, sandboxed home is [`../SOURCE.md`](../SOURCE.md)
 
 ---
 
-Glow is the **language** (Hoon-parallel). Rishi is the **shell** (Dojo-parallel). Glow emits ordinary `.rye`, and Rye's bridge carries it to Zig. Rishi drives witnesses and `glow_run`. Foundations and TAME stay the unmoved north star; this README is the working surface pin, a seated Glow TAME chapter yet to come.
+Glow is the **language** (Hoon-parallel). Rishi is the **shell** (Dojo-parallel). **Glow's compilation direction is RV32I assembly** -- the Terrarium boot journey (`20261104`) targets bare-metal RISC-V, with the hosted path emitting ordinary `.rye` through Rye's bridge to Zig. The Nock compilation pipeline is archived at [`../gratitude/glow-nock-archive/`](../gratitude/glow-nock-archive/) as a historical interop artifact; Nock remains an optional verification target rather than the active compilation path. Rishi drives witnesses and `glow_run`. Foundations and TAME stay the unmoved north star; this README is the working surface pin, a seated Glow TAME chapter yet to come.
 
 ## Truth
 

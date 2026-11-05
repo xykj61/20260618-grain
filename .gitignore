@@ -246,7 +246,7 @@
 /lantern/bin/
 /scribble/bin/
 /ember/bin/
-/glow/nock/bin/
+/gratitude/glow-nock-archive/bin/
 /glow/bin/
 /glow/.cache/
 # The fold gave witnesses a second cache room; a build cache is never tracked, and this one

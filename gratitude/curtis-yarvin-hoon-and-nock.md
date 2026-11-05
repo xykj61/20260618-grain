@@ -10,7 +10,7 @@ that compiles to it while staying readable by people.
 
 **Role for us:** Glow descends from these ideas the way any language descends from the ones its
 authors read. We study the design and write our own, per
-[`../context/SILO_TECHNIQUE.md`](../context/SILO_TECHNIQUE.md). `glow/nock/` exists so Grain can
+[`../context/SILO_TECHNIQUE.md`](../context/SILO_TECHNIQUE.md). `gratitude/glow-nock-archive/` exists so Grain can
 meet that world and be checked against it.
 
 **What we carry**

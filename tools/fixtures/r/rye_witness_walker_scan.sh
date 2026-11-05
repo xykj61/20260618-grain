@@ -103,7 +103,7 @@ done
 # is the reason this census exists. The ceiling only ever falls; lower it when a walker lands.
 #
 # Lowered 119 -> 56 on `20260906.144217`, when the Glow lane took its 63 subjects at once: every
-# `glow/` and `glow/nock/` witness that named a subject now walks it. All 63 built GREEN with the
+# `glow/` and `gratitude/glow-nock-archive/` witness that named a subject now walks it. All 63 built GREEN with the
 # walker in place, so the Glow modules carry no body-level type error the lazy analysis was
 # hiding -- a reading, rather than an assumption. The remaining 56 are `linengrow/` (51),
 # `mand/` (3), `mantra/` (1), and `tools/rye/` (1).

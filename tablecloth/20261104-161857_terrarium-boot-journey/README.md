@@ -45,7 +45,7 @@ system a person boots, watches come alive, and uses.
 Three gaps stand between here and there:
 
 1. **No compilation path from Glow to real hardware.** Glow currently compiles through
-   Rye and Zig to native code. The `glow/nock/` pipeline targeted Nock, a virtual machine.
+   Rye and Zig to native code. The `gratitude/glow-nock-archive/` pipeline targeted Nock, a virtual machine.
    Neither path produces a freestanding RISC-V binary. The new direction is direct
    Glow -> RV32I assembly, bypassing Nock entirely -- Nock stays as an optional interop
    target, and the compilation backbone targets real silicon.
@@ -96,7 +96,7 @@ grows into RV64G, carrying its bounded discipline with it.
 Nock is Urbit's virtual machine, and Grain thanked the ancestor and moved on. The new
 compilation path is Glow -> RV32I assembly -> ELF binary -> bare metal (or QEMU). No
 Nock anywhere in the compilation or boot path. Nock remains as an optional interop
-target (`glow/nock/` archived to gratitude), because the bridge to the Nock world is
+target (`gratitude/glow-nock-archive/`), because the bridge to the Nock world is
 worth its small weight while the backbone targets real silicon.
 
 ### Why Terrarium is macOS native

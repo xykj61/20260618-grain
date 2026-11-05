@@ -148,7 +148,7 @@ The interface uses ASCII as structure, linen as material, and motion as a bounde
 Brushstroke declares each component's grid, role, state, tokens, and motion profile. Skate renders the fixed frame and bounded events. A correspondence witness forces meaning, description, and behavior to change together.
 
 ## Now -- the eight sailing ship itineraries
-**Git nib:** `ecd8772174`
+**Git nib:** `b205790640`
 **Fascia:** `60.060` -- Orbits 7-25 and Glow Orbits 11-15 landed (multi-arm cores, number arithmetic, value model, layout shapes, layout bridge, gate dispatch compose2, call2, call3, calln, call, compose, compose-jam-cue tidy, four-witness comptime tidy, seven-witness comptime tidy with str_repeat quota fix, twenty rune-witness comptime tidy, twenty-two lower-witness comptime tidy, AUHAL input capture with live metering, WAV export round-trip, Lotus window with waveform display and playback, interactive Glow REPL in Brushstroke, Glow-driven layout demo, Your First Glow Program tutorial, Glow Meets the Screen tutorial, and cookbook expansion with stdlib reference), governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.001 per proven orbit (three decimal places from `20261104`), larger on Keaton's word.
 
 

@@ -1,7 +1,7 @@
 # nock_lap2_witness.rish -- Nock's macro layer proves out against lap 1.
 #
 # Per external-research/date/20260713/20260713-214400_nock-interpreter-and-rye-hoon-fusion-scoping.md's
-# phased plan and glow/nock/nock_core.rye: opcodes 6 (if/then/else), 7 (compose),
+# phased plan and gratitude/glow-nock-archive/nock_core.rye: opcodes 6 (if/then/else), 7 (compose),
 # 8 (extend the subject), 9 (invoke an arm), and 11 (hint) each proven
 # natively AND proven equal to a hand-built formula using only lap 1's
 # primitives -- the phased plan's own stated test for the macro layer.
@@ -10,9 +10,9 @@
 #   rishi/bin/rishi run tools/n/nock_lap2_witness.rish
 
 let zig = "vendor/zig-toolchain/zig"
-let bin = "glow/nock/bin/nock_lap2_witness"
+let bin = "gratitude/glow-nock-archive/bin/nock_lap2_witness"
 
-let build = run ["sh" "-c" "mkdir -p glow/nock/bin && env RYE_ZIG=${zig} sh tools/fixtures/r/rye_build.sh glow/nock/nock_lap2_witness.rye -femit-bin=${bin}"]
+let build = run ["sh" "-c" "mkdir -p gratitude/glow-nock-archive/bin && env RYE_ZIG=${zig} sh tools/fixtures/r/rye_build.sh gratitude/glow-nock-archive/nock_lap2_witness.rye -femit-bin=${bin}"]
 assert build.ok else "Nock lap 2 witness build failed"
 
 let selftest = run ["sh" "-c" "${bin} 2>&1"]

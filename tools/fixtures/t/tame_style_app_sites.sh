@@ -35,7 +35,7 @@
 #
 #   * A TRAILING comment after code on the same line reads as program position, so the count can
 #     run HIGH. It costs exactly one line today, and reading it is what found it: the whole
-#     Ed25519 remainder is `glow/nock/nock_glow_mirror_witness.rye`'s
+#     Ed25519 remainder is `gratitude/glow-nock-archive/nock_glow_mirror_witness.rye`'s
 #     `const exact: u64 = 32; // ... Ed25519 seed length`, a comment rather than a call. Excluding
 #     it needs to know whether that `//` sits inside a string, which is the parsing this declines.
 #   * A quote earlier on the line that belongs to something else can flip parity and hide a real

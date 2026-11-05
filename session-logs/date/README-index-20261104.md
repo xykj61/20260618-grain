@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261104.185624` | [Orbit 2 -- Nock archive repoint](20261104/20261104-185624_orbit2-nock-archive-repoint.kyri.md) | 9 files archived; all 8 witness .rish files repointed; 20 living docs updated; zero living refs to old path |
 | `20261104.181932` | [seat 80-char standard and Glow gate GREEN](20261104/20261104-181932_seat-80-char-glow-gate-green.kyri.md) | 80-col seated in TAME; 602 comment lines + 4 code lines wrapped across 253 Glow files; gate GREEN glow_over=0 |
 | `20261104.175538` | [80-char line width and Hoon comment study](20261104/20261104-175538_80-char-hoon-comment-study.kyri.md) | yes to 80 chars (Hoon 99.8% within 80), yes to column-57 `::` pattern; Q10 license gate CLEAR |
 | `20261104.173441` | [grain-os fork decisions response](20261104/20261104-173441_grain-os-fork-decisions-response.kyri.md) | twelve points addressed: rv32i, Rye, ZON research, generation revocation, Envoy, Tablecloth, Glow, Kumara, renames, license gate, contributing, Terrarium |
