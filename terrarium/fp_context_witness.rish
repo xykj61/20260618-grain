@@ -1,0 +1,86 @@
+#!/usr/bin/env rishi
+# terrarium/fp_context_witness.rish
+#
+# Orbit 17 witness: Caravan FP context save/restore on RV64FD
+#
+# 4 stages:
+#   1. CPU features probe (RV64IMAFD: +m, +f, +d)
+#   2. Build via helper
+#   3. QEMU run with proof assertions
+#   4. FP context instruction census
+
+say "=== fp_context_witness: Orbit 17 ==="
+say "Caravan FP context save/restore on RV64FD"
+say ""
+
+# --- stage 1: CPU features ---
+say "--- stage 1: CPU features ---"
+let features = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/hello64.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+f+d --verbose-llvm-cpu-features -femit-bin=/dev/null 2>&1 | head -4"]
+say "CPU features output captured"
+assert features.out contains "+f"
+say "  +f (single-precision float) confirmed"
+assert features.out contains "+d"
+say "  +d (double-precision float) confirmed"
+assert features.out contains "+m"
+say "  +m (multiply) confirmed"
+say "stage 1: GREEN"
+say ""
+
+# --- stage 2: build ---
+say "--- stage 2: build fp_context.rye ---"
+let build = run ["sh" "-c" "sh terrarium/fp_context_helper.sh build 2>&1"]
+assert build.ok
+assert build.out contains "build=ok"
+say "  build succeeded"
+assert build.out contains "elf_bytes="
+say "  ELF size reported"
+say "stage 2: GREEN"
+say ""
+
+# --- stage 3: QEMU run ---
+say "--- stage 3: QEMU run (FP context preemption) ---"
+let qemu = run ["sh" "-c" "timeout 30 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/fp_context.elf 2>/dev/null || true"]
+say "  QEMU output captured"
+
+assert qemu.out contains "FP context save/restore on RV64FD"
+say "  proof 1: banner confirmed"
+assert qemu.out contains "domain A: step 5"
+say "  proof 2: domain A completed 5 steps"
+assert qemu.out contains "domain B: step 5"
+say "  proof 3: domain B completed 5 steps"
+assert qemu.out contains "sum=18.75"
+say "  proof 4: domain A sum 18.75 correct"
+assert qemu.out contains "sum=157.50"
+say "  proof 5: domain B sum 157.50 correct"
+assert qemu.out contains "domain A checksum: 1875"
+say "  proof 6: domain A checksum 1875"
+assert qemu.out contains "domain B checksum: 15750"
+say "  proof 7: domain B checksum 15750"
+assert qemu.out contains "PROOF"
+say "  proof 8: at least one PROOF line emitted"
+assert qemu.out contains "ALL PROOFS PASSED"
+say "  proof 9: all proofs passed"
+assert qemu.out contains "Orbit 17 complete"
+say "  proof 10: Orbit 17 complete marker"
+say "stage 3: GREEN"
+say ""
+
+# --- stage 4: FP context instruction census ---
+say "--- stage 4: FP context instruction census ---"
+let census = run ["sh" "-c" "sh terrarium/fp_context_helper.sh census 2>&1"]
+assert census.ok
+say "  census output captured"
+
+assert census.out contains "fsd="
+say "  fsd (FP store double) count reported"
+assert census.out contains "fld="
+say "  fld (FP load double) count reported"
+assert census.out contains "fp_total="
+say "  FP total reported"
+assert census.out contains "census=ok"
+say "  census ok"
+say "stage 4: GREEN"
+say ""
+
+say "=== ALL 4 STAGES GREEN ==="
+say "Orbit 17: Caravan FP context save/restore on RV64FD proven"

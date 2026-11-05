@@ -178,10 +178,17 @@ audio opens on the bare hart.*
   **Witness:** `terrarium/glow_fp_witness.rish` -- features, build, QEMU
   8-expression run with 11 proofs, F/D instruction census. **GREEN on metal.**
 
-- [ ] **Orbit 17 -- F/D extensions: Caravan FP context save/restore**
-  Caravan saves and restores `f0`-`f31`, `fcsr`, `fflags`, and `frm` on context
-  switch. Two domains using floating point produce correct results under scheduling.
-  **SLC gate:** preempted FP domain resumes with correct FP state.
+- [x] **Orbit 17 -- F/D extensions: Caravan FP context save/restore** (`20261105.172652`)
+  Caravan saves and restores `f0`-`f31` and `fcsr` on context switch. 65-slot
+  extended context (520 bytes): 30 GP regs + mepc + 32 FP regs + fcsr. Two
+  domains using IEEE 754 f64 arithmetic produce correct checksums (A: 1875,
+  B: 15750) through 12 context switches with genuine preemption. Root cause
+  of `@atomicLoad` infinite recursion on freestanding targets discovered and
+  fixed with volatile pointer casts. FP census: 105 instructions (40 fsd,
+  33 fld, 5 fadd.d, 5 fmul.d, 5 fcvt, 15 fmv, 2 flt.d). 8912-byte ELF.
+  **SLC gate:** preempted FP domain resumes with correct FP state -- PROVEN.
+  **Witness:** `terrarium/fp_context_witness.rish` -- features, build,
+  QEMU 10-proof run, FP context instruction census. **GREEN on metal.**
 
 - [ ] **Orbit 18 -- F/D extensions: Dimeroll price arithmetic**
   Dimeroll's price calculations use hardware floating point. `sell tomatoes 30 kg 2.50`

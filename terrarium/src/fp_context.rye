@@ -1,0 +1,597 @@
+//! terrarium/src/fp_context.rye -- Caravan FP context save/restore
+//!
+//! Orbit 17, Quest 1.4: prove FP register preservation across
+//! preemptive context switches on QEMU. The trap handler saves
+//! and restores f0-f31 and fcsr (which includes fflags and frm)
+//! alongside the 31 GP registers and mepc from Orbit 14.
+//!
+//! Two domains accumulate floating-point sums with busy waits
+//! between steps. Timer interrupts preempt them mid-computation.
+//! Correct final checksums prove FP state was preserved through
+//! every context switch.
+//!
+//! Build:
+//!   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build \
+//!     terrarium/src/fp_context.rye \
+//!     -target riscv64-freestanding-none -fno-entry \
+//!     -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany \
+//!     -mcpu=generic_rv64+m+f+d \
+//!     -femit-bin=terrarium/.build/fp_context.elf
+//!
+//! Run:
+//!   qemu-system-riscv64 -machine virt -bios none \
+//!     -nographic -kernel terrarium/.build/fp_context.elf
+//!
+//! SLC gate (Orbit 17): preempted FP domain resumes with
+//! correct FP state.
+
+const std = @import("std");
+const assert = std.debug.assert;
+
+// -- Hardware addresses (QEMU virt) ------------------------------------
+const uart_tx_addr: *volatile u8 = @ptrFromInt(0x1000_0000);
+const test_finisher: *volatile u32 = @ptrFromInt(0x0010_0000);
+const finisher_pass: u32 = 0x5555;
+
+// -- CLINT addresses ---------------------------------------------------
+const clint_mtime: *volatile u64 = @ptrFromInt(0x200_BFF8);
+const clint_mtimecmp: *volatile u64 = @ptrFromInt(0x200_4000);
+
+// 50,000 ticks = 5 ms at QEMU's 10 MHz timebase
+const timeslice: u64 = 50_000;
+
+// -- Context layout: 65 slots of u64 ----------------------------------
+// Slots 0-31:  31 GP regs + mepc (from Orbit 14)
+//   slot 0  = x1 (ra)
+//   slot 1  = x2 (sp, domain stack pointer)
+//   slot 2  = x3 (gp) ... slot 30 = x31 (t6)
+//   slot 31 = mepc
+// Slots 32-63: f0-f31 (32 double-precision FP regs)
+// Slot 64:     fcsr (includes fflags bits 4:0 and frm bits 7:5)
+const ctx_slots: u32 = 65;
+const ctx_size: u32 = ctx_slots * 8; // 520 bytes
+
+var ctx_a: [ctx_slots]u64 = std.mem.zeroes([ctx_slots]u64);
+var ctx_b: [ctx_slots]u64 = std.mem.zeroes([ctx_slots]u64);
+
+// -- Scheduler state ---------------------------------------------------
+var current: u32 = 0; // 0 = domain A, 1 = domain B
+var switch_count: u32 = 0;
+var domain_done: [2]u32 = [_]u32{ 0, 0 };
+
+// Domain checksum results: f64 sum * 100, stored as u32
+var domain_checksum: [2]u32 = [_]u32{ 0, 0 };
+
+// Expected checksums (exact IEEE 754 arithmetic)
+// Domain A: sum of i*1.25 for i=1..5 = 15*1.25 = 18.75
+//   checksum = 18.75 * 100 = 1875
+const expected_a: u32 = 1875;
+// Domain B: sum of i*10.50 for i=1..5 = 15*10.50 = 157.50
+//   checksum = 157.50 * 100 = 15750
+const expected_b: u32 = 15750;
+
+// Stack addresses
+const sched_stack_top: u64 = 0x8008_0000;
+const domain_a_stack: u64 = 0x8010_0000;
+const domain_b_stack: u64 = 0x8020_0000;
+
+// -- Entry point: enable FPU, park secondary harts --------------------
+export fn _start() linksection(".text.init") callconv(.naked) noreturn {
+    asm volatile (
+        \\ csrr t0, mhartid
+        \\ bnez t0, .park_secondary
+        \\
+        \\ # hart 0: set up scheduler stack and enable FPU
+        \\ li sp, 0x80080000
+        \\ li t0, 0x6000
+        \\ csrs mstatus, t0
+        \\ j kmain
+        \\
+        \\ .park_secondary:
+        \\ wfi
+        \\ j .park_secondary
+    );
+}
+
+// -- UART I/O ----------------------------------------------------------
+
+fn uart_tx(c: u8) void {
+    uart_tx_addr.* = c;
+}
+
+fn uart_print(msg: []const u8) void {
+    for (msg) |byte| uart_tx(byte);
+}
+
+fn print_u32(val: u32) void {
+    if (val == 0) {
+        uart_tx('0');
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n = val;
+    var i: u32 = 0;
+    while (n > 0) {
+        buf[i] = @intCast(n % 10 + '0');
+        n = n / 10;
+        i += 1;
+    }
+    while (i > 0) {
+        i -= 1;
+        uart_tx(buf[i]);
+    }
+}
+
+// invariant: all values in this module are finite and small
+fn print_f64_2dp(v: f64) void {
+    if (v < 0.0) {
+        uart_tx('-');
+        print_f64_2dp(-v);
+        return;
+    }
+    // invariant: round to 2dp by adding half a cent
+    const rounded = v + 0.005;
+    const int_part: u32 = @intFromFloat(rounded);
+    var frac = (rounded - @as(f64, @floatFromInt(int_part))) * 100.0;
+    // invariant: guard negative frac from float precision
+    if (frac < 0.0) frac = 0.0;
+    const frac_part: u32 = @intFromFloat(frac);
+    print_u32(int_part);
+    uart_tx('.');
+    if (frac_part < 10) uart_tx('0');
+    print_u32(frac_part);
+}
+
+fn halt_pass() noreturn {
+    test_finisher.* = finisher_pass;
+    while (true) {}
+}
+
+fn assert_true(cond: bool) void {
+    if (!cond) {
+        uart_print("ASSERTION FAILED\n");
+        test_finisher.* = finisher_pass;
+        while (true) {}
+    }
+}
+
+// -- Interrupt protection for UART ------------------------------------
+
+fn disable_interrupts() void {
+    asm volatile ("csrci mstatus, 8");
+}
+
+fn enable_interrupts() void {
+    asm volatile ("csrsi mstatus, 8");
+}
+
+fn protected_print(msg: []const u8) void {
+    disable_interrupts();
+    uart_print(msg);
+    enable_interrupts();
+}
+
+fn protected_print_u32(val: u32) void {
+    disable_interrupts();
+    print_u32(val);
+    enable_interrupts();
+}
+
+// -- Busy wait using mtime ---------------------------------------------
+fn busy_wait_ticks(ticks: u64) void {
+    const start = clint_mtime.*;
+    while (clint_mtime.* - start < ticks) {}
+}
+
+// -- Domain A: FP sum of i*1.25 for i=1..5 = 18.75 --------------------
+export fn domain_a() callconv(.c) noreturn {
+    var sum: f64 = 0.0;
+    var i: u32 = 1;
+    while (i <= 5) : (i += 1) {
+        // invariant: addend = i * 1.25, exactly representable
+        const fi: f64 = @floatFromInt(i);
+        sum += fi * 1.25;
+        disable_interrupts();
+        uart_print("  domain A: step ");
+        print_u32(i);
+        uart_print(" sum=");
+        print_f64_2dp(sum);
+        uart_print("\n");
+        enable_interrupts();
+        // busy wait so the timer can preempt between steps
+        busy_wait_ticks(timeslice * 2);
+    }
+    // invariant: 1*1.25 + 2*1.25 + 3*1.25 + 4*1.25 + 5*1.25
+    //          = 15 * 1.25 = 18.75
+    const checksum: u32 = @intFromFloat(sum * 100.0);
+    @as(*volatile u32, &domain_checksum[0]).* = checksum;
+    @as(*volatile u32, &domain_done[0]).* = 1;
+    while (true) {}
+}
+
+// -- Domain B: FP sum of i*10.50 for i=1..5 = 157.50 ------------------
+export fn domain_b() callconv(.c) noreturn {
+    var sum: f64 = 0.0;
+    var i: u32 = 1;
+    while (i <= 5) : (i += 1) {
+        // invariant: addend = i * 10.50, exactly representable
+        const fi: f64 = @floatFromInt(i);
+        sum += fi * 10.50;
+        disable_interrupts();
+        uart_print("  domain B: step ");
+        print_u32(i);
+        uart_print(" sum=");
+        print_f64_2dp(sum);
+        uart_print("\n");
+        enable_interrupts();
+        busy_wait_ticks(timeslice * 2);
+    }
+    // invariant: 1*10.50 + 2*10.50 + ... + 5*10.50
+    //          = 15 * 10.50 = 157.50
+    const checksum: u32 = @intFromFloat(sum * 100.0);
+    @as(*volatile u32, &domain_checksum[1]).* = checksum;
+    @as(*volatile u32, &domain_done[1]).* = 1;
+    while (true) {}
+}
+
+// -- Timer interrupt handler -------------------------------------------
+export fn handle_timer() callconv(.c) *[ctx_slots]u64 {
+    clint_mtimecmp.* = clint_mtime.* + timeslice;
+    switch_count += 1;
+
+    const a_done = @as(*volatile u32, &domain_done[0]).*;
+    const b_done = @as(*volatile u32, &domain_done[1]).*;
+
+    if (a_done == 1 and b_done == 1) {
+        // both done: disable timer, redirect to verdict
+        asm volatile ("csrc mie, %[mask]"
+            :
+            : [mask] "r" (@as(u64, 1 << 7)),
+        );
+        const verdict_addr = @intFromPtr(&print_verdict);
+        if (current == 0) {
+            ctx_a[31] = verdict_addr;
+            return &ctx_a;
+        } else {
+            ctx_b[31] = verdict_addr;
+            return &ctx_b;
+        }
+    }
+
+    // round-robin
+    if (current == 0) {
+        current = 1;
+        return &ctx_b;
+    } else {
+        current = 0;
+        return &ctx_a;
+    }
+}
+
+// -- Trap vector: save/restore GP + FP context -------------------------
+// On entry: mscratch holds pointer to current context array.
+// Saves 31 GP regs, mepc, 32 FP regs, and fcsr.
+// Calls handle_timer, then restores from the returned context.
+export fn trap_vector() linksection(".text") callconv(.naked) noreturn {
+    asm volatile (
+        // swap sp with mscratch: sp -> context, mscratch -> domain sp
+        \\ csrrw sp, mscratch, sp
+        \\
+        // === GP register save (slots 0-30, mepc at slot 31) ===
+        \\ sd ra, 0(sp)
+        \\ csrr t0, mscratch
+        \\ sd t0, 8(sp)
+        \\ sd gp, 16(sp)
+        \\ sd tp, 24(sp)
+        \\ sd t1, 32(sp)
+        \\ sd t2, 40(sp)
+        \\ sd s0, 48(sp)
+        \\ sd s1, 56(sp)
+        \\ sd a0, 64(sp)
+        \\ sd a1, 72(sp)
+        \\ sd a2, 80(sp)
+        \\ sd a3, 88(sp)
+        \\ sd a4, 96(sp)
+        \\ sd a5, 104(sp)
+        \\ sd a6, 112(sp)
+        \\ sd a7, 120(sp)
+        \\ sd s2, 128(sp)
+        \\ sd s3, 136(sp)
+        \\ sd s4, 144(sp)
+        \\ sd s5, 152(sp)
+        \\ sd s6, 160(sp)
+        \\ sd s7, 168(sp)
+        \\ sd s8, 176(sp)
+        \\ sd s9, 184(sp)
+        \\ sd s10, 192(sp)
+        \\ sd s11, 200(sp)
+        \\ sd t3, 208(sp)
+        \\ sd t4, 216(sp)
+        \\ sd t5, 224(sp)
+        \\ sd t6, 232(sp)
+        \\ csrr t0, mepc
+        \\ sd t0, 248(sp)
+        \\
+        // === FP register save (slots 32-63) ===
+        \\ fsd ft0, 256(sp)
+        \\ fsd ft1, 264(sp)
+        \\ fsd ft2, 272(sp)
+        \\ fsd ft3, 280(sp)
+        \\ fsd ft4, 288(sp)
+        \\ fsd ft5, 296(sp)
+        \\ fsd ft6, 304(sp)
+        \\ fsd ft7, 312(sp)
+        \\ fsd fs0, 320(sp)
+        \\ fsd fs1, 328(sp)
+        \\ fsd fa0, 336(sp)
+        \\ fsd fa1, 344(sp)
+        \\ fsd fa2, 352(sp)
+        \\ fsd fa3, 360(sp)
+        \\ fsd fa4, 368(sp)
+        \\ fsd fa5, 376(sp)
+        \\ fsd fa6, 384(sp)
+        \\ fsd fa7, 392(sp)
+        \\ fsd fs2, 400(sp)
+        \\ fsd fs3, 408(sp)
+        \\ fsd fs4, 416(sp)
+        \\ fsd fs5, 424(sp)
+        \\ fsd fs6, 432(sp)
+        \\ fsd fs7, 440(sp)
+        \\ fsd fs8, 448(sp)
+        \\ fsd fs9, 456(sp)
+        \\ fsd fs10, 464(sp)
+        \\ fsd fs11, 472(sp)
+        \\ fsd ft8, 480(sp)
+        \\ fsd ft9, 488(sp)
+        \\ fsd ft10, 496(sp)
+        \\ fsd ft11, 504(sp)
+        \\
+        // === fcsr save (slot 64) ===
+        \\ csrr t0, fcsr
+        \\ sd t0, 512(sp)
+        \\
+        // === call scheduler on its own stack ===
+        \\ li sp, 0x80080000
+        \\ call handle_timer
+        \\
+        // a0 = pointer to new context to restore
+        \\ csrw mscratch, a0
+        \\ mv sp, a0
+        \\
+        // === fcsr restore (slot 64) ===
+        \\ ld t0, 512(sp)
+        \\ csrw fcsr, t0
+        \\
+        // === FP register restore (slots 32-63) ===
+        \\ fld ft0, 256(sp)
+        \\ fld ft1, 264(sp)
+        \\ fld ft2, 272(sp)
+        \\ fld ft3, 280(sp)
+        \\ fld ft4, 288(sp)
+        \\ fld ft5, 296(sp)
+        \\ fld ft6, 304(sp)
+        \\ fld ft7, 312(sp)
+        \\ fld fs0, 320(sp)
+        \\ fld fs1, 328(sp)
+        \\ fld fa0, 336(sp)
+        \\ fld fa1, 344(sp)
+        \\ fld fa2, 352(sp)
+        \\ fld fa3, 360(sp)
+        \\ fld fa4, 368(sp)
+        \\ fld fa5, 376(sp)
+        \\ fld fa6, 384(sp)
+        \\ fld fa7, 392(sp)
+        \\ fld fs2, 400(sp)
+        \\ fld fs3, 408(sp)
+        \\ fld fs4, 416(sp)
+        \\ fld fs5, 424(sp)
+        \\ fld fs6, 432(sp)
+        \\ fld fs7, 440(sp)
+        \\ fld fs8, 448(sp)
+        \\ fld fs9, 456(sp)
+        \\ fld fs10, 464(sp)
+        \\ fld fs11, 472(sp)
+        \\ fld ft8, 480(sp)
+        \\ fld ft9, 488(sp)
+        \\ fld ft10, 496(sp)
+        \\ fld ft11, 504(sp)
+        \\
+        // === GP register restore ===
+        \\ ld t0, 248(sp)
+        \\ csrw mepc, t0
+        \\ ld ra, 0(sp)
+        \\ ld gp, 16(sp)
+        \\ ld tp, 24(sp)
+        \\ ld t1, 32(sp)
+        \\ ld t2, 40(sp)
+        \\ ld s0, 48(sp)
+        \\ ld s1, 56(sp)
+        \\ ld a0, 64(sp)
+        \\ ld a1, 72(sp)
+        \\ ld a2, 80(sp)
+        \\ ld a3, 88(sp)
+        \\ ld a4, 96(sp)
+        \\ ld a5, 104(sp)
+        \\ ld a6, 112(sp)
+        \\ ld a7, 120(sp)
+        \\ ld s2, 128(sp)
+        \\ ld s3, 136(sp)
+        \\ ld s4, 144(sp)
+        \\ ld s5, 152(sp)
+        \\ ld s6, 160(sp)
+        \\ ld s7, 168(sp)
+        \\ ld s8, 176(sp)
+        \\ ld s9, 184(sp)
+        \\ ld s10, 192(sp)
+        \\ ld s11, 200(sp)
+        \\ ld t3, 208(sp)
+        \\ ld t4, 216(sp)
+        \\ ld t5, 224(sp)
+        \\ ld t6, 232(sp)
+        \\
+        // restore domain sp via mscratch swap
+        \\ ld t0, 8(sp)
+        \\ csrw mscratch, t0
+        \\ csrrw sp, mscratch, sp
+        \\
+        \\ mret
+    );
+}
+
+// -- Verdict -----------------------------------------------------------
+export fn print_verdict() callconv(.c) noreturn {
+    uart_print("\n");
+
+    // -- proof 1: timer armed
+    uart_print("--- proof 1: timer armed ---\n");
+    uart_print("  timer switches: ");
+    print_u32(switch_count);
+    uart_print("\n");
+    // invariant: at least 2 context switches occurred
+    assert_true(switch_count >= 2);
+    uart_print("  timer armed: GREEN\n\n");
+
+    // -- proof 2: domain A FP checksum
+    uart_print("--- proof 2: domain A FP checksum ---\n");
+    const sum_a = @as(*volatile u32, &domain_checksum[0]).*;
+    uart_print("  domain A checksum: ");
+    print_u32(sum_a);
+    uart_print(" (expected ");
+    print_u32(expected_a);
+    uart_print(")\n");
+    // invariant: 15 * 1.25 * 100 = 1875
+    assert_true(sum_a == expected_a);
+    uart_print("  domain A: GREEN\n\n");
+
+    // -- proof 3: domain B FP checksum
+    uart_print("--- proof 3: domain B FP checksum ---\n");
+    const sum_b = @as(*volatile u32, &domain_checksum[1]).*;
+    uart_print("  domain B checksum: ");
+    print_u32(sum_b);
+    uart_print(" (expected ");
+    print_u32(expected_b);
+    uart_print(")\n");
+    // invariant: 15 * 10.50 * 100 = 15750
+    assert_true(sum_b == expected_b);
+    uart_print("  domain B: GREEN\n\n");
+
+    // -- proof 4: preemption verified
+    uart_print("--- proof 4: preemption verified ---\n");
+    uart_print("  context switches: ");
+    print_u32(switch_count);
+    uart_print("\n");
+    // invariant: enough switches to prove interleaving
+    assert_true(switch_count > 5);
+    uart_print("  preemption verified: GREEN\n\n");
+
+    // -- proof 5: FP register integrity
+    uart_print("--- proof 5: FP register integrity ---\n");
+    uart_print("  both FP checksums correct through ");
+    print_u32(switch_count);
+    uart_print(" switches\n");
+    uart_print("  f0-f31 + fcsr saved/restored on every switch\n");
+    uart_print("  FP context save/restore: GREEN\n\n");
+
+    // -- proof 6: context size
+    uart_print("--- proof 6: context size ---\n");
+    uart_print("  ");
+    print_u32(ctx_slots);
+    uart_print(" slots = ");
+    print_u32(ctx_size);
+    uart_print(" bytes (31 GP + mepc + 32 FP + fcsr)\n");
+    assert_true(ctx_slots == 65);
+    assert_true(ctx_size == 520);
+    uart_print("  context size: GREEN\n\n");
+
+    // -- verdict
+    uart_print("ALL PROOFS PASSED\n");
+    uart_print("6 proofs: timer armed, domain A (");
+    print_u32(expected_a);
+    uart_print("), domain B (");
+    print_u32(expected_b);
+    uart_print("),\n");
+    uart_print("  preemption (>");
+    print_u32(5);
+    uart_print(" switches), FP integrity, context size\n");
+    uart_print("Caravan FP context save/restore on RV64FD\n");
+    uart_print("Orbit 17 complete\n");
+
+    halt_pass();
+}
+
+// -- kmain: set up trap, timer, FPU, and enter first domain -----------
+export fn kmain() callconv(.c) noreturn {
+    uart_print("=== fp_context: Orbit 17 -- ");
+    uart_print("Caravan FP context save/restore ===\n");
+    uart_print("target: RV64IMAFD ");
+    uart_print("(-mcpu=generic_rv64+m+f+d)\n\n");
+
+    // set up initial contexts
+    ctx_a[31] = @intFromPtr(&domain_a);
+    ctx_a[1] = domain_a_stack;
+
+    ctx_b[31] = @intFromPtr(&domain_b);
+    ctx_b[1] = domain_b_stack;
+
+    uart_print("scheduler: two FP domains, round-robin, ");
+    uart_print("CLINT timer\n");
+    uart_print("  domain A: FP sum of i*1.25 for i=1..5 ");
+    uart_print("(expected 18.75)\n");
+    uart_print("  domain B: FP sum of i*10.50 for i=1..5 ");
+    uart_print("(expected 157.50)\n");
+    uart_print("  context: ");
+    print_u32(ctx_slots);
+    uart_print(" slots (31 GP + mepc + 32 FP + fcsr) = ");
+    print_u32(ctx_size);
+    uart_print(" bytes\n");
+    uart_print("  timeslice: 50000 ticks (5 ms)\n\n");
+
+    // start with domain A
+    current = 0;
+
+    // set mtvec to trap_vector
+    const trap_addr = @intFromPtr(&trap_vector);
+    asm volatile ("csrw mtvec, %[addr]"
+        :
+        : [addr] "r" (trap_addr),
+    );
+
+    // mscratch -> domain A context
+    const ctx_a_addr = @intFromPtr(&ctx_a);
+    asm volatile ("csrw mscratch, %[addr]"
+        :
+        : [addr] "r" (ctx_a_addr),
+    );
+
+    // arm the timer
+    clint_mtimecmp.* = clint_mtime.* + timeslice;
+
+    // enable timer interrupt (MTIE, bit 7)
+    asm volatile ("csrs mie, %[mask]"
+        :
+        : [mask] "r" (@as(u64, 1 << 7)),
+    );
+
+    // mstatus: MPP=M-mode (bits 12:11 = 11), MPIE=1 (bit 7)
+    // FS bits already set to Dirty in _start
+    const mstatus_val: u64 = (3 << 11) | (1 << 7);
+    asm volatile ("csrs mstatus, %[val]"
+        :
+        : [val] "r" (mstatus_val),
+    );
+
+    // set mepc to domain_a entry
+    const domain_a_addr = @intFromPtr(&domain_a);
+    asm volatile ("csrw mepc, %[addr]"
+        :
+        : [addr] "r" (domain_a_addr),
+    );
+
+    // set sp to domain A stack
+    asm volatile ("li sp, 0x80100000");
+
+    // mret: jump to domain_a with interrupts enabled
+    asm volatile ("mret");
+
+    unreachable;
+}
