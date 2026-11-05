@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.141323` | [Seat single-clone nib amend-before-push pattern in rule](20261105/20261105-141323_nib-amend-before-push-rule.kyri.md) | Clause 2a seated in both .claude/rules and .cursor/rules: commit -> amend nib -> push once, no force-push |
 | `20261105.140418` | [Mantrapod RV64G Orbit 12 -- A extension atomic domain registry](20261105/20261105-140418_mantrapod-orbit12-atomic-registry.kyri.md) | 4 stages GREEN: DomainSlot state machine with cmpxchgWeak, amoswap, amoadd on RV64IMA, 8 proofs, 13 A-ext instructions, 10040-byte ELF |
 | `20261105.134731` | [Mantrapod RV64G Orbit 11 -- A extension atomic cap table](20261105/20261105-134731_mantrapod-orbit11-atomic-cap.kyri.md) | 4 stages GREEN: cmpxchgWeak (lr/sc), amoswap, amoadd on RV64IMA, 7 proofs, 19 A-ext instructions, 9120-byte ELF |
 | `20261105.131000` | [Mantrapod RV64G Orbit 10 -- M extension integration](20261105/20261105-131000_mantrapod-orbit10-m-extension-integration.kyri.md) | 7 stages GREEN: 11/11 modules on RV64IM, pill 0x079080D9, Glow 6/6, Amphora seal, full boot 8/8, M-ext census -- Quest 2 complete |
