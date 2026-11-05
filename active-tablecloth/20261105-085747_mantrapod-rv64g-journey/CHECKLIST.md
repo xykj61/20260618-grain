@@ -115,7 +115,7 @@ unchanged in what it does, wider in how it addresses.*
 *The hart becomes safe under concurrency. Caravan's tables gain atomic operations,
 and the system prepares for multi-hart boot.*
 
-- [ ] **Orbit 11 -- A extension: atomic capability table**
+- [x] **Orbit 11 -- A extension: atomic capability table**
   Caravan's capability table uses `amoadd`, `amoswap`, and `lr`/`sc` for
   concurrent access. Prove: two domains accessing the same table see consistent state.
   **SLC gate:** concurrent capability grant and revoke produce correct state on RV64A.

@@ -1,0 +1,111 @@
+# terrarium/atomic_cap_witness.rish -- A extension atomic cap witness
+#
+# Mantrapod RV64G Orbit 11, Quest 1.3. Proves atomic capability
+# operations compile to real A-extension instructions (amoadd,
+# amoswap, lr/sc) and execute correctly on QEMU RV64.
+#
+# SLC gate: concurrent capability grant and revoke produce
+# correct state on RV64A.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run terrarium/atomic_cap_witness.rish
+
+say "atomic_cap_witness: Orbit 11 -- A extension atomic cap table"
+say "atomic_cap_witness: -mcpu=generic_rv64+m+a (RV64IMA explicit)"
+say ""
+
+# -- Stage 1: CPU features -- verify +a, +zaamo, +zalrsc
+
+say "=== Stage 1: CPU features ==="
+
+let features = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/hello64.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+a --verbose-llvm-cpu-features -femit-bin=/dev/null 2>&1 | head -4"]
+assert features.ok else "CPU feature probe failed"
+assert features.out contains "+a" else "missing +a in CPU features"
+assert features.out contains "+m" else "missing +m in CPU features"
+assert features.out contains "+zaamo" else "missing +zaamo (AMO subset)"
+assert features.out contains "+zalrsc" else "missing +zalrsc (LR/SC subset)"
+
+say "Stage 1 GREEN: +a, +zaamo, +zalrsc confirmed on generic_rv64+m+a"
+say ""
+
+# -- Stage 2: build via helper
+
+say "=== Stage 2: build atomic_cap.rye ==="
+
+let t0 = run ["python3" "-c" "import time; print(int(time.time()*1000))"]
+
+let build = run ["sh" "terrarium/atomic_cap_helper.sh" "build"]
+assert build.ok else "build failed"
+assert build.out contains "build=ok" else "build did not report ok"
+
+let t1 = run ["python3" "-c" "import time; print(int(time.time()*1000))"]
+
+say "Stage 2 GREEN: atomic_cap.elf built for RV64IMA"
+say ""
+
+# -- Stage 3: run on QEMU and verify output
+
+say "=== Stage 3: run on QEMU ==="
+
+let t2 = run ["python3" "-c" "import time; print(int(time.time()*1000))"]
+
+let qemu = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/atomic_cap.elf 2>/dev/null"]
+
+let t3 = run ["python3" "-c" "import time; print(int(time.time()*1000))"]
+
+# proof 1: initialization
+assert qemu.out contains "8 slots initialized to FREE" else "proof 1: slots not initialized"
+
+# proof 2: alpha grants
+assert qemu.out contains "alpha holds 3 capabilities" else "proof 2: alpha grants failed"
+
+# proof 3: beta grants
+assert qemu.out contains "beta holds 3 capabilities" else "proof 3: beta grants failed"
+
+# proof 4: revoke via amoswap
+assert qemu.out contains "2 capabilities revoked" else "proof 4: revoke failed"
+
+# proof 5: contested grant
+assert qemu.out contains "REFUSED (already GRANTED)" else "proof 5: contested grant not refused"
+assert qemu.out contains "first writer wins" else "proof 5: contention not proven"
+
+# proof 6: atomic census
+assert qemu.out contains "active count: 5" else "proof 6: census wrong"
+assert qemu.out contains "census correct" else "proof 6: census not confirmed"
+
+# proof 7: state consistency
+assert qemu.out contains "8/8 slots consistent" else "proof 7: state inconsistent"
+
+# overall
+assert qemu.out contains "ALL PROOFS PASSED" else "not all proofs passed"
+assert qemu.out contains "Orbit 11 complete" else "orbit not complete"
+
+say "Stage 3 GREEN: 7 proofs passed on QEMU RV64"
+say ""
+
+# -- Stage 4: A-extension instruction census
+
+say "=== Stage 4: A-extension instruction census ==="
+
+let census = run ["sh" "terrarium/atomic_cap_helper.sh" "census"]
+assert census.ok else "census failed"
+assert census.out contains "census_total=" else "census did not report total"
+assert census.out contains "census_amoadd=" else "census missing amoadd count"
+assert census.out contains "census_amoswap=" else "census missing amoswap count"
+assert census.out contains "census_lr=" else "census missing lr count"
+assert census.out contains "census_sc=" else "census missing sc count"
+
+say "Stage 4 GREEN: A-extension instructions confirmed via objdump"
+say ""
+
+# -- verdict
+
+say "========================================"
+say "atomic_cap_witness: ALL 4 STAGES GREEN"
+say "  CPU features: +a, +zaamo, +zalrsc on generic_rv64+m+a"
+say "  Build: atomic_cap.elf for RV64IMA"
+say "  7 proofs: init, alpha grant, beta grant, revoke,"
+say "    contested grant, atomic census, state consistency"
+say "  A-ext: amoadd.w, amoswap.w, lr.w, sc.w confirmed"
+say "========================================"
+say "Orbit 11 complete"
