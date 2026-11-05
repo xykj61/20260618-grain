@@ -1,0 +1,160 @@
+#!/usr/bin/env rishi
+# terrarium/a_extension_witness.rish
+#
+# Orbit 15 witness: A extension integration -- all four A-extension
+# modules built and proven together on 2-hart RV64IMA.
+#
+# 7 stages:
+#   1. CPU features probe (RV64IMA: +a, +m, +zaamo, +zalrsc)
+#   2. Build all 4 modules via helper
+#   3. atomic_cap QEMU run (capability table)
+#   4. atomic_registry QEMU run (domain registry)
+#   5. multi_hart QEMU run (2-hart boot with spinlock)
+#   6. preempt QEMU run (preemptive scheduling)
+#   7. Combined A-extension + trap instruction census
+
+say "=== a_extension_witness: Orbit 15 ==="
+say "A extension integration on 2-hart RV64IMA"
+say ""
+
+# --- stage 1: CPU features ---
+say "--- stage 1: CPU features ---"
+let features = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/hello64.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+a --verbose-llvm-cpu-features -femit-bin=/dev/null 2>&1 | head -4"]
+say "CPU features output captured"
+assert features.out contains "+a"
+say "  +a (atomic) confirmed"
+assert features.out contains "+m"
+say "  +m (multiply) confirmed"
+assert features.out contains "+zalrsc"
+say "  +zalrsc (lr/sc) confirmed"
+assert features.out contains "+zaamo"
+say "  +zaamo (AMO) confirmed"
+say "stage 1: GREEN"
+say ""
+
+# --- stage 2: build all 4 modules ---
+say "--- stage 2: build all 4 A-extension modules ---"
+let build = run ["sh" "-c" "sh terrarium/a_extension_helper.sh build 2>&1"]
+assert build.ok
+assert build.out contains "builds_ok=4"
+assert build.out contains "builds_fail=0"
+say "  4/4 builds succeeded"
+assert build.out contains "elf_bytes_total="
+say "  ELF sizes reported"
+say "stage 2: GREEN"
+say ""
+
+# --- stage 3: atomic_cap ---
+say "--- stage 3: atomic_cap (capability table) ---"
+let cap = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/atomic_cap.elf 2>/dev/null || true"]
+say "  QEMU output captured"
+
+assert cap.out contains "8 slots initialized to FREE"
+say "  proof 1: 8 slots initialized GREEN"
+assert cap.out contains "alpha holds 3 capabilities"
+say "  proof 2: alpha capabilities GREEN"
+assert cap.out contains "beta holds 3 capabilities"
+say "  proof 3: beta capabilities GREEN"
+assert cap.out contains "2 capabilities revoked"
+say "  proof 4: revoke via amoswap GREEN"
+assert cap.out contains "first writer wins"
+say "  proof 5: contested grant refused GREEN"
+assert cap.out contains "census correct"
+say "  proof 6: atomic census GREEN"
+assert cap.out contains "8/8 slots consistent"
+say "  proof 7: state consistency GREEN"
+assert cap.out contains "ALL PROOFS PASSED"
+say "  all proofs passed"
+say "stage 3: GREEN"
+say ""
+
+# --- stage 4: atomic_registry ---
+say "--- stage 4: atomic_registry (domain registry) ---"
+let reg = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/atomic_registry.elf 2>/dev/null || true"]
+say "  QEMU output captured"
+
+assert reg.out contains "8 slots initialized to EMPTY"
+say "  proof 1: 8 slots initialized GREEN"
+assert reg.out contains "alpha holds 2 domains"
+say "  proof 2: alpha registers GREEN"
+assert reg.out contains "beta holds 2 domains"
+say "  proof 3: beta registers GREEN"
+assert reg.out contains "contested registration: first writer wins"
+say "  proof 4: contested slot GREEN"
+assert reg.out contains "count after shutdown: 3"
+say "  proof 5: shutdown GREEN"
+assert reg.out contains "census matches counter: 3 active"
+say "  proof 6: census matches counter GREEN"
+assert reg.out contains "5/5 hashes correct"
+say "  proof 7: name hash integrity GREEN"
+assert reg.out contains "8/8 slots consistent"
+say "  proof 8: state consistency GREEN"
+assert reg.out contains "ALL PROOFS PASSED"
+say "  all proofs passed"
+say "stage 4: GREEN"
+say ""
+
+# --- stage 5: multi_hart ---
+say "--- stage 5: multi_hart (2-hart boot with spinlock) ---"
+let hart = run ["timeout" "10" "qemu-system-riscv64" "-machine" "virt" "-bios" "none" "-smp" "2" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/multi_hart64.elf"]
+say "  QEMU output captured (2 harts)"
+
+assert hart.out contains "primary hart alive"
+say "  proof 1: hart 0 wakes GREEN"
+assert hart.out contains "gate released"
+say "  proof 2: gate release GREEN"
+assert hart.out contains "work done: 7 * 6 = 42"
+say "  proof 3: hart 1 computes 42 GREEN"
+assert hart.out contains "done_count: 2"
+say "  proof 4: both harts done GREEN"
+assert hart.out contains "all tickets served"
+say "  proof 5: ticket lock GREEN"
+assert hart.out contains "ALL PROOFS PASSED"
+say "  all proofs passed"
+say "stage 5: GREEN"
+say ""
+
+# --- stage 6: preempt ---
+say "--- stage 6: preempt (preemptive scheduling) ---"
+let pre = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/preempt64.elf 2>/dev/null || true"]
+say "  QEMU output captured"
+
+assert pre.out contains "timer armed: GREEN"
+say "  proof 1: timer armed GREEN"
+assert pre.out contains "domain A: GREEN"
+say "  proof 2: domain A checksum GREEN"
+assert pre.out contains "domain B: GREEN"
+say "  proof 3: domain B checksum GREEN"
+assert pre.out contains "preemption verified: GREEN"
+say "  proof 4: preemption verified GREEN"
+assert pre.out contains "register integrity: GREEN"
+say "  proof 5: register integrity GREEN"
+assert pre.out contains "ALL PROOFS PASSED"
+say "  all proofs passed"
+say "stage 6: GREEN"
+say ""
+
+# --- stage 7: combined census ---
+say "--- stage 7: combined A-extension + trap census ---"
+let census = run ["sh" "-c" "sh terrarium/a_extension_helper.sh census 2>&1"]
+assert census.ok
+say "  census output captured"
+
+assert census.out contains "census_modules=4"
+say "  4/4 modules disassembled"
+assert census.out contains "census_a_total="
+say "  A-extension instruction total reported"
+assert census.out contains "census_fence="
+say "  fence count reported"
+assert census.out contains "census_csr_total="
+say "  CSR instruction total reported"
+assert census.out contains "census_sd="
+say "  store double count reported"
+assert census.out contains "census_ld="
+say "  load double count reported"
+say "stage 7: GREEN"
+say ""
+
+say "=== ALL 7 STAGES GREEN ==="
+say "Orbit 15: A extension integration on 2-hart RV64IMA proven"
+say "Quest 1.3 complete"

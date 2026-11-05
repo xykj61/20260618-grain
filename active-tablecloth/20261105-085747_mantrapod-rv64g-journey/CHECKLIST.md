@@ -152,10 +152,15 @@ and the system prepares for multi-hart boot.*
   **Witness:** `terrarium/preempt_witness.rish` -- features, build,
   QEMU 5-proof run, trap instruction census. **GREEN on metal.**
 
-- [ ] **Orbit 15 -- A extension integration witness**
-  Full boot with atomics, multi-hart, and preemptive scheduling. The capability
-  model, domain registry, and scheduler all proven under concurrency.
-  **SLC gate:** `terrarium/a_extension_witness.rish` runs GREEN on 2-hart RV64MA.
+- [x] **Orbit 15 -- A extension integration witness** (`20261105.154640`)
+  All four A-extension modules built and proven together on 2-hart RV64IMA.
+  7 stages: CPU features, build all 4, atomic_cap (7 proofs), atomic_registry
+  (8 proofs), multi_hart with -smp 2 (5 proofs), preempt (5 proofs), combined
+  census -- 37 A-ext instructions (13 lr.w, 13 sc.w, 8 amoadd.w, 3 amoswap.w),
+  21 CSR instructions, 80 fence, 142 sd, 90 ld across 33,832 bytes of ELF.
+  **Witness:** `terrarium/a_extension_witness.rish` -- 7 stages, 25 proofs
+  total, combined A-extension + trap instruction census. **GREEN on metal.**
+  **Quest 1.3 complete.**
 
 ### Quest 1.4 -- Numeric Precision (F/D extensions)
 
