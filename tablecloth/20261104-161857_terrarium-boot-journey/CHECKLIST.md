@@ -115,7 +115,7 @@ emulation, and Aurora's proven stages port to the smaller ISA.*
 *The first language in the pill: Glow compiles to RISC-V assembly, and that assembly
 runs on the bare hart. By the end, the pill compiles itself.*
 
-- [ ] **Orbit 11 -- Minimal Glow-to-RV32I code generator**
+- [x] **Orbit 11 -- Minimal Glow-to-RV32I code generator** (`327fd6939`, `20261104`)
   A Glow program compiles to RV32I assembly (directly from Glow's compiler pipeline --
   not through Rye or Zig). The generated code runs freestanding on QEMU. Start with the
   simplest possible program: a Glow expression that evaluates to a number, and the
