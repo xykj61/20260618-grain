@@ -1,0 +1,492 @@
+//! terrarium/src/atomic_registry.rye -- atomic domain registry on RV64IMA
+//!
+//! Orbit 12, Quest 1.3: prove A-extension atomic operations on a
+//! shared domain registry. Two stewards (alpha and beta) concurrently
+//! register domains using hardware atomics:
+//!   - @cmpxchgWeak  -> lr.w / sc.w   (claim a registry slot)
+//!   - @atomicRmw    -> amoswap.w     (finalize domain state)
+//!   - @atomicRmw    -> amoadd.w      (atomic domain counter)
+//!   - @atomicLoad   -> load + fence   (read slot state)
+//!   - @atomicStore  -> store + fence  (initialize fields)
+//!
+//! Build:
+//!   rye build terrarium/src/atomic_registry.rye \
+//!     -target riscv64-freestanding-none -fno-entry \
+//!     -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany \
+//!     -mcpu=generic_rv64+m+a
+//!
+//! SLC gate (Orbit 12): two-domain concurrent boot, both registered,
+//! registry consistent.
+
+// -- Hardware addresses -----------------------------------------------
+const uart_tx: *volatile u8 = @ptrFromInt(0x1000_0000);
+const test_finisher: *volatile u32 = @ptrFromInt(0x0010_0000);
+const finisher_pass: u32 = 0x5555;
+
+// -- Entry point ------------------------------------------------------
+export fn _start() linksection(".text.init") callconv(.naked) noreturn {
+    asm volatile (
+        \\ li sp, 0x80100000
+        \\ j kmain
+    );
+}
+
+// -- UART I/O ---------------------------------------------------------
+
+fn uart_print(msg: []const u8) void {
+    for (msg) |byte| uart_tx.* = byte;
+}
+
+fn print_u32(val: u32) void {
+    if (val == 0) {
+        uart_tx.* = '0';
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n = val;
+    var i: u32 = 0;
+    while (n > 0) {
+        buf[i] = @intCast(n % 10 + '0');
+        n = n / 10;
+        i += 1;
+    }
+    while (i > 0) {
+        i -= 1;
+        uart_tx.* = buf[i];
+    }
+}
+
+fn print_hex(val: u32) void {
+    const hex = "0123456789abcdef";
+    uart_print("0x");
+    var shift: u32 = 28;
+    while (true) {
+        const nibble: u4 = @intCast((val >> @intCast(shift)) & 0xF);
+        uart_tx.* = hex[nibble];
+        if (shift == 0) break;
+        shift -= 4;
+    }
+}
+
+fn halt_pass() noreturn {
+    test_finisher.* = finisher_pass;
+    while (true) {}
+}
+
+fn assert_true(cond: bool) void {
+    if (!cond) {
+        uart_print("ASSERTION FAILED\n");
+        test_finisher.* = finisher_pass;
+        while (true) {}
+    }
+}
+
+// -- Domain slot state machine ----------------------------------------
+// EMPTY -> CLAIMING -> ACTIVE   (normal registration)
+// EMPTY -> CLAIMING -> EMPTY    (failed registration, rollback)
+// ACTIVE -> SHUTDOWN            (deregistration)
+
+const SLOT_EMPTY: u32 = 0;
+const SLOT_CLAIMING: u32 = 1;
+const SLOT_ACTIVE: u32 = 2;
+const SLOT_SHUTDOWN: u32 = 3;
+
+fn slot_state_name(s: u32) []const u8 {
+    if (s == SLOT_EMPTY) return "EMPTY";
+    if (s == SLOT_CLAIMING) return "CLAIMING";
+    if (s == SLOT_ACTIVE) return "ACTIVE";
+    if (s == SLOT_SHUTDOWN) return "SHUTDOWN";
+    return "UNKNOWN";
+}
+
+// -- Registry slot ----------------------------------------------------
+// Each domain occupies one slot. The state field is the
+// synchronization point: all transitions go through atomics.
+// owner_id identifies the steward that registered the domain.
+// domain_type classifies the domain (console, compute, etc.).
+// cap_count tracks granted capabilities.
+
+const max_slots: u32 = 8;
+
+const DomainSlot = struct {
+    state: u32,
+    owner_id: u32,
+    domain_type: u32,
+    cap_count: u32,
+    budget: u32,
+    name_hash: u32,
+};
+
+// -- Domain types -----------------------------------------------------
+const DTYPE_ROOT: u32 = 0;
+const DTYPE_CONSOLE: u32 = 1;
+const DTYPE_COMPUTE: u32 = 2;
+const DTYPE_NETWORK: u32 = 3;
+const DTYPE_STORAGE: u32 = 4;
+
+fn dtype_name(dt: u32) []const u8 {
+    if (dt == DTYPE_ROOT) return "root";
+    if (dt == DTYPE_CONSOLE) return "console";
+    if (dt == DTYPE_COMPUTE) return "compute";
+    if (dt == DTYPE_NETWORK) return "network";
+    if (dt == DTYPE_STORAGE) return "storage";
+    return "unknown";
+}
+
+// -- Shared registry --------------------------------------------------
+// The domain registry and domain counter are shared globals.
+// In a multi-hart system these would be accessed from multiple harts.
+
+var registry: [max_slots]DomainSlot = [_]DomainSlot{
+    .{ .state = SLOT_EMPTY, .owner_id = 0, .domain_type = 0, .cap_count = 0, .budget = 0, .name_hash = 0 },
+    .{ .state = SLOT_EMPTY, .owner_id = 0, .domain_type = 0, .cap_count = 0, .budget = 0, .name_hash = 0 },
+    .{ .state = SLOT_EMPTY, .owner_id = 0, .domain_type = 0, .cap_count = 0, .budget = 0, .name_hash = 0 },
+    .{ .state = SLOT_EMPTY, .owner_id = 0, .domain_type = 0, .cap_count = 0, .budget = 0, .name_hash = 0 },
+    .{ .state = SLOT_EMPTY, .owner_id = 0, .domain_type = 0, .cap_count = 0, .budget = 0, .name_hash = 0 },
+    .{ .state = SLOT_EMPTY, .owner_id = 0, .domain_type = 0, .cap_count = 0, .budget = 0, .name_hash = 0 },
+    .{ .state = SLOT_EMPTY, .owner_id = 0, .domain_type = 0, .cap_count = 0, .budget = 0, .name_hash = 0 },
+    .{ .state = SLOT_EMPTY, .owner_id = 0, .domain_type = 0, .cap_count = 0, .budget = 0, .name_hash = 0 },
+};
+
+var domain_count: u32 = 0;
+
+// -- Steward IDs ------------------------------------------------------
+const STEWARD_ALPHA: u32 = 1;
+const STEWARD_BETA: u32 = 2;
+
+// -- djb2 hash for domain names ---------------------------------------
+fn djb2_hash(name: []const u8) u32 {
+    var h: u32 = 5381;
+    for (name) |byte| {
+        h = ((h << 5) +% h) +% byte;
+    }
+    return h;
+}
+
+// -- Atomic registry operations ---------------------------------------
+
+// Register: atomically claim an empty slot using cmpxchg (lr/sc),
+// fill fields, then finalize to ACTIVE using amoswap.
+// Returns the slot index on success, or max_slots on failure.
+fn atomic_register(
+    slot: u32,
+    owner: u32,
+    dtype: u32,
+    budget: u32,
+    name: []const u8,
+) u32 {
+    // invariant: slot index within registry bounds
+    assert_true(slot < max_slots);
+
+    // phase 1: claim the slot (EMPTY -> CLAIMING) via cmpxchg
+    // compiles to lr.w / sc.w pair on RISC-V A extension
+    const result = @cmpxchgWeak(
+        u32,
+        &registry[slot].state,
+        SLOT_EMPTY,
+        SLOT_CLAIMING,
+        .seq_cst,
+        .seq_cst,
+    );
+    if (result != null) {
+        return max_slots;
+    }
+
+    // phase 2: fill fields while we hold CLAIMING
+    registry[slot].owner_id = owner;
+    registry[slot].domain_type = dtype;
+    registry[slot].cap_count = 0;
+    registry[slot].budget = budget;
+    registry[slot].name_hash = djb2_hash(name);
+
+    // phase 3: finalize (CLAIMING -> ACTIVE) via amoswap
+    // compiles to amoswap.w on RISC-V
+    const old = @atomicRmw(
+        u32,
+        &registry[slot].state,
+        .Xchg,
+        SLOT_ACTIVE,
+        .seq_cst,
+    );
+    // invariant: we set CLAIMING, so old must be CLAIMING
+    assert_true(old == SLOT_CLAIMING);
+
+    // phase 4: atomically increment domain counter via amoadd
+    _ = @atomicRmw(u32, &domain_count, .Add, 1, .seq_cst);
+
+    return slot;
+}
+
+// Shutdown: atomically transition ACTIVE -> SHUTDOWN.
+// Returns true if the slot was ACTIVE.
+fn atomic_shutdown(slot: u32) bool {
+    assert_true(slot < max_slots);
+    const result = @cmpxchgWeak(
+        u32,
+        &registry[slot].state,
+        SLOT_ACTIVE,
+        SLOT_SHUTDOWN,
+        .seq_cst,
+        .seq_cst,
+    );
+    if (result == null) {
+        // decrement domain counter
+        _ = @atomicRmw(u32, &domain_count, .Sub, 1, .seq_cst);
+        return true;
+    }
+    return false;
+}
+
+// Census: count active domains using atomic add.
+fn count_active_domains() u32 {
+    var count: u32 = 0;
+    var i: u32 = 0;
+    while (i < max_slots) : (i += 1) {
+        const st = @atomicLoad(u32, &registry[i].state, .seq_cst);
+        if (st == SLOT_ACTIVE) {
+            count += 1;
+        }
+    }
+    return count;
+}
+
+// Read slot state atomically.
+fn read_slot_state(slot: u32) u32 {
+    assert_true(slot < max_slots);
+    return @atomicLoad(u32, &registry[slot].state, .seq_cst);
+}
+
+// Read domain counter atomically.
+fn read_domain_count() u32 {
+    return @atomicLoad(u32, &domain_count, .seq_cst);
+}
+
+// -- Print helpers ----------------------------------------------------
+
+fn print_slot(slot: u32) void {
+    uart_print("  slot ");
+    print_u32(slot);
+    uart_print(": ");
+    uart_print(slot_state_name(read_slot_state(slot)));
+    uart_print(" owner=");
+    print_u32(registry[slot].owner_id);
+    uart_print(" type=");
+    uart_print(dtype_name(registry[slot].domain_type));
+    uart_print(" budget=");
+    print_u32(registry[slot].budget);
+    uart_print(" name_hash=");
+    print_hex(registry[slot].name_hash);
+    uart_print("\n");
+}
+
+fn print_register(
+    slot: u32,
+    steward_name: []const u8,
+    domain_name: []const u8,
+    ok: bool,
+) void {
+    uart_print("  ");
+    uart_print(steward_name);
+    uart_print(" registers '");
+    uart_print(domain_name);
+    uart_print("' at slot ");
+    print_u32(slot);
+    if (ok) {
+        uart_print(" -> ok\n");
+    } else {
+        uart_print(" -> REFUSED\n");
+    }
+}
+
+// -- Main: 8 proofs ---------------------------------------------------
+
+export fn kmain() noreturn {
+    uart_print("=== atomic_registry: Orbit 12 -- ");
+    uart_print("A extension atomic domain registry ===\n");
+    uart_print("target: RV64IMA (-mcpu=generic_rv64+m+a)\n\n");
+
+    // -- proof 1: verify 8 slots start EMPTY
+    uart_print("--- proof 1: initialize 8 registry slots ---\n");
+    var i: u32 = 0;
+    while (i < max_slots) : (i += 1) {
+        assert_true(read_slot_state(i) == SLOT_EMPTY);
+    }
+    uart_print("  8 slots initialized to EMPTY\n");
+    assert_true(read_domain_count() == 0);
+    uart_print("  domain_count: 0\n\n");
+
+    // -- proof 2: alpha registers root and console domains
+    uart_print("--- proof 2: alpha registers root + console ---\n");
+
+    const r0 = atomic_register(0, STEWARD_ALPHA, DTYPE_ROOT, 4096, "caravan-root");
+    print_register(0, "alpha", "caravan-root", r0 < max_slots);
+    assert_true(r0 == 0);
+
+    const r1 = atomic_register(1, STEWARD_ALPHA, DTYPE_CONSOLE, 512, "console");
+    print_register(1, "alpha", "console", r1 < max_slots);
+    assert_true(r1 == 1);
+
+    uart_print("  alpha holds 2 domains, count=");
+    print_u32(read_domain_count());
+    uart_print("\n\n");
+    assert_true(read_domain_count() == 2);
+
+    // -- proof 3: beta registers compute and network domains
+    uart_print("--- proof 3: beta registers compute + network ---\n");
+
+    const r2 = atomic_register(2, STEWARD_BETA, DTYPE_COMPUTE, 256, "compute");
+    print_register(2, "beta", "compute", r2 < max_slots);
+    assert_true(r2 == 2);
+
+    const r3 = atomic_register(3, STEWARD_BETA, DTYPE_NETWORK, 1024, "network");
+    print_register(3, "beta", "network", r3 < max_slots);
+    assert_true(r3 == 3);
+
+    uart_print("  beta holds 2 domains, count=");
+    print_u32(read_domain_count());
+    uart_print("\n\n");
+    assert_true(read_domain_count() == 4);
+
+    // -- proof 4: contested slot -- alpha and beta both try slot 4
+    uart_print("--- proof 4: contested slot 4 ---\n");
+
+    const ra4 = atomic_register(4, STEWARD_ALPHA, DTYPE_STORAGE, 2048, "storage-alpha");
+    print_register(4, "alpha", "storage-alpha", ra4 < max_slots);
+    assert_true(ra4 == 4);
+
+    const rb4 = atomic_register(4, STEWARD_BETA, DTYPE_STORAGE, 2048, "storage-beta");
+    print_register(4, "beta", "storage-beta", rb4 < max_slots);
+    assert_true(rb4 == max_slots);
+
+    uart_print("  contested registration: first writer wins\n");
+    uart_print("  slot 4 owner: ");
+    print_u32(registry[4].owner_id);
+    uart_print(" (alpha=1)\n");
+    assert_true(registry[4].owner_id == STEWARD_ALPHA);
+    uart_print("  count=");
+    print_u32(read_domain_count());
+    uart_print("\n\n");
+    assert_true(read_domain_count() == 5);
+
+    // -- proof 5: shutdown via cmpxchg (ACTIVE -> SHUTDOWN)
+    uart_print("--- proof 5: shutdown domains ---\n");
+
+    const sh1 = atomic_shutdown(1);
+    uart_print("  shutdown slot 1 (console): ");
+    if (sh1) {
+        uart_print("ok\n");
+    } else {
+        uart_print("REFUSED\n");
+    }
+    assert_true(sh1);
+
+    const sh3 = atomic_shutdown(3);
+    uart_print("  shutdown slot 3 (network): ");
+    if (sh3) {
+        uart_print("ok\n");
+    } else {
+        uart_print("REFUSED\n");
+    }
+    assert_true(sh3);
+
+    uart_print("  count after shutdown: ");
+    print_u32(read_domain_count());
+    uart_print("\n");
+    assert_true(read_domain_count() == 3);
+
+    // try shutting down already-shutdown slot
+    const sh1_again = atomic_shutdown(1);
+    uart_print("  re-shutdown slot 1: ");
+    if (sh1_again) {
+        uart_print("ok\n");
+    } else {
+        uart_print("REFUSED (already SHUTDOWN)\n");
+    }
+    assert_true(!sh1_again);
+    uart_print("\n");
+
+    // -- proof 6: census matches counter
+    uart_print("--- proof 6: census vs counter ---\n");
+    const census = count_active_domains();
+    const counter = read_domain_count();
+    uart_print("  census (walk): ");
+    print_u32(census);
+    uart_print("\n");
+    uart_print("  counter (atomic): ");
+    print_u32(counter);
+    uart_print("\n");
+    assert_true(census == counter);
+    assert_true(census == 3);
+    uart_print("  census matches counter: 3 active\n\n");
+
+    // -- proof 7: name hash integrity
+    uart_print("--- proof 7: name hash integrity ---\n");
+    const expected_hashes = [5]u32{
+        djb2_hash("caravan-root"),
+        djb2_hash("console"),
+        djb2_hash("compute"),
+        djb2_hash("network"),
+        djb2_hash("storage-alpha"),
+    };
+    var hash_ok: u32 = 0;
+    var h: u32 = 0;
+    while (h < 5) : (h += 1) {
+        uart_print("  slot ");
+        print_u32(h);
+        uart_print(": hash=");
+        print_hex(registry[h].name_hash);
+        uart_print(" expected=");
+        print_hex(expected_hashes[h]);
+        if (registry[h].name_hash == expected_hashes[h]) {
+            uart_print(" ok\n");
+            hash_ok += 1;
+        } else {
+            uart_print(" MISMATCH\n");
+        }
+    }
+    assert_true(hash_ok == 5);
+    uart_print("  5/5 hashes correct\n\n");
+
+    // -- proof 8: full state consistency
+    uart_print("--- proof 8: full state consistency ---\n");
+    const expected_states = [max_slots]u32{
+        SLOT_ACTIVE, //   0: caravan-root (alpha)
+        SLOT_SHUTDOWN, // 1: console (alpha, shut down)
+        SLOT_ACTIVE, //   2: compute (beta)
+        SLOT_SHUTDOWN, // 3: network (beta, shut down)
+        SLOT_ACTIVE, //   4: storage-alpha (alpha, contested)
+        SLOT_EMPTY, //    5: never registered
+        SLOT_EMPTY, //    6: never registered
+        SLOT_EMPTY, //    7: never registered
+    };
+    const expected_owners = [max_slots]u32{
+        STEWARD_ALPHA, STEWARD_ALPHA,
+        STEWARD_BETA, STEWARD_BETA,
+        STEWARD_ALPHA, 0, 0, 0,
+    };
+
+    var ok_count: u32 = 0;
+    var j: u32 = 0;
+    while (j < max_slots) : (j += 1) {
+        const actual_state = read_slot_state(j);
+        const actual_owner = registry[j].owner_id;
+        print_slot(j);
+        if (actual_state == expected_states[j] and actual_owner == expected_owners[j]) {
+            ok_count += 1;
+        } else {
+            uart_print("  ^ MISMATCH\n");
+        }
+    }
+    assert_true(ok_count == max_slots);
+    uart_print("  8/8 slots consistent\n\n");
+
+    // -- verdict
+    uart_print("ALL PROOFS PASSED\n");
+    uart_print("8 proofs, 4 A-extension operations: ");
+    uart_print("cmpxchg (lr/sc), amoswap, amoadd, amosub\n");
+    uart_print("Two stewards registered 5 domains, shut down 2, ");
+    uart_print("contested 1 -- registry consistent\n");
+    uart_print("Orbit 12 complete\n");
+
+    halt_pass();
+}

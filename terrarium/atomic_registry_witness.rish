@@ -1,0 +1,108 @@
+#!/usr/bin/env rishi
+# terrarium/atomic_registry_witness.rish
+#
+# Orbit 12 witness: atomic domain registry on RV64IMA.
+# 4 stages: CPU features, build, QEMU run, A-extension census.
+
+say "=== atomic_registry_witness: Orbit 12 ==="
+say "A extension atomic domain registry on RV64IMA"
+say ""
+
+# --- stage 1: CPU features ---
+say "--- stage 1: CPU features ---"
+let features = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/hello64.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+a --verbose-llvm-cpu-features -femit-bin=/dev/null 2>&1 | head -4"]
+say "CPU features output captured"
+assert features.out contains "+a"
+say "  +a (atomic) confirmed"
+assert features.out contains "+m"
+say "  +m (multiply) confirmed"
+assert features.out contains "+zalrsc"
+say "  +zalrsc (lr/sc) confirmed"
+assert features.out contains "+zaamo"
+say "  +zaamo (AMO) confirmed"
+say "stage 1: GREEN"
+say ""
+
+# --- stage 2: build ---
+say "--- stage 2: build RV64IMA ---"
+let build = run ["sh" "-c" "sh terrarium/atomic_registry_helper.sh build 2>&1"]
+assert build.ok
+assert build.out contains "build=ok"
+say "  build succeeded"
+assert build.out contains "elf_bytes="
+say "  ELF size reported"
+say "stage 2: GREEN"
+say ""
+
+# --- stage 3: QEMU run ---
+say "--- stage 3: QEMU execution ---"
+let qemu = run ["sh" "-c" "timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/atomic_registry.elf 2>/dev/null || true"]
+say "  QEMU output captured"
+
+# proof 1: 8 slots initialized
+assert qemu.out contains "8 slots initialized to EMPTY"
+say "  proof 1: 8 slots initialized GREEN"
+
+# proof 2: alpha registers root + console
+assert qemu.out contains "alpha registers 'caravan-root' at slot 0 -> ok"
+assert qemu.out contains "alpha registers 'console' at slot 1 -> ok"
+assert qemu.out contains "alpha holds 2 domains, count=2"
+say "  proof 2: alpha registers 2 domains GREEN"
+
+# proof 3: beta registers compute + network
+assert qemu.out contains "beta registers 'compute' at slot 2 -> ok"
+assert qemu.out contains "beta registers 'network' at slot 3 -> ok"
+assert qemu.out contains "beta holds 2 domains, count=4"
+say "  proof 3: beta registers 2 domains GREEN"
+
+# proof 4: contested slot
+assert qemu.out contains "alpha registers 'storage-alpha' at slot 4 -> ok"
+assert qemu.out contains "beta registers 'storage-beta' at slot 4 -> REFUSED"
+assert qemu.out contains "contested registration: first writer wins"
+assert qemu.out contains "slot 4 owner: 1 (alpha=1)"
+say "  proof 4: contested slot GREEN"
+
+# proof 5: shutdown
+assert qemu.out contains "shutdown slot 1 (console): ok"
+assert qemu.out contains "shutdown slot 3 (network): ok"
+assert qemu.out contains "count after shutdown: 3"
+assert qemu.out contains "re-shutdown slot 1: REFUSED (already SHUTDOWN)"
+say "  proof 5: shutdown + re-shutdown GREEN"
+
+# proof 6: census vs counter
+assert qemu.out contains "census matches counter: 3 active"
+say "  proof 6: census matches counter GREEN"
+
+# proof 7: name hash integrity
+assert qemu.out contains "5/5 hashes correct"
+say "  proof 7: name hash integrity GREEN"
+
+# proof 8: full state consistency
+assert qemu.out contains "8/8 slots consistent"
+say "  proof 8: full state consistency GREEN"
+
+# overall
+assert qemu.out contains "ALL PROOFS PASSED"
+assert qemu.out contains "Orbit 12 complete"
+say "  all 8 proofs passed"
+say "stage 3: GREEN"
+say ""
+
+# --- stage 4: A-extension instruction census ---
+say "--- stage 4: A-extension instruction census ---"
+let census = run ["sh" "-c" "sh terrarium/atomic_registry_helper.sh census 2>&1"]
+assert census.ok
+say "  census output captured"
+
+assert census.out contains "census_amoadd="
+assert census.out contains "census_amoswap="
+assert census.out contains "census_lr="
+assert census.out contains "census_sc="
+assert census.out contains "census_total="
+
+say "  A-extension instructions confirmed in binary"
+say "stage 4: GREEN"
+say ""
+
+say "=== ALL 4 STAGES GREEN ==="
+say "Orbit 12: atomic domain registry on RV64IMA proven"

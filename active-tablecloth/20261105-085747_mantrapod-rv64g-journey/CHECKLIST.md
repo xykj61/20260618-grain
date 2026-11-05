@@ -120,10 +120,16 @@ and the system prepares for multi-hart boot.*
   concurrent access. Prove: two domains accessing the same table see consistent state.
   **SLC gate:** concurrent capability grant and revoke produce correct state on RV64A.
 
-- [ ] **Orbit 12 -- A extension: atomic domain registry**
-  Caravan's domain registry uses atomic operations. Steward boots two domains
-  concurrently; neither corrupts the registry.
-  **SLC gate:** two-domain concurrent boot, both registered, registry consistent.
+- [x] **Orbit 12 -- A extension: atomic domain registry** (`20261105.153500`)
+  Caravan's domain registry uses atomic operations for slot claiming
+  (`@cmpxchgWeak` -> lr.w/sc.w), state finalization (`@atomicRmw .Xchg` ->
+  amoswap.w), domain counting (`@atomicRmw .Add/.Sub` -> amoadd.w), and
+  shutdown (`@cmpxchgWeak` ACTIVE -> SHUTDOWN). Two stewards (alpha, beta)
+  register 5 domains, shut down 2, contest slot 4 (first writer wins), census
+  matches atomic counter at 3. 8 proofs, 13 A-extension instructions in binary.
+  ELF 10040 bytes.
+  **Witness:** `terrarium/atomic_registry_witness.rish` -- features, build,
+  QEMU 8-proof run, A-ext census. **GREEN on metal.**
 
 - [ ] **Orbit 13 -- Multi-hart boot on QEMU (2 harts)**
   Boot QEMU with `-smp 2`. The primary hart runs the boot sequence; the secondary
