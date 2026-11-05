@@ -160,7 +160,7 @@ runs on the bare hart. By the end, the pill compiles itself.*
 Tally first (safety), Aurora second (visibility), Mantra third (replay). Every stage
 from here is bounded, observable, and recorded.*
 
-- [ ] **Orbit 16 -- Tally arena on freestanding RV32I (Stage 2)**
+- [x] **Orbit 16 -- Tally arena on freestanding RV32I (Stage 2)** -- landed `20261104`
   Port Tally's garden arena allocator to freestanding RV32I. A bounded arena with a
   named budget, ceiling enforcement, and named error on overflow. No heap; the arena
   owns all memory the system will ever use.

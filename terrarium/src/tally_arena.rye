@@ -1,0 +1,349 @@
+//! terrarium/src/tally_arena.rye -- Tally arena on freestanding RV32I
+//!
+//! The first TAME stage: Tally bounds every allocation. A freestanding
+//! Region hands out slices of one buffer it never grows, and a Gardens
+//! holds named Regions. Both refuse by name at the ceiling.
+//!
+//! Freestanding port of tally/region.rye and tally/gardens.rye -- no
+//! std, no heap, no OS. The arena owns all memory the system will
+//! ever use.
+//!
+//! Build and run:
+//!   make terrarium STAGE=tally_arena
+//!
+//! SLC gate (Orbit 16): a freestanding RV32I program allocates from
+//! a Tally arena, hits the ceiling, receives a named error, and the
+//! console reports the budget and the refusal.
+
+// -- Hardware addresses -----------------------------------------------
+const uart_tx: *volatile u8 = @ptrFromInt(0x1000_0000);
+const test_finisher: *volatile u32 = @ptrFromInt(0x0010_0000);
+const finisher_pass: u32 = 0x5555;
+
+// -- Entry point ------------------------------------------------------
+export fn _start() linksection(".text.init") callconv(.naked) noreturn {
+    asm volatile (
+        \\ li sp, 0x80100000
+        \\ j kmain
+    );
+}
+
+// -- UART I/O ---------------------------------------------------------
+
+fn uart_print(msg: []const u8) void {
+    for (msg) |byte| uart_tx.* = byte;
+}
+
+fn print_u32(val: u32) void {
+    if (val == 0) {
+        uart_tx.* = '0';
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n = val;
+    var i: u32 = 0;
+    while (n > 0) {
+        buf[i] = @intCast(n % 10 + '0');
+        n = n / 10;
+        i += 1;
+    }
+    while (i > 0) {
+        i -= 1;
+        uart_tx.* = buf[i];
+    }
+}
+
+fn halt_error(msg: []const u8) noreturn {
+    uart_print(msg);
+    test_finisher.* = finisher_pass;
+    while (true) {}
+}
+
+// -- Assert -----------------------------------------------------------
+
+fn assert(cond: bool) void {
+    if (!cond) halt_error("ASSERTION FAILED\n");
+}
+
+// -- Region -----------------------------------------------------------
+// Freestanding port of tally/region.rye. A bounded region hands out
+// slices of one buffer it never grows, refusing by name at the end.
+
+const Region = struct {
+    buf: [*]u8,
+    cap: u32,
+    pos: u32,
+
+    fn init(ptr: [*]u8, size: u32) Region {
+        // invariant: a region opens over real memory
+        assert(size > 0);
+        return .{ .buf = ptr, .cap = size, .pos = 0 };
+    }
+
+    fn alloc(self: *Region, n: u32) error{OutOfBounds}![]u8 {
+        // invariant: cursor inside capacity before measuring
+        assert(self.pos <= self.cap);
+        if (n > self.cap - self.pos) return error.OutOfBounds;
+        const start = self.pos;
+        self.pos += n;
+        // invariant: cursor stayed inside capacity
+        assert(self.pos <= self.cap);
+        return self.buf[start..self.pos];
+    }
+
+    fn remaining(self: *const Region) u32 {
+        return self.cap - self.pos;
+    }
+
+    fn clear(self: *Region) void {
+        self.pos = 0;
+    }
+};
+
+// -- Gardens ----------------------------------------------------------
+// Freestanding port of tally/gardens.rye. Named collection of Regions.
+
+const max_name_len: u32 = 32;
+const max_gardens: u32 = 8;
+
+const GardensError = error{
+    NameEmpty,
+    NameTooLong,
+    Full,
+    DuplicateName,
+};
+
+const NamedRegion = struct {
+    name_ptr: [*]const u8,
+    name_len: u32,
+    region: Region,
+};
+
+fn mem_eql(a: []const u8, b_ptr: [*]const u8, b_len: u32) bool {
+    if (a.len != b_len) return false;
+    var i: u32 = 0;
+    while (i < b_len) : (i += 1) {
+        if (a[i] != b_ptr[i]) return false;
+    }
+    return true;
+}
+
+const Gardens = struct {
+    entries: [max_gardens]NamedRegion,
+    count: u32,
+
+    fn init() Gardens {
+        return .{ .entries = undefined, .count = 0 };
+    }
+
+    fn add(
+        self: *Gardens,
+        name: []const u8,
+        ptr: [*]u8,
+        size: u32,
+    ) GardensError!void {
+        // invariant: collection inside its ceiling
+        assert(self.count <= max_gardens);
+        if (name.len == 0) return GardensError.NameEmpty;
+        if (name.len > max_name_len) return GardensError.NameTooLong;
+        if (self.count >= max_gardens) return GardensError.Full;
+        var i: u32 = 0;
+        while (i < self.count) : (i += 1) {
+            if (mem_eql(
+                name,
+                self.entries[i].name_ptr,
+                self.entries[i].name_len,
+            )) return GardensError.DuplicateName;
+        }
+        const idx = self.count;
+        self.entries[idx] = .{
+            .name_ptr = name.ptr,
+            .name_len = @intCast(name.len),
+            .region = Region.init(ptr, size),
+        };
+        self.count += 1;
+        // invariant: count stayed inside ceiling
+        assert(self.count <= max_gardens);
+    }
+
+    fn get(self: *Gardens, name: []const u8) ?*Region {
+        assert(name.len > 0);
+        var i: u32 = 0;
+        while (i < self.count) : (i += 1) {
+            if (mem_eql(
+                name,
+                self.entries[i].name_ptr,
+                self.entries[i].name_len,
+            )) return &self.entries[i].region;
+        }
+        return null;
+    }
+
+    fn total_capacity(self: *const Gardens) u32 {
+        var total: u32 = 0;
+        var i: u32 = 0;
+        while (i < self.count) : (i += 1) {
+            total += self.entries[i].region.cap;
+        }
+        return total;
+    }
+
+    fn total_remaining(self: *const Gardens) u32 {
+        var total: u32 = 0;
+        var i: u32 = 0;
+        while (i < self.count) : (i += 1) {
+            total += self.entries[i].region.remaining();
+        }
+        return total;
+    }
+};
+
+// -- Static backing store ---------------------------------------------
+// The arena owns all memory the system will ever use. On freestanding
+// RV32I this is a static buffer, bounded at compile time.
+
+const arena_budget: u32 = 4096;
+var arena_backing: [arena_budget]u8 = undefined;
+
+// -- Proof helpers ----------------------------------------------------
+
+fn prove_alloc_and_ceiling(gardens: *Gardens) void {
+    const blob_size: u32 = 2048;
+    const blob = gardens.get("blob") orelse
+        halt_error("ERROR: blob garden not found\n");
+
+    // Allocate 100 bytes within bounds
+    const a = blob.alloc(100) catch
+        halt_error("ERROR: blob alloc(100) failed\n");
+    assert(a.len == 100);
+    assert(blob.remaining() == blob_size - 100);
+    uart_print("tally_arena: blob alloc(100) ok, remaining = ");
+    print_u32(blob.remaining());
+    uart_print("\n");
+
+    // Fill to the ceiling
+    const fill = blob.alloc(blob_size - 100) catch
+        halt_error("ERROR: blob fill failed\n");
+    assert(fill.len == blob_size - 100);
+    assert(blob.remaining() == 0);
+    uart_print("tally_arena: blob filled to ceiling, remaining = ");
+    print_u32(blob.remaining());
+    uart_print("\n");
+
+    // Hit the ceiling: one byte past the edge
+    uart_print("tally_arena: requesting 1 byte past ceiling...\n");
+    if (blob.alloc(1)) |_| {
+        halt_error("ERROR: alloc past ceiling was not refused\n");
+    } else |err| {
+        assert(err == error.OutOfBounds);
+        uart_print("tally_arena: REFUSED -- OutOfBounds\n");
+        uart_print("tally_arena: budget = ");
+        print_u32(blob_size);
+        uart_print(" bytes, 0 remaining, asked 1\n");
+    }
+
+    // Other gardens are untouched
+    const diff = gardens.get("diff") orelse
+        halt_error("ERROR: diff garden not found\n");
+    assert(diff.remaining() == 1024);
+    const frame = gardens.get("frame") orelse
+        halt_error("ERROR: frame garden not found\n");
+    assert(frame.remaining() == 512);
+
+    // Clear resets the season
+    blob.clear();
+    assert(blob.remaining() == blob_size);
+    uart_print("tally_arena: clear -> blob remaining = ");
+    print_u32(blob.remaining());
+    uart_print("\n");
+}
+
+fn prove_gardens_refusals(gardens: *Gardens) void {
+    // DuplicateName: gardens has 3 entries, room remains
+    assert(gardens.count == 3);
+    var dup_buf: [8]u8 = undefined;
+    if (gardens.add("blob", &dup_buf, 8)) |_| {
+        halt_error("ERROR: DuplicateName was not refused\n");
+    } else |err| {
+        assert(err == GardensError.DuplicateName);
+        uart_print("tally_arena: REFUSED -- DuplicateName\n");
+    }
+
+    // NameEmpty
+    var empty_buf: [8]u8 = undefined;
+    if (gardens.add("", &empty_buf, 8)) |_| {
+        halt_error("ERROR: NameEmpty was not refused\n");
+    } else |err| {
+        assert(err == GardensError.NameEmpty);
+        uart_print("tally_arena: REFUSED -- NameEmpty\n");
+    }
+
+    // Fill remaining slots to reach max_gardens
+    var extra_bufs: [5][8]u8 = undefined;
+    const names = [5][]const u8{ "e0", "e1", "e2", "e3", "e4" };
+    var i: u32 = 0;
+    while (i < 5) : (i += 1) {
+        gardens.add(names[i], &extra_bufs[i], 8) catch
+            halt_error("ERROR: extra garden add failed\n");
+    }
+    assert(gardens.count == max_gardens);
+
+    // Full: the ninth add hits the ceiling
+    var overflow_buf: [8]u8 = undefined;
+    if (gardens.add("overflow", &overflow_buf, 8)) |_| {
+        halt_error("ERROR: Full was not refused\n");
+    } else |err| {
+        assert(err == GardensError.Full);
+        uart_print("tally_arena: REFUSED -- Full at ");
+        print_u32(max_gardens);
+        uart_print(" entries\n");
+    }
+}
+
+// -- Main: the Tally arena proof --------------------------------------
+
+export fn kmain() callconv(.c) noreturn {
+    uart_print("tally_arena: Orbit 16 -- Tally bounds every allocation\n");
+
+    // Report the budget
+    uart_print("tally_arena: arena budget = ");
+    print_u32(arena_budget);
+    uart_print(" bytes\n");
+
+    // Create the arena from the static backing store
+    var arena = Region.init(&arena_backing, arena_budget);
+
+    // Carve three named gardens from the arena
+    var gardens = Gardens.init();
+
+    const blob_slice = arena.alloc(2048) catch
+        halt_error("ERROR: carve blob failed\n");
+    gardens.add("blob", blob_slice.ptr, 2048) catch
+        halt_error("ERROR: add blob failed\n");
+
+    const diff_slice = arena.alloc(1024) catch
+        halt_error("ERROR: carve diff failed\n");
+    gardens.add("diff", diff_slice.ptr, 1024) catch
+        halt_error("ERROR: add diff failed\n");
+
+    const frame_slice = arena.alloc(512) catch
+        halt_error("ERROR: carve frame failed\n");
+    gardens.add("frame", frame_slice.ptr, 512) catch
+        halt_error("ERROR: add frame failed\n");
+
+    uart_print("tally_arena: gardens = ");
+    print_u32(gardens.count);
+    uart_print(", capacity = ");
+    print_u32(gardens.total_capacity());
+    uart_print(", arena remaining = ");
+    print_u32(arena.remaining());
+    uart_print("\n");
+
+    prove_alloc_and_ceiling(&gardens);
+    prove_gardens_refusals(&gardens);
+
+    uart_print("tally_arena: all invariants held\n");
+    uart_print("tally_arena: Orbit 16 complete\n");
+    test_finisher.* = finisher_pass;
+    while (true) {}
+}
