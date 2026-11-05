@@ -1,0 +1,4 @@
+::  Orbit 11 -- the simplest Glow program with a value.
+::  The RV32I code generator reads this, emits assembly,
+::  and QEMU prints 42.
+^-  @u32  42

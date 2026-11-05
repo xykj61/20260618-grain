@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261104.230642` | [Orbit 15 -- self-compile proof, the keystone](20261104/20261104-230642_orbit15-self-compile-proof.kyri.md) | pill embeds Glow source, compiles to assembly in memory, djb2 hash 0x079080d9 matches sealed vessel on QEMU; Quest 1.3 complete |
 | `20261104.222321` | [Orbit 14 -- Rishi boot sequencer and self-compile gap analysis](20261104/20261104-222321_orbit14-rishi-boot-gap-analysis.kyri.md) | rishi_boot.rye with 3-stage function pointer dispatch GREEN on QEMU; gap analysis measures 5,014-line Rishi and 290-line Glow codegen against self-compilation |
 | `20261104.221336` | [Orbit 13 -- Rye bounded array freestanding on RV32I](20261104/20261104-221336_orbit13-rye-bounded-rv32i.kyri.md) | bounded.rye with 4 invariant assertions builds freestanding for RV32I and all GREEN on QEMU |
 | `20261104.220502` | [Orbit 12 -- Glow stdlib operations in generated RV32I](20261104/20261104-220502_orbit12-glow-stdlib-rv32i.kyri.md) | IR-based code generator with face bindings, stdlib calls, conditionals, unsigned print; 8/8 programs GREEN on QEMU |

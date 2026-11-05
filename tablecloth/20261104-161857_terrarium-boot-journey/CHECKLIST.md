@@ -145,7 +145,7 @@ runs on the bare hart. By the end, the pill compiles itself.*
   **SLC gate:** a Rishi script inside the pill calls three stages in order on QEMU;
   a gap analysis document names every missing feature with line counts.
 
-- [ ] **Orbit 15 -- Self-compile proof (Stage 1: the keystone)**
+- [x] **Orbit 15 -- Self-compile proof (Stage 1: the keystone)** -- landed `20261104`
   The pill carries the Glow, Rye, and Rishi compilers as Amphora-sealed vessels --
   content-addressed, hash-identified. On boot, the Rishi interpreter orchestrates:
   each compiler compiles its own source code. The output is sealed and its hash
