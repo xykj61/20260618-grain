@@ -188,7 +188,7 @@ from here is bounded, observable, and recorded.*
   **SLC gate:** facts written inside the emulated machine travel out through the wire
   and replay identically on the host side.
 
-- [ ] **Orbit 20 -- TAME boot integration witness**
+- [x] **Orbit 20 -- TAME boot integration witness** -- landed `20261105`
   A single witness proves the TAME boot sequence: pill -> self-compile -> Tally ->
   Aurora -> Mantra, with every stage bounded, observable, and recorded. The witness
   runs the full boot on QEMU RV32I inside Terrarium.

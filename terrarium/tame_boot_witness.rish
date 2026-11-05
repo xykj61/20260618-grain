@@ -1,0 +1,121 @@
+# terrarium/tame_boot_witness.rish -- TAME boot integration witness
+#
+# Orbit 20 SLC gate. Proves the full TAME boot sequence on QEMU RV32I
+# inside Terrarium: pill (self-compile) -> Tally -> Aurora -> Mantra log
+# -> Mantra wire persistence. Every stage bounded, observable, recorded.
+#
+# The order is TAME: safety first (Tally), then visibility (Aurora),
+# then replay (Mantra). The pill precedes all three -- it proves the
+# compilers are real before the system they build arrives.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run terrarium/tame_boot_witness.rish
+
+say "tame-boot: Orbit 20 -- TAME boot integration witness"
+say "tame-boot: proving pill -> self-compile -> Tally -> Aurora -> Mantra"
+say ""
+
+# -- Stage 1: Self-compile (Orbit 15) -- the pill proves its own identity
+
+say "--- stage 1: self_compile (pill identity) ---"
+
+let build_1 = run ["sh" "-c" "mkdir -p terrarium/.build && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/self_compile.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/self_compile.elf"]
+assert build_1.ok else "tame-boot: self_compile build failed:\n${build_1.err}"
+
+let wake_1 = run ["timeout" "10" "qemu-system-riscv32" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/self_compile.elf"]
+say wake_1.out
+
+assert wake_1.out contains "self_compile: MATCH -- identity proven" else "tame-boot: pill must prove its own identity"
+assert wake_1.out contains "self_compile: Orbit 15 complete" else "tame-boot: self_compile must complete"
+assert wake_1.code == 0 else "tame-boot: self_compile must exit cleanly (got ${wake_1.code})"
+
+say "stage 1 GREEN: pill identity proven"
+say ""
+
+# -- Stage 2: Tally arena (Orbit 16) -- safety bounds every allocation
+
+say "--- stage 2: tally_arena (safety) ---"
+
+let build_2 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/tally_arena.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/tally_arena.elf"]
+assert build_2.ok else "tame-boot: tally_arena build failed:\n${build_2.err}"
+
+let wake_2 = run ["timeout" "10" "qemu-system-riscv32" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/tally_arena.elf"]
+say wake_2.out
+
+assert wake_2.out contains "tally_arena: REFUSED -- OutOfBounds" else "tame-boot: Tally must refuse allocation past ceiling"
+assert wake_2.out contains "tally_arena: all invariants held" else "tame-boot: Tally invariants must hold"
+assert wake_2.out contains "tally_arena: Orbit 16 complete" else "tame-boot: tally_arena must complete"
+assert wake_2.code == 0 else "tame-boot: tally_arena must exit cleanly (got ${wake_2.code})"
+
+say "stage 2 GREEN: Tally bounds every allocation"
+say ""
+
+# -- Stage 3: Aurora console (Orbit 17) -- visibility through the framebuffer
+
+say "--- stage 3: aurora_console (visibility) ---"
+
+let build_3 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/aurora_console.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/aurora_console.elf"]
+assert build_3.ok else "tame-boot: aurora_console build failed:\n${build_3.err}"
+
+let wake_3 = run ["timeout" "10" "qemu-system-riscv32" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/aurora_console.elf"]
+say wake_3.out
+
+assert wake_3.out contains "aurora_console: Orbit 17 complete" else "tame-boot: aurora_console must complete"
+assert wake_3.code == 0 else "tame-boot: aurora_console must exit cleanly (got ${wake_3.code})"
+
+say "stage 3 GREEN: Aurora speaks through the console"
+say ""
+
+# -- Stage 4: Mantra event log (Orbit 18) -- replay produces identical state
+
+say "--- stage 4: mantra_log (replay) ---"
+
+let build_4 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/mantra_log.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/mantra_log.elf"]
+assert build_4.ok else "tame-boot: mantra_log build failed:\n${build_4.err}"
+
+let wake_4 = run ["timeout" "10" "qemu-system-riscv32" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/mantra_log.elf"]
+say wake_4.out
+
+assert wake_4.out contains "REPLAY MATCHES: identical state proven" else "tame-boot: Mantra replay must match"
+assert wake_4.out contains "GREEN: Mantra event log" else "tame-boot: mantra_log must report GREEN"
+assert wake_4.code == 0 else "tame-boot: mantra_log must exit cleanly (got ${wake_4.code})"
+
+say "stage 4 GREEN: Mantra replay produces identical state"
+say ""
+
+# -- Stage 5: Mantra wire persistence (Orbit 19) -- facts travel through the wire
+
+say "--- stage 5: mantra_wire (persistence through the wire) ---"
+
+let build_5 = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/mantra_wire.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/mantra_wire.elf"]
+assert build_5.ok else "tame-boot: mantra_wire build failed:\n${build_5.err}"
+
+say "building Terrarium host app..."
+let build_app = run ["sh" "-c" "swiftc -o terrarium/.build/Terrarium terrarium/app/main.swift -framework AppKit"]
+assert build_app.ok else "tame-boot: Terrarium app build failed:\n${build_app.err}"
+
+let wake_5 = run ["timeout" "30" "terrarium/.build/Terrarium" "mantra_wire"]
+say wake_5.out
+
+assert wake_5.out contains "GREEN: Mantra persistence through the wire" else "tame-boot: mantra_wire must report GREEN through the wire"
+assert wake_5.code == 0 else "tame-boot: mantra_wire must exit cleanly (got ${wake_5.code})"
+
+say "stage 5 GREEN: Mantra facts persist through the wire"
+say ""
+
+# -- Verdict
+
+say "========================================"
+say "tame-boot: ALL FIVE STAGES GREEN"
+say ""
+say "  pill:    self-compile identity proven"
+say "  tally:   arena bounded, ceiling enforced"
+say "  aurora:  console speaks through the framebuffer"
+say "  mantra:  event log replays to identical state"
+say "  wire:    facts persist through the Terrarium wire"
+say ""
+say "  TAME order: safety -> visibility -> replay"
+say "  every stage bounded, observable, recorded"
+say ""
+say "GREEN: Orbit 20 -- TAME boot integration witness"
+say "========================================"
