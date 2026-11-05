@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.143315` | [Mantrapod RV64G Orbit 13 -- multi-hart boot with atomic spinlock](20261105/20261105-143315_mantrapod-orbit13-multi-hart-boot.kyri.md) | 4 stages GREEN: 2 harts on QEMU -smp 2, atomic gate + ticket lock, 5 proofs, 29 A-ext instructions, 7128-byte ELF |
 | `20261105.141849` | [Review DJINN's grain-www emulator updates -- agent, manifest, canvas](20261105/20261105-141849_grain-www-emulator-review.kyri.md) | Agent authority model via manifest grants, dynamic tool generation from Envoy capabilities, consent domain as separate process |
 | `20261105.141323` | [Seat single-clone nib amend-before-push pattern in rule](20261105/20261105-141323_nib-amend-before-push-rule.kyri.md) | Clause 2a seated in both .claude/rules and .cursor/rules: commit -> amend nib -> push once, no force-push |
 | `20261105.140418` | [Mantrapod RV64G Orbit 12 -- A extension atomic domain registry](20261105/20261105-140418_mantrapod-orbit12-atomic-registry.kyri.md) | 4 stages GREEN: DomainSlot state machine with cmpxchgWeak, amoswap, amoadd on RV64IMA, 8 proofs, 13 A-ext instructions, 10040-byte ELF |
