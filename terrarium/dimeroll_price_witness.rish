@@ -1,0 +1,74 @@
+#!/usr/bin/env rishi
+# terrarium/dimeroll_price_witness.rish
+#
+# Orbit 18 witness: Dimeroll price arithmetic on RV64FD.
+# Four stages: CPU features, build, QEMU proof run, FP instruction census.
+
+say "=== Orbit 18 witness: Dimeroll price arithmetic on RV64FD ==="
+say ""
+
+# -- Stage 1: CPU feature probe --
+say "--- Stage 1: CPU features ---"
+let features = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/hello64.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+f+d --verbose-llvm-cpu-features -femit-bin=/dev/null 2>&1 | head -4"]
+assert features.out contains "+m" else "missing M extension"
+say "  +m confirmed"
+assert features.out contains "+f" else "missing F extension"
+say "  +f confirmed"
+assert features.out contains "+d" else "missing D extension"
+say "  +d confirmed"
+say "  Stage 1 GREEN"
+say ""
+
+# -- Stage 2: Build --
+say "--- Stage 2: Build ---"
+let build = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && sh terrarium/dimeroll_price_helper.sh build 2>&1"]
+assert build.ok else "build failed: ${build.err}"
+assert build.out contains "build ok" else "build did not complete"
+say "  Build succeeded"
+say "  Stage 2 GREEN"
+say ""
+
+# -- Stage 3: QEMU proof run (8 proofs) --
+say "--- Stage 3: QEMU proof run ---"
+let qemu = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/dimeroll_price.elf 2>/dev/null"]
+say "  QEMU output:"
+say "${qemu.out}"
+
+# Transaction proofs
+assert qemu.out contains "tomatoes: 7500 PROOF PASS" else "tomatoes proof failed"
+assert qemu.out contains "peppers: 4500 PROOF PASS" else "peppers proof failed"
+assert qemu.out contains "basil: 900 PROOF PASS" else "basil proof failed"
+assert qemu.out contains "seeds: 7000 PROOF PASS" else "seeds proof failed"
+
+# Summary proofs
+assert qemu.out contains "revenue: 12900 PROOF PASS" else "revenue proof failed"
+assert qemu.out contains "expense: 7000 PROOF PASS" else "expense proof failed"
+assert qemu.out contains "net: 5900 PROOF PASS" else "net proof failed"
+assert qemu.out contains "tax: 645 PROOF PASS" else "tax proof failed"
+
+# Overall verdict
+assert qemu.out contains "8/8" else "not all 8 proofs passed"
+assert qemu.out contains "ALL PROOFS PASSED" else "overall verdict not ALL PROOFS PASSED"
+assert qemu.out contains "Orbit 18 complete" else "orbit completion marker missing"
+
+# SLC gate: transaction with price computes correct total on RV64FD
+assert qemu.out contains "sell tomatoes 30.00 x 2.50 = 75.00" else "SLC gate failed: tomatoes 30 x 2.50 != 75.00"
+
+say "  All 8 proofs verified"
+say "  SLC gate: sell tomatoes 30.00 x 2.50 = 75.00 confirmed"
+say "  Stage 3 GREEN"
+say ""
+
+# -- Stage 4: FP instruction census --
+say "--- Stage 4: FP instruction census ---"
+let census = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && sh terrarium/dimeroll_price_helper.sh census 2>&1"]
+assert census.ok else "census failed: ${census.err}"
+assert census.out contains "census ok" else "census did not complete"
+assert census.out contains "fmul_d=" else "no fmul.d count"
+assert census.out contains "fadd_d=" else "no fadd.d count"
+say "${census.out}"
+say "  Stage 4 GREEN"
+say ""
+
+say "=== All 4 stages GREEN ==="
+say "=== Orbit 18 witness complete ==="

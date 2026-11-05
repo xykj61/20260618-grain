@@ -1,0 +1,240 @@
+// terrarium/src/dimeroll_price.rye
+//
+// Orbit 18: Dimeroll price arithmetic on RV64FD
+//
+// Dimeroll's field ledger runs price calculations on hardware floating
+// point. Four transactions -- three sales and one purchase -- exercise
+// multiply, add, subtract, and percentage on the bare hart. Every
+// result is verified against a known integer checksum so the proof is
+// deterministic.
+//
+// Transactions:
+//   sell tomatoes  30.0 kg  @ 2.50 =  75.00
+//   sell peppers   12.0 kg  @ 3.75 =  45.00
+//   sell basil      0.5 kg  @ 18.00 =   9.00
+//   buy  seeds    200.0 pkt @ 0.35 =  70.00
+//
+// Revenue: 129.00  Expense: 70.00  Net: 59.00  Tax (5%): 6.45
+
+const std = @import("std");
+const assert = std.debug.assert;
+
+// -- UART at 0x1000_0000 (QEMU virt) --
+const uart_tx: *volatile u8 = @ptrFromInt(0x10000000);
+
+fn uart_char(c: u8) void {
+    uart_tx.* = c;
+}
+
+fn uart_str(s: []const u8) void {
+    for (s) |c| uart_char(c);
+}
+
+fn uart_newline() void {
+    uart_char('\n');
+}
+
+// -- Print an unsigned integer in decimal --
+fn uart_u32(val: u32) void {
+    if (val == 0) {
+        uart_char('0');
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n = val;
+    var i: u32 = 0;
+    while (n > 0) : (i += 1) {
+        buf[i] = @truncate(n % 10 + '0');
+        n /= 10;
+    }
+    while (i > 0) {
+        i -= 1;
+        uart_char(buf[i]);
+    }
+}
+
+// -- Print f64 with 2 decimal places --
+// Multiplies by 100, rounds, prints integer and fractional parts.
+fn print_f64_2dp(val: f64) void {
+    var v = val;
+    if (v < 0.0) {
+        uart_char('-');
+        v = -v;
+    }
+    const scaled: u64 = @intFromFloat(v * 100.0 + 0.5);
+    const integer_part: u32 = @truncate(scaled / 100);
+    const frac_part: u32 = @truncate(scaled % 100);
+    uart_u32(integer_part);
+    uart_char('.');
+    if (frac_part < 10) uart_char('0');
+    uart_u32(frac_part);
+}
+
+// -- Transaction record --
+const Transaction = struct {
+    label: []const u8,
+    kind: enum { sale, purchase },
+    qty: f64,
+    unit_price: f64,
+};
+
+const transactions = [_]Transaction{
+    .{ .label = "tomatoes", .kind = .sale, .qty = 30.0, .unit_price = 2.50 },
+    .{ .label = "peppers", .kind = .sale, .qty = 12.0, .unit_price = 3.75 },
+    .{ .label = "basil", .kind = .sale, .qty = 0.5, .unit_price = 18.00 },
+    .{ .label = "seeds", .kind = .purchase, .qty = 200.0, .unit_price = 0.35 },
+};
+
+const tax_rate: f64 = 0.05;
+
+// -- Expected values (integer cents for deterministic comparison) --
+// tomatoes: 30.0 * 2.50 = 75.00 -> 7500
+// peppers:  12.0 * 3.75 = 45.00 -> 4500
+// basil:     0.5 * 18.0 =  9.00 ->  900
+// seeds:   200.0 * 0.35 = 70.00 -> 7000
+// revenue: 75 + 45 + 9 = 129.00 -> 12900
+// expense: 70.00 -> 7000
+// net: 129.00 - 70.00 = 59.00 -> 5900
+// tax: 129.00 * 0.05 = 6.45 -> 645
+const expected_totals = [4]u32{ 7500, 4500, 900, 7000 };
+const expected_revenue: u32 = 12900;
+const expected_expense: u32 = 7000;
+const expected_net: u32 = 5900;
+const expected_tax: u32 = 645;
+
+fn to_cents(val: f64) u32 {
+    return @truncate(@as(u64, @intFromFloat(val * 100.0 + 0.5)));
+}
+
+var proof_count: u32 = 0;
+var proof_pass: u32 = 0;
+
+fn check_proof(name: []const u8, got: u32, expected: u32) void {
+    proof_count += 1;
+    uart_str("  ");
+    uart_str(name);
+    uart_str(": ");
+    uart_u32(got);
+    if (got == expected) {
+        uart_str(" PROOF PASS");
+        proof_pass += 1;
+    } else {
+        uart_str(" PROOF FAIL (expected ");
+        uart_u32(expected);
+        uart_str(")");
+    }
+    uart_newline();
+}
+
+// -- test_finisher: QEMU virt test device at 0x100000 --
+const test_finisher: *volatile u32 = @ptrFromInt(0x00100000);
+
+fn exit_qemu() noreturn {
+    test_finisher.* = 0x5555;
+    while (true) {}
+}
+
+// -- Entry point --
+export fn _start() linksection(".text.init") callconv(.naked) noreturn {
+    asm volatile (
+        \\li sp, 0x80080000
+        \\
+        \\.option push
+        \\.option norelax
+        \\la gp, __global_pointer$
+        \\.option pop
+        \\
+        // Enable FPU: mstatus.FS = Dirty (11)
+        \\li t0, (3 << 13)
+        \\csrs mstatus, t0
+        \\
+        \\call %[main]
+        \\
+        :
+        : [main] "S" (&main),
+    );
+    unreachable;
+}
+
+fn main() callconv(.c) noreturn {
+    uart_str("Dimeroll price arithmetic on RV64FD");
+    uart_newline();
+    uart_newline();
+
+    var revenue: f64 = 0.0;
+    var expense: f64 = 0.0;
+
+    // -- Process each transaction --
+    for (transactions, 0..) |txn, i| {
+        const total = txn.qty * txn.unit_price;
+
+        // Print: "sell tomatoes 30.00 x 2.50 = 75.00"
+        switch (txn.kind) {
+            .sale => uart_str("sell "),
+            .purchase => uart_str("buy  "),
+        }
+        uart_str(txn.label);
+        uart_str(" ");
+        print_f64_2dp(txn.qty);
+        uart_str(" x ");
+        print_f64_2dp(txn.unit_price);
+        uart_str(" = ");
+        print_f64_2dp(total);
+        uart_newline();
+
+        // Accumulate
+        switch (txn.kind) {
+            .sale => revenue += total,
+            .purchase => expense += total,
+        }
+
+        // Verify this transaction
+        check_proof(txn.label, to_cents(total), expected_totals[i]);
+    }
+
+    uart_newline();
+
+    // -- Summary --
+    uart_str("revenue: ");
+    print_f64_2dp(revenue);
+    uart_newline();
+    check_proof("revenue", to_cents(revenue), expected_revenue);
+
+    uart_str("expense: ");
+    print_f64_2dp(expense);
+    uart_newline();
+    check_proof("expense", to_cents(expense), expected_expense);
+
+    const net = revenue - expense;
+    uart_str("net:     ");
+    print_f64_2dp(net);
+    uart_newline();
+    check_proof("net", to_cents(net), expected_net);
+
+    const tax = revenue * tax_rate;
+    uart_str("tax 5%:  ");
+    print_f64_2dp(tax);
+    uart_newline();
+    check_proof("tax", to_cents(tax), expected_tax);
+
+    uart_newline();
+
+    // -- Verdict --
+    uart_str("proofs: ");
+    uart_u32(proof_pass);
+    uart_str("/");
+    uart_u32(proof_count);
+    uart_newline();
+
+    if (proof_pass == proof_count) {
+        uart_str("ALL PROOFS PASSED");
+        uart_newline();
+        uart_str("Orbit 18 complete");
+        uart_newline();
+    } else {
+        uart_str("SOME PROOFS FAILED");
+        uart_newline();
+    }
+
+    exit_qemu();
+}

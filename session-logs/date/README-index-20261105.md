@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.174309` | [Mantrapod RV64G Orbit 18 -- Dimeroll price arithmetic on RV64FD](20261105/20261105-174309_mantrapod-orbit18-dimeroll-price.kyri.md) | 4 stages GREEN: 4 field-ledger transactions with revenue/expense/net/tax, 8 integer-cent checksums, 50 FP instructions, 6512-byte ELF |
 | `20261105.172652` | [Mantrapod RV64G Orbit 17 -- Caravan FP context save/restore on RV64FD](20261105/20261105-172652_mantrapod-orbit17-fp-context.kyri.md) | 4 stages GREEN: 65-slot extended context (30 GP + mepc + 32 FP + fcsr), two FP domains through 12 preemptive switches, @atomicLoad freestanding fix, 105 FP instructions, 8912-byte ELF |
 | `20261105.160234` | [Mantrapod RV64G Orbit 16 -- Glow floating-point on RV64FD](20261105/20261105-160234_mantrapod-orbit16-glow-fp.kyri.md) | 4 stages GREEN: 8 IEEE 754 f64 expressions on RV64FD, SLC gate (* 3.14 2.0) = 6.28, 44 F/D instructions, 7808-byte ELF, Quest 1.4 opened |
 | `20261105.154640` | [Mantrapod RV64G Orbit 15 -- A extension integration witness](20261105/20261105-154640_mantrapod-orbit15-a-extension-integration.kyri.md) | 7 stages GREEN: all 4 A-ext modules on 2-hart RV64IMA, 25 proofs, 37 A-ext + 21 CSR instructions, 33832-byte total ELF -- Quest 1.3 complete |

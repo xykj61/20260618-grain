@@ -190,10 +190,16 @@ audio opens on the bare hart.*
   **Witness:** `terrarium/fp_context_witness.rish` -- features, build,
   QEMU 10-proof run, FP context instruction census. **GREEN on metal.**
 
-- [ ] **Orbit 18 -- F/D extensions: Dimeroll price arithmetic**
-  Dimeroll's price calculations use hardware floating point. `sell tomatoes 30 kg 2.50`
-  computes `75.00` on the hart rather than in fixed-point software.
-  **SLC gate:** transaction with price computes correct total on RV64FD.
+- [x] **Orbit 18 -- F/D extensions: Dimeroll price arithmetic** (`20261105.180400`)
+  Four Dimeroll field-ledger transactions on hardware FP: three sales (tomatoes
+  30.00 x 2.50 = 75.00, peppers 12.00 x 3.75 = 45.00, basil 0.50 x 18.00 = 9.00)
+  and one purchase (seeds 200.00 x 0.35 = 70.00). Revenue 129.00, expense 70.00,
+  net 59.00, tax 5% = 6.45 -- all verified against integer-cent checksums. FP
+  census: 50 instructions (8 fmul.d, 8 fadd.d, 1 fsub.d, 7 fsd, 3 fld, 6 fcvt,
+  16 fmv, 1 flt.d). 6512-byte ELF.
+  **SLC gate:** transaction with price computes correct total on RV64FD -- PROVEN.
+  **Witness:** `terrarium/dimeroll_price_witness.rish` -- features, build,
+  QEMU 8-proof run, FP instruction census. **GREEN on metal.**
 
 - [ ] **Orbit 19 -- Lotus audio sample type on the bare hart**
   A single Lotus audio operation (a gain or fade) runs on the bare hart using
