@@ -181,7 +181,7 @@ from here is bounded, observable, and recorded.*
   **SLC gate:** a sequence of Kumara-signed Mantra facts appended during boot replays
   to identical state, proven by hash comparison, visible on Aurora's console.
 
-- [ ] **Orbit 19 -- Mantra persistence through the wire**
+- [x] **Orbit 19 -- Mantra persistence through the wire**
   Mantra facts sync through the wire established in Orbit 10. The green line between
   Terrarium and a pier. A sync appends facts; a replay on the other side produces the
   same state.

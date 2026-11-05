@@ -21,6 +21,7 @@ let stage: String = CommandLine.arguments.count > 1
 let isFramebufStage = stage == "framebuf"
     || stage == "aurora_console"
 let isWireStage = stage == "wire"
+let isMantraWireStage = stage == "mantra_wire"
 
 let repoRoot: String = {
     let url = URL(fileURLWithPath: #filePath)
@@ -45,6 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var serialBuffer = ""
     var inputPipe: Pipe?
     var wireAckSent = false
+    var mantraVerifySent = false
 
     func applicationDidFinishLaunching(_ note: Notification) {
         var mask: NSWindow.StyleMask = [
@@ -162,7 +164,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 "unix:\(sockPath),server=on,wait=off",
                 "-kernel", elfPath
             ]
-        } else if isWireStage {
+        } else if isWireStage || isMantraWireStage {
             proc.arguments = [
                 "-machine", "virt",
                 "-bios", "none",
@@ -179,7 +181,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             ]
         }
 
-        if isWireStage {
+        if isWireStage || isMantraWireStage {
             let inp = Pipe()
             proc.standardInput = inp
             inputPipe = inp
@@ -220,6 +222,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         {
                             self?.handleWireFact()
                         }
+                        if isMantraWireStage,
+                           !(self?.mantraVerifySent
+                               ?? true),
+                           let buf =
+                               self?.serialBuffer,
+                           buf.range(
+                               of: "MSTATE:[0-9a-f]{8}\n",
+                               options: .regularExpression
+                           ) != nil
+                        {
+                            self?.handleMantraWire()
+                        }
                     }
                 }
             }
@@ -245,7 +259,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             )
 
             let timeout: Double =
-                isFramebufStage ? 20 : 10
+                isFramebufStage ? 20
+                : isMantraWireStage ? 30
+                : 10
             DispatchQueue.global().asyncAfter(
                 deadline: .now() + timeout
             ) { [weak self] in
@@ -351,6 +367,162 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 .write(data)
             appendLine(
                 "--- host sent ACK: \(value)"
+            )
+        }
+    }
+
+    // -- Mantra wire protocol -----------------------------------------
+
+    func handleMantraWire() {
+        guard !mantraVerifySent else { return }
+        mantraVerifySent = true
+
+        let lines = serialBuffer.components(
+            separatedBy: "\n"
+        )
+
+        guard let seedLine = lines.first(
+            where: { $0.hasPrefix("MSEED:") }
+        ) else {
+            sendMantraVerify(ok: false)
+            return
+        }
+        let seedHex = String(
+            seedLine.dropFirst("MSEED:".count)
+        )
+        guard seedHex.count == 64,
+              let seed = hexToBytes(seedHex),
+              seed.count == 32
+        else {
+            sendMantraVerify(ok: false)
+            return
+        }
+
+        let factLines = lines.filter {
+            $0.hasPrefix("MFACT:")
+        }
+        guard !factLines.isEmpty else {
+            sendMantraVerify(ok: false)
+            return
+        }
+
+        guard let stateLine = lines.first(
+            where: { $0.hasPrefix("MSTATE:") }
+        ) else {
+            sendMantraVerify(ok: false)
+            return
+        }
+        let stateHex = String(
+            stateLine.dropFirst("MSTATE:".count)
+        )
+        guard let guestState = UInt32(
+            stateHex, radix: 16
+        ) else {
+            sendMantraVerify(ok: false)
+            return
+        }
+
+        appendLine(
+            "--- host: received \(factLines.count)"
+            + " facts, replaying..."
+        )
+
+        var stateHash: UInt32 = 0
+        for (i, line) in factLines.enumerated() {
+            let body = String(
+                line.dropFirst("MFACT:".count)
+            )
+            let parts = body.split(
+                separator: ",", maxSplits: 4
+            )
+            guard parts.count == 5,
+                  let seq = UInt32(
+                      String(parts[0]), radix: 16
+                  ),
+                  let prevHash = UInt32(
+                      String(parts[1]), radix: 16
+                  ),
+                  let payloadLen = UInt32(
+                      String(parts[2]), radix: 16
+                  ),
+                  let tag = UInt32(
+                      String(parts[3]), radix: 16
+                  )
+            else {
+                appendLine(
+                    "--- host: bad fact \(i)"
+                )
+                sendMantraVerify(ok: false)
+                return
+            }
+
+            let payload = String(parts[4])
+
+            guard prevHash == stateHash else {
+                appendLine(
+                    "--- host: chain break at \(i)"
+                )
+                sendMantraVerify(ok: false)
+                return
+            }
+
+            var canon = [UInt8](
+                repeating: 0, count: 76
+            )
+            writeU32BE(&canon, 0, seq)
+            writeU32BE(&canon, 4, prevHash)
+            writeU32BE(&canon, 8, payloadLen)
+            let pBytes = Array(payload.utf8)
+            for j in 0..<min(pBytes.count, 64) {
+                canon[12 + j] = pBytes[j]
+            }
+
+            let expectedTag = keyedDjb2Sign(
+                seed: seed, message: canon
+            )
+            guard tag == expectedTag else {
+                appendLine(
+                    "--- host: tag mismatch at "
+                    + "\(i)"
+                )
+                sendMantraVerify(ok: false)
+                return
+            }
+
+            var sh = Djb2Swift()
+            sh.feedU32(stateHash)
+            sh.feedU32(tag)
+            sh.feed(canon)
+            stateHash = sh.digest()
+
+            appendLine(
+                "--- host: fact \(i) verified,"
+                + " state 0x"
+                + String(stateHash, radix: 16)
+            )
+        }
+
+        let ok = stateHash == guestState
+        appendLine(
+            "--- host replay state: 0x"
+            + String(stateHash, radix: 16)
+            + (ok ? " MATCH" : " MISMATCH")
+        )
+        sendMantraVerify(ok: ok)
+    }
+
+    func sendMantraVerify(ok: Bool) {
+        let msg = ok
+            ? "MVERIFY:ok\n"
+            : "MVERIFY:fail\n"
+        if let data = msg.data(using: .utf8) {
+            inputPipe?.fileHandleForWriting
+                .write(data)
+            appendLine(
+                "--- host sent: "
+                + msg.trimmingCharacters(
+                    in: .newlines
+                )
             )
         }
     }
@@ -569,6 +741,66 @@ func parsePPM(path: String) -> NSImage? {
         cgImage: cgImg,
         size: NSSize(width: width, height: height)
     )
+}
+
+// -- djb2 and Mantra helpers -----------------------------------------
+
+struct Djb2Swift {
+    var h: UInt32 = 5381
+
+    mutating func feed(_ data: [UInt8]) {
+        for byte in data {
+            h = ((h &<< 5) &+ h) &+ UInt32(byte)
+        }
+    }
+
+    mutating func feedU32(_ val: UInt32) {
+        feed([
+            UInt8((val >> 24) & 0xFF),
+            UInt8((val >> 16) & 0xFF),
+            UInt8((val >> 8) & 0xFF),
+            UInt8(val & 0xFF),
+        ])
+    }
+
+    func digest() -> UInt32 { h }
+}
+
+func keyedDjb2Sign(
+    seed: [UInt8], message: [UInt8]
+) -> UInt32 {
+    var d = Djb2Swift()
+    d.feed(seed)
+    d.feed(message)
+    return d.digest()
+}
+
+func hexToBytes(_ hex: String) -> [UInt8]? {
+    let chars = Array(hex)
+    guard chars.count % 2 == 0 else { return nil }
+    var bytes = [UInt8]()
+    var i = 0
+    while i < chars.count {
+        guard let hi = UInt8(
+            String(chars[i]), radix: 16
+        ),
+        let lo = UInt8(
+            String(chars[i + 1]), radix: 16
+        ) else { return nil }
+        bytes.append(hi << 4 | lo)
+        i += 2
+    }
+    return bytes
+}
+
+func writeU32BE(
+    _ buf: inout [UInt8], _ off: Int,
+    _ val: UInt32
+) {
+    buf[off] = UInt8((val >> 24) & 0xFF)
+    buf[off + 1] = UInt8((val >> 16) & 0xFF)
+    buf[off + 2] = UInt8((val >> 8) & 0xFF)
+    buf[off + 3] = UInt8(val & 0xFF)
 }
 
 // -- Main -----------------------------------------------------------

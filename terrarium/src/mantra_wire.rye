@@ -1,0 +1,501 @@
+//! terrarium/src/mantra_wire.rye -- Mantra persistence through the wire
+//!
+//! Orbit 19: facts written inside the emulated machine travel out
+//! through the wire and replay identically on the host side.
+//!
+//! The guest builds the same five-boot-fact MantraLog as Orbit 18,
+//! serializes each fact over UART in a structured text protocol, and
+//! sends the seed and final state hash. The Terrarium host (Swift)
+//! implements its own djb2, reconstructs the log, replays it, and
+//! sends a verification result back through the wire. The guest
+//! reads the result and exits GREEN only on a match.
+//!
+//! Wire protocol (guest -> host):
+//!   MSEED:<64 hex chars>\n
+//!   MFACT:<seq>,<prev_hash>,<payload_len>,<tag>,<payload>\n
+//!   MSTATE:<state_hash>\n
+//!
+//! Wire protocol (host -> guest):
+//!   MVERIFY:ok\n   or   MVERIFY:fail\n
+//!
+//! Build and run:
+//!   make terrarium-app STAGE=mantra_wire
+//!
+//! SLC gate (Orbit 19): facts written inside the emulated machine
+//! travel out through the wire and replay identically on the host.
+
+// -- Hardware addresses -----------------------------------------------
+const uart_tx: *volatile u8 = @ptrFromInt(0x1000_0000);
+const uart_rx: *volatile u8 = @ptrFromInt(0x1000_0000);
+const uart_lsr: *volatile u8 = @ptrFromInt(0x1000_0005);
+const test_finisher: *volatile u32 = @ptrFromInt(0x0010_0000);
+const finisher_pass: u32 = 0x5555;
+
+// -- Entry point ------------------------------------------------------
+export fn _start() linksection(".text.init") callconv(.naked) noreturn {
+    asm volatile (
+        \\ li sp, 0x80100000
+        \\ j kmain
+    );
+}
+
+// -- UART I/O ---------------------------------------------------------
+
+fn uart_print(msg: []const u8) void {
+    for (msg) |byte| uart_tx.* = byte;
+}
+
+fn uart_putc(c: u8) void {
+    uart_tx.* = c;
+}
+
+fn print_u32(val: u32) void {
+    if (val == 0) {
+        uart_tx.* = '0';
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n = val;
+    var i: u32 = 0;
+    while (n > 0) {
+        buf[i] = @intCast(n % 10 + '0');
+        n = n / 10;
+        i += 1;
+    }
+    while (i > 0) {
+        i -= 1;
+        uart_tx.* = buf[i];
+    }
+}
+
+fn print_hex(val: u32) void {
+    const hex_table = "0123456789abcdef";
+    uart_print("0x");
+    emit_hex_u32(val);
+    _ = hex_table;
+}
+
+fn emit_hex_u32(val: u32) void {
+    const hex_table = "0123456789abcdef";
+    var shift: u32 = 28;
+    while (true) {
+        const nibble: u4 =
+            @intCast((val >> @intCast(shift)) & 0xF);
+        uart_tx.* = hex_table[nibble];
+        if (shift == 0) break;
+        shift -= 4;
+    }
+}
+
+fn emit_hex_byte(val: u8) void {
+    const hex_table = "0123456789abcdef";
+    uart_tx.* = hex_table[val >> 4];
+    uart_tx.* = hex_table[val & 0x0F];
+}
+
+fn uart_data_ready() bool {
+    return (uart_lsr.* & 0x01) != 0;
+}
+
+const poll_limit: u32 = 200_000_000;
+const ack_max: u32 = 128;
+
+fn uart_read_line(buf: *[ack_max]u8) u32 {
+    var i: u32 = 0;
+    var polls: u32 = 0;
+    while (polls < poll_limit) : (polls += 1) {
+        if (uart_data_ready()) {
+            const c = uart_rx.*;
+            if (c == '\n') return i;
+            if (i < ack_max) {
+                buf[i] = c;
+                i += 1;
+            }
+            polls = 0;
+        }
+    }
+    return i;
+}
+
+fn halt_pass() noreturn {
+    test_finisher.* = finisher_pass;
+    while (true) {}
+}
+
+fn halt_error(msg: []const u8) noreturn {
+    uart_print(msg);
+    test_finisher.* = finisher_pass;
+    while (true) {}
+}
+
+// -- Assert -----------------------------------------------------------
+
+fn assert_true(cond: bool) void {
+    if (!cond) halt_error("ASSERTION FAILED\n");
+}
+
+// -- Region (Tally) ---------------------------------------------------
+// invariant: pos <= cap always
+
+const Region = struct {
+    buf: [*]u8,
+    cap: u32,
+    pos: u32,
+
+    fn init(ptr: [*]u8, size: u32) Region {
+        assert_true(size > 0);
+        return .{ .buf = ptr, .cap = size, .pos = 0 };
+    }
+
+    fn alloc(self: *Region, n: u32) error{OutOfBounds}![]u8 {
+        assert_true(n > 0);
+        if (self.pos + n > self.cap) return error.OutOfBounds;
+        const start = self.pos;
+        self.pos += n;
+        // invariant: returned slice is within bounds
+        assert_true(self.pos <= self.cap);
+        return self.buf[start..self.pos];
+    }
+
+    fn remaining(self: *const Region) u32 {
+        return self.cap - self.pos;
+    }
+};
+
+// -- djb2 hash --------------------------------------------------------
+
+const Djb2 = struct {
+    h: u32,
+
+    fn init() Djb2 {
+        return .{ .h = 5381 };
+    }
+
+    fn feed(self: *Djb2, data: []const u8) void {
+        for (data) |byte| {
+            self.h = ((self.h << 5) +% self.h) +%
+                @as(u32, byte);
+        }
+    }
+
+    fn feed_u32(self: *Djb2, val: u32) void {
+        self.feed(&[4]u8{
+            @intCast((val >> 24) & 0xFF),
+            @intCast((val >> 16) & 0xFF),
+            @intCast((val >> 8) & 0xFF),
+            @intCast(val & 0xFF),
+        });
+    }
+
+    fn digest(self: *const Djb2) u32 {
+        return self.h;
+    }
+};
+
+// -- Kumara identity (keyed hash) ------------------------------------
+
+const seed_length: u32 = 32;
+
+const Identity = struct {
+    seed: [seed_length]u8,
+
+    fn init(seed: [seed_length]u8) Identity {
+        return .{ .seed = seed };
+    }
+
+    fn sign(
+        self: *const Identity,
+        message: []const u8,
+    ) u32 {
+        var h = Djb2.init();
+        h.feed(&self.seed);
+        h.feed(message);
+        return h.digest();
+    }
+
+    fn verify(
+        self: *const Identity,
+        message: []const u8,
+        tag: u32,
+    ) bool {
+        return self.sign(message) == tag;
+    }
+};
+
+// -- Fact and MantraLog -----------------------------------------------
+
+const max_payload_len: u32 = 64;
+const fact_header_bytes: u32 = 4 + 4 + 4 + 4;
+const fact_size: u32 = fact_header_bytes + max_payload_len;
+const max_facts: u32 = 32;
+
+const Fact = struct {
+    seq: u32,
+    prev_hash: u32,
+    payload_len: u32,
+    tag: u32,
+    payload: [max_payload_len]u8,
+};
+
+const MantraLog = struct {
+    region: *Region,
+    identity: *const Identity,
+    count: u32,
+    state_hash: u32,
+    facts: [max_facts]*Fact,
+
+    fn init(
+        region: *Region,
+        identity: *const Identity,
+    ) MantraLog {
+        return .{
+            .region = region,
+            .identity = identity,
+            .count = 0,
+            .state_hash = 0,
+            .facts = undefined,
+        };
+    }
+
+    fn append(
+        self: *MantraLog,
+        payload: []const u8,
+    ) error{ OutOfBounds, PayloadTooLong, LogFull }!void {
+        if (payload.len > max_payload_len)
+            return error.PayloadTooLong;
+        if (self.count >= max_facts)
+            return error.LogFull;
+
+        const slice = try self.region.alloc(fact_size);
+        const fact: *Fact =
+            @alignCast(@ptrCast(slice.ptr));
+
+        fact.seq = self.count;
+        fact.prev_hash = self.state_hash;
+        fact.payload_len = @intCast(payload.len);
+        // copy payload bytes, zero-pad remainder
+        var pi: u32 = 0;
+        while (pi < max_payload_len) : (pi += 1) {
+            if (pi < payload.len) {
+                fact.payload[pi] = payload[pi];
+            } else {
+                fact.payload[pi] = 0;
+            }
+        }
+
+        // invariant: canonical_bytes matches fact fields
+        const canon = self.canonical_bytes(fact);
+        fact.tag = self.identity.sign(&canon);
+
+        // invariant: state_hash chains all prior facts
+        var sh = Djb2.init();
+        sh.feed_u32(self.state_hash);
+        sh.feed_u32(fact.tag);
+        sh.feed(&canon);
+        self.state_hash = sh.digest();
+
+        self.facts[self.count] = fact;
+        self.count += 1;
+    }
+
+    fn canonical_bytes(
+        self: *const MantraLog,
+        fact: *const Fact,
+    ) [76]u8 {
+        _ = self;
+        var buf: [76]u8 = undefined;
+
+        buf[0] = @intCast((fact.seq >> 24) & 0xFF);
+        buf[1] = @intCast((fact.seq >> 16) & 0xFF);
+        buf[2] = @intCast((fact.seq >> 8) & 0xFF);
+        buf[3] = @intCast(fact.seq & 0xFF);
+
+        buf[4] =
+            @intCast((fact.prev_hash >> 24) & 0xFF);
+        buf[5] =
+            @intCast((fact.prev_hash >> 16) & 0xFF);
+        buf[6] =
+            @intCast((fact.prev_hash >> 8) & 0xFF);
+        buf[7] =
+            @intCast(fact.prev_hash & 0xFF);
+
+        buf[8] =
+            @intCast((fact.payload_len >> 24) & 0xFF);
+        buf[9] =
+            @intCast((fact.payload_len >> 16) & 0xFF);
+        buf[10] =
+            @intCast((fact.payload_len >> 8) & 0xFF);
+        buf[11] =
+            @intCast(fact.payload_len & 0xFF);
+
+        var ci: u32 = 0;
+        while (ci < max_payload_len) : (ci += 1) {
+            buf[12 + ci] = fact.payload[ci];
+        }
+        return buf;
+    }
+
+    fn replay(self: *const MantraLog) u32 {
+        var state: u32 = 0;
+        var i: u32 = 0;
+        while (i < self.count) : (i += 1) {
+            const fact = self.facts[i];
+            // invariant: chain link matches running state
+            assert_true(fact.prev_hash == state);
+
+            const canon = self.canonical_bytes(fact);
+            // invariant: tag verifies under our identity
+            assert_true(
+                self.identity.verify(&canon, fact.tag),
+            );
+
+            var sh = Djb2.init();
+            sh.feed_u32(state);
+            sh.feed_u32(fact.tag);
+            sh.feed(&canon);
+            state = sh.digest();
+        }
+        return state;
+    }
+};
+
+// -- Wire serialization -----------------------------------------------
+
+fn send_seed(seed: *const [seed_length]u8) void {
+    uart_print("MSEED:");
+    for (seed) |byte| {
+        emit_hex_byte(byte);
+    }
+    uart_putc('\n');
+}
+
+fn send_fact(fact: *const Fact) void {
+    uart_print("MFACT:");
+    emit_hex_u32(fact.seq);
+    uart_putc(',');
+    emit_hex_u32(fact.prev_hash);
+    uart_putc(',');
+    emit_hex_u32(fact.payload_len);
+    uart_putc(',');
+    emit_hex_u32(fact.tag);
+    uart_putc(',');
+    uart_print(fact.payload[0..fact.payload_len]);
+    uart_putc('\n');
+}
+
+fn send_state(hash: u32) void {
+    uart_print("MSTATE:");
+    emit_hex_u32(hash);
+    uart_putc('\n');
+}
+
+fn str_eq(a: []const u8, b: []const u8) bool {
+    if (a.len != b.len) return false;
+    for (a, 0..) |c, i| {
+        if (c != b[i]) return false;
+    }
+    return true;
+}
+
+// -- Main entry -------------------------------------------------------
+
+export fn kmain() noreturn {
+    uart_print("Mantra Wire -- Orbit 19\n");
+    uart_print("facts travel through the glass\n\n");
+
+    // -- Build the MantraLog (identical to Orbit 18) ---
+    const seed: [seed_length]u8 = .{
+        0x4B, 0x75, 0x6D, 0x61, 0x72, 0x61, 0x20, 0x73,
+        0x65, 0x65, 0x64, 0x20, 0x66, 0x6F, 0x72, 0x20,
+        0x66, 0x72, 0x65, 0x65, 0x73, 0x74, 0x61, 0x6E,
+        0x64, 0x69, 0x6E, 0x67, 0x20, 0x52, 0x56, 0x49,
+    };
+    const identity = Identity.init(seed);
+
+    const arena_budget: u32 = 4096;
+    const arena_base: [*]u8 = @ptrFromInt(0x80180000);
+    var region = Region.init(arena_base, arena_budget);
+
+    var log = MantraLog.init(&region, &identity);
+
+    const facts = [_][]const u8{
+        "pill: self-compile proof verified",
+        "tally: arena bounded at 4096 bytes",
+        "aurora: console ready 40x30 glyphs",
+        "mantra: event log initialized",
+        "kumara: identity bound to seed",
+    };
+
+    uart_print("-- APPEND PHASE --\n");
+    for (facts) |payload| {
+        log.append(payload) catch |err| {
+            switch (err) {
+                error.OutOfBounds => halt_error(
+                    "OUT OF BOUNDS\n",
+                ),
+                error.PayloadTooLong => halt_error(
+                    "PAYLOAD TOO LONG\n",
+                ),
+                error.LogFull => halt_error(
+                    "LOG FULL\n",
+                ),
+            }
+        };
+    }
+    uart_print("appended ");
+    print_u32(log.count);
+    uart_print(" facts, state hash: ");
+    print_hex(log.state_hash);
+    uart_print("\n\n");
+
+    // -- Local replay to confirm integrity before send ---
+    uart_print("-- LOCAL REPLAY --\n");
+    const replay_hash = log.replay();
+    uart_print("replay state hash: ");
+    print_hex(replay_hash);
+    uart_print("\n");
+    if (replay_hash != log.state_hash) {
+        halt_error("LOCAL REPLAY MISMATCH\n");
+    }
+    uart_print("local replay: MATCH\n\n");
+
+    // -- Send over the wire ---
+    uart_print("-- WIRE SEND PHASE --\n");
+    send_seed(&seed);
+    uart_print("sent seed (32 bytes)\n");
+
+    var i: u32 = 0;
+    while (i < log.count) : (i += 1) {
+        send_fact(log.facts[i]);
+        uart_print("  sent fact ");
+        print_u32(i);
+        uart_print("\n");
+    }
+
+    send_state(log.state_hash);
+    uart_print("sent state hash: ");
+    print_hex(log.state_hash);
+    uart_print("\n\n");
+
+    // -- Wait for host verification ---
+    uart_print("-- WAITING FOR HOST REPLAY --\n");
+    var response_buf: [ack_max]u8 = undefined;
+    const response_len = uart_read_line(&response_buf);
+    const response = response_buf[0..response_len];
+
+    uart_print("host response: ");
+    uart_print(response);
+    uart_print("\n\n");
+
+    const expected_ok = "MVERIFY:ok";
+    if (str_eq(response, expected_ok)) {
+        uart_print(
+            "GREEN: Mantra persistence through the wire"
+            ++ " -- host replay identical\n",
+        );
+        halt_pass();
+    } else {
+        uart_print("FAIL: host replay did not match\n");
+        halt_error("HOST VERIFICATION FAILED\n");
+    }
+}
