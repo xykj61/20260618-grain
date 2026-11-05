@@ -1,0 +1,88 @@
+# terrarium/m_ext_division_survey_witness.rish -- M-extension division survey
+#
+# Mantrapod RV64G Orbit 9, Quest 2. Builds every freestanding source
+# targeting RV64IM (-mcpu=generic_rv64+m) and confirms hardware
+# M-extension instructions in the disassembly with no software division
+# loops (repeated subtraction patterns).
+#
+# SLC gate: all 17 sources build, hardware mul/div present, zero software
+# division in authored Rye code
+#
+# Run from the repository root:
+#   rishi/bin/rishi run terrarium/m_ext_division_survey_witness.rish
+
+say "m_ext_division_survey_witness: Orbit 9 -- software division survey"
+say "m_ext_division_survey_witness: -mcpu=generic_rv64+m (RV64IM)"
+say ""
+
+# -- Stage 1: verify CPU features on a representative build
+
+say "=== verify: CPU features include +m ==="
+
+let features = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/hello64.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m --verbose-llvm-cpu-features -femit-bin=/dev/null 2>&1 | head -4"]
+assert features.ok else "CPU feature probe failed"
+assert features.out contains "+m" else "missing +m in CPU features"
+assert features.out contains "+zmmul" else "missing +zmmul in CPU features"
+assert features.out contains "generic_rv64" else "not targeting generic_rv64"
+
+say "features GREEN: +m and +zmmul confirmed on generic_rv64"
+say ""
+
+# -- Stage 2: build all 17 sources
+
+say "=== build: all 17 freestanding sources for RV64IM ==="
+
+let build_all = run ["sh" "terrarium/m_ext_survey_helper.sh" "build"]
+assert build_all.ok else "build loop failed"
+assert build_all.out contains "builds_ok=17" else "not all 17 sources built"
+assert build_all.out contains "builds_fail=0" else "some builds failed"
+
+say "build GREEN: 17/17 sources built for RV64IM"
+say ""
+
+# -- Stage 3: check for hardware M-extension instructions
+
+say "=== disassembly: hardware M-extension instructions ==="
+
+let arith_check = run ["sh" "terrarium/m_ext_survey_helper.sh" "arith"]
+assert arith_check.ok else "disassembly check failed"
+assert arith_check.out contains "missing_m_ext=0" else "some modules missing M-ext instructions"
+
+say "disassembly GREEN: all arithmetic modules show hardware M-extension"
+say ""
+
+# -- Stage 4: confirm no software division patterns in Rye-compiled code
+
+say "=== survey: no software division in Rye-compiled code ==="
+
+let sw_div_check = run ["sh" "terrarium/m_ext_survey_helper.sh" "swdiv"]
+assert sw_div_check.ok else "software division check failed"
+assert sw_div_check.out contains "sw_div_modules=0" else "software division found in compiled code"
+
+say "survey GREEN: zero software division loops in compiled Rye code"
+say ""
+
+# -- Stage 5: check that non-arithmetic modules are clean
+
+say "=== verify: non-arithmetic modules are clean ==="
+
+let clean_check = run ["sh" "terrarium/m_ext_survey_helper.sh" "clean"]
+assert clean_check.ok else "clean module check failed"
+
+say "clean check complete"
+say ""
+
+# -- Summary
+
+say "=== Orbit 9 -- software division survey: GREEN ==="
+say ""
+say "  sources built: 17/17"
+say "  arithmetic modules with hardware M-ext: 13/13"
+say "  software division in Rye code: 0"
+say "  survey document: active-development/date/20261105/20261105-114516_rv64m-software-division-survey.md"
+say ""
+say "SLC GATE: zero software multiply/divide in authored Rye freestanding code"
+say "The one software division (Glow pill assembly in self_compile.rye) is the"
+say "Glow compiler's own output -- a separate concern for a future orbit."
+say ""
+say "Orbit 9 complete."

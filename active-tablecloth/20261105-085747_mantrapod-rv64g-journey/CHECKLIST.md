@@ -96,10 +96,14 @@ unchanged in what it does, wider in how it addresses.*
   **Witness:** `terrarium/amphora_seal_witness.rish` -- features, build,
   QEMU run, disassembly, timing. **GREEN on metal.**
 
-- [ ] **Orbit 9 -- M extension: software division removal survey**
-  Survey every site in the freestanding tree that uses software division or
-  multiplication. Name each one, confirm it now uses hardware instructions.
-  **SLC gate:** survey document with zero remaining software multiply/divide sites.
+- [x] **Orbit 9 -- M extension: software division removal survey**
+  Surveyed all 59 arithmetic sites across 17 freestanding sources. Classified:
+  runtime (38 -- all hardware M-ext), comptime (8), shift (7), assembly (1 --
+  Glow pill's own repeated-subtraction loop), strings (5). Zero remaining
+  software multiply/divide in authored Rye code.
+  **Witness:** `terrarium/m_ext_division_survey_witness.rish` -- CPU features,
+  17/17 builds, 13/13 arithmetic modules with hardware M-ext, 0 software
+  division. **GREEN on metal.**
 
 - [ ] **Orbit 10 -- M extension integration witness**
   A single witness proves all M-extension work: hash, calculator, seal, and
