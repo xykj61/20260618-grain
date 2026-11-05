@@ -89,7 +89,7 @@ emulation, and Aurora's proven stages port to the smaller ISA.*
   **SLC gate:** `aurora/run.sh seed` builds and runs on RV32I; the seed speaks and
   exits cleanly in Terrarium.
 
-- [ ] **Orbit 8 -- RV32I relay and named stages**
+- [x] **Orbit 8 -- RV32I relay and named stages** -- landed `20261104.200223`
   Port the relay and named stages to RV32I. The relay passes a named value between
   stages; the named stage hashes a message with SHA3-512 on the bare hart. Prove the
   crypto runs on the 32-bit ISA.
