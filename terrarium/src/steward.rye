@@ -1,0 +1,859 @@
+// terrarium/src/steward.rye
+//
+// Orbit 23 -- Steward: the root supervisor on freestanding RV32I
+//
+// Steward is the first process Caravan supervises -- the root
+// supervisor that reads a Brix manifest and brings up domains.
+// A manifest is a static table of domain descriptors: each names
+// a domain, its Tally budget, and its initial capabilities.
+// Steward walks the manifest, creates each domain in the registry,
+// confers its capabilities, spawns it under the supervisor, and
+// reports success through Aurora (UART console).
+//
+// TAME order: Safety (Tally bounds per manifest entry) ->
+// Visibility (Aurora console) -> Replay (Mantra event log)
+//
+// Build and run:
+//   make terrarium STAGE=steward
+
+const std = @import("std");
+const assert = std.debug.assert;
+
+// -- Hardware addresses (QEMU virt) ------------------------------------
+const uart_base: u32 = 0x10000000;
+const test_finisher: u32 = 0x00100000;
+const finisher_pass: u32 = 0x5555;
+
+fn uart_tx(c: u8) void {
+    const ptr: *volatile u8 = @ptrFromInt(uart_base);
+    ptr.* = c;
+}
+
+fn uart_print(s: []const u8) void {
+    for (s) |c| uart_tx(c);
+}
+
+fn print_u32(v: u32) void {
+    if (v == 0) {
+        uart_tx('0');
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n: u32 = 0;
+    var x = v;
+    while (x > 0) : (n += 1) {
+        buf[n] = @intCast(x % 10 + '0');
+        x /= 10;
+    }
+    while (n > 0) {
+        n -= 1;
+        uart_tx(buf[n]);
+    }
+}
+
+fn print_hex(v: u32) void {
+    uart_print("0x");
+    const hex = "0123456789abcdef";
+    var i: u5 = 8;
+    while (i > 0) {
+        i -= 1;
+        uart_tx(hex[@intCast((v >> (i * 4)) & 0xf)]);
+    }
+}
+
+fn halt_pass() noreturn {
+    const ptr: *volatile u32 = @ptrFromInt(test_finisher);
+    ptr.* = finisher_pass;
+    while (true) asm volatile ("wfi");
+}
+
+fn halt_error(msg: []const u8) noreturn {
+    uart_print(msg);
+    while (true) asm volatile ("wfi");
+}
+
+// -- Entry point (placed in .text.init for reliable 0x80000000)
+comptime {
+    asm (
+        \\.section .text.init,"ax"
+        \\.globl _start
+        \\_start:
+        \\  li sp, 0x80100000
+        \\  j kmain
+    );
+}
+
+// -- Tally region (bounded allocation) ---------------------------------
+const Region = struct {
+    buf: [*]u8,
+    cap: u32,
+    pos: u32,
+
+    fn init(base: [*]u8, budget: u32) Region {
+        // invariant: budget > 0
+        assert(budget > 0);
+        return .{ .buf = base, .cap = budget, .pos = 0 };
+    }
+
+    fn alloc(self: *Region, size: u32) error{OutOfBounds}!u32 {
+        // invariant: pos inside capacity
+        assert(self.pos <= self.cap);
+        if (self.pos + size > self.cap) return error.OutOfBounds;
+        const offset = self.pos;
+        var i: u32 = 0;
+        while (i < size) : (i += 1) {
+            self.buf[self.pos + i] = 0;
+        }
+        self.pos += size;
+        // invariant: pos still inside capacity
+        assert(self.pos <= self.cap);
+        return offset;
+    }
+
+    fn remaining(self: *const Region) u32 {
+        return self.cap - self.pos;
+    }
+};
+
+// -- djb2 hash ---------------------------------------------------------
+const Djb2 = struct {
+    h: u32,
+
+    fn init() Djb2 {
+        return .{ .h = 5381 };
+    }
+
+    fn feed(self: *Djb2, data: []const u8) void {
+        for (data) |byte| {
+            self.h = ((self.h << 5) +% self.h) +% byte;
+        }
+    }
+
+    fn feed_u32(self: *Djb2, v: u32) void {
+        var buf_arr: [4]u8 = undefined;
+        buf_arr[0] = @intCast((v >> 24) & 0xff);
+        buf_arr[1] = @intCast((v >> 16) & 0xff);
+        buf_arr[2] = @intCast((v >> 8) & 0xff);
+        buf_arr[3] = @intCast(v & 0xff);
+        self.feed(&buf_arr);
+    }
+
+    fn digest(self: *const Djb2) u32 {
+        return self.h;
+    }
+};
+
+// -- Identity (Kumara seed) --------------------------------------------
+const seed_length: u32 = 32;
+
+const Identity = struct {
+    seed: [seed_length]u8,
+
+    fn init(s: [seed_length]u8) Identity {
+        return .{ .seed = s };
+    }
+
+    fn sign(self: *const Identity, message: []const u8) u32 {
+        var h = Djb2.init();
+        h.feed(&self.seed);
+        h.feed(message);
+        return h.digest();
+    }
+};
+
+// -- Mantra event log --------------------------------------------------
+const MantraLog = struct {
+    region: *Region,
+    identity: *const Identity,
+    count: u32,
+    state_hash: u32,
+
+    fn init(region: *Region, identity: *const Identity) MantraLog {
+        return .{
+            .region = region,
+            .identity = identity,
+            .count = 0,
+            .state_hash = 0,
+        };
+    }
+
+    fn append(self: *MantraLog, message: []const u8) void {
+        const msg_len: u32 = @intCast(message.len);
+        const record_size: u32 = 4 + 4 + msg_len + 4 + 4;
+        const offset = self.region.alloc(record_size) catch {
+            halt_error("FATAL: Mantra log region exhausted\n");
+        };
+        var i: u32 = 0;
+        while (i < msg_len) : (i += 1) {
+            self.region.buf[offset + 8 + i] = message[i];
+        }
+        const sig = self.identity.sign(message);
+        var chain = Djb2.init();
+        chain.feed_u32(self.state_hash);
+        chain.feed_u32(self.count);
+        chain.feed(message);
+        chain.feed_u32(sig);
+        self.state_hash = chain.digest();
+        self.count += 1;
+    }
+};
+
+// -- Object types and rights (from Orbit 21) ---------------------------
+const ObjectType = enum(u8) {
+    untyped = 0,
+    tcb = 1,
+    endpoint = 2,
+    notification = 3,
+    cap_table = 4,
+};
+
+fn object_name(obj: ObjectType) []const u8 {
+    return switch (obj) {
+        .untyped => "untyped",
+        .tcb => "tcb",
+        .endpoint => "endpoint",
+        .notification => "notification",
+        .cap_table => "cap_table",
+    };
+}
+
+const right_read: u32 = 1;
+const right_write: u32 = 2;
+const right_execute: u32 = 4;
+
+fn rights_name(rights: u32) []const u8 {
+    if (rights == (right_read | right_write)) return "RW";
+    if (rights == right_read) return "R";
+    if (rights == right_write) return "W";
+    if (rights == right_execute) return "X";
+    if (rights == (right_read | right_execute)) return "RX";
+    if (rights == (right_read | right_write | right_execute))
+        return "RWX";
+    return "?";
+}
+
+// -- Capability (from Orbit 21) ----------------------------------------
+const max_caps_per_domain: u32 = 8;
+
+const Capability = struct {
+    obj: ObjectType,
+    rights: u32,
+    lease: u32,
+    active: bool,
+    grantor_id: u32,
+};
+
+// -- Domain (from Orbit 21) --------------------------------------------
+const max_name_len: u32 = 32;
+
+const Domain = struct {
+    id: u32,
+    name_ptr: [*]const u8,
+    name_len: u32,
+    caps: [max_caps_per_domain]Capability,
+    cap_count: u32,
+};
+
+fn domain_name_str(d: *const Domain) []const u8 {
+    return d.name_ptr[0..d.name_len];
+}
+
+// -- Domain registry (from Orbit 21) -----------------------------------
+const max_domains: u32 = 8;
+
+const DomainRegistry = struct {
+    domains: [max_domains]Domain,
+    count: u32,
+
+    fn init() DomainRegistry {
+        return .{ .domains = undefined, .count = 0 };
+    }
+
+    fn create(
+        self: *DomainRegistry,
+        name: []const u8,
+    ) error{RegistryFull}!*Domain {
+        assert(self.count <= max_domains);
+        if (self.count >= max_domains) return error.RegistryFull;
+        const idx = self.count;
+        self.domains[idx] = .{
+            .id = idx,
+            .name_ptr = name.ptr,
+            .name_len = @intCast(name.len),
+            .caps = undefined,
+            .cap_count = 0,
+        };
+        self.count += 1;
+        assert(self.count <= max_domains);
+        return &self.domains[idx];
+    }
+};
+
+// -- Capability operations (from Orbit 21) -----------------------------
+const CapError = error{
+    CapTableFull,
+    CapNotFound,
+    CapExpired,
+    CapRightsInsufficient,
+};
+
+fn confer(
+    domain: *Domain,
+    obj: ObjectType,
+    rights: u32,
+    lease: u32,
+    grantor_id: u32,
+) CapError!u32 {
+    assert(domain.cap_count <= max_caps_per_domain);
+    if (domain.cap_count >= max_caps_per_domain)
+        return CapError.CapTableFull;
+    const slot = domain.cap_count;
+    domain.caps[slot] = .{
+        .obj = obj,
+        .rights = rights,
+        .lease = lease,
+        .active = true,
+        .grantor_id = grantor_id,
+    };
+    domain.cap_count += 1;
+    assert(domain.cap_count <= max_caps_per_domain);
+    return slot;
+}
+
+// -- Process state (from Orbit 22) -------------------------------------
+const ProcessState = enum(u8) {
+    ready = 0,
+    running = 1,
+    stopped = 2,
+    faulted = 3,
+};
+
+fn state_name(s: ProcessState) []const u8 {
+    return switch (s) {
+        .ready => "ready",
+        .running => "running",
+        .stopped => "stopped",
+        .faulted => "faulted",
+    };
+}
+
+// -- Process (from Orbit 22) -------------------------------------------
+const Process = struct {
+    domain: *Domain,
+    state: ProcessState,
+    region: Region,
+    alloc_count: u32,
+};
+
+// -- Supervisor (from Orbit 22) ----------------------------------------
+const max_processes: u32 = 4;
+
+const SupervisorError = error{
+    ProcessTableFull,
+    ProcessNotRunning,
+    ProcessBudgetExceeded,
+};
+
+const Supervisor = struct {
+    log: *MantraLog,
+    processes: [max_processes]Process,
+    count: u32,
+    supervisor_domain: *Domain,
+
+    fn init(
+        log: *MantraLog,
+        supervisor_domain: *Domain,
+    ) Supervisor {
+        return .{
+            .log = log,
+            .processes = undefined,
+            .count = 0,
+            .supervisor_domain = supervisor_domain,
+        };
+    }
+
+    fn spawn(
+        self: *Supervisor,
+        domain: *Domain,
+        region_base: [*]u8,
+        region_budget: u32,
+    ) SupervisorError!u32 {
+        // invariant: count inside ceiling
+        assert(self.count <= max_processes);
+        if (self.count >= max_processes)
+            return SupervisorError.ProcessTableFull;
+        const pid = self.count;
+        self.processes[pid] = .{
+            .domain = domain,
+            .state = .running,
+            .region = Region.init(region_base, region_budget),
+            .alloc_count = 0,
+        };
+        self.count += 1;
+        // invariant: count still inside ceiling
+        assert(self.count <= max_processes);
+        return pid;
+    }
+
+    fn request_alloc(
+        self: *Supervisor,
+        pid: u32,
+        size: u32,
+    ) SupervisorError!u32 {
+        assert(pid < self.count);
+        var proc = &self.processes[pid];
+        if (proc.state != .running)
+            return SupervisorError.ProcessNotRunning;
+        const offset = proc.region.alloc(size) catch {
+            proc.state = .faulted;
+            return SupervisorError.ProcessBudgetExceeded;
+        };
+        proc.alloc_count += 1;
+        return offset;
+    }
+};
+
+// =====================================================================
+// NEW FOR ORBIT 23: Brix manifest and Steward boot
+// =====================================================================
+
+// -- Brix manifest entry -----------------------------------------------
+// A manifest entry describes one domain to bring up: its name,
+// its Tally budget, and initial capabilities to confer.
+// On freestanding, the manifest is a static const array -- what
+// Brix evaluates to when there is no filesystem to read from.
+
+const max_caps_per_entry: u32 = 4;
+
+const ManifestCap = struct {
+    obj: ObjectType,
+    rights: u32,
+    lease: u32,
+};
+
+const ManifestEntry = struct {
+    name: []const u8,
+    budget: u32,
+    region_base: u32,
+    caps: [max_caps_per_entry]ManifestCap,
+    cap_count: u32,
+};
+
+// -- The manifest itself -----------------------------------------------
+// Two domains: "console" (a display service with RW on endpoint
+// and R on notification) and "compute" (a worker with RX on tcb).
+// Each gets its own Tally budget at a distinct memory region.
+
+const console_region_base: u32 = 0x80181000;
+const console_region_budget: u32 = 512;
+const compute_region_base: u32 = 0x80181200;
+const compute_region_budget: u32 = 256;
+
+const manifest = [2]ManifestEntry{
+    .{
+        .name = "console",
+        .budget = console_region_budget,
+        .region_base = console_region_base,
+        .caps = .{
+            .{
+                .obj = .endpoint,
+                .rights = right_read | right_write,
+                .lease = 200,
+            },
+            .{
+                .obj = .notification,
+                .rights = right_read,
+                .lease = 200,
+            },
+            .{
+                .obj = .untyped,
+                .rights = 0,
+                .lease = 0,
+            },
+            .{
+                .obj = .untyped,
+                .rights = 0,
+                .lease = 0,
+            },
+        },
+        .cap_count = 2,
+    },
+    .{
+        .name = "compute",
+        .budget = compute_region_budget,
+        .region_base = compute_region_base,
+        .caps = .{
+            .{
+                .obj = .tcb,
+                .rights = right_read | right_execute,
+                .lease = 100,
+            },
+            .{
+                .obj = .untyped,
+                .rights = 0,
+                .lease = 0,
+            },
+            .{
+                .obj = .untyped,
+                .rights = 0,
+                .lease = 0,
+            },
+            .{
+                .obj = .untyped,
+                .rights = 0,
+                .lease = 0,
+            },
+        },
+        .cap_count = 1,
+    },
+};
+
+// -- Steward: the root supervisor that reads the manifest ---------------
+// Steward walks the Brix manifest, creates each domain in the
+// registry, confers its capabilities, and spawns it under the
+// supervisor. It reports each step through Aurora (UART).
+
+const StewardError = error{
+    ManifestEntryFailed,
+};
+
+const Steward = struct {
+    supervisor: *Supervisor,
+    registry: *DomainRegistry,
+    domains_up: u32,
+
+    fn init(
+        supervisor: *Supervisor,
+        registry: *DomainRegistry,
+    ) Steward {
+        return .{
+            .supervisor = supervisor,
+            .registry = registry,
+            .domains_up = 0,
+        };
+    }
+
+    fn boot_manifest(
+        self: *Steward,
+        entries: []const ManifestEntry,
+    ) StewardError!void {
+        // invariant: manifest is bounded
+        assert(entries.len <= max_domains);
+
+        var idx: u32 = 0;
+        while (idx < entries.len) : (idx += 1) {
+            const entry = &entries[idx];
+
+            uart_print("  steward: creating domain '");
+            uart_print(entry.name);
+            uart_print("' budget=");
+            print_u32(entry.budget);
+            uart_print(" bytes\n");
+
+            // create domain in registry
+            const domain = self.registry.create(
+                entry.name,
+            ) catch {
+                uart_print("  steward: registry full\n");
+                return StewardError.ManifestEntryFailed;
+            };
+
+            // confer capabilities from manifest
+            var ci: u32 = 0;
+            while (ci < entry.cap_count) : (ci += 1) {
+                const mc = &entry.caps[ci];
+                _ = confer(
+                    domain,
+                    mc.obj,
+                    mc.rights,
+                    mc.lease,
+                    self.supervisor.supervisor_domain.id,
+                ) catch {
+                    uart_print("  steward: cap table full\n");
+                    return StewardError.ManifestEntryFailed;
+                };
+                uart_print("    cap: ");
+                uart_print(object_name(mc.obj));
+                uart_print(" ");
+                uart_print(rights_name(mc.rights));
+                uart_print(" lease=");
+                print_u32(mc.lease);
+                uart_print("\n");
+            }
+
+            // spawn under supervisor
+            _ = self.supervisor.spawn(
+                domain,
+                @ptrFromInt(entry.region_base),
+                entry.budget,
+            ) catch {
+                uart_print("  steward: process table full\n");
+                return StewardError.ManifestEntryFailed;
+            };
+
+            uart_print("  steward: domain '");
+            uart_print(entry.name);
+            uart_print("' UP (id=");
+            print_u32(domain.id);
+            uart_print(")\n");
+
+            self.domains_up += 1;
+
+            // log the boot event
+            self.supervisor.log.append(entry.name);
+        }
+    }
+};
+
+// -- Memory layout -----------------------------------------------------
+// Steward log region: 4096 bytes at 0x80180000
+const steward_log_base: u32 = 0x80180000;
+const steward_log_budget: u32 = 4096;
+
+// -- Main: Steward boot proof ------------------------------------------
+
+export fn kmain() callconv(.c) noreturn {
+    uart_print("STEWARD ROOT SUPERVISOR");
+    uart_print(" -- freestanding RV32I\n");
+    uart_print("TAME stage 6: Steward reads");
+    uart_print(" the Brix manifest\n\n");
+
+    // -- Kumara identity
+    const seed: [seed_length]u8 = .{
+        0x4B, 0x75, 0x6D, 0x61, 0x72, 0x61, 0x20, 0x73,
+        0x65, 0x65, 0x64, 0x20, 0x66, 0x6F, 0x72, 0x20,
+        0x66, 0x72, 0x65, 0x65, 0x73, 0x74, 0x61, 0x6E,
+        0x64, 0x69, 0x6E, 0x67, 0x20, 0x52, 0x56, 0x49,
+    };
+    const identity = Identity.init(seed);
+
+    // -- Steward's own Tally region
+    var log_region = Region.init(
+        @ptrFromInt(steward_log_base),
+        steward_log_budget,
+    );
+
+    // -- Mantra log
+    var log = MantraLog.init(&log_region, &identity);
+
+    // -- Domain registry
+    var registry = DomainRegistry.init();
+
+    // === PROOF 1: Create Caravan root domain ===
+    uart_print("-- PROOF 1: CARAVAN ROOT DOMAIN --\n");
+
+    const root_domain = registry.create("caravan-root") catch
+        halt_error("ERROR: create root domain failed\n");
+    uart_print("caravan root domain created (id=");
+    print_u32(root_domain.id);
+    uart_print(")\n");
+    log.append("caravan-root domain created");
+
+    // === PROOF 2: Create Steward domain under Caravan ===
+    uart_print("\n-- PROOF 2: STEWARD DOMAIN --\n");
+
+    const steward_domain = registry.create("steward") catch
+        halt_error("ERROR: create steward domain failed\n");
+
+    // Steward gets a cap_table capability from root
+    _ = confer(
+        steward_domain,
+        .cap_table,
+        right_read | right_write,
+        1000,
+        root_domain.id,
+    ) catch halt_error("ERROR: confer to steward failed\n");
+
+    uart_print("steward domain created (id=");
+    print_u32(steward_domain.id);
+    uart_print(", caps=");
+    print_u32(steward_domain.cap_count);
+    uart_print(")\n");
+    log.append("steward domain created");
+
+    // -- Initialize supervisor with steward as the supervisor domain
+    var supervisor = Supervisor.init(&log, steward_domain);
+
+    // === PROOF 3: Read Brix manifest ===
+    uart_print("\n-- PROOF 3: READ BRIX MANIFEST --\n");
+
+    uart_print("manifest entries: ");
+    print_u32(manifest.len);
+    uart_print("\n");
+
+    var mi: u32 = 0;
+    while (mi < manifest.len) : (mi += 1) {
+        uart_print("  [");
+        print_u32(mi);
+        uart_print("] name='");
+        uart_print(manifest[mi].name);
+        uart_print("' budget=");
+        print_u32(manifest[mi].budget);
+        uart_print(" caps=");
+        print_u32(manifest[mi].cap_count);
+        uart_print("\n");
+    }
+    log.append("brix manifest read");
+
+    // === PROOF 4: Steward boots the manifest ===
+    uart_print("\n-- PROOF 4: STEWARD BOOTS MANIFEST --\n");
+
+    var steward = Steward.init(&supervisor, &registry);
+    steward.boot_manifest(&manifest) catch
+        halt_error("ERROR: steward boot_manifest failed\n");
+
+    uart_print("\nsteward: ");
+    print_u32(steward.domains_up);
+    uart_print(" domains UP from manifest\n");
+    log.append("steward boot complete");
+
+    // === PROOF 5: Verify domains are running ===
+    uart_print("\n-- PROOF 5: VERIFY RUNNING --\n");
+
+    var all_running = true;
+    var pi: u32 = 0;
+    while (pi < supervisor.count) : (pi += 1) {
+        uart_print("  pid ");
+        print_u32(pi);
+        uart_print(": domain='");
+        uart_print(domain_name_str(
+            supervisor.processes[pi].domain,
+        ));
+        uart_print("' state=");
+        uart_print(state_name(
+            supervisor.processes[pi].state,
+        ));
+        uart_print(" budget=");
+        print_u32(supervisor.processes[pi].region.cap);
+        uart_print("\n");
+        if (supervisor.processes[pi].state != .running)
+            all_running = false;
+    }
+    if (all_running) {
+        uart_print("all manifest domains running\n");
+    } else {
+        halt_error("ERROR: not all domains running\n");
+    }
+
+    // === PROOF 6: Domains can allocate ===
+    uart_print("\n-- PROOF 6: MANIFEST DOMAINS ALLOCATE --\n");
+
+    // console allocates 128 of its 512 bytes
+    _ = supervisor.request_alloc(0, 128) catch
+        halt_error("ERROR: console alloc failed\n");
+    uart_print("console ALLOCATED 128 bytes (");
+    print_u32(supervisor.processes[0].region.pos);
+    uart_print("/");
+    print_u32(supervisor.processes[0].region.cap);
+    uart_print(" used)\n");
+    log.append("console allocated");
+
+    // compute allocates 64 of its 256 bytes
+    _ = supervisor.request_alloc(1, 64) catch
+        halt_error("ERROR: compute alloc failed\n");
+    uart_print("compute ALLOCATED 64 bytes (");
+    print_u32(supervisor.processes[1].region.pos);
+    uart_print("/");
+    print_u32(supervisor.processes[1].region.cap);
+    uart_print(" used)\n");
+    log.append("compute allocated");
+
+    // === PROOF 7: Capability verification ===
+    uart_print("\n-- PROOF 7: CAPABILITY VERIFICATION --\n");
+
+    // console domain should have 2 caps from manifest
+    const console_dom = supervisor.processes[0].domain;
+    uart_print("console caps: ");
+    print_u32(console_dom.cap_count);
+    uart_print("\n");
+    assert(console_dom.cap_count == 2);
+
+    var ci: u32 = 0;
+    while (ci < console_dom.cap_count) : (ci += 1) {
+        uart_print("  cap[");
+        print_u32(ci);
+        uart_print("]: ");
+        uart_print(object_name(console_dom.caps[ci].obj));
+        uart_print(" ");
+        uart_print(rights_name(console_dom.caps[ci].rights));
+        uart_print(" lease=");
+        print_u32(console_dom.caps[ci].lease);
+        uart_print(" active=");
+        if (console_dom.caps[ci].active) {
+            uart_print("yes");
+        } else {
+            uart_print("no");
+        }
+        uart_print("\n");
+    }
+
+    // compute domain should have 1 cap
+    const compute_dom = supervisor.processes[1].domain;
+    uart_print("compute caps: ");
+    print_u32(compute_dom.cap_count);
+    uart_print("\n");
+    assert(compute_dom.cap_count == 1);
+    uart_print("  cap[0]: ");
+    uart_print(object_name(compute_dom.caps[0].obj));
+    uart_print(" ");
+    uart_print(rights_name(compute_dom.caps[0].rights));
+    uart_print(" lease=");
+    print_u32(compute_dom.caps[0].lease);
+    uart_print("\n");
+
+    log.append("caps verified");
+
+    // === PROOF 8: Registry census ===
+    uart_print("\n-- PROOF 8: REGISTRY CENSUS --\n");
+
+    // caravan-root + steward + console + compute = 4
+    uart_print("registry domains: ");
+    print_u32(registry.count);
+    uart_print("\n");
+    assert(registry.count == 4);
+
+    var ri: u32 = 0;
+    while (ri < registry.count) : (ri += 1) {
+        uart_print("  domain[");
+        print_u32(ri);
+        uart_print("]: '");
+        uart_print(domain_name_str(&registry.domains[ri]));
+        uart_print("'\n");
+    }
+    log.append("registry census");
+
+    // === PROOF 9: Steward log integrity ===
+    uart_print("\n-- PROOF 9: MANTRA INTEGRITY --\n");
+
+    uart_print("mantra facts: ");
+    print_u32(log.count);
+    uart_print("\n");
+    uart_print("state hash: ");
+    print_hex(log.state_hash);
+    uart_print("\n");
+
+    uart_print("steward tally: ");
+    print_u32(log_region.pos);
+    uart_print(" of ");
+    print_u32(steward_log_budget);
+    uart_print(" bytes\n");
+
+    // -- Final summary
+    uart_print("\n==============================\n");
+    uart_print("Steward boot: ");
+    print_u32(steward.domains_up);
+    uart_print(" domains from Brix manifest\n");
+    uart_print("Supervisor: ");
+    print_u32(supervisor.count);
+    uart_print(" processes running\n");
+    uart_print("Registry: ");
+    print_u32(registry.count);
+    uart_print(" domains total\n");
+    uart_print("Mantra: ");
+    print_u32(log.count);
+    uart_print(" facts\n");
+    uart_print("==============================\n\n");
+    uart_print("Orbit 23 complete\n");
+
+    halt_pass();
+}

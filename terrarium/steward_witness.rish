@@ -1,0 +1,85 @@
+# terrarium/steward_witness.rish
+#
+# Orbit 23 witness -- Steward: the root supervisor reads
+# a Brix manifest and brings up domains on freestanding RV32I.
+
+say "steward_witness: building steward.rye for riscv32-freestanding-none"
+
+let build = run ["sh" "-c" "mkdir -p terrarium/.build && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/steward.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/steward.elf 2>&1"]
+assert build.code == 0 else "build failed"
+say "steward_witness: build ok"
+
+say "steward_witness: running on qemu-system-riscv32"
+
+let result = run ["timeout" "10" "qemu-system-riscv32" "-machine" "virt" "-bios" "none" "-display" "none" "-serial" "stdio" "-kernel" "terrarium/.build/steward.elf"]
+assert result.code == 0 else "qemu exited nonzero"
+say "steward_witness: qemu exited 0"
+
+# -- PROOF 1: Caravan root domain
+assert result.out contains "PROOF 1: CARAVAN ROOT DOMAIN" else "missing proof 1"
+assert result.out contains "caravan root domain created (id=0)" else "root domain failed"
+say "steward_witness: proof 1 -- caravan root domain ok"
+
+# -- PROOF 2: Steward domain
+assert result.out contains "PROOF 2: STEWARD DOMAIN" else "missing proof 2"
+assert result.out contains "steward domain created (id=1, caps=1)" else "steward domain failed"
+say "steward_witness: proof 2 -- steward domain ok"
+
+# -- PROOF 3: Brix manifest read
+assert result.out contains "PROOF 3: READ BRIX MANIFEST" else "missing proof 3"
+assert result.out contains "manifest entries: 2" else "manifest count wrong"
+assert result.out contains "name='console' budget=512 caps=2" else "console entry missing"
+assert result.out contains "name='compute' budget=256 caps=1" else "compute entry missing"
+say "steward_witness: proof 3 -- brix manifest read ok"
+
+# -- PROOF 4: Steward boots manifest
+assert result.out contains "PROOF 4: STEWARD BOOTS MANIFEST" else "missing proof 4"
+assert result.out contains "domain 'console' UP (id=2)" else "console not UP"
+assert result.out contains "domain 'compute' UP (id=3)" else "compute not UP"
+assert result.out contains "2 domains UP from manifest" else "domain count wrong"
+say "steward_witness: proof 4 -- steward boots manifest ok"
+
+# -- PROOF 5: Verify running
+assert result.out contains "PROOF 5: VERIFY RUNNING" else "missing proof 5"
+assert result.out contains "domain='console' state=running budget=512" else "console not running"
+assert result.out contains "domain='compute' state=running budget=256" else "compute not running"
+assert result.out contains "all manifest domains running" else "not all running"
+say "steward_witness: proof 5 -- all manifest domains running ok"
+
+# -- PROOF 6: Manifest domains allocate
+assert result.out contains "PROOF 6: MANIFEST DOMAINS ALLOCATE" else "missing proof 6"
+assert result.out contains "console ALLOCATED 128 bytes (128/512 used)" else "console alloc failed"
+assert result.out contains "compute ALLOCATED 64 bytes (64/256 used)" else "compute alloc failed"
+say "steward_witness: proof 6 -- manifest domains allocate ok"
+
+# -- PROOF 7: Capability verification
+assert result.out contains "PROOF 7: CAPABILITY VERIFICATION" else "missing proof 7"
+assert result.out contains "console caps: 2" else "console cap count wrong"
+assert result.out contains "compute caps: 1" else "compute cap count wrong"
+assert result.out contains "endpoint RW lease=200 active=yes" else "endpoint cap wrong"
+assert result.out contains "notification R lease=200 active=yes" else "notification cap wrong"
+assert result.out contains "tcb RX lease=100" else "tcb cap wrong"
+say "steward_witness: proof 7 -- capability verification ok"
+
+# -- PROOF 8: Registry census
+assert result.out contains "PROOF 8: REGISTRY CENSUS" else "missing proof 8"
+assert result.out contains "registry domains: 4" else "registry count wrong"
+assert result.out contains "'caravan-root'" else "missing caravan-root"
+assert result.out contains "'steward'" else "missing steward"
+assert result.out contains "'console'" else "missing console"
+assert result.out contains "'compute'" else "missing compute"
+say "steward_witness: proof 8 -- registry census ok"
+
+# -- PROOF 9: Mantra integrity
+assert result.out contains "PROOF 9: MANTRA INTEGRITY" else "missing proof 9"
+assert result.out contains "mantra facts: 10" else "mantra count wrong"
+assert result.out contains "state hash: 0x4c380065" else "state hash wrong"
+say "steward_witness: proof 9 -- mantra integrity ok"
+
+# -- Tally
+assert result.out contains "steward tally: 324 of 4096 bytes" else "tally wrong"
+say "steward_witness: tally -- 324 of 4096 ok"
+
+# -- Final
+assert result.out contains "Orbit 23 complete" else "orbit incomplete"
+say "steward_witness: GREEN -- Orbit 23 Steward root supervisor complete"

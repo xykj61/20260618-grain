@@ -216,7 +216,7 @@ arrives, and a living world opens under glass.*
   **SLC gate:** a supervised dependent exceeds its Tally budget, Caravan stops it,
   and the event is logged in Mantra and displayed on Aurora's console.
 
-- [ ] **Orbit 23 -- Steward: the root supervisor**
+- [x] **Orbit 23 -- Steward: the root supervisor** -- landed `20261105`
   Steward is the first process Caravan supervises -- the root supervisor that reads
   the Brix manifest and brings up domains. Steward loads a minimal manifest (one
   domain, one capability) and reports success through Aurora.
