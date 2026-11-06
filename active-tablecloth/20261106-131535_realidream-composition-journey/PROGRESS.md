@@ -11,6 +11,7 @@
 
 | Stamp | Movement | What landed | Witness |
 |---|---|---|---|
+| 20261106.210500 | 14 | Status bar with connection state and active module -- three-field NSView, NSTabViewDelegate, QEMU lifecycle wired | Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean |
 | 20261106.195500 | 13 | Keyboard shortcut registry -- Shortcuts menu, Cmd+T/Cmd+W/Cmd+[, status bar at bottom | Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean |
 | 20261106.184500 | 12 | Sidebar skeleton -- NSSplitView wraps NSTableView sidebar and NSTabView, Cmd+0 toggle | Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean |
 | 20261106.180200 | 11 | Tab bar -- NSTabView replaces NSSplitView, Terminal and Grid tabs, Cmd+1/Cmd+2 select | Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean |

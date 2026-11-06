@@ -45,7 +45,8 @@ let elfPath = "\(repoRoot)/terrarium/.build/\(stage).elf"
 
 // -- Application delegate -------------------------------------------
 
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject,
+    NSApplicationDelegate, NSTabViewDelegate {
     var window: NSWindow!
     var textView: NSTextView!
     var imageView: NSImageView?
@@ -72,6 +73,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     ]
     var nextTabId = 3
     var shortcutStatusLabel: NSTextField?
+    var connectionLabel: NSTextField?
+    var moduleLabel: NSTextField?
+    var infoLabel: NSTextField?
 
     func applicationDidFinishLaunching(_ note: Notification) {
         let mask: NSWindow.StyleMask = [
@@ -129,6 +133,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         tv.tabViewType = .topTabsBezelBorder
         tv.autoresizingMask = [.width, .height]
         tabView = tv
+        tv.delegate = self
 
         // Tab 1: Terminal
         let termTab = NSTabViewItem(
@@ -263,31 +268,70 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .defaultHigh, forSubviewAt: 0
         )
 
-        // -- Status bar (Movement 13) ---------
+        // -- Status bar (Movement 14) ---------
 
         let statusH: CGFloat = 22
-        let statusBar = NSTextField(
+        let barW = splitFrame.width
+        let statusContainer = NSView(
             frame: NSRect(
                 x: 0, y: 0,
-                width: splitFrame.width,
-                height: statusH
+                width: barW, height: statusH
             )
         )
-        statusBar.isEditable = false
-        statusBar.isBordered = false
-        statusBar.drawsBackground = true
-        statusBar.backgroundColor = NSColor(
-            white: 0.12, alpha: 1.0
-        )
-        statusBar.textColor = NSColor.lightGray
-        statusBar.font = NSFont.monospacedSystemFont(
-            ofSize: 11, weight: .regular
-        )
-        statusBar.stringValue = "  Ready"
-        statusBar.autoresizingMask = [
+        statusContainer.wantsLayer = true
+        statusContainer.layer?.backgroundColor =
+            NSColor(white: 0.12, alpha: 1.0).cgColor
+        statusContainer.autoresizingMask = [
             .width, .maxYMargin,
         ]
-        shortcutStatusLabel = statusBar
+
+        let statusFont = NSFont.monospacedSystemFont(
+            ofSize: 11, weight: .regular
+        )
+        let statusColor = NSColor.lightGray
+
+        func makeStatusField(
+            _ x: CGFloat, _ w: CGFloat,
+            align: NSTextAlignment = .left
+        ) -> NSTextField {
+            let f = NSTextField(
+                frame: NSRect(
+                    x: x, y: 0,
+                    width: w, height: statusH
+                )
+            )
+            f.isEditable = false
+            f.isBordered = false
+            f.drawsBackground = false
+            f.textColor = statusColor
+            f.font = statusFont
+            f.alignment = align
+            return f
+        }
+
+        let connField = makeStatusField(
+            0, 120
+        )
+        connField.autoresizingMask = [.maxXMargin]
+
+        let modField = makeStatusField(
+            120, barW - 240, align: .center
+        )
+        modField.autoresizingMask = [.width]
+
+        let infoField = makeStatusField(
+            barW - 120, 120, align: .right
+        )
+        infoField.autoresizingMask = [.minXMargin]
+
+        statusContainer.addSubview(connField)
+        statusContainer.addSubview(modField)
+        statusContainer.addSubview(infoField)
+
+        connectionLabel = connField
+        moduleLabel = modField
+        infoLabel = infoField
+        shortcutStatusLabel = modField
 
         split.frame = NSRect(
             x: 0, y: statusH,
@@ -296,12 +340,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         )
 
         window.contentView?.addSubview(split)
-        window.contentView?.addSubview(statusBar)
+        window.contentView?.addSubview(statusContainer)
 
         window.makeKeyAndOrderFront(nil)
 
         setupMenu()
         updateFocusIndicator()
+        updateStatusBar()
 
         appendLine("Terrarium -- a living world under glass")
         appendLine("stage: \(stage)")
@@ -490,8 +535,48 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func showShortcutStatus(_ text: String) {
-        shortcutStatusLabel?.stringValue =
-            "  \(text)"
+        moduleLabel?.stringValue = text
+        DispatchQueue.main.asyncAfter(
+            deadline: .now() + 2.0
+        ) { [weak self] in
+            self?.updateStatusBar()
+        }
+    }
+
+    // -- Status bar state (Movement 14) ----
+
+    func updateStatusBar() {
+        let alive =
+            qemuProcess?.isRunning == true
+        let dot = alive ? "🟢" : "🔴"
+        let state = alive
+            ? "connected" : "stopped"
+        connectionLabel?.stringValue =
+            " \(dot) \(state)"
+
+        var modName = "Terminal"
+        if let sel =
+            tabView?.selectedTabViewItem,
+            let ident =
+                sel.identifier as? String
+        {
+            switch ident {
+            case "terminal": modName = "Terminal"
+            case "grid": modName = "FrameGrid"
+            default: modName = sel.label
+            }
+        }
+        moduleLabel?.stringValue = modName
+
+        infoLabel?.stringValue =
+            "M14 \(stage) "
+    }
+
+    func tabView(
+        _ tabView: NSTabView,
+        didSelect tabViewItem: NSTabViewItem?
+    ) {
+        updateStatusBar()
     }
 
     func updateFocusIndicator() {
@@ -609,6 +694,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         proc.terminationHandler = { [weak self] p in
             DispatchQueue.main.async {
+                self?.updateStatusBar()
                 self?.appendLine(
                     "--- qemu exited "
                     + "(\(p.terminationStatus))"
@@ -622,6 +708,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         do {
             try proc.run()
             qemuProcess = proc
+            updateStatusBar()
             appendLine(
                 "qemu launched "
                 + "(pid \(proc.processIdentifier))"

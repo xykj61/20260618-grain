@@ -125,11 +125,15 @@
   - previousTab wraps to last tab when at first position
   - Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean
 
-- [ ] **Movement 14: Status bar -- connection state and current module**
+- [x] **Movement 14: Status bar -- connection state and current module**
   - SLC gate: a status bar at the bottom of the window shows QEMU connection state and the active module name
   - Left: connection indicator (green dot when QEMU process alive, red when stopped)
   - Center: current module name (Terminal, FrameGrid, etc.)
   - Right: movement count and stage name
+  - NSView container replaces single NSTextField, three fields: connectionLabel, moduleLabel, infoLabel
+  - NSTabViewDelegate added to AppDelegate, updateStatusBar called on tab switch, QEMU launch, and termination
+  - showShortcutStatus temporarily overrides center field, auto-restores after 2 seconds
+  - Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean
 
 - [ ] **Movement 15: Act I integration witness -- the navigable shell**
   - SLC gate: witness script proves the full shell -- tabs, sidebar, shortcuts, status bar, live QEMU data
