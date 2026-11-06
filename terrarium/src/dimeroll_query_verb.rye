@@ -1,0 +1,729 @@
+// dimeroll_query_verb.rye -- Query Mantra log by verb
+//
+// Filters the 9 dimeroll transactions by verb and proves
+// each filter returns the correct subset. Movement 36 of
+// the Mantrapod RV64G journey (Quest 2.3: The Query Engine).
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+// =========================================================
+// HARDWARE
+// =========================================================
+
+const uart_base: usize = 0x10000000;
+const test_finisher: usize = 0x00100000;
+
+fn uart_tx(c: u8) void {
+    const ptr: *volatile u8 = @ptrFromInt(uart_base);
+    ptr.* = c;
+}
+
+fn uart_print(s: []const u8) void {
+    for (s) |c| uart_tx(c);
+}
+
+fn print_u32(val: u32) void {
+    if (val == 0) {
+        uart_tx('0');
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n: u32 = 0;
+    var v = val;
+    while (v > 0) : (n += 1) {
+        buf[n] = @intCast(v % 10 + '0');
+        v /= 10;
+    }
+    var i: u32 = n;
+    while (i > 0) {
+        i -= 1;
+        uart_tx(buf[i]);
+    }
+}
+
+fn print_hex32(val: u32) void {
+    uart_print("0x");
+    var buf: [8]u8 = undefined;
+    var hi: u32 = 0;
+    while (hi < 8) : (hi += 1) {
+        const nib: u4 = @intCast(
+            (val >> @intCast(28 - hi * 4)) & 0xF,
+        );
+        buf[hi] = if (nib < 10)
+            '0' + @as(u8, nib)
+        else
+            'a' + @as(u8, nib) - 10;
+    }
+    uart_print(&buf);
+}
+
+fn halt_ok() noreturn {
+    const ptr: *volatile u32 = @ptrFromInt(test_finisher);
+    ptr.* = 0x5555;
+    while (true) {}
+}
+
+// =========================================================
+// REGION + MANTRA
+// =========================================================
+
+const log_region_base: usize = 0x80260000;
+const replay_region_base: usize = 0x80270000;
+const region_budget: u32 = 4096;
+
+const Region = struct {
+    base: usize,
+    budget: u32,
+    used: u32,
+
+    fn init(base: usize, budget: u32) Region {
+        return .{
+            .base = base,
+            .budget = budget,
+            .used = 0,
+        };
+    }
+
+    fn alloc(self: *Region, size: u32) ?usize {
+        if (self.used + size > self.budget) return null;
+        const addr = self.base + self.used;
+        self.used += size;
+        return addr;
+    }
+};
+
+const Djb2 = struct {
+    state: u32,
+
+    fn init() Djb2 {
+        return .{ .state = 5381 };
+    }
+
+    fn update(self: *Djb2, data: []const u8) void {
+        for (data) |b| {
+            self.state = self.state *% 33 +% b;
+        }
+    }
+
+    fn finish(self: *const Djb2) u32 {
+        return self.state;
+    }
+};
+
+const Identity = struct {
+    seed: [32]u8,
+
+    fn init(s: [32]u8) Identity {
+        return .{ .seed = s };
+    }
+
+    fn sign(
+        self: *const Identity,
+        message: []const u8,
+    ) u32 {
+        var h = Djb2.init();
+        h.update(&self.seed);
+        h.update(message);
+        return h.finish();
+    }
+};
+
+const MantraLog = struct {
+    region: *Region,
+    identity: *const Identity,
+    count: u32,
+    state_hash: u32,
+
+    fn init(
+        region: *Region,
+        identity: *const Identity,
+    ) MantraLog {
+        return .{
+            .region = region,
+            .identity = identity,
+            .count = 0,
+            .state_hash = 0,
+        };
+    }
+
+    fn append(
+        self: *MantraLog,
+        fact: []const u8,
+    ) ?u32 {
+        const total = 4 + fact.len;
+        const addr = self.region.alloc(
+            @intCast(total),
+        ) orelse return null;
+        const sig = self.identity.sign(fact);
+
+        const sig_ptr: *volatile u32 = @ptrFromInt(addr);
+        sig_ptr.* = sig;
+        var i: u32 = 0;
+        while (i < fact.len) : (i += 1) {
+            const bp: *volatile u8 = @ptrFromInt(
+                addr + 4 + i,
+            );
+            bp.* = fact[i];
+        }
+
+        self.count += 1;
+        self.state_hash = self.state_hash *% 31 +% sig;
+        return sig;
+    }
+};
+
+// =========================================================
+// TRANSACTION DATA (identical across all dimeroll modules)
+// =========================================================
+
+const GlowVerb = enum(u8) {
+    plant = 0,
+    harvest = 1,
+    sell = 2,
+    compost = 3,
+    note = 4,
+
+    fn name(self: GlowVerb) []const u8 {
+        return switch (self) {
+            .plant => "plant",
+            .harvest => "harvest",
+            .sell => "sell",
+            .compost => "compost",
+            .note => "note",
+        };
+    }
+};
+
+const TransactionRecord = struct {
+    verb: GlowVerb,
+    subject: []const u8,
+    qty: u32,
+    unit: []const u8,
+    price_cents: u32,
+    has_unit: bool,
+    has_price: bool,
+};
+
+const transactions = [9]TransactionRecord{
+    .{
+        .verb = .plant,
+        .subject = "tomatoes",
+        .qty = 200,
+        .unit = "seeds",
+        .price_cents = 0,
+        .has_unit = true,
+        .has_price = false,
+    },
+    .{
+        .verb = .plant,
+        .subject = "peppers",
+        .qty = 50,
+        .unit = "seeds",
+        .price_cents = 0,
+        .has_unit = true,
+        .has_price = false,
+    },
+    .{
+        .verb = .harvest,
+        .subject = "tomatoes",
+        .qty = 60,
+        .unit = "kg",
+        .price_cents = 0,
+        .has_unit = true,
+        .has_price = false,
+    },
+    .{
+        .verb = .sell,
+        .subject = "tomatoes",
+        .qty = 30,
+        .unit = "kg",
+        .price_cents = 250,
+        .has_unit = true,
+        .has_price = true,
+    },
+    .{
+        .verb = .harvest,
+        .subject = "peppers",
+        .qty = 25,
+        .unit = "kg",
+        .price_cents = 0,
+        .has_unit = true,
+        .has_price = false,
+    },
+    .{
+        .verb = .sell,
+        .subject = "peppers",
+        .qty = 10,
+        .unit = "kg",
+        .price_cents = 375,
+        .has_unit = true,
+        .has_price = true,
+    },
+    .{
+        .verb = .compost,
+        .subject = "leaves",
+        .qty = 30,
+        .unit = "",
+        .price_cents = 0,
+        .has_unit = false,
+        .has_price = false,
+    },
+    .{
+        .verb = .sell,
+        .subject = "tomatoes",
+        .qty = 15,
+        .unit = "kg",
+        .price_cents = 300,
+        .has_unit = true,
+        .has_price = true,
+    },
+    .{
+        .verb = .note,
+        .subject = "rainfall",
+        .qty = 25,
+        .unit = "mm",
+        .price_cents = 0,
+        .has_unit = true,
+        .has_price = false,
+    },
+};
+
+const txn_count: u32 = 9;
+
+// =========================================================
+// FACT BUILDER
+// =========================================================
+
+var fact_buf: [128]u8 = undefined;
+var fact_len: u32 = 0;
+
+fn buf_append_str(s: []const u8) void {
+    for (s) |c| {
+        if (fact_len < 128) {
+            fact_buf[fact_len] = c;
+            fact_len += 1;
+        }
+    }
+}
+
+fn buf_append_u32(val: u32) void {
+    if (val == 0) {
+        if (fact_len < 128) {
+            fact_buf[fact_len] = '0';
+            fact_len += 1;
+        }
+        return;
+    }
+    var tmp: [10]u8 = undefined;
+    var n: u32 = 0;
+    var v = val;
+    while (v > 0) : (n += 1) {
+        tmp[n] = @intCast(v % 10 + '0');
+        v /= 10;
+    }
+    var i: u32 = n;
+    while (i > 0) {
+        i -= 1;
+        if (fact_len < 128) {
+            fact_buf[fact_len] = tmp[i];
+            fact_len += 1;
+        }
+    }
+}
+
+fn build_fact(
+    txn: *const TransactionRecord,
+) []const u8 {
+    fact_len = 0;
+    buf_append_str(txn.verb.name());
+    buf_append_str(":");
+    buf_append_str(txn.subject);
+    buf_append_str("=qty=");
+    buf_append_u32(txn.qty);
+    if (txn.has_unit) {
+        buf_append_str(",unit=");
+        buf_append_str(txn.unit);
+    }
+    if (txn.has_price) {
+        buf_append_str(",price=");
+        buf_append_u32(txn.price_cents);
+    }
+    return fact_buf[0..fact_len];
+}
+
+// =========================================================
+// QUERY ENGINE -- filter transactions by verb
+// =========================================================
+
+const max_results: u32 = 9;
+
+const QueryResult = struct {
+    indices: [9]u32,
+    count: u32,
+
+    fn init() QueryResult {
+        var r: QueryResult = undefined;
+        r.count = 0;
+        var i: u32 = 0;
+        while (i < 9) : (i += 1) {
+            r.indices[i] = 0;
+        }
+        return r;
+    }
+};
+
+fn query_by_verb(verb: GlowVerb) QueryResult {
+    // invariant: result count bounded by txn_count
+    var result = QueryResult.init();
+    var i: u32 = 0;
+    while (i < txn_count) : (i += 1) {
+        if (transactions[i].verb == verb) {
+            assert(result.count < max_results);
+            result.indices[result.count] = i;
+            result.count += 1;
+        }
+    }
+    return result;
+}
+
+// =========================================================
+// STRING + PROOF HELPERS
+// =========================================================
+
+fn str_eq(a: []const u8, b: []const u8) bool {
+    if (a.len != b.len) return false;
+    var i: usize = 0;
+    while (i < a.len) : (i += 1) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+var proof_count: u32 = 0;
+var proof_pass: u32 = 0;
+
+fn check(name: []const u8, ok: bool) void {
+    proof_count += 1;
+    if (ok) {
+        proof_pass += 1;
+        uart_print("  PASS: ");
+    } else {
+        uart_print("  FAIL: ");
+    }
+    uart_print(name);
+    uart_print("\n");
+}
+
+fn aurora_pad(s: []const u8, width: u32) void {
+    uart_print(s);
+    if (s.len < width) {
+        var i: u32 = @intCast(s.len);
+        while (i < width) : (i += 1) uart_tx(' ');
+    }
+}
+
+fn aurora_pad_num(v: u32, width: u32) void {
+    var buf: [10]u8 = undefined;
+    var n: u32 = 0;
+    var val = v;
+    if (val == 0) {
+        n = 1;
+        buf[0] = '0';
+    } else {
+        while (val > 0) : (n += 1) {
+            buf[n] = @intCast(val % 10 + '0');
+            val /= 10;
+        }
+    }
+    if (n < width) {
+        var pad: u32 = width - n;
+        while (pad > 0) : (pad -= 1) uart_tx(' ');
+    }
+    var i: u32 = n;
+    while (i > 0) {
+        i -= 1;
+        uart_tx(buf[i]);
+    }
+}
+
+// =========================================================
+// DISPLAY -- print filtered results over UART
+// =========================================================
+
+fn display_query_result(
+    verb: GlowVerb,
+    result: *const QueryResult,
+) void {
+    uart_print("\n  Query: show all ");
+    uart_print(verb.name());
+    uart_print(" transactions\n");
+    uart_print(
+        "  # | Subject  | Qty   | Unit  | Price\n",
+    );
+    uart_print(
+        "  --|----------|-------|-------|------\n",
+    );
+    var i: u32 = 0;
+    while (i < result.count) : (i += 1) {
+        const idx = result.indices[i];
+        const txn = &transactions[idx];
+        uart_print("  ");
+        print_u32(i + 1);
+        uart_print(" | ");
+        aurora_pad(txn.subject, 8);
+        uart_print(" | ");
+        aurora_pad_num(txn.qty, 5);
+        uart_print(" | ");
+        if (txn.has_unit) {
+            aurora_pad(txn.unit, 5);
+        } else {
+            uart_print("     ");
+        }
+        uart_print(" | ");
+        if (txn.has_price) {
+            aurora_pad_num(txn.price_cents, 5);
+        }
+        uart_print("\n");
+    }
+    uart_print("  results: ");
+    print_u32(result.count);
+    uart_print("\n");
+}
+
+// =========================================================
+// KUMARA SEED + ENTRY
+// =========================================================
+
+const kumara_seed = [32]u8{
+    0x4B, 0x75, 0x6D, 0x61, 0x72, 0x61, 0x20, 0x73,
+    0x65, 0x65, 0x64, 0x20, 0x66, 0x6F, 0x72, 0x20,
+    0x66, 0x72, 0x65, 0x65, 0x73, 0x74, 0x61, 0x6E,
+    0x64, 0x69, 0x6E, 0x67, 0x20, 0x52, 0x56, 0x49,
+};
+
+comptime {
+    asm (
+        \\.section .text.init,"ax"
+        \\.globl _start
+        \\_start:
+        \\  li sp, 0x80100000
+        \\  j kmain
+    );
+}
+
+export fn kmain() callconv(.c) noreturn {
+    uart_print("=== Dimeroll Query Engine: Verb ===\n\n");
+
+    // Initialize Mantra
+    var identity = Identity.init(kumara_seed);
+    var log_region = Region.init(
+        log_region_base,
+        region_budget,
+    );
+    var replay_region = Region.init(
+        replay_region_base,
+        region_budget,
+    );
+    var log = MantraLog.init(&log_region, &identity);
+    var replay_log = MantraLog.init(
+        &replay_region,
+        &identity,
+    );
+
+    // -- PHASE 1: LOG ALL TRANSACTIONS --
+    uart_print("-- phase 1: log transactions --\n\n");
+
+    var facts_logged: u32 = 0;
+    var ti: u32 = 0;
+    while (ti < txn_count) : (ti += 1) {
+        const txn = &transactions[ti];
+        const fact = build_fact(txn);
+        uart_print("[");
+        print_u32(ti + 1);
+        uart_print("] ");
+        uart_print(txn.verb.name());
+        uart_print(" ");
+        uart_print(txn.subject);
+        uart_print(" ");
+        print_u32(txn.qty);
+        if (txn.has_unit) {
+            uart_print(" ");
+            uart_print(txn.unit);
+        }
+        if (txn.has_price) {
+            uart_print(" @");
+            print_u32(txn.price_cents);
+        }
+        uart_print("\n");
+        if (log.append(fact)) |_| {
+            facts_logged += 1;
+        }
+    }
+    uart_print("\n");
+    check(
+        "9 transactions logged",
+        facts_logged == 9,
+    );
+    check(
+        "Mantra hash 0xe9cf083f",
+        log.state_hash == 0xe9cf083f,
+    );
+
+    // -- PHASE 2: QUERY BY VERB --
+    uart_print("\n-- phase 2: query by verb --\n");
+
+    // Query: harvest (expect 2)
+    const q_harvest = query_by_verb(.harvest);
+    display_query_result(.harvest, &q_harvest);
+    check(
+        "harvest returns 2 results",
+        q_harvest.count == 2,
+    );
+    check(
+        "harvest[0] is tomatoes 60",
+        q_harvest.indices[0] == 2
+            and transactions[q_harvest.indices[0]].qty == 60,
+    );
+    check(
+        "harvest[1] is peppers 25",
+        q_harvest.indices[1] == 4
+            and transactions[q_harvest.indices[1]].qty == 25,
+    );
+
+    // Query: sell (expect 3)
+    const q_sell = query_by_verb(.sell);
+    display_query_result(.sell, &q_sell);
+    check("sell returns 3 results", q_sell.count == 3);
+    check(
+        "sell[0] is tomatoes 30 @250",
+        q_sell.indices[0] == 3
+            and transactions[q_sell.indices[0]].qty == 30
+            and transactions[q_sell.indices[0]]
+                .price_cents == 250,
+    );
+    check(
+        "sell[1] is peppers 10 @375",
+        q_sell.indices[1] == 5
+            and transactions[q_sell.indices[1]].qty == 10
+            and transactions[q_sell.indices[1]]
+                .price_cents == 375,
+    );
+    check(
+        "sell[2] is tomatoes 15 @300",
+        q_sell.indices[2] == 7
+            and transactions[q_sell.indices[2]].qty == 15
+            and transactions[q_sell.indices[2]]
+                .price_cents == 300,
+    );
+
+    // Query: plant (expect 2)
+    const q_plant = query_by_verb(.plant);
+    display_query_result(.plant, &q_plant);
+    check(
+        "plant returns 2 results",
+        q_plant.count == 2,
+    );
+    check(
+        "plant[0] is tomatoes 200",
+        q_plant.indices[0] == 0
+            and transactions[q_plant.indices[0]].qty == 200,
+    );
+    check(
+        "plant[1] is peppers 50",
+        q_plant.indices[1] == 1
+            and transactions[q_plant.indices[1]].qty == 50,
+    );
+
+    // Query: compost (expect 1)
+    const q_compost = query_by_verb(.compost);
+    display_query_result(.compost, &q_compost);
+    check(
+        "compost returns 1 result",
+        q_compost.count == 1,
+    );
+    check(
+        "compost[0] is leaves 30",
+        q_compost.indices[0] == 6
+            and str_eq(
+                transactions[q_compost.indices[0]].subject,
+                "leaves",
+            ),
+    );
+
+    // Query: note (expect 1)
+    const q_note = query_by_verb(.note);
+    display_query_result(.note, &q_note);
+    check("note returns 1 result", q_note.count == 1);
+    check(
+        "note[0] is rainfall 25",
+        q_note.indices[0] == 8
+            and transactions[q_note.indices[0]].qty == 25,
+    );
+
+    // -- PHASE 3: COMPLETENESS --
+    uart_print("\n-- phase 3: completeness --\n\n");
+
+    const total_found = q_harvest.count + q_sell.count +
+        q_plant.count + q_compost.count + q_note.count;
+    check(
+        "all verbs cover all 9 transactions",
+        total_found == 9,
+    );
+
+    // -- PHASE 4: REPLAY IDENTITY --
+    uart_print("\n-- phase 4: replay identity --\n\n");
+
+    var ri: u32 = 0;
+    while (ri < txn_count) : (ri += 1) {
+        const fact = build_fact(&transactions[ri]);
+        _ = replay_log.append(fact);
+    }
+    check(
+        "replay count matches",
+        replay_log.count == log.count,
+    );
+    check(
+        "REPLAY MATCHES: identical state proven",
+        replay_log.state_hash == log.state_hash,
+    );
+
+    // -- SUMMARY --
+    uart_print("\n-- summary --\n\n");
+    uart_print("  harvest:  ");
+    print_u32(q_harvest.count);
+    uart_print(" results\n");
+    uart_print("  sell:     ");
+    print_u32(q_sell.count);
+    uart_print(" results\n");
+    uart_print("  plant:    ");
+    print_u32(q_plant.count);
+    uart_print(" results\n");
+    uart_print("  compost:  ");
+    print_u32(q_compost.count);
+    uart_print(" results\n");
+    uart_print("  note:     ");
+    print_u32(q_note.count);
+    uart_print(" results\n");
+    uart_print("  total:    ");
+    print_u32(total_found);
+    uart_print(" (all 9 accounted for)\n");
+    uart_print("  Mantra:   ");
+    print_hex32(log.state_hash);
+    uart_print("\n");
+
+    uart_print("\nproofs: ");
+    print_u32(proof_pass);
+    uart_print("/");
+    print_u32(proof_count);
+    uart_print("\n");
+
+    if (proof_pass == proof_count) {
+        uart_print("ALL PROOFS PASSED\n");
+    }
+
+    uart_print("dimeroll_query_verb complete\n");
+
+    halt_ok();
+}

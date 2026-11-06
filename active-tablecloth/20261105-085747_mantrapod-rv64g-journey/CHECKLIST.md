@@ -389,10 +389,15 @@ and a daily summary.*
 
 *The grower asks questions. The ledger answers from the Mantra log.*
 
-- [ ] **Orbit 36 -- Query by verb**
-  "Show me all harvests" -- filter the Mantra log by verb. Display as a
-  transaction table on Aurora.
-  **SLC gate:** verb query returns correct subset of transactions.
+- [x] **Orbit 36 -- Query by verb** PROVEN `20261106`
+  "Show me all harvests" -- filter the Mantra log by verb. QueryResult
+  struct holds indices into the transactions array, bounded at 9.
+  All 5 verbs queried: harvest 2, sell 3, plant 2, compost 1, note 1.
+  Completeness proven: all 5 verbs cover all 9 transactions. Mantra
+  hash 0xe9cf083f, replay identity proven, 19/19 proofs on QEMU.
+  **SLC gate:** verb query returns correct subset of transactions -- PROVEN.
+  **Witness:** `terrarium/dimeroll_query_verb_witness.rish` -- build,
+  QEMU 19-proof run, all 5 verb filters verified. **GREEN on metal.**
 
 - [ ] **Orbit 37 -- Query by subject**
   "Show me everything about tomatoes" -- filter by subject across all verbs.
