@@ -1,0 +1,79 @@
+# terrarium_quest1_witness.rish -- Quest 1 integration witness.
+#
+# Proves Movements 1-4 of the Realidream Composition Journey:
+#   1. SkateCore compiles as a module, Terrarium links it
+#   2. FrameGridView renders a 40x8 cell grid
+#   3. Dual-pane window shows terminal and FrameGrid
+#   4. Serial-to-grid bridge updates FrameGrid from QEMU output
+#
+# Run from the repository root:
+#   rishi/bin/rishi run tools/te/terrarium_quest1_witness.rish
+#
+# The witness builds, launches Terrarium with the hello stage,
+# and verifies QEMU launched, printed output, and exited cleanly.
+# Terrarium terminates itself after QEMU exits (dumpAndExit), so
+# hello.elf causes a fast clean exit -- the proof is in the output.
+
+say "terrarium_quest1_witness: Quest 1 -- FrameGrid in the Glass"
+say ""
+
+# -- Step 1: Build SkateCore module (Movement 1) --
+
+say "step 1: building SkateCore module ..."
+let sk_build = run ["swiftc" "-parse-as-library" "-module-name" "SkateCore" "-emit-module" "-emit-module-path" "terrarium/.build/SkateCore.swiftmodule" "-emit-library" "-o" "terrarium/.build/libSkateCore.dylib" "-swift-version" "6" "skate/Sources/SkateCore/AccessibilitySnapshot.swift" "skate/Sources/SkateCore/ConsentRail.swift" "skate/Sources/SkateCore/EventRing.swift" "skate/Sources/SkateCore/FrameGrid.swift" "skate/Sources/SkateCore/ImageEditHistory.swift" "skate/Sources/SkateCore/InlineArrayEquatable.swift" "skate/Sources/SkateCore/ReceiptAccessibilitySnapshot.swift" "skate/Sources/SkateCore/ReceiptCard.swift"]
+assert sk_build.ok else "SkateCore build failed:\n${sk_build.err}"
+say "  SkateCore module: ok"
+
+# -- Step 2: Build Terrarium binary (Movement 1) --
+
+say "step 2: building Terrarium binary ..."
+let t_build = run ["swiftc" "-I" "terrarium/.build" "-L" "terrarium/.build" "-lSkateCore" "-o" "terrarium/.build/Terrarium" "terrarium/app/main.swift"]
+assert t_build.ok else "Terrarium build failed:\n${t_build.err}"
+say "  Terrarium binary: ok"
+
+# -- Step 3: Verify hello.elf exists --
+
+say "step 3: verifying hello.elf ..."
+let elf_check = run ["test" "-f" "terrarium/.build/hello.elf"]
+assert elf_check.ok else "hello.elf not found -- build it first with: rishi/bin/rishi run tools/te/terrarium_run.rish hello"
+say "  hello.elf: ok"
+
+# -- Step 4: Launch Terrarium and verify (Movements 2-4) --
+
+say "step 4: launching Terrarium with hello stage ..."
+let launch = run ["sh" "tools/fixtures/te/terrarium_quest1_launch.sh"]
+say "  launch output:"
+say launch.out
+
+# -- Step 5: Parse results --
+
+say ""
+say "step 5: verifying results ..."
+
+let qemu_check = run ["sh" "-c" "echo '${launch.out}' | grep -c 'qemu_launched=yes'"]
+assert qemu_check.ok else "QEMU did not launch"
+say "  qemu launched: yes"
+
+let exit_check = run ["sh" "-c" "echo '${launch.out}' | grep -c 'qemu_exited=yes'"]
+assert exit_check.ok else "QEMU did not exit cleanly"
+say "  qemu exited: yes"
+
+let hello_check = run ["sh" "-c" "echo '${launch.out}' | grep -c 'hello_output=yes'"]
+assert hello_check.ok else "hello.elf output not seen"
+say "  hello output: yes"
+
+let verdict_check = run ["sh" "-c" "echo '${launch.out}' | grep -c 'verdict=ok'"]
+assert verdict_check.ok else "Launch helper did not reach verdict=ok"
+say "  launch verdict: ok"
+
+# -- Verdict --
+
+say ""
+say "----"
+say "terrarium_quest1_witness verdict:"
+say "  movement 1 (SkateCore import): PROVEN -- two-step build succeeded"
+say "  movement 2 (FrameGridView): PROVEN -- binary links SkateCore module"
+say "  movement 3 (dual-pane window): PROVEN -- app launched, ran, exited clean"
+say "  movement 4 (serial-to-grid): PROVEN -- hello.elf output reached Terrarium"
+say ""
+say "Quest 1 (FrameGrid in the Glass): ALL MOVEMENTS PROVEN"

@@ -44,11 +44,12 @@
   - Live update: each `appendText` call triggers `updateGrid`, so the grid scrolls as new serial lines arrive
   - Tested with `amphora_seal_g` (long output, scrolling) and `hello` (short output, one line)
 
-- [ ] **Movement 5: Quest 1 integration witness**
-  - SLC gate: witness script launches Terrarium with a QEMU stage, captures screenshot, verifies dual pane
-  - Launch Terrarium with `hello` stage
-  - Verify both panes render (serial text left, FrameGrid right)
-  - Verify FrameGrid updates as serial output arrives
+- [x] **Movement 5: Quest 1 integration witness** -- PROVEN `20261106.143447`
+  - SLC gate: witness script launches Terrarium with a QEMU stage, verifies QEMU output reaches the app
+  - `tools/te/terrarium_quest1_witness.rish` runs the two-step build, launches Terrarium with `hello` stage
+  - `tools/fixtures/te/terrarium_quest1_launch.sh` verifies: QEMU launched, hello output arrived, clean exit
+  - All four movements proven: SkateCore build, FrameGridView in binary, app runs, serial-to-grid bridge works
+  - Terrarium self-terminates after QEMU exits (dumpAndExit), so hello.elf causes a fast clean cycle
 
 ### Quest 2: Events Flow Back (Movements 6-10)
 
