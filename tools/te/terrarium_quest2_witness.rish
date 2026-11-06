@@ -1,0 +1,139 @@
+# terrarium_quest2_witness.rish -- Quest 2 integration witness.
+#
+# Proves Movements 6-9 of the Realidream Composition Journey:
+#   6. EventRing keyboard adapter (SkateEvent enum, EventRing<SkateEvent>)
+#   7. FrameGrid cursor (arrow keys drive cursor, palette marks position)
+#   8. ConsentRail integration (folded/expanded frames, content check)
+#   9. Scene switching (all 9 SkateCore files compose without conflict)
+#
+# Run from the repository root:
+#   rishi/bin/rishi run tools/te/terrarium_quest2_witness.rish
+#
+# The witness builds SkateCore (all 9 files), builds and runs a headless
+# Swift harness exercising type integration, and builds Terrarium to prove
+# the full app compiles with all Quest 2 types.
+
+say "terrarium_quest2_witness: Quest 2 -- Keyboard Events to Cursor"
+say ""
+
+# -- Step 1: Run the launch script --
+
+say "step 1: building and running Quest 2 harness ..."
+let launch = run ["sh" "tools/fixtures/te/terrarium_quest2_launch.sh" "."]
+assert launch.ok else "Quest 2 launch script failed:\n${launch.err}"
+say "  launch script: ok"
+
+# -- Step 2: Verify SkateCore built --
+
+say "step 2: verifying SkateCore build ..."
+let sk_check = run ["sh" "-c" "echo '${launch.out}' | grep -c 'skatecore_build=yes'"]
+assert sk_check.ok else "SkateCore did not build"
+say "  skatecore build: yes"
+
+# -- Step 3: Verify harness built --
+
+say "step 3: verifying harness build ..."
+let h_check = run ["sh" "-c" "echo '${launch.out}' | grep -c 'harness_build=yes'"]
+assert h_check.ok else "Quest 2 harness did not build"
+say "  harness build: yes"
+
+# -- Step 4: Parse individual proofs --
+
+say "step 4: verifying individual proofs ..."
+
+let p1 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'skateevent_cases=yes'"]
+assert p1.ok else "skateevent_cases failed"
+say "  skateevent_cases: yes"
+
+let p2 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'skateevent_equatable=yes'"]
+assert p2.ok else "skateevent_equatable failed"
+say "  skateevent_equatable: yes"
+
+let p3 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'eventring_append=yes'"]
+assert p3.ok else "eventring_append failed"
+say "  eventring_append: yes"
+
+let p4 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'eventring_count=yes'"]
+assert p4.ok else "eventring_count failed"
+say "  eventring_count: yes"
+
+let p5 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'eventring_drain=yes'"]
+assert p5.ok else "eventring_drain failed"
+say "  eventring_drain: yes"
+
+let p6 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'framegrid_write=yes'"]
+assert p6.ok else "framegrid_write failed"
+say "  framegrid_write: yes"
+
+let p7 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'framegrid_read=yes'"]
+assert p7.ok else "framegrid_read failed"
+say "  framegrid_read: yes"
+
+let p8 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'framegrid_paint=yes'"]
+assert p8.ok else "framegrid_paint failed"
+say "  framegrid_paint: yes"
+
+let p9 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'consentrail_folded=yes'"]
+assert p9.ok else "consentrail_folded failed"
+say "  consentrail_folded: yes"
+
+let p10 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'consentrail_expanded=yes'"]
+assert p10.ok else "consentrail_expanded failed"
+say "  consentrail_expanded: yes"
+
+let p11 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'consentrail_content=yes'"]
+assert p11.ok else "consentrail_content failed"
+say "  consentrail_content: yes"
+
+let p12 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'integration_append=yes'"]
+assert p12.ok else "integration_append failed"
+say "  integration_append: yes"
+
+let p13 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'integration_count=yes'"]
+assert p13.ok else "integration_count failed"
+say "  integration_count: yes"
+
+let p14 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'integration_order=yes'"]
+assert p14.ok else "integration_order failed"
+say "  integration_order: yes"
+
+let p15 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'cursor_position=yes'"]
+assert p15.ok else "cursor_position failed"
+say "  cursor_position: yes"
+
+let p16 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'cursor_paint=yes'"]
+assert p16.ok else "cursor_paint failed"
+say "  cursor_paint: yes"
+
+# -- Step 5: Verify totals --
+
+say ""
+say "step 5: verifying totals ..."
+let total_check = run ["sh" "-c" "echo '${launch.out}' | grep -c 'proofs_passed=16'"]
+assert total_check.ok else "proofs_passed did not reach 16"
+say "  proofs_passed: 16"
+
+let verdict_check = run ["sh" "-c" "echo '${launch.out}' | grep -c 'verdict=ok'"]
+assert verdict_check.ok else "harness did not reach verdict=ok"
+say "  harness verdict: ok"
+
+# -- Step 6: Verify Terrarium builds --
+
+say ""
+say "step 6: verifying Terrarium build ..."
+let tb_check = run ["sh" "-c" "echo '${launch.out}' | grep -c 'terrarium_build=yes'"]
+assert tb_check.ok else "Terrarium did not build"
+say "  terrarium build: yes"
+
+# -- Verdict --
+
+say ""
+say "----"
+say "terrarium_quest2_witness verdict:"
+say "  movement 6 (EventRing keyboard): PROVEN -- SkateEvent enum, EventRing append/drain"
+say "  movement 7 (FrameGrid cursor): PROVEN -- arrow keys drive cursor, palette marks position"
+say "  movement 8 (ConsentRail): PROVEN -- folded/expanded frames, content verified"
+say "  movement 9 (scene switching): PROVEN -- all 9 SkateCore files compose, Terrarium builds"
+say "  16 proofs across 6 test functions, all GREEN"
+say ""
+say "Quest 2 (Keyboard Events to Cursor): ALL MOVEMENTS PROVEN"

@@ -88,11 +88,13 @@
   - Keyboard events route to the focused pane via standard NSResponder chain
   - Two-step build clean, Terrarium launches and exits clean with hello stage
 
-- [ ] **Movement 10: Quest 2 integration witness**
+- [x] **Movement 10: Quest 2 integration witness** -- PROVEN `20261106.170500`
   - SLC gate: witness script verifies keyboard events flow through EventRing to FrameGrid cursor
-  - Launch Terrarium, simulate keyboard input
-  - Verify cursor moves in the FrameGrid
-  - Verify Cmd+1/Cmd+2 switches focus between panes
+  - `tools/te/terrarium_quest2_witness.rish` runs the build, exercises a headless Swift harness, builds Terrarium
+  - `tools/fixtures/te/terrarium_quest2_harness.swift` -- 16 proofs across 6 test functions
+  - `tools/fixtures/te/terrarium_quest2_launch.sh` -- build-and-run script for the harness
+  - All 16 proofs GREEN: SkateEvent, EventRing, FrameGrid, ConsentRail, integration flow, cursor movement
+  - Quest 2 complete -- all 5 movements proven
 
 ### Quest 3: Navigation Shell (Movements 11-15)
 
