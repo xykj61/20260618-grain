@@ -1,6 +1,6 @@
 // terrarium/src/dimeroll_cashflow.rye
 //
-// Orbit 33 -- Ledger page: daily cash flow
+// Dimeroll daily cash flow from Mantra log
 //
 // Derives revenue and expenses from the Mantra log.
 // The grower's cash flow is rebuilt by replaying signed
@@ -502,7 +502,7 @@ const MantraLog = struct {
 };
 
 // =========================================================
-// TRANSACTION GRAMMAR (from Orbit 26-31)
+// TRANSACTION GRAMMAR (shared across dimeroll modules)
 // =========================================================
 
 const GlowVerb = enum(u8) {
@@ -733,7 +733,7 @@ fn build_fact(
 }
 
 // =========================================================
-// LOG-DERIVED CASH FLOW -- the heart of Orbit 33
+// LOG-DERIVED CASH FLOW
 //
 // Reads raw fact bytes from the Mantra log region,
 // parses verb:subject=qty=N[,unit=U][,price=P], and
@@ -1135,7 +1135,7 @@ comptime {
 }
 
 export fn kmain() callconv(.c) noreturn {
-    uart_print("=== Orbit 33: Daily Cash Flow ===\n\n");
+    uart_print("=== Dimeroll Daily Cash Flow ===\n\n");
 
     // Set up Aurora framebuffer
     if (find_ramfb_selector()) |sel| {
@@ -1355,7 +1355,7 @@ export fn kmain() callconv(.c) noreturn {
         "correct: cash flow summary shows" ++
             " correct totals for the day\n",
     );
-    uart_print("Orbit 33 complete\n");
+    uart_print("dimeroll_cashflow complete\n");
 
     halt_ok();
 }

@@ -1,12 +1,12 @@
 #!/usr/bin/env rishi
-# dimeroll_inventory_witness.rish -- Orbit 32: inventory summary
+# dimeroll_inventory_witness.rish -- inventory summary
 # Proves inventory derived from Mantra log matches running balances
 
 let src = "terrarium/src/dimeroll_inventory.rye"
 let elf = "terrarium/.build/dimeroll_inventory_g.elf"
 let layout = "terrarium/layout64.ld"
 
-say "=== Orbit 32: Inventory Summary Witness ==="
+say "=== dimeroll_inventory witness ==="
 say ""
 
 # Stage 1: build
@@ -43,8 +43,8 @@ assert qemu.out contains "peppers" else "expected peppers in inventory"
 say "  PASS: peppers in inventory"
 assert qemu.out contains "leaves" else "expected leaves in inventory"
 say "  PASS: leaves in inventory"
-assert qemu.out contains "Orbit 32 complete" else "expected Orbit 32 complete"
-say "  PASS: Orbit 32 complete"
+assert qemu.out contains "dimeroll_inventory complete" else "completion marker missing"
+say "  PASS: dimeroll_inventory complete"
 
 say ""
-say "=== Orbit 32 witness GREEN ==="
+say "=== dimeroll_inventory witness GREEN ==="

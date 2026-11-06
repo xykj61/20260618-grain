@@ -1,12 +1,12 @@
 #!/usr/bin/env rishi
 # dimeroll_cashflow_witness.rish
 #
-# Orbit 33 witness -- daily cash flow derived from Mantra log
+# dimeroll_cashflow witness -- daily cash flow derived from Mantra log
 # 3 stages: build, QEMU run, 10 proof assertions
 # GREEN means the SLC gate holds: derived cash flow matches
 # direct running totals for the day.
 
-say "=== Orbit 33: dimeroll_cashflow witness ==="
+say "=== dimeroll_cashflow witness ==="
 say ""
 
 # -----------------------------------------------------------
@@ -68,8 +68,8 @@ say "  cash flow header: ok"
 assert qemu.out contains "| TOTAL    |  15750 |" else "total revenue mismatch"
 say "  total revenue 15750: ok"
 
-assert qemu.out contains "Orbit 33 complete" else "orbit not complete"
-say "  Orbit 33 complete"
+assert qemu.out contains "dimeroll_cashflow complete" else "completion marker missing"
+say "  dimeroll_cashflow complete"
 
 say ""
 say "=== dimeroll_cashflow witness: GREEN ==="

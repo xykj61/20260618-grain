@@ -1,8 +1,8 @@
-// dimeroll_ledger.rye -- Orbit 31: Ledger page on Aurora framebuffer
+// dimeroll_ledger.rye -- Ledger page on Aurora framebuffer
 //
 // Aurora draws a table of the day's transactions on the 320x240
 // framebuffer console. 5 transactions display as a readable table.
-// Quest 2.2 opener.
+// Proves Aurora ledger rendering from Mantra transaction log.
 
 const std = @import("std");
 const assert = std.debug.assert;
@@ -1158,7 +1158,7 @@ comptime {
 }
 
 export fn kmain() callconv(.c) noreturn {
-    uart_print("=== Orbit 31: Ledger Page ===\n\n");
+    uart_print("=== Dimeroll Ledger Page ===\n\n");
 
     // Set up Aurora framebuffer
     if (find_ramfb_selector()) |sel| {
@@ -1311,7 +1311,7 @@ export fn kmain() callconv(.c) noreturn {
     uart_print(
         "correct: 5 transactions visible as readable table on Aurora\n",
     );
-    uart_print("Orbit 31 complete\n");
+    uart_print("dimeroll_ledger complete\n");
 
     halt_ok();
 }

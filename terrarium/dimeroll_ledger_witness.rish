@@ -1,7 +1,7 @@
 #!/usr/bin/env rishi
-# Orbit 31 witness -- Ledger page: transaction list on Aurora
+# dimeroll_ledger witness -- Ledger page: transaction list on Aurora
 
-say "=== Orbit 31: Dimeroll Ledger Page Witness ==="
+say "=== dimeroll_ledger witness ==="
 
 let build = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/dimeroll_ledger.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+a+f+d -femit-bin=terrarium/.build/dimeroll_ledger_g.elf 2>&1"]
 assert build.ok else "build failed: ${build.err}"
@@ -37,7 +37,7 @@ say "cash flow: present"
 assert run_out.out contains "| TOTAL    |  15750 |" else "total revenue mismatch"
 say "total revenue: 15750"
 
-assert run_out.out contains "Orbit 31 complete" else "orbit not complete"
+assert run_out.out contains "dimeroll_ledger complete" else "completion marker missing"
 
 say ""
-say "=== Orbit 31 GREEN ==="
+say "=== dimeroll_ledger GREEN ==="

@@ -1,7 +1,7 @@
-//! terrarium/src/dimeroll_tx.rye -- Orbit 30: transaction language
+//! terrarium/src/dimeroll_tx.rye -- transaction language
 //! integration witness
 //!
-//! Quest 2.1 closing gate. Proves all five verbs (plant, harvest,
+//! Closing gate for the five transaction verbs. Proves all five verbs (plant, harvest,
 //! sell, compost, note), both balance types (inventory and cash
 //! flow), Mantra replay identity, and Aurora display -- a formatted
 //! UART ledger report a grower could read.
@@ -842,9 +842,9 @@ fn aurora_display_cashflow(
 
 export fn kmain() callconv(.c) noreturn {
     uart_print("DIMEROLL TRANSACTION LANGUAGE");
-    uart_print(" -- Orbit 30\n");
+    uart_print(" -- dimeroll tx\n");
     uart_print(
-        "Quest 2.1 closing gate, RV64G under Mantra\n\n",
+        "Closing gate, RV64G under Mantra\n\n",
     );
 
     const identity = Identity.init(seed);
@@ -1222,11 +1222,11 @@ export fn kmain() callconv(.c) noreturn {
     if (proof_pass == proof_count) {
         uart_print("ALL PROOFS PASSED\n");
         uart_print(
-            "correct: Quest 2.1 complete" ++
+            "correct: dimeroll_tx complete" ++
                 " -- all verbs, both balances," ++
                 " replay, Aurora\n",
         );
-        uart_print("Orbit 30 complete\n");
+        uart_print("dimeroll_tx complete\n");
     } else {
         halt_error("SOME PROOFS FAILED\n");
     }

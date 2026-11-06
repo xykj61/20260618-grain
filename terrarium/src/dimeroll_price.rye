@@ -1,6 +1,6 @@
 // terrarium/src/dimeroll_price.rye
 //
-// Orbit 18: Dimeroll price arithmetic on RV64FD
+// Dimeroll price arithmetic on RV64FD
 //
 // Dimeroll's field ledger runs price calculations on hardware floating
 // point. Four transactions -- three sales and one purchase -- exercise
@@ -229,7 +229,7 @@ fn main() callconv(.c) noreturn {
     if (proof_pass == proof_count) {
         uart_str("ALL PROOFS PASSED");
         uart_newline();
-        uart_str("Orbit 18 complete");
+        uart_str("dimeroll_price complete");
         uart_newline();
     } else {
         uart_str("SOME PROOFS FAILED");

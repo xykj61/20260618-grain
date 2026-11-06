@@ -1,6 +1,6 @@
 // terrarium/src/dimeroll_inventory.rye
 //
-// Orbit 32 -- Ledger page: inventory summary
+// Dimeroll inventory summary from Mantra log
 //
 // Derives inventory from the Mantra log in real time.
 // The grower's balance sheet is rebuilt by replaying signed
@@ -674,7 +674,7 @@ const MantraLog = struct {
 };
 
 // =========================================================
-// TRANSACTION GRAMMAR (from Orbit 26-31)
+// TRANSACTION GRAMMAR (shared across dimeroll modules)
 // =========================================================
 
 const GlowVerb = enum(u8) {
@@ -905,7 +905,7 @@ fn build_fact(txn: *const TransactionRecord) []const u8 {
 }
 
 // =========================================================
-// LOG-DERIVED INVENTORY -- the heart of Orbit 32
+// LOG-DERIVED INVENTORY
 //
 // Reads raw fact bytes from the Mantra log region,
 // parses verb:subject=qty=N[,price=P], and rebuilds
@@ -1257,7 +1257,7 @@ comptime {
 }
 
 export fn kmain() callconv(.c) noreturn {
-    uart_print("=== Orbit 32: Inventory Summary ===\n\n");
+    uart_print("=== Dimeroll Inventory Summary ===\n\n");
 
     // Set up Aurora framebuffer
     if (find_ramfb_selector()) |sel| {
@@ -1472,7 +1472,7 @@ export fn kmain() callconv(.c) noreturn {
         "correct: inventory summary matches" ++
             " running balances after 5 transactions\n",
     );
-    uart_print("Orbit 32 complete\n");
+    uart_print("dimeroll_inventory complete\n");
 
     halt_ok();
 }
