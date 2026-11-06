@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.133047 | [Import SkateCore into Terrarium build -- Movement 1 PROVEN](20261106/20261106-133047_skatecore-import-movement1.kyri.md) | InlineArray Equatable extension, two-step module build, import SkateCore compiles |
 | 20261106.132124 | [Realidream Composition Journey board created](20261106/20261106-132124_realidream-composition-board.kyri.md) | 15 movements planned in 3 quests, board acquisition paused, QEMU development continues |
 | 20261106.130255 | [macOS app architecture survey and tablecloth bookmark](20261106/20261106-130255_macos-app-architecture-survey.kyri.md) | Four separate pieces, no routing/tabs/shortcuts yet, board bookmarked |
 | 20261106.130454 | [Architecture questions answered -- macOS app, navigation, Realidream](20261106/20261106-130454_architecture-questions-answered.kyri.md) | Terrarium is the one macOS app, navigation not yet designed, three-layer distinction recommended |

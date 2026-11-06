@@ -4,13 +4,19 @@
 // dependent process and captures its serial output.  For framebuffer
 // stages, the window also displays QEMU's framebuffer via QMP screendump.
 //
-// Build:  swiftc -o terrarium/.build/Terrarium terrarium/app/main.swift
+// Build:  swiftc -parse-as-library -module-name SkateCore -emit-module \
+//           -emit-module-path terrarium/.build/SkateCore.swiftmodule \
+//           -emit-library -o terrarium/.build/libSkateCore.dylib \
+//           -swift-version 6 skate/Sources/SkateCore/*.swift
+//         swiftc -I terrarium/.build -L terrarium/.build -lSkateCore \
+//           -o terrarium/.build/Terrarium terrarium/app/main.swift
 // Run:    terrarium/.build/Terrarium [stage]
 //         (defaults to "hello")
 
 import AppKit
 import Darwin
 import Foundation
+import SkateCore
 
 // -- Configuration --------------------------------------------------
 

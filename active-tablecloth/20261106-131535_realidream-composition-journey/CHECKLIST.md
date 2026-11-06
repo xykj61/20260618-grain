@@ -12,11 +12,12 @@
 
 ### Quest 1: FrameGrid in the Glass (Movements 1-5)
 
-- [ ] **Movement 1: Import SkateCore into Terrarium build**
+- [x] **Movement 1: Import SkateCore into Terrarium build** -- PROVEN `20261106.132800`
   - SLC gate: `swiftc` compiles `terrarium/app/main.swift` with SkateCore sources, app launches
-  - Add SkateCore `.swift` files to the Terrarium build command
-  - Verify SkateCoreBounds, FrameGrid, and EventRing are accessible from `main.swift`
-  - No behavioral change yet -- the app launches and runs QEMU as before
+  - Added `InlineArrayEquatable.swift` -- retroactive `Equatable` for `InlineArray` where `Element: Equatable` (Swift 6.3.3 stdlib gap)
+  - SkateCore builds as a module (`-swift-version 6`), Terrarium links it without strict concurrency
+  - `import SkateCore` in `main.swift`, binary links `libSkateCore.dylib` + AppKit + Foundation
+  - Two-step build: SkateCore module first, then Terrarium linking it
 
 - [ ] **Movement 2: FrameGrid NSView -- draw bounded text into AppKit**
   - SLC gate: an `NSView` subclass draws a FrameGrid's 40x8 cells using `NSAttributedString` or Core Text
