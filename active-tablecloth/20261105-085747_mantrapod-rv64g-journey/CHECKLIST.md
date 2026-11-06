@@ -361,7 +361,7 @@ and a daily summary.*
   quantity, price, total. Scrollable on the framebuffer console.
   **SLC gate:** 5 transactions display as a readable table on Aurora.
 
-- [ ] **Orbit 32 -- Ledger page: inventory summary**
+- [x] **Orbit 32 -- Ledger page: inventory summary** PROVEN `20261105`
   Below the transaction list, Aurora draws current inventory -- subject, quantity
   on hand. Derived from the Mantra log in real time.
   **SLC gate:** inventory summary matches running balances after 5 transactions.
