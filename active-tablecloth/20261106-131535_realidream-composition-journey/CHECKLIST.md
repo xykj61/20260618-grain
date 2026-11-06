@@ -208,7 +208,7 @@
   - Each transaction on its own line with verb, subject, quantity, metadata
   - Page header with farm name and date range
 
-- [ ] **Movement 24: Price arithmetic and seal display**
+- [x] **Movement 24: Price arithmetic and seal display**
   - SLC gate: running `dimeroll_price_g.elf` shows FP arithmetic; `dimeroll_seal_g.elf` shows Amphora hash
   - Price view: per-unit calculations with integer arithmetic shown
   - Seal view: Amphora hash (0xb3db1acd) and the sealed data it covers

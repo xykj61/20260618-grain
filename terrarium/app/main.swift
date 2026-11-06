@@ -86,6 +86,10 @@ class AppDelegate: NSObject,
         String, String, String,
         String, String, String
     )] = []
+    var dimerollPrice: [(
+        String, String, String
+    )] = []
+    var dimerollSeal: [(String, String)] = []
     var dimerollRawBuffer: String = ""
     var dimerollActiveElf: String = ""
     var dimerollInLedgerTable: Bool = false
@@ -865,6 +869,14 @@ class AppDelegate: NSObject,
                 == "dimeroll_ledger_g"
             {
                 parseDimerollLedgerLine(line)
+            } else if dimerollActiveElf
+                == "dimeroll_price_g"
+            {
+                parseDimerollPriceLine(line)
+            } else if dimerollActiveElf
+                == "dimeroll_seal_g"
+            {
+                parseDimerollSealLine(line)
             } else {
                 parseDimerollLine(line)
             }
@@ -1019,6 +1031,123 @@ class AppDelegate: NSObject,
         dimerollTableView?.reloadData()
     }
 
+    func parseDimerollPriceLine(
+        _ line: String
+    ) {
+        let trimmed = line.trimmingCharacters(
+            in: .whitespaces
+        )
+        if trimmed.contains(" x "),
+           trimmed.contains(" = ")
+        {
+            let verb: String
+            if trimmed.hasPrefix("sell") {
+                verb = "sell"
+            } else if trimmed.hasPrefix("buy") {
+                verb = "buy"
+            } else {
+                return
+            }
+            let afterVerb = trimmed.dropFirst(
+                verb.count
+            ).trimmingCharacters(
+                in: .whitespaces
+            )
+            let calc = afterVerb
+            dimerollPrice.append((
+                verb, calc, ""
+            ))
+            dimerollTableView?.reloadData()
+            return
+        }
+        if trimmed.contains("PROOF PASS") {
+            let parts = trimmed.split(
+                separator: ":",
+                maxSplits: 1
+            )
+            guard parts.count == 2 else { return }
+            let item = String(parts[0]).trimmingCharacters(
+                in: .whitespaces
+            )
+            let cents = String(parts[1]).trimmingCharacters(
+                in: .whitespaces
+            ).replacingOccurrences(
+                of: " PROOF PASS", with: ""
+            )
+            if let lastIdx = dimerollPrice.lastIndex(
+                where: { $0.0 == "sell" || $0.0 == "buy" }
+            ), dimerollPrice[lastIdx].2.isEmpty {
+                dimerollPrice[lastIdx].2 = cents
+            } else {
+                dimerollPrice.append((
+                    item, "PROOF", cents
+                ))
+            }
+            dimerollTableView?.reloadData()
+            return
+        }
+        if trimmed.contains(":") {
+            let parts = trimmed.split(
+                separator: ":",
+                maxSplits: 1
+            )
+            guard parts.count == 2 else { return }
+            let label = String(parts[0]).trimmingCharacters(
+                in: .whitespaces
+            )
+            let amount = String(parts[1]).trimmingCharacters(
+                in: .whitespaces
+            )
+            if !label.isEmpty, !amount.isEmpty,
+               label != "proofs"
+            {
+                dimerollPrice.append((
+                    label, amount, ""
+                ))
+                dimerollTableView?.reloadData()
+            }
+        }
+    }
+
+    func parseDimerollSealLine(
+        _ line: String
+    ) {
+        let trimmed = line.trimmingCharacters(
+            in: .whitespaces
+        )
+        if trimmed.hasPrefix(
+            "--- DIMEROLL FIELD LEDGER ---"
+        ) {
+            dimerollInLedgerTable = true
+            return
+        }
+        if trimmed.hasPrefix("-- SLC GATE --") {
+            dimerollInLedgerTable = false
+            return
+        }
+        guard dimerollInLedgerTable else { return }
+        if trimmed.contains(":") {
+            let parts = trimmed.split(
+                separator: ":",
+                maxSplits: 1
+            )
+            guard parts.count == 2 else { return }
+            let field = String(parts[0]).trimmingCharacters(
+                in: .whitespaces
+            )
+            let value = String(parts[1]).trimmingCharacters(
+                in: .whitespaces
+            )
+            if !field.isEmpty {
+                dimerollSeal.append((field, value))
+                dimerollTableView?.reloadData()
+            }
+        } else if !trimmed.isEmpty {
+            dimerollSeal.append((trimmed, ""))
+            dimerollTableView?.reloadData()
+        }
+    }
+
     @objc func dimerollModuleChanged(
         _ sender: NSPopUpButton
     ) {
@@ -1039,6 +1168,8 @@ class AppDelegate: NSObject,
         dimerollInventory.removeAll()
         dimerollCashflow.removeAll()
         dimerollLedger.removeAll()
+        dimerollPrice.removeAll()
+        dimerollSeal.removeAll()
         dimerollRawBuffer = ""
         dimerollInLedgerTable = false
         dimerollActiveElf = elfName
@@ -1080,6 +1211,21 @@ class AppDelegate: NSObject,
                 ("Qty", "qty", 70),
                 ("Price", "price", 70),
                 ("Total", "total", 80),
+            ]
+        } else if dimerollActiveElf
+            == "dimeroll_price_g"
+        {
+            cols = [
+                ("Item", "item", 80),
+                ("Calculation", "calc", 200),
+                ("Cents", "cents", 80),
+            ]
+        } else if dimerollActiveElf
+            == "dimeroll_seal_g"
+        {
+            cols = [
+                ("Field", "field", 120),
+                ("Value", "value", 200),
             ]
         } else {
             cols = [
@@ -1761,6 +1907,16 @@ extension AppDelegate: NSTableViewDataSource {
             {
                 return dimerollLedger.count
             }
+            if dimerollActiveElf
+                == "dimeroll_price_g"
+            {
+                return dimerollPrice.count
+            }
+            if dimerollActiveElf
+                == "dimeroll_seal_g"
+            {
+                return dimerollSeal.count
+            }
             return dimerollTransactions.count
         }
         return sidebarModules.count
@@ -1843,6 +1999,29 @@ extension AppDelegate: NSTableViewDelegate {
             case "qty": val = lg.3
             case "price": val = lg.4
             case "total": val = lg.5
+            default: val = ""
+            }
+        } else if dimerollActiveElf
+            == "dimeroll_price_g"
+        {
+            guard row < dimerollPrice.count
+            else { return nil }
+            let pr = dimerollPrice[row]
+            switch colId {
+            case "item": val = pr.0
+            case "calc": val = pr.1
+            case "cents": val = pr.2
+            default: val = ""
+            }
+        } else if dimerollActiveElf
+            == "dimeroll_seal_g"
+        {
+            guard row < dimerollSeal.count
+            else { return nil }
+            let sl = dimerollSeal[row]
+            switch colId {
+            case "field": val = sl.0
+            case "value": val = sl.1
             default: val = ""
             }
         } else {
