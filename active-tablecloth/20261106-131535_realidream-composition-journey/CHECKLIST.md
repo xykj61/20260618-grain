@@ -203,7 +203,7 @@
   - Sale transactions with computed totals (tomatoes 12000, peppers 3750, total 15750)
   - Separate column for per-unit price and quantity sold
 
-- [ ] **Movement 23: Ledger page rendering**
+- [x] **Movement 23: Ledger page rendering**
   - SLC gate: running `dimeroll_ledger_g.elf` displays a paginated journal with all 9 transactions
   - Each transaction on its own line with verb, subject, quantity, metadata
   - Page header with farm name and date range

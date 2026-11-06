@@ -82,6 +82,10 @@ class AppDelegate: NSObject,
     )] = []
     var dimerollInventory: [(String, String)] = []
     var dimerollCashflow: [(String, String)] = []
+    var dimerollLedger: [(
+        String, String, String,
+        String, String, String
+    )] = []
     var dimerollRawBuffer: String = ""
     var dimerollActiveElf: String = ""
     var dimerollInLedgerTable: Bool = false
@@ -857,6 +861,10 @@ class AppDelegate: NSObject,
                 == "dimeroll_cashflow_g"
             {
                 parseDimerollCashflowLine(line)
+            } else if dimerollActiveElf
+                == "dimeroll_ledger_g"
+            {
+                parseDimerollLedgerLine(line)
             } else {
                 parseDimerollLine(line)
             }
@@ -979,6 +987,38 @@ class AppDelegate: NSObject,
         dimerollTableView?.reloadData()
     }
 
+    func parseDimerollLedgerLine(
+        _ line: String
+    ) {
+        let trimmed = line.trimmingCharacters(
+            in: .whitespaces
+        )
+        if trimmed.hasPrefix(
+            "--- DIMEROLL FIELD LEDGER ---"
+        ) {
+            dimerollInLedgerTable = true
+            return
+        }
+        if trimmed.hasPrefix("-- SLC GATE --") {
+            dimerollInLedgerTable = false
+            return
+        }
+        guard dimerollInLedgerTable else { return }
+        let cells = trimmed.split(
+            separator: "|",
+            omittingEmptySubsequences: true
+        ).map {
+            $0.trimmingCharacters(in: .whitespaces)
+        }
+        guard cells.count >= 6 else { return }
+        guard let _ = Int(cells[0]) else { return }
+        dimerollLedger.append((
+            cells[0], cells[1], cells[2],
+            cells[3], cells[4], cells[5]
+        ))
+        dimerollTableView?.reloadData()
+    }
+
     @objc func dimerollModuleChanged(
         _ sender: NSPopUpButton
     ) {
@@ -998,6 +1038,7 @@ class AppDelegate: NSObject,
         dimerollTransactions.removeAll()
         dimerollInventory.removeAll()
         dimerollCashflow.removeAll()
+        dimerollLedger.removeAll()
         dimerollRawBuffer = ""
         dimerollInLedgerTable = false
         dimerollActiveElf = elfName
@@ -1028,6 +1069,17 @@ class AppDelegate: NSObject,
             cols = [
                 ("Subject", "subject", 160),
                 ("Revenue", "revenue", 100),
+            ]
+        } else if dimerollActiveElf
+            == "dimeroll_ledger_g"
+        {
+            cols = [
+                ("#", "num", 40),
+                ("Verb", "verb", 80),
+                ("Subject", "subject", 100),
+                ("Qty", "qty", 70),
+                ("Price", "price", 70),
+                ("Total", "total", 80),
             ]
         } else {
             cols = [
@@ -1704,6 +1756,11 @@ extension AppDelegate: NSTableViewDataSource {
             {
                 return dimerollCashflow.count
             }
+            if dimerollActiveElf
+                == "dimeroll_ledger_g"
+            {
+                return dimerollLedger.count
+            }
             return dimerollTransactions.count
         }
         return sidebarModules.count
@@ -1771,6 +1828,21 @@ extension AppDelegate: NSTableViewDelegate {
             switch colId {
             case "subject": val = cf.0
             case "revenue": val = cf.1
+            default: val = ""
+            }
+        } else if dimerollActiveElf
+            == "dimeroll_ledger_g"
+        {
+            guard row < dimerollLedger.count
+            else { return nil }
+            let lg = dimerollLedger[row]
+            switch colId {
+            case "num": val = lg.0
+            case "verb": val = lg.1
+            case "subject": val = lg.2
+            case "qty": val = lg.3
+            case "price": val = lg.4
+            case "total": val = lg.5
             default: val = ""
             }
         } else {
