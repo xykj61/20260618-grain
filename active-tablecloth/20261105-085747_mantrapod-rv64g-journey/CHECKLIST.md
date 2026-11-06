@@ -320,11 +320,16 @@ harvested, sold, and composted -- enters a signed, bounded, supervised ledger.*
   identical hash), key format verified (colon separator, non-empty verb and subject),
   26/26 proofs, 9528-byte ELF, ALL PROOFS PASSED on QEMU.
 
-- [ ] **Orbit 28 -- Running balances: inventory**
+- [x] **Orbit 28 -- Running balances: inventory** PROVEN
   Maintain a running balance per subject. `plant tomatoes 200` adds 200; `harvest
   tomatoes 45` subtracts 45; the balance reads 155. Balances are derived from the
   Mantra log, never stored separately.
   **SLC gate:** 3 transactions on one subject produce correct running balance.
+  **Landing:** `glow_inventory.rye` -- InventoryTable with 8-subject fixed capacity,
+  7 transactions (3 on tomatoes: plant 200, harvest 45, sell 20 = balance 135),
+  peppers 35, leaves 30, note rainfall excluded, Mantra state hash `0x4bc8c0b8`,
+  replay identity proven (two independent logs + two independent tables, identical
+  hash and balances), 21/21 proofs, 11248-byte ELF, ALL PROOFS PASSED on QEMU.
 
 - [ ] **Orbit 29 -- Running balances: cash flow**
   `sell tomatoes 30 kg 2.50` adds 75.00 to the revenue account. The cash flow

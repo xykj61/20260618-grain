@@ -1,0 +1,866 @@
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+// =============================================================
+// Freestanding UART -- qemu-system-riscv64 virt machine
+// =============================================================
+
+const uart_base: [*]volatile u8 = @ptrFromInt(
+    0x10000000,
+);
+const test_finisher: *volatile u32 = @ptrFromInt(
+    0x00100000,
+);
+
+fn uart_print(s: []const u8) void {
+    for (s) |c| {
+        uart_base[0] = c;
+    }
+}
+
+fn print_u32(v: u32) void {
+    if (v == 0) {
+        uart_base[0] = '0';
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n: u32 = 0;
+    var x = v;
+    while (x > 0) : (n += 1) {
+        buf[n] = @intCast(x % 10 + '0');
+        x /= 10;
+    }
+    while (n > 0) {
+        n -= 1;
+        uart_base[0] = buf[n];
+    }
+}
+
+fn print_hex(v: u32) void {
+    uart_print("0x");
+    const hex = "0123456789abcdef";
+    var i: u5 = 8;
+    while (i > 0) {
+        i -= 1;
+        const nibble: u4 = @truncate(v >> (i * 4));
+        uart_base[0] = hex[nibble];
+    }
+}
+
+fn halt_pass() noreturn {
+    test_finisher.* = 0x5555;
+    while (true) {}
+}
+
+fn halt_error(msg: []const u8) noreturn {
+    uart_print(msg);
+    test_finisher.* = 0x3333;
+    while (true) {}
+}
+
+// -- Entry point --
+comptime {
+    asm (
+        \\.section .text.init,"ax"
+        \\.globl _start
+        \\_start:
+        \\  li sp, 0x80100000
+        \\  j kmain
+    );
+}
+
+// =============================================================
+// Tally: bounded memory region (bump allocator)
+// =============================================================
+
+const RegionError = error{OutOfBounds};
+
+const Region = struct {
+    base: [*]u8,
+    budget: u32,
+    pos: u32,
+
+    fn init(base: [*]u8, budget: u32) Region {
+        // invariant: budget is non-zero
+        assert(budget > 0);
+        return .{
+            .base = base,
+            .budget = budget,
+            .pos = 0,
+        };
+    }
+
+    fn alloc(
+        self: *Region,
+        len: u32,
+    ) RegionError![*]u8 {
+        // invariant: allocation within budget
+        if (self.pos + len > self.budget)
+            return RegionError.OutOfBounds;
+        const ptr = self.base + self.pos;
+        self.pos += len;
+        return ptr;
+    }
+};
+
+// =============================================================
+// djb2 hash -- deterministic, portable
+// =============================================================
+
+const Djb2 = struct {
+    state: u32,
+
+    fn init() Djb2 {
+        return .{ .state = 5381 };
+    }
+
+    fn update(self: *Djb2, data: []const u8) void {
+        var h = self.state;
+        for (data) |byte| {
+            h = h *% 33 +% byte;
+        }
+        self.state = h;
+    }
+
+    fn finish(self: *const Djb2) u32 {
+        return self.state;
+    }
+};
+
+// =============================================================
+// Kumara identity (simplified deterministic signing)
+// =============================================================
+
+const seed_length: u32 = 32;
+
+const Identity = struct {
+    key: [seed_length]u8,
+
+    fn init(s: [seed_length]u8) Identity {
+        return .{ .key = s };
+    }
+
+    fn sign(
+        self: *const Identity,
+        msg: []const u8,
+    ) u32 {
+        var h = Djb2.init();
+        h.update(&self.key);
+        h.update(msg);
+        return h.finish();
+    }
+};
+
+// =============================================================
+// MantraLog -- append-only signed fact log
+// =============================================================
+
+const MantraLog = struct {
+    region: *Region,
+    identity: *const Identity,
+    state_hash: u32,
+    count: u32,
+
+    fn init(
+        region: *Region,
+        identity: *const Identity,
+    ) MantraLog {
+        return .{
+            .region = region,
+            .identity = identity,
+            .state_hash = 0,
+            .count = 0,
+        };
+    }
+
+    fn append(
+        self: *MantraLog,
+        msg: []const u8,
+    ) void {
+        const sig = self.identity.sign(msg);
+
+        // invariant: message length fits header
+        const header_size: u32 = 8;
+        const msg_len: u32 = @intCast(msg.len);
+        const total = header_size + msg_len;
+
+        const ptr = self.region.alloc(total) catch {
+            halt_error("MantraLog: out of memory\n");
+        };
+
+        // Length (little-endian)
+        ptr[0] = @truncate(msg_len);
+        ptr[1] = @truncate(msg_len >> 8);
+        ptr[2] = @truncate(msg_len >> 16);
+        ptr[3] = @truncate(msg_len >> 24);
+
+        // Signature (little-endian)
+        ptr[4] = @truncate(sig);
+        ptr[5] = @truncate(sig >> 8);
+        ptr[6] = @truncate(sig >> 16);
+        ptr[7] = @truncate(sig >> 24);
+
+        // Message body
+        var i: u32 = 0;
+        while (i < msg_len) : (i += 1) {
+            ptr[header_size + i] = msg[i];
+        }
+
+        // Chain: fold new fact into running state
+        var chain = Djb2.init();
+        chain.update(
+            @as(
+                *const [4]u8,
+                @ptrCast(&self.state_hash),
+            ),
+        );
+        chain.update(msg);
+        self.state_hash = chain.finish();
+        self.count += 1;
+    }
+};
+
+// =============================================================
+// Glow transaction grammar -- five verbs (from Orbit 26)
+// =============================================================
+
+const GlowVerb = enum(u8) {
+    plant = 0,
+    harvest = 1,
+    sell = 2,
+    compost = 3,
+    note = 4,
+};
+
+fn verb_name(v: GlowVerb) []const u8 {
+    return switch (v) {
+        .plant => "plant",
+        .harvest => "harvest",
+        .sell => "sell",
+        .compost => "compost",
+        .note => "note",
+    };
+}
+
+const TransactionRecord = struct {
+    verb: GlowVerb,
+    subject: []const u8,
+    qty: u32,
+    unit: []const u8,
+    price_cents: u32,
+    has_unit: bool,
+    has_price: bool,
+};
+
+// =============================================================
+// Fact builder (from Orbit 27)
+// =============================================================
+//
+// Key:   verb:subject
+// Value: qty=N[,unit=U][,price=P]
+// Full:  key=value
+
+const fact_buf_size: u32 = 128;
+var fact_buf: [fact_buf_size]u8 = std.mem.zeroes(
+    [fact_buf_size]u8,
+);
+
+fn buf_append_str(pos: *u32, s: []const u8) void {
+    // invariant: write stays in buffer
+    assert(
+        pos.* + @as(u32, @intCast(s.len)) <=
+            fact_buf_size,
+    );
+    var i: u32 = 0;
+    while (i < s.len) : (i += 1) {
+        fact_buf[pos.* + i] = s[i];
+    }
+    pos.* += @intCast(s.len);
+}
+
+fn buf_append_u32(pos: *u32, v: u32) void {
+    if (v == 0) {
+        // invariant: room for one digit
+        assert(pos.* < fact_buf_size);
+        fact_buf[pos.*] = '0';
+        pos.* += 1;
+        return;
+    }
+    var digits: [10]u8 = undefined;
+    var n: u32 = 0;
+    var x = v;
+    while (x > 0) : (n += 1) {
+        digits[n] = @intCast(x % 10 + '0');
+        x /= 10;
+    }
+    // invariant: room for all digits
+    assert(pos.* + n <= fact_buf_size);
+    while (n > 0) {
+        n -= 1;
+        fact_buf[pos.*] = digits[n];
+        pos.* += 1;
+    }
+}
+
+fn build_fact(
+    txn: *const TransactionRecord,
+) []const u8 {
+    var pos: u32 = 0;
+
+    // Key: verb:subject
+    buf_append_str(&pos, verb_name(txn.verb));
+    buf_append_str(&pos, ":");
+    buf_append_str(&pos, txn.subject);
+
+    // Separator
+    buf_append_str(&pos, "=");
+
+    // Value: qty=N[,unit=U][,price=P]
+    buf_append_str(&pos, "qty=");
+    buf_append_u32(&pos, txn.qty);
+
+    if (txn.has_unit) {
+        buf_append_str(&pos, ",unit=");
+        buf_append_str(&pos, txn.unit);
+    }
+
+    if (txn.has_price) {
+        buf_append_str(&pos, ",price=");
+        buf_append_u32(&pos, txn.price_cents);
+    }
+
+    // invariant: message fits in buffer
+    assert(pos <= fact_buf_size);
+    return fact_buf[0..pos];
+}
+
+// =============================================================
+// Orbit 28: Inventory balance table
+// =============================================================
+//
+// Running balance per subject, derived from the transaction
+// stream. plant and compost ADD; harvest and sell SUBTRACT;
+// note has no inventory effect.
+//
+// Capacity: 8 subjects, 16-byte names. Balances are u32;
+// a subtraction past zero is a fault (assert).
+
+const max_subjects: u32 = 8;
+const max_name_len: u32 = 16;
+
+const InventoryEntry = struct {
+    name_buf: [max_name_len]u8,
+    name_len: u32,
+    balance: u32,
+    active: bool,
+};
+
+fn entry_matches(
+    e: *const InventoryEntry,
+    name: []const u8,
+) bool {
+    if (!e.active) return false;
+    // invariant: stored name within buffer
+    assert(e.name_len <= max_name_len);
+    const nlen: u32 = @intCast(name.len);
+    if (e.name_len != nlen) return false;
+    var j: u32 = 0;
+    while (j < e.name_len) : (j += 1) {
+        if (e.name_buf[j] != name[j]) return false;
+    }
+    return true;
+}
+
+const InventoryTable = struct {
+    entries: [max_subjects]InventoryEntry,
+    count: u32,
+
+    fn init() InventoryTable {
+        var t: InventoryTable = undefined;
+        t.count = 0;
+        var i: u32 = 0;
+        while (i < max_subjects) : (i += 1) {
+            t.entries[i].active = false;
+            t.entries[i].balance = 0;
+            t.entries[i].name_len = 0;
+        }
+        return t;
+    }
+
+    fn find_or_create(
+        self: *InventoryTable,
+        name: []const u8,
+    ) *InventoryEntry {
+        // invariant: name fits in entry buffer
+        assert(name.len <= max_name_len);
+        // invariant: name is non-empty
+        assert(name.len > 0);
+
+        var i: u32 = 0;
+        while (i < self.count) : (i += 1) {
+            if (entry_matches(
+                &self.entries[i],
+                name,
+            )) return &self.entries[i];
+        }
+
+        // invariant: table has capacity
+        assert(self.count < max_subjects);
+        const slot = &self.entries[self.count];
+        slot.active = true;
+        slot.name_len = @intCast(name.len);
+        var k: u32 = 0;
+        while (k < name.len) : (k += 1) {
+            slot.name_buf[k] = name[k];
+        }
+        slot.balance = 0;
+        self.count += 1;
+        return slot;
+    }
+
+    fn apply(
+        self: *InventoryTable,
+        txn: *const TransactionRecord,
+    ) void {
+        switch (txn.verb) {
+            .plant, .compost => {
+                const e = self.find_or_create(
+                    txn.subject,
+                );
+                e.balance += txn.qty;
+            },
+            .harvest, .sell => {
+                const e = self.find_or_create(
+                    txn.subject,
+                );
+                // invariant: no underflow
+                assert(e.balance >= txn.qty);
+                e.balance -= txn.qty;
+            },
+            .note => {},
+        }
+    }
+
+    fn balance_of(
+        self: *const InventoryTable,
+        name: []const u8,
+    ) u32 {
+        var i: u32 = 0;
+        while (i < self.count) : (i += 1) {
+            if (entry_matches(
+                &self.entries[i],
+                name,
+            )) return self.entries[i].balance;
+        }
+        return 0;
+    }
+};
+
+// =============================================================
+// Seven transactions -- 3 on tomatoes for SLC gate
+// =============================================================
+//
+// Tomato story: plant 200, harvest 45, sell 20 -> 135
+// Pepper story: plant 50, harvest 15 -> 35
+// Compost: leaves 30
+// Note: rainfall 25 mm (no inventory effect)
+
+const txn_count: u32 = 7;
+
+const transactions = [txn_count]TransactionRecord{
+    .{
+        .verb = .plant,
+        .subject = "tomatoes",
+        .qty = 200,
+        .unit = "seeds",
+        .price_cents = 0,
+        .has_unit = true,
+        .has_price = false,
+    },
+    .{
+        .verb = .plant,
+        .subject = "peppers",
+        .qty = 50,
+        .unit = "seeds",
+        .price_cents = 0,
+        .has_unit = true,
+        .has_price = false,
+    },
+    .{
+        .verb = .harvest,
+        .subject = "tomatoes",
+        .qty = 45,
+        .unit = "kg",
+        .price_cents = 0,
+        .has_unit = true,
+        .has_price = false,
+    },
+    .{
+        .verb = .sell,
+        .subject = "tomatoes",
+        .qty = 20,
+        .unit = "kg",
+        .price_cents = 250,
+        .has_unit = true,
+        .has_price = true,
+    },
+    .{
+        .verb = .harvest,
+        .subject = "peppers",
+        .qty = 15,
+        .unit = "kg",
+        .price_cents = 0,
+        .has_unit = true,
+        .has_price = false,
+    },
+    .{
+        .verb = .compost,
+        .subject = "leaves",
+        .qty = 30,
+        .unit = "",
+        .price_cents = 0,
+        .has_unit = false,
+        .has_price = false,
+    },
+    .{
+        .verb = .note,
+        .subject = "rainfall",
+        .qty = 25,
+        .unit = "mm",
+        .price_cents = 0,
+        .has_unit = true,
+        .has_price = false,
+    },
+};
+
+// -- Expected fact messages --
+const expected_facts = [txn_count][]const u8{
+    "plant:tomatoes=qty=200,unit=seeds",
+    "plant:peppers=qty=50,unit=seeds",
+    "harvest:tomatoes=qty=45,unit=kg",
+    "sell:tomatoes=qty=20,unit=kg,price=250",
+    "harvest:peppers=qty=15,unit=kg",
+    "compost:leaves=qty=30",
+    "note:rainfall=qty=25,unit=mm",
+};
+
+// -- Expected final balances --
+const expect_tomatoes: u32 = 135; // 200 - 45 - 20
+const expect_peppers: u32 = 35; // 50 - 15
+const expect_leaves: u32 = 30; // 0 + 30
+const expect_subjects: u32 = 3; // no rainfall
+
+// -- Proof counter --
+var proof_count: u32 = 0;
+var proof_pass: u32 = 0;
+
+fn check(name: []const u8, ok: bool) void {
+    proof_count += 1;
+    uart_print("  ");
+    uart_print(name);
+    if (ok) {
+        uart_print(" PASS\n");
+        proof_pass += 1;
+    } else {
+        uart_print(" FAIL\n");
+    }
+}
+
+fn str_eq(a: []const u8, b: []const u8) bool {
+    if (a.len != b.len) return false;
+    var i: u32 = 0;
+    while (i < a.len) : (i += 1) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+// -- Memory layout --
+const log_region_base: u32 = 0x80180000;
+const log_region_budget: u32 = 4096;
+const replay_region_base: u32 = 0x80190000;
+const replay_region_budget: u32 = 4096;
+
+// -- Kumara seed --
+const seed: [seed_length]u8 = .{
+    0x4B, 0x75, 0x6D, 0x61, 0x72, 0x61, 0x20, 0x73,
+    0x65, 0x65, 0x64, 0x20, 0x66, 0x6F, 0x72, 0x20,
+    0x66, 0x72, 0x65, 0x65, 0x73, 0x74, 0x61, 0x6E,
+    0x64, 0x69, 0x6E, 0x67, 0x20, 0x52, 0x56, 0x49,
+};
+
+// =============================================================
+// Main
+// =============================================================
+
+export fn kmain() callconv(.c) noreturn {
+    uart_print("RUNNING BALANCES: INVENTORY");
+    uart_print(" -- Orbit 28\n");
+    uart_print("freestanding RV64G under Mantra\n\n");
+
+    const identity = Identity.init(seed);
+
+    // Primary Mantra log
+    var log_region = Region.init(
+        @ptrFromInt(log_region_base),
+        log_region_budget,
+    );
+    var log = MantraLog.init(
+        &log_region,
+        &identity,
+    );
+
+    // Primary inventory table
+    var inv = InventoryTable.init();
+
+    // =============================================================
+    // PROOF 1: PROCESS TRANSACTIONS
+    // =============================================================
+    uart_print("-- PROOF 1: PROCESS TRANSACTIONS --\n\n");
+
+    var facts_logged: u32 = 0;
+    var ti: u32 = 0;
+    while (ti < txn_count) : (ti += 1) {
+        const txn = &transactions[ti];
+        const fact = build_fact(txn);
+
+        // Print the Glow surface form
+        uart_print("[");
+        print_u32(ti + 1);
+        uart_print("] (");
+        uart_print(verb_name(txn.verb));
+        uart_print(" ");
+        uart_print(txn.subject);
+        uart_print(" ");
+        print_u32(txn.qty);
+        if (txn.has_unit) {
+            uart_print(" ");
+            uart_print(txn.unit);
+        }
+        if (txn.has_price) {
+            uart_print(" ");
+            print_u32(txn.price_cents);
+        }
+        uart_print(")\n");
+
+        // Print the Mantra fact
+        uart_print("  fact: ");
+        uart_print(fact);
+        uart_print("\n");
+
+        // Verify encoding
+        check(
+            "fact_encoding",
+            str_eq(fact, expected_facts[ti]),
+        );
+
+        // Log to Mantra
+        log.append(fact);
+        facts_logged += 1;
+
+        // Apply to inventory
+        inv.apply(txn);
+
+        // Show running balance
+        if (txn.verb != .note) {
+            uart_print("  -> ");
+            uart_print(txn.subject);
+            uart_print(": ");
+            print_u32(
+                inv.balance_of(txn.subject),
+            );
+            uart_print("\n");
+        } else {
+            uart_print("  (no inventory effect)\n");
+        }
+
+        uart_print("\n");
+    }
+
+    // =============================================================
+    // PROOF 2: FACT COUNT
+    // =============================================================
+    uart_print("-- PROOF 2: FACT COUNT --\n");
+    uart_print("facts logged: ");
+    print_u32(facts_logged);
+    uart_print("/");
+    print_u32(txn_count);
+    uart_print("\n");
+    check(
+        "all_facts_logged",
+        facts_logged == txn_count,
+    );
+    check("log_count", log.count == txn_count);
+    uart_print("\n");
+
+    // =============================================================
+    // PROOF 3: INVENTORY BALANCES (SLC GATE)
+    // =============================================================
+    uart_print(
+        "-- PROOF 3: INVENTORY BALANCES --\n",
+    );
+
+    uart_print("tomatoes: ");
+    print_u32(inv.balance_of("tomatoes"));
+    uart_print(" (3 txns: +200 -45 -20)\n");
+    check(
+        "tomatoes_135",
+        inv.balance_of("tomatoes") == expect_tomatoes,
+    );
+
+    uart_print("peppers: ");
+    print_u32(inv.balance_of("peppers"));
+    uart_print(" (2 txns: +50 -15)\n");
+    check(
+        "peppers_35",
+        inv.balance_of("peppers") == expect_peppers,
+    );
+
+    uart_print("leaves: ");
+    print_u32(inv.balance_of("leaves"));
+    uart_print(" (1 txn: +30)\n");
+    check(
+        "leaves_30",
+        inv.balance_of("leaves") == expect_leaves,
+    );
+
+    uart_print("rainfall: (no entry -- note verb)\n");
+    check(
+        "no_rainfall",
+        inv.balance_of("rainfall") == 0,
+    );
+
+    uart_print("subjects: ");
+    print_u32(inv.count);
+    uart_print("\n");
+    check(
+        "subject_count",
+        inv.count == expect_subjects,
+    );
+
+    uart_print("\n");
+
+    // =============================================================
+    // PROOF 4: MANTRA STATE
+    // =============================================================
+    uart_print("-- PROOF 4: MANTRA STATE --\n");
+    uart_print("state hash: ");
+    print_hex(log.state_hash);
+    uart_print("\n");
+    uart_print("facts: ");
+    print_u32(log.count);
+    uart_print("\n");
+    uart_print("tally: ");
+    print_u32(log_region.pos);
+    uart_print(" of ");
+    print_u32(log_region_budget);
+    uart_print(" bytes\n");
+    // invariant: allocation bounded
+    assert(log_region.pos <= log_region_budget);
+    check(
+        "bounded",
+        log_region.pos <= log_region_budget,
+    );
+    uart_print("\n");
+
+    // Capture primary state for replay comparison
+    const primary_hash = log.state_hash;
+    const primary_count = log.count;
+    const primary_tally = log_region.pos;
+    const primary_tomatoes = inv.balance_of(
+        "tomatoes",
+    );
+    const primary_peppers = inv.balance_of(
+        "peppers",
+    );
+    const primary_leaves = inv.balance_of("leaves");
+
+    // =============================================================
+    // PROOF 5: REPLAY IDENTITY
+    // =============================================================
+    uart_print("-- PROOF 5: REPLAY IDENTITY --\n");
+
+    var replay_region = Region.init(
+        @ptrFromInt(replay_region_base),
+        replay_region_budget,
+    );
+    var replay_log = MantraLog.init(
+        &replay_region,
+        &identity,
+    );
+    var replay_inv = InventoryTable.init();
+
+    // Replay the same 7 transactions
+    var ri: u32 = 0;
+    while (ri < txn_count) : (ri += 1) {
+        const fact = build_fact(&transactions[ri]);
+        replay_log.append(fact);
+        replay_inv.apply(&transactions[ri]);
+    }
+
+    uart_print("primary hash:  ");
+    print_hex(primary_hash);
+    uart_print("\n");
+    uart_print("replay hash:   ");
+    print_hex(replay_log.state_hash);
+    uart_print("\n");
+
+    const hm = primary_hash == replay_log.state_hash;
+    check("replay_hash_match", hm);
+    check(
+        "replay_count_match",
+        primary_count == replay_log.count,
+    );
+    check(
+        "replay_tally_match",
+        primary_tally == replay_region.pos,
+    );
+
+    // Balance replay
+    check(
+        "replay_tomatoes",
+        replay_inv.balance_of("tomatoes") ==
+            primary_tomatoes,
+    );
+    check(
+        "replay_peppers",
+        replay_inv.balance_of("peppers") ==
+            primary_peppers,
+    );
+    check(
+        "replay_leaves",
+        replay_inv.balance_of("leaves") ==
+            primary_leaves,
+    );
+
+    if (hm) {
+        uart_print(
+            "REPLAY MATCHES: identical state proven\n",
+        );
+    }
+    uart_print("\n");
+
+    // =============================================================
+    // VERDICT
+    // =============================================================
+    uart_print("==============================\n");
+    uart_print("proofs: ");
+    print_u32(proof_pass);
+    uart_print("/");
+    print_u32(proof_count);
+    uart_print("\n");
+
+    if (proof_pass == proof_count) {
+        uart_print("ALL PROOFS PASSED\n");
+        uart_print("correct: running balance 135");
+        uart_print(
+            " from 3 tomato transactions\n",
+        );
+        uart_print("Orbit 28 complete\n");
+    } else {
+        halt_error("SOME PROOFS FAILED\n");
+    }
+
+    halt_pass();
+}
