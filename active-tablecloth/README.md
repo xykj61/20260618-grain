@@ -31,3 +31,4 @@ what is next, and works from there.
 | [`20261103-184811_glow-language-journey/`](20261103-184811_glow-language-journey/README.md) | Glow Language Journey -- Clean Foundations, Living Stdlib, Ready for Lotus | Complete |
 | [`20261104-161857_terrarium-boot-journey/`](20261104-161857_terrarium-boot-journey/README.md) | Terrarium Boot Journey -- From a Cold Hart to a Living World Under Glass | Complete |
 | [`20261105-085747_mantrapod-rv64g-journey/`](20261105-085747_mantrapod-rv64g-journey/README.md) | Mantrapod RV64G Journey -- From a Working Hart to a Living Server | Active |
+| [`20261106-131535_realidream-composition-journey/`](20261106-131535_realidream-composition-journey/README.md) | Realidream Composition Journey -- From Proven Pieces to One Living Surface | Active |

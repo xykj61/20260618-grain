@@ -1,0 +1,143 @@
+# Realidream Composition Journey -- Master Checklist
+
+**Stamp:** `20261106.131535`
+**Voice:** Kyri
+**Style:** Gauge at Field
+**Status:** Living
+**Room:** Checkable
+
+---
+
+## Act I: The Composing Seam (Movements 1-15)
+
+### Quest 1: FrameGrid in the Glass (Movements 1-5)
+
+- [ ] **Movement 1: Import SkateCore into Terrarium build**
+  - SLC gate: `swiftc` compiles `terrarium/app/main.swift` with SkateCore sources, app launches
+  - Add SkateCore `.swift` files to the Terrarium build command
+  - Verify SkateCoreBounds, FrameGrid, and EventRing are accessible from `main.swift`
+  - No behavioral change yet -- the app launches and runs QEMU as before
+
+- [ ] **Movement 2: FrameGrid NSView -- draw bounded text into AppKit**
+  - SLC gate: an `NSView` subclass draws a FrameGrid's 40x8 cells using `NSAttributedString` or Core Text
+  - `FrameGridView` reads a FrameGrid and draws each cell into a fixed grid
+  - Background and foreground colors from SkateCoreBounds palette slots
+  - Monospace font, fixed cell size, bounded layout
+
+- [ ] **Movement 3: Dual-pane window -- QEMU terminal beside FrameGrid**
+  - SLC gate: Terrarium window shows two panes side by side, both visible at launch
+  - Left pane: existing NSTextView with QEMU serial output
+  - Right pane: FrameGridView with a test pattern (diagonal fill, palette demo)
+  - NSSplitView or manual NSView layout, resizable divider
+
+- [ ] **Movement 4: Serial-to-grid bridge -- parse QEMU output into FrameGrid cells**
+  - SLC gate: QEMU serial output drives FrameGrid content in real time
+  - Parse the last N lines of serial output into FrameGrid rows
+  - Each line maps to a FrameGrid row, truncated or padded to 40 columns
+  - Live update: as new serial lines arrive, the grid scrolls
+
+- [ ] **Movement 5: Quest 1 integration witness**
+  - SLC gate: witness script launches Terrarium with a QEMU stage, captures screenshot, verifies dual pane
+  - Launch Terrarium with `hello` stage
+  - Verify both panes render (serial text left, FrameGrid right)
+  - Verify FrameGrid updates as serial output arrives
+
+### Quest 2: Events Flow Back (Movements 6-10)
+
+- [ ] **Movement 6: EventRing keyboard adapter -- AppKit events to EventRing**
+  - SLC gate: `keyDown` events from NSView enter the EventRing and are readable
+  - Define a `SkateEvent` enum (keyDown, keyUp, mouseDown, mouseMove, mouseUp)
+  - `NSView.keyDown` creates a SkateEvent and pushes it into the EventRing
+  - EventRing admission respects its 128-seat capacity with proper refusal
+
+- [ ] **Movement 7: FrameGrid cursor -- visible cursor driven by EventRing**
+  - SLC gate: arrow keys move a visible cursor cell in the FrameGrid
+  - Cursor position stored as (row, column) bounded by SkateCoreBounds
+  - Arrow keys (up/down/left/right) from the EventRing move the cursor
+  - FrameGridView draws the cursor cell with an inverted palette
+
+- [ ] **Movement 8: ConsentRail integration -- user consent flows**
+  - SLC gate: a consent prompt appears in the FrameGrid, Enter accepts, Escape declines
+  - ConsentRail presents a question in the FrameGrid's bottom row
+  - EventRing delivers the user's keypress (Enter or Escape)
+  - The consent result flows back to the caller
+
+- [ ] **Movement 9: Scene switching -- Cmd+1 and Cmd+2**
+  - SLC gate: Cmd+1 focuses the QEMU terminal pane, Cmd+2 focuses the FrameGrid pane
+  - NSWindow key equivalent handling for Cmd+1 and Cmd+2
+  - Focus indicator (subtle border or title highlight) shows which pane is active
+  - Keyboard events route to the focused pane only
+
+- [ ] **Movement 10: Quest 2 integration witness**
+  - SLC gate: witness script verifies keyboard events flow through EventRing to FrameGrid cursor
+  - Launch Terrarium, simulate keyboard input
+  - Verify cursor moves in the FrameGrid
+  - Verify Cmd+1/Cmd+2 switches focus between panes
+
+### Quest 3: Navigation Shell (Movements 11-15)
+
+- [ ] **Movement 11: Tab bar -- one tab per module view**
+  - SLC gate: a tab bar shows at least two tabs (Terminal, Grid), clicking switches the active view
+  - NSTabView or a custom segmented control above the main content area
+  - Tab 1: QEMU Terminal (existing serial view)
+  - Tab 2: FrameGrid (the composed SkateCore view)
+  - Tabs are addable by future modules
+
+- [ ] **Movement 12: Sidebar skeleton -- module navigation**
+  - SLC gate: a collapsible sidebar lists available modules, selecting one switches the main view
+  - NSOutlineView or NSTableView in a sidebar position
+  - Initial entries: Terminal, FrameGrid, Dimeroll (placeholder), Mantra (placeholder)
+  - Cmd+0 toggles sidebar visibility
+
+- [ ] **Movement 13: Keyboard shortcut registry**
+  - SLC gate: Cmd+T opens a new tab, Cmd+W closes the current tab, Cmd+[ goes back
+  - Centralized shortcut registry mapping key combinations to actions
+  - NSMenuItem key equivalents for menu bar integration
+  - Shortcuts print to the status bar on activation (for visibility during development)
+
+- [ ] **Movement 14: Status bar -- connection state and current module**
+  - SLC gate: a status bar at the bottom of the window shows QEMU connection state and the active module name
+  - Left: connection indicator (green dot when QEMU process alive, red when stopped)
+  - Center: current module name (Terminal, FrameGrid, etc.)
+  - Right: movement count and stage name
+
+- [ ] **Movement 15: Act I integration witness -- the navigable shell**
+  - SLC gate: witness script proves the full shell -- tabs, sidebar, shortcuts, status bar, live QEMU data
+  - Launch Terrarium, verify all UI elements render
+  - Verify tab switching, sidebar navigation, keyboard shortcuts
+  - Verify QEMU serial data flows through to both Terminal and FrameGrid views
+  - This is the shell that DJINN's Bit Design System fills when gate %6 opens
+
+---
+
+## Bookmarks
+
+### What exists today
+
+| Component | Path | State |
+|---|---|---|
+| SkateCore Swift Package | `skate/Package.swift` | 7 data types, headless, tested |
+| Terrarium macOS app | `terrarium/app/main.swift` | 820 lines, AppKit + QEMU |
+| Brushstroke Rye modules | `brushstroke/*.rye` | 56+ rendering modules |
+| Pond/Realidream modules | `pond/apps/realidream_*.rye` | View, derive, fuse, reader, reread |
+| Pond/Scooter modules | `pond/apps/scooter_*.rye` | Channel, compose, nav, paint, scroll |
+| Mantrapod QEMU modules | `terrarium/*.rye` | 40+ freestanding RV64G modules, all GREEN |
+
+### What this journey builds
+
+| Milestone | Movement | What it delivers |
+|---|---|---|
+| SkateCore in Terrarium | 1 | SkateCore compiles with Terrarium |
+| FrameGrid rendered | 2-3 | Bounded text grid visible in AppKit |
+| Live QEMU bridge | 4-5 | Serial output drives FrameGrid in real time |
+| Keyboard events | 6-7 | AppKit events flow through EventRing to cursor |
+| Scene switching | 8-9 | Cmd+1/Cmd+2, consent flows |
+| Navigation shell | 11-15 | Tabs, sidebar, shortcuts, status bar |
+
+### Dependencies
+
+- **DJINN gate %6:** The Bit Design System governs the rendering pipeline. This journey
+  composes headless types into AppKit, not a rendering engine. Gate %6 is respected.
+- **Mantrapod board acquisition:** PAUSED per Keaton's word. All movements run on QEMU.
+- **Swift 6.2 / macOS 26.0:** Required for SkateCore's `InlineArray`. This pier runs
+  Swift 6.3.3 on macOS 26.6.
