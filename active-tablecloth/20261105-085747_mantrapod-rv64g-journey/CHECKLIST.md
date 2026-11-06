@@ -371,15 +371,19 @@ and a daily summary.*
   at a glance.
   **SLC gate:** cash flow summary shows correct totals for the day.
 
-- [ ] **Orbit 34 -- Amphora daily seal**
+- [x] **Orbit 34 -- Amphora daily seal** PROVEN `20261106.012946`
   At end of day (or on command), the day's transactions seal as an Amphora
   vessel -- content-addressed, hash-identified, immutable. The seal travels
-  through the wire to the host.
+  through the wire to the host. 16/16 proofs, seal 0xb3db1acd, DSEAL wire
+  protocol, tamper detection, replay identity, Mantra 0xe9cf083f.
   **SLC gate:** daily seal created, hash verified, transmitted through wire.
 
-- [ ] **Orbit 35 -- Ledger page integration witness**
+- [x] **Orbit 35 -- Ledger page integration witness** PROVEN `20261106`
   Full ledger page: transactions, inventory, cash flow, daily seal.
-  **SLC gate:** `terrarium/dimeroll_ledger_witness.rish` runs GREEN on RV64G.
+  66 proofs across 4 modules (14 + 18 + 18 + 16), all sharing Mantra hash
+  0xe9cf083f from the same 9 transactions. Replay identity proven in 3 of 4.
+  **SLC gate:** `terrarium/dimeroll_ledger_page_witness.rish` runs GREEN on RV64G.
+  **Quest 2.2 complete.**
 
 ### Quest 2.3 -- The Query Engine
 

@@ -1,0 +1,129 @@
+#!/usr/bin/env rishi
+# dimeroll_ledger_page_witness.rish
+#
+# Quest 2.2 closing gate -- Ledger page integration witness
+# Builds and runs all 4 ledger-page modules on RV64G:
+#   dimeroll_ledger   (transaction list)
+#   dimeroll_inventory (inventory summary)
+#   dimeroll_cashflow  (daily cash flow)
+#   dimeroll_seal      (Amphora daily seal)
+# All 4 share the same 9 transactions and Mantra hash 0xe9cf083f.
+# 66 proofs total (14 + 18 + 18 + 16).
+
+say "=== dimeroll_ledger_page witness -- Quest 2.2 closing gate ==="
+say ""
+
+# -----------------------------------------------------------
+# STAGE 1 -- build all 4 modules
+# -----------------------------------------------------------
+
+say "-- stage 1: build all 4 modules --"
+
+let b_ledger = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/dimeroll_ledger.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+a+f+d -femit-bin=terrarium/.build/dimeroll_ledger_g.elf 2>&1"]
+assert b_ledger.ok else "dimeroll_ledger build failed: ${b_ledger.err}"
+say "  dimeroll_ledger: ok"
+
+let b_inventory = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/dimeroll_inventory.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+a+f+d -femit-bin=terrarium/.build/dimeroll_inventory_g.elf 2>&1"]
+assert b_inventory.ok else "dimeroll_inventory build failed: ${b_inventory.err}"
+say "  dimeroll_inventory: ok"
+
+let b_cashflow = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/dimeroll_cashflow.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+a+f+d -femit-bin=terrarium/.build/dimeroll_cashflow_g.elf 2>&1"]
+assert b_cashflow.ok else "dimeroll_cashflow build failed: ${b_cashflow.err}"
+say "  dimeroll_cashflow: ok"
+
+let b_seal = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/dimeroll_seal.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+a+f+d -femit-bin=terrarium/.build/dimeroll_seal_g.elf 2>&1"]
+assert b_seal.ok else "dimeroll_seal build failed: ${b_seal.err}"
+say "  dimeroll_seal: ok"
+
+say "  builds: 4/4"
+
+# -----------------------------------------------------------
+# STAGE 2 -- run dimeroll_ledger (transaction list, 14 proofs)
+# -----------------------------------------------------------
+
+say ""
+say "-- stage 2: dimeroll_ledger (transaction list) --"
+
+let q_ledger = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/dimeroll_ledger_g.elf 2>/dev/null"]
+assert q_ledger.ok else "dimeroll_ledger QEMU failed: ${q_ledger.err}"
+assert q_ledger.out contains "proofs: 14/14" else "dimeroll_ledger: expected 14/14 proofs"
+assert q_ledger.out contains "ALL PROOFS PASSED" else "dimeroll_ledger: not all proofs passed"
+assert q_ledger.out contains "Mantra hash 0xe9cf083f" else "dimeroll_ledger: hash mismatch"
+assert q_ledger.out contains "Transaction Journal" else "dimeroll_ledger: missing transaction table"
+assert q_ledger.out contains "Inventory on Hand" else "dimeroll_ledger: missing inventory table"
+assert q_ledger.out contains "Cash Flow Summary" else "dimeroll_ledger: missing cash flow table"
+assert q_ledger.out contains "dimeroll_ledger complete" else "dimeroll_ledger: completion marker missing"
+say "  14/14 proofs, journal + inventory + cash flow displayed"
+
+# -----------------------------------------------------------
+# STAGE 3 -- run dimeroll_inventory (inventory summary, 18 proofs)
+# -----------------------------------------------------------
+
+say ""
+say "-- stage 3: dimeroll_inventory (inventory summary) --"
+
+let q_inventory = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/dimeroll_inventory_g.elf 2>/dev/null"]
+assert q_inventory.ok else "dimeroll_inventory QEMU failed: ${q_inventory.err}"
+assert q_inventory.out contains "proofs: 18/18" else "dimeroll_inventory: expected 18/18 proofs"
+assert q_inventory.out contains "ALL PROOFS PASSED" else "dimeroll_inventory: not all proofs passed"
+assert q_inventory.out contains "Mantra hash 0xe9cf083f" else "dimeroll_inventory: hash mismatch"
+assert q_inventory.out contains "SLC GATE: derived matches running at 5" else "dimeroll_inventory: SLC gate failed"
+assert q_inventory.out contains "REPLAY MATCHES: identical state proven" else "dimeroll_inventory: replay failed"
+assert q_inventory.out contains "dimeroll_inventory complete" else "dimeroll_inventory: completion marker missing"
+say "  18/18 proofs, derived balances match running, replay proven"
+
+# -----------------------------------------------------------
+# STAGE 4 -- run dimeroll_cashflow (daily cash flow, 18 proofs)
+# -----------------------------------------------------------
+
+say ""
+say "-- stage 4: dimeroll_cashflow (daily cash flow) --"
+
+let q_cashflow = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/dimeroll_cashflow_g.elf 2>/dev/null"]
+assert q_cashflow.ok else "dimeroll_cashflow QEMU failed: ${q_cashflow.err}"
+assert q_cashflow.out contains "proofs: 18/18" else "dimeroll_cashflow: expected 18/18 proofs"
+assert q_cashflow.out contains "ALL PROOFS PASSED" else "dimeroll_cashflow: not all proofs passed"
+assert q_cashflow.out contains "Mantra hash 0xe9cf083f" else "dimeroll_cashflow: hash mismatch"
+assert q_cashflow.out contains "| TOTAL    |  15750 |" else "dimeroll_cashflow: total revenue mismatch"
+assert q_cashflow.out contains "REPLAY MATCHES: identical state proven" else "dimeroll_cashflow: replay failed"
+assert q_cashflow.out contains "dimeroll_cashflow complete" else "dimeroll_cashflow: completion marker missing"
+say "  18/18 proofs, total revenue 15750, replay proven"
+
+# -----------------------------------------------------------
+# STAGE 5 -- run dimeroll_seal (Amphora daily seal, 16 proofs)
+# -----------------------------------------------------------
+
+say ""
+say "-- stage 5: dimeroll_seal (Amphora daily seal) --"
+
+let q_seal = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/dimeroll_seal_g.elf 2>/dev/null"]
+assert q_seal.ok else "dimeroll_seal QEMU failed: ${q_seal.err}"
+assert q_seal.out contains "proofs: 16/16" else "dimeroll_seal: expected 16/16 proofs"
+assert q_seal.out contains "ALL PROOFS PASSED" else "dimeroll_seal: not all proofs passed"
+assert q_seal.out contains "Mantra hash 0xe9cf083f" else "dimeroll_seal: hash mismatch"
+assert q_seal.out contains "seal: 0xb3db1acd" else "dimeroll_seal: seal hash mismatch"
+assert q_seal.out contains "vessel verification passed" else "dimeroll_seal: verification failed"
+assert q_seal.out contains "tampered vessel fails verification" else "dimeroll_seal: tamper detect failed"
+assert q_seal.out contains "DSEAL:0xb3db1acd,359,9" else "dimeroll_seal: wire protocol mismatch"
+assert q_seal.out contains "REPLAY MATCHES: identical state proven" else "dimeroll_seal: replay failed"
+assert q_seal.out contains "dimeroll_seal complete" else "dimeroll_seal: completion marker missing"
+say "  16/16 proofs, seal 0xb3db1acd, tamper detected, wire transmitted, replay proven"
+
+# -----------------------------------------------------------
+# STAGE 6 -- integration summary
+# -----------------------------------------------------------
+
+say ""
+say "-- stage 6: integration summary --"
+say "  dimeroll_ledger:    14 proofs -- transaction list, journal display"
+say "  dimeroll_inventory: 18 proofs -- inventory derived from Mantra, SLC gate"
+say "  dimeroll_cashflow:  18 proofs -- cash flow derived from Mantra, total 15750"
+say "  dimeroll_seal:      16 proofs -- Amphora vessel sealed, tamper-detected, wire-transmitted"
+say "  total:              66 proofs across 4 modules"
+say "  Mantra hash:        0xe9cf083f (identical across all 4 modules)"
+say "  replay identity:    proven in 3 of 4 modules (inventory, cashflow, seal)"
+say ""
+say "  Quest 2.2 -- The Ledger Page: COMPLETE"
+
+say ""
+say "=== dimeroll_ledger_page witness: GREEN ==="
