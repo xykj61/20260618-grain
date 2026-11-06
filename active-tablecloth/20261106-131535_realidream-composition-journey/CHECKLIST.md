@@ -175,11 +175,15 @@
   - Binary contains `dimerollModulePopUp`, `dimerollModuleChanged`, `dimerollRunClicked`, `dimerollModules` symbols
   - Two-step build clean, main QEMU integration unaffected
 
-- [ ] **Movement 19: Structured output parsing -- transaction lines into table rows**
+- [x] **Movement 19: Structured output parsing -- transaction lines into table rows**
   - SLC gate: Dimeroll UART output is parsed into an NSTableView with columns per transaction field
   - Parse the five transaction verbs (plant, harvest, sell, compost, note) and their arguments
-  - NSTableView with columns: Verb, Subject, Quantity, Price, Unit
-  - Raw UART text view stays available as a tab within the Dimeroll view
+  - NSTableView with columns: #, Verb, Subject, Quantity, Price, Unit
+  - Raw UART text view stays available via NSSegmentedControl toggle (Table / Raw)
+  - `parseDimerollTransactions` buffers incoming UART text and splits on newlines
+  - `parseDimerollLine` extracts `[N] (verb subject qty [unit] [price])` tuples into typed array
+  - NSTableViewDataSource dispatch distinguishes sidebar table from Dimeroll table via identity check
+  - Two-step build clean, 7 new symbols in binary, hello stage unaffected
 
 - [ ] **Movement 20: Quest 1 integration witness**
   - SLC gate: witness proves Dimeroll tab creation, stage launch, module selection, and output parsing

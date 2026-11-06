@@ -74,6 +74,13 @@ class AppDelegate: NSObject,
     var dimerollTextView: NSTextView?
     var dimerollProcess: Process?
     var dimerollModulePopUp: NSPopUpButton?
+    var dimerollTableView: NSTableView?
+    var dimerollTableScrollView: NSScrollView?
+    var dimerollViewToggle: NSSegmentedControl?
+    var dimerollTransactions: [(
+        Int, String, String, String, String, String
+    )] = []
+    var dimerollRawBuffer: String = ""
     let dimerollModules: [(String, String)] = [
         ("Transactions", "dimeroll_tx_g"),
         ("Inventory", "dimeroll_inventory_g"),
@@ -536,6 +543,17 @@ class AppDelegate: NSObject,
         runBtn.action =
             #selector(dimerollRunClicked(_:))
 
+        let toggle = NSSegmentedControl(
+            labels: ["Table", "Raw"],
+            trackingMode: .selectOne,
+            target: self,
+            action: #selector(
+                dimerollViewToggled(_:)
+            )
+        )
+        toggle.selectedSegment = 0
+        dimerollViewToggle = toggle
+
         let sv = NSScrollView(
             frame: NSRect(
                 x: 0, y: 0, width: 600,
@@ -563,17 +581,69 @@ class AppDelegate: NSObject,
             + "========================\n\n"
         sv.documentView = dtv
         dimerollTextView = dtv
+        sv.isHidden = true
+
+        let tableSV = NSScrollView(
+            frame: NSRect(
+                x: 0, y: 0, width: 600,
+                height: 368
+            )
+        )
+        tableSV.autoresizingMask =
+            [.width, .height]
+        tableSV.hasVerticalScroller = true
+        tableSV.wantsLayer = true
+        let tbl = NSTableView()
+        tbl.style = .plain
+        tbl.backgroundColor = NSColor(
+            white: 0.05, alpha: 1.0
+        )
+        tbl.gridStyleMask = []
+        tbl.headerView = NSTableHeaderView()
+        tbl.rowHeight = 22
+        let cols: [(String, String, CGFloat)] = [
+            ("#", "num", 40),
+            ("Verb", "verb", 80),
+            ("Subject", "subject", 100),
+            ("Quantity", "qty", 80),
+            ("Price", "price", 80),
+            ("Unit", "unit", 70),
+        ]
+        for (title, ident, width) in cols {
+            let col = NSTableColumn(
+                identifier: NSUserInterfaceItemIdentifier(
+                    ident
+                )
+            )
+            col.title = title
+            col.width = width
+            col.minWidth = 40
+            tbl.addTableColumn(col)
+        }
+        tbl.dataSource = self
+        tbl.delegate = self
+        tableSV.documentView = tbl
+        dimerollTableView = tbl
+        dimerollTableScrollView = tableSV
 
         container.addSubview(sv)
+        container.addSubview(tableSV)
         container.addSubview(popUp)
         container.addSubview(runBtn)
+        container.addSubview(toggle)
 
         popUp.translatesAutoresizingMaskIntoConstraints
             = false
         runBtn
             .translatesAutoresizingMaskIntoConstraints
             = false
+        toggle
+            .translatesAutoresizingMaskIntoConstraints
+            = false
         sv.translatesAutoresizingMaskIntoConstraints
+            = false
+        tableSV
+            .translatesAutoresizingMaskIntoConstraints
             = false
         NSLayoutConstraint.activate([
             popUp.topAnchor.constraint(
@@ -603,6 +673,13 @@ class AppDelegate: NSObject,
             runBtn.heightAnchor.constraint(
                 equalToConstant: 28
             ),
+            toggle.centerYAnchor.constraint(
+                equalTo: popUp.centerYAnchor
+            ),
+            toggle.leadingAnchor.constraint(
+                equalTo: runBtn.trailingAnchor,
+                constant: 12
+            ),
             sv.topAnchor.constraint(
                 equalTo: popUp.bottomAnchor,
                 constant: 4
@@ -614,6 +691,19 @@ class AppDelegate: NSObject,
                 equalTo: container.trailingAnchor
             ),
             sv.bottomAnchor.constraint(
+                equalTo: container.bottomAnchor
+            ),
+            tableSV.topAnchor.constraint(
+                equalTo: popUp.bottomAnchor,
+                constant: 4
+            ),
+            tableSV.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor
+            ),
+            tableSV.trailingAnchor.constraint(
+                equalTo: container.trailingAnchor
+            ),
+            tableSV.bottomAnchor.constraint(
                 equalTo: container.bottomAnchor
             ),
         ])
@@ -736,6 +826,75 @@ class AppDelegate: NSObject,
             )
         )
         dtv.scrollToEndOfDocument(nil)
+        parseDimerollTransactions(text)
+    }
+
+    func parseDimerollTransactions(
+        _ text: String
+    ) {
+        dimerollRawBuffer += text
+        while let range = dimerollRawBuffer.range(
+            of: "\n"
+        ) {
+            let lineEnd = range.lowerBound
+            let line = String(
+                dimerollRawBuffer[
+                    dimerollRawBuffer.startIndex..<lineEnd
+                ]
+            )
+            dimerollRawBuffer = String(
+                dimerollRawBuffer[range.upperBound...]
+            )
+            parseDimerollLine(line)
+        }
+    }
+
+    func parseDimerollLine(_ line: String) {
+        let trimmed = line.trimmingCharacters(
+            in: .whitespaces
+        )
+        guard trimmed.hasPrefix("["),
+              let close = trimmed.firstIndex(of: "]"),
+              let open = trimmed.firstIndex(of: "("),
+              let end = trimmed.lastIndex(of: ")")
+        else { return }
+        let numStart = trimmed.index(
+            after: trimmed.startIndex
+        )
+        let numStr = String(
+            trimmed[numStart..<close]
+        ).trimmingCharacters(in: .whitespaces)
+        guard let num = Int(numStr) else { return }
+        let inner = String(
+            trimmed[
+                trimmed.index(after: open)..<end
+            ]
+        )
+        let parts = inner.split(
+            separator: " ",
+            omittingEmptySubsequences: true
+        ).map(String.init)
+        guard parts.count >= 3 else { return }
+        let verb = parts[0]
+        let subject = parts[1]
+        let qty = parts[2]
+        var unit = "-"
+        var price = "-"
+        if parts.count >= 4 {
+            let fourth = parts[3]
+            if Int(fourth) != nil {
+                price = fourth
+            } else {
+                unit = fourth
+            }
+        }
+        if parts.count >= 5 {
+            price = parts[4]
+        }
+        dimerollTransactions.append(
+            (num, verb, subject, qty, price, unit)
+        )
+        dimerollTableView?.reloadData()
     }
 
     @objc func dimerollModuleChanged(
@@ -754,6 +913,9 @@ class AppDelegate: NSObject,
                 count: 12 + label.count
             )
             + "\n\n"
+        dimerollTransactions.removeAll()
+        dimerollRawBuffer = ""
+        dimerollTableView?.reloadData()
         launchDimerollStage(elfName)
     }
 
@@ -763,6 +925,19 @@ class AppDelegate: NSObject,
         guard let popUp = dimerollModulePopUp
         else { return }
         dimerollModuleChanged(popUp)
+    }
+
+    @objc func dimerollViewToggled(
+        _ sender: NSSegmentedControl
+    ) {
+        let showTable = sender.selectedSegment == 0
+        dimerollTableScrollView?.isHidden =
+            !showTable
+        if let sv = dimerollTextView?
+            .enclosingScrollView
+        {
+            sv.isHidden = showTable
+        }
     }
 
     @objc func toggleSidebar() {
@@ -1384,7 +1559,10 @@ extension AppDelegate: NSTableViewDataSource {
     func numberOfRows(
         in tableView: NSTableView
     ) -> Int {
-        sidebarModules.count
+        if tableView === dimerollTableView {
+            return dimerollTransactions.count
+        }
+        return sidebarModules.count
     }
 }
 
@@ -1394,6 +1572,12 @@ extension AppDelegate: NSTableViewDelegate {
         viewFor tableColumn: NSTableColumn?,
         row: Int
     ) -> NSView? {
+        if tableView === dimerollTableView {
+            return dimerollCellView(
+                tableColumn: tableColumn,
+                row: row
+            )
+        }
         let id = NSUserInterfaceItemIdentifier(
             "ModuleCell"
         )
@@ -1415,10 +1599,59 @@ extension AppDelegate: NSTableViewDelegate {
         return cell
     }
 
+    func dimerollCellView(
+        tableColumn: NSTableColumn?,
+        row: Int
+    ) -> NSView? {
+        guard row < dimerollTransactions.count,
+              let colId = tableColumn?.identifier
+                  .rawValue
+        else { return nil }
+        let tx = dimerollTransactions[row]
+        let val: String
+        switch colId {
+        case "num": val = "\(tx.0)"
+        case "verb": val = tx.1
+        case "subject": val = tx.2
+        case "qty": val = tx.3
+        case "price": val = tx.4
+        case "unit": val = tx.5
+        default: val = ""
+        }
+        let cellId = NSUserInterfaceItemIdentifier(
+            "DimerollCell"
+        )
+        var cell = dimerollTableView?.makeView(
+            withIdentifier: cellId, owner: nil
+        ) as? NSTextField
+        if cell == nil {
+            let tf = NSTextField(
+                labelWithString: ""
+            )
+            tf.identifier = cellId
+            tf.isBordered = false
+            tf.drawsBackground = false
+            tf.textColor = NSColor(
+                red: 0.9, green: 0.8,
+                blue: 0.3, alpha: 1.0
+            )
+            tf.font = NSFont
+                .monospacedSystemFont(
+                    ofSize: 13, weight: .regular
+                )
+            cell = tf
+        }
+        cell?.stringValue = val
+        return cell
+    }
+
     func tableViewSelectionDidChange(
         _ notification: Notification
     ) {
-        guard let table = sidebarTableView
+        guard let obj = notification.object
+            as? NSTableView,
+              obj === sidebarTableView,
+              let table = sidebarTableView
         else { return }
         let row = table.selectedRow
         guard row >= 0,

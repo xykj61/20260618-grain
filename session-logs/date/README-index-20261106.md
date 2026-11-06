@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.174122 | [Structured output parsing -- Movement 19](20261106/20261106-174122_structured-output-parsing-movement19.kyri.md) | NSTableView with 6 columns, NSSegmentedControl Table/Raw toggle, UART parser |
 | 20261106.172652 | [Module selector -- Movement 18](20261106/20261106-172652_module-selector-movement18.kyri.md) | NSPopUpButton with 10 Dimeroll modules, Run button, launches selected ELF |
 | 20261106.171836 | [Dimeroll stage launcher -- Movement 17](20261106/20261106-171836_dimeroll-stage-launcher-movement17.kyri.md) | launchDimerollStage spawns qemu-system-riscv64, UART into dimerollTextView |
 | 20261106.171231 | [Dimeroll tab -- Movement 16, Act II begins](20261106/20261106-171231_dimeroll-tab-movement16.kyri.md) | focusDimeroll() creates dedicated view, warm gold on near-black, Act I still GREEN |
