@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.165000 | [Send verification -- Movement 9 confirmed](20261106/20261106-165000_send-movement9.kyri.md) | Send complete, nib afb331c908, d2852338d on origin |
 | 20261106.163500 | [Scene switching -- Movement 9](20261106/20261106-163500_scene-switching-movement9.kyri.md) | Cmd+1 focuses terminal, Cmd+2 focuses grid, blue border indicator |
 | 20261106.161200 | [ConsentRail integration -- Movement 8](20261106/20261106-161200_consentrail-integration-movement8.kyri.md) | Consent overlay in bottom 3 rows, Enter accepts, Escape declines, 'c' triggers test |
 | 20261106.155114 | [FrameGrid cursor -- Movement 7](20261106/20261106-155114_framegrid-cursor-movement7.kyri.md) | Arrow keys move visible cursor, inverted palette, processEvents drains EventRing |
