@@ -422,10 +422,17 @@ and a daily summary.*
   **Witness:** `terrarium/dimeroll_query_date_witness.rish` -- build,
   QEMU 20-proof run, 5 date range queries + empty + completeness. **GREEN on metal.**
 
-- [ ] **Orbit 39 -- Query by account and plain-text export**
+- [x] **Movement 39 -- Query by account and plain-text export** -- PROVEN
   "Show me cash flow for October" -- filter by account and date. Export the
   result as plain text through the wire, readable on any device.
-  **SLC gate:** account query correct; export arrives at host as readable text.
+  query_sells_by_subject filters sell verb + subject, sum_revenue computes
+  per-account totals (tomatoes 12000, peppers 3750, total 15750),
+  build_account_report formats readable table with header, rows, and total
+  transmitted between EXPORT_BEGIN/EXPORT_END markers over UART.
+  19/19 proofs on QEMU.
+  **SLC gate:** account query correct; export arrives at host as readable text -- PROVEN.
+  **Witness:** `terrarium/dimeroll_query_account_witness.rish` -- build,
+  QEMU 19-proof run, account queries + cash flow + plain-text export. **GREEN on metal.**
 
 - [ ] **Orbit 40 -- Query engine integration witness**
   All four query types, export through wire, correct display.
