@@ -697,6 +697,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 class FrameGridView: NSView {
     private var grid = FrameGrid()
     private(set) var eventRing = EventRing<SkateEvent>()
+    private var cursorRow: Int = 0
+    private var cursorCol: Int = 0
     private let cellFont: NSFont
     private let cellWidth: CGFloat
     private let cellHeight: CGFloat
@@ -812,16 +814,93 @@ class FrameGridView: NSView {
                     fg = defaultFG
                 }
 
+                let isCursor =
+                    row == cursorRow && col == cursorCol
+                let drawFG: NSColor
+                if isCursor {
+                    let cursorBG = fg
+                    let cellRect = NSRect(
+                        x: x, y: y,
+                        width: cellWidth,
+                        height: cellHeight
+                    )
+                    ctx.setFillColor(cursorBG.cgColor)
+                    ctx.fill(cellRect)
+                    drawFG = defaultBG
+                } else {
+                    drawFG = fg
+                }
+
                 let attrs: [NSAttributedString.Key: Any]
                     = [
                         .font: cellFont,
-                        .foregroundColor: fg,
+                        .foregroundColor: drawFG,
                     ]
                 let str = NSAttributedString(
                     string: ch, attributes: attrs
                 )
                 str.draw(at: NSPoint(x: x, y: y))
             }
+        }
+
+        // draw cursor on empty cells
+        let cx = CGFloat(cursorCol) * cellWidth
+        let cy = CGFloat(cursorRow) * cellHeight
+        let cursorByte = grid.cell(
+            row: cursorRow, column: cursorCol
+        ) ?? 0x20
+        if cursorByte == 0x20 {
+            let cursorRect = NSRect(
+                x: cx, y: cy,
+                width: cellWidth,
+                height: cellHeight
+            )
+            ctx.setFillColor(defaultFG.cgColor)
+            ctx.fill(cursorRect)
+        }
+    }
+
+    // -- cursor and event processing (Movement 7) ----------------------
+
+    private func processEvents() {
+        var moved = false
+        while let ev = eventRing.removeFirst() {
+            switch ev {
+            case .keyDown(let keyCode, _):
+                switch keyCode {
+                case 126: // up
+                    if cursorRow > 0 {
+                        cursorRow -= 1
+                        moved = true
+                    }
+                case 125: // down
+                    if cursorRow
+                        < SkateCoreBounds.rows - 1
+                    {
+                        cursorRow += 1
+                        moved = true
+                    }
+                case 123: // left
+                    if cursorCol > 0 {
+                        cursorCol -= 1
+                        moved = true
+                    }
+                case 124: // right
+                    if cursorCol
+                        < SkateCoreBounds.columns - 1
+                    {
+                        cursorCol += 1
+                        moved = true
+                    }
+                default:
+                    break
+                }
+            default:
+                break
+            }
+        }
+        if moved {
+            needsDisplay = true
         }
     }
 
@@ -848,6 +927,7 @@ class FrameGridView: NSView {
         } catch {
             // ring full -- drop the event
         }
+        processEvents()
     }
 
     override func keyUp(with event: NSEvent) {

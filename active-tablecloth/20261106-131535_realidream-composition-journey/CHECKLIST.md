@@ -60,11 +60,14 @@
   - EventRing capacity respected -- `try eventRing.append()` catches `.full` and drops the event
   - Two-step build clean, Terrarium launches and exits clean with hello stage
 
-- [ ] **Movement 7: FrameGrid cursor -- visible cursor driven by EventRing**
+- [x] **Movement 7: FrameGrid cursor -- visible cursor driven by EventRing**
   - SLC gate: arrow keys move a visible cursor cell in the FrameGrid
   - Cursor position stored as (row, column) bounded by SkateCoreBounds
   - Arrow keys (up/down/left/right) from the EventRing move the cursor
   - FrameGridView draws the cursor cell with an inverted palette
+  - `processEvents()` drains EventRing on each keyDown, updates cursorRow/cursorCol, triggers needsDisplay
+  - Cursor rendered as inverted palette (FG becomes BG fill, BG becomes text color); empty cells filled with defaultFG
+  - Two-step build clean, Terrarium launches and exits clean with hello stage
 
 - [ ] **Movement 8: ConsentRail integration -- user consent flows**
   - SLC gate: a consent prompt appears in the FrameGrid, Enter accepts, Escape declines
