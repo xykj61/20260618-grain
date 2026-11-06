@@ -61,6 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var serialLines: [String] = []
     var scrollView: NSScrollView?
     var gridContainer: NSView?
+    var tabView: NSTabView?
 
     func applicationDidFinishLaunching(_ note: Notification) {
         let mask: NSWindow.StyleMask = [
@@ -112,15 +113,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             )
         }
 
-        let splitView = NSSplitView(frame: splitFrame)
-        splitView.isVertical = true
-        splitView.dividerStyle = .thin
-        splitView.autoresizingMask = [.width, .height]
+        // -- Tab bar (Movement 11) ---------------------
+
+        let tv = NSTabView(frame: splitFrame)
+        tv.tabViewType = .topTabsBezelBorder
+        tv.autoresizingMask = [.width, .height]
+        tabView = tv
+
+        // Tab 1: Terminal
+        let termTab = NSTabViewItem(
+            identifier: "terminal"
+        )
+        termTab.label = "Terminal"
 
         let sv = NSScrollView(
             frame: NSRect(
                 x: 0, y: 0,
-                width: splitFrame.width * 0.6,
+                width: splitFrame.width,
                 height: splitFrame.height
             )
         )
@@ -141,8 +150,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             red: 0.0, green: 0.9, blue: 0.4, alpha: 1.0
         )
         sv.documentView = textView
+        termTab.view = sv
+        tv.addTabViewItem(termTab)
 
-        splitView.addSubview(sv)
+        // Tab 2: Grid
+        let gridTab = NSTabViewItem(
+            identifier: "grid"
+        )
+        gridTab.label = "Grid"
 
         if #available(macOS 26.0, *) {
             let fgv = FrameGridView()
@@ -151,7 +166,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let gc = NSView(
                 frame: NSRect(
                     x: 0, y: 0,
-                    width: splitFrame.width * 0.4,
+                    width: splitFrame.width,
                     height: splitFrame.height
                 )
             )
@@ -172,27 +187,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             fgv.autoresizingMask = [.minYMargin]
             gc.addSubview(fgv)
 
-            splitView.addSubview(gc)
+            gridTab.view = gc
         } else {
             let placeholder = NSView(
                 frame: NSRect(
                     x: 0, y: 0,
-                    width: splitFrame.width * 0.4,
+                    width: splitFrame.width,
                     height: splitFrame.height
                 )
             )
             placeholder.wantsLayer = true
             placeholder.layer?.backgroundColor =
                 NSColor.black.cgColor
-            splitView.addSubview(placeholder)
+            gridTab.view = placeholder
         }
+        tv.addTabViewItem(gridTab)
 
-        window.contentView?.addSubview(splitView)
-
-        splitView.setPosition(
-            splitFrame.width * 0.6,
-            ofDividerAt: 0
-        )
+        window.contentView?.addSubview(tv)
 
         window.makeKeyAndOrderFront(nil)
 
@@ -254,42 +265,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func focusTerminal() {
+        tabView?.selectTabViewItem(at: 0)
         window.makeFirstResponder(textView)
-        updateFocusIndicator()
     }
 
     @objc func focusGrid() {
+        tabView?.selectTabViewItem(at: 1)
         if let fgv = frameGridView {
             window.makeFirstResponder(fgv)
         }
-        updateFocusIndicator()
     }
 
-    private static let focusBorderColor = NSColor(
-        red: 0.3, green: 0.6, blue: 1.0, alpha: 0.8
-    )
-
     func updateFocusIndicator() {
-        let active = window.firstResponder
-
-        let termFocused: Bool
-        if active === textView
-            || active is NSTextView
-        {
-            termFocused = true
-        } else {
-            termFocused = false
-        }
-
-        scrollView?.layer?.borderWidth =
-            termFocused ? 2.0 : 0.0
-        scrollView?.layer?.borderColor =
-            Self.focusBorderColor.cgColor
-
-        gridContainer?.layer?.borderWidth =
-            termFocused ? 0.0 : 2.0
-        gridContainer?.layer?.borderColor =
-            Self.focusBorderColor.cgColor
+        // tabs make the active view obvious
     }
 
     // -- QEMU launch ------------------------------------------------

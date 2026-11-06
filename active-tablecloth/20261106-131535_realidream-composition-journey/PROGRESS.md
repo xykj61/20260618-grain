@@ -11,6 +11,7 @@
 
 | Stamp | Movement | What landed | Witness |
 |---|---|---|---|
+| 20261106.180200 | 11 | Tab bar -- NSTabView replaces NSSplitView, Terminal and Grid tabs, Cmd+1/Cmd+2 select | Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean |
 | 20261106.170500 | 10 | Quest 2 integration witness -- 16 proofs across 6 test functions, all GREEN | `terrarium_quest2_witness.rish` GREEN: SkateEvent, EventRing, FrameGrid, ConsentRail, integration flow, cursor |
 | 20261106.163500 | 9 | Scene switching -- Cmd+1 focuses terminal, Cmd+2 focuses grid, blue border indicator | Two-step build clean, Terrarium launches and exits clean with hello stage |
 | 20261106.161200 | 8 | ConsentRail integration -- consent overlay in bottom 3 rows, Enter accepts, Escape declines, 'c' triggers test | Two-step build clean, Terrarium launches and exits clean with hello stage |

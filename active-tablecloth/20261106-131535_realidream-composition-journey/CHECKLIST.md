@@ -98,12 +98,14 @@
 
 ### Quest 3: Navigation Shell (Movements 11-15)
 
-- [ ] **Movement 11: Tab bar -- one tab per module view**
+- [x] **Movement 11: Tab bar -- one tab per module view** -- PROVEN `20261106.180200`
   - SLC gate: a tab bar shows at least two tabs (Terminal, Grid), clicking switches the active view
-  - NSTabView or a custom segmented control above the main content area
-  - Tab 1: QEMU Terminal (existing serial view)
-  - Tab 2: FrameGrid (the composed SkateCore view)
-  - Tabs are addable by future modules
+  - NSSplitView replaced with NSTabView (`.topTabsBezelBorder`), two tabs: Terminal and Grid
+  - Tab 1 wraps NSScrollView/NSTextView (QEMU serial); Tab 2 wraps FrameGridView container
+  - Cmd+1/Cmd+2 select tabs via `tabView?.selectTabViewItem(at:)` and set first responder
+  - Focus border indicators removed -- tab selection makes the active view obvious
+  - Tabs are addable by future modules via `NSTabViewItem` append
+  - Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean
 
 - [ ] **Movement 12: Sidebar skeleton -- module navigation**
   - SLC gate: a collapsible sidebar lists available modules, selecting one switches the main view
