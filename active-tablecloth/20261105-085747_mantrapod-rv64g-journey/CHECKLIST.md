@@ -410,9 +410,17 @@ and a daily summary.*
   **Witness:** `terrarium/dimeroll_query_subject_witness.rish` -- build,
   QEMU 19-proof run, all 4 subjects + empty query verified. **GREEN on metal.**
 
-- [ ] **Orbit 38 -- Query by date range**
-  "Show me last week" -- filter by timestamp range.
-  **SLC gate:** date range query returns correct subset.
+- [x] **Movement 38 -- Query by date range** -- PROVEN `20261106`
+  "Show me last week" -- filter by date range. TransactionRecord gains a `day`
+  field (u32, day offset); `query_by_date_range(from, to)` filters inclusive.
+  Five queries: last 3 days (8-10, 2 results), first week (1-7, 7 results),
+  mid range (3-5, 4 results), single day (1-1, 2 results), empty range
+  (11-15, 0 results). Completeness: week1 + last3 cover all 9 transactions.
+  Mantra hash 0xe9cf083f preserved -- day is metadata, not part of fact string.
+  20/20 proofs on QEMU.
+  **SLC gate:** date range query returns correct subset -- PROVEN.
+  **Witness:** `terrarium/dimeroll_query_date_witness.rish` -- build,
+  QEMU 20-proof run, 5 date range queries + empty + completeness. **GREEN on metal.**
 
 - [ ] **Orbit 39 -- Query by account and plain-text export**
   "Show me cash flow for October" -- filter by account and date. Export the

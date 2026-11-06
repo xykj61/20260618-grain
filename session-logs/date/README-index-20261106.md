@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.114321 | [Query by date range landed -- Movement 38 GREEN](20261106/20261106-114321_query-by-date-range-landed.kyri.md) | 20/20 proofs, day field metadata, inclusive range filter, witness GREEN |
 | 20261106.112851 | [Query by subject landed -- Movement 37 GREEN](20261106/20261106-112851_query-by-subject-landed.kyri.md) | 19/19 proofs, str_eq subject filter, hash mismatch debugged, witness GREEN |
 | 20261106.111304 | [Query by verb landed -- Movement 36 GREEN](20261106/20261106-111304_query-by-verb-landed.kyri.md) | 19/19 proofs, QueryResult filters by GlowVerb, witness GREEN |
 | 20261106.015044 | [Quest 2.2 Ledger page integration witness -- 66 proofs GREEN](20261106/20261106-015044_quest22-integration-witness.kyri.md) | 66 proofs across 4 modules, Quest 2.2 complete |

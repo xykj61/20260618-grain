@@ -1,0 +1,36 @@
+#!/usr/bin/env rishi
+# dimeroll_query_date_witness -- Movement 38
+# Query by date range over 9-transaction Mantra log
+# 20 proofs on QEMU RV64G
+
+say "dimeroll_query_date_witness: date range query"
+say ""
+
+# -- build --
+say "building dimeroll_query_date RV64G..."
+let build = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/dimeroll_query_date.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+a+f+d -femit-bin=terrarium/.build/dimeroll_query_date_g.elf 2>&1"]
+assert build.ok else "build failed"
+say "  build ok"
+
+# -- run on QEMU --
+say "running on QEMU riscv64..."
+let qemu = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/dimeroll_query_date_g.elf 2>/dev/null"]
+assert qemu.ok else "QEMU run failed"
+say "  qemu ok"
+
+# -- verify proofs --
+say ""
+say "verifying proofs..."
+assert qemu.out contains "proofs: 20/20" else "expected 20/20 proofs"
+assert qemu.out contains "ALL PROOFS PASSED" else "not all proofs passed"
+assert qemu.out contains "Mantra hash 0xe9cf083f" else "Mantra hash mismatch"
+assert qemu.out contains "days 8-10 returns 2 results" else "last 3 days query failed"
+assert qemu.out contains "days 1-7 returns 7 results" else "first week query failed"
+assert qemu.out contains "days 3-5 returns 4 results" else "mid range query failed"
+assert qemu.out contains "day 1 returns 2 results" else "single day query failed"
+assert qemu.out contains "days 11-15 returns 0 results" else "empty range query failed"
+assert qemu.out contains "week1 + last3 cover all 9 transactions" else "completeness check failed"
+assert qemu.out contains "REPLAY MATCHES: identical state proven" else "replay failed"
+assert qemu.out contains "dimeroll_query_date complete" else "module did not complete"
+say ""
+say "dimeroll_query_date_witness: GREEN"
