@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.201431` | [Mantrapod RV64G Orbit 23 -- WASM emulation horizon scoping](20261105/20261105-201431_mantrapod-orbit23-wasm-horizon.kyri.md) | Surveyed 6 RISC-V-to-WASM projects, named 3 build paths (TinyEMU recommended), 7 gaps, 7-11 orbit estimate |
 | `20261105.184157` | [Mantrapod RV64G Orbit 22 -- Terrarium macOS app on RV64G](20261105/20261105-184157_mantrapod-orbit22-terrarium-rv64g.kyri.md) | Swift app recognizes _g suffix for riscv64, isMultiHart passes -smp 2, 4 stages proven through the glass |
 | `20261105.190200` | [Mantrapod RV64G Orbit 21 -- full RV64G boot witness](20261105/20261105-190200_mantrapod-orbit21-boot-witness.kyri.md) | All 19 modules proven in one boot sequence on full IMAFD, Quest 1.5 opened |
 | `20261105.180656` | [Mantrapod RV64G Orbit 20 -- full RV64G integration witness](20261105/20261105-180656_mantrapod-orbit20-rv64g-integration.kyri.md) | 10 stages GREEN: 19 modules on full IMAFD, census M=42 A=117 FP=184 CSR=23, Quest 1.4 complete, Act I complete |

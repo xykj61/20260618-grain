@@ -246,11 +246,19 @@ audio opens on the bare hart.*
   amphora_seal_g (seal + tamper), multi_hart_g (atomic on 2 harts).
   **SLC gate:** `terrarium/terrarium_rv64g_witness.rish` runs GREEN, Terrarium launches riscv64 for `_g` stages.
 
-- [ ] **Orbit 23 -- WASM emulation horizon scoping**
-  Scope the path from `qemu-system-riscv64` to `grain-emu.wasm` -- a browser-hosted
-  RISC-V emulator serving the same Grain stack. Survey existing RISC-V-to-WASM
-  projects, name the build path, estimate the orbit cost.
-  **SLC gate:** scoping document in `active-development/` with build path and gaps.
+- [x] **Orbit 23 -- WASM emulation horizon scoping** (`20261105.201317`)
+  Surveyed 7 RISC-V-to-WASM projects: grain-emu (DJINN, Zig, 72 KiB WASM, 120-140
+  MIPS, boots full system -- the primary reference), TinyEMU (Bellard, C/MIT, proven
+  in browser via JSLinux), rvemu (d0iasm, Rust/MIT, RV64GC), riscv-rust (takahirox,
+  Rust/MIT), WebCM (Cartesi, 32 MiB WASM), container2wasm (uses TinyEMU for RISC-V),
+  and a Grain-native Zig interpreter option. Named 4 build paths with orbit estimates:
+  Path D (compose grain-emu with Terrarium surface, 2-4 orbits, recommended), Path A
+  (TinyEMU adaptation, 3-5 orbits, fallback), Path B (rvemu adaptation, 3-5 orbits),
+  Path C (Zig-native interpreter, 8-12 orbits, long return). Identified 7 gaps.
+  Total estimate to browser-hosted Grain: 6-10 orbits.
+  **SLC gate:** scoping document in `active-development/` with build path and gaps --
+  `active-development/date/20261105/20261105-200957_wasm-emulation-horizon-scoping.md`.
+  **PROVEN.**
 
 - [ ] **Orbit 24 -- Performance baseline on RV64G**
   Measure boot time, Mantra log throughput, Glow evaluation speed, and Tally
