@@ -1,0 +1,75 @@
+#!/usr/bin/env rishi
+# dimeroll_cashflow_witness.rish
+#
+# Orbit 33 witness -- daily cash flow derived from Mantra log
+# 3 stages: build, QEMU run, 10 proof assertions
+# GREEN means the SLC gate holds: derived cash flow matches
+# direct running totals for the day.
+
+say "=== Orbit 33: dimeroll_cashflow witness ==="
+say ""
+
+# -----------------------------------------------------------
+# STAGE 1 -- build
+# -----------------------------------------------------------
+
+say "-- stage 1: build --"
+
+let build = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/dimeroll_cashflow.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+a+f+d -femit-bin=terrarium/.build/dimeroll_cashflow_g.elf 2>&1"]
+assert build.ok else "build failed: ${build.err}"
+say "  build: ok"
+
+let size = run ["sh" "-c" "wc -c < /Users/bhagavan851c05a/20260618-grain/terrarium/.build/dimeroll_cashflow_g.elf"]
+assert size.ok else "size check failed"
+say "  elf size: ${size.out} bytes"
+
+# -----------------------------------------------------------
+# STAGE 2 -- QEMU run
+# -----------------------------------------------------------
+
+say ""
+say "-- stage 2: QEMU run --"
+
+let qemu = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -device ramfb -kernel terrarium/.build/dimeroll_cashflow_g.elf 2>/dev/null"]
+assert qemu.ok else "QEMU run failed: ${qemu.err}"
+say "  qemu: ok"
+
+# -----------------------------------------------------------
+# STAGE 3 -- proof assertions
+# -----------------------------------------------------------
+
+say ""
+say "-- stage 3: proof assertions --"
+
+assert qemu.out contains "proofs: 18/18" else "expected 18/18 proofs"
+say "  proofs: 18/18"
+
+assert qemu.out contains "ALL PROOFS PASSED" else "not all proofs passed"
+say "  ALL PROOFS PASSED"
+
+assert qemu.out contains "SLC GATE: derived matches running at 4" else "SLC gate at 4 failed"
+say "  SLC gate at 4: ok"
+
+assert qemu.out contains "derived matches running at 9" else "derived mismatch at 9"
+say "  derived matches running at 9: ok"
+
+assert qemu.out contains "REPLAY MATCHES: identical state proven" else "replay mismatch"
+say "  replay identity: ok"
+
+assert qemu.out contains "Mantra hash 0xe9cf083f" else "hash mismatch"
+say "  Mantra hash: 0xe9cf083f"
+
+assert qemu.out contains "DIMEROLL FIELD LEDGER" else "missing ledger header"
+say "  ledger header: ok"
+
+assert qemu.out contains "Cash Flow" else "missing cash flow header"
+say "  cash flow header: ok"
+
+assert qemu.out contains "| TOTAL    |  15750 |" else "total revenue mismatch"
+say "  total revenue 15750: ok"
+
+assert qemu.out contains "Orbit 33 complete" else "orbit not complete"
+say "  Orbit 33 complete"
+
+say ""
+say "=== dimeroll_cashflow witness: GREEN ==="

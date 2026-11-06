@@ -366,7 +366,7 @@ and a daily summary.*
   on hand. Derived from the Mantra log in real time.
   **SLC gate:** inventory summary matches running balances after 5 transactions.
 
-- [ ] **Orbit 33 -- Ledger page: daily cash flow**
+- [x] **Orbit 33 -- Ledger page: daily cash flow** PROVEN `20261105.233828`
   Revenue and expenses for the day, with a net. The five questions answered
   at a glance.
   **SLC gate:** cash flow summary shows correct totals for the day.

@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.233828` | [Mantrapod RV64G Orbit 33 -- Ledger page: daily cash flow](20261105/20261105-233828_orbit33-daily-cashflow.kyri.md) | Cash flow derived from Mantra log via parse_fact_slice with price extraction, SLC gate derived matches running at 4, 18/18 proofs, 0xe9cf083f, 14200-byte ELF |
 | `20261105.232113` | [Mantrapod RV64G Orbit 32 -- Ledger page: inventory summary](20261105/20261105-232113_orbit32-inventory-summary.kyri.md) | Inventory derived from Mantra log via parse_fact_slice walker, SLC gate derived matches running at 5, 18/18 proofs, 0xe9cf083f, 13728-byte ELF |
 | `20261105.224429` | [Mantrapod RV64G Orbit 31 -- Ledger page: transaction list](20261105/20261105-224429_orbit31-ledger-page-txn-list.kyri.md) | Aurora draw functions for txn journal, inventory, cash flow tables, kumara seed 32-byte fix, Mantra 0xe9cf083f, 14/14 proofs, 13944-byte ELF |
 | `20261105.221157` | [Mantrapod RV64G Orbit 30 -- Quest 2.1 closing gate](20261105/20261105-221157_orbit30-quest21-closing-gate.kyri.md) | Integration module: 5 verbs, InventoryTable 3 subjects, CashFlowTable total 15750, Aurora display, Mantra 0xe9cf083f, 33/33 proofs, 14680-byte ELF -- Quest 2.1 complete |
