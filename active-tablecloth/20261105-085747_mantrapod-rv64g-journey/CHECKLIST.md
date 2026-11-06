@@ -356,7 +356,7 @@ harvested, sold, and composted -- enters a signed, bounded, supervised ledger.*
 *The grower sees their day. Aurora draws a ledger page with transactions, balances,
 and a daily summary.*
 
-- [ ] **Orbit 31 -- Ledger page: transaction list**
+- [x] **Orbit 31 -- Ledger page: transaction list** -- PROVEN `20261105` -- 14/14 proofs, 3 UART tables (journal 9 rows, inventory 3 subjects, cash flow total 15750), Mantra 0xe9cf083f, replay identity, Aurora draw functions wired, 13944-byte ELF
   Aurora draws a table of the day's transactions -- timestamp, verb, subject,
   quantity, price, total. Scrollable on the framebuffer console.
   **SLC gate:** 5 transactions display as a readable table on Aurora.

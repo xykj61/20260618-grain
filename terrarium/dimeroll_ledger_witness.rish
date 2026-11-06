@@ -1,0 +1,43 @@
+#!/usr/bin/env rishi
+# Orbit 31 witness -- Ledger page: transaction list on Aurora
+
+say "=== Orbit 31: Dimeroll Ledger Page Witness ==="
+
+let build = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/dimeroll_ledger.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+a+f+d -femit-bin=terrarium/.build/dimeroll_ledger_g.elf 2>&1"]
+assert build.ok else "build failed: ${build.err}"
+say "build: ok"
+
+let run_out = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/dimeroll_ledger_g.elf 2>/dev/null"]
+assert run_out.ok else "qemu failed: ${run_out.err}"
+
+assert run_out.out contains "proofs: 14/14" else "expected 14/14 proofs"
+say "proofs: 14/14"
+
+assert run_out.out contains "ALL PROOFS PASSED" else "not all proofs passed"
+say "all proofs: PASS"
+
+assert run_out.out contains "REPLAY MATCHES: identical state proven" else "replay identity failed"
+say "replay identity: PASS"
+
+assert run_out.out contains "Mantra hash 0xe9cf083f" else "Mantra hash mismatch"
+say "mantra hash: 0xe9cf083f"
+
+assert run_out.out contains "DIMEROLL FIELD LEDGER" else "missing ledger header"
+say "ledger header: present"
+
+assert run_out.out contains "Transaction Journal" else "missing transaction table"
+say "transaction table: present"
+
+assert run_out.out contains "Inventory on Hand" else "missing inventory table"
+say "inventory table: present"
+
+assert run_out.out contains "Cash Flow Summary" else "missing cash flow table"
+say "cash flow: present"
+
+assert run_out.out contains "| TOTAL    |  15750 |" else "total revenue mismatch"
+say "total revenue: 15750"
+
+assert run_out.out contains "Orbit 31 complete" else "orbit not complete"
+
+say ""
+say "=== Orbit 31 GREEN ==="

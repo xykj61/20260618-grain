@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.224429` | [Mantrapod RV64G Orbit 31 -- Ledger page: transaction list](20261105/20261105-224429_orbit31-ledger-page-txn-list.kyri.md) | Aurora draw functions for txn journal, inventory, cash flow tables, kumara seed 32-byte fix, Mantra 0xe9cf083f, 14/14 proofs, 13944-byte ELF |
 | `20261105.221157` | [Mantrapod RV64G Orbit 30 -- Quest 2.1 closing gate](20261105/20261105-221157_orbit30-quest21-closing-gate.kyri.md) | Integration module: 5 verbs, InventoryTable 3 subjects, CashFlowTable total 15750, Aurora display, Mantra 0xe9cf083f, 33/33 proofs, 14680-byte ELF -- Quest 2.1 complete |
 | `20261105.215629` | [Mantrapod RV64G Orbit 29 -- running balances cash flow](20261105/20261105-215629_orbit29-cashflow-balances.kyri.md) | CashFlowTable alongside InventoryTable, 9 transactions 3 sells, tomatoes 12000 peppers 3750 total 15750, Mantra 0xf6d9677e, replay identity both tables, 29/29 proofs, 13008-byte ELF |
 | `20261105.214306` | [Mantrapod RV64G Orbit 28 -- running balances inventory](20261105/20261105-214306_orbit28-inventory-balances.kyri.md) | 7 transactions, InventoryTable 3 subjects, tomatoes=135 peppers=35 leaves=30, Mantra 0x4bc8c0b8, replay identity proven, 21/21 proofs, 11248-byte ELF |
