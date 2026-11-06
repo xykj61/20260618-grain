@@ -53,11 +53,12 @@
 
 ### Quest 2: Events Flow Back (Movements 6-10)
 
-- [ ] **Movement 6: EventRing keyboard adapter -- AppKit events to EventRing**
+- [x] **Movement 6: EventRing keyboard adapter -- AppKit events to EventRing** -- PROVEN `20261106.152832`
   - SLC gate: `keyDown` events from NSView enter the EventRing and are readable
-  - Define a `SkateEvent` enum (keyDown, keyUp, mouseDown, mouseMove, mouseUp)
-  - `NSView.keyDown` creates a SkateEvent and pushes it into the EventRing
-  - EventRing admission respects its 128-seat capacity with proper refusal
+  - `SkateEvent` enum in `skate/Sources/SkateCore/SkateEvent.swift` -- keyDown, keyUp, mouseDown, mouseMove, mouseUp, each carrying associated values
+  - FrameGridView overrides `acceptsFirstResponder` (true), `keyDown`, `keyUp` -- translates NSEvent to SkateEvent and pushes into EventRing
+  - EventRing capacity respected -- `try eventRing.append()` catches `.full` and drops the event
+  - Two-step build clean, Terrarium launches and exits clean with hello stage
 
 - [ ] **Movement 7: FrameGrid cursor -- visible cursor driven by EventRing**
   - SLC gate: arrow keys move a visible cursor cell in the FrameGrid

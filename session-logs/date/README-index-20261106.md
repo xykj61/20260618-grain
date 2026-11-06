@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.152832 | [EventRing keyboard adapter -- Movement 6](20261106/20261106-152832_eventring-keyboard-adapter.kyri.md) | SkateEvent enum and AppKit keyDown/keyUp wired into EventRing on FrameGridView |
 | 20261106.143447 | [Quest 1 integration witness -- Movement 5 GREEN](20261106/20261106-143447_quest1-integration-witness.kyri.md) | Rishi witness proves Movements 1-4 end to end, QEMU hello output reaches Terrarium |
 | 20261106.142142 | [Serial-to-grid bridge -- Movement 4 PROVEN](20261106/20261106-142142_serial-to-grid-bridge.kyri.md) | writeRow API, updateGrid parses serialBuffer, live FrameGrid from QEMU output |
 | 20261106.141057 | [Dual-pane window -- Movement 3 PROVEN](20261106/20261106-141057_dual-pane-movement3.kyri.md) | NSSplitView, terminal left, FrameGridView right, resizable divider |

@@ -696,6 +696,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 @available(macOS 26.0, *)
 class FrameGridView: NSView {
     private var grid = FrameGrid()
+    private(set) var eventRing = EventRing<SkateEvent>()
     private let cellFont: NSFont
     private let cellWidth: CGFloat
     private let cellHeight: CGFloat
@@ -821,6 +822,52 @@ class FrameGridView: NSView {
                 )
                 str.draw(at: NSPoint(x: x, y: y))
             }
+        }
+    }
+
+    // -- keyboard adapter (Movement 6) --------------------------------
+
+    override var acceptsFirstResponder: Bool { true }
+
+    override func keyDown(with event: NSEvent) {
+        let code = event.keyCode
+        let ch: UInt8
+        if let chars = event.characters,
+           let first = chars.first,
+           first.asciiValue != nil
+        {
+            ch = first.asciiValue!
+        } else {
+            ch = 0
+        }
+        let skateEvent = SkateEvent.keyDown(
+            keyCode: code, character: ch
+        )
+        do {
+            try eventRing.append(skateEvent)
+        } catch {
+            // ring full -- drop the event
+        }
+    }
+
+    override func keyUp(with event: NSEvent) {
+        let code = event.keyCode
+        let ch: UInt8
+        if let chars = event.characters,
+           let first = chars.first,
+           first.asciiValue != nil
+        {
+            ch = first.asciiValue!
+        } else {
+            ch = 0
+        }
+        let skateEvent = SkateEvent.keyUp(
+            keyCode: code, character: ch
+        )
+        do {
+            try eventRing.append(skateEvent)
+        } catch {
+            // ring full -- drop the event
         }
     }
 }
