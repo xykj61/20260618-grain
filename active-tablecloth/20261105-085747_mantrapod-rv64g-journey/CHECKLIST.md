@@ -4,8 +4,8 @@
 **Stamp:** `20261105.085747`
 **Captain:** Incense
 **Target ISA:** RV64GC (64-bit general-purpose RISC-V -- I + M + A + F + D)
-**Planning:** Calfive -- 10 quests of 5 orbits each, 50 orbits total across 3 acts
-**Grows from:** Terrarium boot journey (25 orbits, all GREEN on freestanding RV32I),
+**Planning:** Calfive -- 10 quests of 5 movements each, 50 movements total across 3 acts
+**Grows from:** Terrarium boot journey (25 movements, all GREEN on freestanding RV32I),
 the RV64G horizon scoping document (`active-development/date/20261105/20261105-014745_rv64g-horizon-scoping.md`),
 Glow calculator application (10 expressions, 10/10 correct under Caravan supervision),
 Dimeroll's existing modules, and the Mantrapod composition.
@@ -14,7 +14,7 @@ Dimeroll's existing modules, and the Mantrapod composition.
 
 ## Act I -- The Wider Hart (RV64G port)
 
-*Gall's Law: carry the working system whole. Each orbit changes the target from
+*Gall's Law: carry the working system whole. Each movement changes the target from
 `riscv32-freestanding-none` to `riscv64-freestanding-none` and addresses the gaps
 that surface. No new features in Act I -- the working system moves.*
 
@@ -454,28 +454,32 @@ wire -- running on a board someone can hold.*
 
 *One board boots. The stack that worked on QEMU works on silicon.*
 
-- [ ] **Orbit 41 -- Board selection and acquisition**
+- [ ] **Movement 41 -- Board selection and acquisition**
   Choose a board (StarFive VisionFive 2, Milk-V Mars, SpacemiT K1, or
   successor). Document: SoC, RAM, I/O, device tree, UART base, community
   support quality. Acquire the board.
   **SLC gate:** board acquired, spec document in `active-development/`.
+  **Spec filed:** `active-development/date/20261106/20261106-121723_mantrapod-board-selection.md`
+  -- recommends Milk-V Mars 4 GB (JH7110 SoC, UART at 0x10000000, 16550-compatible,
+  entry point 0x40000000, credit-card form factor, ~$50). Board acquisition awaits
+  Keaton's word.
 
-- [ ] **Orbit 42 -- Hello on real UART**
+- [ ] **Movement 42 -- Hello on real UART**
   The seed speaks from real silicon. A freestanding RV64G program boots on
   the board and prints to the physical UART. The first real breath.
   **SLC gate:** hello on a terminal connected to the board's UART.
 
-- [ ] **Orbit 43 -- Full boot on real hardware**
+- [ ] **Movement 43 -- Full boot on real hardware**
   The nine-stage boot runs on the board. Pill, Tally, Aurora, Mantra, Caravan,
   Steward, all proving on real silicon.
   **SLC gate:** boot witness equivalent runs GREEN on the board.
 
-- [ ] **Orbit 44 -- Wire protocol over USB-C or Ethernet**
+- [ ] **Movement 44 -- Wire protocol over USB-C or Ethernet**
   Mantra facts travel from the board to a host over a physical connection.
   The same wire protocol, real copper instead of QEMU virtio.
   **SLC gate:** facts sync from board to host, MVERIFY confirmed.
 
-- [ ] **Orbit 45 -- Board bring-up integration witness**
+- [ ] **Movement 45 -- Board bring-up integration witness**
   Full stack on real hardware with wire sync to host.
   **SLC gate:** `terrarium/mantrapod_board_witness.rish` runs GREEN on silicon.
 
@@ -483,28 +487,28 @@ wire -- running on a board someone can hold.*
 
 *A personal server. A device on a shelf. A grower's own records in their own hands.*
 
-- [ ] **Orbit 46 -- Dimeroll field ledger on real hardware**
+- [ ] **Movement 46 -- Dimeroll field ledger on real hardware**
   The full field ledger runs on the board. Transactions enter, balances
   compute, queries answer, seals ship through the wire.
   **SLC gate:** field ledger end-to-end on real hardware, wire export confirmed.
 
-- [ ] **Orbit 47 -- Power-cycle resilience**
+- [ ] **Movement 47 -- Power-cycle resilience**
   Prove: the system syncs through the wire, powers off, powers on, replays
   from the last sync, and every committed fact survives.
   **SLC gate:** power cycle with replay, zero facts lost.
 
-- [ ] **Orbit 48 -- Mantrapod enclosure and form factor**
+- [ ] **Movement 48 -- Mantrapod enclosure and form factor**
   The board in a case. USB-C for power and data. Ethernet for network. A
   form factor a person puts on a shelf beside their router.
   **SLC gate:** enclosed Mantrapod boots from power, accessible over wire.
 
-- [ ] **Orbit 49 -- First resident deployment**
+- [ ] **Movement 49 -- First resident deployment**
   The Mantrapod runs for a day handling real transactions. Keaton enters
   real data -- what was planted, what was harvested, what was sold -- and
   the ledger holds it faithfully.
   **SLC gate:** 24-hour deployment with real data, zero data loss, wire export.
 
-- [ ] **Orbit 50 -- Journey completion witness**
+- [ ] **Movement 50 -- Journey completion witness**
   A single witness proves the entire journey: RV64G port, Dimeroll field
   ledger, real hardware, wire persistence, power-cycle resilience. The
   Mantrapod is a living personal server.
@@ -512,8 +516,8 @@ wire -- running on a board someone can hold.*
 
 ---
 
-**Fascia:** each proven orbit advances the fascia by `0.001` per the health model.
+**Fascia:** each proven movement advances the fascia by `0.001` per the health model.
 **Witness discipline:** every SLC gate names a witness that runs GREEN on metal.
 A stage claimed without a witness is a stage not landed.
-**Calfive:** Quest = 5 orbits. Act I = 5 quests (25 orbits). Act II = 3 quests
-(15 orbits). Act III = 2 quests (10 orbits). Journey total: 50 orbits.
+**Calfive:** Quest = 5 movements. Act I = 5 quests (25 movements). Act II = 3 quests
+(15 movements). Act III = 2 quests (10 movements). Journey total: 50 movements.

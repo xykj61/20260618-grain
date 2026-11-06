@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.121723 | [Board selection spec -- Movement 41, Act III begins](20261106/20261106-121723_board-selection-spec.kyri.md) | Milk-V Mars 4 GB recommended, spec filed, acquisition awaits Keaton |
 | 20261106.121024 | [Query engine integration witness -- Movement 40 GREEN](20261106/20261106-121024_query-integration-witness.kyri.md) | 77 proofs across 4 query modules, Quest 2.3 complete |
 | 20261106.120058 | [Query by account landed -- Movement 39 GREEN](20261106/20261106-120058_query-by-account-landed.kyri.md) | 19/19 proofs, account query + plain-text export, witness GREEN |
 | 20261106.114321 | [Query by date range landed -- Movement 38 GREEN](20261106/20261106-114321_query-by-date-range-landed.kyri.md) | 20/20 proofs, day field metadata, inclusive range filter, witness GREEN |
