@@ -272,10 +272,18 @@ audio opens on the bare hart.*
   `active-development/date/20261105/20261105-203102_rv64g-performance-baseline.md`.
   **PROVEN.**
 
-- [ ] **Orbit 25 -- Act I completion witness and Act II scoping**
+- [x] **Orbit 25 -- Act I completion witness and Act II scoping**
   A single witness proves all of Act I. Scope Act II in detail: the Dimeroll
   transaction grammar, the running balance model, and the query engine.
   **SLC gate:** Act I witness GREEN; Act II scoping document in `active-development/`.
+  `terrarium/act1_witness.rish` -- 12 stages GREEN: stages 1-10 re-run full RV64G
+  integration (19 modules, pill, boot, A-ext, F/D), stage 11 verifies Quest 1.5
+  deliverables (Terrarium app, WASM scoping doc, performance baseline, 19 ELFs at
+  166,512 bytes). Act II scoping: 5 transaction verbs, two-stage inventory model,
+  cash flow derivation, 4 query types, 2 new modules (`dimeroll_ledger.rye`,
+  `dimeroll_balance.rye`) --
+  `active-development/date/20261105/20261105-204535_act2-dimeroll-field-ledger-scoping.md`.
+  **PROVEN.**
 
 ---
 

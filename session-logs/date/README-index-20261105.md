@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.205215` | [Mantrapod RV64G Orbit 25 -- Act I completion witness and Act II scoping](20261105/20261105-205215_mantrapod-orbit25-act1-witness.kyri.md) | Act I witness GREEN: 12 stages proving 25 orbits, 19 modules on full IMAFD, Quest 1.5 deliverables verified; Act II Dimeroll field ledger scoped (5 verbs, 2 new modules, 15 orbits) |
 | `20261105.203102` | [Mantrapod RV64G Orbit 24 -- performance baseline on QEMU](20261105/20261105-203102_mantrapod-orbit24-performance-baseline.kyri.md) | 19 modules timed 3 runs each, 1095 ms wall / 267 ms guest, Mantra 6400 facts/sec, Glow 1700 exprs/sec, Tally 5000 ops/sec, 162 KiB total ELF |
 | `20261105.202116` | [Orbit 23 fascia sync -- grain-emu and Path D correction](20261105/20261105-202116_orbit23-fascia-sync.kyri.md) | ITINERARY and index row corrected to match committed scoping doc: 7 projects, 4 paths, Path D recommended, 6-10 orbits |
 | `20261105.201431` | [Mantrapod RV64G Orbit 23 -- WASM emulation horizon scoping](20261105/20261105-201431_mantrapod-orbit23-wasm-horizon.kyri.md) | Surveyed 7 RISC-V-to-WASM projects, named 4 build paths (Path D grain-emu recommended), 7 gaps, 6-10 orbit estimate |
