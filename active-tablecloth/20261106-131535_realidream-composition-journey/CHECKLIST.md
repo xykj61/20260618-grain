@@ -78,11 +78,15 @@
   - `showConsent(rail:callback:)` public API for callers; `resolveConsent(accepted:)` clears state and fires callback
   - Two-step build clean, Terrarium launches and exits clean with hello stage
 
-- [ ] **Movement 9: Scene switching -- Cmd+1 and Cmd+2**
+- [x] **Movement 9: Scene switching -- Cmd+1 and Cmd+2** -- PROVEN `20261106.163500`
   - SLC gate: Cmd+1 focuses the QEMU terminal pane, Cmd+2 focuses the FrameGrid pane
-  - NSWindow key equivalent handling for Cmd+1 and Cmd+2
-  - Focus indicator (subtle border or title highlight) shows which pane is active
-  - Keyboard events route to the focused pane only
+  - NSMenu with View menu containing Cmd+1 (Focus Terminal) and Cmd+2 (Focus Grid)
+  - `focusTerminal()` makes textView first responder, `focusGrid()` makes FrameGridView first responder
+  - Focus indicator: 2px blue border on the active pane's container, removed from the inactive pane
+  - `updateFocusIndicator()` reads `window.firstResponder` and sets border accordingly
+  - scrollView and gridContainer promoted to AppDelegate properties for border updates
+  - Keyboard events route to the focused pane via standard NSResponder chain
+  - Two-step build clean, Terrarium launches and exits clean with hello stage
 
 - [ ] **Movement 10: Quest 2 integration witness**
   - SLC gate: witness script verifies keyboard events flow through EventRing to FrameGrid cursor

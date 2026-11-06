@@ -11,6 +11,7 @@
 
 | Stamp | Movement | What landed | Witness |
 |---|---|---|---|
+| 20261106.163500 | 9 | Scene switching -- Cmd+1 focuses terminal, Cmd+2 focuses grid, blue border indicator | Two-step build clean, Terrarium launches and exits clean with hello stage |
 | 20261106.161200 | 8 | ConsentRail integration -- consent overlay in bottom 3 rows, Enter accepts, Escape declines, 'c' triggers test | Two-step build clean, Terrarium launches and exits clean with hello stage |
 | 20261106.155800 | 7 | FrameGrid cursor -- visible cursor driven by EventRing, arrow key movement | Two-step build clean, cursor inverts palette at position, arrow keys move it |
 | 20261106.152832 | 6 | EventRing keyboard adapter -- `SkateEvent` enum and AppKit key wiring | Two-step build clean, Terrarium launches, key events enter EventRing |

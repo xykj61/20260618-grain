@@ -59,6 +59,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var mantraVerifySent = false
     var frameGridView: FrameGridView?
     var serialLines: [String] = []
+    var scrollView: NSScrollView?
+    var gridContainer: NSView?
 
     func applicationDidFinishLaunching(_ note: Notification) {
         let mask: NSWindow.StyleMask = [
@@ -115,17 +117,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         splitView.dividerStyle = .thin
         splitView.autoresizingMask = [.width, .height]
 
-        let scrollView = NSScrollView(
+        let sv = NSScrollView(
             frame: NSRect(
                 x: 0, y: 0,
                 width: splitFrame.width * 0.6,
                 height: splitFrame.height
             )
         )
-        scrollView.autoresizingMask = [.width, .height]
-        scrollView.hasVerticalScroller = true
+        sv.autoresizingMask = [.width, .height]
+        sv.hasVerticalScroller = true
+        sv.wantsLayer = true
+        scrollView = sv
 
-        textView = NSTextView(frame: scrollView.bounds)
+        textView = NSTextView(frame: sv.bounds)
         textView.isEditable = false
         textView.isSelectable = true
         textView.autoresizingMask = [.width, .height]
@@ -136,26 +140,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         textView.textColor = NSColor(
             red: 0.0, green: 0.9, blue: 0.4, alpha: 1.0
         )
-        scrollView.documentView = textView
+        sv.documentView = textView
 
-        splitView.addSubview(scrollView)
+        splitView.addSubview(sv)
 
         if #available(macOS 26.0, *) {
             let fgv = FrameGridView()
             frameGridView = fgv
 
-            let gridContainer = NSView(
+            let gc = NSView(
                 frame: NSRect(
                     x: 0, y: 0,
                     width: splitFrame.width * 0.4,
                     height: splitFrame.height
                 )
             )
-            gridContainer.wantsLayer = true
-            gridContainer.layer?.backgroundColor =
+            gc.wantsLayer = true
+            gc.layer?.backgroundColor =
                 NSColor.black.cgColor
-            gridContainer.autoresizingMask =
+            gc.autoresizingMask =
                 [.width, .height]
+            gridContainer = gc
 
             let gridSize = fgv.idealSize
             fgv.frame = NSRect(
@@ -165,9 +170,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 height: gridSize.height
             )
             fgv.autoresizingMask = [.minYMargin]
-            gridContainer.addSubview(fgv)
+            gc.addSubview(fgv)
 
-            splitView.addSubview(gridContainer)
+            splitView.addSubview(gc)
         } else {
             let placeholder = NSView(
                 frame: NSRect(
@@ -191,6 +196,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         window.makeKeyAndOrderFront(nil)
 
+        setupMenu()
+        updateFocusIndicator()
+
         appendLine("Terrarium -- a living world under glass")
         appendLine("stage: \(stage)")
         appendLine("elf:   \(elfPath)")
@@ -202,6 +210,87 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationShouldTerminateAfterLastWindowClosed(
         _ sender: NSApplication
     ) -> Bool { true }
+
+    // -- scene switching (Movement 9) --------------------------------
+
+    private func setupMenu() {
+        let mainMenu = NSMenu()
+
+        let appMenuItem = NSMenuItem()
+        let appMenu = NSMenu()
+        let quitItem = NSMenuItem(
+            title: "Quit Terrarium",
+            action: #selector(
+                NSApplication.terminate(_:)
+            ),
+            keyEquivalent: "q"
+        )
+        appMenu.addItem(quitItem)
+        appMenuItem.submenu = appMenu
+        mainMenu.addItem(appMenuItem)
+
+        let viewMenuItem = NSMenuItem()
+        let viewMenu = NSMenu(title: "View")
+        let termItem = NSMenuItem(
+            title: "Focus Terminal",
+            action: #selector(focusTerminal),
+            keyEquivalent: "1"
+        )
+        termItem.keyEquivalentModifierMask = [.command]
+        viewMenu.addItem(termItem)
+
+        let gridItem = NSMenuItem(
+            title: "Focus Grid",
+            action: #selector(focusGrid),
+            keyEquivalent: "2"
+        )
+        gridItem.keyEquivalentModifierMask = [.command]
+        viewMenu.addItem(gridItem)
+
+        viewMenuItem.submenu = viewMenu
+        mainMenu.addItem(viewMenuItem)
+
+        NSApp.mainMenu = mainMenu
+    }
+
+    @objc func focusTerminal() {
+        window.makeFirstResponder(textView)
+        updateFocusIndicator()
+    }
+
+    @objc func focusGrid() {
+        if let fgv = frameGridView {
+            window.makeFirstResponder(fgv)
+        }
+        updateFocusIndicator()
+    }
+
+    private static let focusBorderColor = NSColor(
+        red: 0.3, green: 0.6, blue: 1.0, alpha: 0.8
+    )
+
+    func updateFocusIndicator() {
+        let active = window.firstResponder
+
+        let termFocused: Bool
+        if active === textView
+            || active is NSTextView
+        {
+            termFocused = true
+        } else {
+            termFocused = false
+        }
+
+        scrollView?.layer?.borderWidth =
+            termFocused ? 2.0 : 0.0
+        scrollView?.layer?.borderColor =
+            Self.focusBorderColor.cgColor
+
+        gridContainer?.layer?.borderWidth =
+            termFocused ? 0.0 : 2.0
+        gridContainer?.layer?.borderColor =
+            Self.focusBorderColor.cgColor
+    }
 
     // -- QEMU launch ------------------------------------------------
 
