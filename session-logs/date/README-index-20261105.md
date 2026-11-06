@@ -1,5 +1,6 @@
 | Stamp | Title | Meaning |
 |---|---|---|
+| `20261105.215629` | [Mantrapod RV64G Orbit 29 -- running balances cash flow](20261105/20261105-215629_orbit29-cashflow-balances.kyri.md) | CashFlowTable alongside InventoryTable, 9 transactions 3 sells, tomatoes 12000 peppers 3750 total 15750, Mantra 0xf6d9677e, replay identity both tables, 29/29 proofs, 13008-byte ELF |
 | `20261105.214306` | [Mantrapod RV64G Orbit 28 -- running balances inventory](20261105/20261105-214306_orbit28-inventory-balances.kyri.md) | 7 transactions, InventoryTable 3 subjects, tomatoes=135 peppers=35 leaves=30, Mantra 0x4bc8c0b8, replay identity proven, 21/21 proofs, 11248-byte ELF |
 | `20261105.212228` | [Mantrapod RV64G Orbit 27 -- transaction evaluation and Mantra logging](20261105/20261105-212228_orbit27-txn-eval-mantra.kyri.md) | 5 transactions to 5 signed Mantra facts, key verb:subject value qty=N, replay identity proven, 26/26 proofs, Mantra 0x3ca8e25e, 9528-byte ELF |
 | `20261105.211031` | [Mantrapod RV64G Orbit 26 -- Glow transaction grammar](20261105/20261105-211031_orbit26-glow-txn-grammar.kyri.md) | 5 verbs (plant, harvest, sell, compost, note) parsing to TransactionRecord, 27/27 proofs, Mantra 0x5e1a6971, 8376-byte ELF, Act II Quest 2.1 begun |

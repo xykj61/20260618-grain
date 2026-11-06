@@ -331,11 +331,15 @@ harvested, sold, and composted -- enters a signed, bounded, supervised ledger.*
   replay identity proven (two independent logs + two independent tables, identical
   hash and balances), 21/21 proofs, 11248-byte ELF, ALL PROOFS PASSED on QEMU.
 
-- [ ] **Orbit 29 -- Running balances: cash flow**
-  `sell tomatoes 30 kg 2.50` adds 75.00 to the revenue account. The cash flow
-  balance tracks income by subject. Inventory and cash flow are two views of
-  the same Mantra log.
-  **SLC gate:** sell transaction updates both inventory and cash flow correctly.
+- [x] **Orbit 29 -- Running balances: cash flow** PROVEN `20261105.215629`
+  CashFlowTable alongside InventoryTable, both derived from the same Mantra log.
+  9 transactions (3 sells), revenue per subject from sell verb only:
+  tomatoes revenue 12000 (30x250 + 15x300), peppers revenue 3750 (10x375),
+  total revenue 15750, cash_subjects 2. Inventory: tomatoes 95, peppers 15,
+  leaves 30, subjects 3. SLC gate: sell updates both inventory (decrement qty)
+  and cash flow (increment revenue = qty * price_cents). Replay identity proven
+  across both tables. Mantra state hash `0xf6d9677e`, 29/29 proofs, 13008-byte
+  ELF, ALL PROOFS PASSED on QEMU.
 
 - [ ] **Orbit 30 -- Transaction language integration witness**
   All five verbs, both balance types, Mantra replay identity, and Aurora display.
