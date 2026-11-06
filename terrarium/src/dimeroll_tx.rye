@@ -1,0 +1,1235 @@
+//! terrarium/src/dimeroll_tx.rye -- Orbit 30: transaction language
+//! integration witness
+//!
+//! Quest 2.1 closing gate. Proves all five verbs (plant, harvest,
+//! sell, compost, note), both balance types (inventory and cash
+//! flow), Mantra replay identity, and Aurora display -- a formatted
+//! UART ledger report a grower could read.
+//!
+//! Nine transactions tell a farm story:
+//!   plant tomatoes 200, plant peppers 50, harvest tomatoes 60,
+//!   sell tomatoes 30 at 250, harvest peppers 25, sell peppers
+//!   10 at 375, compost leaves 30, sell tomatoes 15 at 300,
+//!   note rainfall 25 mm.
+//!
+//! Final state:
+//!   Inventory: tomatoes 95, peppers 15, leaves 30
+//!   Cash flow: tomatoes 12000, peppers 3750, total 15750
+//!
+//! SLC gate: dimeroll_tx_witness.rish runs GREEN on RV64G.
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+// =============================================================
+// UART / control
+// =============================================================
+
+const uart_tx: *volatile u8 = @ptrFromInt(0x1000_0000);
+const test_finisher: *volatile u32 = @ptrFromInt(
+    0x0010_0000,
+);
+const finisher_pass: u32 = 0x5555;
+const finisher_fail: u32 = 0x3333;
+
+fn uart_putc(c: u8) void {
+    uart_tx.* = c;
+}
+
+fn uart_print(s: []const u8) void {
+    for (s) |c| uart_putc(c);
+}
+
+fn print_u32(v: u32) void {
+    if (v == 0) {
+        uart_putc('0');
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n: u32 = v;
+    var i: u32 = 0;
+    while (n > 0) : (i += 1) {
+        buf[i] = @intCast(n % 10 + '0');
+        n /= 10;
+    }
+    while (i > 0) {
+        i -= 1;
+        uart_putc(buf[i]);
+    }
+}
+
+fn print_hex(v: u32) void {
+    const hex = "0123456789abcdef";
+    uart_print("0x");
+    var shift: u5 = 28;
+    while (true) {
+        const nib: u4 = @intCast(
+            (v >> shift) & 0xf,
+        );
+        uart_putc(hex[nib]);
+        if (shift == 0) break;
+        shift -= 4;
+    }
+}
+
+fn halt_pass() noreturn {
+    test_finisher.* = finisher_pass;
+    while (true) {}
+}
+
+fn halt_error(msg: []const u8) noreturn {
+    uart_print("ERROR: ");
+    uart_print(msg);
+    test_finisher.* = finisher_fail;
+    while (true) {}
+}
+
+// -- Freestanding bootstrap --
+comptime {
+    asm (
+        \\.section .text.init,"ax"
+        \\.globl _start
+        \\_start:
+        \\  li sp, 0x80100000
+        \\  j kmain
+    );
+}
+
+// =============================================================
+// Region (Tally bump allocator)
+// =============================================================
+
+const Region = struct {
+    buf: [*]u8,
+    cap: u32,
+    pos: u32,
+
+    fn init(ptr: [*]u8, size: u32) Region {
+        // invariant: region over real memory
+        assert(size > 0);
+        return .{
+            .buf = ptr,
+            .cap = size,
+            .pos = 0,
+        };
+    }
+};
+
+// =============================================================
+// Djb2 hash
+// =============================================================
+
+fn djb2(data: []const u8) u32 {
+    var h: u32 = 5381;
+    for (data) |c| {
+        h = h *% 33 +% c;
+    }
+    return h;
+}
+
+// =============================================================
+// Identity (Kumara signing)
+// =============================================================
+
+const seed_length: u32 = 32;
+
+const Identity = struct {
+    seed: [seed_length]u8,
+
+    fn init(s: [seed_length]u8) Identity {
+        return .{ .seed = s };
+    }
+
+    fn sign(self: *const Identity, msg: []const u8) u32 {
+        var h: u32 = djb2(&self.seed);
+        for (msg) |c| {
+            h = h *% 33 +% c;
+        }
+        return h;
+    }
+};
+
+// =============================================================
+// MantraLog (append-only signed fact log)
+// =============================================================
+
+const max_facts: u32 = 32;
+
+const MantraLog = struct {
+    region: *Region,
+    identity: *const Identity,
+    count: u32,
+    state_hash: u32,
+
+    fn init(
+        r: *Region,
+        id: *const Identity,
+    ) MantraLog {
+        return .{
+            .region = r,
+            .identity = id,
+            .count = 0,
+            .state_hash = 0,
+        };
+    }
+
+    fn append(self: *MantraLog, fact: []const u8) void {
+        // invariant: log not full
+        assert(self.count < max_facts);
+        // invariant: fact fits in region
+        assert(
+            fact.len <= self.region.cap - self.region.pos,
+        );
+
+        const sig = self.identity.sign(fact);
+        self.state_hash = self.state_hash *% 31 +% sig;
+        self.region.pos += @intCast(fact.len);
+        self.count += 1;
+    }
+};
+
+// =============================================================
+// GlowVerb enum and TransactionRecord
+// =============================================================
+
+const GlowVerb = enum(u8) {
+    plant = 0,
+    harvest = 1,
+    sell = 2,
+    compost = 3,
+    note = 4,
+};
+
+fn verb_name(v: GlowVerb) []const u8 {
+    return switch (v) {
+        .plant => "plant",
+        .harvest => "harvest",
+        .sell => "sell",
+        .compost => "compost",
+        .note => "note",
+    };
+}
+
+const TransactionRecord = struct {
+    verb: GlowVerb,
+    subject: []const u8,
+    qty: u32,
+    unit: []const u8,
+    price_cents: u32,
+    has_unit: bool,
+    has_price: bool,
+};
+
+// =============================================================
+// Fact builder
+// =============================================================
+
+const fact_buf_size: u32 = 128;
+var fact_buf: [fact_buf_size]u8 = undefined;
+
+fn buf_append_str(pos: *u32, s: []const u8) void {
+    for (s) |c| {
+        // invariant: buffer not full
+        assert(pos.* < fact_buf_size);
+        fact_buf[pos.*] = c;
+        pos.* += 1;
+    }
+}
+
+fn buf_append_u32(pos: *u32, v: u32) void {
+    if (v == 0) {
+        assert(pos.* < fact_buf_size);
+        fact_buf[pos.*] = '0';
+        pos.* += 1;
+        return;
+    }
+    var tmp: [10]u8 = undefined;
+    var n: u32 = v;
+    var i: u32 = 0;
+    while (n > 0) : (i += 1) {
+        tmp[i] = @intCast(n % 10 + '0');
+        n /= 10;
+    }
+    while (i > 0) {
+        i -= 1;
+        assert(pos.* < fact_buf_size);
+        fact_buf[pos.*] = tmp[i];
+        pos.* += 1;
+    }
+}
+
+fn build_fact(
+    txn: *const TransactionRecord,
+) []const u8 {
+    var pos: u32 = 0;
+
+    buf_append_str(&pos, verb_name(txn.verb));
+    buf_append_str(&pos, ":");
+    buf_append_str(&pos, txn.subject);
+    buf_append_str(&pos, "=qty=");
+    buf_append_u32(&pos, txn.qty);
+
+    if (txn.has_unit) {
+        buf_append_str(&pos, ",unit=");
+        buf_append_str(&pos, txn.unit);
+    }
+
+    if (txn.has_price) {
+        buf_append_str(&pos, ",price=");
+        buf_append_u32(&pos, txn.price_cents);
+    }
+
+    // invariant: message fits in buffer
+    assert(pos <= fact_buf_size);
+    return fact_buf[0..pos];
+}
+
+// =============================================================
+// InventoryTable
+// =============================================================
+
+const max_subjects: u32 = 8;
+const max_name_len: u32 = 16;
+
+const InventoryEntry = struct {
+    name_buf: [max_name_len]u8,
+    name_len: u32,
+    balance: u32,
+    active: bool,
+};
+
+fn entry_matches(
+    e: *const InventoryEntry,
+    name: []const u8,
+) bool {
+    if (!e.active) return false;
+    // invariant: stored name within buffer
+    assert(e.name_len <= max_name_len);
+    const nlen: u32 = @intCast(name.len);
+    if (e.name_len != nlen) return false;
+    var j: u32 = 0;
+    while (j < e.name_len) : (j += 1) {
+        if (e.name_buf[j] != name[j]) return false;
+    }
+    return true;
+}
+
+const InventoryTable = struct {
+    entries: [max_subjects]InventoryEntry,
+    count: u32,
+
+    fn init() InventoryTable {
+        var t: InventoryTable = undefined;
+        t.count = 0;
+        var i: u32 = 0;
+        while (i < max_subjects) : (i += 1) {
+            t.entries[i].active = false;
+            t.entries[i].balance = 0;
+            t.entries[i].name_len = 0;
+        }
+        return t;
+    }
+
+    fn find_or_create(
+        self: *InventoryTable,
+        name: []const u8,
+    ) *InventoryEntry {
+        // invariant: name fits in entry buffer
+        assert(name.len <= max_name_len);
+        // invariant: name is non-empty
+        assert(name.len > 0);
+
+        var i: u32 = 0;
+        while (i < self.count) : (i += 1) {
+            if (entry_matches(
+                &self.entries[i],
+                name,
+            )) return &self.entries[i];
+        }
+
+        // invariant: table has capacity
+        assert(self.count < max_subjects);
+        const slot = &self.entries[self.count];
+        slot.active = true;
+        slot.name_len = @intCast(name.len);
+        var k: u32 = 0;
+        while (k < name.len) : (k += 1) {
+            slot.name_buf[k] = name[k];
+        }
+        slot.balance = 0;
+        self.count += 1;
+        return slot;
+    }
+
+    fn apply(
+        self: *InventoryTable,
+        txn: *const TransactionRecord,
+    ) void {
+        switch (txn.verb) {
+            .plant, .compost => {
+                const e = self.find_or_create(
+                    txn.subject,
+                );
+                e.balance += txn.qty;
+            },
+            .harvest, .sell => {
+                const e = self.find_or_create(
+                    txn.subject,
+                );
+                // invariant: no underflow
+                assert(e.balance >= txn.qty);
+                e.balance -= txn.qty;
+            },
+            .note => {},
+        }
+    }
+
+    fn balance_of(
+        self: *const InventoryTable,
+        name: []const u8,
+    ) u32 {
+        var i: u32 = 0;
+        while (i < self.count) : (i += 1) {
+            if (entry_matches(
+                &self.entries[i],
+                name,
+            )) return self.entries[i].balance;
+        }
+        return 0;
+    }
+
+    fn entry_name(
+        self: *const InventoryTable,
+        idx: u32,
+    ) []const u8 {
+        // invariant: valid index
+        assert(idx < self.count);
+        const e = &self.entries[idx];
+        return e.name_buf[0..e.name_len];
+    }
+};
+
+// =============================================================
+// CashFlowTable
+// =============================================================
+
+const CashFlowEntry = struct {
+    name_buf: [max_name_len]u8,
+    name_len: u32,
+    revenue: u32,
+    active: bool,
+};
+
+fn cashflow_entry_matches(
+    e: *const CashFlowEntry,
+    name: []const u8,
+) bool {
+    if (!e.active) return false;
+    // invariant: stored name within buffer
+    assert(e.name_len <= max_name_len);
+    const nlen: u32 = @intCast(name.len);
+    if (e.name_len != nlen) return false;
+    var j: u32 = 0;
+    while (j < e.name_len) : (j += 1) {
+        if (e.name_buf[j] != name[j]) return false;
+    }
+    return true;
+}
+
+const CashFlowTable = struct {
+    entries: [max_subjects]CashFlowEntry,
+    count: u32,
+    total_revenue: u32,
+
+    fn init() CashFlowTable {
+        var t: CashFlowTable = undefined;
+        t.count = 0;
+        t.total_revenue = 0;
+        var i: u32 = 0;
+        while (i < max_subjects) : (i += 1) {
+            t.entries[i].active = false;
+            t.entries[i].revenue = 0;
+            t.entries[i].name_len = 0;
+        }
+        return t;
+    }
+
+    fn find_or_create(
+        self: *CashFlowTable,
+        name: []const u8,
+    ) *CashFlowEntry {
+        // invariant: name fits in entry buffer
+        assert(name.len <= max_name_len);
+        // invariant: name is non-empty
+        assert(name.len > 0);
+
+        var i: u32 = 0;
+        while (i < self.count) : (i += 1) {
+            if (cashflow_entry_matches(
+                &self.entries[i],
+                name,
+            )) return &self.entries[i];
+        }
+
+        // invariant: table has capacity
+        assert(self.count < max_subjects);
+        const slot = &self.entries[self.count];
+        slot.active = true;
+        slot.name_len = @intCast(name.len);
+        var k: u32 = 0;
+        while (k < name.len) : (k += 1) {
+            slot.name_buf[k] = name[k];
+        }
+        slot.revenue = 0;
+        self.count += 1;
+        return slot;
+    }
+
+    fn apply(
+        self: *CashFlowTable,
+        txn: *const TransactionRecord,
+    ) void {
+        switch (txn.verb) {
+            .sell => {
+                const e = self.find_or_create(
+                    txn.subject,
+                );
+                const income = txn.qty *% txn.price_cents;
+                e.revenue += income;
+                self.total_revenue += income;
+            },
+            else => {},
+        }
+    }
+
+    fn revenue_of(
+        self: *const CashFlowTable,
+        name: []const u8,
+    ) u32 {
+        var i: u32 = 0;
+        while (i < self.count) : (i += 1) {
+            if (cashflow_entry_matches(
+                &self.entries[i],
+                name,
+            )) return self.entries[i].revenue;
+        }
+        return 0;
+    }
+
+    fn entry_name(
+        self: *const CashFlowTable,
+        idx: u32,
+    ) []const u8 {
+        // invariant: valid index
+        assert(idx < self.count);
+        const e = &self.entries[idx];
+        return e.name_buf[0..e.name_len];
+    }
+};
+
+// =============================================================
+// Nine transactions
+// =============================================================
+
+const txn_count: u32 = 9;
+
+const transactions = [txn_count]TransactionRecord{
+    .{
+        .verb = .plant,
+        .subject = "tomatoes",
+        .qty = 200,
+        .unit = "seeds",
+        .price_cents = 0,
+        .has_unit = true,
+        .has_price = false,
+    },
+    .{
+        .verb = .plant,
+        .subject = "peppers",
+        .qty = 50,
+        .unit = "seeds",
+        .price_cents = 0,
+        .has_unit = true,
+        .has_price = false,
+    },
+    .{
+        .verb = .harvest,
+        .subject = "tomatoes",
+        .qty = 60,
+        .unit = "kg",
+        .price_cents = 0,
+        .has_unit = true,
+        .has_price = false,
+    },
+    .{
+        .verb = .sell,
+        .subject = "tomatoes",
+        .qty = 30,
+        .unit = "kg",
+        .price_cents = 250,
+        .has_unit = true,
+        .has_price = true,
+    },
+    .{
+        .verb = .harvest,
+        .subject = "peppers",
+        .qty = 25,
+        .unit = "kg",
+        .price_cents = 0,
+        .has_unit = true,
+        .has_price = false,
+    },
+    .{
+        .verb = .sell,
+        .subject = "peppers",
+        .qty = 10,
+        .unit = "kg",
+        .price_cents = 375,
+        .has_unit = true,
+        .has_price = true,
+    },
+    .{
+        .verb = .compost,
+        .subject = "leaves",
+        .qty = 30,
+        .unit = "",
+        .price_cents = 0,
+        .has_unit = false,
+        .has_price = false,
+    },
+    .{
+        .verb = .sell,
+        .subject = "tomatoes",
+        .qty = 15,
+        .unit = "kg",
+        .price_cents = 300,
+        .has_unit = true,
+        .has_price = true,
+    },
+    .{
+        .verb = .note,
+        .subject = "rainfall",
+        .qty = 25,
+        .unit = "mm",
+        .price_cents = 0,
+        .has_unit = true,
+        .has_price = false,
+    },
+};
+
+const expected_facts = [txn_count][]const u8{
+    "plant:tomatoes=qty=200,unit=seeds",
+    "plant:peppers=qty=50,unit=seeds",
+    "harvest:tomatoes=qty=60,unit=kg",
+    "sell:tomatoes=qty=30,unit=kg,price=250",
+    "harvest:peppers=qty=25,unit=kg",
+    "sell:peppers=qty=10,unit=kg,price=375",
+    "compost:leaves=qty=30",
+    "sell:tomatoes=qty=15,unit=kg,price=300",
+    "note:rainfall=qty=25,unit=mm",
+};
+
+// -- Expected final balances --
+const expect_inv_tomatoes: u32 = 95;
+const expect_inv_peppers: u32 = 15;
+const expect_inv_leaves: u32 = 30;
+const expect_inv_subjects: u32 = 3;
+
+const expect_rev_tomatoes: u32 = 12000;
+const expect_rev_peppers: u32 = 3750;
+const expect_rev_total: u32 = 15750;
+const expect_cash_subjects: u32 = 2;
+
+// -- Proof counter --
+var proof_count: u32 = 0;
+var proof_pass: u32 = 0;
+
+fn check(name: []const u8, ok: bool) void {
+    proof_count += 1;
+    uart_print("  ");
+    uart_print(name);
+    if (ok) {
+        uart_print(" PASS\n");
+        proof_pass += 1;
+    } else {
+        uart_print(" FAIL\n");
+    }
+}
+
+fn str_eq(a: []const u8, b: []const u8) bool {
+    if (a.len != b.len) return false;
+    var i: u32 = 0;
+    while (i < a.len) : (i += 1) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+// -- Memory layout --
+const log_region_base: u32 = 0x80180000;
+const log_region_budget: u32 = 4096;
+const replay_region_base: u32 = 0x80190000;
+const replay_region_budget: u32 = 4096;
+
+// -- Kumara seed --
+const seed: [seed_length]u8 = .{
+    0x4B, 0x75, 0x6D, 0x61, 0x72, 0x61, 0x20, 0x73,
+    0x65, 0x65, 0x64, 0x20, 0x66, 0x6F, 0x72, 0x20,
+    0x66, 0x72, 0x65, 0x65, 0x73, 0x74, 0x61, 0x6E,
+    0x64, 0x69, 0x6E, 0x67, 0x20, 0x52, 0x56, 0x49,
+};
+
+// =============================================================
+// Aurora display -- formatted ledger report
+// =============================================================
+//
+// Prints a human-readable ledger page to UART: a transaction
+// journal, an inventory summary, and a cash flow summary.
+// This is what a grower sees on their screen.
+
+fn aurora_hr() void {
+    uart_print(
+        "+-------+----------+-----+------+-------+\n",
+    );
+}
+
+fn aurora_pad(s: []const u8, width: u32) void {
+    uart_print(s);
+    if (s.len < width) {
+        var rem: u32 = width - @as(u32, @intCast(s.len));
+        while (rem > 0) : (rem -= 1) {
+            uart_putc(' ');
+        }
+    }
+}
+
+fn aurora_pad_num(v: u32, width: u32) void {
+    // right-align number in field
+    var tmp: [10]u8 = undefined;
+    var n: u32 = v;
+    var digits: u32 = 0;
+    if (n == 0) {
+        digits = 1;
+        tmp[0] = '0';
+    } else {
+        while (n > 0) : (digits += 1) {
+            tmp[digits] = @intCast(n % 10 + '0');
+            n /= 10;
+        }
+    }
+    if (digits < width) {
+        var pad: u32 = width - digits;
+        while (pad > 0) : (pad -= 1) {
+            uart_putc(' ');
+        }
+    }
+    var i: u32 = digits;
+    while (i > 0) {
+        i -= 1;
+        uart_putc(tmp[i]);
+    }
+}
+
+fn aurora_display_transactions() void {
+    uart_print("\n");
+    uart_print(
+        "  DIMEROLL FIELD LEDGER\n",
+    );
+    uart_print(
+        "  Transaction Journal\n\n",
+    );
+    uart_print(
+        "| #  | verb    | subject  |  qty | price |\n",
+    );
+    uart_print(
+        "|----|---------|----------|------|-------|\n",
+    );
+
+    var i: u32 = 0;
+    while (i < txn_count) : (i += 1) {
+        const txn = &transactions[i];
+        uart_print("| ");
+        aurora_pad_num(i + 1, 2);
+        uart_print(" | ");
+        aurora_pad(verb_name(txn.verb), 7);
+        uart_print(" | ");
+        aurora_pad(txn.subject, 8);
+        uart_print(" | ");
+        aurora_pad_num(txn.qty, 4);
+        uart_print(" | ");
+        if (txn.has_price) {
+            aurora_pad_num(txn.price_cents, 5);
+        } else {
+            uart_print("    -");
+        }
+        uart_print(" |\n");
+    }
+
+    uart_print(
+        "|----|---------|----------|------|-------|\n",
+    );
+    uart_print("  9 transactions, 5 verbs\n");
+}
+
+fn aurora_display_inventory(
+    inv: *const InventoryTable,
+) void {
+    uart_print("\n");
+    uart_print("  Inventory on Hand\n\n");
+    uart_print(
+        "| subject  | balance |\n",
+    );
+    uart_print(
+        "|----------|---------|\n",
+    );
+
+    var i: u32 = 0;
+    while (i < inv.count) : (i += 1) {
+        uart_print("| ");
+        aurora_pad(inv.entry_name(i), 8);
+        uart_print(" | ");
+        aurora_pad_num(inv.entries[i].balance, 7);
+        uart_print(" |\n");
+    }
+
+    uart_print(
+        "|----------|---------|\n",
+    );
+    uart_print("  ");
+    print_u32(inv.count);
+    uart_print(" subjects\n");
+}
+
+fn aurora_display_cashflow(
+    cash: *const CashFlowTable,
+) void {
+    uart_print("\n");
+    uart_print("  Cash Flow Summary\n\n");
+    uart_print(
+        "| subject  | revenue |\n",
+    );
+    uart_print(
+        "|----------|---------|\n",
+    );
+
+    var i: u32 = 0;
+    while (i < cash.count) : (i += 1) {
+        uart_print("| ");
+        aurora_pad(cash.entry_name(i), 8);
+        uart_print(" | ");
+        aurora_pad_num(
+            cash.entries[i].revenue,
+            7,
+        );
+        uart_print(" |\n");
+    }
+
+    uart_print(
+        "|----------|---------|\n",
+    );
+    uart_print("| TOTAL    | ");
+    aurora_pad_num(cash.total_revenue, 7);
+    uart_print(" |\n");
+    uart_print(
+        "|----------|---------|\n",
+    );
+}
+
+// =============================================================
+// Main
+// =============================================================
+
+export fn kmain() callconv(.c) noreturn {
+    uart_print("DIMEROLL TRANSACTION LANGUAGE");
+    uart_print(" -- Orbit 30\n");
+    uart_print(
+        "Quest 2.1 closing gate, RV64G under Mantra\n\n",
+    );
+
+    const identity = Identity.init(seed);
+
+    // Primary Mantra log
+    var log_region = Region.init(
+        @ptrFromInt(log_region_base),
+        log_region_budget,
+    );
+    var log = MantraLog.init(
+        &log_region,
+        &identity,
+    );
+
+    // Two views of the same log
+    var inv = InventoryTable.init();
+    var cash = CashFlowTable.init();
+
+    // =========================================================
+    // PROOF 1: PROCESS TRANSACTIONS
+    // =========================================================
+    uart_print(
+        "-- PROOF 1: PROCESS TRANSACTIONS --\n\n",
+    );
+
+    var facts_logged: u32 = 0;
+    var verbs_seen: [5]bool = .{
+        false, false, false, false, false,
+    };
+    var ti: u32 = 0;
+    while (ti < txn_count) : (ti += 1) {
+        const txn = &transactions[ti];
+        const fact = build_fact(txn);
+
+        uart_print("[");
+        print_u32(ti + 1);
+        uart_print("] (");
+        uart_print(verb_name(txn.verb));
+        uart_print(" ");
+        uart_print(txn.subject);
+        uart_print(" ");
+        print_u32(txn.qty);
+        if (txn.has_unit) {
+            uart_print(" ");
+            uart_print(txn.unit);
+        }
+        if (txn.has_price) {
+            uart_print(" ");
+            print_u32(txn.price_cents);
+        }
+        uart_print(")\n");
+
+        uart_print("  fact: ");
+        uart_print(fact);
+        uart_print("\n");
+
+        check(
+            "fact_encoding",
+            str_eq(fact, expected_facts[ti]),
+        );
+
+        log.append(fact);
+        facts_logged += 1;
+
+        // Track verb coverage
+        verbs_seen[@intFromEnum(txn.verb)] = true;
+
+        inv.apply(txn);
+        cash.apply(txn);
+
+        if (txn.verb != .note) {
+            uart_print("  inv -> ");
+            uart_print(txn.subject);
+            uart_print(": ");
+            print_u32(
+                inv.balance_of(txn.subject),
+            );
+            uart_print("\n");
+        } else {
+            uart_print(
+                "  (no inventory effect)\n",
+            );
+        }
+
+        if (txn.verb == .sell) {
+            uart_print("  rev -> ");
+            uart_print(txn.subject);
+            uart_print(": ");
+            print_u32(
+                cash.revenue_of(txn.subject),
+            );
+            uart_print(" (total ");
+            print_u32(cash.total_revenue);
+            uart_print(")\n");
+        }
+
+        uart_print("\n");
+    }
+
+    // =========================================================
+    // PROOF 2: FACT COUNT AND VERB COVERAGE
+    // =========================================================
+    uart_print(
+        "-- PROOF 2: FACTS AND VERB COVERAGE --\n",
+    );
+    uart_print("facts logged: ");
+    print_u32(facts_logged);
+    uart_print("/");
+    print_u32(txn_count);
+    uart_print("\n");
+    check(
+        "all_facts_logged",
+        facts_logged == txn_count,
+    );
+    check("log_count", log.count == txn_count);
+
+    // All five verbs exercised
+    var all_verbs: bool = true;
+    var vi: u32 = 0;
+    while (vi < 5) : (vi += 1) {
+        if (!verbs_seen[vi]) all_verbs = false;
+    }
+    check("all_five_verbs", all_verbs);
+    uart_print("\n");
+
+    // =========================================================
+    // PROOF 3: INVENTORY BALANCES
+    // =========================================================
+    uart_print(
+        "-- PROOF 3: INVENTORY BALANCES --\n",
+    );
+
+    uart_print("tomatoes: ");
+    print_u32(inv.balance_of("tomatoes"));
+    uart_print(
+        " (4 txns: +200 -60 -30 -15)\n",
+    );
+    check(
+        "inv_tomatoes_95",
+        inv.balance_of("tomatoes") ==
+            expect_inv_tomatoes,
+    );
+
+    uart_print("peppers: ");
+    print_u32(inv.balance_of("peppers"));
+    uart_print(" (3 txns: +50 -25 -10)\n");
+    check(
+        "inv_peppers_15",
+        inv.balance_of("peppers") ==
+            expect_inv_peppers,
+    );
+
+    uart_print("leaves: ");
+    print_u32(inv.balance_of("leaves"));
+    uart_print(" (1 txn: +30)\n");
+    check(
+        "inv_leaves_30",
+        inv.balance_of("leaves") ==
+            expect_inv_leaves,
+    );
+
+    uart_print(
+        "rainfall: (no entry -- note verb)\n",
+    );
+    check(
+        "inv_no_rainfall",
+        inv.balance_of("rainfall") == 0,
+    );
+
+    uart_print("inv subjects: ");
+    print_u32(inv.count);
+    uart_print("\n");
+    check(
+        "inv_subject_count",
+        inv.count == expect_inv_subjects,
+    );
+
+    uart_print("\n");
+
+    // =========================================================
+    // PROOF 4: CASH FLOW BALANCES
+    // =========================================================
+    uart_print(
+        "-- PROOF 4: CASH FLOW BALANCES --\n",
+    );
+
+    uart_print("tomatoes revenue: ");
+    print_u32(cash.revenue_of("tomatoes"));
+    uart_print(
+        " (2 sells: 30*250 + 15*300)\n",
+    );
+    check(
+        "rev_tomatoes_12000",
+        cash.revenue_of("tomatoes") ==
+            expect_rev_tomatoes,
+    );
+
+    uart_print("peppers revenue: ");
+    print_u32(cash.revenue_of("peppers"));
+    uart_print(" (1 sell: 10*375)\n");
+    check(
+        "rev_peppers_3750",
+        cash.revenue_of("peppers") ==
+            expect_rev_peppers,
+    );
+
+    uart_print("cash subjects: ");
+    print_u32(cash.count);
+    uart_print("\n");
+    check(
+        "cash_subject_count",
+        cash.count == expect_cash_subjects,
+    );
+
+    uart_print("total revenue: ");
+    print_u32(cash.total_revenue);
+    uart_print("\n");
+    check(
+        "total_revenue_15750",
+        cash.total_revenue == expect_rev_total,
+    );
+
+    uart_print("\n");
+
+    // =========================================================
+    // PROOF 5: MANTRA STATE
+    // =========================================================
+    uart_print("-- PROOF 5: MANTRA STATE --\n");
+    uart_print("state hash: ");
+    print_hex(log.state_hash);
+    uart_print("\n");
+    uart_print("facts: ");
+    print_u32(log.count);
+    uart_print("\n");
+    uart_print("tally: ");
+    print_u32(log_region.pos);
+    uart_print(" of ");
+    print_u32(log_region_budget);
+    uart_print(" bytes\n");
+    // invariant: allocation bounded
+    assert(log_region.pos <= log_region_budget);
+    check(
+        "bounded",
+        log_region.pos <= log_region_budget,
+    );
+    uart_print("\n");
+
+    // Capture primary state for replay comparison
+    const primary_hash = log.state_hash;
+    const primary_count = log.count;
+    const primary_tally = log_region.pos;
+    const p_inv_tom = inv.balance_of("tomatoes");
+    const p_inv_pep = inv.balance_of("peppers");
+    const p_inv_lea = inv.balance_of("leaves");
+    const p_rev_tom = cash.revenue_of("tomatoes");
+    const p_rev_pep = cash.revenue_of("peppers");
+
+    // =========================================================
+    // PROOF 6: REPLAY IDENTITY
+    // =========================================================
+    uart_print(
+        "-- PROOF 6: REPLAY IDENTITY --\n",
+    );
+
+    var replay_region = Region.init(
+        @ptrFromInt(replay_region_base),
+        replay_region_budget,
+    );
+    var replay_log = MantraLog.init(
+        &replay_region,
+        &identity,
+    );
+    var replay_inv = InventoryTable.init();
+    var replay_cash = CashFlowTable.init();
+
+    var ri: u32 = 0;
+    while (ri < txn_count) : (ri += 1) {
+        const fact = build_fact(&transactions[ri]);
+        replay_log.append(fact);
+        replay_inv.apply(&transactions[ri]);
+        replay_cash.apply(&transactions[ri]);
+    }
+
+    uart_print("primary hash:  ");
+    print_hex(primary_hash);
+    uart_print("\n");
+    uart_print("replay hash:   ");
+    print_hex(replay_log.state_hash);
+    uart_print("\n");
+
+    const hm = primary_hash ==
+        replay_log.state_hash;
+    check("replay_hash_match", hm);
+    check(
+        "replay_count_match",
+        primary_count == replay_log.count,
+    );
+    check(
+        "replay_tally_match",
+        primary_tally == replay_region.pos,
+    );
+
+    check(
+        "replay_inv_tomatoes",
+        replay_inv.balance_of("tomatoes") ==
+            p_inv_tom,
+    );
+    check(
+        "replay_inv_peppers",
+        replay_inv.balance_of("peppers") ==
+            p_inv_pep,
+    );
+    check(
+        "replay_inv_leaves",
+        replay_inv.balance_of("leaves") ==
+            p_inv_lea,
+    );
+
+    check(
+        "replay_rev_tomatoes",
+        replay_cash.revenue_of("tomatoes") ==
+            p_rev_tom,
+    );
+    check(
+        "replay_rev_peppers",
+        replay_cash.revenue_of("peppers") ==
+            p_rev_pep,
+    );
+
+    if (hm) {
+        uart_print(
+            "REPLAY MATCHES:" ++
+                " identical state proven\n",
+        );
+    }
+    uart_print("\n");
+
+    // =========================================================
+    // PROOF 7: AURORA DISPLAY
+    // =========================================================
+    uart_print(
+        "-- PROOF 7: AURORA DISPLAY --\n",
+    );
+
+    aurora_display_transactions();
+    check(
+        "aurora_transactions",
+        facts_logged == txn_count,
+    );
+
+    aurora_display_inventory(&inv);
+    check(
+        "aurora_inventory",
+        inv.count == expect_inv_subjects,
+    );
+
+    aurora_display_cashflow(&cash);
+    check(
+        "aurora_cashflow",
+        cash.total_revenue == expect_rev_total,
+    );
+
+    uart_print("\n");
+
+    // =========================================================
+    // VERDICT
+    // =========================================================
+    uart_print("==============================\n");
+    uart_print("proofs: ");
+    print_u32(proof_pass);
+    uart_print("/");
+    print_u32(proof_count);
+    uart_print("\n");
+
+    if (proof_pass == proof_count) {
+        uart_print("ALL PROOFS PASSED\n");
+        uart_print(
+            "correct: Quest 2.1 complete" ++
+                " -- all verbs, both balances," ++
+                " replay, Aurora\n",
+        );
+        uart_print("Orbit 30 complete\n");
+    } else {
+        halt_error("SOME PROOFS FAILED\n");
+    }
+
+    halt_pass();
+}

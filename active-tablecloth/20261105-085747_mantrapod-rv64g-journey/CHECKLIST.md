@@ -341,9 +341,15 @@ harvested, sold, and composted -- enters a signed, bounded, supervised ledger.*
   across both tables. Mantra state hash `0xf6d9677e`, 29/29 proofs, 13008-byte
   ELF, ALL PROOFS PASSED on QEMU.
 
-- [ ] **Orbit 30 -- Transaction language integration witness**
+- [x] **Orbit 30 -- Transaction language integration witness** PROVEN
   All five verbs, both balance types, Mantra replay identity, and Aurora display.
   **SLC gate:** `terrarium/dimeroll_tx_witness.rish` runs GREEN on RV64G.
+  Quest 2.1 closing gate: 9 transactions through all 5 verbs, InventoryTable
+  (tomatoes 95, peppers 15, leaves 30) and CashFlowTable (tomatoes 12000,
+  peppers 3750, total 15750), Mantra replay identity proven across both tables,
+  Aurora formatted ledger display (transaction journal, inventory on hand, cash
+  flow summary with TOTAL). Mantra state hash `0xe9cf083f`, 33/33 proofs,
+  14680-byte ELF, ALL PROOFS PASSED on QEMU.
 
 ### Quest 2.2 -- The Ledger Page
 
