@@ -1,0 +1,133 @@
+#!/usr/bin/env rishi
+# dimeroll_query_witness.rish
+#
+# Query engine integration witness
+# Builds and runs all 4 query modules on RV64G:
+#   dimeroll_query_verb    (filter by verb)
+#   dimeroll_query_subject (filter by subject)
+#   dimeroll_query_date    (filter by date range)
+#   dimeroll_query_account (filter by account + plain-text export)
+# All 4 share the same 9 transactions and Mantra hash 0xe9cf083f.
+# 77 proofs total (19 + 19 + 20 + 19).
+
+say "=== dimeroll_query witness -- query engine integration ==="
+say ""
+
+# -----------------------------------------------------------
+# STAGE 1 -- build all 4 modules
+# -----------------------------------------------------------
+
+say "-- stage 1: build all 4 modules --"
+
+let b_verb = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/dimeroll_query_verb.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+a+f+d -femit-bin=terrarium/.build/dimeroll_query_verb_g.elf 2>&1"]
+assert b_verb.ok else "dimeroll_query_verb build failed"
+say "  dimeroll_query_verb: ok"
+
+let b_subject = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/dimeroll_query_subject.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+a+f+d -femit-bin=terrarium/.build/dimeroll_query_subject_g.elf 2>&1"]
+assert b_subject.ok else "dimeroll_query_subject build failed"
+say "  dimeroll_query_subject: ok"
+
+let b_date = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/dimeroll_query_date.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+a+f+d -femit-bin=terrarium/.build/dimeroll_query_date_g.elf 2>&1"]
+assert b_date.ok else "dimeroll_query_date build failed"
+say "  dimeroll_query_date: ok"
+
+let b_account = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/dimeroll_query_account.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+a+f+d -femit-bin=terrarium/.build/dimeroll_query_account_g.elf 2>&1"]
+assert b_account.ok else "dimeroll_query_account build failed"
+say "  dimeroll_query_account: ok"
+
+say "  builds: 4/4"
+
+# -----------------------------------------------------------
+# STAGE 2 -- run dimeroll_query_verb (19 proofs)
+# -----------------------------------------------------------
+
+say ""
+say "-- stage 2: dimeroll_query_verb (filter by verb) --"
+
+let q_verb = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/dimeroll_query_verb_g.elf 2>/dev/null"]
+assert q_verb.ok else "dimeroll_query_verb QEMU failed"
+assert q_verb.out contains "proofs: 19/19" else "dimeroll_query_verb: expected 19/19 proofs"
+assert q_verb.out contains "ALL PROOFS PASSED" else "dimeroll_query_verb: not all proofs passed"
+assert q_verb.out contains "Mantra hash 0xe9cf083f" else "dimeroll_query_verb: hash mismatch"
+assert q_verb.out contains "REPLAY MATCHES" else "dimeroll_query_verb: replay failed"
+assert q_verb.out contains "harvest returns 2 results" else "dimeroll_query_verb: harvest count wrong"
+assert q_verb.out contains "sell returns 3 results" else "dimeroll_query_verb: sell count wrong"
+assert q_verb.out contains "dimeroll_query_verb complete" else "dimeroll_query_verb: completion missing"
+say "  19/19 proofs, verb filters correct (harvest 2, sell 3)"
+
+# -----------------------------------------------------------
+# STAGE 3 -- run dimeroll_query_subject (19 proofs)
+# -----------------------------------------------------------
+
+say ""
+say "-- stage 3: dimeroll_query_subject (filter by subject) --"
+
+let q_subject = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/dimeroll_query_subject_g.elf 2>/dev/null"]
+assert q_subject.ok else "dimeroll_query_subject QEMU failed"
+assert q_subject.out contains "proofs: 19/19" else "dimeroll_query_subject: expected 19/19 proofs"
+assert q_subject.out contains "ALL PROOFS PASSED" else "dimeroll_query_subject: not all proofs passed"
+assert q_subject.out contains "Mantra hash 0xe9cf083f" else "dimeroll_query_subject: hash mismatch"
+assert q_subject.out contains "REPLAY MATCHES" else "dimeroll_query_subject: replay failed"
+assert q_subject.out contains "tomatoes returns 4 results" else "dimeroll_query_subject: tomato count wrong"
+assert q_subject.out contains "peppers returns 3 results" else "dimeroll_query_subject: pepper count wrong"
+assert q_subject.out contains "dimeroll_query_subject complete" else "dimeroll_query_subject: completion missing"
+say "  19/19 proofs, subject filters correct (tomatoes 4, peppers 3)"
+
+# -----------------------------------------------------------
+# STAGE 4 -- run dimeroll_query_date (20 proofs)
+# -----------------------------------------------------------
+
+say ""
+say "-- stage 4: dimeroll_query_date (filter by date range) --"
+
+let q_date = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/dimeroll_query_date_g.elf 2>/dev/null"]
+assert q_date.ok else "dimeroll_query_date QEMU failed"
+assert q_date.out contains "proofs: 20/20" else "dimeroll_query_date: expected 20/20 proofs"
+assert q_date.out contains "ALL PROOFS PASSED" else "dimeroll_query_date: not all proofs passed"
+assert q_date.out contains "Mantra hash 0xe9cf083f" else "dimeroll_query_date: hash mismatch"
+assert q_date.out contains "REPLAY MATCHES" else "dimeroll_query_date: replay failed"
+assert q_date.out contains "days 8-10 returns 2 results" else "dimeroll_query_date: range 8-10 wrong"
+assert q_date.out contains "days 1-7 returns 7 results" else "dimeroll_query_date: range 1-7 wrong"
+assert q_date.out contains "dimeroll_query_date complete" else "dimeroll_query_date: completion missing"
+say "  20/20 proofs, date ranges correct (days 8-10: 2, days 1-7: 7)"
+
+# -----------------------------------------------------------
+# STAGE 5 -- run dimeroll_query_account (19 proofs)
+# -----------------------------------------------------------
+
+say ""
+say "-- stage 5: dimeroll_query_account (account + export) --"
+
+let q_account = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/dimeroll_query_account_g.elf 2>/dev/null"]
+assert q_account.ok else "dimeroll_query_account QEMU failed"
+assert q_account.out contains "proofs: 19/19" else "dimeroll_query_account: expected 19/19 proofs"
+assert q_account.out contains "ALL PROOFS PASSED" else "dimeroll_query_account: not all proofs passed"
+assert q_account.out contains "Mantra hash 0xe9cf083f" else "dimeroll_query_account: hash mismatch"
+assert q_account.out contains "REPLAY MATCHES" else "dimeroll_query_account: replay failed"
+assert q_account.out contains "total revenue is 15750" else "dimeroll_query_account: total revenue wrong"
+assert q_account.out contains "EXPORT_BEGIN" else "dimeroll_query_account: missing EXPORT_BEGIN"
+assert q_account.out contains "EXPORT_END" else "dimeroll_query_account: missing EXPORT_END"
+assert q_account.out contains "Cash Flow Report: tomatoes" else "dimeroll_query_account: missing tomato report"
+assert q_account.out contains "Cash Flow Report: peppers" else "dimeroll_query_account: missing pepper report"
+assert q_account.out contains "dimeroll_query_account complete" else "dimeroll_query_account: completion missing"
+say "  19/19 proofs, revenue 15750, plain-text export confirmed"
+
+# -----------------------------------------------------------
+# STAGE 6 -- integration summary
+# -----------------------------------------------------------
+
+say ""
+say "-- stage 6: integration summary --"
+say "  dimeroll_query_verb:    19 proofs -- filter by GlowVerb enum"
+say "  dimeroll_query_subject: 19 proofs -- filter by subject string"
+say "  dimeroll_query_date:    20 proofs -- filter by inclusive day range"
+say "  dimeroll_query_account: 19 proofs -- account query + plain-text export"
+say "  total:                  77 proofs across 4 modules"
+say "  Mantra hash:            0xe9cf083f (identical across all 4 modules)"
+say "  replay identity:        proven in all 4 modules"
+say "  plain-text export:      EXPORT_BEGIN/EXPORT_END confirmed"
+say ""
+say "  Query engine integration: COMPLETE"
+
+say ""
+say "=== dimeroll_query witness: GREEN ==="

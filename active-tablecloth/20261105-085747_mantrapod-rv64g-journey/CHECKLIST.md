@@ -434,9 +434,14 @@ and a daily summary.*
   **Witness:** `terrarium/dimeroll_query_account_witness.rish` -- build,
   QEMU 19-proof run, account queries + cash flow + plain-text export. **GREEN on metal.**
 
-- [ ] **Orbit 40 -- Query engine integration witness**
+- [x] **Movement 40 -- Query engine integration witness** -- PROVEN
   All four query types, export through wire, correct display.
-  **SLC gate:** `terrarium/dimeroll_query_witness.rish` runs GREEN on RV64G.
+  77 proofs total (query_verb 19, query_subject 19, query_date 20, query_account 19).
+  Mantra hash 0xe9cf083f identical across all 4 modules, replay proven in all 4.
+  Plain-text export confirmed (EXPORT_BEGIN/EXPORT_END).
+  **SLC gate:** `terrarium/dimeroll_query_witness.rish` runs GREEN on RV64G -- PROVEN.
+  **Witness:** `terrarium/dimeroll_query_witness.rish` -- build 4/4, run 4/4,
+  77 proofs, shared hash, export confirmed. **GREEN on metal.**
 
 ---
 
