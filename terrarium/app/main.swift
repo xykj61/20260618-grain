@@ -57,6 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var inputPipe: Pipe?
     var wireAckSent = false
     var mantraVerifySent = false
+    var frameGridView: FrameGridView?
 
     func applicationDidFinishLaunching(_ note: Notification) {
         var mask: NSWindow.StyleMask = [
@@ -126,6 +127,57 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         )
 
         scrollView.documentView = textView
+
+        if #available(macOS 26.0, *) {
+            let fgv = FrameGridView()
+            let gridH = fgv.idealSize.height
+            let gridFrame = NSRect(
+                x: 0,
+                y: textFrame.maxY - gridH,
+                width: textFrame.width,
+                height: gridH
+            )
+            fgv.frame = gridFrame
+            fgv.autoresizingMask = [.width, .minYMargin]
+            window.contentView?.addSubview(fgv)
+            frameGridView = fgv
+
+            scrollView.frame = NSRect(
+                x: 0, y: textFrame.origin.y,
+                width: textFrame.width,
+                height: textFrame.height - gridH
+            )
+
+            var testGrid = FrameGrid()
+            try? testGrid.setPalette(
+                slot: 1,
+                color: SkateColor(
+                    red: 0, green: 230, blue: 102
+                )
+            )
+            try? testGrid.setPalette(
+                slot: 2,
+                color: SkateColor(
+                    red: 102, green: 51, blue: 153
+                )
+            )
+            try? testGrid.paint(
+                row: 0,
+                columns: 0..<SkateCoreBounds.columns,
+                paletteSlot: 1
+            )
+            try? testGrid.paint(
+                row: 7,
+                columns: 0..<SkateCoreBounds.columns,
+                paletteSlot: 1
+            )
+            try? testGrid.paint(
+                row: 3, columns: 15..<25,
+                paletteSlot: 2
+            )
+            fgv.update(grid: testGrid)
+        }
+
         window.contentView?.addSubview(scrollView)
         window.makeKeyAndOrderFront(nil)
 
@@ -584,6 +636,140 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         return "qemu-system-\(arch)"
+    }
+}
+
+// -- FrameGridView -- bounded 40x8 cell rendering --------------------
+
+@available(macOS 26.0, *)
+class FrameGridView: NSView {
+    private var grid = FrameGrid()
+    private let cellFont: NSFont
+    private let cellWidth: CGFloat
+    private let cellHeight: CGFloat
+    private let defaultFG = NSColor(
+        red: 0.0, green: 0.9, blue: 0.4, alpha: 1.0
+    )
+    private let defaultBG = NSColor.black
+
+    override var isFlipped: Bool { true }
+
+    init() {
+        let font = NSFont.monospacedSystemFont(
+            ofSize: 14, weight: .regular
+        )
+        cellFont = font
+        let sample = NSAttributedString(
+            string: "M",
+            attributes: [.font: font]
+        )
+        let size = sample.size()
+        cellWidth = ceil(size.width)
+        cellHeight = ceil(size.height)
+
+        let totalW = cellWidth
+            * CGFloat(SkateCoreBounds.columns)
+        let totalH = cellHeight
+            * CGFloat(SkateCoreBounds.rows)
+        super.init(
+            frame: NSRect(
+                x: 0, y: 0,
+                width: totalW, height: totalH
+            )
+        )
+        wantsLayer = true
+        layer?.backgroundColor = defaultBG.cgColor
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+
+    var idealSize: NSSize {
+        NSSize(
+            width: cellWidth
+                * CGFloat(SkateCoreBounds.columns),
+            height: cellHeight
+                * CGFloat(SkateCoreBounds.rows)
+        )
+    }
+
+    func update(grid newGrid: FrameGrid) {
+        grid = newGrid
+        needsDisplay = true
+    }
+
+    override func draw(_ dirtyRect: NSRect) {
+        guard let ctx = NSGraphicsContext.current?
+            .cgContext
+        else { return }
+
+        ctx.setFillColor(defaultBG.cgColor)
+        ctx.fill(bounds)
+
+        for row in 0..<SkateCoreBounds.rows {
+            for col in 0..<SkateCoreBounds.columns {
+                let x = CGFloat(col) * cellWidth
+                let y = CGFloat(row) * cellHeight
+
+                let palIdx = grid.paletteIndex(
+                    row: row, column: col
+                ) ?? 0
+                let bgColor: NSColor
+                if palIdx != 0,
+                   let c = grid.color(at: palIdx)
+                {
+                    bgColor = NSColor(
+                        red: CGFloat(c.red) / 255.0,
+                        green: CGFloat(c.green) / 255.0,
+                        blue: CGFloat(c.blue) / 255.0,
+                        alpha: 1.0
+                    )
+                    let cellRect = NSRect(
+                        x: x, y: y,
+                        width: cellWidth,
+                        height: cellHeight
+                    )
+                    ctx.setFillColor(bgColor.cgColor)
+                    ctx.fill(cellRect)
+                }
+
+                let byte = grid.cell(
+                    row: row, column: col
+                ) ?? 0x20
+                guard byte != 0x20 else { continue }
+                let scalar = Unicode.Scalar(byte)
+                let ch = String(Character(scalar))
+
+                let fg: NSColor
+                if palIdx != 0,
+                   let c = grid.color(at: palIdx)
+                {
+                    let lum = 0.299
+                        * Double(c.red) / 255.0
+                        + 0.587
+                        * Double(c.green) / 255.0
+                        + 0.114
+                        * Double(c.blue) / 255.0
+                    fg = lum > 0.5
+                        ? NSColor.black
+                        : NSColor.white
+                } else {
+                    fg = defaultFG
+                }
+
+                let attrs: [NSAttributedString.Key: Any]
+                    = [
+                        .font: cellFont,
+                        .foregroundColor: fg,
+                    ]
+                let str = NSAttributedString(
+                    string: ch, attributes: attrs
+                )
+                str.draw(at: NSPoint(x: x, y: y))
+            }
+        }
     }
 }
 

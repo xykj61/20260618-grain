@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.134540 | [FrameGrid NSView draws 40x8 cell grid -- Movement 2 PROVEN](20261106/20261106-134540_framegridview-movement2.kyri.md) | Core Graphics draw, palette colors, test pattern visible in Terrarium |
 | 20261106.133047 | [Import SkateCore into Terrarium build -- Movement 1 PROVEN](20261106/20261106-133047_skatecore-import-movement1.kyri.md) | InlineArray Equatable extension, two-step module build, import SkateCore compiles |
 | 20261106.132124 | [Realidream Composition Journey board created](20261106/20261106-132124_realidream-composition-board.kyri.md) | 15 movements planned in 3 quests, board acquisition paused, QEMU development continues |
 | 20261106.130255 | [macOS app architecture survey and tablecloth bookmark](20261106/20261106-130255_macos-app-architecture-survey.kyri.md) | Four separate pieces, no routing/tabs/shortcuts yet, board bookmarked |

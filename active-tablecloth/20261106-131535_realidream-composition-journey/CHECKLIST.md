@@ -19,11 +19,13 @@
   - `import SkateCore` in `main.swift`, binary links `libSkateCore.dylib` + AppKit + Foundation
   - Two-step build: SkateCore module first, then Terrarium linking it
 
-- [ ] **Movement 2: FrameGrid NSView -- draw bounded text into AppKit**
-  - SLC gate: an `NSView` subclass draws a FrameGrid's 40x8 cells using `NSAttributedString` or Core Text
-  - `FrameGridView` reads a FrameGrid and draws each cell into a fixed grid
-  - Background and foreground colors from SkateCoreBounds palette slots
-  - Monospace font, fixed cell size, bounded layout
+- [x] **Movement 2: FrameGrid NSView -- draw bounded text into AppKit** -- PROVEN `20261106.140200`
+  - SLC gate: an `NSView` subclass draws a FrameGrid's 40x8 cells using Core Graphics
+  - `FrameGridView` class with `draw(_:)` iterating 8 rows x 40 columns, Core Graphics fill and text draw
+  - Palette slot 0 = default foreground (terminal green on black); slots 1-7 from SkateColor
+  - Monospace font metrics (`NSFont.monospacedSystemFont`) size each cell, `isFlipped = true` for top-down layout
+  - Test pattern: green bands (rows 0, 7) and purple block (row 3, cols 15-24) verify palette-to-color path
+  - Wired into Terrarium window above the terminal scroll view with autoresizing
 
 - [ ] **Movement 3: Dual-pane window -- QEMU terminal beside FrameGrid**
   - SLC gate: Terrarium window shows two panes side by side, both visible at launch
