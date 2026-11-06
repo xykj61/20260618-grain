@@ -72,6 +72,7 @@ class AppDelegate: NSObject,
         "Dimeroll", "Mantra",
     ]
     var dimerollTextView: NSTextView?
+    var dimerollProcess: Process?
     var nextTabId = 3
     var shortcutStatusLabel: NSTextField?
     var connectionLabel: NSTextField?
@@ -506,13 +507,126 @@ class AppDelegate: NSObject,
         )
         dtv.string = "Dimeroll -- Field Ledger\n"
             + "========================\n\n"
-            + "Select a module to run.\n"
         sv.documentView = dtv
         dimerollTextView = dtv
         item.view = sv
         tv.addTabViewItem(item)
         tv.selectTabViewItem(item)
         window.makeFirstResponder(dtv)
+        launchDimerollStage("dimeroll_tx_g")
+    }
+
+    func launchDimerollStage(_ name: String) {
+        if let p = dimerollProcess,
+           p.isRunning
+        {
+            p.terminate()
+            p.waitUntilExit()
+        }
+        guard let dtv = dimerollTextView
+        else { return }
+
+        let elf = "\(repoRoot)/terrarium/.build/"
+            + "\(name).elf"
+        guard FileManager.default.fileExists(
+            atPath: elf
+        ) else {
+            DispatchQueue.main.async {
+                dtv.string += "error: \(elf) not found\n"
+            }
+            return
+        }
+
+        let arch = "riscv64"
+        let candidates = [
+            "/opt/homebrew/bin/qemu-system-\(arch)",
+            "/usr/local/bin/qemu-system-\(arch)",
+            "/usr/bin/qemu-system-\(arch)",
+        ]
+        var qemuBin = "qemu-system-\(arch)"
+        for c in candidates {
+            if FileManager.default
+                .isExecutableFile(atPath: c)
+            {
+                qemuBin = c
+                break
+            }
+        }
+
+        let proc = Process()
+        proc.executableURL = URL(
+            fileURLWithPath: qemuBin
+        )
+        proc.arguments = [
+            "-machine", "virt",
+            "-bios", "none",
+            "-nographic",
+            "-kernel", elf,
+        ]
+
+        let pipe = Pipe()
+        proc.standardOutput = pipe
+        proc.standardError = pipe
+
+        pipe.fileHandleForReading
+            .readabilityHandler = {
+                [weak self] handle in
+                let data = handle.availableData
+                guard !data.isEmpty else { return }
+                if let text = String(
+                    data: data, encoding: .utf8
+                ) {
+                    DispatchQueue.main.async {
+                        self?.appendDimeroll(text)
+                    }
+                }
+            }
+
+        proc.terminationHandler = {
+            [weak self] p in
+            DispatchQueue.main.async {
+                self?.appendDimeroll(
+                    "\n--- dimeroll exited "
+                    + "(\(p.terminationStatus))\n"
+                )
+            }
+        }
+
+        do {
+            try proc.run()
+            dimerollProcess = proc
+            DispatchQueue.main.async {
+                dtv.string += "launched \(name) "
+                    + "(pid \(proc.processIdentifier))"
+                    + "\n\n"
+            }
+        } catch {
+            DispatchQueue.main.async {
+                dtv.string += "error: \(error)\n"
+            }
+        }
+    }
+
+    func appendDimeroll(_ text: String) {
+        guard let dtv = dimerollTextView
+        else { return }
+        dtv.textStorage?.append(
+            NSAttributedString(
+                string: text,
+                attributes: [
+                    .font: NSFont
+                        .monospacedSystemFont(
+                            ofSize: 14,
+                            weight: .regular
+                        ),
+                    .foregroundColor: NSColor(
+                        red: 0.9, green: 0.8,
+                        blue: 0.3, alpha: 1.0
+                    ),
+                ]
+            )
+        )
+        dtv.scrollToEndOfDocument(nil)
     }
 
     @objc func toggleSidebar() {

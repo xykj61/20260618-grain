@@ -156,11 +156,14 @@
   - Sidebar handler wired, status bar shows "Dimeroll", Cmd+W protects the tab
   - Act I witness GREEN after changes -- all 14 prior movements still proven
 
-- [ ] **Movement 17: Dimeroll stage launcher -- run a Dimeroll ELF from the tab**
+- [x] **Movement 17: Dimeroll stage launcher -- run a Dimeroll ELF from the tab** -- PROVEN `20261106.171836`
   - SLC gate: launching `dimeroll_tx_g.elf` from the Dimeroll tab shows farm transactions in the text view
-  - New `launchDimerollStage(_:)` method spawns a QEMU process, captures UART output
-  - Separate from the main `qemuProcess` -- Dimeroll gets its own `Process` instance
-  - Output streams into the Dimeroll tab's text view
+  - `launchDimerollStage(_:)` spawns `qemu-system-riscv64` with the named ELF, captures UART via pipe
+  - `dimerollProcess` property stores the Process, separate from the main `qemuProcess`
+  - Output streams into `dimerollTextView` via `appendDimeroll(_:)` with warm gold attributed text
+  - Termination handler reports exit status; existing process terminated before re-launch
+  - Binary contains `launchDimerollStage`, `appendDimeroll`, `dimerollProcess` symbols
+  - Terrarium builds clean, main QEMU integration unaffected
 
 - [ ] **Movement 18: Module selector -- pick which Dimeroll module to run**
   - SLC gate: a dropdown or segmented control lets the user choose among the 10 Dimeroll modules
