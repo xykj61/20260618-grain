@@ -310,11 +310,15 @@ harvested, sold, and composted -- enters a signed, bounded, supervised ledger.*
   **Witness:** `terrarium/glow_txn_witness.rish` -- build, QEMU 27-proof run,
   Mantra integrity. **GREEN on metal.**
 
-- [ ] **Orbit 27 -- Transaction evaluation and Mantra logging**
+- [x] **Orbit 27 -- Transaction evaluation and Mantra logging** PROVEN
   Each parsed transaction evaluates to a signed Mantra fact. The fact carries
   verb, subject, quantity, unit, price, and timestamp. The Mantra log grows
   from calculation traces to a book of account.
   **SLC gate:** 5 transactions log as 5 signed Mantra facts, replay identity proven.
+  **Landing:** `glow_txn_eval.rye` -- fact key `verb:subject`, value `qty=N[,unit=U][,price=P]`,
+  5 facts with Mantra state hash `0x3ca8e25e`, replay identity proven (two independent logs,
+  identical hash), key format verified (colon separator, non-empty verb and subject),
+  26/26 proofs, 9528-byte ELF, ALL PROOFS PASSED on QEMU.
 
 - [ ] **Orbit 28 -- Running balances: inventory**
   Maintain a running balance per subject. `plant tomatoes 200` adds 200; `harvest
