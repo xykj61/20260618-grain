@@ -516,6 +516,29 @@ wire -- running on a board someone can hold.*
 
 ---
 
+## Bookmarks
+
+### Board acquisition -- Milk-V Mars 4 GB
+
+**Bookmarked:** `20261106.130000`
+
+The Mantrapod needs a physical RISC-V board. The spec is filed at
+`active-development/date/20261106/20261106-121723_mantrapod-board-selection.md`
+and recommends **Milk-V Mars 4 GB** (~$50 from milkv.io, Amazon, or AliExpress).
+Also needed: a USB-to-UART adapter (3.3V TTL, such as FTDI FT232R or CP2102).
+
+**Why this board.** Same JH7110 SoC as VisionFive 2, strongest bare-metal community
+of any RISC-V board. UART at 0x10000000 (16550-compatible, 4-byte stride, 24 MHz
+clock) -- the terrarium driver already speaks this protocol. Credit-card form factor
+fits an enclosure. Recovery button simplifies bare-metal flashing.
+
+**What changes in the build.** One linker script variant: entry point 0x40000000
+instead of QEMU's 0x80000000. Board-specific UART clock initialization.
+
+**Status:** awaiting Keaton's word. Unblocks Movement 42 (hello on real UART).
+
+---
+
 **Fascia:** each proven movement advances the fascia by `0.001` per the health model.
 **Witness discipline:** every SLC gate names a witness that runs GREEN on metal.
 A stage claimed without a witness is a stage not landed.

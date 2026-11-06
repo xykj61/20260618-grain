@@ -2,6 +2,8 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.130255 | [macOS app architecture survey and tablecloth bookmark](20261106/20261106-130255_macos-app-architecture-survey.kyri.md) | Four separate pieces, no routing/tabs/shortcuts yet, board bookmarked |
+| 20261106.122548 | [Send verification -- Movement 41 confirmed](20261106/20261106-122548_send-verify-movement41.kyri.md) | Send complete, nib 7e333ae119, fascia 60.123, board awaits Keaton |
 | 20261106.121723 | [Board selection spec -- Movement 41, Act III begins](20261106/20261106-121723_board-selection-spec.kyri.md) | Milk-V Mars 4 GB recommended, spec filed, acquisition awaits Keaton |
 | 20261106.121024 | [Query engine integration witness -- Movement 40 GREEN](20261106/20261106-121024_query-integration-witness.kyri.md) | 77 proofs across 4 query modules, Quest 2.3 complete |
 | 20261106.120058 | [Query by account landed -- Movement 39 GREEN](20261106/20261106-120058_query-by-account-landed.kyri.md) | 19/19 proofs, account query + plain-text export, witness GREEN |
