@@ -145,6 +145,97 @@
 
 ---
 
+## Act II: The Field Ledger (Movements 16-30)
+
+### Quest 1: Dimeroll in the Glass (Movements 16-20)
+
+- [x] **Movement 16: Dimeroll tab -- sidebar entry creates a dedicated view** -- PROVEN `20261106.215000`
+  - SLC gate: clicking "Dimeroll" in the sidebar creates and switches to a Dimeroll tab
+  - Dimeroll tab with identifier "dimeroll", NSTextView with dark theme (warm gold text on near-black)
+  - `focusDimeroll()` creates tab on first click, finds existing on subsequent clicks
+  - Sidebar handler wired, status bar shows "Dimeroll", Cmd+W protects the tab
+  - Act I witness GREEN after changes -- all 14 prior movements still proven
+
+- [ ] **Movement 17: Dimeroll stage launcher -- run a Dimeroll ELF from the tab**
+  - SLC gate: launching `dimeroll_tx_g.elf` from the Dimeroll tab shows farm transactions in the text view
+  - New `launchDimerollStage(_:)` method spawns a QEMU process, captures UART output
+  - Separate from the main `qemuProcess` -- Dimeroll gets its own `Process` instance
+  - Output streams into the Dimeroll tab's text view
+
+- [ ] **Movement 18: Module selector -- pick which Dimeroll module to run**
+  - SLC gate: a dropdown or segmented control lets the user choose among the 10 Dimeroll modules
+  - NSPopUpButton listing: Transactions, Inventory, Cash Flow, Ledger, Seal, Price, Query by Verb, Query by Subject, Query by Date, Query by Account
+  - Selection launches the corresponding `dimeroll_*_g.elf` stage
+
+- [ ] **Movement 19: Structured output parsing -- transaction lines into table rows**
+  - SLC gate: Dimeroll UART output is parsed into an NSTableView with columns per transaction field
+  - Parse the five transaction verbs (plant, harvest, sell, compost, note) and their arguments
+  - NSTableView with columns: Verb, Subject, Quantity, Price, Unit
+  - Raw UART text view stays available as a tab within the Dimeroll view
+
+- [ ] **Movement 20: Quest 1 integration witness**
+  - SLC gate: witness proves Dimeroll tab creation, stage launch, module selection, and output parsing
+  - Headless harness tests the Dimeroll data model and parsing
+  - Binary symbol checks for NSPopUpButton, Dimeroll tab identifier, transaction table
+  - QEMU integration: `dimeroll_tx_g.elf` launched and output captured
+
+### Quest 2: Ledger Views (Movements 21-25)
+
+- [ ] **Movement 21: Inventory summary view**
+  - SLC gate: running `dimeroll_inventory_g.elf` displays parsed inventory in a formatted table
+  - NSTableView with columns: Subject, Quantity, derived from UART output
+  - Final inventory state: tomatoes 95, peppers 15, leaves 30
+
+- [ ] **Movement 22: Cash flow view**
+  - SLC gate: running `dimeroll_cashflow_g.elf` displays cash flow in a running-total format
+  - Sale transactions with computed totals (tomatoes 12000, peppers 3750, total 15750)
+  - Separate column for per-unit price and quantity sold
+
+- [ ] **Movement 23: Ledger page rendering**
+  - SLC gate: running `dimeroll_ledger_g.elf` displays a paginated journal with all 9 transactions
+  - Each transaction on its own line with verb, subject, quantity, metadata
+  - Page header with farm name and date range
+
+- [ ] **Movement 24: Price arithmetic and seal display**
+  - SLC gate: running `dimeroll_price_g.elf` shows FP arithmetic; `dimeroll_seal_g.elf` shows Amphora hash
+  - Price view: per-unit calculations with integer arithmetic shown
+  - Seal view: Amphora hash (0xb3db1acd) and the sealed data it covers
+
+- [ ] **Movement 25: Quest 2 integration witness**
+  - SLC gate: witness proves all four ledger views parse and display correctly
+  - Headless harness tests inventory, cash flow, ledger, and price/seal data models
+  - QEMU integration: each Dimeroll module launched and output verified
+
+### Quest 3: Query and Dashboard (Movements 26-30)
+
+- [ ] **Movement 26: Query panel -- select and run queries**
+  - SLC gate: a query panel lets the user pick query type (verb, subject, date, account) and execute
+  - NSPopUpButton for query type, NSTextField for query parameter
+  - Run button launches the corresponding `dimeroll_query_*_g.elf` module
+
+- [ ] **Movement 27: Query results display**
+  - SLC gate: query results appear in the Dimeroll tab as filtered transaction rows
+  - NSTableView populated from parsed QEMU output
+  - Each of the four query types produces correctly filtered results
+
+- [ ] **Movement 28: Dimeroll dashboard -- combined summary view**
+  - SLC gate: a dashboard tab shows inventory, cash flow, and seal at a glance
+  - Three sections in one scrollable view: inventory table, cash flow totals, Amphora seal hash
+  - Driven by running three Dimeroll modules in sequence
+
+- [ ] **Movement 29: Mantra tab -- placeholder for the next act**
+  - SLC gate: clicking "Mantra" in the sidebar creates a Mantra tab with placeholder content
+  - Same pattern as Movement 16 but for the Mantra module family
+  - Prepares the fourth sidebar entry for Act III
+
+- [ ] **Movement 30: Act II integration witness -- the field ledger**
+  - SLC gate: witness proves the full Dimeroll composition -- tab, launcher, selector, views, queries, dashboard
+  - Composes Quest 1, Quest 2, and Quest 3 in one pass
+  - All Dimeroll modules proven through Terrarium: 10 ELFs launched, output parsed, views rendered
+  - Act II (The Field Ledger): all movements proven on metal
+
+---
+
 ## Bookmarks
 
 ### What exists today
@@ -168,6 +259,9 @@
 | Keyboard events | 6-7 | AppKit events flow through EventRing to cursor |
 | Scene switching | 8-9 | Cmd+1/Cmd+2, consent flows |
 | Navigation shell | 11-15 | Tabs, sidebar, shortcuts, status bar |
+| Dimeroll tab and launcher | 16-20 | Sidebar creates Dimeroll view, launches QEMU stages |
+| Ledger views | 21-25 | Inventory, cash flow, ledger page, price, seal display |
+| Query and dashboard | 26-30 | Query panel, results, combined dashboard, Mantra placeholder |
 
 ### Dependencies
 

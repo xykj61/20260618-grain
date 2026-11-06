@@ -71,6 +71,7 @@ class AppDelegate: NSObject,
         "Terminal", "Grid",
         "Dimeroll", "Mantra",
     ]
+    var dimerollTextView: NSTextView?
     var nextTabId = 3
     var shortcutStatusLabel: NSTextField?
     var connectionLabel: NSTextField?
@@ -462,6 +463,58 @@ class AppDelegate: NSObject,
         }
     }
 
+    @objc func focusDimeroll() {
+        guard let tv = tabView else { return }
+        for i in 0..<tv.numberOfTabViewItems {
+            let item = tv.tabViewItem(at: i)
+            if let ident = item.identifier as? String,
+               ident == "dimeroll"
+            {
+                tv.selectTabViewItem(at: i)
+                if let dtv = dimerollTextView {
+                    window.makeFirstResponder(dtv)
+                }
+                return
+            }
+        }
+        let item = NSTabViewItem(
+            identifier: "dimeroll"
+        )
+        item.label = "Dimeroll"
+        let sv = NSScrollView(
+            frame: NSRect(
+                x: 0, y: 0, width: 600,
+                height: 400
+            )
+        )
+        sv.autoresizingMask = [.width, .height]
+        sv.hasVerticalScroller = true
+        sv.wantsLayer = true
+        let dtv = NSTextView(frame: sv.bounds)
+        dtv.isEditable = false
+        dtv.isSelectable = true
+        dtv.autoresizingMask = [.width, .height]
+        dtv.font = NSFont.monospacedSystemFont(
+            ofSize: 14, weight: .regular
+        )
+        dtv.backgroundColor = NSColor(
+            white: 0.05, alpha: 1.0
+        )
+        dtv.textColor = NSColor(
+            red: 0.9, green: 0.8, blue: 0.3,
+            alpha: 1.0
+        )
+        dtv.string = "Dimeroll -- Field Ledger\n"
+            + "========================\n\n"
+            + "Select a module to run.\n"
+        sv.documentView = dtv
+        dimerollTextView = dtv
+        item.view = sv
+        tv.addTabViewItem(item)
+        tv.selectTabViewItem(item)
+        window.makeFirstResponder(dtv)
+    }
+
     @objc func toggleSidebar() {
         guard let split = sidebarSplitView,
               let ssc = sidebarScrollView
@@ -509,7 +562,8 @@ class AppDelegate: NSObject,
         guard let sel = tv.selectedTabViewItem,
               let ident = sel.identifier as? String,
               ident != "terminal",
-              ident != "grid"
+              ident != "grid",
+              ident != "dimeroll"
         else {
             showShortcutStatus(
                 "Cmd+W: cannot close built-in tab"
@@ -563,13 +617,14 @@ class AppDelegate: NSObject,
             switch ident {
             case "terminal": modName = "Terminal"
             case "grid": modName = "FrameGrid"
+            case "dimeroll": modName = "Dimeroll"
             default: modName = sel.label
             }
         }
         moduleLabel?.stringValue = modName
 
         infoLabel?.stringValue =
-            "M14 \(stage) "
+            "M16 \(stage) "
     }
 
     func tabView(
@@ -1124,6 +1179,8 @@ extension AppDelegate: NSTableViewDelegate {
             focusTerminal()
         case "Grid":
             focusGrid()
+        case "Dimeroll":
+            focusDimeroll()
         default:
             break
         }

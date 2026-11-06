@@ -11,6 +11,7 @@
 
 | Stamp | Movement | What landed | Witness |
 |---|---|---|---|
+| 20261106.171231 | 16 | Dimeroll tab -- sidebar entry creates dedicated view with `focusDimeroll()`, warm gold text on near-black, tab protected from Cmd+W, status bar recognizes module | Act I witness GREEN: all 14 prior movements still proven, no regression |
 | 20261106.163107 | 15 | Act I integration witness -- composes Quest 1, Quest 2, Quest 3; 16 headless proofs, 13 binary symbol checks, QEMU integration proven | `terrarium_act1_witness.rish` GREEN: all 14 movements proven on metal |
 | 20261106.210500 | 14 | Status bar with connection state and active module -- three-field NSView, NSTabViewDelegate, QEMU lifecycle wired | Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean |
 | 20261106.195500 | 13 | Keyboard shortcut registry -- Shortcuts menu, Cmd+T/Cmd+W/Cmd+[, status bar at bottom | Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean |
