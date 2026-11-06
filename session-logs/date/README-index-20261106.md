@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.190334 | [Sidebar skeleton -- Movement 12](20261106/20261106-190334_sidebar-skeleton-movement12.kyri.md) | NSSplitView wraps NSTableView sidebar and NSTabView, Cmd+0 toggle |
 | 20261106.180200 | [Tab bar -- Movement 11, Quest 3 begins](20261106/20261106-180200_tab-bar-movement11.kyri.md) | NSTabView replaces NSSplitView, Terminal and Grid tabs, Cmd+1/Cmd+2 select |
 | 20261106.174359 | [Send verification -- Movement 10 confirmed](20261106/20261106-174359_send-movement10-verified.kyri.md) | Send complete, nib 14f41b2d3b, 08756303c on origin |
 | 20261106.170500 | [Quest 2 integration witness -- Movement 10 GREEN](20261106/20261106-170500_quest2-integration-witness.kyri.md) | 16 proofs, all GREEN, Quest 2 complete |

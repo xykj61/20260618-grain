@@ -62,6 +62,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var scrollView: NSScrollView?
     var gridContainer: NSView?
     var tabView: NSTabView?
+    var sidebarSplitView: NSSplitView?
+    var sidebarScrollView: NSScrollView?
+    var sidebarTableView: NSTableView?
+    var sidebarVisible = true
+    let sidebarModules = [
+        "Terminal", "Grid",
+        "Dimeroll", "Mantra",
+    ]
 
     func applicationDidFinishLaunching(_ note: Notification) {
         let mask: NSWindow.StyleMask = [
@@ -203,7 +211,57 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         tv.addTabViewItem(gridTab)
 
-        window.contentView?.addSubview(tv)
+        // -- Sidebar (Movement 12) --------------------
+
+        let sidebarW: CGFloat = 180
+
+        let split = NSSplitView(frame: splitFrame)
+        split.isVertical = true
+        split.dividerStyle = .thin
+        split.autoresizingMask = [.width, .height]
+        sidebarSplitView = split
+
+        let sidebarFrame = NSRect(
+            x: 0, y: 0,
+            width: sidebarW,
+            height: splitFrame.height
+        )
+        let ssc = NSScrollView(frame: sidebarFrame)
+        ssc.hasVerticalScroller = true
+        ssc.autoresizingMask = [.width, .height]
+        sidebarScrollView = ssc
+
+        let col = NSTableColumn(
+            identifier: NSUserInterfaceItemIdentifier(
+                "module"
+            )
+        )
+        col.title = "Modules"
+        col.width = sidebarW - 20
+
+        let table = NSTableView()
+        table.addTableColumn(col)
+        table.headerView = nil
+        table.rowHeight = 28
+        table.backgroundColor = NSColor(
+            white: 0.15, alpha: 1.0
+        )
+        table.style = .plain
+        table.dataSource = self
+        table.delegate = self
+        sidebarTableView = table
+        ssc.documentView = table
+
+        split.addSubview(ssc)
+        split.addSubview(tv)
+        split.setPosition(
+            sidebarW, ofDividerAt: 0
+        )
+        split.setHoldingPriority(
+            .defaultHigh, forSubviewAt: 0
+        )
+
+        window.contentView?.addSubview(split)
 
         window.makeKeyAndOrderFront(nil)
 
@@ -258,6 +316,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         gridItem.keyEquivalentModifierMask = [.command]
         viewMenu.addItem(gridItem)
 
+        viewMenu.addItem(NSMenuItem.separator())
+
+        let sidebarItem = NSMenuItem(
+            title: "Toggle Sidebar",
+            action: #selector(toggleSidebar),
+            keyEquivalent: "0"
+        )
+        sidebarItem.keyEquivalentModifierMask =
+            [.command]
+        viewMenu.addItem(sidebarItem)
+
         viewMenuItem.submenu = viewMenu
         mainMenu.addItem(viewMenuItem)
 
@@ -274,6 +343,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let fgv = frameGridView {
             window.makeFirstResponder(fgv)
         }
+    }
+
+    @objc func toggleSidebar() {
+        guard let split = sidebarSplitView,
+              let ssc = sidebarScrollView
+        else { return }
+        if sidebarVisible {
+            ssc.isHidden = true
+            split.setPosition(0, ofDividerAt: 0)
+        } else {
+            ssc.isHidden = false
+            split.setPosition(
+                180, ofDividerAt: 0
+            )
+        }
+        sidebarVisible = !sidebarVisible
     }
 
     func updateFocusIndicator() {
@@ -765,6 +850,63 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         return "qemu-system-\(arch)"
+    }
+}
+
+// -- Sidebar data source (Movement 12) --------------------------------
+
+extension AppDelegate: NSTableViewDataSource {
+    func numberOfRows(
+        in tableView: NSTableView
+    ) -> Int {
+        sidebarModules.count
+    }
+}
+
+extension AppDelegate: NSTableViewDelegate {
+    func tableView(
+        _ tableView: NSTableView,
+        viewFor tableColumn: NSTableColumn?,
+        row: Int
+    ) -> NSView? {
+        let id = NSUserInterfaceItemIdentifier(
+            "ModuleCell"
+        )
+        var cell = tableView.makeView(
+            withIdentifier: id, owner: nil
+        ) as? NSTextField
+        if cell == nil {
+            let tf = NSTextField(
+                labelWithString: ""
+            )
+            tf.identifier = id
+            tf.textColor = NSColor.white
+            tf.font = NSFont.systemFont(
+                ofSize: 13
+            )
+            cell = tf
+        }
+        cell?.stringValue = sidebarModules[row]
+        return cell
+    }
+
+    func tableViewSelectionDidChange(
+        _ notification: Notification
+    ) {
+        guard let table = sidebarTableView
+        else { return }
+        let row = table.selectedRow
+        guard row >= 0,
+              row < sidebarModules.count
+        else { return }
+        switch sidebarModules[row] {
+        case "Terminal":
+            focusTerminal()
+        case "Grid":
+            focusGrid()
+        default:
+            break
+        }
     }
 }
 

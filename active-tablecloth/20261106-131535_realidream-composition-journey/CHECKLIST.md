@@ -107,11 +107,15 @@
   - Tabs are addable by future modules via `NSTabViewItem` append
   - Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean
 
-- [ ] **Movement 12: Sidebar skeleton -- module navigation**
+- [x] **Movement 12: Sidebar skeleton -- module navigation** -- PROVEN `20261106.184500`
   - SLC gate: a collapsible sidebar lists available modules, selecting one switches the main view
-  - NSOutlineView or NSTableView in a sidebar position
-  - Initial entries: Terminal, FrameGrid, Dimeroll (placeholder), Mantra (placeholder)
-  - Cmd+0 toggles sidebar visibility
+  - NSSplitView wraps sidebar (left, 180px) and NSTabView (right)
+  - NSTableView with plain style, no header, dark background (white: 0.15), row height 28
+  - Four entries: Terminal, Grid, Dimeroll (placeholder), Mantra (placeholder)
+  - NSTableViewDataSource and NSTableViewDelegate on AppDelegate via extensions
+  - Selecting Terminal or Grid row switches the corresponding tab
+  - Cmd+0 toggles sidebar visibility (hide/show with split position)
+  - Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean
 
 - [ ] **Movement 13: Keyboard shortcut registry**
   - SLC gate: Cmd+T opens a new tab, Cmd+W closes the current tab, Cmd+[ goes back
