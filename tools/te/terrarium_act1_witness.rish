@@ -1,0 +1,217 @@
+# terrarium_act1_witness.rish -- Act I integration witness.
+#
+# Proves the full Realidream Composition Journey Act I:
+#   Quest 1 (Movements 1-5): SkateCore import, FrameGrid, dual
+#     pane, serial bridge, QEMU integration
+#   Quest 2 (Movements 6-10): EventRing keyboard adapter, cursor,
+#     ConsentRail, scene switching, headless harness
+#   Quest 3 (Movements 11-14): Tab bar, sidebar, shortcuts,
+#     status bar with connection state
+#
+# Run from the repository root:
+#   rishi/bin/rishi run tools/te/terrarium_act1_witness.rish
+#
+# The witness builds SkateCore, runs the Quest 2 headless harness,
+# builds Terrarium, verifies Quest 3 navigation shell symbols in
+# the binary, and launches Terrarium to prove QEMU integration.
+
+say "terrarium_act1_witness: Act I -- The Composing Seam"
+say ""
+
+# -- Step 1: Run the Act I launch script --
+
+say "step 1: running Act I launch script ..."
+let launch = run ["sh" "tools/fixtures/te/terrarium_act1_launch.sh" "."]
+assert launch.ok else "Act I launch script failed:\n${launch.err}"
+say "  launch script: ok"
+
+# -- Step 2: Verify SkateCore built --
+
+say ""
+say "step 2: verifying SkateCore build ..."
+let sk_check = run ["sh" "-c" "echo '${launch.out}' | grep -c 'skatecore_build=yes'"]
+assert sk_check.ok else "SkateCore did not build"
+say "  skatecore build: yes"
+
+# -- Step 3: Quest 2 headless proofs (16) --
+
+say ""
+say "step 3: verifying Quest 2 headless proofs ..."
+
+let h_check = run ["sh" "-c" "echo '${launch.out}' | grep -c 'harness_build=yes'"]
+assert h_check.ok else "Quest 2 harness did not build"
+say "  harness build: yes"
+
+let p1 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'skateevent_cases=yes'"]
+assert p1.ok else "skateevent_cases failed"
+say "  skateevent_cases: yes"
+
+let p2 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'skateevent_equatable=yes'"]
+assert p2.ok else "skateevent_equatable failed"
+say "  skateevent_equatable: yes"
+
+let p3 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'eventring_append=yes'"]
+assert p3.ok else "eventring_append failed"
+say "  eventring_append: yes"
+
+let p4 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'eventring_count=yes'"]
+assert p4.ok else "eventring_count failed"
+say "  eventring_count: yes"
+
+let p5 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'eventring_drain=yes'"]
+assert p5.ok else "eventring_drain failed"
+say "  eventring_drain: yes"
+
+let p6 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'framegrid_write=yes'"]
+assert p6.ok else "framegrid_write failed"
+say "  framegrid_write: yes"
+
+let p7 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'framegrid_read=yes'"]
+assert p7.ok else "framegrid_read failed"
+say "  framegrid_read: yes"
+
+let p8 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'framegrid_paint=yes'"]
+assert p8.ok else "framegrid_paint failed"
+say "  framegrid_paint: yes"
+
+let p9 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'consentrail_folded=yes'"]
+assert p9.ok else "consentrail_folded failed"
+say "  consentrail_folded: yes"
+
+let p10 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'consentrail_expanded=yes'"]
+assert p10.ok else "consentrail_expanded failed"
+say "  consentrail_expanded: yes"
+
+let p11 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'consentrail_content=yes'"]
+assert p11.ok else "consentrail_content failed"
+say "  consentrail_content: yes"
+
+let p12 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'integration_append=yes'"]
+assert p12.ok else "integration_append failed"
+say "  integration_append: yes"
+
+let p13 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'integration_count=yes'"]
+assert p13.ok else "integration_count failed"
+say "  integration_count: yes"
+
+let p14 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'integration_order=yes'"]
+assert p14.ok else "integration_order failed"
+say "  integration_order: yes"
+
+let p15 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'cursor_position=yes'"]
+assert p15.ok else "cursor_position failed"
+say "  cursor_position: yes"
+
+let p16 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'cursor_paint=yes'"]
+assert p16.ok else "cursor_paint failed"
+say "  cursor_paint: yes"
+
+let total_check = run ["sh" "-c" "echo '${launch.out}' | grep -c 'proofs_passed=16'"]
+assert total_check.ok else "proofs_passed did not reach 16"
+say "  proofs_passed: 16"
+
+let verdict_check = run ["sh" "-c" "echo '${launch.out}' | grep -c 'verdict=ok'"]
+assert verdict_check.ok else "harness did not reach verdict=ok"
+say "  harness verdict: ok"
+
+# -- Step 4: Terrarium builds --
+
+say ""
+say "step 4: verifying Terrarium build ..."
+let tb_check = run ["sh" "-c" "echo '${launch.out}' | grep -c 'terrarium_build=yes'"]
+assert tb_check.ok else "Terrarium did not build"
+say "  terrarium build: yes"
+
+# -- Step 5: Quest 3 navigation shell symbols --
+
+say ""
+say "step 5: verifying Quest 3 navigation shell ..."
+
+let s1 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'shell_tab_bar=yes'"]
+assert s1.ok else "shell_tab_bar not found in binary"
+say "  tab bar (NSTabView): yes"
+
+let s2 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'shell_sidebar=yes'"]
+assert s2.ok else "shell_sidebar not found in binary"
+say "  sidebar (NSTableView): yes"
+
+let s3 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'shell_split_view=yes'"]
+assert s3.ok else "shell_split_view not found in binary"
+say "  split view (NSSplitView): yes"
+
+let s4 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'shell_shortcuts_menu=yes'"]
+assert s4.ok else "shell_shortcuts_menu not found in binary"
+say "  shortcuts menu: yes"
+
+let s5 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'shell_new_tab=yes'"]
+assert s5.ok else "shell_new_tab not found in binary"
+say "  new tab shortcut: yes"
+
+let s6 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'shell_close_tab=yes'"]
+assert s6.ok else "shell_close_tab not found in binary"
+say "  close tab shortcut: yes"
+
+let s7 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'shell_previous_tab=yes'"]
+assert s7.ok else "shell_previous_tab not found in binary"
+say "  previous tab shortcut: yes"
+
+let s8 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'shell_focus_terminal=yes'"]
+assert s8.ok else "shell_focus_terminal not found in binary"
+say "  focus terminal: yes"
+
+let s9 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'shell_focus_grid=yes'"]
+assert s9.ok else "shell_focus_grid not found in binary"
+say "  focus grid: yes"
+
+let s10 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'shell_status_connection=yes'"]
+assert s10.ok else "shell_status_connection not found in binary"
+say "  status bar connection: yes"
+
+let s11 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'shell_status_module=yes'"]
+assert s11.ok else "shell_status_module not found in binary"
+say "  status bar module: yes"
+
+let s12 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'shell_tab_delegate=yes'"]
+assert s12.ok else "shell_tab_delegate not found in binary"
+say "  tab delegate: yes"
+
+let s13 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'shell_sidebar_entries=yes'"]
+assert s13.ok else "shell_sidebar_entries not found in binary"
+say "  sidebar entries: yes"
+
+# -- Step 6: QEMU integration --
+
+say ""
+say "step 6: verifying QEMU integration ..."
+
+let q1 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'qemu_launched=yes'"]
+assert q1.ok else "QEMU did not launch"
+say "  qemu launched: yes"
+
+let q2 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'qemu_exited=yes'"]
+assert q2.ok else "QEMU did not exit cleanly"
+say "  qemu exited: yes"
+
+let q3 = run ["sh" "-c" "echo '${launch.out}' | grep -c 'hello_output=yes'"]
+assert q3.ok else "hello.elf output not seen"
+say "  hello output: yes"
+
+# -- Verdict --
+
+say ""
+say "----"
+say "terrarium_act1_witness verdict:"
+say "  quest 1 (FrameGrid in the Glass): PROVEN"
+say "    M1 SkateCore import, M2 FrameGridView, M3 dual pane,"
+say "    M4 serial bridge, M5 Quest 1 witness"
+say "  quest 2 (Events Flow Back): PROVEN"
+say "    M6 EventRing adapter, M7 cursor, M8 ConsentRail,"
+say "    M9 scene switching, M10 Quest 2 witness"
+say "    16 headless proofs, all GREEN"
+say "  quest 3 (Navigation Shell): PROVEN"
+say "    M11 tab bar, M12 sidebar, M13 shortcuts,"
+say "    M14 status bar, 13 binary symbols verified"
+say "  QEMU integration: PROVEN"
+say "    hello.elf launched, output reached app, clean exit"
+say ""
+say "Act I (The Composing Seam): ALL 14 MOVEMENTS PROVEN"

@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.163107 | [Act I integration witness -- Movement 15, all 14 movements proven](20261106/20261106-163107_act1-integration-witness-movement15.kyri.md) | Quest 1 + Quest 2 + Quest 3 composed, 16 proofs, 13 symbols, QEMU GREEN |
 | 20261106.162129 | [Status bar with connection state and active module -- Movement 14](20261106/20261106-162129_status-bar-connection-module-movement14.kyri.md) | Three-field status bar, NSTabViewDelegate, QEMU lifecycle wired |
 | 20261106.201118 | [Keyboard shortcut registry -- Movement 13](20261106/20261106-201118_keyboard-shortcut-registry-movement13.kyri.md) | Shortcuts menu, Cmd+T/Cmd+W/Cmd+[, status bar shows activations |
 | 20261106.190334 | [Sidebar skeleton -- Movement 12](20261106/20261106-190334_sidebar-skeleton-movement12.kyri.md) | NSSplitView wraps NSTableView sidebar and NSTabView, Cmd+0 toggle |

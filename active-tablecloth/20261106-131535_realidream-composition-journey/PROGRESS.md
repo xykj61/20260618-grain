@@ -11,6 +11,7 @@
 
 | Stamp | Movement | What landed | Witness |
 |---|---|---|---|
+| 20261106.163107 | 15 | Act I integration witness -- composes Quest 1, Quest 2, Quest 3; 16 headless proofs, 13 binary symbol checks, QEMU integration proven | `terrarium_act1_witness.rish` GREEN: all 14 movements proven on metal |
 | 20261106.210500 | 14 | Status bar with connection state and active module -- three-field NSView, NSTabViewDelegate, QEMU lifecycle wired | Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean |
 | 20261106.195500 | 13 | Keyboard shortcut registry -- Shortcuts menu, Cmd+T/Cmd+W/Cmd+[, status bar at bottom | Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean |
 | 20261106.184500 | 12 | Sidebar skeleton -- NSSplitView wraps NSTableView sidebar and NSTabView, Cmd+0 toggle | Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean |

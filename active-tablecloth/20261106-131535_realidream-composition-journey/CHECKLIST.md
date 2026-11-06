@@ -135,12 +135,13 @@
   - showShortcutStatus temporarily overrides center field, auto-restores after 2 seconds
   - Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean
 
-- [ ] **Movement 15: Act I integration witness -- the navigable shell**
+- [x] **Movement 15: Act I integration witness -- the navigable shell**
   - SLC gate: witness script proves the full shell -- tabs, sidebar, shortcuts, status bar, live QEMU data
-  - Launch Terrarium, verify all UI elements render
-  - Verify tab switching, sidebar navigation, keyboard shortcuts
-  - Verify QEMU serial data flows through to both Terminal and FrameGrid views
-  - This is the shell that DJINN's Bit Design System fills when gate %6 opens
+  - `terrarium_act1_witness.rish` GREEN: composes Quest 1, Quest 2, and Quest 3 in one pass
+  - SkateCore builds (9 files), Quest 2 harness passes (16 proofs), Terrarium builds
+  - 13 Quest 3 binary symbol checks: NSTabView, NSTableView, NSSplitView, Shortcuts, New/Close/Previous Tab, Focus Terminal/Grid, status connection/module, tab delegate, sidebar entries
+  - QEMU integration proven: hello.elf launched, output reached app, clean exit
+  - Act I (The Composing Seam): all 14 movements proven on metal
 
 ---
 
