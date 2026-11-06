@@ -27,11 +27,14 @@
   - Test pattern: green bands (rows 0, 7) and purple block (row 3, cols 15-24) verify palette-to-color path
   - Wired into Terrarium window above the terminal scroll view with autoresizing
 
-- [ ] **Movement 3: Dual-pane window -- QEMU terminal beside FrameGrid**
+- [x] **Movement 3: Dual-pane window -- QEMU terminal beside FrameGrid** -- PROVEN `20261106.154200`
   - SLC gate: Terrarium window shows two panes side by side, both visible at launch
-  - Left pane: existing NSTextView with QEMU serial output
-  - Right pane: FrameGridView with a test pattern (diagonal fill, palette demo)
-  - NSSplitView or manual NSView layout, resizable divider
+  - Left pane: NSScrollView with NSTextView showing QEMU serial output
+  - Right pane: FrameGridView in a black container with test pattern (green bands, purple block)
+  - NSSplitView with `.thin` divider style, `isVertical = true`, resizable
+  - Window widened to 1040 (from 720) to accommodate side-by-side layout, 60/40 initial split
+  - Framebuffer stage branch preserved (NSImageView above split view)
+  - Fallback for pre-macOS 26: right pane is a plain black NSView
 
 - [ ] **Movement 4: Serial-to-grid bridge -- parse QEMU output into FrameGrid cells**
   - SLC gate: QEMU serial output drives FrameGrid content in real time

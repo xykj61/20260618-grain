@@ -60,16 +60,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var frameGridView: FrameGridView?
 
     func applicationDidFinishLaunching(_ note: Notification) {
-        var mask: NSWindow.StyleMask = [
-            .titled, .closable, .miniaturizable
+        let mask: NSWindow.StyleMask = [
+            .titled, .closable, .miniaturizable,
+            .resizable,
         ]
-        let winW: CGFloat = 720
+        let winW: CGFloat = 1040
         var winH: CGFloat = 480
 
         if isFramebufStage {
             winH = 760
-        } else {
-            mask.insert(.resizable)
         }
 
         let frame = NSRect(
@@ -82,10 +81,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             defer: false
         )
         window.title = "Terrarium -- \(stage)"
-        window.minSize = NSSize(width: 400, height: 240)
+        window.minSize = NSSize(width: 600, height: 300)
 
         let contentBounds = window.contentView!.bounds
-        var textFrame = contentBounds
+        var splitFrame = contentBounds
 
         if isFramebufStage {
             let imgH: CGFloat = 480
@@ -103,14 +102,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             window.contentView?.addSubview(iv)
             imageView = iv
 
-            textFrame = NSRect(
+            splitFrame = NSRect(
                 x: 0, y: 0,
                 width: contentBounds.width,
                 height: contentBounds.height - imgH
             )
         }
 
-        let scrollView = NSScrollView(frame: textFrame)
+        let splitView = NSSplitView(frame: splitFrame)
+        splitView.isVertical = true
+        splitView.dividerStyle = .thin
+        splitView.autoresizingMask = [.width, .height]
+
+        let scrollView = NSScrollView(
+            frame: NSRect(
+                x: 0, y: 0,
+                width: splitFrame.width * 0.6,
+                height: splitFrame.height
+            )
+        )
         scrollView.autoresizingMask = [.width, .height]
         scrollView.hasVerticalScroller = true
 
@@ -125,28 +135,38 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         textView.textColor = NSColor(
             red: 0.0, green: 0.9, blue: 0.4, alpha: 1.0
         )
-
         scrollView.documentView = textView
+
+        splitView.addSubview(scrollView)
 
         if #available(macOS 26.0, *) {
             let fgv = FrameGridView()
-            let gridH = fgv.idealSize.height
-            let gridFrame = NSRect(
-                x: 0,
-                y: textFrame.maxY - gridH,
-                width: textFrame.width,
-                height: gridH
-            )
-            fgv.frame = gridFrame
-            fgv.autoresizingMask = [.width, .minYMargin]
-            window.contentView?.addSubview(fgv)
             frameGridView = fgv
 
-            scrollView.frame = NSRect(
-                x: 0, y: textFrame.origin.y,
-                width: textFrame.width,
-                height: textFrame.height - gridH
+            let gridContainer = NSView(
+                frame: NSRect(
+                    x: 0, y: 0,
+                    width: splitFrame.width * 0.4,
+                    height: splitFrame.height
+                )
             )
+            gridContainer.wantsLayer = true
+            gridContainer.layer?.backgroundColor =
+                NSColor.black.cgColor
+            gridContainer.autoresizingMask =
+                [.width, .height]
+
+            let gridSize = fgv.idealSize
+            fgv.frame = NSRect(
+                x: 8,
+                y: 8,
+                width: gridSize.width,
+                height: gridSize.height
+            )
+            fgv.autoresizingMask = [.minYMargin]
+            gridContainer.addSubview(fgv)
+
+            splitView.addSubview(gridContainer)
 
             var testGrid = FrameGrid()
             try? testGrid.setPalette(
@@ -176,9 +196,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 paletteSlot: 2
             )
             fgv.update(grid: testGrid)
+        } else {
+            let placeholder = NSView(
+                frame: NSRect(
+                    x: 0, y: 0,
+                    width: splitFrame.width * 0.4,
+                    height: splitFrame.height
+                )
+            )
+            placeholder.wantsLayer = true
+            placeholder.layer?.backgroundColor =
+                NSColor.black.cgColor
+            splitView.addSubview(placeholder)
         }
 
-        window.contentView?.addSubview(scrollView)
+        window.contentView?.addSubview(splitView)
+
+        splitView.setPosition(
+            splitFrame.width * 0.6,
+            ofDividerAt: 0
+        )
+
         window.makeKeyAndOrderFront(nil)
 
         appendLine("Terrarium -- a living world under glass")
