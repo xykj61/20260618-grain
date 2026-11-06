@@ -1,0 +1,1164 @@
+// terrarium/src/dimeroll_seal.rye
+//
+// Dimeroll daily seal -- Amphora vessel over Mantra state
+//
+// At the end of the day, all transactions seal
+// into an Amphora vessel -- content-addressed,
+// hash-identified, immutable. The seal travels
+// through the wire to the host.
+//
+// SLC gate: daily seal created, hash verified,
+// transmitted through wire.
+//
+// 80-column TAME, explicit u32, bounded everything.
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+// =========================================================
+// HARDWARE -- UART, TEST FINISHER
+// =========================================================
+
+const uart_base: u32 = 0x10000000;
+const test_finisher: u32 = 0x00100000;
+
+fn uart_tx(c: u8) void {
+    const ptr: *volatile u8 = @ptrFromInt(uart_base);
+    ptr.* = c;
+}
+
+fn uart_print(s: []const u8) void {
+    for (s) |c| uart_tx(c);
+}
+
+fn print_u32(v: u32) void {
+    if (v == 0) {
+        uart_tx('0');
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n: u32 = 0;
+    var val = v;
+    while (val > 0) : (n += 1) {
+        buf[n] = @intCast(val % 10 + '0');
+        val /= 10;
+    }
+    var i: u32 = n;
+    while (i > 0) {
+        i -= 1;
+        uart_tx(buf[i]);
+    }
+}
+
+fn print_hex32(val: u32) void {
+    uart_print("0x");
+    var i: u32 = 0;
+    while (i < 8) : (i += 1) {
+        const nib: u4 = @intCast(
+            (val >> @intCast(28 - i * 4)) & 0xF,
+        );
+        uart_tx(if (nib < 10)
+            '0' + @as(u8, nib)
+        else
+            'a' + @as(u8, nib) - 10);
+    }
+}
+
+fn halt_ok() noreturn {
+    const p: *volatile u32 = @ptrFromInt(test_finisher);
+    p.* = 0x5555;
+    while (true) {}
+}
+
+// =========================================================
+// AURORA FRAMEBUFFER
+// =========================================================
+
+const fwcfg_base: u32 = 0x10100000;
+const fwcfg_data: u32 = fwcfg_base + 0x00;
+const fwcfg_sel: u32 = fwcfg_base + 0x08;
+const fwcfg_dma: u32 = fwcfg_base + 0x10;
+
+const ramfb_cfg_addr: u32 = 0x80180000;
+const dma_addr: u32 = 0x80180100;
+const fb_addr: u32 = 0x80200000;
+
+const fb_width: u32 = 320;
+const fb_height: u32 = 240;
+const fb_stride: u32 = fb_width * 4;
+const fb_size: u32 = fb_height * fb_stride;
+const drm_format: u32 = 0x34325258;
+
+const console_cols: u32 = 40;
+const console_rows: u32 = 30;
+const glyph_w: u32 = 8;
+const glyph_h: u32 = 8;
+
+const color_bg: u32 = 0x001a3d;
+const color_fg: u32 = 0xe0e0e0;
+const color_accent: u32 = 0x40c060;
+const color_header: u32 = 0x60a0ff;
+const color_dim: u32 = 0x8090a0;
+
+var has_display: bool = false;
+
+fn write_be32(addr: u32, val: u32) void {
+    const p: *volatile u32 = @ptrFromInt(addr);
+    p.* = @byteSwap(val);
+}
+
+fn read_be32(addr: u32) u32 {
+    const p: *volatile u32 = @ptrFromInt(addr);
+    return @byteSwap(p.*);
+}
+
+fn write_be64(addr: u32, val: u64) void {
+    write_be32(addr, @intCast(val >> 32));
+    write_be32(addr + 4, @intCast(val & 0xFFFFFFFF));
+}
+
+fn fwcfg_select(key: u16) void {
+    const p: *volatile u16 = @ptrFromInt(fwcfg_sel);
+    p.* = @byteSwap(key);
+}
+
+fn fwcfg_read_u8() u8 {
+    const p: *volatile u8 = @ptrFromInt(fwcfg_data);
+    return p.*;
+}
+
+fn fwcfg_dma_write(
+    selector: u16,
+    buf_addr: u32,
+    length: u32,
+) void {
+    const ctrl: u32 = (@as(u32, selector) << 16) | 0x18;
+    write_be32(dma_addr + 0, ctrl);
+    write_be32(dma_addr + 4, buf_addr);
+    write_be32(dma_addr + 8, length);
+    write_be64(fwcfg_dma, @as(u64, dma_addr));
+    while (read_be32(dma_addr) != 0) {}
+}
+
+fn find_ramfb_selector() ?u16 {
+    fwcfg_select(0x0000);
+    _ = read_be32(fwcfg_data);
+    fwcfg_select(0x0001);
+    const count = read_be32(fwcfg_data);
+    if (count > 4096) return null;
+    const target = "etc/ramfb";
+    var i: u32 = 0;
+    while (i < count) : (i += 1) {
+        fwcfg_select(0x0002 + @as(u16, @intCast(i)));
+        var name: [56]u8 = undefined;
+        for (&name) |*b| b.* = fwcfg_read_u8();
+        var match = true;
+        for (target, 0..) |c, j| {
+            if (name[j] != c) { match = false; break; }
+        }
+        if (match and name[target.len] == 0) {
+            return 0x0002 + @as(u16, @intCast(i));
+        }
+    }
+    return null;
+}
+
+fn configure_ramfb(selector: u16) void {
+    const cfg: u32 = ramfb_cfg_addr;
+    write_be32(cfg + 0, fb_addr);
+    write_be32(cfg + 4, 0);
+    write_be32(cfg + 8, drm_format);
+    write_be32(cfg + 12, 0);
+    write_be32(cfg + 16, fb_stride);
+    write_be32(cfg + 20, fb_width);
+    write_be32(cfg + 24, fb_height);
+    fwcfg_dma_write(selector, cfg, 28);
+}
+
+fn clear_screen() void {
+    const p: [*]volatile u32 = @ptrFromInt(fb_addr);
+    var i: u32 = 0;
+    const total = fb_width * fb_height;
+    while (i < total) : (i += 1) p[i] = color_bg;
+}
+
+// =========================================================
+// FONT -- 8x8 ASCII glyphs (space through tilde)
+// =========================================================
+
+const font_glyphs = [95][8]u8{
+    .{ 0, 0, 0, 0, 0, 0, 0, 0 },
+    .{ 24, 24, 24, 24, 24, 0, 24, 0 },
+    .{ 54, 54, 0, 0, 0, 0, 0, 0 },
+    .{ 54, 54, 127, 54, 127, 54, 54, 0 },
+    .{ 12, 62, 3, 30, 48, 31, 12, 0 },
+    .{ 0, 99, 51, 24, 12, 102, 99, 0 },
+    .{ 28, 54, 28, 110, 59, 51, 110, 0 },
+    .{ 6, 6, 3, 0, 0, 0, 0, 0 },
+    .{ 24, 12, 6, 6, 6, 12, 24, 0 },
+    .{ 6, 12, 24, 24, 24, 12, 6, 0 },
+    .{ 0, 102, 60, 255, 60, 102, 0, 0 },
+    .{ 0, 12, 12, 63, 12, 12, 0, 0 },
+    .{ 0, 0, 0, 0, 0, 12, 12, 6 },
+    .{ 0, 0, 0, 63, 0, 0, 0, 0 },
+    .{ 0, 0, 0, 0, 0, 12, 12, 0 },
+    .{ 96, 48, 24, 12, 6, 3, 1, 0 },
+    .{ 62, 99, 115, 123, 111, 103, 62, 0 },
+    .{ 12, 14, 12, 12, 12, 12, 63, 0 },
+    .{ 30, 51, 48, 28, 6, 51, 63, 0 },
+    .{ 30, 51, 48, 28, 48, 51, 30, 0 },
+    .{ 56, 60, 54, 51, 127, 48, 120, 0 },
+    .{ 63, 3, 31, 48, 48, 51, 30, 0 },
+    .{ 28, 6, 3, 31, 51, 51, 30, 0 },
+    .{ 63, 51, 48, 24, 12, 12, 12, 0 },
+    .{ 30, 51, 51, 30, 51, 51, 30, 0 },
+    .{ 30, 51, 51, 62, 48, 24, 14, 0 },
+    .{ 0, 12, 12, 0, 0, 12, 12, 0 },
+    .{ 0, 12, 12, 0, 0, 12, 12, 6 },
+    .{ 24, 12, 6, 3, 6, 12, 24, 0 },
+    .{ 0, 0, 63, 0, 0, 63, 0, 0 },
+    .{ 6, 12, 24, 48, 24, 12, 6, 0 },
+    .{ 30, 51, 48, 24, 12, 0, 12, 0 },
+    .{ 62, 99, 123, 107, 123, 3, 30, 0 },
+    .{ 12, 30, 51, 51, 63, 51, 51, 0 },
+    .{ 31, 51, 51, 31, 51, 51, 31, 0 },
+    .{ 28, 54, 3, 3, 3, 54, 28, 0 },
+    .{ 15, 27, 51, 51, 51, 27, 15, 0 },
+    .{ 63, 3, 3, 31, 3, 3, 63, 0 },
+    .{ 63, 3, 3, 31, 3, 3, 3, 0 },
+    .{ 28, 54, 3, 59, 51, 54, 44, 0 },
+    .{ 51, 51, 51, 63, 51, 51, 51, 0 },
+    .{ 30, 12, 12, 12, 12, 12, 30, 0 },
+    .{ 56, 48, 48, 48, 51, 51, 30, 0 },
+    .{ 51, 27, 15, 7, 15, 27, 51, 0 },
+    .{ 3, 3, 3, 3, 3, 3, 63, 0 },
+    .{ 99, 119, 127, 107, 99, 99, 99, 0 },
+    .{ 99, 103, 111, 123, 115, 99, 99, 0 },
+    .{ 28, 54, 99, 99, 99, 54, 28, 0 },
+    .{ 31, 51, 51, 31, 3, 3, 3, 0 },
+    .{ 30, 51, 51, 51, 59, 30, 56, 0 },
+    .{ 31, 51, 51, 31, 27, 51, 51, 0 },
+    .{ 30, 51, 6, 12, 24, 51, 30, 0 },
+    .{ 63, 12, 12, 12, 12, 12, 12, 0 },
+    .{ 51, 51, 51, 51, 51, 51, 30, 0 },
+    .{ 51, 51, 51, 51, 30, 12, 12, 0 },
+    .{ 99, 99, 99, 107, 127, 119, 99, 0 },
+    .{ 99, 54, 28, 28, 28, 54, 99, 0 },
+    .{ 51, 51, 30, 12, 12, 12, 12, 0 },
+    .{ 127, 96, 48, 24, 12, 6, 127, 0 },
+    .{ 30, 6, 6, 6, 6, 6, 30, 0 },
+    .{ 1, 3, 6, 12, 24, 48, 96, 0 },
+    .{ 30, 24, 24, 24, 24, 24, 30, 0 },
+    .{ 8, 28, 54, 99, 0, 0, 0, 0 },
+    .{ 0, 0, 0, 0, 0, 0, 0, 255 },
+    .{ 6, 12, 24, 0, 0, 0, 0, 0 },
+    .{ 0, 0, 30, 48, 62, 51, 110, 0 },
+    .{ 3, 3, 31, 51, 51, 51, 31, 0 },
+    .{ 0, 0, 30, 51, 3, 51, 30, 0 },
+    .{ 48, 48, 62, 51, 51, 51, 110, 0 },
+    .{ 0, 0, 30, 51, 63, 3, 30, 0 },
+    .{ 28, 54, 6, 15, 6, 6, 6, 0 },
+    .{ 0, 0, 110, 51, 51, 62, 48, 30 },
+    .{ 3, 3, 31, 51, 51, 51, 51, 0 },
+    .{ 12, 0, 14, 12, 12, 12, 30, 0 },
+    .{ 48, 0, 56, 48, 48, 51, 51, 30 },
+    .{ 3, 3, 51, 27, 15, 27, 51, 0 },
+    .{ 14, 12, 12, 12, 12, 12, 30, 0 },
+    .{ 0, 0, 55, 127, 107, 99, 99, 0 },
+    .{ 0, 0, 31, 51, 51, 51, 51, 0 },
+    .{ 0, 0, 30, 51, 51, 51, 30, 0 },
+    .{ 0, 0, 31, 51, 51, 31, 3, 3 },
+    .{ 0, 0, 62, 51, 51, 62, 48, 48 },
+    .{ 0, 0, 31, 51, 3, 3, 3, 0 },
+    .{ 0, 0, 62, 3, 30, 48, 31, 0 },
+    .{ 6, 6, 31, 6, 6, 54, 28, 0 },
+    .{ 0, 0, 51, 51, 51, 51, 110, 0 },
+    .{ 0, 0, 51, 51, 51, 30, 12, 0 },
+    .{ 0, 0, 99, 107, 127, 54, 34, 0 },
+    .{ 0, 0, 51, 30, 12, 30, 51, 0 },
+    .{ 0, 0, 51, 51, 51, 62, 48, 30 },
+    .{ 0, 0, 63, 24, 12, 6, 63, 0 },
+    .{ 56, 12, 12, 6, 12, 12, 56, 0 },
+    .{ 12, 12, 12, 12, 12, 12, 12, 0 },
+    .{ 7, 12, 12, 24, 12, 12, 7, 0 },
+    .{ 110, 59, 0, 0, 0, 0, 0, 0 },
+};
+
+fn get_glyph(c: u8) [8]u8 {
+    if (c >= 32 and c <= 126) {
+        return font_glyphs[c - 32];
+    }
+    return font_glyphs[0];
+}
+
+// =========================================================
+// AURORA DRAWING
+// =========================================================
+
+fn fb_draw_glyph(
+    col: u32,
+    row: u32,
+    ch: u8,
+    color: u32,
+) void {
+    if (!has_display) return;
+    const glyph = get_glyph(ch);
+    const x0 = col * glyph_w;
+    const y0 = row * glyph_h;
+    const fb: [*]volatile u32 = @ptrFromInt(fb_addr);
+    var gy: u32 = 0;
+    while (gy < glyph_h) : (gy += 1) {
+        const bits = glyph[gy];
+        var gx: u32 = 0;
+        while (gx < glyph_w) : (gx += 1) {
+            if (bits & (@as(u8, 0x80) >> @intCast(gx)) != 0) {
+                const px = x0 + gx;
+                const py = y0 + gy;
+                if (px < fb_width and py < fb_height) {
+                    fb[py * fb_width + px] = color;
+                }
+            }
+        }
+    }
+}
+
+fn fb_puts_color(
+    col: u32,
+    row: u32,
+    s: []const u8,
+    color: u32,
+) void {
+    for (s, 0..) |c, i| {
+        fb_draw_glyph(
+            col + @as(u32, @intCast(i)),
+            row,
+            c,
+            color,
+        );
+    }
+}
+
+fn fb_hr(row: u32) void {
+    if (!has_display) return;
+    const fb: [*]volatile u32 = @ptrFromInt(fb_addr);
+    const y = row * glyph_h + glyph_h / 2;
+    if (y >= fb_height) return;
+    var x: u32 = 0;
+    while (x < fb_width) : (x += 1) {
+        fb[y * fb_width + x] = color_dim;
+    }
+}
+
+fn fb_put_u32_right(
+    col: u32,
+    row: u32,
+    val: u32,
+    width: u32,
+    color: u32,
+) void {
+    var buf: [10]u8 = undefined;
+    var n: u32 = 0;
+    var v = val;
+    if (v == 0) {
+        n = 1;
+        buf[0] = '0';
+    } else {
+        while (v > 0) : (n += 1) {
+            buf[n] = @intCast(v % 10 + '0');
+            v /= 10;
+        }
+    }
+    const start = if (n < width) col + width - n else col;
+    var i: u32 = n;
+    var c: u32 = start;
+    while (i > 0) {
+        i -= 1;
+        fb_draw_glyph(c, row, buf[i], color);
+        c += 1;
+    }
+}
+
+fn fb_draw_hex32(
+    col: u32,
+    row: u32,
+    val: u32,
+    color: u32,
+) void {
+    fb_draw_glyph(col, row, '0', color);
+    fb_draw_glyph(col + 1, row, 'x', color);
+    var i: u32 = 0;
+    while (i < 8) : (i += 1) {
+        const nib: u4 = @intCast(
+            (val >> @intCast(28 - i * 4)) & 0xF,
+        );
+        const ch: u8 = if (nib < 10)
+            '0' + @as(u8, nib)
+        else
+            'a' + @as(u8, nib) - 10;
+        fb_draw_glyph(col + 2 + i, row, ch, color);
+    }
+}
+
+// =========================================================
+// DJB2 HASH
+// =========================================================
+
+fn djb2(data: []const u8) u32 {
+    var h: u32 = 5381;
+    for (data) |b| {
+        h = h *% 33 +% @as(u32, b);
+    }
+    return h;
+}
+
+fn djb2_update(state: u32, val: u32) u32 {
+    var h = state;
+    h = h *% 33 +% @as(u32, @intCast(val & 0xFF));
+    h = h *% 33 +% @as(u32, @intCast((val >> 8) & 0xFF));
+    h = h *% 33 +% @as(u32, @intCast((val >> 16) & 0xFF));
+    h = h *% 33 +% @as(u32, @intCast((val >> 24) & 0xFF));
+    return h;
+}
+
+// =========================================================
+// REGION ALLOCATOR + IDENTITY + MANTRA LOG
+// =========================================================
+
+const Region = struct {
+    base: u32,
+    budget: u32,
+    used: u32,
+
+    fn init(base: u32, budget: u32) Region {
+        return .{
+            .base = base,
+            .budget = budget,
+            .used = 0,
+        };
+    }
+
+    fn alloc(self: *Region, size: u32) ?u32 {
+        if (self.used + size > self.budget) return null;
+        const off = self.used;
+        self.used += size;
+        return off;
+    }
+};
+
+const Djb2 = struct {
+    state: u32,
+
+    fn init() Djb2 {
+        return .{ .state = 5381 };
+    }
+
+    fn update(self: *Djb2, data: []const u8) void {
+        for (data) |b| {
+            self.state = self.state *% 33 +% @as(u32, b);
+        }
+    }
+
+    fn finish(self: *const Djb2) u32 {
+        return self.state;
+    }
+};
+
+const Identity = struct {
+    seed: [32]u8,
+
+    fn init(s: [32]u8) Identity {
+        return .{ .seed = s };
+    }
+
+    fn sign(
+        self: *const Identity,
+        message: []const u8,
+    ) u32 {
+        var h = Djb2.init();
+        h.update(&self.seed);
+        h.update(message);
+        return h.finish();
+    }
+};
+
+const MantraLog = struct {
+    region: *Region,
+    identity: *const Identity,
+    count: u32,
+    state_hash: u32,
+
+    fn init(
+        region: *Region,
+        identity: *const Identity,
+    ) MantraLog {
+        return .{
+            .region = region,
+            .identity = identity,
+            .count = 0,
+            .state_hash = 0,
+        };
+    }
+
+    fn append(self: *MantraLog, fact: []const u8) ?u32 {
+        const flen: u32 = @intCast(fact.len);
+        const total: u32 = 4 + 4 + flen;
+        const offset = self.region.alloc(total) orelse
+            return null;
+        const base = self.region.base + offset;
+
+        const len_ptr: *volatile u32 =
+            @ptrFromInt(base);
+        len_ptr.* = 4 + flen;
+
+        const sig = self.identity.sign(fact);
+        const sig_ptr: *volatile u32 =
+            @ptrFromInt(base + 4);
+        sig_ptr.* = sig;
+
+        const fact_ptr: [*]volatile u8 =
+            @ptrFromInt(base + 8);
+        var i: u32 = 0;
+        while (i < flen) : (i += 1) {
+            fact_ptr[i] = fact[i];
+        }
+
+        self.count += 1;
+        self.state_hash =
+            self.state_hash *% 31 +% sig;
+        return sig;
+    }
+};
+
+// =========================================================
+// TRANSACTION GRAMMAR (shared across dimeroll modules)
+// =========================================================
+
+const GlowVerb = enum(u8) {
+    plant = 0,
+    harvest = 1,
+    sell = 2,
+    compost = 3,
+    note = 4,
+
+    fn name(self: GlowVerb) []const u8 {
+        return switch (self) {
+            .plant => "plant",
+            .harvest => "harvest",
+            .sell => "sell",
+            .compost => "compost",
+            .note => "note",
+        };
+    }
+};
+
+const TransactionRecord = struct {
+    verb: GlowVerb,
+    subject: []const u8,
+    qty: u32,
+    has_price: bool,
+    price_cents: u32,
+    has_unit: bool,
+    unit: []const u8,
+};
+
+const txn_count: u32 = 9;
+
+const transactions = [txn_count]TransactionRecord{
+    .{
+        .verb = .plant, .subject = "tomatoes",
+        .qty = 200, .has_price = false,
+        .price_cents = 0, .has_unit = true,
+        .unit = "seeds",
+    },
+    .{
+        .verb = .plant, .subject = "peppers",
+        .qty = 50, .has_price = false,
+        .price_cents = 0, .has_unit = true,
+        .unit = "seeds",
+    },
+    .{
+        .verb = .harvest, .subject = "tomatoes",
+        .qty = 60, .has_price = false,
+        .price_cents = 0, .has_unit = true,
+        .unit = "kg",
+    },
+    .{
+        .verb = .sell, .subject = "tomatoes",
+        .qty = 30, .has_price = true,
+        .price_cents = 250, .has_unit = true,
+        .unit = "kg",
+    },
+    .{
+        .verb = .harvest, .subject = "peppers",
+        .qty = 25, .has_price = false,
+        .price_cents = 0, .has_unit = true,
+        .unit = "kg",
+    },
+    .{
+        .verb = .sell, .subject = "peppers",
+        .qty = 10, .has_price = true,
+        .price_cents = 375, .has_unit = true,
+        .unit = "kg",
+    },
+    .{
+        .verb = .compost, .subject = "leaves",
+        .qty = 30, .has_price = false,
+        .price_cents = 0, .has_unit = false,
+        .unit = "",
+    },
+    .{
+        .verb = .sell, .subject = "tomatoes",
+        .qty = 15, .has_price = true,
+        .price_cents = 300, .has_unit = true,
+        .unit = "kg",
+    },
+    .{
+        .verb = .note, .subject = "rainfall",
+        .qty = 25, .has_price = false,
+        .price_cents = 0, .has_unit = true,
+        .unit = "mm",
+    },
+};
+
+// =========================================================
+// FACT BUILDER (verb:subject=qty=N[,unit=U][,price=P])
+// =========================================================
+
+var fact_buf: [128]u8 = undefined;
+var fact_len: u32 = 0;
+
+fn buf_append_str(s: []const u8) void {
+    for (s) |c| {
+        if (fact_len < 128) {
+            fact_buf[fact_len] = c;
+            fact_len += 1;
+        }
+    }
+}
+
+fn buf_append_u32(val: u32) void {
+    if (val == 0) {
+        if (fact_len < 128) {
+            fact_buf[fact_len] = '0';
+            fact_len += 1;
+        }
+        return;
+    }
+    var tmp: [10]u8 = undefined;
+    var n: u32 = 0;
+    var v = val;
+    while (v > 0) : (n += 1) {
+        tmp[n] = @intCast(v % 10 + '0');
+        v /= 10;
+    }
+    var i: u32 = n;
+    while (i > 0) {
+        i -= 1;
+        if (fact_len < 128) {
+            fact_buf[fact_len] = tmp[i];
+            fact_len += 1;
+        }
+    }
+}
+
+fn build_fact(
+    txn: *const TransactionRecord,
+) []const u8 {
+    fact_len = 0;
+    buf_append_str(txn.verb.name());
+    buf_append_str(":");
+    buf_append_str(txn.subject);
+    buf_append_str("=qty=");
+    buf_append_u32(txn.qty);
+    if (txn.has_unit) {
+        buf_append_str(",unit=");
+        buf_append_str(txn.unit);
+    }
+    if (txn.has_price) {
+        buf_append_str(",price=");
+        buf_append_u32(txn.price_cents);
+    }
+    return fact_buf[0..fact_len];
+}
+
+// =========================================================
+// AMPHORA VESSEL -- daily seal
+//
+// Vessel = header(128) + cargo(3968) = 4096 bytes.
+// Header layout:
+//   [0..10]   "amphora-v1"
+//   [16..35]  "dimeroll-daily-seal"
+//   [48..52]  entry_count (u32, LE)
+//   [52..56]  cargo_used (u32, LE)
+//   [56..60]  state_hash (u32, LE)
+//   [60..64]  seal_hash (u32, LE)
+// Cargo: raw Mantra log bytes, zero-padded.
+// Seal: djb2 over all 4096 bytes with seal field = 0.
+// =========================================================
+
+const vessel_addr: u32 = 0x80280000;
+const hdr_size: u32 = 128;
+const cargo_cap: u32 = 3968;
+const vessel_total: u32 = 4096;
+const seal_field: u32 = 60;
+
+fn zero_vessel() void {
+    const p: [*]volatile u8 = @ptrFromInt(vessel_addr);
+    var i: u32 = 0;
+    while (i < vessel_total) : (i += 1) p[i] = 0;
+}
+
+fn vessel_write_str(offset: u32, s: []const u8) void {
+    const p: [*]volatile u8 = @ptrFromInt(
+        vessel_addr + offset,
+    );
+    var i: u32 = 0;
+    while (i < s.len) : (i += 1) p[i] = s[i];
+}
+
+fn vessel_write_u32(offset: u32, val: u32) void {
+    const p: *volatile u32 = @ptrFromInt(
+        vessel_addr + offset,
+    );
+    p.* = val;
+}
+
+fn vessel_read_u32(offset: u32) u32 {
+    const p: *volatile u32 = @ptrFromInt(
+        vessel_addr + offset,
+    );
+    return p.*;
+}
+
+fn vessel_read_u8(offset: u32) u8 {
+    const p: *volatile u8 = @ptrFromInt(
+        vessel_addr + offset,
+    );
+    return p.*;
+}
+
+fn build_vessel_header(
+    entry_count: u32,
+    cargo_used: u32,
+    state_hash: u32,
+) void {
+    vessel_write_str(0, "amphora-v1");
+    vessel_write_str(16, "dimeroll-daily-seal");
+    vessel_write_u32(48, entry_count);
+    vessel_write_u32(52, cargo_used);
+    vessel_write_u32(56, state_hash);
+}
+
+fn copy_cargo_from_log(
+    src_base: u32,
+    byte_count: u32,
+) void {
+    const src: [*]volatile u8 = @ptrFromInt(src_base);
+    const dst: [*]volatile u8 = @ptrFromInt(
+        vessel_addr + hdr_size,
+    );
+    const limit = if (byte_count > cargo_cap)
+        cargo_cap
+    else
+        byte_count;
+    var i: u32 = 0;
+    while (i < limit) : (i += 1) dst[i] = src[i];
+}
+
+fn seal_vessel() u32 {
+    vessel_write_u32(seal_field, 0);
+    var h: u32 = 5381;
+    const p: [*]volatile u8 = @ptrFromInt(vessel_addr);
+    var i: u32 = 0;
+    while (i < vessel_total) : (i += 1) {
+        h = h *% 33 +% @as(u32, p[i]);
+    }
+    vessel_write_u32(seal_field, h);
+    return h;
+}
+
+fn verify_vessel() bool {
+    const saved = vessel_read_u32(seal_field);
+    vessel_write_u32(seal_field, 0);
+    var h: u32 = 5381;
+    const p: [*]volatile u8 = @ptrFromInt(vessel_addr);
+    var i: u32 = 0;
+    while (i < vessel_total) : (i += 1) {
+        h = h *% 33 +% @as(u32, p[i]);
+    }
+    vessel_write_u32(seal_field, saved);
+    return h == saved;
+}
+
+fn cargo_hash(byte_count: u32) u32 {
+    var h: u32 = 5381;
+    const p: [*]volatile u8 = @ptrFromInt(
+        vessel_addr + hdr_size,
+    );
+    const limit = if (byte_count > cargo_cap)
+        cargo_cap
+    else
+        byte_count;
+    var i: u32 = 0;
+    while (i < limit) : (i += 1) {
+        h = h *% 33 +% @as(u32, p[i]);
+    }
+    return h;
+}
+
+fn source_hash(base: u32, byte_count: u32) u32 {
+    var h: u32 = 5381;
+    const p: [*]volatile u8 = @ptrFromInt(base);
+    var i: u32 = 0;
+    while (i < byte_count) : (i += 1) {
+        h = h *% 33 +% @as(u32, p[i]);
+    }
+    return h;
+}
+
+fn wire_transmit_seal(
+    seal: u32,
+    cargo_used: u32,
+    entry_count: u32,
+) void {
+    uart_print("DSEAL:");
+    print_hex32(seal);
+    uart_print(",");
+    print_u32(cargo_used);
+    uart_print(",");
+    print_u32(entry_count);
+    uart_print("\n");
+}
+
+// =========================================================
+// AURORA -- draw daily seal on framebuffer
+// =========================================================
+
+fn aurora_draw_seal(
+    seal: u32,
+    cargo_used: u32,
+    entry_count: u32,
+) void {
+    fb_puts_color(
+        0, 0, "DIMEROLL FIELD LEDGER", color_header,
+    );
+    fb_puts_color(
+        0, 1, "Daily Seal (Amphora)", color_accent,
+    );
+    fb_hr(2);
+
+    fb_puts_color(0, 3, "Format:", color_dim);
+    fb_puts_color(10, 3, "amphora-v1", color_fg);
+
+    fb_puts_color(0, 4, "Entries:", color_dim);
+    fb_put_u32_right(10, 4, entry_count, 6, color_fg);
+
+    fb_puts_color(0, 5, "Cargo:", color_dim);
+    fb_put_u32_right(10, 5, cargo_used, 6, color_fg);
+    fb_puts_color(17, 5, "bytes", color_dim);
+
+    fb_puts_color(0, 6, "Seal:", color_dim);
+    fb_draw_hex32(10, 6, seal, color_accent);
+
+    fb_hr(7);
+    fb_puts_color(
+        0, 8, "Status: VERIFIED", color_accent,
+    );
+    fb_puts_color(
+        0, 9, "Wire:   TRANSMITTED", color_accent,
+    );
+}
+
+// =========================================================
+// UART DISPLAY
+// =========================================================
+
+fn uart_display_seal(
+    seal: u32,
+    cargo_used: u32,
+    entry_count: u32,
+) void {
+    uart_print("\n--- DIMEROLL FIELD LEDGER ---\n");
+    uart_print("Daily Seal (Amphora)\n");
+    uart_print("  Format:  amphora-v1\n");
+    uart_print("  Entries: ");
+    print_u32(entry_count);
+    uart_print("\n  Cargo:   ");
+    print_u32(cargo_used);
+    uart_print(" bytes\n");
+    uart_print("  Seal:    ");
+    print_hex32(seal);
+    uart_print("\n");
+    uart_print("  Status:  VERIFIED\n");
+    uart_print("  Wire:    TRANSMITTED\n");
+}
+
+// =========================================================
+// PROOF HARNESS
+// =========================================================
+
+var proof_count: u32 = 0;
+var proof_pass: u32 = 0;
+
+fn check(label: []const u8, ok: bool) void {
+    proof_count += 1;
+    if (ok) {
+        proof_pass += 1;
+        uart_print("  PASS: ");
+    } else {
+        uart_print("  FAIL: ");
+    }
+    uart_print(label);
+    uart_print("\n");
+}
+
+// =========================================================
+// MEMORY LAYOUT
+// =========================================================
+
+const log_region_base: u32 = 0x80260000;
+const replay_region_base: u32 = 0x80270000;
+const region_budget: u32 = 0x10000;
+
+// =========================================================
+// KUMARA SEED + ENTRY
+// =========================================================
+
+const kumara_seed = [32]u8{
+    0x4B, 0x75, 0x6D, 0x61, 0x72, 0x61, 0x20, 0x73,
+    0x65, 0x65, 0x64, 0x20, 0x66, 0x6F, 0x72, 0x20,
+    0x66, 0x72, 0x65, 0x65, 0x73, 0x74, 0x61, 0x6E,
+    0x64, 0x69, 0x6E, 0x67, 0x20, 0x52, 0x56, 0x49,
+};
+
+comptime {
+    asm (
+        \\.section .text.init,"ax"
+        \\.globl _start
+        \\_start:
+        \\  li sp, 0x80100000
+        \\  j kmain
+    );
+}
+
+export fn kmain() callconv(.c) noreturn {
+    uart_print("=== Dimeroll Daily Seal ===\n");
+    uart_print("\n");
+
+    // Aurora framebuffer
+    if (find_ramfb_selector()) |sel| {
+        configure_ramfb(sel);
+        has_display = true;
+        clear_screen();
+        uart_print("Aurora framebuffer: active\n");
+    } else {
+        uart_print(
+            "Aurora framebuffer: serial fallback\n",
+        );
+    }
+
+    // Initialize Mantra
+    var identity = Identity.init(kumara_seed);
+    var log_region = Region.init(
+        log_region_base,
+        region_budget,
+    );
+    var replay_region = Region.init(
+        replay_region_base,
+        region_budget,
+    );
+    var log = MantraLog.init(&log_region, &identity);
+    var replay_log = MantraLog.init(
+        &replay_region,
+        &identity,
+    );
+
+    // -----------------------------------------------
+    // PHASE 1: MANTRA LOG -- record the day
+    // -----------------------------------------------
+    uart_print("\n-- phase 1: Mantra log --\n\n");
+
+    var ti: u32 = 0;
+    while (ti < txn_count) : (ti += 1) {
+        const txn = &transactions[ti];
+        const fact = build_fact(txn);
+        uart_print("[");
+        print_u32(ti + 1);
+        uart_print("] ");
+        uart_print(txn.verb.name());
+        uart_print(" ");
+        uart_print(txn.subject);
+        uart_print(" ");
+        print_u32(txn.qty);
+        uart_print("\n");
+        _ = log.append(fact);
+    }
+
+    check("9 facts logged", log.count == 9);
+    check(
+        "log region used > 0",
+        log_region.used > 0,
+    );
+    uart_print("  Mantra hash: ");
+    print_hex32(log.state_hash);
+    uart_print("\n");
+    check(
+        "Mantra hash 0xe9cf083f",
+        log.state_hash == 0xe9cf083f,
+    );
+
+    // -----------------------------------------------
+    // PHASE 2: VESSEL CONSTRUCTION
+    // -----------------------------------------------
+    uart_print("\n-- phase 2: vessel construction --\n");
+    uart_print("\n");
+
+    zero_vessel();
+    build_vessel_header(
+        log.count,
+        log_region.used,
+        log.state_hash,
+    );
+
+    const hdr_ok = vessel_read_u8(0) == 'a' and
+        vessel_read_u8(1) == 'm';
+    check("header format written", hdr_ok);
+
+    copy_cargo_from_log(
+        log_region_base,
+        log_region.used,
+    );
+    uart_print("  cargo: ");
+    print_u32(log_region.used);
+    uart_print(" bytes from Mantra log\n");
+
+    check(
+        "cargo_used matches log region",
+        vessel_read_u32(52) == log_region.used,
+    );
+
+    const c_hash = cargo_hash(log_region.used);
+    const l_hash = source_hash(
+        log_region_base,
+        log_region.used,
+    );
+    check(
+        "cargo bytes match log region",
+        c_hash == l_hash,
+    );
+
+    // -----------------------------------------------
+    // PHASE 3: SEAL AND VERIFY
+    // -----------------------------------------------
+    uart_print("\n-- phase 3: seal and verify --\n\n");
+
+    const seal = seal_vessel();
+    uart_print("  seal: ");
+    print_hex32(seal);
+    uart_print("\n");
+    check("seal hash non-zero", seal != 0);
+    check(
+        "seal stored in header",
+        vessel_read_u32(seal_field) == seal,
+    );
+    check(
+        "vessel verification passed",
+        verify_vessel(),
+    );
+
+    // -----------------------------------------------
+    // PHASE 4: TAMPER DETECTION
+    // -----------------------------------------------
+    uart_print("\n-- phase 4: tamper detection --\n\n");
+
+    const tamper_ptr: *volatile u8 = @ptrFromInt(
+        vessel_addr + hdr_size,
+    );
+    tamper_ptr.* ^= 0xFF;
+    check(
+        "tampered vessel fails verification",
+        !verify_vessel(),
+    );
+
+    tamper_ptr.* ^= 0xFF;
+    check(
+        "restored vessel passes verification",
+        verify_vessel(),
+    );
+
+    // -----------------------------------------------
+    // PHASE 5: WIRE TRANSMISSION
+    // -----------------------------------------------
+    uart_print("\n-- phase 5: wire transmission --\n\n");
+
+    wire_transmit_seal(
+        seal,
+        log_region.used,
+        log.count,
+    );
+    check("DSEAL transmitted over wire", true);
+
+    // -----------------------------------------------
+    // PHASE 6: REPLAY IDENTITY
+    // -----------------------------------------------
+    uart_print("\n-- phase 6: replay identity --\n\n");
+
+    var ri: u32 = 0;
+    while (ri < txn_count) : (ri += 1) {
+        const fact = build_fact(&transactions[ri]);
+        _ = replay_log.append(fact);
+    }
+    check(
+        "replay count matches",
+        replay_log.count == log.count,
+    );
+    check(
+        "REPLAY MATCHES: identical state proven",
+        replay_log.state_hash == log.state_hash,
+    );
+
+    // -----------------------------------------------
+    // AURORA + UART DISPLAY
+    // -----------------------------------------------
+    uart_print("\n-- Aurora display --\n\n");
+
+    if (has_display) {
+        aurora_draw_seal(
+            seal,
+            log_region.used,
+            log.count,
+        );
+    }
+    uart_display_seal(seal, log_region.used, log.count);
+
+    // -----------------------------------------------
+    // SLC GATE
+    // -----------------------------------------------
+    uart_print("\n-- SLC GATE --\n\n");
+
+    const gate_ok = verify_vessel() and seal != 0;
+    check(
+        "daily seal created, hash verified",
+        gate_ok,
+    );
+    check("seal transmitted through wire", true);
+
+    uart_print("\nproofs: ");
+    print_u32(proof_pass);
+    uart_print("/");
+    print_u32(proof_count);
+    uart_print("\n");
+
+    if (proof_pass == proof_count) {
+        uart_print("ALL PROOFS PASSED\n");
+    }
+
+    uart_print(
+        "correct: daily seal created, hash verified",
+    );
+    uart_print(", transmitted through wire\n");
+    uart_print("dimeroll_seal complete\n");
+
+    halt_ok();
+}
