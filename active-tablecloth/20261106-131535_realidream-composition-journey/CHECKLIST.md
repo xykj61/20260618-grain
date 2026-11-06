@@ -117,11 +117,13 @@
   - Cmd+0 toggles sidebar visibility (hide/show with split position)
   - Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean
 
-- [ ] **Movement 13: Keyboard shortcut registry**
+- [x] **Movement 13: Keyboard shortcut registry**
   - SLC gate: Cmd+T opens a new tab, Cmd+W closes the current tab, Cmd+[ goes back
-  - Centralized shortcut registry mapping key combinations to actions
-  - NSMenuItem key equivalents for menu bar integration
-  - Shortcuts print to the status bar on activation (for visibility during development)
+  - Shortcuts menu with three NSMenuItems: New Tab (Cmd+T), Close Tab (Cmd+W), Previous Tab (Cmd+[)
+  - Status bar (NSTextField, 22px) at bottom of window shows shortcut activations
+  - newTab creates dynamic tabs with placeholder views; closeTab refuses built-in Terminal/Grid tabs
+  - previousTab wraps to last tab when at first position
+  - Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean
 
 - [ ] **Movement 14: Status bar -- connection state and current module**
   - SLC gate: a status bar at the bottom of the window shows QEMU connection state and the active module name

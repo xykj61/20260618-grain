@@ -70,6 +70,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         "Terminal", "Grid",
         "Dimeroll", "Mantra",
     ]
+    var nextTabId = 3
+    var shortcutStatusLabel: NSTextField?
 
     func applicationDidFinishLaunching(_ note: Notification) {
         let mask: NSWindow.StyleMask = [
@@ -261,7 +263,40 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .defaultHigh, forSubviewAt: 0
         )
 
+        // -- Status bar (Movement 13) ---------
+
+        let statusH: CGFloat = 22
+        let statusBar = NSTextField(
+            frame: NSRect(
+                x: 0, y: 0,
+                width: splitFrame.width,
+                height: statusH
+            )
+        )
+        statusBar.isEditable = false
+        statusBar.isBordered = false
+        statusBar.drawsBackground = true
+        statusBar.backgroundColor = NSColor(
+            white: 0.12, alpha: 1.0
+        )
+        statusBar.textColor = NSColor.lightGray
+        statusBar.font = NSFont.monospacedSystemFont(
+            ofSize: 11, weight: .regular
+        )
+        statusBar.stringValue = "  Ready"
+        statusBar.autoresizingMask = [
+            .width, .maxYMargin,
+        ]
+        shortcutStatusLabel = statusBar
+
+        split.frame = NSRect(
+            x: 0, y: statusH,
+            width: splitFrame.width,
+            height: splitFrame.height - statusH
+        )
+
         window.contentView?.addSubview(split)
+        window.contentView?.addSubview(statusBar)
 
         window.makeKeyAndOrderFront(nil)
 
@@ -330,6 +365,43 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         viewMenuItem.submenu = viewMenu
         mainMenu.addItem(viewMenuItem)
 
+        // -- Shortcuts menu (Movement 13) ------
+
+        let shortcutsMenuItem = NSMenuItem()
+        let shortcutsMenu = NSMenu(
+            title: "Shortcuts"
+        )
+
+        let newTabItem = NSMenuItem(
+            title: "New Tab",
+            action: #selector(newTab),
+            keyEquivalent: "t"
+        )
+        newTabItem.keyEquivalentModifierMask =
+            [.command]
+        shortcutsMenu.addItem(newTabItem)
+
+        let closeTabItem = NSMenuItem(
+            title: "Close Tab",
+            action: #selector(closeTab),
+            keyEquivalent: "w"
+        )
+        closeTabItem.keyEquivalentModifierMask =
+            [.command]
+        shortcutsMenu.addItem(closeTabItem)
+
+        let backTabItem = NSMenuItem(
+            title: "Previous Tab",
+            action: #selector(previousTab),
+            keyEquivalent: "["
+        )
+        backTabItem.keyEquivalentModifierMask =
+            [.command]
+        shortcutsMenu.addItem(backTabItem)
+
+        shortcutsMenuItem.submenu = shortcutsMenu
+        mainMenu.addItem(shortcutsMenuItem)
+
         NSApp.mainMenu = mainMenu
     }
 
@@ -359,6 +431,67 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             )
         }
         sidebarVisible = !sidebarVisible
+    }
+
+    // -- Shortcut actions (Movement 13) ---
+
+    @objc func newTab() {
+        guard let tv = tabView else { return }
+        let item = NSTabViewItem(
+            identifier: "tab-\(nextTabId)"
+        )
+        item.label = "Tab \(nextTabId)"
+        let placeholder = NSView()
+        placeholder.wantsLayer = true
+        placeholder.layer?.backgroundColor =
+            NSColor(white: 0.1, alpha: 1.0).cgColor
+        item.view = placeholder
+        tv.addTabViewItem(item)
+        tv.selectTabViewItem(item)
+        nextTabId += 1
+        showShortcutStatus("Cmd+T: New Tab")
+    }
+
+    @objc func closeTab() {
+        guard let tv = tabView else { return }
+        guard tv.numberOfTabViewItems > 2
+        else {
+            showShortcutStatus(
+                "Cmd+W: cannot close built-in tab"
+            )
+            return
+        }
+        guard let sel = tv.selectedTabViewItem,
+              let ident = sel.identifier as? String,
+              ident != "terminal",
+              ident != "grid"
+        else {
+            showShortcutStatus(
+                "Cmd+W: cannot close built-in tab"
+            )
+            return
+        }
+        tv.removeTabViewItem(sel)
+        showShortcutStatus("Cmd+W: Close Tab")
+    }
+
+    @objc func previousTab() {
+        guard let tv = tabView else { return }
+        let count = tv.numberOfTabViewItems
+        guard count > 0 else { return }
+        let cur = tv.indexOfTabViewItem(
+            tv.selectedTabViewItem!
+        )
+        let prev = cur > 0 ? cur - 1 : count - 1
+        tv.selectTabViewItem(at: prev)
+        showShortcutStatus(
+            "Cmd+[: Previous Tab"
+        )
+    }
+
+    func showShortcutStatus(_ text: String) {
+        shortcutStatusLabel?.stringValue =
+            "  \(text)"
     }
 
     func updateFocusIndicator() {

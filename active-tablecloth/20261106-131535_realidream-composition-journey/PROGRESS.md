@@ -11,6 +11,7 @@
 
 | Stamp | Movement | What landed | Witness |
 |---|---|---|---|
+| 20261106.195500 | 13 | Keyboard shortcut registry -- Shortcuts menu, Cmd+T/Cmd+W/Cmd+[, status bar at bottom | Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean |
 | 20261106.184500 | 12 | Sidebar skeleton -- NSSplitView wraps NSTableView sidebar and NSTabView, Cmd+0 toggle | Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean |
 | 20261106.180200 | 11 | Tab bar -- NSTabView replaces NSSplitView, Terminal and Grid tabs, Cmd+1/Cmd+2 select | Quest 2 witness GREEN (16 proofs), Terrarium builds and launches clean |
 | 20261106.170500 | 10 | Quest 2 integration witness -- 16 proofs across 6 test functions, all GREEN | `terrarium_quest2_witness.rish` GREEN: SkateEvent, EventRing, FrameGrid, ConsentRail, integration flow, cursor |
