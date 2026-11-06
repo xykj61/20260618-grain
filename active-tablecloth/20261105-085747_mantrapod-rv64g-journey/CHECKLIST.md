@@ -260,10 +260,17 @@ audio opens on the bare hart.*
   `active-development/date/20261105/20261105-200957_wasm-emulation-horizon-scoping.md`.
   **PROVEN.**
 
-- [ ] **Orbit 24 -- Performance baseline on RV64G**
-  Measure boot time, Mantra log throughput, Glow evaluation speed, and Tally
-  allocation rate on RV64G QEMU. Establish the baseline for real hardware.
-  **SLC gate:** performance document with all four metrics, each with unit and source.
+- [x] **Orbit 24 -- Performance baseline on RV64G**
+  Measured boot time, Mantra log throughput, Glow evaluation speed, and Tally
+  allocation rate on RV64G QEMU with 3 runs per module, median reported.
+  QEMU 11.1.3 on arm64 macOS, warm overhead ~46 ms per invocation.
+  18 modules in 1,095 ms wall-clock (~267 ms guest compute); Mantra ~6,400
+  facts/sec guest, Glow ~1,700 exprs/sec guest, Tally ~5,000 ops/sec guest.
+  19 ELFs total 166,512 bytes (162 KiB). fp_context and preempt are the two
+  outliers at ~137-139 ms (timer-driven preemptive scheduling with many switches).
+  **SLC gate:** performance document with all four metrics, each with unit and source --
+  `active-development/date/20261105/20261105-203102_rv64g-performance-baseline.md`.
+  **PROVEN.**
 
 - [ ] **Orbit 25 -- Act I completion witness and Act II scoping**
   A single witness proves all of Act I. Scope Act II in detail: the Dimeroll
