@@ -699,6 +699,8 @@ class FrameGridView: NSView {
     private(set) var eventRing = EventRing<SkateEvent>()
     private var cursorRow: Int = 0
     private var cursorCol: Int = 0
+    private var activeConsent: ConsentRail?
+    private var consentCallback: ((Bool) -> Void)?
     private let cellFont: NSFont
     private let cellWidth: CGFloat
     private let cellHeight: CGFloat
@@ -752,6 +754,15 @@ class FrameGridView: NSView {
 
     func update(grid newGrid: FrameGrid) {
         grid = newGrid
+        needsDisplay = true
+    }
+
+    func showConsent(
+        rail: ConsentRail,
+        callback: @escaping (Bool) -> Void
+    ) {
+        activeConsent = rail
+        consentCallback = callback
         needsDisplay = true
     }
 
@@ -858,50 +869,173 @@ class FrameGridView: NSView {
             ctx.setFillColor(defaultFG.cgColor)
             ctx.fill(cursorRect)
         }
+
+        drawConsentOverlay(ctx)
+    }
+
+    private func drawConsentOverlay(
+        _ ctx: CGContext
+    ) {
+        guard let rail = activeConsent else { return }
+
+        let overlayRows = 3
+        let startRow =
+            SkateCoreBounds.rows - overlayRows
+        let overlayBG = NSColor(
+            red: 0.1, green: 0.1,
+            blue: 0.3, alpha: 1.0
+        )
+        let consentFG = NSColor(
+            red: 1.0, green: 1.0,
+            blue: 0.6, alpha: 1.0
+        )
+        let promptFG = NSColor(
+            red: 0.7, green: 0.7,
+            blue: 0.7, alpha: 1.0
+        )
+
+        let bgRect = NSRect(
+            x: 0,
+            y: CGFloat(startRow) * cellHeight,
+            width: cellWidth
+                * CGFloat(SkateCoreBounds.columns),
+            height: cellHeight * CGFloat(overlayRows)
+        )
+        ctx.setFillColor(overlayBG.cgColor)
+        ctx.fill(bgRect)
+
+        let frame = rail.still(disclosure: .folded)
+        for lineIdx in 0..<frame.lineCount {
+            guard let bytes =
+                frame.accessibilityLine(row: lineIdx)
+            else { continue }
+            let row = startRow + lineIdx
+            let cols = min(
+                bytes.count,
+                SkateCoreBounds.columns
+            )
+            for col in 0..<cols {
+                let byte = bytes[col]
+                guard byte != 0x20 else { continue }
+                let scalar = Unicode.Scalar(byte)
+                let ch = String(Character(scalar))
+                let x = CGFloat(col) * cellWidth
+                let y = CGFloat(row) * cellHeight
+                let attrs:
+                    [NSAttributedString.Key: Any] = [
+                        .font: cellFont,
+                        .foregroundColor: consentFG,
+                    ]
+                let str = NSAttributedString(
+                    string: ch, attributes: attrs
+                )
+                str.draw(at: NSPoint(x: x, y: y))
+            }
+        }
+
+        let prompt =
+            "[Enter] accept  [Esc] decline"
+        let promptRow = startRow + overlayRows - 1
+        for (col, byte) in
+            prompt.utf8.prefix(
+                SkateCoreBounds.columns
+            ).enumerated()
+        {
+            let scalar = Unicode.Scalar(byte)
+            let ch = String(Character(scalar))
+            let x = CGFloat(col) * cellWidth
+            let y = CGFloat(promptRow) * cellHeight
+            let attrs:
+                [NSAttributedString.Key: Any] = [
+                    .font: cellFont,
+                    .foregroundColor: promptFG,
+                ]
+            let str = NSAttributedString(
+                string: ch, attributes: attrs
+            )
+            str.draw(at: NSPoint(x: x, y: y))
+        }
     }
 
     // -- cursor and event processing (Movement 7) ----------------------
 
     private func processEvents() {
-        var moved = false
+        var changed = false
         while let ev = eventRing.removeFirst() {
+            if activeConsent != nil {
+                switch ev {
+                case .keyDown(let keyCode, _):
+                    if keyCode == 36 {
+                        resolveConsent(accepted: true)
+                        changed = true
+                    } else if keyCode == 53 {
+                        resolveConsent(accepted: false)
+                        changed = true
+                    }
+                default:
+                    break
+                }
+                continue
+            }
             switch ev {
-            case .keyDown(let keyCode, _):
+            case .keyDown(let keyCode, let ch):
                 switch keyCode {
                 case 126: // up
                     if cursorRow > 0 {
                         cursorRow -= 1
-                        moved = true
+                        changed = true
                     }
                 case 125: // down
                     if cursorRow
                         < SkateCoreBounds.rows - 1
                     {
                         cursorRow += 1
-                        moved = true
+                        changed = true
                     }
                 case 123: // left
                     if cursorCol > 0 {
                         cursorCol -= 1
-                        moved = true
+                        changed = true
                     }
                 case 124: // right
                     if cursorCol
                         < SkateCoreBounds.columns - 1
                     {
                         cursorCol += 1
-                        moved = true
+                        changed = true
                     }
                 default:
-                    break
+                    if ch == 0x63 {
+                        showTestConsent()
+                        changed = true
+                    }
                 }
             default:
                 break
             }
         }
-        if moved {
+        if changed {
             needsDisplay = true
         }
+    }
+
+    private func resolveConsent(accepted: Bool) {
+        let cb = consentCallback
+        activeConsent = nil
+        consentCallback = nil
+        needsDisplay = true
+        cb?(accepted)
+    }
+
+    private func showTestConsent() {
+        guard activeConsent == nil else { return }
+        guard let rail = try? ConsentRail(
+            purpose: "read terminal output",
+            recipientID: "terrarium-host",
+            expiresAt: "2026-12-31",
+            consentStatus: "pending"
+        ) else { return }
+        showConsent(rail: rail) { _ in }
     }
 
     // -- keyboard adapter (Movement 6) --------------------------------

@@ -69,11 +69,14 @@
   - Cursor rendered as inverted palette (FG becomes BG fill, BG becomes text color); empty cells filled with defaultFG
   - Two-step build clean, Terrarium launches and exits clean with hello stage
 
-- [ ] **Movement 8: ConsentRail integration -- user consent flows**
+- [x] **Movement 8: ConsentRail integration -- user consent flows** -- PROVEN `20261106.161200`
   - SLC gate: a consent prompt appears in the FrameGrid, Enter accepts, Escape declines
-  - ConsentRail presents a question in the FrameGrid's bottom row
-  - EventRing delivers the user's keypress (Enter or Escape)
-  - The consent result flows back to the caller
+  - ConsentRail folded frame renders in bottom 3 rows of FrameGrid with dark blue background, yellow text
+  - Prompt line `[Enter] accept  [Esc] decline` in gray on the third overlay row
+  - Press 'c' to trigger test consent; Enter resolves accepted, Escape resolves declined
+  - EventRing delivers keypress; arrow keys blocked while consent is active
+  - `showConsent(rail:callback:)` public API for callers; `resolveConsent(accepted:)` clears state and fires callback
+  - Two-step build clean, Terrarium launches and exits clean with hello stage
 
 - [ ] **Movement 9: Scene switching -- Cmd+1 and Cmd+2**
   - SLC gate: Cmd+1 focuses the QEMU terminal pane, Cmd+2 focuses the FrameGrid pane

@@ -11,6 +11,7 @@
 
 | Stamp | Movement | What landed | Witness |
 |---|---|---|---|
+| 20261106.161200 | 8 | ConsentRail integration -- consent overlay in bottom 3 rows, Enter accepts, Escape declines, 'c' triggers test | Two-step build clean, Terrarium launches and exits clean with hello stage |
 | 20261106.155800 | 7 | FrameGrid cursor -- visible cursor driven by EventRing, arrow key movement | Two-step build clean, cursor inverts palette at position, arrow keys move it |
 | 20261106.152832 | 6 | EventRing keyboard adapter -- `SkateEvent` enum and AppKit key wiring | Two-step build clean, Terrarium launches, key events enter EventRing |
 | 20261106.143447 | 5 | Quest 1 integration witness -- `terrarium_quest1_witness.rish` proves Movements 1-4 end to end | GREEN: build, launch, QEMU output, clean exit all verified |
