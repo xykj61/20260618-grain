@@ -80,7 +80,10 @@ class AppDelegate: NSObject,
     var dimerollTransactions: [(
         Int, String, String, String, String, String
     )] = []
+    var dimerollInventory: [(String, String)] = []
     var dimerollRawBuffer: String = ""
+    var dimerollActiveElf: String = ""
+    var dimerollInLedgerTable: Bool = false
     let dimerollModules: [(String, String)] = [
         ("Transactions", "dimeroll_tx_g"),
         ("Inventory", "dimeroll_inventory_g"),
@@ -845,7 +848,13 @@ class AppDelegate: NSObject,
             dimerollRawBuffer = String(
                 dimerollRawBuffer[range.upperBound...]
             )
-            parseDimerollLine(line)
+            if dimerollActiveElf
+                == "dimeroll_inventory_g"
+            {
+                parseDimerollInventoryLine(line)
+            } else {
+                parseDimerollLine(line)
+            }
         }
     }
 
@@ -897,6 +906,40 @@ class AppDelegate: NSObject,
         dimerollTableView?.reloadData()
     }
 
+    func parseDimerollInventoryLine(
+        _ line: String
+    ) {
+        let trimmed = line.trimmingCharacters(
+            in: .whitespaces
+        )
+        if trimmed.hasPrefix(
+            "--- DIMEROLL FIELD LEDGER ---"
+        ) {
+            dimerollInLedgerTable = true
+            return
+        }
+        if trimmed.hasPrefix("-- SLC GATE --") {
+            dimerollInLedgerTable = false
+            return
+        }
+        guard dimerollInLedgerTable else { return }
+        guard trimmed.hasPrefix("|") else { return }
+        let cells = trimmed.split(
+            separator: "|",
+            omittingEmptySubsequences: true
+        ).map {
+            $0.trimmingCharacters(in: .whitespaces)
+        }
+        guard cells.count >= 2 else { return }
+        let subj = cells[0]
+        let qty = cells[1]
+        if subj == "Subject" || subj.hasPrefix("-") {
+            return
+        }
+        dimerollInventory.append((subj, qty))
+        dimerollTableView?.reloadData()
+    }
+
     @objc func dimerollModuleChanged(
         _ sender: NSPopUpButton
     ) {
@@ -914,9 +957,53 @@ class AppDelegate: NSObject,
             )
             + "\n\n"
         dimerollTransactions.removeAll()
+        dimerollInventory.removeAll()
         dimerollRawBuffer = ""
+        dimerollInLedgerTable = false
+        dimerollActiveElf = elfName
+        rebuildDimerollColumns()
         dimerollTableView?.reloadData()
         launchDimerollStage(elfName)
+    }
+
+    func rebuildDimerollColumns() {
+        guard let tbl = dimerollTableView
+        else { return }
+        while tbl.tableColumns.count > 0 {
+            tbl.removeTableColumn(
+                tbl.tableColumns[0]
+            )
+        }
+        let cols: [(String, String, CGFloat)]
+        if dimerollActiveElf
+            == "dimeroll_inventory_g"
+        {
+            cols = [
+                ("Subject", "subject", 160),
+                ("On Hand", "qty", 100),
+            ]
+        } else {
+            cols = [
+                ("#", "num", 40),
+                ("Verb", "verb", 80),
+                ("Subject", "subject", 100),
+                ("Quantity", "qty", 80),
+                ("Price", "price", 80),
+                ("Unit", "unit", 70),
+            ]
+        }
+        for (title, ident, width) in cols {
+            let col = NSTableColumn(
+                identifier:
+                    NSUserInterfaceItemIdentifier(
+                        ident
+                    )
+            )
+            col.title = title
+            col.width = width
+            col.minWidth = 40
+            tbl.addTableColumn(col)
+        }
     }
 
     @objc func dimerollRunClicked(
@@ -1560,6 +1647,11 @@ extension AppDelegate: NSTableViewDataSource {
         in tableView: NSTableView
     ) -> Int {
         if tableView === dimerollTableView {
+            if dimerollActiveElf
+                == "dimeroll_inventory_g"
+            {
+                return dimerollInventory.count
+            }
             return dimerollTransactions.count
         }
         return sidebarModules.count
@@ -1603,20 +1695,34 @@ extension AppDelegate: NSTableViewDelegate {
         tableColumn: NSTableColumn?,
         row: Int
     ) -> NSView? {
-        guard row < dimerollTransactions.count,
-              let colId = tableColumn?.identifier
+        guard let colId = tableColumn?.identifier
                   .rawValue
         else { return nil }
-        let tx = dimerollTransactions[row]
         let val: String
-        switch colId {
-        case "num": val = "\(tx.0)"
-        case "verb": val = tx.1
-        case "subject": val = tx.2
-        case "qty": val = tx.3
-        case "price": val = tx.4
-        case "unit": val = tx.5
-        default: val = ""
+        if dimerollActiveElf
+            == "dimeroll_inventory_g"
+        {
+            guard row < dimerollInventory.count
+            else { return nil }
+            let inv = dimerollInventory[row]
+            switch colId {
+            case "subject": val = inv.0
+            case "qty": val = inv.1
+            default: val = ""
+            }
+        } else {
+            guard row < dimerollTransactions.count
+            else { return nil }
+            let tx = dimerollTransactions[row]
+            switch colId {
+            case "num": val = "\(tx.0)"
+            case "verb": val = tx.1
+            case "subject": val = tx.2
+            case "qty": val = tx.3
+            case "price": val = tx.4
+            case "unit": val = tx.5
+            default: val = ""
+            }
         }
         let cellId = NSUserInterfaceItemIdentifier(
             "DimerollCell"

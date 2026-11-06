@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.180959 | [Inventory summary view -- Movement 21 landed](20261106/20261106-180959_inventory-summary-view-movement21.kyri.md) | 2-column inventory table, dynamic column rebuild, UART parser |
 | 20261106.175602 | [Act II Quest 1 integration witness -- Movement 20 GREEN](20261106/20261106-175602_act2-quest1-integration-witness-movement20.kyri.md) | 12 symbols, QEMU dimeroll_tx_g, all 4 movements proven |
 | 20261106.174122 | [Structured output parsing -- Movement 19](20261106/20261106-174122_structured-output-parsing-movement19.kyri.md) | NSTableView with 6 columns, NSSegmentedControl Table/Raw toggle, UART parser |
 | 20261106.172652 | [Module selector -- Movement 18](20261106/20261106-172652_module-selector-movement18.kyri.md) | NSPopUpButton with 10 Dimeroll modules, Run button, launches selected ELF |

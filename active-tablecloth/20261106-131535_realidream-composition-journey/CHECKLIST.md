@@ -193,7 +193,7 @@
 
 ### Quest 2: Ledger Views (Movements 21-25)
 
-- [ ] **Movement 21: Inventory summary view**
+- [x] **Movement 21: Inventory summary view**
   - SLC gate: running `dimeroll_inventory_g.elf` displays parsed inventory in a formatted table
   - NSTableView with columns: Subject, Quantity, derived from UART output
   - Final inventory state: tomatoes 95, peppers 15, leaves 30
