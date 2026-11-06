@@ -11,6 +11,7 @@
 
 | Stamp | Movement | What landed | Witness |
 |---|---|---|---|
+| 20261106.180300 | 20 | Act II Quest 1 integration witness -- launch script and Rishi witness prove all 4 Dimeroll-in-the-Glass movements; 12 binary symbol checks, QEMU launches dimeroll_tx_g, output parsed, clean exit | `terrarium_act2_quest1_witness.rish` GREEN: all 4 movements proven on metal |
 | 20261106.174122 | 19 | Structured output parsing -- `parseDimerollTransactions` buffers UART, `parseDimerollLine` extracts `[N] (verb subject qty [unit] [price])` tuples, NSTableView with 6 columns, NSSegmentedControl toggles Table/Raw | Build clean, `dimerollCellView` + `dimerollRawBuffer` + `dimerollTable` + `dimerollViewToggle` + `dimerollViewToggled` + `parseDimerollLine` + `parseDimerollTransaction` symbols in binary |
 | 20261106.172652 | 18 | Module selector -- NSPopUpButton with 10 Dimeroll modules, Run button, `dimerollModuleChanged` launches selected ELF | Build clean, `dimerollModulePopUp` + `dimerollModuleChanged` + `dimerollRunClicked` + `dimerollModules` symbols in binary |
 | 20261106.171836 | 17 | Dimeroll stage launcher -- `launchDimerollStage(_:)` spawns `qemu-system-riscv64`, captures UART into `dimerollTextView`, separate from main QEMU process | Build clean, `launchDimerollStage` + `appendDimeroll` + `dimerollProcess` symbols in binary |

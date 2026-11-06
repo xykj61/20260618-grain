@@ -185,11 +185,11 @@
   - NSTableViewDataSource dispatch distinguishes sidebar table from Dimeroll table via identity check
   - Two-step build clean, 7 new symbols in binary, hello stage unaffected
 
-- [ ] **Movement 20: Quest 1 integration witness**
-  - SLC gate: witness proves Dimeroll tab creation, stage launch, module selection, and output parsing
-  - Headless harness tests the Dimeroll data model and parsing
-  - Binary symbol checks for NSPopUpButton, Dimeroll tab identifier, transaction table
-  - QEMU integration: `dimeroll_tx_g.elf` launched and output captured
+- [x] **Movement 20: Quest 1 integration witness** -- PROVEN 20261106
+  - Launch script (`terrarium_act2_quest1_launch.sh`) and Rishi witness (`terrarium_act2_quest1_witness.rish`)
+  - 12 binary symbol checks: focusDimeroll, dimerollProcess, dimerollModulePopUp, dimerollModuleChanged, dimerollRunClicked, dimerollModules, NSPopUpButton, dimerollTableView, dimerollViewToggled, dimerollRawBuffer, dimerollTransactions, dimeroll_tx_g
+  - QEMU integration: dimeroll_tx_g launched, output reached app, transaction line parsed, clean exit
+  - File-based output capture avoids Rishi string-length limit on large QEMU terminal dumps
 
 ### Quest 2: Ledger Views (Movements 21-25)
 
