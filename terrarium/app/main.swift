@@ -58,6 +58,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var wireAckSent = false
     var mantraVerifySent = false
     var frameGridView: FrameGridView?
+    var serialLines: [String] = []
 
     func applicationDidFinishLaunching(_ note: Notification) {
         let mask: NSWindow.StyleMask = [
@@ -167,35 +168,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             gridContainer.addSubview(fgv)
 
             splitView.addSubview(gridContainer)
-
-            var testGrid = FrameGrid()
-            try? testGrid.setPalette(
-                slot: 1,
-                color: SkateColor(
-                    red: 0, green: 230, blue: 102
-                )
-            )
-            try? testGrid.setPalette(
-                slot: 2,
-                color: SkateColor(
-                    red: 102, green: 51, blue: 153
-                )
-            )
-            try? testGrid.paint(
-                row: 0,
-                columns: 0..<SkateCoreBounds.columns,
-                paletteSlot: 1
-            )
-            try? testGrid.paint(
-                row: 7,
-                columns: 0..<SkateCoreBounds.columns,
-                paletteSlot: 1
-            )
-            try? testGrid.paint(
-                row: 3, columns: 15..<25,
-                paletteSlot: 2
-            )
-            fgv.update(grid: testGrid)
         } else {
             let placeholder = NSView(
                 frame: NSRect(
@@ -650,6 +622,48 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         )
         textView.textStorage?.append(attrStr)
         textView.scrollToEndOfDocument(nil)
+        updateGrid()
+    }
+
+    func updateGrid() {
+        guard #available(macOS 26.0, *),
+              let fgv = frameGridView
+        else { return }
+
+        let allLines = serialBuffer.components(
+            separatedBy: "\n"
+        )
+        let filtered = allLines.filter { !$0.isEmpty }
+        let rows = SkateCoreBounds.rows
+        let start = max(0, filtered.count - rows)
+        let visible = Array(
+            filtered[start..<filtered.count]
+        )
+
+        var grid = FrameGrid()
+        try? grid.setPalette(
+            slot: 1,
+            color: SkateColor(
+                red: 0, green: 230, blue: 102
+            )
+        )
+
+        for (i, line) in visible.enumerated() {
+            let bytes = Array(line.utf8.prefix(
+                SkateCoreBounds.columns
+            ))
+            try? grid.writeRow(row: i, text: bytes)
+            try? grid.paint(
+                row: i,
+                columns: 0..<min(
+                    bytes.count,
+                    SkateCoreBounds.columns
+                ),
+                paletteSlot: 1
+            )
+        }
+
+        fgv.update(grid: grid)
     }
 
     func dumpAndExit(status: Int32) {

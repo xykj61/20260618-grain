@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.142142 | [Serial-to-grid bridge -- Movement 4 PROVEN](20261106/20261106-142142_serial-to-grid-bridge.kyri.md) | writeRow API, updateGrid parses serialBuffer, live FrameGrid from QEMU output |
 | 20261106.141057 | [Dual-pane window -- Movement 3 PROVEN](20261106/20261106-141057_dual-pane-movement3.kyri.md) | NSSplitView, terminal left, FrameGridView right, resizable divider |
 | 20261106.134540 | [FrameGrid NSView draws 40x8 cell grid -- Movement 2 PROVEN](20261106/20261106-134540_framegridview-movement2.kyri.md) | Core Graphics draw, palette colors, test pattern visible in Terrarium |
 | 20261106.133047 | [Import SkateCore into Terrarium build -- Movement 1 PROVEN](20261106/20261106-133047_skatecore-import-movement1.kyri.md) | InlineArray Equatable extension, two-step module build, import SkateCore compiles |

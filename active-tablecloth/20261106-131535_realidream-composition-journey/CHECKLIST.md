@@ -36,11 +36,13 @@
   - Framebuffer stage branch preserved (NSImageView above split view)
   - Fallback for pre-macOS 26: right pane is a plain black NSView
 
-- [ ] **Movement 4: Serial-to-grid bridge -- parse QEMU output into FrameGrid cells**
+- [x] **Movement 4: Serial-to-grid bridge -- parse QEMU output into FrameGrid cells** -- PROVEN `20261106.161845`
   - SLC gate: QEMU serial output drives FrameGrid content in real time
-  - Parse the last N lines of serial output into FrameGrid rows
-  - Each line maps to a FrameGrid row, truncated or padded to 40 columns
-  - Live update: as new serial lines arrive, the grid scrolls
+  - Added `writeRow(row:text:)` public method to FrameGrid -- writes ASCII bytes into cells, truncates at 40, pads with space
+  - `updateGrid()` in AppDelegate parses `serialBuffer` into lines, takes the last 8 non-empty, writes each to a grid row
+  - Palette slot 1 (terminal green) paints each row's text region
+  - Live update: each `appendText` call triggers `updateGrid`, so the grid scrolls as new serial lines arrive
+  - Tested with `amphora_seal_g` (long output, scrolling) and `hello` (short output, one line)
 
 - [ ] **Movement 5: Quest 1 integration witness**
   - SLC gate: witness script launches Terrarium with a QEMU stage, captures screenshot, verifies dual pane

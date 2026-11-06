@@ -423,6 +423,29 @@ public struct FrameGrid: Sendable {
     return row * SkateCoreBounds.columns + column
   }
 
+  public mutating func writeRow(
+    row: Int,
+    text: some RandomAccessCollection<UInt8>
+  ) throws {
+    guard row >= 0, row < SkateCoreBounds.rows else {
+      throw FrameGridError.rowOutOfBounds
+    }
+    let base = row * SkateCoreBounds.columns
+    var column = 0
+    var position = text.startIndex
+    while column < SkateCoreBounds.columns {
+      let offset = base + column
+      precondition(offset >= 0 && offset < SkateCoreBounds.cellCount)
+      if position != text.endIndex {
+        cells[offset] = text[position]
+        position = text.index(after: position)
+      } else {
+        cells[offset] = 0x20
+      }
+      column += 1
+    }
+  }
+
   fileprivate mutating func write(_ line: BrushstrokeLine, at row: Int) {
     precondition(row >= 0 && row < SkateCoreBounds.rows)
     precondition(line.count > 0 && line.count <= SkateCoreBounds.columns)
