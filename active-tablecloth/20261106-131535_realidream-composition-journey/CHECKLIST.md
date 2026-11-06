@@ -198,7 +198,7 @@
   - NSTableView with columns: Subject, Quantity, derived from UART output
   - Final inventory state: tomatoes 95, peppers 15, leaves 30
 
-- [ ] **Movement 22: Cash flow view**
+- [x] **Movement 22: Cash flow view**
   - SLC gate: running `dimeroll_cashflow_g.elf` displays cash flow in a running-total format
   - Sale transactions with computed totals (tomatoes 12000, peppers 3750, total 15750)
   - Separate column for per-unit price and quantity sold
