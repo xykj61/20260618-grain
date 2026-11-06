@@ -399,9 +399,16 @@ and a daily summary.*
   **Witness:** `terrarium/dimeroll_query_verb_witness.rish` -- build,
   QEMU 19-proof run, all 5 verb filters verified. **GREEN on metal.**
 
-- [ ] **Orbit 37 -- Query by subject**
-  "Show me everything about tomatoes" -- filter by subject across all verbs.
-  **SLC gate:** subject query returns correct subset.
+- [x] **Orbit 37 -- Query by subject** PROVEN `20261106`
+  "Show me everything about tomatoes" -- filter by subject string across all
+  verbs. query_by_subject scans all 9 transactions via str_eq byte comparison.
+  4 subjects queried: tomatoes 4, peppers 3, leaves 1, rainfall 1. Empty
+  query proven (carrots returns 0). Completeness proven: all 4 real subjects
+  cover all 9 transactions. Mantra hash 0xe9cf083f, replay identity proven,
+  19/19 proofs on QEMU.
+  **SLC gate:** subject query returns correct subset -- PROVEN.
+  **Witness:** `terrarium/dimeroll_query_subject_witness.rish` -- build,
+  QEMU 19-proof run, all 4 subjects + empty query verified. **GREEN on metal.**
 
 - [ ] **Orbit 38 -- Query by date range**
   "Show me last week" -- filter by timestamp range.

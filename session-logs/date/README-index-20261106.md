@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.112851 | [Query by subject landed -- Movement 37 GREEN](20261106/20261106-112851_query-by-subject-landed.kyri.md) | 19/19 proofs, str_eq subject filter, hash mismatch debugged, witness GREEN |
 | 20261106.111304 | [Query by verb landed -- Movement 36 GREEN](20261106/20261106-111304_query-by-verb-landed.kyri.md) | 19/19 proofs, QueryResult filters by GlowVerb, witness GREEN |
 | 20261106.015044 | [Quest 2.2 Ledger page integration witness -- 66 proofs GREEN](20261106/20261106-015044_quest22-integration-witness.kyri.md) | 66 proofs across 4 modules, Quest 2.2 complete |
 | 20261106.012946 | [dimeroll_seal landed -- Amphora daily seal over Mantra log](20261106/20261106-012946_dimeroll-seal-landed.kyri.md) | 16/16 proofs, seal 0xb3db1acd, witness GREEN |

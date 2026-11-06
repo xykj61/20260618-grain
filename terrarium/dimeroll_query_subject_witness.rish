@@ -1,0 +1,52 @@
+#!/usr/bin/env rishi
+# dimeroll_query_subject_witness.rish
+#
+# Movement 37 witness -- Query by subject
+# Builds and runs dimeroll_query_subject on RV64G QEMU.
+# 19 proofs: 2 Mantra, 10 subject filters, 1 empty query,
+# 1 completeness, 2 replay, plus structural checks.
+
+say "=== dimeroll_query_subject witness ==="
+say ""
+
+say "-- build --"
+
+let build = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/dimeroll_query_subject.rye -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64+m+a+f+d -femit-bin=terrarium/.build/dimeroll_query_subject_g.elf 2>&1"]
+assert build.ok else "build failed: ${build.err}"
+say "  build: ok"
+
+say ""
+say "-- run on QEMU --"
+
+let qemu = run ["sh" "-c" "cd /Users/bhagavan851c05a/20260618-grain && timeout 10 qemu-system-riscv64 -machine virt -bios none -display none -serial stdio -kernel terrarium/.build/dimeroll_query_subject_g.elf 2>/dev/null"]
+assert qemu.ok else "QEMU failed: ${qemu.err}"
+
+assert qemu.out contains "proofs: 19/19" else "expected 19/19 proofs"
+assert qemu.out contains "ALL PROOFS PASSED" else "not all proofs passed"
+assert qemu.out contains "Mantra hash 0xe9cf083f" else "Mantra hash mismatch"
+
+say ""
+say "-- subject filter checks --"
+
+assert qemu.out contains "tomatoes returns 4 results" else "tomatoes count wrong"
+assert qemu.out contains "peppers returns 3 results" else "peppers count wrong"
+assert qemu.out contains "leaves returns 1 result" else "leaves count wrong"
+assert qemu.out contains "rainfall returns 1 result" else "rainfall count wrong"
+assert qemu.out contains "carrots returns 0 results" else "carrots empty query wrong"
+
+assert qemu.out contains "all subjects cover all 9 transactions" else "completeness check failed"
+assert qemu.out contains "REPLAY MATCHES: identical state proven" else "replay failed"
+
+assert qemu.out contains "dimeroll_query_subject complete" else "completion marker missing"
+
+say "  tomatoes: 4 results"
+say "  peppers:  3 results"
+say "  leaves:   1 result"
+say "  rainfall: 1 result"
+say "  carrots:  0 results (empty query)"
+say "  total:    9 (all subjects cover all transactions)"
+say "  Mantra:   0xe9cf083f"
+say "  replay:   identical state proven"
+
+say ""
+say "=== dimeroll_query_subject witness: GREEN ==="
