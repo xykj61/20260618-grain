@@ -165,10 +165,15 @@
   - Binary contains `launchDimerollStage`, `appendDimeroll`, `dimerollProcess` symbols
   - Terrarium builds clean, main QEMU integration unaffected
 
-- [ ] **Movement 18: Module selector -- pick which Dimeroll module to run**
+- [x] **Movement 18: Module selector -- pick which Dimeroll module to run** -- PROVEN `20261106.172652`
   - SLC gate: a dropdown or segmented control lets the user choose among the 10 Dimeroll modules
-  - NSPopUpButton listing: Transactions, Inventory, Cash Flow, Ledger, Seal, Price, Query by Verb, Query by Subject, Query by Date, Query by Account
-  - Selection launches the corresponding `dimeroll_*_g.elf` stage
+  - NSPopUpButton with 10 entries in a container above the text view, plus a Run button
+  - `dimerollModules` array maps display labels to ELF basenames
+  - `dimerollModuleChanged(_:)` clears the text view header and launches the selected stage
+  - `dimerollRunClicked(_:)` re-runs the current selection
+  - Auto Layout positions popup and scroll view; popup at top, text view fills remaining space
+  - Binary contains `dimerollModulePopUp`, `dimerollModuleChanged`, `dimerollRunClicked`, `dimerollModules` symbols
+  - Two-step build clean, main QEMU integration unaffected
 
 - [ ] **Movement 19: Structured output parsing -- transaction lines into table rows**
   - SLC gate: Dimeroll UART output is parsed into an NSTableView with columns per transaction field

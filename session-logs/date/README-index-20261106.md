@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.172652 | [Module selector -- Movement 18](20261106/20261106-172652_module-selector-movement18.kyri.md) | NSPopUpButton with 10 Dimeroll modules, Run button, launches selected ELF |
 | 20261106.171836 | [Dimeroll stage launcher -- Movement 17](20261106/20261106-171836_dimeroll-stage-launcher-movement17.kyri.md) | launchDimerollStage spawns qemu-system-riscv64, UART into dimerollTextView |
 | 20261106.171231 | [Dimeroll tab -- Movement 16, Act II begins](20261106/20261106-171231_dimeroll-tab-movement16.kyri.md) | focusDimeroll() creates dedicated view, warm gold on near-black, Act I still GREEN |
 | 20261106.163107 | [Act I integration witness -- Movement 15, all 14 movements proven](20261106/20261106-163107_act1-integration-witness-movement15.kyri.md) | Quest 1 + Quest 2 + Quest 3 composed, 16 proofs, 13 symbols, QEMU GREEN |

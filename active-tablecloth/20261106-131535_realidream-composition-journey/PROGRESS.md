@@ -11,6 +11,7 @@
 
 | Stamp | Movement | What landed | Witness |
 |---|---|---|---|
+| 20261106.172652 | 18 | Module selector -- NSPopUpButton with 10 Dimeroll modules, Run button, `dimerollModuleChanged` launches selected ELF | Build clean, `dimerollModulePopUp` + `dimerollModuleChanged` + `dimerollRunClicked` + `dimerollModules` symbols in binary |
 | 20261106.171836 | 17 | Dimeroll stage launcher -- `launchDimerollStage(_:)` spawns `qemu-system-riscv64`, captures UART into `dimerollTextView`, separate from main QEMU process | Build clean, `launchDimerollStage` + `appendDimeroll` + `dimerollProcess` symbols in binary |
 | 20261106.171231 | 16 | Dimeroll tab -- sidebar entry creates dedicated view with `focusDimeroll()`, warm gold text on near-black, tab protected from Cmd+W, status bar recognizes module | Act I witness GREEN: all 14 prior movements still proven, no regression |
 | 20261106.163107 | 15 | Act I integration witness -- composes Quest 1, Quest 2, Quest 3; 16 headless proofs, 13 binary symbol checks, QEMU integration proven | `terrarium_act1_witness.rish` GREEN: all 14 movements proven on metal |

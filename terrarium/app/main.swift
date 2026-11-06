@@ -73,6 +73,22 @@ class AppDelegate: NSObject,
     ]
     var dimerollTextView: NSTextView?
     var dimerollProcess: Process?
+    var dimerollModulePopUp: NSPopUpButton?
+    let dimerollModules: [(String, String)] = [
+        ("Transactions", "dimeroll_tx_g"),
+        ("Inventory", "dimeroll_inventory_g"),
+        ("Cash Flow", "dimeroll_cashflow_g"),
+        ("Ledger", "dimeroll_ledger_g"),
+        ("Seal", "dimeroll_seal_g"),
+        ("Price", "dimeroll_price_g"),
+        ("Query by Verb", "dimeroll_query_verb_g"),
+        ("Query by Subject",
+         "dimeroll_query_subject_g"),
+        ("Query by Date",
+         "dimeroll_query_date_g"),
+        ("Query by Account",
+         "dimeroll_query_account_g"),
+    ]
     var nextTabId = 3
     var shortcutStatusLabel: NSTextField?
     var connectionLabel: NSTextField?
@@ -482,10 +498,48 @@ class AppDelegate: NSObject,
             identifier: "dimeroll"
         )
         item.label = "Dimeroll"
-        let sv = NSScrollView(
+        let container = NSView(
             frame: NSRect(
                 x: 0, y: 0, width: 600,
                 height: 400
+            )
+        )
+        container.autoresizingMask =
+            [.width, .height]
+
+        let popUp = NSPopUpButton(
+            frame: NSRect(
+                x: 8, y: 0, width: 250,
+                height: 28
+            ),
+            pullsDown: false
+        )
+        popUp.autoresizingMask = [.minYMargin]
+        for (label, _) in dimerollModules {
+            popUp.addItem(withTitle: label)
+        }
+        popUp.target = self
+        popUp.action =
+            #selector(dimerollModuleChanged(_:))
+        dimerollModulePopUp = popUp
+
+        let runBtn = NSButton(
+            frame: NSRect(
+                x: 266, y: 0, width: 60,
+                height: 28
+            )
+        )
+        runBtn.autoresizingMask = [.minYMargin]
+        runBtn.title = "Run"
+        runBtn.bezelStyle = .rounded
+        runBtn.target = self
+        runBtn.action =
+            #selector(dimerollRunClicked(_:))
+
+        let sv = NSScrollView(
+            frame: NSRect(
+                x: 0, y: 0, width: 600,
+                height: 368
             )
         )
         sv.autoresizingMask = [.width, .height]
@@ -509,7 +563,62 @@ class AppDelegate: NSObject,
             + "========================\n\n"
         sv.documentView = dtv
         dimerollTextView = dtv
-        item.view = sv
+
+        container.addSubview(sv)
+        container.addSubview(popUp)
+        container.addSubview(runBtn)
+
+        popUp.translatesAutoresizingMaskIntoConstraints
+            = false
+        runBtn
+            .translatesAutoresizingMaskIntoConstraints
+            = false
+        sv.translatesAutoresizingMaskIntoConstraints
+            = false
+        NSLayoutConstraint.activate([
+            popUp.topAnchor.constraint(
+                equalTo: container.topAnchor,
+                constant: 4
+            ),
+            popUp.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 8
+            ),
+            popUp.widthAnchor.constraint(
+                equalToConstant: 250
+            ),
+            popUp.heightAnchor.constraint(
+                equalToConstant: 28
+            ),
+            runBtn.centerYAnchor.constraint(
+                equalTo: popUp.centerYAnchor
+            ),
+            runBtn.leadingAnchor.constraint(
+                equalTo: popUp.trailingAnchor,
+                constant: 8
+            ),
+            runBtn.widthAnchor.constraint(
+                equalToConstant: 60
+            ),
+            runBtn.heightAnchor.constraint(
+                equalToConstant: 28
+            ),
+            sv.topAnchor.constraint(
+                equalTo: popUp.bottomAnchor,
+                constant: 4
+            ),
+            sv.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor
+            ),
+            sv.trailingAnchor.constraint(
+                equalTo: container.trailingAnchor
+            ),
+            sv.bottomAnchor.constraint(
+                equalTo: container.bottomAnchor
+            ),
+        ])
+
+        item.view = container
         tv.addTabViewItem(item)
         tv.selectTabViewItem(item)
         window.makeFirstResponder(dtv)
@@ -627,6 +736,33 @@ class AppDelegate: NSObject,
             )
         )
         dtv.scrollToEndOfDocument(nil)
+    }
+
+    @objc func dimerollModuleChanged(
+        _ sender: NSPopUpButton
+    ) {
+        let idx = sender.indexOfSelectedItem
+        guard idx >= 0,
+              idx < dimerollModules.count
+        else { return }
+        let (label, elfName) = dimerollModules[idx]
+        guard let dtv = dimerollTextView
+        else { return }
+        dtv.string = "Dimeroll -- \(label)\n"
+            + String(
+                repeating: "=",
+                count: 12 + label.count
+            )
+            + "\n\n"
+        launchDimerollStage(elfName)
+    }
+
+    @objc func dimerollRunClicked(
+        _ sender: NSButton
+    ) {
+        guard let popUp = dimerollModulePopUp
+        else { return }
+        dimerollModuleChanged(popUp)
     }
 
     @objc func toggleSidebar() {
