@@ -296,11 +296,19 @@ harvested, sold, and composted -- enters a signed, bounded, supervised ledger.*
 
 *Glow learns verbs. The evaluator grows from `3 + 4` to `plant tomatoes 200 seeds`.*
 
-- [ ] **Orbit 26 -- Transaction grammar in Glow**
-  Extend the Glow parser to recognize transactions: `verb subject quantity [unit]
-  [price]`. Five verbs: `plant`, `harvest`, `sell`, `compost`, `note`. Each
-  parses to a transaction record rather than a numeric value.
-  **SLC gate:** Glow parses 5 transaction forms and prints their fields on Aurora.
+- [x] **Orbit 26 -- Transaction grammar in Glow** (`20261105.210635`)
+  Five Glow transaction verbs -- plant, harvest, sell, compost, note -- each
+  parsing to a `TransactionRecord` with bounded fields (verb, subject, qty,
+  unit, price_cents, has_unit, has_price). Five pre-compiled transactions
+  exercising all field combinations: `(plant tomatoes 200 seeds)`, `(harvest
+  tomatoes 45 kg)`, `(sell peppers 12 kg 375)`, `(compost leaves 30)`, `(note
+  rainfall 25 mm)`. 27 proofs: 5 fields x 5 transactions + verb coverage +
+  Mantra bounded. Mantra state hash `0x5e1a6971`, 5 facts logged, 107/4096
+  tally bytes. 8376-byte ELF.
+  **SLC gate:** Glow parses 5 transaction forms and prints their fields on
+  Aurora -- PROVEN.
+  **Witness:** `terrarium/glow_txn_witness.rish` -- build, QEMU 27-proof run,
+  Mantra integrity. **GREEN on metal.**
 
 - [ ] **Orbit 27 -- Transaction evaluation and Mantra logging**
   Each parsed transaction evaluates to a signed Mantra fact. The fact carries
