@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.090323 | [Mantra SLC tablecloth project and Calfive prepend](20261107/20261107-090323_mantra-slc-tablecloth-and-send.kyri.md) | tablecloth board, expanding prompt, ITINERARY prepended |
 | 20261107.090009 | [Mantra SLC expanding prompt and Calfive check-in](20261107/20261107-090009_mantra-slc-expanding-prompt.kyri.md) | 15-movement proposal, Calfive stack reordered, Siya galaxy named |
 | 20261107.021200 | [Bloom journey close -- survey for next SLC](20261107/20261107-021200_bloom-journey-close-and-next.kyri.md) | main.swift 3,733 lines in one file; two SLC candidates named |
 | 20261107.013527 | [Act IV Bloom tab and cross-references](20261107/20261107-013527_act4-bloom-tab-crossrefs.kyri.md) | M69-71: Bloom tab tutorial, terrarium README, docs-geode cross-references |
