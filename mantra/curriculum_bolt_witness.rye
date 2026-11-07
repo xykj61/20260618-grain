@@ -1,0 +1,125 @@
+//! mantra/curriculum_bolt_witness.rye -- proves ten Bloom curriculum pages
+//! stored as spooled Mantra resins on ~sunflower recall with exact bytes
+//! and matching SHA3-256 digests.
+//!
+//!   rye build mantra/curriculum_bolt_witness.rye \
+//!       -femit-bin=mantra/bin/curriculum-bolt-witness
+//!   mantra/bin/curriculum-bolt-witness
+//!
+//! Movement 2 of the Mantra SLC expanding prompt. Three claims:
+//!   1. Each curriculum page winds into a spool over a shared BeadStore
+//!      without exceeding the 64-resin or 32 KB ceiling.
+//!   2. Unspooling each page returns the exact embedded bytes.
+//!   3. The spool's whole-content SHA3-256 digest matches an independent
+//!      computation over the original bytes.
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+const beading = @import("beading.rye");
+const spool = @import("spool.rye");
+const tally_copy = @import("tally_copy.rye");
+const Sha3_256 = std.crypto.hash.sha3.Sha3_256;
+
+const witness_version = "20261107.093000";
+
+// invariant: peer fits in 16 bytes (10 bytes for ~sunflower).
+const curriculum_peer = "~sunflower";
+
+const Page = struct {
+    name: []const u8,
+    content: []const u8,
+};
+
+// Ten curriculum pages, embedded at compile time via symlinks in corpora/.
+// invariant: each page is under spool.max_content_bytes (32768).
+const pages = [_]Page{
+    .{ .name = "stage-01", .content = @embedFile("corpora/stage_01.md") },
+    .{ .name = "stage-02", .content = @embedFile("corpora/stage_02.md") },
+    .{ .name = "stage-03", .content = @embedFile("corpora/stage_03.md") },
+    .{ .name = "stage-04", .content = @embedFile("corpora/stage_04.md") },
+    .{ .name = "stage-05", .content = @embedFile("corpora/stage_05.md") },
+    .{ .name = "stage-06", .content = @embedFile("corpora/stage_06.md") },
+    .{ .name = "stage-07", .content = @embedFile("corpora/stage_07.md") },
+    .{ .name = "stage-08", .content = @embedFile("corpora/stage_08.md") },
+    .{ .name = "stage-09", .content = @embedFile("corpora/stage_09.md") },
+    .{ .name = "stage-10", .content = @embedFile("corpora/stage_10.md") },
+};
+
+fn independent_digest(content: []const u8, out: *[32]u8) void {
+    Sha3_256.hash(content, out, .{});
+}
+
+fn run_selftest() !u8 {
+    var store: beading.BeadStore = .empty();
+    var spools: [10]spool.Spool = undefined;
+    var reassemble_buf: [spool.max_content_bytes]u8 = undefined;
+
+    // -- Claim 1: each page winds into a spool within bounds.
+    print("curriculum-bolt-witness: winding 10 pages on {s}\n", .{curriculum_peer});
+    var total_resins: u32 = 0;
+    var total_beads: u32 = 0;
+    var i: u32 = 0;
+    while (i < 10) : (i += 1) {
+        const page = pages[i];
+        // invariant: every page fits the spool ceiling
+        assert(page.content.len <= spool.max_content_bytes);
+        // invariant: every page exceeds a single resin -- spool is needed
+        assert(page.content.len > beading.max_resin_bytes);
+
+        spools[i] = spool.Spool.empty();
+        const report = try spool.spool_content(&store, page.content, &spools[i]);
+        // invariant: at least 2 resins per page (all pages > 512 bytes)
+        assert(report.resin_count >= 2);
+        total_resins += report.resin_count;
+        total_beads += report.bead_count;
+        print("  {s}: {d} bytes, {d} resins, {d} beads\n", .{
+            page.name,
+            page.content.len,
+            report.resin_count,
+            report.bead_count,
+        });
+    }
+    print("  claim 1: all 10 pages wound -- {d} resins, {d} beads total\n", .{
+        total_resins,
+        total_beads,
+    });
+
+    // -- Claim 2: unspooling returns exact bytes.
+    i = 0;
+    while (i < 10) : (i += 1) {
+        const page = pages[i];
+        const len = try spool.unspool(&store, &spools[i], reassemble_buf[0..]);
+        // invariant: reassembled length matches original
+        assert(len == page.content.len);
+        // invariant: reassembled bytes match original, byte for byte
+        assert(std.mem.eql(u8, reassemble_buf[0..len], page.content));
+    }
+    print("  claim 2: all 10 pages unspool to exact bytes -- ok\n", .{});
+
+    // -- Claim 3: whole-content digest matches independent SHA3-256.
+    i = 0;
+    while (i < 10) : (i += 1) {
+        const page = pages[i];
+        var expected: [32]u8 = undefined;
+        independent_digest(page.content, &expected);
+        // invariant: the spool's stored digest matches our independent computation
+        assert(std.mem.eql(u8, spools[i].whole_digest[0..32], expected[0..32]));
+    }
+    print("  claim 3: all 10 SHA3-256 digests match -- ok\n", .{});
+
+    print(
+        "curriculum-bolt-witness: version {s}\n",
+        .{witness_version},
+    );
+    print(
+        "GREEN: 10 Bloom curriculum pages on {s} recalled" ++
+            " byte for byte, SHA3-256 verified.\n",
+        .{curriculum_peer},
+    );
+    return 0;
+}
+
+pub fn main() !u8 {
+    return run_selftest();
+}

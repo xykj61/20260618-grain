@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.093118 | [Mantra SLC Movement 2 -- curriculum spool GREEN](20261107/20261107-093118_mantra-slc-m2-curriculum-spool-green.kyri.md) | 10 pages on ~sunflower, 97 resins, 190 beads, SHA3-256 verified |
 | 20261107.092356 | [Mantra SLC Movement 1 -- ContentBolt witness GREEN](20261107/20261107-092356_mantra-slc-m1-content-bolt-green.kyri.md) | 4 claims proven, ~siya seated as 15th galaxy |
 | 20261107.091519 | [TAME audit essay and active-tablecloth README](20261107/20261107-091519_tame-audit-essay-and-tablecloth-readme.kyri.md) | design essay with punch list, tablecloth folding convention, root README update |
 | 20261107.090323 | [Mantra SLC tablecloth project and Calfive prepend](20261107/20261107-090323_mantra-slc-tablecloth-and-send.kyri.md) | tablecloth board, expanding prompt, ITINERARY prepended |
