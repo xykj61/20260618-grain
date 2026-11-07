@@ -118,6 +118,16 @@ irreplaceable.
 In the next stage, we will look outward -- at the ecology that a machine
 serves, the soil it helps tend, and the living systems it is part of.
 
+## Related demos
+
+The demos shelf walks through identity and encrypted sessions step by
+step:
+
+- [Kumara Identity](../demos/kumara-identity.md) -- generate a keypair,
+  sign a message, and verify the signature.
+- [Comlink Sessions](../demos/comlink-sessions.md) -- open a sealed
+  channel between two galaxies using the Noise handshake.
+
 ---
 
 *A name that belongs to you because of what you hold, rather than what someone

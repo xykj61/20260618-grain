@@ -98,6 +98,16 @@ at machine speed, many times a second.
 In the next stage, we will look at identity itself -- how a machine and a
 person are named on the network so that names cannot be forged or stolen.
 
+## Related demos
+
+The demos shelf puts these ideas into practice on a fourteen-galaxy test
+network:
+
+- [Galaxy Registry](../demos/galaxy-registry.md) -- meet the fourteen
+  placeholder galaxies and learn why their names are safe to copy.
+- [Pond/Puddle Quickstart](../demos/pond-quickstart.md) -- boot a local
+  Puddle and watch the galaxies discover each other.
+
 ---
 
 *A river does not choose who drinks from it. A network that seals its messages
