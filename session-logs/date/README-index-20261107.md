@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.162357 | [QemuUtilities extraction -- send](20261107/20261107-162357_qemu-utilities-extraction-send.kyri.md) | QMP/PPM utilities into own Swift file, 2,966 lines remain |
 | 20261107.161353 | [FrameGridView extraction -- multi-file build GREEN](20261107/20261107-161353_framegridview-extraction-build-green.kyri.md) | 394 lines extracted, *.swift glob build proven |
 | 20261107.155516 | [main.swift static data extraction survey complete](20261107/20261107-155516_main-swift-extraction-survey-complete.kyri.md) | Full 3,530-line scan -- Bloom and Dimeroll were the two major clusters, both extracted |
 | 20261107.154107 | [Dimeroll FFI bridge wired into Terrarium](20261107/20261107-154107_dimeroll-ffi-bridge-wired.kyri.md) | 129 lines replaced with 42-line FFI version, full build GREEN |
