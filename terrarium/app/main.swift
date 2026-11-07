@@ -72,7 +72,12 @@ class AppDelegate: NSObject,
     let sidebarModules = [
         "Terminal", "Grid",
         "Dimeroll", "Mantra",
+        "Bloom",
     ]
+    var bloomTextView: NSTextView?
+    var bloomLessonIndex: Int = 0
+    var bloomTitleLabel: NSTextField?
+    var bloomLessons: [(String, String)] = []
     var dimerollTextView: NSTextView?
     var dimerollProcess: Process?
     var dimerollModulePopUp: NSPopUpButton?
@@ -935,6 +940,245 @@ class AppDelegate: NSObject,
         tv.selectTabViewItem(item)
     }
 
+    func loadBloomLessons() {
+        let dir = "\(repoRoot)/bloom/curriculum"
+        let files = [
+            "stage-01-meeting-the-dragons.md",
+            "stage-02-roots-and-trees.md",
+            "stage-03-memory-as-garden.md",
+        ]
+        bloomLessons = []
+        for file in files {
+            let path = "\(dir)/\(file)"
+            if let text = try? String(
+                contentsOfFile: path,
+                encoding: .utf8
+            ) {
+                let lines = text.components(
+                    separatedBy: "\n"
+                )
+                let title = lines.first?
+                    .replacingOccurrences(
+                        of: "# ", with: ""
+                    ) ?? file
+                bloomLessons.append((title, text))
+            }
+        }
+        if bloomLessons.isEmpty {
+            bloomLessons.append((
+                "No lessons found",
+                "Could not load curriculum from "
+                    + "\(dir)"
+            ))
+        }
+    }
+
+    func showBloomLesson(_ index: Int) {
+        guard index >= 0,
+              index < bloomLessons.count
+        else { return }
+        let (title, content) = bloomLessons[index]
+        bloomTitleLabel?.stringValue =
+            "\(title)  (\(index + 1)"
+            + " of \(bloomLessons.count))"
+        bloomTextView?.string = content
+        bloomTextView?
+            .scrollToBeginningOfDocument(nil)
+    }
+
+    @objc func bloomPrev() {
+        if bloomLessonIndex > 0 {
+            bloomLessonIndex -= 1
+            showBloomLesson(bloomLessonIndex)
+        }
+    }
+
+    @objc func bloomNext() {
+        if bloomLessonIndex < bloomLessons.count - 1
+        {
+            bloomLessonIndex += 1
+            showBloomLesson(bloomLessonIndex)
+        }
+    }
+
+    @objc func focusBloom() {
+        guard let tv = tabView else { return }
+        for i in 0..<tv.numberOfTabViewItems {
+            let item = tv.tabViewItem(at: i)
+            if let ident = item.identifier
+                as? String,
+               ident == "bloom"
+            {
+                tv.selectTabViewItem(at: i)
+                return
+            }
+        }
+
+        if bloomLessons.isEmpty {
+            loadBloomLessons()
+        }
+
+        let item = NSTabViewItem(
+            identifier: "bloom"
+        )
+        item.label = "Bloom"
+
+        let container = NSView()
+        container.wantsLayer = true
+        container.layer?.backgroundColor =
+            NSColor(
+                red: 0.04, green: 0.06,
+                blue: 0.04, alpha: 1.0
+            ).cgColor
+
+        let navBar = NSView()
+        navBar.wantsLayer = true
+        navBar.layer?.backgroundColor =
+            NSColor(
+                red: 0.08, green: 0.12,
+                blue: 0.08, alpha: 1.0
+            ).cgColor
+        navBar.translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(navBar)
+
+        let prevBtn = NSButton(
+            title: "Previous",
+            target: self,
+            action: #selector(bloomPrev)
+        )
+        prevBtn.bezelStyle = .inline
+        prevBtn.contentTintColor = NSColor(
+            red: 0.5, green: 0.8,
+            blue: 0.5, alpha: 1.0
+        )
+        prevBtn
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        navBar.addSubview(prevBtn)
+
+        let titleLbl = NSTextField(
+            labelWithString:
+                bloomLessons.isEmpty
+                ? "Bloom"
+                : bloomLessons[0].0
+        )
+        titleLbl.font = NSFont.systemFont(
+            ofSize: 15, weight: .medium
+        )
+        titleLbl.textColor = NSColor(
+            red: 0.6, green: 0.9,
+            blue: 0.6, alpha: 1.0
+        )
+        titleLbl.alignment = .center
+        titleLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        navBar.addSubview(titleLbl)
+        bloomTitleLabel = titleLbl
+
+        let nextBtn = NSButton(
+            title: "Next",
+            target: self,
+            action: #selector(bloomNext)
+        )
+        nextBtn.bezelStyle = .inline
+        nextBtn.contentTintColor = NSColor(
+            red: 0.5, green: 0.8,
+            blue: 0.5, alpha: 1.0
+        )
+        nextBtn
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        navBar.addSubview(nextBtn)
+
+        let scrollView = NSScrollView()
+        scrollView.hasVerticalScroller = true
+        scrollView
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        scrollView.drawsBackground = false
+        container.addSubview(scrollView)
+
+        let textView = NSTextView()
+        textView.isEditable = false
+        textView.isSelectable = true
+        textView.backgroundColor = NSColor(
+            red: 0.04, green: 0.06,
+            blue: 0.04, alpha: 1.0
+        )
+        textView.textColor = NSColor(
+            red: 0.85, green: 0.9,
+            blue: 0.85, alpha: 1.0
+        )
+        textView.font =
+            NSFont.monospacedSystemFont(
+                ofSize: 13, weight: .regular
+            )
+        textView.textContainerInset =
+            NSSize(width: 20, height: 16)
+        textView.autoresizingMask = [.width]
+        if let tc = textView.textContainer {
+            tc.widthTracksTextView = true
+        }
+        scrollView.documentView = textView
+        bloomTextView = textView
+
+        NSLayoutConstraint.activate([
+            navBar.topAnchor.constraint(
+                equalTo: container.topAnchor
+            ),
+            navBar.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor
+            ),
+            navBar.trailingAnchor.constraint(
+                equalTo: container.trailingAnchor
+            ),
+            navBar.heightAnchor.constraint(
+                equalToConstant: 40
+            ),
+            prevBtn.leadingAnchor.constraint(
+                equalTo: navBar.leadingAnchor,
+                constant: 12
+            ),
+            prevBtn.centerYAnchor.constraint(
+                equalTo: navBar.centerYAnchor
+            ),
+            titleLbl.centerXAnchor.constraint(
+                equalTo: navBar.centerXAnchor
+            ),
+            titleLbl.centerYAnchor.constraint(
+                equalTo: navBar.centerYAnchor
+            ),
+            nextBtn.trailingAnchor.constraint(
+                equalTo: navBar.trailingAnchor,
+                constant: -12
+            ),
+            nextBtn.centerYAnchor.constraint(
+                equalTo: navBar.centerYAnchor
+            ),
+            scrollView.topAnchor.constraint(
+                equalTo: navBar.bottomAnchor
+            ),
+            scrollView.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor
+            ),
+            scrollView.trailingAnchor.constraint(
+                equalTo: container.trailingAnchor
+            ),
+            scrollView.bottomAnchor.constraint(
+                equalTo: container.bottomAnchor
+            ),
+        ])
+
+        bloomLessonIndex = 0
+        showBloomLesson(0)
+
+        item.view = container
+        tv.addTabViewItem(item)
+        tv.selectTabViewItem(item)
+    }
+
     func launchDimerollStage(_ name: String) {
         if let p = dimerollProcess,
            p.isRunning
@@ -1782,7 +2026,8 @@ class AppDelegate: NSObject,
               ident != "terminal",
               ident != "grid",
               ident != "dimeroll",
-              ident != "mantra"
+              ident != "mantra",
+              ident != "bloom"
         else {
             showShortcutStatus(
                 "Cmd+W: cannot close built-in tab"
@@ -2605,6 +2850,8 @@ extension AppDelegate: NSTableViewDelegate {
             focusDimeroll()
         case "Mantra":
             focusMantra()
+        case "Bloom":
+            focusBloom()
         default:
             break
         }
