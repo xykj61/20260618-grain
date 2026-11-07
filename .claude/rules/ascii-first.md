@@ -32,7 +32,7 @@ A specific, **explicitly-named set of work rounds** may use non-ASCII when it is
 ## Prevention, not just cure
 
 **Four guards stand over four subjects, and the fourth is one the opening sentence above leaves
-unnamed.** All four are rostered in `construction/standing-equipment.kyri`. Each current reading
+unnamed.** All four are rostered in `fleet/standing-equipment.kyri`. Each current reading
 below carries the guard that holds it still -- the fifth thing `context/GAUGE_STYLE.md` asks a
 figure to name -- and each dated figure is testimony from the lap that measured it, free to move
 since. Run the scan rather than trusting either; every one is named here so you know where.

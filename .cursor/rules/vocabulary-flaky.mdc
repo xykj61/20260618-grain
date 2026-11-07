@@ -66,7 +66,7 @@ reading and belongs inside a row, where *flaky* names the class.
 
 Swept in the working tree on Keaton's word `20260915`: **12 living files**, three of them renamed --
 `tools/fixtures/m/mantra_query_wire_flakiness_{scan,control}.sh` and
-`tools/m/mantra_query_wire_flakiness_witness.rish` -- with `construction/standing-equipment.kyri`
+`tools/m/mantra_query_wire_flakiness_witness.rish` -- with `fleet/standing-equipment.kyri`
 repointed in the same commit. **The emitted field moved with them**: the scan writes `flaky=yes|no`
 and `verdict=flaky` where it wrote `flap=`, and the control reads that key back by name, so emitter
 and reader moved together or the guard would have broken silently. Both witnesses GREEN on metal

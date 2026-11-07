@@ -19,7 +19,7 @@
 #   <module>          the crypto/<module>.rye that is a tool -- asserted to actually stand on disk,
 #                     so an exemption can never name a file nobody wrote
 #   <witness>         the path that proves it on metal -- asserted to exist
-#   <roster-guard>    that witness's `guard` name in construction/standing-equipment.kyri --
+#   <roster-guard>    that witness's `guard` name in fleet/standing-equipment.kyri --
 #                     asserted present, so the proof is one a lap actually runs
 #
 # A row is a REDIRECT rather than an excuse: it says "this file is proven THERE," and all three

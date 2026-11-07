@@ -8,7 +8,7 @@
 # by a hand that happened to run something, which is a lantern rather than a loom.
 #
 # WHAT IS GATED, hard.
-#   Every `path` in construction/standing-equipment.kyri names a file that exists on disk.
+#   Every `path` in fleet/standing-equipment.kyri names a file that exists on disk.
 #   Every `guard` record carries exactly one `path` -- a row with none, or with two, is refused
 #     rather than half-read by a runner that would take only the first.
 #   Every `tier` names one of the words the runner knows -- `lap` or `cadence`. A guard naming a
@@ -54,8 +54,8 @@
 
 set -eu
 
-roster="${STANDING_ROSTER:-construction/standing-equipment.kyri}"
-card="${STANDING_CARD:-construction/standing-equipment-runs.kyri}"
+roster="${STANDING_ROSTER:-fleet/standing-equipment.kyri}"
+card="${STANDING_CARD:-fleet/standing-equipment-runs.kyri}"
 
 [ -f "$roster" ] || { echo "verdict=no_roster"; echo "refused: no roster at $roster" >&2; exit 1; }
 

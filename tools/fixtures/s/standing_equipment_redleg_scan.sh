@@ -2,7 +2,7 @@
 # tools/fixtures/s/standing_equipment_redleg_scan.sh -- the roster claims every guard on it can
 # red, and this scan is what reads that claim back.
 #
-# WHY THIS METER EXISTS. construction/standing-equipment.kyri says it in its own eleventh line:
+# WHY THIS METER EXISTS. fleet/standing-equipment.kyri says it in its own eleventh line:
 # "the grain says a guard that cannot red guards nothing (REDS row 59), and every guard here can
 # red." That sentence governs 285 files and stood for months on its own word.
 #
@@ -79,7 +79,7 @@ root=${REDLEG_ROOT:-$(CDPATH= cd -- "$(dirname -- "$0")/../../.." && pwd)}
 cd "$root"
 
 MODE=${1:-count}
-ROSTER=${REDLEG_ROSTER:-construction/standing-equipment.kyri}
+ROSTER=${REDLEG_ROSTER:-fleet/standing-equipment.kyri}
 MAX_GUARDS=512
 MAX_REPORT=200
 # The ceiling only falls. Read 20260915 over the live roster, after the marker set widened from

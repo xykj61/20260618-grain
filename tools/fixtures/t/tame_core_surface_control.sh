@@ -46,7 +46,7 @@ core_head='## The checkable surface -- what stands, on which clock, over what
 # --- a pen where the page and the roster agree ----------------------------------------------
 d=$(mkpen agree)
 printf '%s\n| `tools/one.rish` | one thing | lap |\n| `tools/two.rish` | another | cadence |\n\n## Crash headroom\n' "$core_head" > "$d/context/TAME_CORE.md"
-printf 'guard one\npath tools/one.rish\ntier lap\n\nguard two\npath tools/two.rish\ntier cadence\n' > "$d/construction/standing-equipment.kyri"
+printf 'guard one\npath tools/one.rish\ntier lap\n\nguard two\npath tools/two.rish\ntier cadence\n' > "$d/fleet/standing-equipment.kyri"
 out=$( (cd "$d" && sh "$scan") 2>&1 ); rc=$?
 note agree_free $([ $rc -eq 0 ] && echo yes || echo no)
 note agree_verdict_ok $(echo "$out" | grep -q '^verdict=ok$' && echo yes || echo no)
@@ -58,21 +58,21 @@ note clean_clocks_zero $(echo "$out" | grep -q '^declared_clock_disagreements=0$
 # --- the fault the repair of 20260908 fixed by hand: a declared tool nobody rosters -----------
 d=$(mkpen unrostered)
 printf '%s\n| `tools/one.rish` | one thing | lap |\n| `tools/two.rish` | another | lap |\n' "$core_head" > "$d/context/TAME_CORE.md"
-printf 'guard one\npath tools/one.rish\ntier lap\n' > "$d/construction/standing-equipment.kyri"
+printf 'guard one\npath tools/one.rish\ntier lap\n' > "$d/fleet/standing-equipment.kyri"
 out=$( (cd "$d" && sh "$scan") 2>&1 ); rc=$?
 note unrostered_refused $([ $rc -ne 0 ] && echo yes || echo no)
 note unrostered_counted $(echo "$out" | grep -q '^declared_unrostered=1$' && echo yes || echo no)
 note unrostered_named $(echo "$out" | grep -q '^unrostered: tools/two.rish$' && echo yes || echo no)
 note unrostered_verdict $(echo "$out" | grep -q '^verdict=surface_unheard$' && echo yes || echo no)
 # lifting the plant returns the reading to zero, so the count is of the tree and not of the guard
-printf 'guard one\npath tools/one.rish\ntier lap\n\nguard two\npath tools/two.rish\ntier lap\n' > "$d/construction/standing-equipment.kyri"
+printf 'guard one\npath tools/one.rish\ntier lap\n\nguard two\npath tools/two.rish\ntier lap\n' > "$d/fleet/standing-equipment.kyri"
 out=$( (cd "$d" && sh "$scan") 2>&1 )
 note unrostered_lifted_zero $(echo "$out" | grep -q '^declared_unrostered=0$' && echo yes || echo no)
 
 # --- a declared tool that is not on disk ------------------------------------------------------
 d=$(mkpen absent)
 printf '%s\n| `tools/one.rish` | one thing | lap |\n| `tools/gone.rish` | vanished | lap |\n' "$core_head" > "$d/context/TAME_CORE.md"
-printf 'guard one\npath tools/one.rish\ntier lap\n\nguard gone\npath tools/gone.rish\ntier lap\n' > "$d/construction/standing-equipment.kyri"
+printf 'guard one\npath tools/one.rish\ntier lap\n\nguard gone\npath tools/gone.rish\ntier lap\n' > "$d/fleet/standing-equipment.kyri"
 out=$( (cd "$d" && sh "$scan") 2>&1 ); rc=$?
 note absent_refused $([ $rc -ne 0 ] && echo yes || echo no)
 note absent_counted $(echo "$out" | grep -q '^declared_absent_on_disk=1$' && echo yes || echo no)
@@ -81,7 +81,7 @@ note absent_named $(echo "$out" | grep -q '^absent: tools/gone.rish$' && echo ye
 # --- the clock the page declares disagreeing with the tier the roster keeps --------------------
 d=$(mkpen clock)
 printf '%s\n| `tools/one.rish` | one thing | cadence |\n' "$core_head" > "$d/context/TAME_CORE.md"
-printf 'guard one\npath tools/one.rish\ntier lap\n' > "$d/construction/standing-equipment.kyri"
+printf 'guard one\npath tools/one.rish\ntier lap\n' > "$d/fleet/standing-equipment.kyri"
 out=$( (cd "$d" && sh "$scan") 2>&1 ); rc=$?
 note clock_refused $([ $rc -ne 0 ] && echo yes || echo no)
 note clock_counted $(echo "$out" | grep -q '^declared_clock_disagreements=1$' && echo yes || echo no)
@@ -90,7 +90,7 @@ note clock_named_both $(echo "$out" | grep -q '^clock: tools/one.rish declared=c
 # --- a roster block with no tier means lap, which is the roster's own rule ---------------------
 d=$(mkpen tierless)
 printf '%s\n| `tools/one.rish` | one thing | lap |\n' "$core_head" > "$d/context/TAME_CORE.md"
-printf 'guard one\npath tools/one.rish\nseated 20260909.000000\n' > "$d/construction/standing-equipment.kyri"
+printf 'guard one\npath tools/one.rish\nseated 20260909.000000\n' > "$d/fleet/standing-equipment.kyri"
 out=$( (cd "$d" && sh "$scan") 2>&1 ); rc=$?
 note tierless_reads_lap_free $([ $rc -eq 0 ] && echo yes || echo no)
 # and the same silence disagrees honestly when the page claims cadence
@@ -101,14 +101,14 @@ note tierless_vs_cadence_refused $([ $rc -ne 0 ] && echo yes || echo no)
 # --- a trailing comment on the tier line is a note, never part of the clock --------------------
 d=$(mkpen trailing)
 printf '%s\n| `tools/one.rish` | one thing | lap |\n' "$core_head" > "$d/context/TAME_CORE.md"
-printf 'guard one\npath tools/one.rish\ntier lap       # 7.1s over 1,127 derived files\n' > "$d/construction/standing-equipment.kyri"
+printf 'guard one\npath tools/one.rish\ntier lap       # 7.1s over 1,127 derived files\n' > "$d/fleet/standing-equipment.kyri"
 out=$( (cd "$d" && sh "$scan") 2>&1 ); rc=$?
 note trailing_comment_free $([ $rc -eq 0 ] && echo yes || echo no)
 
 # --- a commented-out roster row rosters nothing ------------------------------------------------
 d=$(mkpen commented)
 printf '%s\n| `tools/one.rish` | one thing | lap |\n' "$core_head" > "$d/context/TAME_CORE.md"
-printf '# path tools/one.rish -- named in prose, seated nowhere\n' > "$d/construction/standing-equipment.kyri"
+printf '# path tools/one.rish -- named in prose, seated nowhere\n' > "$d/fleet/standing-equipment.kyri"
 out=$( (cd "$d" && sh "$scan") 2>&1 ); rc=$?
 note commented_row_refused $([ $rc -ne 0 ] && echo yes || echo no)
 note commented_row_unrostered $(echo "$out" | grep -q '^declared_unrostered=1$' && echo yes || echo no)
@@ -116,7 +116,7 @@ note commented_row_unrostered $(echo "$out" | grep -q '^declared_unrostered=1$' 
 # --- a table elsewhere on the page is not the checkable surface --------------------------------
 d=$(mkpen elsewhere)
 printf '## Rye reflexes\n\n| Tool | Reads | Clock |\n|---|---|---|\n| `tools/two.rish` | not the surface | lap |\n\n%s\n| `tools/one.rish` | one thing | lap |\n' "$core_head" > "$d/context/TAME_CORE.md"
-printf 'guard one\npath tools/one.rish\ntier lap\n' > "$d/construction/standing-equipment.kyri"
+printf 'guard one\npath tools/one.rish\ntier lap\n' > "$d/fleet/standing-equipment.kyri"
 out=$( (cd "$d" && sh "$scan") 2>&1 ); rc=$?
 note other_table_unread $([ $rc -eq 0 ] && echo yes || echo no)
 note other_table_uncounted $(echo "$out" | grep -q '^declared_surface_tools=1$' && echo yes || echo no)
@@ -124,19 +124,19 @@ note other_table_uncounted $(echo "$out" | grep -q '^declared_surface_tools=1$' 
 # --- a surface naming nothing must refuse rather than read as a pass ---------------------------
 d=$(mkpen empty)
 printf '%s\n\n## Crash headroom\n' "$core_head" > "$d/context/TAME_CORE.md"
-printf 'guard one\npath tools/one.rish\ntier lap\n' > "$d/construction/standing-equipment.kyri"
+printf 'guard one\npath tools/one.rish\ntier lap\n' > "$d/fleet/standing-equipment.kyri"
 out=$( (cd "$d" && sh "$scan") 2>&1 ); rc=$?
 note empty_surface_refused $([ $rc -ne 0 ] && echo yes || echo no)
 note empty_surface_verdict $(echo "$out" | grep -q '^verdict=surface_empty$' && echo yes || echo no)
 
 # --- an absent input refuses rather than reading zero ------------------------------------------
 d=$(mkpen missing)
-printf 'guard one\npath tools/one.rish\ntier lap\n' > "$d/construction/standing-equipment.kyri"
+printf 'guard one\npath tools/one.rish\ntier lap\n' > "$d/fleet/standing-equipment.kyri"
 out=$( (cd "$d" && sh "$scan") 2>&1 ); rc=$?
 note missing_core_refused $([ $rc -ne 0 ] && echo yes || echo no)
 note missing_core_verdict $(echo "$out" | grep -q '^verdict=core_page_missing$' && echo yes || echo no)
 printf '%s\n| `tools/one.rish` | one thing | lap |\n' "$core_head" > "$d/context/TAME_CORE.md"
-rm -f "$d/construction/standing-equipment.kyri"
+rm -f "$d/fleet/standing-equipment.kyri"
 out=$( (cd "$d" && sh "$scan") 2>&1 ); rc=$?
 note missing_roster_refused $([ $rc -ne 0 ] && echo yes || echo no)
 note missing_roster_verdict $(echo "$out" | grep -q '^verdict=roster_missing$' && echo yes || echo no)

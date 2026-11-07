@@ -108,11 +108,11 @@ Every guard answers with one of five words:
 ## Where evidence lands
 
 When a guard answers red, it writes an **evidence file** explaining what it found. These live
-in [`../../construction/standing-equipment-reds/`](../../construction/standing-equipment-reds/).
+in [`../../fleet/standing-equipment-reds/`](../../fleet/standing-equipment-reds/).
 Each file is named after its guard:
 
 ```sh
-cat construction/standing-equipment-reds/dated_path.txt
+cat fleet/standing-equipment-reds/dated_path.txt
 ```
 
 Read the evidence file before you repair anything. It tells you what the guard measured and
@@ -121,11 +121,11 @@ what it expected.
 ## The lock
 
 Only one roster run can happen at a time. The runner creates a lock directory at
-`construction/standing-equipment-run.lock.d` while it works. If a run was interrupted (a
+`fleet/standing-equipment-run.lock.d` while it works. If a run was interrupted (a
 terminal closed, a process killed), the lock stays behind. Remove it by hand:
 
 ```sh
-rmdir construction/standing-equipment-run.lock.d
+rmdir fleet/standing-equipment-run.lock.d
 ```
 
 ## A typical workflow

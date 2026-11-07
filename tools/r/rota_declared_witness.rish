@@ -37,7 +37,7 @@ say "rota-declared: the open day's shelf answers all three counts..."
 let scan = run ["sh" "tools/fixtures/r/rota_declared_scan.sh"]
 # invariant: a refusal reports BOTH streams. `run` returns `out` and `err` separately, probed on
 # metal `20260907`, and this scan writes its reason to stderr -- so reporting stdout alone wrote an
-# EMPTY reason into `construction/standing-equipment-reds/rota_declared.txt`, the one file a reader
+# EMPTY reason into `fleet/standing-equipment-reds/rota_declared.txt`, the one file a reader
 # opens to learn why a guard stopped. Both are said bare, for the composing reason above.
 say scan.out
 say scan.err

@@ -1,7 +1,7 @@
 #!/bin/sh
 # tools/fixtures/s/seat_prompt_figure_scan.sh -- a charter says what a ship is FOR, never how big its lane is.
 #
-# WHAT THIS READS. Every live seat in `construction/fleet-roster.kyri` has a prompt file, found the
+# WHAT THIS READS. Every live seat in `fleet/fleet-roster.kyri` has a prompt file, found the
 # way `tools/f/fleet-loop.sh` finds it -- `tools/<first letter of seat>/<seat>_seat_prompt.txt` --
 # and that file is the first thing a ship reads on every lap it will ever run. This scan counts the
 # **tree measurements** standing in those prompts: a number asserting how many modules, lines, or
@@ -65,7 +65,7 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-ROSTER="$ROOT/construction/fleet-roster.kyri"
+ROSTER="$ROOT/fleet/fleet-roster.kyri"
 
 if ! test -f "$ROSTER"; then
   echo "verdict=misread"

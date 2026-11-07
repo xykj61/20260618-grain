@@ -13,7 +13,7 @@
 # room write the same shadow `.zig` names.
 #
 # WHAT STOOD BEFORE THIS GUARD. The tree took four in-tree locks and named three -- `/lotus/.sing.lock/`
-# and `construction/standing-equipment-run.lock.d/` by name, `glow/.cache/.build.lock.d` incidentally
+# and `fleet/standing-equipment-run.lock.d/` by name, `glow/.cache/.build.lock.d` incidentally
 # by its parent `/glow/.cache/` -- and the build lock, the one taken in whatever room a build
 # writes and therefore the one that appears most, was named by nothing. Reachable rather than
 # theoretical: on the lap this guard was seated, three build-lock pids stood in this ship's own

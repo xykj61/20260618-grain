@@ -621,7 +621,7 @@ Meter setting with the mechanism first, and three body shapes are written out re
 moved.
 
 **A change names its lane rather than a person.** The eight lanes and their subjects live in one
-table, `construction/fleet-roster.kyri` -- named rather than linked, since the maintainer's field
+table, `fleet/fleet-roster.kyri` -- named rather than linked, since the maintainer's field
 carries that room and the public projection does not. Naming your lane tells a reviewer which laws
 your change answers to. That keeps a contribution depersonalized by
 construction: the description says what changed, the lane says where it belongs, and neither needs

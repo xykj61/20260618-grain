@@ -109,7 +109,7 @@ that count, by hand, and a hand that mistypes the count or the round leaves a co
 catches without re-deriving fifteen numbers. `sh tools/fixtures/c/calfive_schedule_scan.sh`
 recomputes the round from the stated count on every such page and from the round-load table
 above, and names every disagreement by path. Rostered as the `calfive_schedule` guard in
-[`../construction/standing-equipment.kyri`](../construction/standing-equipment.kyri), `tier lap`,
+[`../fleet/standing-equipment.kyri`](../fleet/standing-equipment.kyri), `tier lap`,
 seated `20261009.114234`; proven on metal both ways, the live tree clean and a planted conflict
 caught, by `rishi/bin/rishi run tools/ca/calfive_schedule_witness.rish`.
 

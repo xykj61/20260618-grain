@@ -198,10 +198,10 @@ d=$(build sig)
   && git add -A && git commit -qm 'pen: a signature naming nothing' ) >/dev/null 2>&1
 check "a signature naming no instrument is counted" "$(read_of "$d" signature_unbacked)" "1"
 check "and the signed page is reported" "$(read_of "$d" signed_pages)" "1"
-( cd "$d" && printf 'format standing-equipment-v1\nguard pen_seat\npath tools/pen_tool.sh\n' > construction/standing-equipment.kyri \
+( cd "$d" && printf 'format standing-equipment-v1\nguard pen_seat\npath tools/pen_tool.sh\n' > fleet/standing-equipment.kyri \
   && git add -A && git commit -qm 'pen: back it with a roster row' ) >/dev/null 2>&1
 check "a standing-roster row backs it" "$(read_of "$d" signature_unbacked)" "0"
-( cd "$d" && rm -f construction/standing-equipment.kyri \
+( cd "$d" && rm -f fleet/standing-equipment.kyri \
   && printf '# a pen tool that names witness:pen-seat\n' > tools/pen_tool.sh \
   && git add -A && git commit -qm 'pen: back it with a tools file instead' ) >/dev/null 2>&1
 check "a tracked tools file naming it backs it too" "$(read_of "$d" signature_unbacked)" "0"

@@ -4,7 +4,7 @@
 # WHY. `context/TAME_CORE.md` is the compressed core of TAME, written to ride in the agent rules
 # so it is present every time family-language code is written. It closes on a table titled "The
 # checkable surface" naming the tools that stand over those reflexes, and it states in its own
-# words: "Every tool below sits on `construction/standing-equipment.kyri`, so a roster pass runs
+# words: "Every tool below sits on `fleet/standing-equipment.kyri`, so a roster pass runs
 # it whether or not a hand remembers to."
 #
 # On 20260908.111848 that sentence was false for three of the five tools the table then named.
@@ -21,7 +21,7 @@
 #
 # WHAT IS GATED, hard, all three at zero.
 #   Every tool the table names exists on disk.
-#   Every tool the table names carries a `path` row in `construction/standing-equipment.kyri`,
+#   Every tool the table names carries a `path` row in `fleet/standing-equipment.kyri`,
 #   so a roster pass runs it whether or not a hand remembers to.
 #   Every tool's declared Clock matches the roster's own `tier` for that guard. A tier absent
 #   from a block means `lap`, which is the roster's own rule and this reading honors it.
@@ -49,7 +49,7 @@ while [ ! -d "$_fd_root/rishi/bin" ] || [ ! -d "$_fd_root/tools/fixtures" ]; do
 done
 
 core=${1:-context/TAME_CORE.md}
-roster=${2:-construction/standing-equipment.kyri}
+roster=${2:-fleet/standing-equipment.kyri}
 
 if [ ! -f "$core" ]; then
   echo "core_page_missing=$core"

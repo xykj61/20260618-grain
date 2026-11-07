@@ -25,7 +25,7 @@
 #   `seed/`, the depersonalized public projection, gitignored by design (`.claude/rules/git-signing.md`).
 #   Any path carrying a dot-segment -- `tools/.build`, `glow/.cache`, `crypto/bin/.cc_reg.txt`,
 #     `.gnupg-rye` -- because a dot names a generated or machine-local room.
-#   `construction/standing-equipment-runs.kyri`, the untracked run card the roster rewrites (%150).
+#   `fleet/standing-equipment-runs.kyri`, the untracked run card the roster rewrites (%150).
 #   Any path GIT ITSELF ignores, asked with `git check-ignore` rather than guessed. A gitignored
 #     path is a declared build artifact: the repository states its absence, so a reader who clones
 #     is promised exactly what they get. This rule was earned (%169) -- two witnesses create the
@@ -146,7 +146,7 @@ if ! awk -F'\t' -v KF="$work/known" -v LF="$work/linkmap" '
       # The same three exclusions the shell case carried, in the same order.
       if (tok ~ /^(vendor|seed)\//) next
       if (tok ~ /^\./ || tok ~ /\/\./) next
-      if (tok == "construction/standing-equipment-runs.kyri") next
+      if (tok == "fleet/standing-equipment-runs.kyri") next
       if (tok in known) next
       # Try again through the tracked symlinks before calling it a phantom.
       for (i = 1; i <= nl; i++) {

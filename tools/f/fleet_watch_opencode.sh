@@ -111,7 +111,7 @@ loop_running() {
   # invariant: a seat is healthy when its own loop process exists -- read from the process table,
   # never inferred from the pane's words, because a pane can print anything and a process cannot.
   # The trailing `\$` anchors end-of-string so an interior baton phrase never matches a dead loop.
-  # process-reach: bounded -- a seat name, which construction/fleet-roster.kyri makes unique
+  # process-reach: bounded -- a seat name, which fleet/fleet-roster.kyri makes unique
   # across the whole fleet, so this pattern names one ship's loop and can match no peer's.
   pgrep -f "fleet-loop-opencode\.sh $1\$" >/dev/null 2>&1
 }

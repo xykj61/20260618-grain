@@ -3,7 +3,7 @@
 #   rishi/bin/rishi run tools/r/receipt_chain_witness.rish
 #
 # WHAT IT HOLDS. `tools/fixtures/s/standing_equipment_run.sh --scoped` proves the delta since the
-# last fully green FULL close, reading that close from `construction/standing-equipment-receipt.kyri`
+# last fully green FULL close, reading that close from `fleet/standing-equipment-receipt.kyri`
 # -- a file `.gitignore` denies, so every one of the eight checkouts holds its own and no ship ever
 # reads another's. Bakery's lane crux names one shared cold-run cache across those checkouts, and
 # that crux assumes the chain is advancing and merely private.

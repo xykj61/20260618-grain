@@ -5,7 +5,7 @@
 #
 # WHY THIS METER EXISTS. The cold endurance run is this fleet's most expensive reading and its most
 # repeated: `tools/f/fleet_baton.txt` asks every lap for one, twice, and eight ships sail. Read from
-# `construction/standing-equipment-runs.kyri` at `20260917.163151`, it stood at **4,303 wall seconds
+# `fleet/standing-equipment-runs.kyri` at `20260917.163151`, it stood at **4,303 wall seconds
 # over 355 lap-tier guards with 4,197 seconds of CPU** -- a ratio of **0.975**, so the run computes
 # for essentially every second it lasts and waits on nothing at all.
 #
@@ -65,8 +65,8 @@ CALIB_RUNS=20          # enough to average out scheduler noise, cheap enough to 
 TRACE_SECONDS=120      # a guard past this is reported by name rather than waited on
 
 root=${PROCESS_FANOUT_ROOT:-$(git rev-parse --show-toplevel 2>/dev/null || pwd)}
-roster="$root/construction/standing-equipment.kyri"
-card="$root/construction/standing-equipment-runs.kyri"
+roster="$root/fleet/standing-equipment.kyri"
+card="$root/fleet/standing-equipment-runs.kyri"
 
 sample=$SAMPLE_DEFAULT
 only=""

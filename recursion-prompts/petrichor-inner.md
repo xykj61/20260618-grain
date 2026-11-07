@@ -75,7 +75,7 @@ inner-prompt log, touching no `docs-geode` byte. `tools/d/docs_geode_bhakta_witn
 one. The Bhakta product path's next fruit stays gated on Diffuser's Consent Rail
 (`construction/ITINERARY.md`'s acceptance case 4 still reads "waits until a grant fact and a revoke
 fact exist"), so no new page opens yet. No claimable row stands anywhere on `construction/REDS.md`
-or `construction/fleet-claims.kyri` for this lane. A further re-run of this same confirmation
+or `fleet/fleet-claims.kyri` for this lane. A further re-run of this same confirmation
 without a change in Diffuser's gate or a fresh upstream commit teaches nothing beyond what this
 line already says.
 

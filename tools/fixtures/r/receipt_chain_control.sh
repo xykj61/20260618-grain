@@ -45,7 +45,7 @@ cp "$src/tools/fixtures/s/shell_portable.sh" "$field/tools/fixtures/s/"
 cp "$src/tools/fixtures/f/fleet_roster_scan.sh" "$field/tools/fixtures/f/"
 scan="$field/tools/fixtures/r/receipt_chain_scan.sh"
 
-cat > "$field/construction/fleet-roster.kyri" <<'ROSTER'
+cat > "$field/fleet/fleet-roster.kyri" <<'ROSTER'
 format fleet-roster-v1
 
 seat field
@@ -95,7 +95,7 @@ old=20260101.000000
 
 write_receipt() {
   # write_receipt <tree> <head> <scope> <stamp>
-  cat > "$pier/$1/construction/standing-equipment-receipt.kyri" <<EOF
+  cat > "$pier/$1/fleet/standing-equipment-receipt.kyri" <<EOF
 format standing-equipment-receipt-v2
 digest deadbeefcafe
 head $2
@@ -211,7 +211,7 @@ leg "portable_undecidable_equals_candidates" "portable_undecidable=2" "$out"
 leg "portable_blocker_named" "portable_blocker=the receipt records no clean-tree field" "$out"
 
 # ---- the hit ledger -------------------------------------------------------------------------
-cat > "$pier/peer-one/construction/standing-equipment-hitrate.kyri" <<'EOF'
+cat > "$pier/peer-one/fleet/standing-equipment-hitrate.kyri" <<'EOF'
 open 20260101.000001 digest aaaaaaaaaaaa receipt match
 open 20260101.000002 digest bbbbbbbbbbbb receipt miss
 open 20260101.000003 digest cccccccccccc receipt miss
@@ -256,7 +256,7 @@ restore() { cp "$pen/keep.sh" "$scan"; }
 # Peer two's receipt is lifted first, so this leg reads ONE seat rather than two -- a mutation
 # proven against a count another seat also contributes to is a mutation whose bite cannot be told
 # from that seat's own reading.
-rm -f "$pier/peer-two/construction/standing-equipment-receipt.kyri"
+rm -f "$pier/peer-two/fleet/standing-equipment-receipt.kyri"
 write_receipt peer-one "$tip" scoped "$now"
 mutate scope_test 'if [ "$r_scope" = full ] && git -C "$here" rev-parse' 'if true && git -C "$here" rev-parse'
 out=$(sh "$scan" 2>&1 || true)

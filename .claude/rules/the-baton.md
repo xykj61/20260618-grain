@@ -1,7 +1,7 @@
 # The Baton -- the opening every ship reads, written once
 
 **Seated:** `20260904.214754` on Keaton's word -- **Status:** Living
-**The file:** [`../../tools/f/fleet_baton.txt`](../../tools/f/fleet_baton.txt) -- **The roster:** `construction/fleet-roster.kyri` (working tree) -- **The guard:** [`../../tools/f/fleet_roster_witness.rish`](../../tools/f/fleet_roster_witness.rish)
+**The file:** [`../../tools/f/fleet_baton.txt`](../../tools/f/fleet_baton.txt) -- **The roster:** `fleet/fleet-roster.kyri` (working tree) -- **The guard:** [`../../tools/f/fleet_roster_witness.rish`](../../tools/f/fleet_roster_witness.rish)
 
 **Every ship in the fleet opens the same way, and that opening is written once.**
 `tools/f/fleet_baton.txt` holds it; `tools/f/fleet-loop.sh` prepends it to whichever seat is
@@ -78,7 +78,7 @@ next lap will spend for it, whatever either lap does.
 repair priced the class over the 39 September logs carrying a cold-roster `loom` line: 7 read
 `tree_moved=yes` and 6 of those 7 named a claim, a near-total correlation. Read over every
 September log in this tree instead, **588 name `tree_moved`, 115 read `yes`, and 7 of those 115
-name `construction/fleet-claims.kyri` or `fleet_claim` by name** -- six percent rather than
+name `fleet/fleet-claims.kyri` or `fleet_claim` by name** -- six percent rather than
 six-sevenths. Both readings are true of their own populations, and the narrow one stays scoped to
 its own population rather than standing for the tree's: **a claim prices its class from the files
 it can already see**, which is this fleet's own lesson from `20260915.223327` arriving in a second
@@ -187,8 +187,8 @@ times anyway. The one lap that read the clause literally is the one whose build 
 the table:
 
 ```sh
-git log -p --format='' -- construction/fleet-claims.kyri | grep -c '^+claim '
-git log -p --format='' -- construction/fleet-claims.kyri | grep '^+what' | grep -cE '%[0-9]{3}'
+git log -p --format='' -- fleet/fleet-claims.kyri | grep -c '^+claim '
+git log -p --format='' -- fleet/fleet-claims.kyri | grep '^+what' | grep -cE '%[0-9]{3}'
 grep -oE '\*\*(OPEN|BOOKED)\*\*' construction/REDS.md | sort | uniq -c
 ```
 
@@ -354,7 +354,7 @@ Two mechanisms answer that, at two levels:
   ships in the same tmux session and re-arms any live seat whose `fleet-loop.sh` process is gone.
 
 **Nothing is numbered.** The watch reads `tmux list-windows` for window **names** on every pass and
-matches them against the live seats in `construction/fleet-roster.kyri`. A layout written into a
+matches them against the live seats in `fleet/fleet-roster.kyri`. A layout written into a
 script is a layout that stays true until somebody moves a window -- and then the watcher types a
 ship's relaunch into a stranger's keyboard. Seat to tree is the roster's binding; name to index is
 tmux's; the watch adds no third copy of either.

@@ -1,6 +1,6 @@
 # tools/s/standing_equipment_redleg_witness.rish -- the roster's own claim, read back.
 #
-# WHY THIS RUNG. construction/standing-equipment.kyri states in its eleventh line that "the grain
+# WHY THIS RUNG. fleet/standing-equipment.kyri states in its eleventh line that "the grain
 # says a guard that cannot red guards nothing (REDS row 59), and every guard here can red." That
 # sentence governs 285 files and stood for months on its own word.
 #

@@ -143,7 +143,7 @@ the elder `mantra-weave`/`mantra-commit` header strings this law keeps forever. 
 REDS.md`'s OPEN rows widened past the ten the eleventh sweep read whole: `%729`, `%730`, `%735`,
 and `%808` have landed since, and each names either a custody-gate history rewrite, a typed-prompt
 class no file can gate, a room-growth ruling, or a compiler-bridge decision -- none inside
-`mantra/` or `tally/`, none agent-doable here. `construction/fleet-claims.kyri` carries one live
+`mantra/` or `tally/`, none agent-doable here. `fleet/fleet-claims.kyri` carries one live
 claim, `bakery-root-finder-convert`, outside this lane. The two `PATCHOULI` card blocks on
 `construction/ITINERARY.md` both read as the shelved two-line pointer form the-writer-sheds asks
 for, so no shed was owed this lap. `%807` and `%765`'s 38 remaining families still want Keaton's
@@ -154,7 +154,7 @@ again, answer identically to the tenth through twelfth. `construction/REDS.md`'s
 run through `%827` (`%819`, `%826`, `%827` joined since the eleventh sweep) and none names
 `mantra/` or `tally/` -- each wants Keaton's ruling (`%807`, `%819`, `%826`, `%734`), another
 ship's own hand (`%765`'s 38 remaining families, `%804` for custody gate 1, `%788` for the fleet's
-shared root-finder), or stands outside this lane entirely. `construction/fleet-claims.kyri` now
+shared root-finder), or stands outside this lane entirely. `fleet/fleet-claims.kyri` now
 carries two live claims, `bakery-root-finder-convert` and `copal-tigerbeetle-buffer-bleeds-census-roster`,
 both outside `mantra/`-`tally/`. Both `PATCHOULI` card blocks still read as shelved pointers. A
 grading spot-check of `mantra/src/weave.rye` found `register=72, reach=50, truth=100` with
@@ -172,7 +172,7 @@ witness print-labels (test identifiers, never persisted headers). `construction/
 BOOKED rows read whole again -- `%827`, `%826`, `%819`, `%807`, `%804`, `%788`, `%765`, `%734` --
 and each still names Keaton's ruling (`%827` register exemption, `%826`, `%807`, `%734`
 compiler-bridge, `%804` custody gate), another ship's already-claimed path (`%788`, bakery), or
-`%765`'s remainder in another lane. `construction/fleet-claims.kyri` carries the same one live
+`%765`'s remainder in another lane. `fleet/fleet-claims.kyri` carries the same one live
 claim, `bakery-root-finder-convert`, outside this lane. Both `PATCHOULI` card blocks on
 `construction/ITINERARY.md` read as the shelved two-line pointer form, so no shed is owed. `%807`
 and `%765`'s 38 remaining families still want Keaton's word or another ship's own lane.
@@ -185,7 +185,7 @@ and `tally/bud.rye`'s `h_domain` Tier 1 domain-separator (never a record-version
 `mantra/src/receipt_offer.rye`'s `schema_v1` constant now carries its already-molted value,
 `grain.receipt-offer.20261003.040829` -- the fourth family, confirmed landed rather than a new
 candidate. `construction/REDS.md`'s `%807` and `%765` read unchanged from the fourteenth sweep.
-`construction/fleet-claims.kyri` now carries two live claims, `bakery-root-finder-convert` and
+`fleet/fleet-claims.kyri` now carries two live claims, `bakery-root-finder-convert` and
 `copal-tigerbeetle-cache-inplace-census-roster`, both outside this lane. `%807` and `%765`'s 38
 remaining families still want Keaton's word or another ship's own lane.
 
@@ -198,7 +198,7 @@ than a scoped build, so it is left for Keaton's word alongside `%819` (law-room 
 `%808` (send chaining), `%804` (custody gate), `%803` (nib-writer shape), `%788` (bakery's own
 claim), `%735` (counsel-room ruling), `%734` (compiler-bridge), `%730`/`%729` (pkill-family and
 pen-identity, both CLOSED or OPEN on another ship's touch), and `%826`/`%827` (ratchet-ceiling
-report gates, another lane's shims). `construction/fleet-claims.kyri` carries the same two live
+report gates, another lane's shims). `fleet/fleet-claims.kyri` carries the same two live
 claims, both outside this lane. Both `PATCHOULI` card blocks read as shelved pointers; no shed is
 owed. `%807` and `%765`'s 38 remaining families still want Keaton's word or another ship's own
 lane.
@@ -211,7 +211,7 @@ and tag variables, the elder `mantra-weave`/`mantra-commit` read-compat headers,
 again -- `%827`, `%826`, `%819`, `%808`, `%807`, `%804`, `%803`, `%788`, `%765`, `%735`, `%734`,
 `%730`, `%729`, `%456`, and the two unnumbered rows (`20261001.143131` shim-reason, `20260930`
 witness-reach) -- and every one still names Keaton's ruling, another ship's already-claimed path,
-or a lane outside `mantra/`-`tally/`. `construction/fleet-claims.kyri` now carries one live claim
+or a lane outside `mantra/`-`tally/`. `fleet/fleet-claims.kyri` now carries one live claim
 (`bakery-root-finder-convert`); the copal claim from the sixteenth sweep has closed. Both
 `PATCHOULI` card blocks still read as shelved pointers. **Worth naming plainly rather than
 repeating again without comment:** this is the seventeenth consecutive confirmation that this
@@ -264,7 +264,7 @@ not moved into this lane's custody since the eighteenth lap wrote it down. `cons
 OPEN rows (`%827`, `%826`, `%819`, `%808`, `%807`, `%804`, `%803`, `%788`, `%765`, `%735`, `%734`,
 `%730`, `%729`, `%456`) were each read whole again; none names `mantra/` or `tally/`, and each
 still wants Keaton's ruling, a history-rewrite custody gate, or another ship's already-claimed
-path. `construction/fleet-claims.kyri` carries one live claim, `bakery-root-finder-convert`,
+path. `fleet/fleet-claims.kyri` carries one live claim, `bakery-root-finder-convert`,
 outside this lane. All three `PATCHOULI` card blocks read as shelved two-line pointers, so no shed
 is owed. `%807` and `%765`'s 38 remaining families still want Keaton's word or another ship's own
 lane.
@@ -282,7 +282,7 @@ reads `verdict=authored_width_drift` tree-wide (`corpus_flagged_lines=1114` agai
 either inside a comment or an `@as(usize, ...)` seam cast beside its own bound-check -- no new
 flagged line in this lane's custody, matching the eighteenth lap's prior confirmation that this
 reading belongs to another lap entirely. `construction/REDS.md`'s OPEN rows were read whole again;
-none names `mantra/` or `tally/`. `construction/fleet-claims.kyri` now carries two live claims,
+none names `mantra/` or `tally/`. `fleet/fleet-claims.kyri` now carries two live claims,
 `bakery-root-finder-convert` and `copal-tigerbeetle-last-stage-census-roster`, both outside this
 lane. All three `PATCHOULI` card blocks still read as shelved pointers.
 **Worth naming plainly a second time:** this is the twenty-first consecutive confirmation, now

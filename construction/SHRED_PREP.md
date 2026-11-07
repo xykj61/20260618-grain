@@ -85,7 +85,7 @@ its bound. The word stays **shred RED** until the next circle.*
 astrological **modality** -- planet, fixed, cardinal, dual -- which named which body orbits which
 star. That arrangement changed and the filenames did not, so the breach is one line: **a launcher
 is named for its seat, never for its modality.** The living recipe reads
-`construction/fleet-roster.kyri`, so a ship joins, retires, or is renamed in one row. Each elder is
+`fleet/fleet-roster.kyri`, so a ship joins, retires, or is renamed in one row. Each elder is
 bannered and keeps every byte, and every living citer still resolves because nothing moved. **The
 ship names are not touched** -- Hush, Mystery, Silence, Sound, Mind and Dream are good names and
 three may sail again. The breach is enforced rather than declared: a living launcher filename

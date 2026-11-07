@@ -123,7 +123,7 @@ echo "**Ran:** \`rishi/bin/rishi run tools/w/mentioned_string_witness.rish\`"
 EOF
 
 # The roster: one row, which the runner invokes, so that witness is standing.
-cat > construction/standing-equipment.kyri <<'EOF'
+cat > fleet/standing-equipment.kyri <<'EOF'
 format standing-equipment-v1
 guard caller
 path tools/w/caller_witness.rish
@@ -222,14 +222,14 @@ else note no "identity: unreached == total - standing - cadence"; fi
 # and its member out of `unreached` and carry the member into `standing`. This is the whole reason
 # the gate sits where it now sits, so it is proven by doing rather than by argument.
 before_unreached=$(read_field "$out" unreached)
-cat >> construction/standing-equipment.kyri <<'EOF'
+cat >> fleet/standing-equipment.kyri <<'EOF'
 guard orphan_choir
 path tools/w/orphan_choir_witness.rish
 EOF
 # Only the roster moves. `git add -A` here would sweep in tools/w/untracked_two_witness.rish, which
 # is planted after the first commit precisely to stay untracked -- and tracking it raises `total`
 # by one, so this reading came back 7 -> 6 for a promotion that genuinely moved two files.
-git add construction/standing-equipment.kyri >/dev/null 2>&1
+git add fleet/standing-equipment.kyri >/dev/null 2>&1
 git commit -qm roster-the-orphan >/dev/null 2>&1
 
 after=$(WITNESS_REACH_CEILING=9999 sh "$SCAN" 2>/dev/null)
@@ -311,11 +311,11 @@ base_whole=$(fam_field wholly_unreached)
 #    rises by one and the family count must not move.
 echo 'say "duet_a"' > tools/w/duet_a_witness.rish
 echo 'say "duet_b"' > tools/w/duet_b_witness.rish
-cat >> construction/standing-equipment.kyri <<'EOF'
+cat >> fleet/standing-equipment.kyri <<'EOF'
 guard duet_a
 path tools/w/duet_a_witness.rish
 EOF
-git add -A tools/w/duet_a_witness.rish tools/w/duet_b_witness.rish construction/standing-equipment.kyri >/dev/null 2>&1
+git add -A tools/w/duet_a_witness.rish tools/w/duet_b_witness.rish fleet/standing-equipment.kyri >/dev/null 2>&1
 git commit -qm plant-duet >/dev/null 2>&1
 
 if [ "$(fam_field wholly_unreached)" = "$base_whole" ]; then
@@ -331,10 +331,10 @@ else note no "wholly_unreached: the mixed family still raises unreached by its o
 mid_unr=$(fam_field unreached)
 mid_whole=$(fam_field wholly_unreached)
 git rm -q -f tools/w/duet_a_witness.rish >/dev/null 2>&1
-grep -v -e '^guard duet_a$' -e '^path tools/w/duet_a_witness.rish$' construction/standing-equipment.kyri > roster.tmp
-cat roster.tmp > construction/standing-equipment.kyri
+grep -v -e '^guard duet_a$' -e '^path tools/w/duet_a_witness.rish$' fleet/standing-equipment.kyri > roster.tmp
+cat roster.tmp > fleet/standing-equipment.kyri
 rm -f roster.tmp
-git add -A construction/standing-equipment.kyri >/dev/null 2>&1
+git add -A fleet/standing-equipment.kyri >/dev/null 2>&1
 git commit -qm drop-the-only-guarded-member >/dev/null 2>&1
 
 if [ "$(fam_field unreached)" = "$mid_unr" ]; then
@@ -348,11 +348,11 @@ else note no "wholly_unreached: rises by one when a family loses its last clock"
 #    fall by exactly one. A ratchet that only ever rises is a ratchet nobody can close.
 pre_unr=$(fam_field unreached)
 pre_whole=$(fam_field wholly_unreached)
-cat >> construction/standing-equipment.kyri <<'EOF'
+cat >> fleet/standing-equipment.kyri <<'EOF'
 guard duet_b
 path tools/w/duet_b_witness.rish
 EOF
-git add construction/standing-equipment.kyri >/dev/null 2>&1
+git add fleet/standing-equipment.kyri >/dev/null 2>&1
 git commit -qm roster-duet-b >/dev/null 2>&1
 
 if [ "$(fam_field wholly_unreached)" -eq $((pre_whole - 1)) ]; then
@@ -507,8 +507,8 @@ else note no "growth: every new path is also an unreached path"; fi
 
 #    The far side, first half: a roster row takes the fresh plant off both readings at once, which
 #    is the repair the reading exists to point at.
-printf 'guard fresh_growth\npath tools/w/fresh_growth_witness.rish\ntier lap\n' >> construction/standing-equipment.kyri
-git add construction/standing-equipment.kyri >/dev/null 2>&1
+printf 'guard fresh_growth\npath tools/w/fresh_growth_witness.rish\ntier lap\n' >> fleet/standing-equipment.kyri
+git add fleet/standing-equipment.kyri >/dev/null 2>&1
 git commit -qm roster-fresh >/dev/null 2>&1
 if [ "$(new_field unreached_new)" -eq "$pre_new" ] && [ "$(new_field unreached)" -eq $((pre_unr + 1)) ]; then
   note ok "growth: one roster row lowers unreached_new and unreached together"

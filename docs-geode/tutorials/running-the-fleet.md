@@ -21,7 +21,7 @@ one ends. Everything here lived in session logs and in the live operator card un
 are written for a hand who already knows the fleet.
 
 **One idea carries the whole page:** a seat is a chair rather than a computer, and one table binds
-a seat to its tree, its engine, and its lane. That table is `construction/fleet-roster.kyri`, named
+a seat to its tree, its engine, and its lane. That table is `fleet/fleet-roster.kyri`, named
 here rather than linked because the operator cards live in the maintainer's own field and the
 public seed carries no such room. The loop reads it, the watch reads it, and
 the launcher reads it, so all three read one answer. To add, retire, or rename a ship, you

@@ -10,7 +10,7 @@
 # is a forecast about a fleet's shape wearing a name's clothes.
 #
 # SO A LAUNCHER IS NAMED FOR ITS SEAT, and this one is named for none: it reads
-# construction/fleet-roster.kyri and prints whichever seat you ask for. The elder printers keep
+# fleet/fleet-roster.kyri and prints whichever seat you ask for. The elder printers keep
 # every byte they wrote -- they carry living and dated references both, and renaming a fossil to
 # tidy it spends a whole-tree reference sweep on nothing. Each is bannered and enters
 # construction/SHRED_PREP.md under Class H, where the cut stays RED until Keaton circles it.
@@ -34,8 +34,8 @@ let root = run ["test" "-f" "construction/ITINERARY.md"]
 assert root.ok else "run from the repo root (construction/ITINERARY.md not found)"
 
 # invariant: the table and its one reader both stand before a recipe claims to describe them.
-let table = run ["test" "-f" "construction/fleet-roster.kyri"]
-assert table.ok else "construction/fleet-roster.kyri is missing -- the seat table IS the recipe"
+let table = run ["test" "-f" "fleet/fleet-roster.kyri"]
+assert table.ok else "fleet/fleet-roster.kyri is missing -- the seat table IS the recipe"
 let reader = run ["test" "-f" "tools/fixtures/f/fleet_roster_scan.sh"]
 assert reader.ok else "tools/fixtures/f/fleet_roster_scan.sh is missing -- nothing can read the table"
 
@@ -86,7 +86,7 @@ say "4) CUSTODY: the gates in construction/ITINERARY.md stay MANUAL -- funds and
 say "   provisioning and paying, the maintainer's own identity, and the public seed. A lap whose"
 say "   remaining work is all gates writes .loop-gates-only, prints GATES-ONLY, and stops."
 say ""
-say "5) TO ADD, RETIRE, OR RENAME A SHIP: edit one row in construction/fleet-roster.kyri. The"
+say "5) TO ADD, RETIRE, OR RENAME A SHIP: edit one row in fleet/fleet-roster.kyri. The"
 say "   loop, the re-arm, and this page all read it, so none can disagree with the others"
 say "   (REDS %409). An elder seat name goes in that row's `elder` field and is corrected on use."
 say ""

@@ -82,7 +82,7 @@ check "the unrostered one is named"    yes "$(has "$out" 'unrostered: tools/g/op
 
 # CASE 4 -- THE BITE. Rostering it without declaring the capability is the one row that would red
 # every machine studying rather than cloning, so it refuses.
-cat > construction/standing-equipment.kyri <<'R'
+cat > fleet/standing-equipment.kyri <<'R'
 format standing-equipment-v1
 guard optional_guard
 path tools/g/optional_witness.rish
@@ -96,7 +96,7 @@ out=$(ask list)
 check "the undeclared row is named"    yes "$(has "$out" 'undeclared: tools/g/optional_witness.rish')"
 
 # CASE 5 -- THE PLANT LIFTED. Declaring the capability is the whole cure, and the gate opens.
-cat > construction/standing-equipment.kyri <<'R'
+cat > fleet/standing-equipment.kyri <<'R'
 format standing-equipment-v1
 guard optional_guard
 path tools/g/optional_witness.rish
@@ -115,7 +115,7 @@ cat > tools/g/second_witness.rish <<'W'
 let clone = run ["test" "-d" "gratitude/teacher/src"]
 assert clone.ok else "second: gratitude/teacher/src ABSENT"
 W
-cat >> construction/standing-equipment.kyri <<'R'
+cat >> fleet/standing-equipment.kyri <<'R'
 
 guard second_guard
 path tools/g/second_witness.rish
@@ -158,7 +158,7 @@ probe() { GITLINK_ROOT="$pen" GITLINK_RISHI="$rishi_real" sh "$scan" probe 2>&1;
 
 # Leave exactly one optional dependent standing, so each probe reading has one subject.
 rm -f tools/g/second_witness.rish
-cat > construction/standing-equipment.kyri <<'R'
+cat > fleet/standing-equipment.kyri <<'R'
 format standing-equipment-v1
 R
 

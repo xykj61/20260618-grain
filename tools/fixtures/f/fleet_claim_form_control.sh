@@ -1,7 +1,7 @@
 #!/bin/sh
 # fleet_claim_form_control.sh -- prove the claim board's FORM reading, plant by plant, in a pen.
 #
-# WHY (REDS %787). `construction/fleet-claims.kyri` is a file every ship writes and every ship
+# WHY (REDS %787). `fleet/fleet-claims.kyri` is a file every ship writes and every ship
 # reads, and only its CONTENT was ever checked. Its FORM was read by nobody, so a hand-resolved
 # rebase conflict on `20260916` glued three records into one 1,547-byte line, ate a record's
 # header, and `fleet_claim_scan.sh --check` answered `verdict=clear` with `claims_live=8`.
@@ -234,14 +234,14 @@ mkdir -p "$pen/c/tools/fixtures/f" "$pen/c/tools/f" "$pen/c/construction"
 cp "$ROOT/tools/fixtures/f/fleet_claim_scan.sh"      "$pen/c/tools/fixtures/f/"
 cp "$ROOT/tools/fixtures/f/fleet_claim_form_scan.sh" "$pen/c/tools/fixtures/f/"
 cp "$ROOT/tools/fixtures/f/fleet_roster_scan.sh"     "$pen/c/tools/fixtures/f/" 2>/dev/null || true
-: > "$pen/c/construction/fleet-roster.kyri"
+: > "$pen/c/fleet/fleet-roster.kyri"
 clean
-grep -v '^claim receipt-cloth$' "$board" > "$pen/c/construction/fleet-claims.kyri"
+grep -v '^claim receipt-cloth$' "$board" > "$pen/c/fleet/fleet-claims.kyri"
 c_out=$(cd "$pen/c" && ANOINTED_REMOTE=nowhere sh tools/fixtures/f/fleet_claim_scan.sh --check tools/x.sh 2>&1 || true)
 say "the_content_reader_refuses_a_malformed_board=$(printf '%s' "$c_out" | grep -q 'verdict=malformed' && echo yes || echo no)"
 say "the_content_reader_offers_no_clear_on_a_broken_board=$(printf '%s' "$c_out" | grep -q 'verdict=clear' && echo no || echo yes)"
 clean
-cp "$board" "$pen/c/construction/fleet-claims.kyri"
+cp "$board" "$pen/c/fleet/fleet-claims.kyri"
 c_ok=$(cd "$pen/c" && ANOINTED_REMOTE=nowhere sh tools/fixtures/f/fleet_claim_scan.sh --check tools/x.sh 2>&1 || true)
 say "a_well_formed_board_still_reads_clear=$(printf '%s' "$c_ok" | grep -q 'verdict=clear' && echo yes || echo no)"
 say "the_content_reader_names_the_form_it_read=$(printf '%s' "$c_ok" | grep -q 'form=well_formed' && echo yes || echo no)"
@@ -252,18 +252,18 @@ say "the_content_reader_names_the_form_it_read=$(printf '%s' "$c_ok" | grep -q '
 # the total rather than on `corrupting` would red a peer's proven guard for a record that corrupts
 # nothing. The board below is that exact shape.
 clean
-grep -v '^epoch 1789100000$' "$board" > "$pen/c/construction/fleet-claims.kyri"
+grep -v '^epoch 1789100000$' "$board" > "$pen/c/fleet/fleet-claims.kyri"
 c_conf=$(cd "$pen/c" && ANOINTED_REMOTE=nowhere sh tools/fixtures/f/fleet_claim_scan.sh --check tools/x.sh 2>&1 || true)
 say "a_confined_finding_does_not_make_the_reader_refuse=$(printf '%s' "$c_conf" | grep -q 'verdict=clear' && echo yes || echo no)"
 say "a_confined_finding_is_still_counted_to_the_reader=$(printf '%s' "$c_conf" | grep -q 'confined=1' && echo yes || echo no)"
 clean
-grep -v '^claim receipt-cloth$' "$board" > "$pen/c/construction/fleet-claims.kyri"
+grep -v '^claim receipt-cloth$' "$board" > "$pen/c/fleet/fleet-claims.kyri"
 say "and_a_corrupting_finding_still_refuses=$(cd "$pen/c" && ANOINTED_REMOTE=nowhere sh tools/fixtures/f/fleet_claim_scan.sh --check tools/x.sh 2>&1 | grep -q 'verdict=malformed' && echo yes || echo no)"
 
 # 22c -- MUTATION. Pointing the content reader at the TOTAL rather than at `corrupting` must red
 # the confined leg, since that is precisely the over-refusal the split exists to prevent.
 clean
-grep -v '^epoch 1789100000$' "$board" > "$pen/c/construction/fleet-claims.kyri"
+grep -v '^epoch 1789100000$' "$board" > "$pen/c/fleet/fleet-claims.kyri"
 sed "s|sed -n 's/\^corrupting=//p'|sed -n 's/^malformed=//p'|" "$pen/c/tools/fixtures/f/fleet_claim_scan.sh" > "$pen/c/tools/fixtures/f/mutant_scan.sh"
 c_mut=$(cd "$pen/c" && ANOINTED_REMOTE=nowhere sh tools/fixtures/f/mutant_scan.sh --check tools/x.sh 2>&1 || true)
 say "mutation_refusing_on_the_total_bites=$(printf '%s' "$c_mut" | grep -q 'verdict=malformed' && echo yes || echo no)"
@@ -275,7 +275,7 @@ rm -f "$pen/c/tools/fixtures/f/mutant_scan.sh"
 # all 370 revisions of the living board: 14 stood in exactly that state, in two windows of one
 # class -- a `what` sentence holding the literal word `claim` mid-sentence, cut there by a hand.
 clean
-grep -v '^epoch 1789100000$' "$board" > "$pen/c/construction/fleet-claims.kyri"
+grep -v '^epoch 1789100000$' "$board" > "$pen/c/fleet/fleet-claims.kyri"
 c_word=$(cd "$pen/c" && ANOINTED_REMOTE=nowhere sh tools/fixtures/f/fleet_claim_scan.sh --check tools/x.sh 2>&1 || true)
 say "a_confined_board_carries_the_form_readers_own_verdict=$(printf '%s' "$c_word" | grep -q 'form=malformed' && echo yes || echo no)"
 say "a_confined_board_is_never_called_readable=$(printf '%s' "$c_word" | grep -q 'form=readable' && echo no || echo yes)"
@@ -292,7 +292,7 @@ rm -f "$pen/c/tools/fixtures/f/mutant_word.sh"
 # 22f -- and a well-formed board carries the well-formed word with no detail line excusing it, so
 # the new sentence is spent only where it is earned.
 clean
-cp "$board" "$pen/c/construction/fleet-claims.kyri"
+cp "$board" "$pen/c/fleet/fleet-claims.kyri"
 c_wf=$(cd "$pen/c" && ANOINTED_REMOTE=nowhere sh tools/fixtures/f/fleet_claim_scan.sh --check tools/x.sh 2>&1 || true)
 say "a_well_formed_board_is_named_well_formed=$(printf '%s' "$c_wf" | grep -q 'form=well_formed' && echo yes || echo no)"
 say "a_well_formed_board_carries_no_confined_excuse=$(printf '%s' "$c_wf" | grep -q 'confined findings alone' && echo no || echo yes)"

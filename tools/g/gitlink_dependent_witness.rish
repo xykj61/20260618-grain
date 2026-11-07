@@ -92,7 +92,7 @@ say "gitlink-dependent: and the capability field the cure rests on is really bui
 # invariant: the roster honors at least one capability probe. This witness recommends a mechanism to
 # whoever reads the unrostered population, and recommending one the runner does not implement would
 # be prose rather than a door.
-let caps = run ["sh" "-c" "grep -c '^capability ' construction/standing-equipment.kyri || true"]
+let caps = run ["sh" "-c" "grep -c '^capability ' fleet/standing-equipment.kyri || true"]
 assert caps.ok else "gitlink-dependent: the roster could not be read"
 assert (trim caps.out) != "0" else "gitlink-dependent: the capability field this reading points at is named by no roster row"
 

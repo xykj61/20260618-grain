@@ -85,7 +85,7 @@ CEILING_FIXED=${BUILD_TARGET_CEILING_FIXED:-47}
 CEILING_SHARED=${BUILD_TARGET_CEILING_SHARED:-1}
 
 root=${BUILD_TARGET_ROOT:-.}
-roster=${BUILD_TARGET_ROSTER:-construction/standing-equipment.kyri}
+roster=${BUILD_TARGET_ROSTER:-fleet/standing-equipment.kyri}
 ceiling_source=seated
 if [ -n "${BUILD_TARGET_CEILING_FIXED:-}" ] || [ -n "${BUILD_TARGET_CEILING_SHARED:-}" ]; then
   ceiling_source=env

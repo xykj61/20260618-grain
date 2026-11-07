@@ -49,7 +49,7 @@ check() { # check <name> <expected> <actual>
 mkfleet() { # mkfleet <name> ; echoes its root
   d="$PEN/$1"
   mkdir -p "$d/construction" "$d/tools/a" "$d/tools/z"
-  cat > "$d/construction/fleet-roster.kyri" <<'ROSTER'
+  cat > "$d/fleet/fleet-roster.kyri" <<'ROSTER'
 format fleet-roster-v1
 seat alpha
 tree grain-alpha
@@ -157,7 +157,7 @@ check "--seat zulu reads none" "0" "$(sh "$SCAN" "$p" --seat zulu 2>/dev/null | 
 
 # -- 11. an unreadable roster answers misread, never zero -------------------------------------------
 p=$(mkfleet noroster)
-rm -f "$p/construction/fleet-roster.kyri"
+rm -f "$p/fleet/fleet-roster.kyri"
 check "an absent roster is misread" "misread" "$(field_of verdict "$p")"
 check "and exits 2"                 "2"       "$(exit_of "$p")"
 

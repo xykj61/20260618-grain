@@ -3,7 +3,7 @@
 # The binding seat -> tree -> engine stood in six independent places across two executables, and
 # two had already drifted by 20260904: fleet-loop.sh admitted six seat names while fleet_rearm.sh
 # reported nine, and the elder-name remap seated on Keaton's word lived in one file and never
-# reached the other (REDS %409). construction/fleet-roster.kyri holds it once now, and this proves
+# reached the other (REDS %409). fleet/fleet-roster.kyri holds it once now, and this proves
 # the readers cannot disagree with it.
 #
 #   rishi/bin/rishi run tools/f/fleet_roster_witness.rish
@@ -13,8 +13,8 @@ say "fleet-roster: Style Gauge, Meter -- every leg is a reading, and every refus
 say "fleet-roster: Lens TAME -- safety first: a table two files disagree about is one table plus a waiting red."
 
 # invariant: run from the repo root, where the seat table lives.
-let root = run ["test" "-f" "construction/fleet-roster.kyri"]
-assert root.ok else "run from the repo root (construction/fleet-roster.kyri not found)"
+let root = run ["test" "-f" "fleet/fleet-roster.kyri"]
+assert root.ok else "run from the repo root (fleet/fleet-roster.kyri not found)"
 
 # invariant: the reader the callers share must be present before any caller is judged by it.
 let reader = run ["test" "-f" "tools/fixtures/f/fleet_roster_scan.sh"]

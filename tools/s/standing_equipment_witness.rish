@@ -11,7 +11,7 @@
 # that each guard actually run. The roster gives the runner its paths, and each run leaves a record.
 #
 # WHAT IS PROVEN, on metal.
-#   Every `path` in construction/standing-equipment.kyri names a file that exists on disk, so the roster
+#   Every `path` in fleet/standing-equipment.kyri names a file that exists on disk, so the roster
 #   follows the equipment as the tree changes.
 #   Every `guard` record carries exactly one `path`, so a half-written row is refused rather than
 #   silently skipped by a runner reading the same file.
@@ -84,7 +84,7 @@ say "standing-equipment: Lens TAME -- safety first: a guard that cannot red guar
 let scan = run ["sh" "tools/fixtures/s/standing_equipment_scan.sh"]
 # SAID BEFORE ASSERTED, because the refusal below tells a reader to read the scan's own lines and
 # the elder order never printed them. A red under the runner keeps the guard's stdout in
-# construction/standing-equipment-reds/, so on a refusal that file held the three header lines and
+# fleet/standing-equipment-reds/, so on a refusal that file held the three header lines and
 # the assertion -- and nothing about WHICH reading refused. A message that names evidence must put
 # the evidence where the message sends the reader (20260906).
 say scan.out
@@ -312,7 +312,7 @@ assert control.out contains "staged_still_tree_passes=yes" else "standing-equipm
 # WHAT MOVED, NAMED (`20260912.043553`). Every reading above answers WHETHER the tree moved, and a
 # twelve-character digest is all a close had to compare, so a pass could refuse and name no path.
 # That is a real bill rather than a tidiness: the lap that seated these legs lost a cold endurance run of
-# 272 green guards and 3,232 guard-seconds to one edit of `construction/fleet-claims.kyri`, made
+# 272 green guards and 3,232 guard-seconds to one edit of `fleet/fleet-claims.kyri`, made
 # because `tools/f/fleet_baton.txt` tells every ship to open a claim before it builds -- and the
 # transcript said only `tree_moved=yes`. Copal reported the same shape one lap earlier from its own
 # door, so the lantern had already fired twice.

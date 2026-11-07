@@ -289,7 +289,7 @@ elif [ "$artifact_kind" = notation ]; then
   # pseudo-sentence rather than being dropped one at a time by the reading's own under-four-words
   # floor -- the floor that already handles a short line correctly when something separates them.
   #
-  # Measured 20260831 on construction/standing-equipment.kyri: 498 comment lines carrying 7,271
+  # Measured 20260831 on fleet/standing-equipment.kyri: 498 comment lines carrying 7,271
   # words -- the file's whole argument -- were thrown away, and 457 record lines were read as a
   # single 915-word sentence, for a reading grade of 327, Reach 0, and a composite of C+ 75 -- a
   # number measured wholly on the half that says nothing. All nineteen tracked notation files

@@ -29,7 +29,7 @@ assert pen.out contains "leg_ok: an unknown head refuses: the commit is not held
 assert pen.out contains "leg_ok: the digest is named as per-tree in every reading" else "shared-receipt-basis: the digest must never be read as a cross-checkout match"
 assert pen.out contains "leg_ok: outside a repository the scan refuses rather than answering" else "shared-receipt-basis: an instrument that cannot answer must refuse"
 
-let here = run ["sh" "tools/fixtures/b/shared_receipt_basis_scan.sh" "construction/standing-equipment-receipt.kyri"]
+let here = run ["sh" "tools/fixtures/b/shared_receipt_basis_scan.sh" "fleet/standing-equipment-receipt.kyri"]
 say here.out
 assert here.out contains "digest_carries=no" else "shared-receipt-basis: the per-tree caveat must print on every reading"
 assert here.out contains "verdict=" else "shared-receipt-basis: the reading must name a verdict"

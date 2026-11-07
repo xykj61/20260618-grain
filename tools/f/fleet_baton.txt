@@ -54,7 +54,7 @@ SO SAY IT BEFORE YOU BUILD. When a lap opens a NEW INSTRUMENT -- a tool, a scan,
 module -- OR takes a BOOKED RED off the ledger, check, claim, push, then build:
   sh tools/fixtures/f/fleet_claim_scan.sh --check <path> ...
   sh tools/f/fleet_claim.sh --open <name> --paths "<path> ..." --what "<one plain sentence>"
-  then land BOTH construction/fleet-claims.kyri and construction/ITINERARY.md, and PUSH, before the
+  then land BOTH fleet/fleet-claims.kyri and construction/ITINERARY.md, and PUSH, before the
   build -- an unpushed claim is one no peer can read, and the reader says `board=local` out loud
   when it meets that state.
 STAGE THE CARD BESIDE THE BOARD, because the claim commit is a commit like any other and the card
@@ -116,7 +116,7 @@ rewrites no rota page.
 THREAD. Read the newest day shelf named at the top of session-logs/README.md, its top three rows,
 and the newest recommend line, to pick up the running thread.
 
-FLEET. construction/fleet-roster.kyri is the one seat table -- seat, tree, engine, lane, status,
+FLEET. fleet/fleet-roster.kyri is the one seat table -- seat, tree, engine, lane, status,
 elder -- read by the loop, the re-arm, and the launcher, so none can disagree. To add, retire, or
 rename a ship, edit one row. Machines are doors; a seat is a chair, not a computer. ONE WRITER PER
 CHECKOUT (REDS %291): two loops on one tree refuse, two loops on two trees is a token spend. Name

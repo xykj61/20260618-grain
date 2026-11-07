@@ -1,4 +1,4 @@
-# construction/fleet-roster.kyri -- the fleet's one seat table.
+# fleet/fleet-roster.kyri -- the fleet's one seat table.
 #
 # WHY THIS FILE EXISTS. The binding seat -> tree -> engine is the fleet's only real datum, and it
 # was spelled in six independent places across two executables: fleet-loop.sh's allow-list, its

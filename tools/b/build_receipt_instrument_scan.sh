@@ -1,7 +1,7 @@
 #!/bin/sh
 # tools/b/build_receipt_instrument_scan.sh -- read-only instrument for the fusion build basis.
 #
-# WHAT IT MEASURES. The standing roster writes one receipt, construction/standing-equipment-receipt.kyri,
+# WHAT IT MEASURES. The standing roster writes one receipt, fleet/standing-equipment-receipt.kyri,
 # recording the last fully green FULL pass on this pier: its tree digest, its head, its guard count.
 # --scoped passes consult that receipt. This scan reads the receipt beside the live tree and reports
 # how far the two have drifted, so a builder can see where repeated work actually lives before any
@@ -12,7 +12,7 @@
 #
 # Usage: sh tools/b/build_receipt_instrument_scan.sh [receipt-path]
 
-RECEIPT="${1:-construction/standing-equipment-receipt.kyri}"
+RECEIPT="${1:-fleet/standing-equipment-receipt.kyri}"
 
 if [ ! -f "$RECEIPT" ]; then
   echo "receipt=absent path=$RECEIPT"

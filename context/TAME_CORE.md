@@ -40,7 +40,7 @@ Token-dense on purpose. This is the smallest form that still holds TAME's highes
 
 ## The checkable surface -- what stands, on which clock, over what
 
-Every tool below sits on `construction/standing-equipment.kyri`, so a roster pass runs it whether or not a hand remembers to. Read the clock and the reach beside each name: a green says exactly as much as the population behind it.
+Every tool below sits on `fleet/standing-equipment.kyri`, so a roster pass runs it whether or not a hand remembers to. Read the clock and the reach beside each name: a green says exactly as much as the population behind it.
 
 | Tool | Reads | Clock |
 |---|---|---|
@@ -68,7 +68,7 @@ Every tool below sits on `construction/standing-equipment.kyri`, so a roster pas
 
 **The number in the row above was never a file count.** The elder witness printed `length lines result.out` and said *all 25 hosted files*, where the scan's list held **24** paths and the twenty-fifth was the trailing empty line. Three living pages carried the 25 from `20260729.230300`, this one among them. A guard that counts its own output is measuring the instrument rather than the tree, which is the same shape the widening itself repairs, one layer down.
 
-**And the sentence at the head of this section is walled now, rather than kept by care** (`20260909.152920`). *Every tool below sits on the roster* was false for three of the five tools this table named until a hand seated them one at a time, and the repair held only as long as the next hand remembered. `tools/t/tame_core_surface_witness.rish` over `tools/fixtures/t/tame_core_surface_scan.sh` reads this table against `construction/standing-equipment.kyri` and holds three walls at zero over the nine tools above: each exists on disk, each carries a `path` row, and each declared Clock matches the roster's own `tier` -- a tier absent reading `lap`, which is the roster's own rule. Thirty readings prove it on throwaway pens, nineteen of them biting eight distinct refusals. It reads the declaration rather than the code: whether a tool reads what its Reads column claims, whether this table names every tool it ought to, and whether a rostered guard is green are three other questions with three other instruments.
+**And the sentence at the head of this section is walled now, rather than kept by care** (`20260909.152920`). *Every tool below sits on the roster* was false for three of the five tools this table named until a hand seated them one at a time, and the repair held only as long as the next hand remembered. `tools/t/tame_core_surface_witness.rish` over `tools/fixtures/t/tame_core_surface_scan.sh` reads this table against `fleet/standing-equipment.kyri` and holds three walls at zero over the nine tools above: each exists on disk, each carries a `path` row, and each declared Clock matches the roster's own `tier` -- a tier absent reading `lap`, which is the roster's own rule. Thirty readings prove it on throwaway pens, nineteen of them biting eight distinct refusals. It reads the declaration rather than the code: whether a tool reads what its Reads column claims, whether this table names every tool it ought to, and whether a rostered guard is green are three other questions with three other instruments.
 
 Run them when touching authored code; a roster pass, cold at the open and hot after `git add`, runs them for you.
 

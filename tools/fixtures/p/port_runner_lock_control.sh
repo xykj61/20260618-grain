@@ -51,7 +51,7 @@ make_tree() {
     t="$pen/$1"
     mkdir -p "$t/construction" "$t/tools/x" "$t/room"
     ( cd "$t" && git init -q . && git config user.email pen@example.invalid && git config user.name pen )
-    printf '# pen roster\n' > "$t/construction/standing-equipment.kyri"
+    printf '# pen roster\n' > "$t/fleet/standing-equipment.kyri"
     echo "$t"
 }
 
@@ -93,7 +93,7 @@ EOF
 
 seat() {
     # seat <tree> <guard path>
-    printf 'guard pen\npath %s\n' "$2" >> "$1/construction/standing-equipment.kyri"
+    printf 'guard pen\npath %s\n' "$2" >> "$1/fleet/standing-equipment.kyri"
 }
 
 commit_tree() {

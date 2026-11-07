@@ -15,7 +15,7 @@
 #
 #   sh tools/fixtures/f/fleet_claim_scan.sh --check tools/x/thing_scan.sh   # is anyone on this?
 #   sh tools/f/fleet_claim.sh --open thing --paths "tools/x/thing_scan.sh" --what "..."
-#   git add construction/fleet-claims.kyri construction/ITINERARY.md          # BOTH: see the card clause
+#   git add fleet/fleet-claims.kyri construction/ITINERARY.md          # BOTH: see the card clause
 #   git commit && git push xy                                                 # now a peer can read it
 #
 # A CLAIM UNPUSHED IS A CLAIM NOBODY CAN READ, which is the one way to hold this tool and gain
@@ -37,7 +37,7 @@
 #
 # IT CARRIES THE OPERATOR CARD, AND THAT IS A SECOND FILE RATHER THAN A SECOND HABIT. A claiming lap
 # makes two commits this writer causes -- the lead-in `--open` before the build and the `--close`
-# after it -- and while it wrote `construction/fleet-claims.kyri` alone, each of those commits
+# after it -- and while it wrote `fleet/fleet-claims.kyri` alone, each of those commits
 # carried the board and left the card behind. The card's `Git nib` constant then names HEAD~2, and
 # `tools/r/remember_git_nib_witness.rish` reads `stale` for the whole build window. Measured over
 # this tree's 204 claim-opening commits: 185 stale under the guard's own state predicate, 184 of
@@ -62,7 +62,7 @@ set -eu
 
 ROOT=$(CDPATH= cd -- "$(dirname "$0")/../.." && pwd)
 cd "$ROOT"
-BOARD=${FLEET_CLAIM_BOARD:-construction/fleet-claims.kyri}
+BOARD=${FLEET_CLAIM_BOARD:-fleet/fleet-claims.kyri}
 MAX_LIVE=${FLEET_CLAIM_MAX:-64}
 scan=tools/fixtures/f/fleet_claim_scan.sh
 
@@ -272,5 +272,5 @@ carry_the_card
 echo "claim=$name"
 echo "seat=$me"
 echo "stamp=$stamp"
-echo "detail: stage BOTH construction/fleet-claims.kyri and $CARD, then push before you build -- an unpushed claim is one no peer can read, and a card left unstaged reds remember_git_nib for the whole window"
+echo "detail: stage BOTH fleet/fleet-claims.kyri and $CARD, then push before you build -- an unpushed claim is one no peer can read, and a card left unstaged reds remember_git_nib for the whole window"
 echo "verdict=claimed"

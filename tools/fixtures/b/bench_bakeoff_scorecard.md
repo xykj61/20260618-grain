@@ -1,7 +1,7 @@
 # Bench bakeoff scorecard — procurement witness
 
 > **FOSSIL -- Class M**, prepped `20260906.114734` for the mitra shed; the cut stays RED
-> until circled. **Living mutant:** `construction/fleet-roster.kyri` and the roster receipts `standing_equipment_run.sh` writes. An empty procurement skeleton for three benches, never run; the question it asked was answered by doing.
+> until circled. **Living mutant:** `fleet/fleet-roster.kyri` and the roster receipts `standing_equipment_run.sh` writes. An empty procurement skeleton for three benches, never run; the question it asked was answered by doing.
 > Row and reasons: [`../../construction/SHRED_PREP.md`](../../construction/SHRED_PREP.md).
 
 **Language:** EN  

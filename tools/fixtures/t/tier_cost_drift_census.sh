@@ -1,7 +1,7 @@
 #!/bin/sh
 # tools/fixtures/t/tier_cost_drift_census.sh -- does a roster row's stated cost still hold?
 #
-# WHY THIS EXISTS. Every `tier` field in construction/standing-equipment.kyri is a cost
+# WHY THIS EXISTS. Every `tier` field in fleet/standing-equipment.kyri is a cost
 # decision: `lap` pays on every roster run, `cadence` pays every fifth round. The roster's
 # own header says COST DECIDES THE TIER, and dozens of rows justify their tier with a
 # measured figure written into a comment -- "measured 3s", "105s measured here 20260829",
@@ -16,7 +16,7 @@
 #
 # WHAT IT COMPARES. Stated figures come from the comment text of a guard's record -- the
 # preamble block above `guard NAME` and any inline comment inside it. Measured seconds come
-# from this pier's own run card, construction/standing-equipment-runs.kyri, whose lines read
+# from this pier's own run card, fleet/standing-equipment-runs.kyri, whose lines read
 # `ran <name> <stamp> <verdict> <tier> <seconds>`; that card is untracked and per pier on
 # purpose, so a fresh clone honestly reads nothing measured rather than another machine's
 # memory. Pass a standing_equipment_run transcript as the one argument to read `<guard>
@@ -54,8 +54,8 @@ set -eu
 
 [ -d .git ] || { echo "verdict=not_a_repo"; exit 2; }
 
-roster=construction/standing-equipment.kyri
-transcript=${1:-construction/standing-equipment-runs.kyri}
+roster=fleet/standing-equipment.kyri
+transcript=${1:-fleet/standing-equipment-runs.kyri}
 
 [ -f "$roster" ] || { echo "verdict=no_roster"; exit 2; }
 [ -f "$transcript" ] || { echo "verdict=no_transcript"; exit 2; }

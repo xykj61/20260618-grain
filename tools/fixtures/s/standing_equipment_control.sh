@@ -1268,18 +1268,18 @@ echo "planted guard speaking on stderr" >&2
 exit 1
 EOF
 chmod +x "$gitpen/rishi/bin/rishi"
-rm -rf "$gitpen/construction/standing-equipment-reds"
+rm -rf "$gitpen/fleet/standing-equipment-reds"
 # `--hot` because an earlier behaviour above left this pen's index dirty, and a cold full-roster
 # pass over a dirty index refuses before a single guard runs -- which is the runner working.
 out=$( ( cd "$gitpen" && STANDING_ROSTER=quiet.kyri STANDING_CARD=run-card.kyri \
         sh "$runner" --hot 2>/dev/null ) || true )
-ev="$gitpen/construction/standing-equipment-reds/alpha.txt"
+ev="$gitpen/fleet/standing-equipment-reds/alpha.txt"
 if [ -f "$ev" ] && grep -q "speaking on stdout" "$ev" && grep -q "speaking on stderr" "$ev"; then
   echo "red_keeps_both_streams=yes"
 else
   echo "red_keeps_both_streams=no"
 fi
-case "$out" in *"evidence construction/standing-equipment-reds/alpha.txt"*) echo "red_names_its_evidence=yes" ;; *) echo "red_names_its_evidence=no" ;; esac
+case "$out" in *"evidence fleet/standing-equipment-reds/alpha.txt"*) echo "red_names_its_evidence=yes" ;; *) echo "red_names_its_evidence=no" ;; esac
 
 # A green leaves no room at all, and the next run clears whatever the last one left -- so a stale
 # file can never be read as this run's verdict.
@@ -1290,7 +1290,7 @@ EOF
 chmod +x "$gitpen/rishi/bin/rishi"
 out=$( ( cd "$gitpen" && STANDING_ROSTER=quiet.kyri STANDING_CARD=run-card.kyri \
         sh "$runner" --hot 2>/dev/null ) || true )
-if [ -e "$gitpen/construction/standing-equipment-reds" ]; then
+if [ -e "$gitpen/fleet/standing-equipment-reds" ]; then
   echo "green_leaves_no_evidence=no"
 else
   echo "green_leaves_no_evidence=yes"
@@ -1326,7 +1326,7 @@ run_twopen() {
 }
 # Seed both files: a full pass over two red guards.
 run_twopen --hot >/dev/null
-evdir="$gitpen/construction/standing-equipment-reds"
+evdir="$gitpen/fleet/standing-equipment-reds"
 if [ -f "$evdir/alpha.txt" ] && [ -f "$evdir/beta.txt" ]; then
   echo "full_pass_seeds_both=yes"
 else
@@ -2802,7 +2802,7 @@ rm -f "$pen/refuser-card.kyri"
 out=$(run_refuser "$pen/nosuchdir")
 case "$out" in *"guards_red=1"*) echo "refuser_is_red=yes" ;; *) echo "refuser_is_red=no" ;; esac
 case "$out" in *"guards_unrun=0"*) echo "writable_pen_unrun_zero=yes" ;; *) echo "writable_pen_unrun_zero=no" ;; esac
-case "$out" in *"  evidence construction/standing-equipment-reds/refuser.txt"*)
+case "$out" in *"  evidence fleet/standing-equipment-reds/refuser.txt"*)
   echo "red_announces_evidence=yes" ;; *) echo "red_announces_evidence=no" ;; esac
 case "$out" in *"run_verdict=guard_red"*) echo "red_refuses_pass=yes" ;; *) echo "red_refuses_pass=no" ;; esac
 if grep -qE "^ran refuser [0-9.]+ red lap " "$pen/refuser-card.kyri"; then
@@ -2827,7 +2827,7 @@ case "$out" in *"guards_unrun=1"*) echo "lost_answer_is_unrun=yes" ;; *) echo "l
 case "$out" in *"guards_red=0"*) echo "lost_answer_not_red=yes" ;; *) echo "lost_answer_not_red=no" ;; esac
 case "$out" in *"unrun_at=refuser"*) echo "unrun_names_the_guard=yes" ;; *) echo "unrun_names_the_guard=no" ;; esac
 # THE CITATION TO NOTHING, closed: the path is announced exactly when the file stands.
-case "$out" in *"  evidence construction/standing-equipment-reds/refuser.txt"*)
+case "$out" in *"  evidence fleet/standing-equipment-reds/refuser.txt"*)
   echo "lost_answer_announces_path=yes" ;; *) echo "lost_answer_announces_path=no" ;; esac
 case "$out" in *"evidence could not be kept"*) echo "lost_answer_says_so=yes" ;; *) echo "lost_answer_says_so=no" ;; esac
 case "$out" in *"run_verdict=guard_unrun"*) echo "unrun_refuses_pass=yes" ;; *) echo "unrun_refuses_pass=no" ;; esac

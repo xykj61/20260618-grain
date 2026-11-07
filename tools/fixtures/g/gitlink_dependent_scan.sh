@@ -89,7 +89,7 @@ MAX_RUNNERS=4000
 MAX_REPORT=200
 MAX_PROBE=64
 
-roster=${GITLINK_ROSTER:-construction/standing-equipment.kyri}
+roster=${GITLINK_ROSTER:-fleet/standing-equipment.kyri}
 # The runner the probe hands each dependent to. Overridable for the same reason GITLINK_ROOT is: a
 # pen holds planted witnesses and no interpreter, so the control aims this at the real tree's rishi
 # and keeps the subject in the pen.

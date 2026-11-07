@@ -2,7 +2,7 @@
 # tools/fixtures/r/receipt_chain_scan.sh -- is this pier's scoped-receipt chain alive?
 #
 # WHAT IT READS. `tools/fixtures/s/standing_equipment_run.sh --scoped` proves the DELTA since the
-# last fully green FULL close, and it finds that close in `construction/standing-equipment-receipt.kyri`
+# last fully green FULL close, and it finds that close in `fleet/standing-equipment-receipt.kyri`
 # -- a file `.gitignore` line 387 denies, so every checkout holds its own and no ship reads another's.
 # This scan reads all eight at once and answers one question: would sharing a basis across the pier
 # buy anything, and is there a live basis to share?
@@ -131,7 +131,7 @@ seat $seat tree_absent"
     continue
   fi
 
-  rfile="$tree/construction/standing-equipment-receipt.kyri"
+  rfile="$tree/fleet/standing-equipment-receipt.kyri"
   if [ ! -f "$rfile" ]; then
     seat_lines="$seat_lines
 seat $seat receipt=absent"
@@ -168,7 +168,7 @@ seat $seat receipt=absent"
 seat $seat stamp=$r_stamp head=$(echo "$r_head" | cut -c1-10) scope=$r_scope guards=$r_guards gated=$r_gated delta=$d"
   fi
 
-  hfile="$tree/construction/standing-equipment-hitrate.kyri"
+  hfile="$tree/fleet/standing-equipment-hitrate.kyri"
   if [ -f "$hfile" ]; then
     o=$(grep -c . "$hfile" || true)
     m=$(grep -c 'receipt match' "$hfile" || true)

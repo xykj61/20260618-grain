@@ -393,7 +393,7 @@ unbacked=0
 while IFS= read -r name; do
   [ -n "$name" ] || continue
   # The stronger backing first: a guard of that name on the standing roster runs every lap.
-  if grep -qE "^guard $(printf '%s' "$name" | tr '-' '_')\$" construction/standing-equipment.kyri 2>/dev/null; then
+  if grep -qE "^guard $(printf '%s' "$name" | tr '-' '_')\$" fleet/standing-equipment.kyri 2>/dev/null; then
     continue
   fi
   # The weaker backing: a tracked file under tools/, this guard's own excluded, names it.

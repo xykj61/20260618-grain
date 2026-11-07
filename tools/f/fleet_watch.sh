@@ -9,7 +9,7 @@
 # answers everything else, because a loop that has already exited cannot hold.
 #
 # WHAT IT DOES, once per interval: read the tmux windows BY NAME, match each name against the live
-# seats in construction/fleet-roster.kyri, and for any seat whose `fleet-loop.sh <seat>` process is
+# seats in fleet/fleet-roster.kyri, and for any seat whose `fleet-loop.sh <seat>` process is
 # absent, send that seat's own relaunch line into that seat's own window.
 #
 # NOTHING IS NUMBERED. Window indices are discovered from `tmux list-windows` on every pass and are
@@ -148,7 +148,7 @@ loop_running() {
   # 19 candidates against 7, so this one is correct for a reason a hand tidying the regex would
   # otherwise have to rediscover.
   #
-  # process-reach: bounded -- a seat name, which construction/fleet-roster.kyri makes unique
+  # process-reach: bounded -- a seat name, which fleet/fleet-roster.kyri makes unique
   # across the whole fleet, so this pattern names one ship's loop and can match no peer's.
   pgrep -f "fleet-loop\.sh $1\$" >/dev/null 2>&1
 }

@@ -8,7 +8,7 @@
 #
 # The grain says why that gap earns a control. A guard that cannot red guards nothing, so a
 # witness earns its silence by first being shown able to make a sound (REDS row 59, quoted at
-# the head of construction/standing-equipment.kyri).
+# the head of fleet/standing-equipment.kyri).
 #
 # THIS WALL HAS ALREADY RED ONCE, AND IT RED WRONGLY. REDS %244: a blanket history rewrite
 # turned two of the scan's own entries into the public pseudonym, and 22 projected files failed

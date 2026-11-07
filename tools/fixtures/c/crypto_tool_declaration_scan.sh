@@ -32,7 +32,7 @@ set -eu
 
 MODE="${1:-census}"
 DECL="${CRYPTO_TOOL_DECL:-tools/fixtures/c/crypto_tool_modules.txt}"
-ROSTER="${CRYPTO_TOOL_ROSTER:-construction/standing-equipment.kyri}"
+ROSTER="${CRYPTO_TOOL_ROSTER:-fleet/standing-equipment.kyri}"
 DIR="${CRYPTO_TOOL_DIR:-crypto}"
 
 TMP=$(mktemp -d)

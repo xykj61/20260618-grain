@@ -40,8 +40,8 @@ root=$(git rev-parse --show-toplevel 2>/dev/null) || {
 }
 cd "$root" || exit 1
 
-CARD="construction/standing-equipment-runs.kyri"
-ROSTER="construction/standing-equipment.kyri"
+CARD="fleet/standing-equipment-runs.kyri"
+ROSTER="fleet/standing-equipment.kyri"
 
 [ -f "$CARD" ] || {
   echo "instrument=failed"

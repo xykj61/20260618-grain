@@ -2,6 +2,8 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.101626 | [Fleet decouple -- move 3 files to fleet/, repoint 131 living refs, send](20261107/20261107-101626_fleet-decouple-repoint-send.kyri.md) | 132 files changed, 371 substitutions |
+| 20261107.102500 | [ITINERARY decoupling assessment -- fleet vs product card](20261107/20261107-102500_itinerary-decouple-assessment.kyri.md) | fleet half is high-churn; product half stays on operator card |
 | 20261107.100652 | [Mantra SLC Movement 3 -- ecology and guides bolt witness GREEN](20261107/20261107-100652_mantra-slc-m3-ecology-guides-green.kyri.md) | 12 pages on ~rosemary/~oregano, 97 resins, 187 beads, cross-bolt not_yet proven |
 | 20261107.095702 | [Tablecloth fold, ITINERARY condensation, and send](20261107/20261107-095702_tablecloth-fold-itinerary-condense-send.kyri.md) | 7 boards folded to date/202611/00/, 7 ship sections archived, card 48,646 to 40,425 bytes |
 | 20261107.093118 | [Mantra SLC Movement 2 -- curriculum spool GREEN](20261107/20261107-093118_mantra-slc-m2-curriculum-spool-green.kyri.md) | 10 pages on ~sunflower, 97 resins, 190 beads, SHA3-256 verified |

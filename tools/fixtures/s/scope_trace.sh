@@ -94,7 +94,7 @@ case "$timeout_s" in ''|*[!0-9]*) echo "refused: --timeout wants a whole number 
 cd "$_fd_root"
 root=$(pwd -P)
 
-roster="${STANDING_ROSTER:-construction/standing-equipment.kyri}"
+roster="${STANDING_ROSTER:-fleet/standing-equipment.kyri}"
 scope_map="${STANDING_SCOPE_MAP:-tools/fixtures/s/standing_equipment_scope_map.sh}"
 [ -f "$roster" ] || { echo "refused: no roster at $roster" >&2; exit 1; }
 [ -f "$scope_map" ] || { echo "refused: no scope map at $scope_map" >&2; exit 1; }

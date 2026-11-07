@@ -15,7 +15,7 @@
 # lock born at `%734` exists because two builds in one room write the same shadow `.zig` names.
 #
 # Measured on the seating lap: four in-tree locks, three named -- `/lotus/.sing.lock/` and
-# `construction/standing-equipment-run.lock.d/` by name, `glow/.cache/.build.lock.d` incidentally
+# `fleet/standing-equipment-run.lock.d/` by name, `glow/.cache/.build.lock.d` incidentally
 # by its parent `/glow/.cache/` -- and the build lock named by nothing, in whatever room a build
 # writes.
 #

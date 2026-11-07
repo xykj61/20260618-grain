@@ -1,7 +1,7 @@
 #!/bin/sh
 # tools/fixtures/w/witness_reach_scan.sh -- which witnesses on disk does a runner actually run?
 #
-# WHY THIS EXISTS. construction/standing-equipment.kyri opens with the sentence this meter measures:
+# WHY THIS EXISTS. fleet/standing-equipment.kyri opens with the sentence this meter measures:
 # "a guard that is never run guards nothing either." The roster names what stands; nothing counted
 # what stands OUTSIDE it. active-designing/date/20260824/20260824-080208_the-roster-that-decides-what-gets-measured.md
 # booked the question by name and left it open: "whether every witness on disk is reached by
@@ -294,7 +294,7 @@ CEILING=${WITNESS_REACH_CEILING:-635}
 FAMILY_CEILING=${WITNESS_REACH_FAMILY_CEILING:-218}
 
 mode="${1:-}"
-roster=construction/standing-equipment.kyri
+roster=fleet/standing-equipment.kyri
 
 pen=$(mktemp -d) || exit 1
 trap 'rm -rf "$pen"' EXIT INT TERM

@@ -5,7 +5,7 @@
 **Voice:** Kyri
 **Status:** Living -- three engines, and every live seat reads claude
 **Last updated:** `20261001.052423`
-**Kin:** [`README.md`](README.md) - [`SETUP_GUIDE.md`](SETUP_GUIDE.md) - [`../open/FLEET_LOOP.md`](../open/FLEET_LOOP.md) - `../construction/fleet-roster.kyri`
+**Kin:** [`README.md`](README.md) - [`SETUP_GUIDE.md`](SETUP_GUIDE.md) - [`../open/FLEET_LOOP.md`](../open/FLEET_LOOP.md) - `../fleet/fleet-roster.kyri`
 
 ---
 
@@ -14,7 +14,7 @@
 A ship is a copy of this project's source code with its own running agent session. The **engine** is
 the program that actually does the thinking and the typing inside that session -- the model and the
 harness that turn a ship's instructions into real work. A ship's engine is one field in one row of
-`construction/fleet-roster.kyri`, and every tool that launches
+`fleet/fleet-roster.kyri`, and every tool that launches
 or watches a ship reads that one field.
 
 ## The three engines
@@ -45,7 +45,7 @@ names the three engines and how a ship picks one.
 
 ## How a ship switches engines
 
-1. Open `construction/fleet-roster.kyri` and find the ship's row.
+1. Open `fleet/fleet-roster.kyri` and find the ship's row.
 2. Change the `engine` line -- `engine opencode` to `engine codex`, for example.
 3. Commit the roster change and push, the same as any other work.
 
@@ -71,7 +71,7 @@ ship's next lap will run.
 `claude-opus-5`. The other live seats resolve `claude-sonnet-5`. Each model lives in that
 tree's gitignored settings, and the roster seats only the engine. The parked aether rows keep
 the engine they already had. This page describes the three engines;
-`construction/fleet-roster.kyri` is the word that seats one.
+`fleet/fleet-roster.kyri` is the word that seats one.
 
 **It does not claim the OpenCode loop has run overnight.** The script is written and syntax-checked;
 the proof that it holds a full night is a night it has actually held.

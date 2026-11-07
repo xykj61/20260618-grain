@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# fleet_roster_scan.sh -- read construction/fleet-roster.kyri, the fleet's one seat table.
+# fleet_roster_scan.sh -- read fleet/fleet-roster.kyri, the fleet's one seat table.
 #
 # WHY A READER RATHER THAN A GREP. The binding seat -> tree -> engine stood in six places across
 # two executables and two of them had already drifted (REDS %409). Seating the table once only
@@ -29,15 +29,15 @@ set -eu
 # resolves -- bounded at 8 steps, loud past the bound.
 ROOT=$(CDPATH= cd -- "$(dirname "$0")" && pwd)
 _steps=0
-while [ ! -f "$ROOT/construction/fleet-roster.kyri" ]; do
+while [ ! -f "$ROOT/fleet/fleet-roster.kyri" ]; do
   _steps=$((_steps + 1))
   if [ "$_steps" -gt 8 ] || [ "$ROOT" = "/" ] || [ -z "$ROOT" ]; then
-    echo "$0: no tree root within 8 steps (needs construction/fleet-roster.kyri)" >&2
+    echo "$0: no tree root within 8 steps (needs fleet/fleet-roster.kyri)" >&2
     exit 2
   fi
   ROOT=$(dirname "$ROOT")
 done
-roster="${FLEET_ROSTER:-$ROOT/construction/fleet-roster.kyri}"
+roster="${FLEET_ROSTER:-$ROOT/fleet/fleet-roster.kyri}"
 [ -f "$roster" ] || { echo "$0: no fleet roster at $roster" >&2; exit 2; }
 
 # One awk pass, one record shape. A field's value is everything after the first space, so a lane

@@ -61,7 +61,7 @@ form `src/shape/shape-mantra-weave-field-count.glow` already uses: `src/shape/sh
 `ConsentGrantFact` and `ConsentRevokeFact` already carry in `mantra/src/consent_replay.rye`. One
 witness, `tools/m/mantra_glow_tend_limb5_witness.rish`, proves both example counts against the rye
 via `tools/fixtures/r/rye_struct_fields_scan.sh` and asserts `rune_shape.max_fields` stayed at 15.
-Rostered into `construction/standing-equipment.kyri`, GREEN on metal both as the roster's own
+Rostered into `fleet/standing-equipment.kyri`, GREEN on metal both as the roster's own
 `mantra_glow_tend_limb5` guard and run standalone. `.lap/shape-receipt-offer.glow` was not copied;
 `mantra/src/consent_replay.rye` and `tally/receipt_refusal.rye` were not touched.
 
@@ -80,7 +80,7 @@ touching no field, no type, and no order, so the scan could see all fifteen. On 
 `tools/m/mantra_glow_tend_limb7_witness.rish` lands the same way limb5 proves the two consent
 pedestals -- the placard's declared count and field order read straight out of the rye, the
 comptime assert checked too, the desk lowered, built, and run. Rostered into
-`construction/standing-equipment.kyri`. `src/shape/README.md` gained the three rows this lap found
+`fleet/standing-equipment.kyri`. `src/shape/README.md` gained the three rows this lap found
 missing while it was open -- consent grant, consent revoke, and this one -- since none of the three
 stood in the table before. `mantra/src/receipt_offer.rye`'s one whitespace-only reformat aside,
 `tally/` and `glow/rune_shape.rye` are untouched. A new rune returns to Incense.
@@ -96,7 +96,7 @@ form limb5/limb7/limb8 already use. Two witnesses,
 each prove the placard's declared count and field order against the rye via
 `tools/fixtures/r/rye_struct_fields_scan.sh`, check the struct's own comptime field-count
 constant, lower and run the desk, and assert `rune_shape.max_fields` stayed at 15. Both GREEN on
-metal. Rostered into `construction/standing-equipment.kyri` as limb8 and limb9.
+metal. Rostered into `fleet/standing-equipment.kyri` as limb8 and limb9.
 `src/shape/README.md` gained the two rows. Neither `mantra/src/receipt_offer.rye`,
 `mantra/src/consent_replay.rye`, `tally/`, nor `glow/rune_shape.rye` was touched. A new rune
 returns to Incense.
@@ -111,7 +111,7 @@ gained a published `refusal_fields` constant tied by a comptime assert to
 proves the placard's declared count and field order against the rye via
 `tools/fixtures/r/rye_struct_fields_scan.sh`, checks the struct's own comptime constant, lowers and
 runs the desk, and asserts `rune_shape.max_fields` stayed at 15. GREEN on metal. Rostered into
-`construction/standing-equipment.kyri` as limb10. `src/shape/README.md` gained the row.
+`fleet/standing-equipment.kyri` as limb10. `src/shape/README.md` gained the row.
 `tally/receipt_refusal_witness.rish` and `tools/t/tally_receipt_refusal_witness.rish` both stayed
 GREEN after the one-field addition; neither `mantra/src/receipt_offer.rye` nor
 `glow/rune_shape.rye` was touched. A new rune returns to Incense.

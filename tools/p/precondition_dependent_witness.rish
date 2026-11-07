@@ -83,7 +83,7 @@ assert scan.out contains "probe_unread=" else "precondition-dependent: the probe
 say "precondition-dependent: and the two cures this reading points at are really built..."
 # invariant: the roster honors at least one capability probe. A witness that recommends a mechanism
 # the runner does not implement is prose rather than a door.
-let caps = run ["sh" "-c" "grep -c '^capability ' construction/standing-equipment.kyri || true"]
+let caps = run ["sh" "-c" "grep -c '^capability ' fleet/standing-equipment.kyri || true"]
 # Both captures are said BARE and ABOVE their asserts (`shim_reason`, `late_say_rostered`,
 # `say_compose_bound`): a binding asserted on without reporting its capture files an evidence page
 # with no sentence in it, and an interpolation into the `else` pays the same debt into a bounded

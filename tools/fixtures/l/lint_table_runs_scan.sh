@@ -19,7 +19,7 @@
 #
 # WHAT THE WORD ANSWERS, and why this question rather than a nearby one. A reader meeting a lint
 # row wants to know whether an unattended lap will catch them. That is decided in exactly one
-# place -- `construction/standing-equipment.kyri` -- by whether a tool the row NAMES holds a
+# place -- `fleet/standing-equipment.kyri` -- by whether a tool the row NAMES holds a
 # `path` row there, and at which tier. Three words cover it:
 #
 #   every lap    a named tool stands on the roster at `tier lap`
@@ -55,7 +55,7 @@
 set -eu
 
 PAGE="${LINT_TABLE_PAGE:-context/TAME_GUIDANCE.md}"
-ROSTER="${LINT_TABLE_ROSTER:-construction/standing-equipment.kyri}"
+ROSTER="${LINT_TABLE_ROSTER:-fleet/standing-equipment.kyri}"
 SECTION='## What We Check, and When'
 MODE="${1:-measure}"
 

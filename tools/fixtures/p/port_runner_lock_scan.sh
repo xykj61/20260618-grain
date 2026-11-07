@@ -66,7 +66,7 @@ root="${PORT_RUNNER_ROOT:-.}"
 # told from a bypass.
 unlocked_ceiling="${PORT_RUNNER_UNLOCKED_CEILING:-4}"
 mode="${1:-}"
-roster="$root/construction/standing-equipment.kyri"
+roster="$root/fleet/standing-equipment.kyri"
 
 if [ ! -f "$roster" ]; then
     echo "roster_missing=$roster"

@@ -6,7 +6,7 @@
 #   sh tools/fixtures/f/fleet_claim_form_scan.sh -          # a board on stdin
 #   sh tools/fixtures/f/fleet_claim_form_scan.sh --list     # every finding, one per line
 #
-# WHY THIS EXISTS (REDS %787). `construction/fleet-claims.kyri` is a file every ship writes and
+# WHY THIS EXISTS (REDS %787). `fleet/fleet-claims.kyri` is a file every ship writes and
 # every ship reads, and this tree checked only one of its two shapes. Its CONTENT is read on every
 # lap by `tools/fixtures/f/fleet_claim_scan.sh` -- overlap, staleness, expiry, the `what` sentences
 # a hand compares by eye. Its FORM was read by nobody.
@@ -58,7 +58,7 @@ LONG_LINE_BYTES=${FLEET_CLAIM_LINE_BYTES:-1536}
 MAX_RECORDS=${FLEET_CLAIM_MAX:-64}
 
 list=no
-board=${FLEET_CLAIM_BOARD:-construction/fleet-claims.kyri}
+board=${FLEET_CLAIM_BOARD:-fleet/fleet-claims.kyri}
 for a in "$@"; do
   case "$a" in
     --list) list=yes ;;

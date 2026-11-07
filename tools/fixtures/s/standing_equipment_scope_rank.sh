@@ -105,8 +105,8 @@ case "$top" in ''|*[!0-9]*) echo "refused: --top wants a whole number of rows" >
 
 cd "$_fd_root"
 
-roster="${STANDING_ROSTER:-construction/standing-equipment.kyri}"
-card="${STANDING_CARD:-construction/standing-equipment-runs.kyri}"
+roster="${STANDING_ROSTER:-fleet/standing-equipment.kyri}"
+card="${STANDING_CARD:-fleet/standing-equipment-runs.kyri}"
 scope_map="${STANDING_SCOPE_MAP:-tools/fixtures/s/standing_equipment_scope_map.sh}"
 
 [ -f "$roster" ] || { echo "refused: no roster at $roster" >&2; exit 1; }

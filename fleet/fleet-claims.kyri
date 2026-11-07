@@ -1,4 +1,4 @@
-# construction/fleet-claims.kyri -- the fleet's live claim board: what a ship is building, right now.
+# fleet/fleet-claims.kyri -- the fleet's live claim board: what a ship is building, right now.
 #
 # WHY THIS FILE EXISTS. Absence is checkable and intent is not. `path_absence_scan.sh` answers
 # whether a path stands here and upstream, and it answers about the remote AS IT STOOD WHEN ASKED
@@ -45,7 +45,7 @@
 #
 #   sh tools/fixtures/f/fleet_claim_scan.sh --check <path> ...     # before you build
 #   sh tools/f/fleet_claim.sh --open <name> --paths "..." --what "..."
-#   git add construction/fleet-claims.kyri && git commit && git push xy
+#   git add fleet/fleet-claims.kyri && git commit && git push xy
 format fleet-claims-v1
 
 # -- live claims -------------------------------------------------------------------------------

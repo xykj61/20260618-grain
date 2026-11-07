@@ -3,7 +3,7 @@
 #
 # WHY THIS READING EXISTS. tools/f/fleet_rearm.sh prints a `RELAUNCH:` heading for every seat that
 # is not the field and not gated, and then a `case` decides the paste beneath it. When that case
-# spelled seat names by hand it grew stale against construction/fleet-roster.kyri, and five of the
+# spelled seat names by hand it grew stale against fleet/fleet-roster.kyri, and five of the
 # eight LIVE ships printed the heading with nothing under it -- the one output whose whole purpose
 # is a line a hand can paste. Nothing measured it, because every assertion in the witness named a
 # seat the stale list happened to carry.

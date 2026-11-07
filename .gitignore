@@ -401,14 +401,14 @@ nixos/*.bak-*
 /caravan/.reopens/
 /caravan/.forbears/
 /caravan/.minds/
-construction/standing-equipment-runs.kyri
+fleet/standing-equipment-runs.kyri
 # The hit-rate meter's shelves (fusion build, measurement only) -- this pier's record, never the tree's.
-construction/standing-equipment-receipt.kyri
-construction/standing-equipment-hitrate.kyri
+fleet/standing-equipment-receipt.kyri
+fleet/standing-equipment-hitrate.kyri
 # The evidence a red guard leaves behind (REDS %266) -- this pier's failures, not the tree's.
-construction/standing-equipment-reds/
+fleet/standing-equipment-reds/
 # The run lock (REDS %359) -- one pass at a time in one tree, held only while a pass runs.
-construction/standing-equipment-run.lock.d/
+fleet/standing-equipment-run.lock.d/
 
 # The build lock (born at REDS %734, named here 20260917) -- tools/fixtures/r/rye_build.sh takes
 # one per room, because two builds in one room write the same shadow .zig names. A PATTERN rather

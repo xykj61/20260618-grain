@@ -219,7 +219,7 @@ run_narrow() { ( set +e; cd "$pen/$1" || exit 0; CEILING="${2:-99}" REASON_CEILI
 # --- clean_free ---------------------------------------------------------------------------
 new_repo clean
 forwarding_shim > "$pen/clean/tools/x/a.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\n' > "$pen/clean/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\n' > "$pen/clean/fleet/standing-equipment.kyri"
 seal clean
 out=$(run_scan clean); code=$(run_code clean)
 r "clean_exit=$code"
@@ -245,7 +245,7 @@ case "$out" in *"verdict=ok"*) r "rostered_lifted=yes" ;; *) r "rostered_lifted=
 new_repo ceiling
 swallowing_shim > "$pen/ceiling/tools/x/b.rish"
 swallowing_shim > "$pen/ceiling/tools/x/c.rish"
-printf '# no rows\n' > "$pen/ceiling/construction/standing-equipment.kyri"
+printf '# no rows\n' > "$pen/ceiling/fleet/standing-equipment.kyri"
 seal ceiling
 out=$(run_scan ceiling 2); code=$(run_code ceiling 2)
 r "ceiling_free_exit=$code"
@@ -263,7 +263,7 @@ forwarding_shim > "$pen/marks/tools/x/real.rish"
 printf '%s\n' 'if r.out != "" then say r.out' 'exit r.code' > "$pen/marks/tools/x/no_run.rish"
 printf '%s\n' 'let r = run ["rishi/bin/rishi" "run" "t.rish"]' 'exit r.code' > "$pen/marks/tools/x/no_say.rish"
 printf '%s\n' 'let r = run ["rishi/bin/rishi" "run" "t.rish"]' 'if r.out != "" then say r.out' 'assert r.ok else "no"' > "$pen/marks/tools/x/no_exit.rish"
-printf 'guard real\npath tools/x/real.rish\n' > "$pen/marks/construction/standing-equipment.kyri"
+printf 'guard real\npath tools/x/real.rish\n' > "$pen/marks/fleet/standing-equipment.kyri"
 seal marks
 out=$(run_scan marks)
 case "$out" in *"shims=1"*) r "three_marks_needed=yes" ;; *) r "three_marks_needed=no" ;; esac
@@ -284,30 +284,30 @@ case "$out" in *"swallow_unrostered=1"*) r "tracked_then_counted=yes" ;; *) r "t
 # rostered and refuse -- a guard counted rostered because somebody wrote about it.
 new_repo mention
 swallowing_shim > "$pen/mention/tools/x/d.rish"
-printf '%s\n' '# the elder shape is described at path tools/x/d.rish and stays unrostered' > "$pen/mention/construction/standing-equipment.kyri"
+printf '%s\n' '# the elder shape is described at path tools/x/d.rish and stays unrostered' > "$pen/mention/fleet/standing-equipment.kyri"
 seal mention
 out=$(run_scan mention)
 case "$out" in *"swallow_rostered=0"*) r "mention_not_a_seat=yes" ;; *) r "mention_not_a_seat=no" ;; esac
 case "$out" in *"swallow_unrostered=1"*) r "mention_falls_to_ratchet=yes" ;; *) r "mention_falls_to_ratchet=no" ;; esac
-printf 'guard d\npath tools/x/d.rish\n' >> "$pen/mention/construction/standing-equipment.kyri"
+printf 'guard d\npath tools/x/d.rish\n' >> "$pen/mention/fleet/standing-equipment.kyri"
 out=$(run_scan mention)
 case "$out" in *"verdict=rostered_swallow"*) r "real_row_is_a_seat=yes" ;; *) r "real_row_is_a_seat=no" ;; esac
 
 # --- roster_refusal ------------------------------------------------------------------------
 # Without a roster every shim would silently read unrostered and the gate would report zero while
 # measuring nothing, which is a green for the wrong reason.
-mv "$pen/mention/construction/standing-equipment.kyri" "$pen/mention/construction/held-aside"
+mv "$pen/mention/fleet/standing-equipment.kyri" "$pen/mention/construction/held-aside"
 out=$(run_scan mention); code=$(run_code mention)
 r "roster_refusal_exit=$code"
 case "$out" in *"verdict=roster_unreadable"*) r "roster_refusal=yes" ;; *) r "roster_refusal=no" ;; esac
 case "$out" in *"verdict=ok"*) r "roster_never_reads_ok=no" ;; *) r "roster_never_reads_ok=yes" ;; esac
-mv "$pen/mention/construction/held-aside" "$pen/mention/construction/standing-equipment.kyri"
+mv "$pen/mention/construction/held-aside" "$pen/mention/fleet/standing-equipment.kyri"
 out=$(run_scan mention)
 case "$out" in *"verdict=rostered_swallow"*) r "roster_restored=yes" ;; *) r "roster_restored=no" ;; esac
 
 # --- empty_corpus --------------------------------------------------------------------------
 new_repo empty
-printf 'guard none\n' > "$pen/empty/construction/standing-equipment.kyri"
+printf 'guard none\n' > "$pen/empty/fleet/standing-equipment.kyri"
 seal empty
 out=$(run_scan empty); code=$(run_code empty)
 r "empty_corpus_exit=$code"
@@ -316,7 +316,7 @@ case "$out" in *"verdict=empty_corpus"*) r "empty_corpus_refused=yes" ;; *) r "e
 # --- no_shims ------------------------------------------------------------------------------
 new_repo noshim
 printf '%s\n' 'say "ordinary rishi"' > "$pen/noshim/tools/x/plain.rish"
-printf 'guard none\n' > "$pen/noshim/construction/standing-equipment.kyri"
+printf 'guard none\n' > "$pen/noshim/fleet/standing-equipment.kyri"
 seal noshim
 out=$(run_scan noshim); code=$(run_code noshim)
 r "no_shims_exit=$code"
@@ -334,7 +334,7 @@ case "$out" in *"verdict=no_repo"*) r "no_repo_refused=yes" ;; *) r "no_repo_ref
 new_repo alias
 forwarding_shim > "$pen/alias/tools/x/e.rish"
 printf '%s\n' 'let result = run ["sh" "x.sh"]' 'say result.out' 'exit result.code' > "$pen/alias/tools/x/other.rish"
-printf 'guard e\npath tools/x/e.rish\n' > "$pen/alias/construction/standing-equipment.kyri"
+printf 'guard e\npath tools/x/e.rish\n' > "$pen/alias/fleet/standing-equipment.kyri"
 seal alias
 out=$(run_scan alias)
 case "$out" in *"exit_alias_sites=1"*) r "alias_counted=yes" ;; *) r "alias_counted=no" ;; esac
@@ -350,7 +350,7 @@ new_repo reason
 forwarding_shim > "$pen/reason/tools/x/a.rish"
 stderr_control  > "$pen/reason/tools/fixtures/p/pen_control.sh"
 losing_witness  > "$pen/reason/tools/x/pen_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/reason/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/reason/fleet/standing-equipment.kyri"
 seal reason
 out=$(run_scan reason); code=$(run_code reason)
 r "reason_exit=$code"
@@ -368,7 +368,7 @@ new_repo reason_ceiling
 forwarding_shim > "$pen/reason_ceiling/tools/x/a.rish"
 stderr_control  > "$pen/reason_ceiling/tools/fixtures/p/pen_control.sh"
 losing_witness  > "$pen/reason_ceiling/tools/x/pen_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\n' > "$pen/reason_ceiling/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\n' > "$pen/reason_ceiling/fleet/standing-equipment.kyri"
 seal reason_ceiling
 out=$(run_scan reason_ceiling 99 1); code=$(run_code reason_ceiling 99 1)
 r "reason_ceiling_free_exit=$code"
@@ -386,7 +386,7 @@ new_repo reason_stdout
 forwarding_shim > "$pen/reason_stdout/tools/x/a.rish"
 printf '#!/bin/sh\nprintf "FAIL a behavior\\n"\nprintf "pass=0 fail=1\\n"\nexit 1\n' > "$pen/reason_stdout/tools/fixtures/p/pen_control.sh"
 losing_witness > "$pen/reason_stdout/tools/x/pen_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/reason_stdout/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/reason_stdout/fleet/standing-equipment.kyri"
 seal reason_stdout
 out=$(run_scan reason_stdout); code=$(run_code reason_stdout)
 r "reason_stdout_exit=$code"
@@ -413,7 +413,7 @@ printf '%s\n' \
   '}' \
   'printf "pass=1 fail=0\\n"' > "$pen/reason_mention/tools/fixtures/p/pen_control.sh"
 losing_witness > "$pen/reason_mention/tools/x/pen_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/reason_mention/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/reason_mention/fleet/standing-equipment.kyri"
 seal reason_mention
 out=$(run_scan reason_mention)
 case "$out" in *"stderr_controls=0"*) r "reason_quoted_mention_unseen=yes" ;; *) r "reason_quoted_mention_unseen=no" ;; esac
@@ -426,7 +426,7 @@ printf '%s\n' \
   "# this control could printf 'FAIL %s' >&2 and does not" \
   'printf "pass=1 fail=0\\n"' > "$pen/reason_comment/tools/fixtures/p/pen_control.sh"
 losing_witness > "$pen/reason_comment/tools/x/pen_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/reason_comment/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/reason_comment/fleet/standing-equipment.kyri"
 seal reason_comment
 out=$(run_scan reason_comment)
 case "$out" in *"stderr_controls=0"*) r "reason_comment_unseen=yes" ;; *) r "reason_comment_unseen=no" ;; esac
@@ -445,7 +445,7 @@ printf '%s\n' \
   'say other.err' \
   'let ctl = run ["sh" "tools/fixtures/p/pen_control.sh"]' \
   'assert ctl.ok else "pen: refused --\\n${ctl.out}"' > "$pen/reason_other_var/tools/x/pen_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/reason_other_var/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/reason_other_var/fleet/standing-equipment.kyri"
 seal reason_other_var
 out=$(run_scan reason_other_var)
 case "$out" in *"verdict=rostered_reason_lost"*) r "reason_other_var_bitten=yes" ;; *) r "reason_other_var_bitten=no" ;; esac
@@ -458,7 +458,7 @@ case "$out" in *"reason_lost_rostered=1"*) r "reason_other_var_counted=yes" ;; *
 # refuse by name rather than report a tree with no blind spot in it.
 new_repo instrument
 forwarding_shim > "$pen/instrument/tools/x/f.rish"
-printf 'guard f\npath tools/x/f.rish\n' > "$pen/instrument/construction/standing-equipment.kyri"
+printf 'guard f\npath tools/x/f.rish\n' > "$pen/instrument/fleet/standing-equipment.kyri"
 seal instrument
 ( cd "$pen/instrument" \
   && sed "s/\[a-z_\]+\\\\.code/[a-z_+\\\\.code/" tools/fixtures/s/shim_reason_scan.sh > bad_scan.sh )
@@ -479,7 +479,7 @@ r "$(case "$out" in *"verdict=ok"*) echo "instrument_pen_innocent=yes" ;; *) ech
 new_repo order
 forwarding_shim  > "$pen/order/tools/x/a.rish"
 early_say_witness > "$pen/order/tools/x/pen_order_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_order_witness.rish\ntier lap\n' > "$pen/order/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_order_witness.rish\ntier lap\n' > "$pen/order/fleet/standing-equipment.kyri"
 seal order
 out=$(run_scan order); code=$(run_code order)
 r "order_free_exit=$code"
@@ -499,7 +499,7 @@ case "$out" in *"verdict=ok"*) r "order_lifted=yes" ;; *) r "order_lifted=no" ;;
 new_repo order_ceiling
 forwarding_shim > "$pen/order_ceiling/tools/x/a.rish"
 late_say_witness > "$pen/order_ceiling/tools/x/pen_order_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\n' > "$pen/order_ceiling/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\n' > "$pen/order_ceiling/fleet/standing-equipment.kyri"
 seal order_ceiling
 out=$(run_scan order_ceiling 99 99 1); code=$(run_code order_ceiling 99 99 1)
 r "order_ceiling_free_exit=$code"
@@ -518,7 +518,7 @@ printf '%s\n' \
   '# pen witness' \
   'let scan = run ["sh" "tools/fixtures/p/pen_scan.sh"]' \
   'assert scan.ok else "pen: the scan refused"' > "$pen/order_silent/tools/x/pen_order_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_order_witness.rish\ntier lap\n' > "$pen/order_silent/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_order_witness.rish\ntier lap\n' > "$pen/order_silent/fleet/standing-equipment.kyri"
 seal order_silent
 out=$(run_scan order_silent)
 case "$out" in *"late_say_rostered=0"*) r "order_silent_unseen=yes" ;; *) r "order_silent_unseen=no" ;; esac
@@ -532,7 +532,7 @@ printf '%s\n' \
   'let scan = run ["sh" "tools/fixtures/p/pen_scan.sh"]' \
   'assert scan.ok else "pen: the scan refused"' \
   'say scan.err' > "$pen/order_err/tools/x/pen_order_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_order_witness.rish\ntier lap\n' > "$pen/order_err/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_order_witness.rish\ntier lap\n' > "$pen/order_err/fleet/standing-equipment.kyri"
 seal order_err
 out=$(run_scan order_err)
 case "$out" in *"verdict=rostered_late_say"*) r "order_err_bitten=yes" ;; *) r "order_err_bitten=no" ;; esac
@@ -550,7 +550,7 @@ printf '%s\n' \
   'assert scan.ok else "pen: the scan refused"' \
   'assert other.ok else "pen: the other run must pass"' \
   'say other.out' > "$pen/order_other_var/tools/x/pen_order_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_order_witness.rish\ntier lap\n' > "$pen/order_other_var/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_order_witness.rish\ntier lap\n' > "$pen/order_other_var/fleet/standing-equipment.kyri"
 seal order_other_var
 out=$(run_scan order_other_var)
 case "$out" in *"late_say_rostered=1"*) r "order_other_var_counted=yes" ;; *) r "order_other_var_counted=no" ;; esac
@@ -560,7 +560,7 @@ case "$out" in *"late_say: rostered tools/x/pen_order_witness.rish other"*) r "o
 new_repo order_mention
 forwarding_shim > "$pen/order_mention/tools/x/a.rish"
 late_say_witness > "$pen/order_mention/tools/x/pen_order_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\n# the pen witness at path tools/x/pen_order_witness.rish stays unrostered\n' > "$pen/order_mention/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\n# the pen witness at path tools/x/pen_order_witness.rish stays unrostered\n' > "$pen/order_mention/fleet/standing-equipment.kyri"
 seal order_mention
 out=$(run_scan order_mention)
 case "$out" in *"late_say_rostered=0"*) r "order_mention_not_a_seat=yes" ;; *) r "order_mention_not_a_seat=no" ;; esac
@@ -570,7 +570,7 @@ case "$out" in *"late_say_unrostered=1"*) r "order_mention_falls_to_ratchet=yes"
 # The same repository with the original parser proves that the plant caused the refusal.
 new_repo order_instrument
 forwarding_shim > "$pen/order_instrument/tools/x/a.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\n' > "$pen/order_instrument/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\n' > "$pen/order_instrument/fleet/standing-equipment.kyri"
 seal order_instrument
 sed 's/^function flush(  v) {/function flush(  v {/' "$pen/order_instrument/tools/fixtures/s/shim_reason_scan.sh" > "$pen/order_instrument/bad_scan.sh"
 if cmp -s "$pen/order_instrument/tools/fixtures/s/shim_reason_scan.sh" "$pen/order_instrument/bad_scan.sh"; then
@@ -590,7 +590,7 @@ case "$out" in *"verdict=ok"*) r "order_instrument_lifted=yes" ;; *) r "order_in
 new_repo caller_instrument
 forwarding_shim > "$pen/caller_instrument/tools/x/a.rish"
 stderr_control > "$pen/caller_instrument/tools/fixtures/p/pen_control.sh"
-printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/caller_instrument/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/caller_instrument/fleet/standing-equipment.kyri"
 seal caller_instrument
 out=$(run_scan caller_instrument); code=$(run_code caller_instrument)
 r "caller_absent_exit=$code"
@@ -633,7 +633,7 @@ case "$out" in *"verdict=ok"*) r "caller_repaired_free=yes" ;; *) r "caller_repa
 new_repo comment_shim
 swallowing_shim > "$pen/comment_shim/tools/x/a.rish"
 printf '%s\n' '  # if r.err != "" then say r.err' >> "$pen/comment_shim/tools/x/a.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\n' > "$pen/comment_shim/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\n' > "$pen/comment_shim/fleet/standing-equipment.kyri"
 seal comment_shim
 out=$(run_scan comment_shim); code=$(run_code comment_shim)
 r "comment_shim_exit=$code"
@@ -648,7 +648,7 @@ new_repo comment_marks
 forwarding_shim > "$pen/comment_marks/tools/x/a.rish"
 printf '%s\n' '  # let r = run ["rishi/bin/rishi" "run" "t.rish"]' 'say r.out' 'exit r.code' > "$pen/comment_marks/tools/x/comment_run.rish"
 printf '%s\n' 'let r = run ["rishi/bin/rishi" "run" "t.rish"]' '  # say r.out' 'exit r.code' > "$pen/comment_marks/tools/x/comment_say.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\n' > "$pen/comment_marks/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\n' > "$pen/comment_marks/fleet/standing-equipment.kyri"
 seal comment_marks
 out=$(run_scan comment_marks 0); code=$(run_code comment_marks 0)
 r "comment_marks_exit=$code"
@@ -664,7 +664,7 @@ forwarding_shim > "$pen/comment_reason/tools/x/a.rish"
 stderr_control > "$pen/comment_reason/tools/fixtures/p/pen_control.sh"
 losing_witness > "$pen/comment_reason/tools/x/pen_witness.rish"
 printf '%s\n' '  # carry ${ctl.err} to the reader' >> "$pen/comment_reason/tools/x/pen_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/comment_reason/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/comment_reason/fleet/standing-equipment.kyri"
 seal comment_reason
 out=$(run_scan comment_reason); code=$(run_code comment_reason)
 r "comment_reason_exit=$code"
@@ -691,7 +691,7 @@ new_repo unsaid
 forwarding_shim > "$pen/unsaid/tools/x/a.rish"
 printf '#!/bin/sh\necho pen\n' > "$pen/unsaid/tools/fixtures/p/pen_scan.sh"
 unsaid_witness > "$pen/unsaid/tools/x/pen_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/unsaid/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/unsaid/fleet/standing-equipment.kyri"
 seal unsaid
 out=$(run_scan unsaid 99 99 99 0); code=$(run_code unsaid 99 99 99 0)
 r "unsaid_rostered_exit=$code"
@@ -709,7 +709,7 @@ forwarding_shim > "$pen/unsaid_ceiling/tools/x/a.rish"
 printf '#!/bin/sh\necho pen\n' > "$pen/unsaid_ceiling/tools/fixtures/p/pen_scan.sh"
 unsaid_witness > "$pen/unsaid_ceiling/tools/x/one.rish"
 unsaid_witness > "$pen/unsaid_ceiling/tools/x/two.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\n' > "$pen/unsaid_ceiling/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\n' > "$pen/unsaid_ceiling/fleet/standing-equipment.kyri"
 seal unsaid_ceiling
 out=$(run_scan unsaid_ceiling 99 99 99 99 2); code=$(run_code unsaid_ceiling 99 99 99 99 2)
 r "unsaid_ceiling_free_exit=$code"
@@ -724,7 +724,7 @@ new_repo unsaid_partition
 forwarding_shim > "$pen/unsaid_partition/tools/x/a.rish"
 printf '#!/bin/sh\necho pen\n' > "$pen/unsaid_partition/tools/fixtures/p/pen_scan.sh"
 late_say_witness > "$pen/unsaid_partition/tools/x/pen_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\n' > "$pen/unsaid_partition/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\n' > "$pen/unsaid_partition/fleet/standing-equipment.kyri"
 seal unsaid_partition
 out=$(run_scan unsaid_partition 99 99 99 0 0); code=$(run_code unsaid_partition 99 99 99 0 0)
 r "unsaid_partition_exit=$code"
@@ -747,7 +747,7 @@ new_repo unsaid_brief
 forwarding_shim > "$pen/unsaid_brief/tools/x/a.rish"
 printf '#!/bin/sh\necho pen\n' > "$pen/unsaid_brief/tools/fixtures/p/pen_scan.sh"
 brief_reported_witness > "$pen/unsaid_brief/tools/x/pen_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/unsaid_brief/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/unsaid_brief/fleet/standing-equipment.kyri"
 seal unsaid_brief
 out=$(run_scan unsaid_brief 99 99 99 0); code=$(run_code unsaid_brief 99 99 99 0)
 r "unsaid_brief_exit=$code"
@@ -773,7 +773,7 @@ new_repo reason_brief_carry
 forwarding_shim       > "$pen/reason_brief_carry/tools/x/a.rish"
 stderr_control        > "$pen/reason_brief_carry/tools/fixtures/p/pen_control.sh"
 brief_carrying_witness > "$pen/reason_brief_carry/tools/x/pen_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/reason_brief_carry/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/reason_brief_carry/fleet/standing-equipment.kyri"
 seal reason_brief_carry
 out=$(run_scan reason_brief_carry); code=$(run_code reason_brief_carry)
 r "reason_brief_carry_exit=$code"
@@ -790,7 +790,7 @@ new_repo reason_brief_lose
 forwarding_shim     > "$pen/reason_brief_lose/tools/x/a.rish"
 stderr_control      > "$pen/reason_brief_lose/tools/fixtures/p/pen_control.sh"
 brief_losing_witness > "$pen/reason_brief_lose/tools/x/pen_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/reason_brief_lose/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/reason_brief_lose/fleet/standing-equipment.kyri"
 seal reason_brief_lose
 out=$(run_scan reason_brief_lose); code=$(run_code reason_brief_lose)
 r "reason_brief_lose_exit=$code"
@@ -808,7 +808,7 @@ new_repo guarded_say
 forwarding_shim > "$pen/guarded_say/tools/x/a.rish"
 printf '#!/bin/sh\necho pen\n' > "$pen/guarded_say/tools/fixtures/p/pen_scan.sh"
 guarded_say_witness > "$pen/guarded_say/tools/x/pen_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/guarded_say/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/guarded_say/fleet/standing-equipment.kyri"
 seal guarded_say
 out=$(run_scan guarded_say 99 99 99 0); code=$(run_code guarded_say 99 99 99 0)
 r "guarded_say_exit=$code"
@@ -823,7 +823,7 @@ new_repo presence
 forwarding_shim > "$pen/presence/tools/x/a.rish"
 printf '#!/bin/sh\necho pen\n' > "$pen/presence/tools/fixtures/p/pen_scan.sh"
 presence_witness > "$pen/presence/tools/x/pen_witness.rish"
-printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/presence/construction/standing-equipment.kyri"
+printf 'guard a\npath tools/x/a.rish\ntier lap\nguard pen\npath tools/x/pen_witness.rish\ntier lap\n' > "$pen/presence/fleet/standing-equipment.kyri"
 seal presence
 out=$(run_scan presence 99 99 99 0); code=$(run_code presence 99 99 99 0)
 r "presence_exit=$code"

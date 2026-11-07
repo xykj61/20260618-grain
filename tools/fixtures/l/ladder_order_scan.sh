@@ -62,8 +62,8 @@ PAGE="${LADDER_PAGE:-active-designing/date/20260910/20260910-060204_the-bounded-
 # The instrument reading needs three more populations, each overridable so the control can
 # plant one and know the right answer by construction.
 TREE="${LADDER_TREE:-.}"
-ROSTER="${LADDER_ROSTER:-construction/standing-equipment.kyri}"
-RECEIPTS="${LADDER_RECEIPTS:-construction/standing-equipment-runs.kyri}"
+ROSTER="${LADDER_ROSTER:-fleet/standing-equipment.kyri}"
+RECEIPTS="${LADDER_RECEIPTS:-fleet/standing-equipment-runs.kyri}"
 MODE="${1:-}"
 
 # A pen of this scan's own making, released on every exit path. The elder draft wrote its four

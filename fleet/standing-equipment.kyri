@@ -1,4 +1,4 @@
-# construction/standing-equipment.kyri -- the standing guards, as a list a program can read.
+# fleet/standing-equipment.kyri -- the standing guards, as a list a program can read.
 #
 # WHY THIS FILE EXISTS. The roster of standing equipment lived in one paragraph of
 # construction/ITINERARY.md, in prose. A paragraph can be read and it can be trusted; it cannot
@@ -43,7 +43,7 @@
 # altogether, which is a refusal nobody receives; a cadence guard is still heard, on a slower
 # clock, and the run card records which clock heard it. A tier word the runner does not know is
 # refused at zero, because a guard seated on one would run on no lap at all, in silence. The roster is the authority for what stands;
-# construction/standing-equipment-runs.kyri records when each last ran ON THIS PIER, and that card
+# fleet/standing-equipment-runs.kyri records when each last ran ON THIS PIER, and that card
 # is deliberately untracked, so a fresh clone reads `never run here` rather than inheriting
 # another machine's memory.
 #
@@ -60,7 +60,7 @@ format standing-equipment-v1
 stamp 20260825.183336
 voice Kyri
 runner tools/fixtures/s/standing_equipment_run.sh
-card construction/standing-equipment-runs.kyri
+card fleet/standing-equipment-runs.kyri
 
 guard banner_room
 path tools/b/banner_room_witness.rish
@@ -2547,7 +2547,7 @@ seated 20260904.190000
 # build apiece inside one day: incense withdrew `port_registry` (35 constants, 21 files, 44 pen
 # legs, GREEN on metal) against a peer's `port_band` landed two hours earlier, and bakery dropped a
 # 29-leg port census into that same peer's scan. Both absence readings were honest and both were
-# hours stale. `construction/fleet-claims.kyri` is the declaration a peer can read before anything
+# hours stale. `fleet/fleet-claims.kyri` is the declaration a peer can read before anything
 # exists; this proves the reader reads the ANOINTED REMOTE's copy rather than local bytes, which is
 # REDS %457 one layer down and the one fault that would pass every other leg in a pen.
 guard fleet_claim
@@ -4604,7 +4604,7 @@ seated 20260906.063124
 # AND IT HAD NOT RUN ONCE IN THE FOUR DAYS SINCE, on this pier (`20260910.234500`). The cost argument
 # above is sound and the tier it chose has no clock: REDS %568 booked `--tier cadence` with no caller
 # on `20260907.113635` and stands OPEN, while the tier grew from 58 guards to 74 in the three days
-# after. Measured on this tree the same stamp: of those 74, `construction/standing-equipment-runs.kyri`
+# after. Measured on this tree the same stamp: of those 74, `fleet/standing-equipment-runs.kyri`
 # holds a run row for exactly ONE, and that row records `lap` -- so the cadence tier has produced
 # zero cadence runs here. Asked by hand, this guard answers GREEN in 69s, matching the 68s its
 # seating measured; its sibling `amphora_udp_reuseaddr` answers GREEN in 104s. Both silences were
@@ -8746,7 +8746,7 @@ seated 20261002.010129
 # receipt_chain -- bakery's lane crux names one shared build cache and one shared cold-run cache
 # across the pier's eight checkouts, and that crux ASSUMED the scoped-receipt chain was advancing
 # and merely private. tools/fixtures/r/receipt_chain_scan.sh reads all eight copies of
-# construction/standing-equipment-receipt.kyri at once -- a file .gitignore denies, so no ship ever
+# fleet/standing-equipment-receipt.kyri at once -- a file .gitignore denies, so no ship ever
 # reads another's -- and answers whether there is a live basis to share. Read on the seating lap:
 # seats_with_receipt=8, the newest stamp 388 hours old, the narrowest candidate basis diffing 11,164
 # of 20,855 tracked files (53 percent), and sharing it sparing this ship 24 files of 11,188. Across

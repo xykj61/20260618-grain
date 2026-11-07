@@ -73,7 +73,7 @@ root=${1:-.}
 CEILING="${TALLY_ROSTER_CEILING:-0}"
 UNHEARD_CEILING="${TALLY_ROSTER_UNHEARD_CEILING:-0}"
 
-# The room's own roster runner -- the single row on construction/standing-equipment.kyri that
+# The room's own roster runner -- the single row on fleet/standing-equipment.kyri that
 # carries this room's clock. `heard` is measured against this file and nothing else.
 runner="$root/tools/t/tally_roster_witness.rish"
 

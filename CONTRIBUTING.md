@@ -124,7 +124,7 @@ Still open: <the question it leaves, sized honestly>. Superseded:
 ## The Eight Lanes
 
 Work in this tree arrives through eight lanes, and a pull request names the lane rather than a
-person. The lanes and their subjects live in one seat table, `construction/fleet-roster.kyri`.
+person. The lanes and their subjects live in one seat table, `fleet/fleet-roster.kyri`.
 Read that file rather than this paragraph, since a lane is added or retired by editing one row
 there. **It is named here rather than linked**, because the maintainer's own field carries it and
 the public projection does not. A link would open onto nothing for most readers of this page.

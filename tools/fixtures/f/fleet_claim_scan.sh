@@ -43,7 +43,7 @@ set -eu
 ROOT=$(CDPATH= cd -- "$(dirname "$0")/../../.." && pwd)
 cd "$ROOT"
 REMOTE=${ANOINTED_REMOTE:-xy}
-BOARD=${FLEET_CLAIM_BOARD:-construction/fleet-claims.kyri}
+BOARD=${FLEET_CLAIM_BOARD:-fleet/fleet-claims.kyri}
 STALE_HOURS=${FLEET_CLAIM_STALE_HOURS:-6}
 MAX_LIVE=${FLEET_CLAIM_MAX:-64}
 

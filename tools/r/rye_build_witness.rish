@@ -13,7 +13,7 @@
 # asks which one a rostered runner reaches; the answer rose to 19 unreached against a ceiling of
 # 18, and the scan refused. A proof nothing runs is a claim -- it passes review, reads like
 # coverage, and reports nothing on the day the wrapper changes. This file is the runner, and its
-# roster row in `construction/standing-equipment.kyri` is the clock.
+# roster row in `fleet/standing-equipment.kyri` is the clock.
 #
 # THE LEG THAT CARRIES THE SUBJECT is `two_modules_concurrent`. A lock serializing EVERY build
 # would satisfy a naive no-collision reading while costing the tree its parallelism, so the control

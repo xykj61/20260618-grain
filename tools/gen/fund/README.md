@@ -22,7 +22,7 @@ and carried two renames the headers had already taken.
 | `gen_trya_fund_prep.rish` | Trya - Virgo - 6 | **RED** -- the seat renamed to Acme (fund) on `20260729.225900` and this script still asks the retired name (REDS %810) |
 
 Six of the seven run GREEN in 113 to 201 ms apiece, and each carries a `guard` record on
-[`../../../construction/standing-equipment.kyri`](../../../construction/standing-equipment.kyri) from
+[`../../../fleet/standing-equipment.kyri`](../../../fleet/standing-equipment.kyri) from
 `20260917.052450`, so a refusal reaches a roster pass on the lap it arrives. The seventh is held off
 that roster by name until `%810`'s naming ruling lands, since seating a guard that refuses on
 committed bytes would red every pass on every ship for a fault no lap may repair.

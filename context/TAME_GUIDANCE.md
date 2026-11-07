@@ -623,7 +623,7 @@ These are the machine-checkable rules -- the lint surface. The discipline is the
 
 **Checkable today -- textual checks in Rishi** (grow these first, each with a witness, alongside SLC-1 and
 the width migration). The **Runs** column says what an unattended lap actually does with each row --
-`every lap`, `on cadence`, or `by hand` -- derived from `construction/standing-equipment.kyri` and held
+`every lap`, `on cadence`, or `by hand` -- derived from `fleet/standing-equipment.kyri` and held
 there by [`../tools/l/lint_table_runs_witness.rish`](../tools/l/lint_table_runs_witness.rish):
 
 | Rule | Check | Runs |

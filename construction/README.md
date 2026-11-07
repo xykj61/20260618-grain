@@ -14,7 +14,7 @@ J4 - A1-A4 - M1-M4 COMPLETE - standing voice Riyo.
 path from nothing to a signed, sandboxed home is [`../SOURCE.md`](../SOURCE.md)
 
 **Finishing edge, elder sitting `20260802`:** Tend T1-T6 - C1-C4 - A1-A4 - M1-M4 GREEN - a1 gated on
-Keaton's kg - Q58 parked. **The bench is a fleet now** -- `construction/fleet-roster.kyri` seats twelve,
+Keaton's kg - Q58 parked. **The bench is a fleet now** -- `fleet/fleet-roster.kyri` seats twelve,
 eight of them live, ten on the `claude` engine, one on `codex`, one on the field bench (measured
 `20260906.070005`).
 **Habit:** full fusion baton each round -> `expanding-prompts/`.

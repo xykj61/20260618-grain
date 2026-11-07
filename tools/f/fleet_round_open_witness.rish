@@ -3,7 +3,7 @@
 #   rishi/bin/rishi run tools/f/fleet_round_open_witness.rish
 #
 # `tools/f/fleet_round_open.sh` runs `git reset --hard xy/main` at every round-open, roughly every
-# twenty minutes, on each of the eight live seats in `construction/fleet-roster.kyri`. It ran that
+# twenty minutes, on each of the eight live seats in `fleet/fleet-roster.kyri`. It ran that
 # way with no control at all until REDS %428. Destructive authority on that many trees earns a
 # standing guard.
 #

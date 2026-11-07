@@ -72,7 +72,7 @@ cd "$root"
 # seat tables -- the allow-list, want_tree, and the two engine cases -- and fleet_rearm.sh carried
 # two more, six in all with nothing comparing them. Two had already drifted by `20260904`: this
 # loop admitted six seat names while the re-arm reported nine, and the elder-name remap seated on
-# Keaton's word lived here and not there. All six are lookups into construction/fleet-roster.kyri
+# Keaton's word lived here and not there. All six are lookups into fleet/fleet-roster.kyri
 # now, so a ship joins, retires, or is renamed in one row.
 roster_scan=tools/fixtures/f/fleet_roster_scan.sh
 [ -f "$roster_scan" ] || { echo "fleet-loop: missing $roster_scan -- the seat table is unreadable"; exit 2; }
@@ -80,7 +80,7 @@ roster_scan=tools/fixtures/f/fleet_roster_scan.sh
 # An elder name answers with its living seat and says so; anything else answers with itself.
 resolved=$(sh "$roster_scan" --resolve "$seat" 2>/dev/null || true)
 if [ -n "$resolved" ] && [ "$resolved" != "$seat" ]; then
-  echo "fleet-loop: $seat is now $resolved (construction/fleet-roster.kyri)"
+  echo "fleet-loop: $seat is now $resolved (fleet/fleet-roster.kyri)"
   seat=$resolved
 fi
 if ! sh "$roster_scan" --seats | grep -qx "$seat"; then

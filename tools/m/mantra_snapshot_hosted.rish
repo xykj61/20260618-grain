@@ -6,7 +6,7 @@
 # WHY THIS FILE EXISTS. Its sibling tools/m/mantra_snapshot_wire.rish proved two
 # different things in one run: these hosted legs, which want a Zig toolchain and
 # stop there, and one device leg that spawns qemu-system-riscv64. A witness is heard
-# from construction/standing-equipment.kyri alone, and REDS %646 seats the rule that
+# from fleet/standing-equipment.kyri alone, and REDS %646 seats the rule that
 # a rostable witness is one whose every leg runs wherever the fleet stands -- so
 # welding the two put these hosted asserts out at a thin edge, where each lap read
 # past them. Measured 20260910: 26 witnesses in this tree reach a wire lab, 0 of 26

@@ -33,8 +33,8 @@ leg() {
 build() {
   d=$1; name=$2; spawns=$3; wall=$4; tier=${5:-lap}
   mkdir -p "$d/construction" "$d/tools/fixtures/x" "$d/tools/x"
-  printf 'guard %s\npath tools/x/%s_witness.rish\ntier %s\nseated 20260917.200026\n' "$name" "$name" "$tier" > "$d/construction/standing-equipment.kyri"
-  printf 'format standing-equipment-runs-v1\nran %s 20260917.200026 green %s %s 1000\n' "$name" "$tier" "$wall" > "$d/construction/standing-equipment-runs.kyri"
+  printf 'guard %s\npath tools/x/%s_witness.rish\ntier %s\nseated 20260917.200026\n' "$name" "$name" "$tier" > "$d/fleet/standing-equipment.kyri"
+  printf 'format standing-equipment-runs-v1\nran %s 20260917.200026 green %s %s 1000\n' "$name" "$tier" "$wall" > "$d/fleet/standing-equipment-runs.kyri"
   {
     echo '#!/bin/sh'
     echo "i=0; while [ \$i -lt $spawns ]; do /bin/true; i=\$((i+1)); done"
@@ -77,17 +77,17 @@ s_slow=$(echo "$out3" | sed -n 's/.*startup_per_mille=\([0-9]*\).*/\1/p' | head 
 echo "$out2" | grep -q 'card_stamp=20260917.200026' && leg card_stamp_reported yes || leg card_stamp_reported no
 
 # 6 -- REFUSALS, each planted and then lifted rather than argued.
-rm -f "$pen/fifty/construction/standing-equipment-runs.kyri"
+rm -f "$pen/fifty/fleet/standing-equipment-runs.kyri"
 out=$(run "$pen/fifty" --guard planted)
 echo "$out" | grep -q 'verdict=card_missing' && leg absent_card_refuses yes || leg absent_card_refuses no
-printf 'format standing-equipment-runs-v1\nran planted 20260917.200026 green lap 5 1000\n' > "$pen/fifty/construction/standing-equipment-runs.kyri"
+printf 'format standing-equipment-runs-v1\nran planted 20260917.200026 green lap 5 1000\n' > "$pen/fifty/fleet/standing-equipment-runs.kyri"
 out=$(run "$pen/fifty" --guard planted)
 echo "$out" | grep -q 'verdict=read' && leg restored_card_reads yes || leg restored_card_reads no
 
-mv "$pen/fifty/construction/standing-equipment.kyri" "$pen/fifty/construction/roster.away"
+mv "$pen/fifty/fleet/standing-equipment.kyri" "$pen/fifty/construction/roster.away"
 out=$(run "$pen/fifty" --guard planted)
 echo "$out" | grep -q 'verdict=roster_missing' && leg absent_roster_refuses yes || leg absent_roster_refuses no
-mv "$pen/fifty/construction/roster.away" "$pen/fifty/construction/standing-equipment.kyri"
+mv "$pen/fifty/construction/roster.away" "$pen/fifty/fleet/standing-equipment.kyri"
 
 out=$(PROCESS_FANOUT_ROOT="$pen/fifty" sh "$scan" --nonsense 2>&1)
 echo "$out" | grep -q 'verdict=bad_argument' && leg unknown_argument_refuses yes || leg unknown_argument_refuses no

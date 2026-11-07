@@ -190,7 +190,7 @@ SCAN_ORDER_CEILING="${SCAN_ORDER_CEILING:-154}"
 UNSAID_ROSTERED_CEILING="${UNSAID_ROSTERED_CEILING:-903}"
 UNSAID_CEILING="${UNSAID_CEILING:-6144}"
 
-ROSTER="${SHIM_REASON_ROSTER:-construction/standing-equipment.kyri}"
+ROSTER="${SHIM_REASON_ROSTER:-fleet/standing-equipment.kyri}"
 
 command -v git >/dev/null 2>&1 || { echo "verdict=no_git"; echo "refused: this reading walks the tracked tree, so it wants git" >&2; exit 2; }
 git rev-parse --git-dir >/dev/null 2>&1 || { echo "verdict=no_repo"; echo "refused: not inside a git repository" >&2; exit 2; }

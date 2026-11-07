@@ -87,14 +87,14 @@ out=$(ask)
 check "an unrostered witness is not a reader"   yes "$(has "$out" 'unread=1')"
 
 # 3. rostered: the declaration becomes a promise something runs
-printf 'guard catalog\npath tools/s/absent_witness.rish\ntier lap\n' > construction/standing-equipment.kyri
+printf 'guard catalog\npath tools/s/absent_witness.rish\ntier lap\n' > fleet/standing-equipment.kyri
 git add -A >/dev/null; git commit -qm rostered
 out=$(ask)
 check "a rostered witness reads it generically" yes "$(has "$out" 'unread=0')"
 check "and the generic reading is counted"      yes "$(has "$out" 'read_generically=1')"
 
 # and the lift runs backwards too: drop the roster row and the seal goes unread again
-printf 'guard other\npath tools/s/other.rish\ntier lap\n' > construction/standing-equipment.kyri
+printf 'guard other\npath tools/s/other.rish\ntier lap\n' > fleet/standing-equipment.kyri
 git add -A >/dev/null; git commit -qm unrostered
 out=$(ask)
 check "dropping the roster row restores unread" yes "$(has "$out" 'unread=1')"

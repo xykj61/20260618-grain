@@ -129,7 +129,7 @@ tree grain-alpha
 engine claude
 status live
 EOF
-mkdir -p "$pen/construction"; cp "$pen/roster.kyri" "$pen/construction/fleet-roster.kyri"
+mkdir -p "$pen/construction"; cp "$pen/roster.kyri" "$pen/fleet/fleet-roster.kyri"
 case "$(FLEET_ROSTER=$pen/roster.kyri sh "$pen/scan.sh" --tree alpha 2>/dev/null || true)" in
   grain-alpha) say "pen_roster_read=yes" ;; *) say "pen_roster_read=no" ;;
 esac
@@ -283,7 +283,7 @@ tree grain-waiting
 engine claude
 status berthed
 ROSTER_EOF
-cp "$spen/roster.kyri" "$spen/construction/fleet-roster.kyri"
+cp "$spen/roster.kyri" "$spen/fleet/fleet-roster.kyri"
 sp() { FLEET_ROSTER="$spen/roster.kyri" sh "$spen/scan.sh" "$@" 2>&1; }
 if sp --live | grep -qx waiting; then say "berthed_excluded_from_live=no"; else say "berthed_excluded_from_live=yes"; fi
 if sp --seats | grep -qx waiting; then say "berthed_named_by_seats=yes"; else say "berthed_named_by_seats=no"; fi

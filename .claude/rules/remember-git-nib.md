@@ -37,12 +37,12 @@ a claim had until then to call its lead-in a follow-up, which is a word the tool
 **The lead-in half stood uncovered and it fired on nearly every claiming lap.** Measured
 `20260917.164713` over this tree's **204 claim-opening commits**, each put to the guard's own state
 predicate copied verbatim: **185 read STALE**, and **184 of those are commits whose only file is
-`construction/fleet-claims.kyri`**. Over the last 55 openings the reading is **55 of 55**, each
+`fleet/fleet-claims.kyri`**. Over the last 55 openings the reading is **55 of 55**, each
 holding that reading for a mean of **12.7 minutes** and a maximum of **62**, across a mean of 1.49
 commits before a later commit repins. **That window is exactly where the baton's ORDER clause puts the cold
 endurance run**, so the fleet's most expensive reading -- 355 guards, held still, bought to say
 *these answers describe THIS tree* -- carried a manufactured red on every lap that claimed. All
-three figures are **free**; re-read them by walking `git log -- construction/fleet-claims.kyri`
+three figures are **free**; re-read them by walking `git log -- fleet/fleet-claims.kyri`
 through the predicate in `tools/r/remember_git_nib_witness.rish` step 3.
 
 **The cure is in the tool rather than in this page**, because a habit that must be typed is a habit

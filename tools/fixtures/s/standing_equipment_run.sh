@@ -1,7 +1,7 @@
 #!/bin/sh
 # tools/fixtures/s/standing_equipment_run.sh -- run the rostered guards of a tier, and record when each ran.
 #
-# WHY. construction/standing-equipment.kyri names what stands. This runs it, and writes one line per
+# WHY. fleet/standing-equipment.kyri names what stands. This runs it, and writes one line per
 # guard into the run card, so the question "when did this last run?" has an answer on disk
 # rather than in a memory of a round. REDS %149 taught the sentence this exists to make
 # checkable: a bound is only a bound on the laps someone runs it.
@@ -28,11 +28,11 @@
 #
 # A tier is a CADENCE rather than an exemption. REDS %219 was a choir standing off the roster
 # entirely, which is a refusal nobody receives; a cadence guard is still heard, on a slower clock,
-# and construction/standing-equipment-runs.kyri records the clock that heard it. A tier word the
+# and fleet/standing-equipment-runs.kyri records the clock that heard it. A tier word the
 # runner does not know is refused by tools/fixtures/s/standing_equipment_scan.sh rather than run past,
 # because a guard on such a tier would run on no lap at all, in silence.
 #
-# WHAT IT WRITES. construction/standing-equipment-runs.kyri, one
+# WHAT IT WRITES. fleet/standing-equipment-runs.kyri, one
 # `ran <name> <stamp> <verdict> <tier> <seconds> <cpu_ms>`
 # line per guard, the last field CPU-milliseconds and the one before it wall-seconds.
 #
@@ -134,8 +134,8 @@ _run_here=$(CDPATH= cd "$(dirname "$0")" && pwd)
 # saves, and a price computed by a second matcher is a price for a skip this runner never takes.
 . "$_run_here/scope_match.sh"
 
-roster="${STANDING_ROSTER:-construction/standing-equipment.kyri}"
-card="${STANDING_CARD:-construction/standing-equipment-runs.kyri}"
+roster="${STANDING_ROSTER:-fleet/standing-equipment.kyri}"
+card="${STANDING_CARD:-fleet/standing-equipment-runs.kyri}"
 # THIS RUNNER'S OWN GUARD, NAMED HERE because two things below turn on it: it is deferred to the
 # end of the todo list, and it is the one guard whose reading of the card is a reading of this
 # pass. The scan spells the same name at its own `self_guard`, for the sibling reason (REDS %475).
@@ -143,8 +143,8 @@ self_guard=standing_equipment
 # The hit-rate meter's two untracked shelves (the fusion build, design 20260825-173153): the
 # receipt is the last fully green close's digest, the ledger is every open's match-or-miss row.
 # Measurement only -- nothing consults these to skip a guard; that ruling stays Keaton's.
-receipt="${STANDING_RECEIPT:-construction/standing-equipment-receipt.kyri}"
-hitledger="${STANDING_HITRATE:-construction/standing-equipment-hitrate.kyri}"
+receipt="${STANDING_RECEIPT:-fleet/standing-equipment-receipt.kyri}"
+hitledger="${STANDING_HITRATE:-fleet/standing-equipment-hitrate.kyri}"
 
 want_tier=lap
 only=""
@@ -173,7 +173,7 @@ detach=no
 # The lock name is read by TWO callers now -- this parent, before it truncates a transcript, and
 # the pass itself, where the lock is taken -- so it is spelled once, above both. A second spelling
 # of one path is how two readings of one intent begin.
-lock="${STANDING_LOCK:-construction/standing-equipment-run.lock.d}"
+lock="${STANDING_LOCK:-fleet/standing-equipment-run.lock.d}"
 
 # WHOSE TRANSCRIPT A REFUSAL NAMES (REDS `%666`). A refused launch printed the path THIS invocation
 # would have written, and a reader takes a printed `transcript=` for the live pass's own name -- so
@@ -804,7 +804,7 @@ tree_digest() {
 # be diffed from, which the receipt's own comment below already says out loud -- so a pass that
 # ran for forty minutes could report `tree_moved=yes` and name no path at all, and a hand reading
 # the transcript learned what the refusal COST and nothing about its CAUSE. This lap paid that
-# bill: 272 guards green, 3,232 guard-seconds, lost to one edit of `construction/fleet-claims.kyri`
+# bill: 272 guards green, 3,232 guard-seconds, lost to one edit of `fleet/fleet-claims.kyri`
 # made because `tools/f/fleet_baton.txt` tells every ship to open a claim before it builds. Copal
 # reported the same shape one lap earlier from its own door, so it is a loom rather than a lantern.
 #
@@ -1437,7 +1437,7 @@ cpu_ms_absent=0
 # own `tree_moved` reading. In this repository the room is gitignored and so invisible to
 # `git status --porcelain` either way; in a clone where it is not yet ignored -- or a pen a control
 # drives -- writing it mid-run would turn every red into a `tree_moved` refusal as well.
-red_room="construction/standing-equipment-reds"
+red_room="fleet/standing-equipment-reds"
 
 # WHAT A GUARD COST, recorded beside what it answered (REDS %388). This loop wrote a verdict and
 # no elapsed time, so the run card held a hundred verdicts and not one cost -- and a lap deciding
@@ -1666,7 +1666,7 @@ for _ev in "$pen"/evidence.*.txt; do
 done
 
 {
-  echo "# construction/standing-equipment-runs.kyri -- when each standing guard last ran on THIS pier."
+  echo "# fleet/standing-equipment-runs.kyri -- when each standing guard last ran on THIS pier."
   echo "# Written by tools/fixtures/s/standing_equipment_run.sh; untracked on purpose, so a fresh"
   echo "# clone reads 'never run here' rather than inheriting another machine's memory."
   echo "format standing-equipment-runs-v1"
@@ -1793,7 +1793,7 @@ if [ "$red" -ne 0 ]; then
   # rule_twin at %7, the two pond_enclosure rows at %5 -- no longer withhold it (REDS %374,
   # Keaton's word `20260904`). The sentence standing here until `20260908.072554` still read that
   # the cheaper pass could never be earned, four days after its own repair landed in this file and
-  # while `construction/standing-equipment-receipt.kyri` stood written `20260908.052552` at
+  # while `fleet/standing-equipment-receipt.kyri` stood written `20260908.052552` at
   # `scope full`, `guards 186`, `gated 3`. A comment describing a constraint its own file has
   # already lifted teaches the next reader not to look.
   [ "$run_scope" = full ] && echo "roster_receipt_write=withheld_guard_red"
@@ -1839,7 +1839,7 @@ fi
 # head rides beside the digest because a digest cannot be diffed from and a commit can.
 if [ "$run_scope" = full ]; then
   {
-    echo "# construction/standing-equipment-receipt.kyri -- the last fully green FULL close on THIS pier."
+    echo "# fleet/standing-equipment-receipt.kyri -- the last fully green FULL close on THIS pier."
     echo "# The fusion build's basis record; written by full passes alone, consulted by --scoped."
     echo "format standing-equipment-receipt-v2"
     echo "digest $tree_close"

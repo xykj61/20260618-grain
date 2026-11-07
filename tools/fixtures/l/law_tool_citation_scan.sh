@@ -40,7 +40,7 @@
 #   `cited_bare` -- how many of those paths the room never writes as a link. This is the reason
 #   the gate exists rather than a fault, and it will move with ordinary editing.
 #   `runners_unrostered` -- a cited witness, check, suite, choir or sweep with no `path` row in
-#   `construction/standing-equipment.kyri`. The GATE for that class is
+#   `fleet/standing-equipment.kyri`. The GATE for that class is
 #   `tools/w/witness_reach_witness.rish`, which traces reachability tree-wide and holds
 #   `unreached` under a ceiling; a second gate here would be one question with two answers.
 #   Today's one is `tools/b/bat_fleet_witness.rish`, named in `.claude/rules/ascii-first.md` as a
@@ -92,7 +92,7 @@ git rev-parse --git-dir >/dev/null 2>&1 || { echo "verdict=no_repo"; echo "refus
 
 law_room=${1:-.claude/rules}
 twin_room=${2:-.cursor/rules}
-roster=${3:-construction/standing-equipment.kyri}
+roster=${3:-fleet/standing-equipment.kyri}
 
 # Bound named at the door: a room of law pages is a hand-written room, and ten times today's
 # reading is far past any honest growth. Past it the scan refuses rather than reading on.

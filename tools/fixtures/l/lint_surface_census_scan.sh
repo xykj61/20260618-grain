@@ -25,7 +25,7 @@
 # parts move is worse than one that goes visibly wrong.
 #
 # THE THREE STATES A ROW CAN BE IN, which the paragraph drew in prose and nothing counted:
-#   rostered    the row names a tool carrying its own `path` row in construction/standing-equipment.kyri
+#   rostered    the row names a tool carrying its own `path` row in fleet/standing-equipment.kyri
 #   driven      the row names an unrostered tool AND a rostered one that drives it -- the table's own
 #               words for tools/t/tame_style_scan_bans.rish, *driven by tools/t/tame_style_check.rish*
 #   unreached   no lap runs anything this row names
@@ -86,7 +86,7 @@ if [ -z "$GUIDE" ] || [ -z "$ROSTER" ]; then
   done
   cd "$ROOT" || exit 2
   GUIDE=${GUIDE:-context/TAME_GUIDANCE.md}
-  ROSTER=${ROSTER:-construction/standing-equipment.kyri}
+  ROSTER=${ROSTER:-fleet/standing-equipment.kyri}
 fi
 
 if [ ! -f "$GUIDE" ]; then

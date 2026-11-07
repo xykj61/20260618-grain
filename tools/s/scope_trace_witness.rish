@@ -53,7 +53,7 @@ say control.out
 assert control.ok else "scope-trace: the control must complete -- read its own lines\n${control.out_brief}\n${control.err_brief}"
 
 # THE INSTRUMENT IS A ROSTER CAPABILITY, not an `if` here. `capability trace_instrument` in
-# construction/standing-equipment.kyri has the runner skip this guard BY NAME on a bench with no
+# fleet/standing-equipment.kyri has the runner skip this guard BY NAME on a bench with no
 # strace -- `skipped_capability scope_trace wants=trace_instrument here=absent` -- where a witness
 # that branched on the probe itself would print a green it did not earn. The control still answers
 # `no_instrument` for a hand running it directly, and this rung asserts the legs, so running it on

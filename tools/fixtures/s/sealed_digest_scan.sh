@@ -55,7 +55,7 @@ cd "$root"
 
 # Relative to the root above, so the pen door reaches the roster too and a planted roster is what
 # the generic reading below is proven against.
-ROSTER=construction/standing-equipment.kyri
+ROSTER=fleet/standing-equipment.kyri
 
 MODE=${1:-count}
 MAX_DOCS=400
@@ -107,7 +107,7 @@ done < "$work/docs.txt"
 # spelled test read that as seventeen unread seals.
 #
 # THREE CONDITIONS, none of them satisfiable by prose: the document names a `witness ` path under
-# `tools/`, that file exists, and `construction/standing-equipment.kyri` carries it as a rostered
+# `tools/`, that file exists, and `fleet/standing-equipment.kyri` carries it as a rostered
 # `path`. A declared witness nobody runs is the `unheard_guard` shape one room over, so roster
 # membership is what makes the declaration a promise rather than a sentence.
 reads_generically() { # reads_generically <doc>

@@ -175,7 +175,7 @@ CONTROL_CEILING="${UNHEARD_CONTROL_CEILING:-18}"
 # legitimately shrinks the population. A pen carries four files where the tree carries hundreds, so
 # every pen below sets it to zero explicitly.
 CONTROL_POPULATION_FLOOR="${UNHEARD_CONTROL_POPULATION_FLOOR:-200}"
-ROSTER="${UNHEARD_GUARD_ROSTER:-construction/standing-equipment.kyri}"
+ROSTER="${UNHEARD_GUARD_ROSTER:-fleet/standing-equipment.kyri}"
 mode="${1:-measure}"
 
 root=$(git rev-parse --show-toplevel 2>/dev/null) || {

@@ -90,7 +90,7 @@ supported, the same way `CODEX_MODEL` overrides the Codex loop.
 
 ## How a ship switches engines
 
-A ship's engine is one field in one row of `construction/fleet-roster.kyri`. To move a ship from
+A ship's engine is one field in one row of `fleet/fleet-roster.kyri`. To move a ship from
 Claude to OpenCode, change `engine claude` to `engine opencode` in that ship's row. The loop, the
 watcher, and the recipe all read that one field, so nothing else needs to change. The switch is
 Keaton's word to give, the same way every other seating in this tree is.
@@ -109,7 +109,7 @@ way the other two watchers do.
 proof that it holds a full night is a night it has actually held, which has not happened yet.
 
 **It does not seat the fleet.** A ship's engine is the `engine` field in
-`construction/fleet-roster.kyri`. From `20260922` the seven live ships besides incense read
+`fleet/fleet-roster.kyri`. From `20260922` the seven live ships besides incense read
 `codex`. This page documents the OpenCode loop; the roster is the seating.
 
 **It does not repeat `HARNESS_SETUP.md`.** That page proves the provider and harness connection;

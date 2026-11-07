@@ -38,7 +38,7 @@ mkpen() {
   printf 'x\n' > "$d/tools/o/one_witness.rish"
   printf 'x\n' > "$d/tools/o/two.sh"
   printf 'x\n' > "$d/tools/hooks/commit-msg"
-  printf 'guard one\npath tools/o/one_witness.rish\ntier lap\n' > "$d/construction/standing-equipment.kyri"
+  printf 'guard one\npath tools/o/one_witness.rish\ntier lap\n' > "$d/fleet/standing-equipment.kyri"
   printf '# twin\n\nSee `tools/o/two.sh`.\n' > "$d/.cursor/rules/a.mdc"
   echo "$d"
 }
@@ -123,14 +123,14 @@ note unrostered_free "$(yn $rc)"
 note unrostered_counted "$(has "$out" '^runners_unrostered=1$')"
 note unrostered_named "$(has "$out" '^unrostered: tools/o/three_witness.rish$')"
 note runners_counted "$(has "$out" '^cited_runners=2$')"
-printf 'guard one\npath tools/o/one_witness.rish\ntier lap\n\nguard three\npath tools/o/three_witness.rish\ntier lap\n' > "$d/construction/standing-equipment.kyri"
+printf 'guard one\npath tools/o/one_witness.rish\ntier lap\n\nguard three\npath tools/o/three_witness.rish\ntier lap\n' > "$d/fleet/standing-equipment.kyri"
 seal "$d"; out=$(run "$d")
 note unrostered_lifted_zero "$(has "$out" '^runners_unrostered=0$')"
 
 # --- an absent roster cannot answer, and must not answer zero ----------------------------------
 d=$(mkpen noroster)
 printf '# a\n\nRun `tools/o/one_witness.rish`.\n' > "$d/.claude/rules/a.md"
-rm -f "$d/construction/standing-equipment.kyri"
+rm -f "$d/fleet/standing-equipment.kyri"
 seal "$d"; out=$(run "$d"); rc=$?
 note noroster_free "$(yn $rc)"
 note noroster_unread "$(has "$out" '^runners_unrostered=unread$')"

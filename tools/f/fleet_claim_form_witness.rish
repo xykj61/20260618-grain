@@ -20,7 +20,7 @@ say "claim-form: Lens TAME -- safety first: a reader that cannot trust its board
 # invariant: the board, the form reader, the content reader and the control all stand before any
 # reading is judged. `ls` rather than `test`, because `test` reports nothing when it refuses, so an
 # asserting witness would hand the reader its own sentence and discard the reason.
-let present = run ["ls" "construction/fleet-claims.kyri" "tools/fixtures/f/fleet_claim_form_scan.sh" "tools/fixtures/f/fleet_claim_scan.sh" "tools/fixtures/f/fleet_claim_form_control.sh"]
+let present = run ["ls" "fleet/fleet-claims.kyri" "tools/fixtures/f/fleet_claim_form_scan.sh" "tools/fixtures/f/fleet_claim_scan.sh" "tools/fixtures/f/fleet_claim_form_control.sh"]
 assert present.ok else "claim-form: the board, a reader or the control is missing -- ${present.err_brief}"
 
 let control = run ["sh" "tools/fixtures/f/fleet_claim_form_control.sh"]

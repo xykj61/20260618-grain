@@ -71,5 +71,5 @@ and this page announced `glow-language-294` in its own head while the work ran o
 
 Smoke: `glow_nest_type_witness` - `glow_shop_nest_parse_witness` - `glow_lower_shop_gate_witness` -
 `glow_digraph_twin_witness` - `glow_text_floor_witness`. The 26 Glow witnesses that no runner named
-now ride `glow_choir_witness` on the cadence tier of `construction/standing-equipment.kyri`.
+now ride `glow_choir_witness` on the cadence tier of `fleet/standing-equipment.kyri`.
 Sibling ladders: **glass-keyboard** - **hearth-display** - **usb-hearth** - **glow-publishing**.

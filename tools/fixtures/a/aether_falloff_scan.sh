@@ -78,7 +78,7 @@ case "$radius" in ''|*[!0-9]*) echo "refused: --radius wants a whole number of h
 
 cd "$_fd_root"
 
-roster="${STANDING_ROSTER:-construction/standing-equipment.kyri}"
+roster="${STANDING_ROSTER:-fleet/standing-equipment.kyri}"
 scope_map="${STANDING_SCOPE_MAP:-tools/fixtures/s/standing_equipment_scope_map.sh}"
 
 [ -f "$roster" ] || { echo "refused: no roster at $roster" >&2; exit 1; }

@@ -16,7 +16,7 @@
 #
 # WHAT LEG B THEREFORE MEANS, stated plainly so nobody reads more from it than it holds. Its red is
 # an ENVIRONMENT fact -- this host has not configured a loopback family -- rather than a finding
-# about Comlink. That is why the row stayed off construction/standing-equipment.kyri: a rostered
+# about Comlink. That is why the row stayed off fleet/standing-equipment.kyri: a rostered
 # seat would turn a host's configuration into every body's red lap. The standing roster now carries
 # a `capability` field for exactly this shape (seated 20260829), so the environment half can move to
 # the tier that answers it and leg A, which is the tree's own claim, can stand on the roster.

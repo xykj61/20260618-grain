@@ -170,7 +170,7 @@ check "and the population counts once" yes "$(has "$out" 'dependents=4')"
 
 # CASE 12 -- THE GATE. A rostered dependent naming no `capability` is the one row that would red the
 # whole fleet on every machine lacking the artifact or the screen.
-cat > construction/standing-equipment.kyri <<'R'
+cat > fleet/standing-equipment.kyri <<'R'
 format standing-equipment-v1
 guard artifact_probe
 path tools/p/artifact_probe_witness.rish
@@ -183,7 +183,7 @@ check "and the verdict names it"       yes "$(has "$out" 'verdict=undeclared_pre
 
 # CASE 13 -- the gate LIFTED by declaring the capability, which is the repair the roster already
 # carries for `ipv6`, `qemu_riscv`, and `tigerbeetle_clone`.
-cat > construction/standing-equipment.kyri <<'R'
+cat > fleet/standing-equipment.kyri <<'R'
 format standing-equipment-v1
 guard artifact_probe
 path tools/p/artifact_probe_witness.rish
@@ -198,7 +198,7 @@ check "the row leaves unrostered"      yes "$(has "$out" 'unrostered=3')"
 
 # CASE 14 -- ONE ROW'S DECLARATION EXCUSES ONLY ITS OWN ROW. Asking whether the FILE holds the word
 # `capability` anywhere would let the row above cover every undeclared one beneath it.
-cat >> construction/standing-equipment.kyri <<'R'
+cat >> fleet/standing-equipment.kyri <<'R'
 
 guard bound_probe
 path tools/p/bound_probe_witness.rish
@@ -210,7 +210,7 @@ check "a second row is its own record" yes "$(has "$out" 'rostered_undeclared=1'
 
 # CASE 15 -- no roster at all reads `roster_present=no` rather than refusing: a pen, a fresh clone,
 # and a checkout mid-rebase all legitimately lack it.
-rm -f construction/standing-equipment.kyri
+rm -f fleet/standing-equipment.kyri
 stage
 out=$(ask)
 check "an absent roster is named"      yes "$(has "$out" 'roster_present=no')"

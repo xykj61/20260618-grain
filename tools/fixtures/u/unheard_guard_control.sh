@@ -67,7 +67,7 @@ printf '# Kin: tools/a/delta_witness.rish -- named in a COMMENT, never run\nsay 
 printf 'say "gamma -- named by nothing at all"\n' > "$d/tools/a/gamma_witness.rish"
 printf 'say "delta"\n' > "$d/tools/a/delta_witness.rish"
 printf 'say "pen material, not standing equipment"\n' > "$d/tools/fixtures/a/elder_witness.rish"
-printf 'guard alpha\npath tools/a/alpha_witness.rish\nseated 20260830.000000\n' > "$d/construction/standing-equipment.kyri"
+printf 'guard alpha\npath tools/a/alpha_witness.rish\nseated 20260830.000000\n' > "$d/fleet/standing-equipment.kyri"
 git -C "$d" add -A >/dev/null; git -C "$d" commit -qm pen >/dev/null
 
 run "$d" 99 99 measure > "$pen/one.out" 2>"$pen/one.err" || true
@@ -98,7 +98,7 @@ printf 'run ["sh" "tools/a/c_witness.rish"]\n' > "$d/tools/a/b_witness.rish"
 printf 'say "c"\n' > "$d/tools/a/c_witness.rish"
 printf 'run ["sh" "tools/a/z_witness.rish"]\n' > "$d/tools/a/y_witness.rish"
 printf 'say "z"\n' > "$d/tools/a/z_witness.rish"
-printf 'path tools/a/a_witness.rish\n' > "$d/construction/standing-equipment.kyri"
+printf 'path tools/a/a_witness.rish\n' > "$d/fleet/standing-equipment.kyri"
 git -C "$d" add -A >/dev/null; git -C "$d" commit -qm pen >/dev/null
 run "$d" 99 99 measure > "$pen/two.out" 2>/dev/null || true
 check 3 "$(field "$pen/two.out" heard)"   "reach is transitive -- a, b, and c are all heard"
@@ -109,7 +109,7 @@ check 1 "$(run "$d" 99 99 list | grep -c 'unheard tools/a/z_witness.rish' || tru
 d=$(newpen three)
 printf 'run ["sh" "tools/a/r1_witness.rish"]\nrun ["sh" "tools/a/r2_witness.rish"]\nrun ["sh" "tools/a/r3_witness.rish"]\n' > "$d/tools/a/silent_suite.rish"
 for r in r1 r2 r3; do printf 'say "%s"\n' "$r" > "$d/tools/a/${r}_witness.rish"; done
-printf 'path tools/a/nothing_witness.rish\n' > "$d/construction/standing-equipment.kyri"
+printf 'path tools/a/nothing_witness.rish\n' > "$d/fleet/standing-equipment.kyri"
 printf 'say "rostered, and it names nobody"\n' > "$d/tools/a/nothing_witness.rish"
 git -C "$d" add -A >/dev/null; git -C "$d" commit -qm pen >/dev/null
 run "$d" 99 99 measure > "$pen/three.out" 2>/dev/null || true
@@ -122,7 +122,7 @@ check ok "$(run "$d" 99 1 measure | sed -n 's/^verdict=//p')" "a choir ceiling o
 
 # --- Pen four: the vacuums, each refused ----------------------------------------------------
 d=$(newpen four)
-printf 'path tools/a/absent_witness.rish\n' > "$d/construction/standing-equipment.kyri"
+printf 'path tools/a/absent_witness.rish\n' > "$d/fleet/standing-equipment.kyri"
 printf 'nothing here\n' > "$d/tools/a/README.md"
 git -C "$d" add -A >/dev/null; git -C "$d" commit -qm pen >/dev/null
 if run "$d" 99 99 measure > "$pen/four.out" 2>/dev/null; then rc=0; else rc=1; fi
@@ -131,7 +131,7 @@ check no_population "$(field "$pen/four.out" verdict)" "and names the vacuum it 
 
 d=$(newpen five)
 printf 'say "alone"\n' > "$d/tools/a/lonely_witness.rish"
-printf '# a roster with no path lines at all\n' > "$d/construction/standing-equipment.kyri"
+printf '# a roster with no path lines at all\n' > "$d/fleet/standing-equipment.kyri"
 git -C "$d" add -A >/dev/null; git -C "$d" commit -qm pen >/dev/null
 if run "$d" 99 99 measure > "$pen/five.out" 2>/dev/null; then rc=0; else rc=1; fi
 check 1 "$rc" "an empty roster refuses -- every guard would read unheard for the wrong reason"
@@ -157,7 +157,7 @@ printf 'run ["sh" "tools/a/reached_runner.rish"]\n' > "$d/tools/a/rostered_witne
 printf 'assert 1 == 1 else "named by a rostered guard, so heard"\n' > "$d/tools/a/reached_runner.rish"
 printf '# tools/a/mentioned_runner.rish -- named only in a comment\nassert 1 == 1 else "x"\n' > "$d/tools/a/commenter_witness.rish"
 printf 'assert 1 == 1 else "named in a comment only, so unreached"\n' > "$d/tools/a/mentioned_runner.rish"
-printf 'path tools/a/rostered_witness.rish\npath tools/a/commenter_witness.rish\n' > "$d/construction/standing-equipment.kyri"
+printf 'path tools/a/rostered_witness.rish\npath tools/a/commenter_witness.rish\n' > "$d/fleet/standing-equipment.kyri"
 git -C "$d" add -A >/dev/null; git -C "$d" commit -qm pen >/dev/null
 
 run "$d" 99 99 measure > "$pen/seven.out" 2>/dev/null || true
@@ -181,7 +181,7 @@ for r in r1 r2 r3; do printf 'assert 1 == 1 else "%s"\n' "$r" > "$d/tools/a/${r}
 # a runner naming three HELPERS is not a choir: helpers make no claim, so they are not guards
 printf 'run ["sh" "tools/a/h1.rish"]\nrun ["sh" "tools/a/h2.rish"]\nrun ["sh" "tools/a/h3.rish"]\nassert 1 == 1 else "three helpers is not a family"\n' > "$d/tools/a/helper_caller.rish"
 for h in h1 h2 h3; do printf 'say "%s -- a helper, claiming nothing"\n' "$h" > "$d/tools/a/${h}.rish"; done
-printf 'path tools/a/nothing_witness.rish\n' > "$d/construction/standing-equipment.kyri"
+printf 'path tools/a/nothing_witness.rish\n' > "$d/fleet/standing-equipment.kyri"
 printf 'say "rostered, and it names nobody"\n' > "$d/tools/a/nothing_witness.rish"
 git -C "$d" add -A >/dev/null; git -C "$d" commit -qm pen >/dev/null
 
@@ -211,7 +211,7 @@ d=$(newpen nine)
 printf 'run ["sh" "tools/a/bridge_runner.rish"]\n' > "$d/tools/a/head_witness.rish"
 printf 'run ["sh" "tools/a/far_witness.rish"]\nassert 1 == 1 else "a bridge wearing neither word"\n' > "$d/tools/a/bridge_runner.rish"
 printf 'say "far -- reached only through the bridge"\n' > "$d/tools/a/far_witness.rish"
-printf 'path tools/a/head_witness.rish\n' > "$d/construction/standing-equipment.kyri"
+printf 'path tools/a/head_witness.rish\n' > "$d/fleet/standing-equipment.kyri"
 git -C "$d" add -A >/dev/null; git -C "$d" commit -qm pen >/dev/null
 run "$d" 99 99 measure > "$pen/nine.out" 2>/dev/null || true
 check 1 "$(field "$pen/nine.out" elder_reach_gap)" "a guard reached only through an unnamed runner is counted in the elder rule's blind spot"
@@ -232,7 +232,7 @@ mkpen_self() {
   # the accuser: a rostered guard that NAMES the silent choir in an assert string, exactly as this
   # tree's own witness does
   printf 'assert out contains "unnamed_choir tools/p/silent_pen.rish sings" else "name the choir"\n' > "$d/$2"
-  printf 'path %s\n' "$2" > "$d/construction/standing-equipment.kyri"
+  printf 'path %s\n' "$2" > "$d/fleet/standing-equipment.kyri"
   git -C "$d" add -A >/dev/null; git -C "$d" commit -qm pen >/dev/null
   echo "$d"
 }
@@ -264,7 +264,7 @@ printf '# runs tools/fixtures/a/gamma_control.sh one day\nsay "gamma"\n' > "$d/t
 printf 'echo gamma control\n' > "$d/tools/fixtures/a/gamma_control.sh"
 # delta is named nowhere at all
 printf 'echo delta control\n' > "$d/tools/fixtures/a/delta_control.sh"
-printf 'guard alpha\npath tools/a/alpha_witness.rish\nguard gamma\npath tools/a/gamma_witness.rish\nseated 20260911.000000\n' > "$d/construction/standing-equipment.kyri"
+printf 'guard alpha\npath tools/a/alpha_witness.rish\nguard gamma\npath tools/a/gamma_witness.rish\nseated 20260911.000000\n' > "$d/fleet/standing-equipment.kyri"
 git -C "$d" add -A >/dev/null; git -C "$d" commit -qm pen >/dev/null
 
 run "$d" 99 99 measure > "$pen/ctl.out" 2>"$pen/ctl.err" || true

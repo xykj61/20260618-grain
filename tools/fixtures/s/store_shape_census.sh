@@ -140,8 +140,8 @@ fi
 # counting it made every second row read as multi-valued on the first draft of this census.
 
 if [ -z "${registries:-}" ]; then
-registries="construction/standing-equipment.kyri:guard
-construction/fleet-roster.kyri:seat
+registries="fleet/standing-equipment.kyri:guard
+fleet/fleet-roster.kyri:seat
 construction/domain-registry.kyri:domain
 construction/waymark-registry.kyri:mark"
 fi
