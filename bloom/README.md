@@ -40,8 +40,10 @@ The curriculum follows a path from first encounter to full participation:
    for identity (Blake2s for wire protocol where speed on constrained hardware matters)
 8. **Ecology and Stewardship** -- Whole-system care, soil as investment,
    biocyclic vegan principles
-9. **Repair and Dharma** -- Right to repair, civic custody, the owned machine
-10. **Technical Vision** -- The learner's own sankalpa: what they will build
+9. **Right to Repair** -- Open source, named errors, bounded complexity,
+   the civic duty of building things that can be fixed
+10. **The Technical Vision** -- All ten pieces in one picture: the cooperative
+    farm, the Pond network, and the machine that belongs to its owner
 
 Each stage is a self-contained lesson that stands on its own and connects to the
 stages around it. A reader may begin at any stage, though stages 1 through 3

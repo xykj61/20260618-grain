@@ -14,23 +14,23 @@
 - [x] **M2** -- Lesson 1: Meeting the Two Dragons
 - [x] **M3** -- Lesson 2: The Kernel Tree
 - [x] **M4** -- Lesson 3: Memory as Garden
-- [ ] **M5** -- Quest 1 integration: first three lessons navigable in Terrarium
+- [x] **M5** -- Quest 1 integration: first three lessons navigable in Terrarium
 
 ### Quest 2: Second Five Lessons (Movements 6-10)
 
-- [ ] **M6** -- Lesson 4: Orchestra of Processes
-- [ ] **M7** -- Lesson 5: Garden of Files
-- [ ] **M8** -- Lesson 6: Rivers of Networks
-- [ ] **M9** -- Lesson 7: Treasure of Identity (SHA3 for Kumara, Blake2s for wire)
-- [ ] **M10** -- Quest 2 integration: all seven lessons navigable
+- [x] **M6** -- Lesson 4: Orchestra of Processes
+- [x] **M7** -- Lesson 5: Garden of Files
+- [x] **M8** -- Lesson 6: Rivers of Networks
+- [x] **M9** -- Lesson 7: Treasure of Identity (SHA3 for Kumara, Blake2s for wire)
+- [x] **M10** -- Quest 2 integration: all seven lessons navigable
 
 ### Quest 3: Final Lessons and Ecology (Movements 11-15)
 
-- [ ] **M11** -- Lesson 8: Sustainability and the Living Farm
-- [ ] **M12** -- Lesson 9: Right to Repair
-- [ ] **M13** -- Lesson 10: The Technical Vision
-- [ ] **M14** -- Ecology content: Atthowe, biocyclic vegan, biodiesel, water treatment
-- [ ] **M15** -- Act I integration witness: all ten lessons and ecology content proven
+- [x] **M11** -- Lesson 8: Sustainability and the Living Farm
+- [x] **M12** -- Lesson 9: Right to Repair
+- [x] **M13** -- Lesson 10: The Technical Vision
+- [x] **M14** -- Ecology content: Atthowe, biocyclic vegan, biodiesel, water treatment
+- [x] **M15** -- Act I integration witness: all ten lessons and ecology content proven
 
 ## Act II: The Practice Layer (Movements 16-30)
 

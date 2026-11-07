@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.212545 | [Bloom Act I complete -- ten curriculum stages, three ecology pages](20261106/20261106-212545_bloom-act-i-complete.kyri.md) | M11-M15: Stages 8-10, ecology room, Act I integration witness |
 | 20261106.211355 | [Bloom lessons tab in Terrarium -- Movement 5](20261106/20261106-211355_bloom-lessons-tab-movement5.kyri.md) | focusBloom with nav, dark green, three curriculum stages navigable |
 | 20261106.205949 | [Bloom synthesis and hash corrections](20261106/20261106-205949_bloom-synthesis-and-corrections.kyri.md) | repoint CHECKLIST to definitive plan, correct blake2b to Blake2s/SHA3 |
 | 20261106.205233 | [Bloom onboarding platform -- M1 expanding-prompt and tablecloth board](20261106/20261106-205233_bloom-onboarding-platform-m1.kyri.md) | vision plan, 30-movement journey, bloom/ allow-back, blake2b fix |
