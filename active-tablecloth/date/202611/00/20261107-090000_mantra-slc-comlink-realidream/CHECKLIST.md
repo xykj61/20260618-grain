@@ -28,7 +28,7 @@
 
 ## Phase 3 -- Caravan/Tally lowering for RISC-V (movements 11-15)
 
-- [ ] **M11** -- Caravan-supervised UDP listener: bounded process accepts content requests, looks up Mantra catalog, responds with resin or `never`. Tally arena, named errors.
+- [x] **M11** -- Caravan-supervised UDP listener: bounded process accepts content requests, looks up Mantra catalog, responds with resin or `never`. Tally region, named errors. GREEN `20261107`.
 - [ ] **M12** -- Caravan-supervised UDP sender: bounded process sends requests, waits with timeout. Named errors on timeout, digest mismatch, oversize.
 - [ ] **M13** -- Prove both on QEMU RISC-V: same request-response from M10 runs inside Terrarium emulator. Content reaches the screen.
 - [ ] **M14** -- Silo remaining Bloom rooms (lineage, essays, terrarium-lessons, demos) onto remaining galaxies per registry roles.

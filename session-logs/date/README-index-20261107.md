@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.115538 | [Mantra SLC M11 -- Caravan-supervised UDP listener GREEN](20261107/20261107-115538_mantra-slc-m11-caravan-listener-green.kyri.md) | 6 claims, Tally Region bounded at 16384 bytes, Caravan supervised |
 | 20261107.112721 | [Mantra SLC M10 -- integration witness GREEN](20261107/20261107-112721_mantra-slc-m10-integration-green.kyri.md) | 24 pages from 4 galaxies, 25 claims, wire invisible to reader |
 | 20261107.111504 | [Checklist catch-up -- M4 through M9 landed](20261107/20261107-111504_checklist-catchup-m4-m9.kyri.md) | checklist updated to match 5 landed commits |
 | 20261107.110729 | [Mantra SLC M9 -- content server witness GREEN](20261107/20261107-110729_mantra-slc-m9-content-server-green.kyri.md) | 53 pages loaded, 7 verified over localhost UDP with SHA3-256 |
