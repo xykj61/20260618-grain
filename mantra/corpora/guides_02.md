@@ -1,0 +1,1 @@
+../../bloom/guides/factory-operations.md

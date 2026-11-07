@@ -15,7 +15,7 @@
 
 - [x] **M1** -- ContentBolt: wrap Markdown page as Mantra resin with Kumara peer and date-stamp revision. Prove recall and SHA3-256 digest. GREEN `20261107` -- `mantra/content_bolt_witness.rye`, `~siya` seated in galaxy registry.
 - [x] **M2** -- Convert Bloom curriculum (10 pages) into ContentBolt resins on `~sunflower`. Prove all ten recall. GREEN `20261107` -- `mantra/curriculum_bolt_witness.rye`, 97 resins, 190 beads, all 10 SHA3-256 verified.
-- [ ] **M3** -- Convert ecology (7) and guides (5) onto `~rosemary` and `~oregano`. Prove cross-bolt `not_yet` from a stranger peer.
+- [x] **M3** -- Convert ecology (7) and guides (5) onto `~rosemary` and `~oregano`. Prove cross-bolt `not_yet` from a stranger peer. GREEN `20261107` -- `mantra/ecology_guides_bolt_witness.rye`, 97 resins (59 ecology + 38 guides), 187 beads, all 12 SHA3-256 verified. `resolve_binding` semantics extended: unknown peer at revision 1 returns `not_yet` rather than `never`.
 - [ ] **M4** -- Silo Minisforum and Grainphone research into teaching pages on `~thyme` and `~mint`. ASCII-first, Bhakta at Door.
 - [ ] **M5** -- Integration witness: 20+ pages across 4 galaxies, every recall answering `here` from home and `not_yet` from strangers.
 

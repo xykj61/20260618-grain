@@ -1,0 +1,226 @@
+//! mantra/ecology_guides_bolt_witness.rye -- proves 7 ecology pages on
+//! ~rosemary and 5 guides pages on ~oregano, stored as spooled Mantra
+//! resins with exact byte recall, matching SHA3-256 digests, and
+//! cross-bolt not_yet from a stranger peer.
+//!
+//!   rye build mantra/ecology_guides_bolt_witness.rye \
+//!       -femit-bin=mantra/bin/ecology-guides-bolt-witness
+//!   mantra/bin/ecology-guides-bolt-witness
+//!
+//! Movement 3 of the Mantra SLC expanding prompt. Four claims:
+//!   1. Each page winds into a spool over a shared BeadStore.
+//!   2. Unspooling each page returns the exact embedded bytes.
+//!   3. The spool's whole-content SHA3-256 digest matches an independent
+//!      computation over the original bytes.
+//!   4. A catalog holding ~rosemary content, asked about ~oregano
+//!      revision 1, returns not_yet -- the stranger peer is reachable
+//!      but has not synced yet.
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+const beading = @import("beading.rye");
+const spool = @import("spool.rye");
+const ns = @import("recall_lap1.rye");
+const tally_copy = @import("tally_copy.rye");
+const Sha3_256 = std.crypto.hash.sha3.Sha3_256;
+
+const witness_version = "20261107.100200";
+
+// invariant: peers fit in 16 bytes.
+const ecology_peer = "~rosemary";
+const ecology_bolt = "bloom-ecology";
+const guides_peer = "~oregano";
+const guides_bolt = "bloom-guides";
+const content_tilak = "markdown";
+
+const Page = struct {
+    name: []const u8,
+    content: []const u8,
+};
+
+// 7 ecology pages, embedded at compile time via symlinks in corpora/.
+// invariant: each page is under spool.max_content_bytes (32768).
+const ecology_pages = [_]Page{
+    .{ .name = "biocyclic-vegan-principles", .content = @embedFile("corpora/ecology_01.md") },
+    .{ .name = "energy-and-fuel", .content = @embedFile("corpora/ecology_02.md") },
+    .{ .name = "materials-and-supply-chain", .content = @embedFile("corpora/ecology_03.md") },
+    .{ .name = "rail-infrastructure", .content = @embedFile("corpora/ecology_04.md") },
+    .{ .name = "ecology-readme", .content = @embedFile("corpora/ecology_05.md") },
+    .{ .name = "water-and-stewardship", .content = @embedFile("corpora/ecology_06.md") },
+    .{ .name = "whole-system-farming", .content = @embedFile("corpora/ecology_07.md") },
+};
+
+// 5 guides pages, embedded at compile time via symlinks in corpora/.
+const guides_pages = [_]Page{
+    .{ .name = "distribution-operations", .content = @embedFile("corpora/guides_01.md") },
+    .{ .name = "factory-operations", .content = @embedFile("corpora/guides_02.md") },
+    .{ .name = "farm-management", .content = @embedFile("corpora/guides_03.md") },
+    .{ .name = "guides-readme", .content = @embedFile("corpora/guides_04.md") },
+    .{ .name = "staff-coordination", .content = @embedFile("corpora/guides_05.md") },
+};
+
+fn independent_digest(content: []const u8, out: *[32]u8) void {
+    Sha3_256.hash(content, out, .{});
+}
+
+fn run_selftest() !u8 {
+    var eco_store: beading.BeadStore = .empty();
+    var guide_store: beading.BeadStore = .empty();
+    var eco_spools: [7]spool.Spool = undefined;
+    var guide_spools: [5]spool.Spool = undefined;
+    var reassemble_buf: [spool.max_content_bytes]u8 = undefined;
+
+    // -- Claim 1: each ecology page winds into a spool within bounds.
+    print("ecology-guides-bolt-witness: winding 7 ecology pages on {s}\n", .{ecology_peer});
+    var eco_resins: u32 = 0;
+    var eco_beads: u32 = 0;
+    var i: u32 = 0;
+    while (i < 7) : (i += 1) {
+        const page = ecology_pages[i];
+        // invariant: every page fits the spool ceiling
+        assert(page.content.len <= spool.max_content_bytes);
+        // invariant: every page exceeds a single resin -- spool is needed
+        assert(page.content.len > beading.max_resin_bytes);
+
+        eco_spools[i] = spool.Spool.empty();
+        const report = try spool.spool_content(&eco_store, page.content, &eco_spools[i]);
+        // invariant: at least 2 resins per page (all pages > 512 bytes)
+        assert(report.resin_count >= 2);
+        eco_resins += report.resin_count;
+        eco_beads += report.bead_count;
+        print("  {s}: {d} bytes, {d} resins, {d} beads\n", .{
+            page.name,
+            page.content.len,
+            report.resin_count,
+            report.bead_count,
+        });
+    }
+
+    print("ecology-guides-bolt-witness: winding 5 guides pages on {s}\n", .{guides_peer});
+    var guide_resins: u32 = 0;
+    var guide_beads: u32 = 0;
+    i = 0;
+    while (i < 5) : (i += 1) {
+        const page = guides_pages[i];
+        assert(page.content.len <= spool.max_content_bytes);
+        assert(page.content.len > beading.max_resin_bytes);
+
+        guide_spools[i] = spool.Spool.empty();
+        const report = try spool.spool_content(&guide_store, page.content, &guide_spools[i]);
+        assert(report.resin_count >= 2);
+        guide_resins += report.resin_count;
+        guide_beads += report.bead_count;
+        print("  {s}: {d} bytes, {d} resins, {d} beads\n", .{
+            page.name,
+            page.content.len,
+            report.resin_count,
+            report.bead_count,
+        });
+    }
+
+    print("  claim 1: all 12 pages wound -- ecology {d} resins/{d} beads, guides {d} resins/{d} beads\n", .{
+        eco_resins,
+        eco_beads,
+        guide_resins,
+        guide_beads,
+    });
+
+    // -- Claim 2: unspooling returns exact bytes.
+    i = 0;
+    while (i < 7) : (i += 1) {
+        const page = ecology_pages[i];
+        const len = try spool.unspool(&eco_store, &eco_spools[i], reassemble_buf[0..]);
+        // invariant: reassembled length matches original
+        assert(len == page.content.len);
+        // invariant: reassembled bytes match original, byte for byte
+        assert(std.mem.eql(u8, reassemble_buf[0..len], page.content));
+    }
+    i = 0;
+    while (i < 5) : (i += 1) {
+        const page = guides_pages[i];
+        const len = try spool.unspool(&guide_store, &guide_spools[i], reassemble_buf[0..]);
+        assert(len == page.content.len);
+        assert(std.mem.eql(u8, reassemble_buf[0..len], page.content));
+    }
+    print("  claim 2: all 12 pages unspool to exact bytes -- ok\n", .{});
+
+    // -- Claim 3: whole-content digest matches independent SHA3-256.
+    i = 0;
+    while (i < 7) : (i += 1) {
+        const page = ecology_pages[i];
+        var expected: [32]u8 = undefined;
+        independent_digest(page.content, &expected);
+        // invariant: the spool's stored digest matches our independent computation
+        assert(std.mem.eql(u8, eco_spools[i].whole_digest[0..32], expected[0..32]));
+    }
+    i = 0;
+    while (i < 5) : (i += 1) {
+        const page = guides_pages[i];
+        var expected: [32]u8 = undefined;
+        independent_digest(page.content, &expected);
+        assert(std.mem.eql(u8, guide_spools[i].whole_digest[0..32], expected[0..32]));
+    }
+    print("  claim 3: all 12 SHA3-256 digests match -- ok\n", .{});
+
+    // -- Claim 4: cross-bolt not_yet from a stranger peer.
+    // Build a catalog holding ~rosemary ecology content (just one page,
+    // revision 1, to prove the catalog is live). Then ask it about
+    // ~oregano -- a peer it has never seen. With the revised semantics,
+    // revision 1 of an unknown peer returns not_yet (it can still arrive)
+    // rather than never (structurally impossible).
+    var catalog = ns.BoltCatalog.empty();
+    // We need content <= 512 bytes for append_leaf. Use a short excerpt.
+    const short_content = "Biocyclic vegan principles -- revision 1.";
+    try catalog.append_leaf(
+        ecology_peer,
+        ecology_bolt,
+        1,
+        "biocyclic-vegan-principles.md",
+        short_content,
+        content_tilak,
+    );
+    // invariant: ~rosemary content is here
+    const rosemary_result = catalog.resolve_binding(.{
+        .peer = ecology_peer,
+        .bolt = ecology_bolt,
+        .revision = 1,
+        .path = "biocyclic-vegan-principles.md",
+    });
+    assert(rosemary_result == .here);
+
+    // invariant: ~oregano at revision 1, unknown to this catalog, returns not_yet
+    const oregano_result = catalog.resolve_binding(.{
+        .peer = guides_peer,
+        .bolt = guides_bolt,
+        .revision = 1,
+        .path = "distribution-operations.md",
+    });
+    assert(oregano_result == .not_yet);
+
+    // invariant: ~oregano at revision 2, still unknown, returns never (gap)
+    const oregano_r2 = catalog.resolve_binding(.{
+        .peer = guides_peer,
+        .bolt = guides_bolt,
+        .revision = 2,
+        .path = "distribution-operations.md",
+    });
+    assert(oregano_r2 == .never);
+
+    print("  claim 4: cross-bolt not_yet from stranger {s} -- ok\n", .{guides_peer});
+
+    print(
+        "ecology-guides-bolt-witness: version {s}\n",
+        .{witness_version},
+    );
+    print(
+        "GREEN: 7 ecology pages on {s}, 5 guides pages on {s} recalled" ++
+            " byte for byte, SHA3-256 verified. Cross-bolt not_yet proven.\n",
+        .{ ecology_peer, guides_peer },
+    );
+    return 0;
+}
+
+pub fn main() !u8 {
+    return run_selftest();
+}

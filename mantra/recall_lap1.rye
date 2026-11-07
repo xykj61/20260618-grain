@@ -200,7 +200,7 @@ pub const BoltCatalog = struct {
         } else if (name.revision > 1) {
             return .never;
         }
-        return .never;
+        return .not_yet;
     }
 
     pub fn recall(self: *const BoltCatalog, name: Name, out: []u8) RecallError!RecallResult {

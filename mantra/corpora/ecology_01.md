@@ -1,0 +1,1 @@
+../../bloom/ecology/biocyclic-vegan-principles.md
