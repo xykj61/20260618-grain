@@ -1162,6 +1162,49 @@ class AppDelegate: NSObject,
             }
         }
 
+        bloomLessons.append((
+            "--- Network Demos ---",
+            "# Pond/Puddle Network Demos\n\n"
+                + "Nine walkthroughs exploring "
+                + "the 14-galaxy test network, "
+                + "identity, consensus, tokens, "
+                + "and social.\n\n"
+                + "Use Next to read each one."
+        ))
+
+        let demosDir =
+            "\(repoRoot)/bloom/demos"
+        let demoFiles = [
+            "galaxy-registry.md",
+            "pond-quickstart.md",
+            "kumara-identity.md",
+            "blake2s-sha3-evaluation.md",
+            "comlink-sessions.md",
+            "mycelium-consensus.md",
+            "mur-token-transfer.md",
+            "surf-social-design.md",
+            "surf-social-walkthrough.md",
+        ]
+        for file in demoFiles {
+            let path =
+                "\(demosDir)/\(file)"
+            if let text = try? String(
+                contentsOfFile: path,
+                encoding: .utf8
+            ) {
+                let lines = text.components(
+                    separatedBy: "\n"
+                )
+                let title = lines.first?
+                    .replacingOccurrences(
+                        of: "# ", with: ""
+                    ) ?? file
+                bloomLessons.append(
+                    (title, text)
+                )
+            }
+        }
+
         if bloomLessons.isEmpty {
             bloomLessons.append((
                 "No lessons found",
