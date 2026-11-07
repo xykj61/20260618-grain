@@ -220,10 +220,13 @@
 
 ### Quest 3: Query and Dashboard (Movements 26-30)
 
-- [ ] **Movement 26: Query panel -- select and run queries**
+- [x] **Movement 26: Query panel -- select and run queries** -- PROVEN `20261106.191235`
   - SLC gate: a query panel lets the user pick query type (verb, subject, date, account) and execute
-  - NSPopUpButton for query type, NSTextField for query parameter
-  - Run button launches the corresponding `dimeroll_query_*_g.elf` module
+  - NSPopUpButton for query type, NSTextField for query parameter with contextual placeholder
+  - Run Query button launches the corresponding `dimeroll_query_*_g.elf` module
+  - `dimerollQueryTypeChanged` updates placeholder; `dimerollQueryRunClicked` syncs module popup and launches ELF
+  - Second toolbar row below module selector, content area anchored to query row bottom
+  - Build clean, all symbols in binary
 
 - [ ] **Movement 27: Query results display**
   - SLC gate: query results appear in the Dimeroll tab as filtered transaction rows

@@ -93,6 +93,22 @@ class AppDelegate: NSObject,
     var dimerollRawBuffer: String = ""
     var dimerollActiveElf: String = ""
     var dimerollInLedgerTable: Bool = false
+    var dimerollQueryTypePopUp: NSPopUpButton?
+    var dimerollQueryParamField: NSTextField?
+    let dimerollQueryTypes: [(
+        String, String, String
+    )] = [
+        ("By Verb", "dimeroll_query_verb_g",
+         "sell"),
+        ("By Subject",
+         "dimeroll_query_subject_g",
+         "tomatoes"),
+        ("By Date", "dimeroll_query_date_g",
+         "2026-01-01"),
+        ("By Account",
+         "dimeroll_query_account_g",
+         "farm-main"),
+    ]
     let dimerollModules: [(String, String)] = [
         ("Transactions", "dimeroll_tx_g"),
         ("Inventory", "dimeroll_inventory_g"),
@@ -566,6 +582,49 @@ class AppDelegate: NSObject,
         toggle.selectedSegment = 0
         dimerollViewToggle = toggle
 
+        let queryLabel = NSTextField(
+            labelWithString: "Query:"
+        )
+        queryLabel.font =
+            NSFont.systemFont(ofSize: 12)
+        queryLabel.textColor = .secondaryLabelColor
+
+        let queryPopUp = NSPopUpButton(
+            frame: .zero, pullsDown: false
+        )
+        for (label, _, _) in dimerollQueryTypes {
+            queryPopUp.addItem(withTitle: label)
+        }
+        queryPopUp.target = self
+        queryPopUp.action = #selector(
+            dimerollQueryTypeChanged(_:)
+        )
+        dimerollQueryTypePopUp = queryPopUp
+
+        let queryParam = NSTextField(
+            frame: .zero
+        )
+        queryParam.placeholderString =
+            dimerollQueryTypes[0].2
+        queryParam.font =
+            NSFont.monospacedSystemFont(
+                ofSize: 12, weight: .regular
+            )
+        queryParam.isEditable = false
+        queryParam.isBezeled = true
+        queryParam.bezelStyle = .roundedBezel
+        dimerollQueryParamField = queryParam
+
+        let queryRunBtn = NSButton(
+            frame: .zero
+        )
+        queryRunBtn.title = "Run Query"
+        queryRunBtn.bezelStyle = .rounded
+        queryRunBtn.target = self
+        queryRunBtn.action = #selector(
+            dimerollQueryRunClicked(_:)
+        )
+
         let sv = NSScrollView(
             frame: NSRect(
                 x: 0, y: 0, width: 600,
@@ -643,6 +702,10 @@ class AppDelegate: NSObject,
         container.addSubview(popUp)
         container.addSubview(runBtn)
         container.addSubview(toggle)
+        container.addSubview(queryLabel)
+        container.addSubview(queryPopUp)
+        container.addSubview(queryParam)
+        container.addSubview(queryRunBtn)
 
         popUp.translatesAutoresizingMaskIntoConstraints
             = false
@@ -650,6 +713,18 @@ class AppDelegate: NSObject,
             .translatesAutoresizingMaskIntoConstraints
             = false
         toggle
+            .translatesAutoresizingMaskIntoConstraints
+            = false
+        queryLabel
+            .translatesAutoresizingMaskIntoConstraints
+            = false
+        queryPopUp
+            .translatesAutoresizingMaskIntoConstraints
+            = false
+        queryParam
+            .translatesAutoresizingMaskIntoConstraints
+            = false
+        queryRunBtn
             .translatesAutoresizingMaskIntoConstraints
             = false
         sv.translatesAutoresizingMaskIntoConstraints
@@ -692,9 +767,53 @@ class AppDelegate: NSObject,
                 equalTo: runBtn.trailingAnchor,
                 constant: 12
             ),
-            sv.topAnchor.constraint(
+            queryLabel.topAnchor.constraint(
                 equalTo: popUp.bottomAnchor,
+                constant: 6
+            ),
+            queryLabel.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 8
+            ),
+            queryPopUp.centerYAnchor.constraint(
+                equalTo: queryLabel.centerYAnchor
+            ),
+            queryPopUp.leadingAnchor.constraint(
+                equalTo: queryLabel.trailingAnchor,
                 constant: 4
+            ),
+            queryPopUp.widthAnchor.constraint(
+                equalToConstant: 120
+            ),
+            queryPopUp.heightAnchor.constraint(
+                equalToConstant: 26
+            ),
+            queryParam.centerYAnchor.constraint(
+                equalTo: queryLabel.centerYAnchor
+            ),
+            queryParam.leadingAnchor.constraint(
+                equalTo: queryPopUp.trailingAnchor,
+                constant: 6
+            ),
+            queryParam.widthAnchor.constraint(
+                equalToConstant: 140
+            ),
+            queryParam.heightAnchor.constraint(
+                equalToConstant: 24
+            ),
+            queryRunBtn.centerYAnchor.constraint(
+                equalTo: queryLabel.centerYAnchor
+            ),
+            queryRunBtn.leadingAnchor.constraint(
+                equalTo: queryParam.trailingAnchor,
+                constant: 6
+            ),
+            queryRunBtn.heightAnchor.constraint(
+                equalToConstant: 26
+            ),
+            sv.topAnchor.constraint(
+                equalTo: queryLabel.bottomAnchor,
+                constant: 6
             ),
             sv.leadingAnchor.constraint(
                 equalTo: container.leadingAnchor
@@ -706,8 +825,8 @@ class AppDelegate: NSObject,
                 equalTo: container.bottomAnchor
             ),
             tableSV.topAnchor.constraint(
-                equalTo: popUp.bottomAnchor,
-                constant: 4
+                equalTo: queryLabel.bottomAnchor,
+                constant: 6
             ),
             tableSV.leadingAnchor.constraint(
                 equalTo: container.leadingAnchor
@@ -1257,6 +1376,43 @@ class AppDelegate: NSObject,
         guard let popUp = dimerollModulePopUp
         else { return }
         dimerollModuleChanged(popUp)
+    }
+
+    @objc func dimerollQueryTypeChanged(
+        _ sender: NSPopUpButton
+    ) {
+        let idx = sender.indexOfSelectedItem
+        if idx >= 0,
+           idx < dimerollQueryTypes.count
+        {
+            dimerollQueryParamField?
+                .placeholderString =
+                dimerollQueryTypes[idx].2
+        }
+    }
+
+    @objc func dimerollQueryRunClicked(
+        _ sender: NSButton
+    ) {
+        guard let qp = dimerollQueryTypePopUp
+        else { return }
+        let idx = qp.indexOfSelectedItem
+        guard idx >= 0,
+              idx < dimerollQueryTypes.count
+        else { return }
+        let elfName = dimerollQueryTypes[idx].1
+        dimerollActiveElf = elfName
+        rebuildDimerollColumns()
+        if let mp = dimerollModulePopUp {
+            let moduleIdx =
+                dimerollModules.firstIndex {
+                    $0.1 == elfName
+                }
+            if let mi = moduleIdx {
+                mp.selectItem(at: mi)
+            }
+        }
+        launchDimerollStage(elfName)
     }
 
     @objc func dimerollViewToggled(
