@@ -2,6 +2,11 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.143845 | [Vantage RFC approved -- all seven seated, send](20261107/20261107-143845_vantage-rfc-approved-send.kyri.md) | All 7 recommendations approved on Keaton's word, 75-movement journey seated |
+| 20261107.143100 | [Vantage/Station/Carry RFC with recommended answers](20261107/20261107-143100_vantage-carry-rfc-recommendations.kyri.md) | 7 design questions answered from TAME/foundations, Option B recommended, 75-movement journey |
+| 20261107.142101 | [Caravan/Basin evaluation and hammock-driven design analysis](20261107/20261107-142101_caravan-basin-hammock-analysis.kyri.md) | Basin is a circular buffer, not a kernel; six hammock question families for Vantage/Station/Carry |
+| 20261107.140727 | [Terrarium bare-metal answer and design reprint](20261107/20261107-140727_terrarium-bare-metal-answer-design-reprint.kyri.md) | No syscall API -- bare-metal MMIO proving ground, Basin not yet built |
+| 20261107.135957 | [Vantage/Station/Carry design dialogue](20261107/20261107-135957_vantage-station-carry-design-dialogue.kyri.md) | 5 design questions, proposed 75-movement journey, Pond/Vantage distinction |
 | 20261107.133406 | [Realidream witness GREEN](20261107/20261107-133406_realidream-witness-green.kyri.md) | 47 pages across 8 galaxies, 48 claims, Mantra SLC complete |
 | 20261107.125250 | [Remaining bolt witness GREEN](20261107/20261107-125250_remaining-bolt-witness-green.kyri.md) | 25 pages across 4 galaxies, 262 resins, 509 beads, 12 stranger pairs |
 | 20261107.124005 | [M13 -- QEMU content wire GREEN](20261107/20261107-124005_m13-qemu-content-wire-green.kyri.md) | 3 claims: djb2-verified curriculum, guides, 404 refusal over UART wire |
