@@ -31,6 +31,7 @@ let isFramebufStage = stage == "framebuf"
 let isWireStage = stage == "wire"
 let isMantraWireStage = stage == "mantra_wire"
     || stage == "mantra_wire64"
+let isContentWireStage = stage == "content_wire"
 let is64Bit = stage.hasSuffix("64")
     || stage.hasSuffix("_g")
 let isMultiHart = stage.hasPrefix("multi_hart")
@@ -60,6 +61,7 @@ class AppDelegate: NSObject,
     var inputPipe: Pipe?
     var wireAckSent = false
     var mantraVerifySent = false
+    var contentReqCount = 0
     var frameGridView: FrameGridView?
     var serialLines: [String] = []
     var scrollView: NSScrollView?
@@ -2376,7 +2378,9 @@ class AppDelegate: NSObject,
                 "unix:\(sockPath),server=on,wait=off",
                 "-kernel", elfPath
             ]
-        } else if isWireStage || isMantraWireStage {
+        } else if isWireStage || isMantraWireStage
+            || isContentWireStage
+        {
             proc.arguments = [
                 "-machine", "virt",
                 "-bios", "none",
@@ -2395,7 +2399,9 @@ class AppDelegate: NSObject,
             proc.arguments = args
         }
 
-        if isWireStage || isMantraWireStage {
+        if isWireStage || isMantraWireStage
+            || isContentWireStage
+        {
             let inp = Pipe()
             proc.standardInput = inp
             inputPipe = inp
@@ -2448,6 +2454,17 @@ class AppDelegate: NSObject,
                         {
                             self?.handleMantraWire()
                         }
+                        if isContentWireStage,
+                           let buf =
+                               self?.serialBuffer,
+                           buf.range(
+                               of: "CREQ:[^\n]+\n",
+                               options:
+                                   .regularExpression
+                           ) != nil
+                        {
+                            self?.handleContentWire()
+                        }
                     }
                 }
             }
@@ -2480,6 +2497,7 @@ class AppDelegate: NSObject,
                 let timeout: Double =
                     isFramebufStage ? 20
                     : isMantraWireStage ? 30
+                    : isContentWireStage ? 30
                     : 10
                 DispatchQueue.global().asyncAfter(
                     deadline: .now() + timeout
@@ -2729,6 +2747,84 @@ class AppDelegate: NSObject,
             + (ok ? " MATCH" : " MISMATCH")
         )
         sendMantraVerify(ok: ok)
+    }
+
+    func hostDjb2(_ data: Data) -> UInt32 {
+        var h: UInt32 = 5381
+        for byte in data {
+            h = h &* 33 &+ UInt32(byte)
+        }
+        return h
+    }
+
+    func handleContentWire() {
+        let complete = serialBuffer.hasSuffix("\n")
+            ? serialBuffer.components(separatedBy: "\n")
+            : Array(
+                serialBuffer.components(
+                    separatedBy: "\n"
+                ).dropLast()
+            )
+        let creqs = complete.filter {
+            $0.hasPrefix("CREQ:")
+        }
+        guard creqs.count > contentReqCount else {
+            return
+        }
+        let req = creqs[contentReqCount]
+        contentReqCount += 1
+
+        let body = String(
+            req.dropFirst("CREQ:".count)
+        )
+        let parts = body.split(
+            separator: ",", maxSplits: 2
+        )
+        guard parts.count == 3 else {
+            appendLine(
+                "--- host: bad CREQ: \(body)"
+            )
+            return
+        }
+        let bolt = String(parts[1])
+        let path = String(parts[2])
+
+        let filePath =
+            "\(repoRoot)/bloom/\(bolt)/\(path).md"
+        appendLine(
+            "--- host: CREQ \(bolt)/\(path)"
+        )
+
+        guard let fileData = FileManager.default
+            .contents(atPath: filePath)
+        else {
+            let resp = "CRESP:404,00000000,0\n"
+            if let d = resp.data(using: .utf8) {
+                inputPipe?.fileHandleForWriting
+                    .write(d)
+            }
+            appendLine("--- host: 404")
+            return
+        }
+
+        let digest = hostDjb2(fileData)
+        let hex = String(digest, radix: 16)
+        let padded = String(
+            repeating: "0",
+            count: max(0, 8 - hex.count)
+        ) + hex
+        let hdr =
+            "CRESP:200,\(padded),\(fileData.count)\n"
+        if let hdrData = hdr.data(using: .utf8) {
+            inputPipe?.fileHandleForWriting
+                .write(hdrData)
+            inputPipe?.fileHandleForWriting
+                .write(fileData)
+        }
+        appendLine(
+            "--- host: 200, \(fileData.count) bytes"
+            + ", djb2=\(padded)"
+        )
     }
 
     func sendMantraVerify(ok: Bool) {

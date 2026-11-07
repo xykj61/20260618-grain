@@ -1,0 +1,374 @@
+//! terrarium/src/comlink_content.rye -- content wire through the glass
+//!
+//! The guest requests Bloom content from the host over UART,
+//! receives the response with a djb2 digest, and verifies
+//! integrity. The same content-addressing that ran over UDP
+//! in hosted Rye now runs on freestanding RISC-V inside QEMU,
+//! with the Terrarium Swift host relaying the content.
+//!
+//! Wire protocol (guest -> host):
+//!   CREQ:<peer>,<bolt>,<path>\n
+//!
+//! Wire protocol (host -> guest):
+//!   CRESP:<status>,<digest_hex>,<len>\n<payload bytes>
+//!
+//! Build:
+//!   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build \
+//!     terrarium/src/comlink_content.rye \
+//!     -target riscv32-freestanding-none -fno-entry \
+//!     -T terrarium/layout.ld \
+//!     -femit-bin=terrarium/.build/comlink_content.elf
+
+// -- Hardware addresses -----------------------------------------------
+const uart_tx: *volatile u8 = @ptrFromInt(0x1000_0000);
+const uart_rx: *volatile u8 = @ptrFromInt(0x1000_0000);
+const uart_lsr: *volatile u8 = @ptrFromInt(0x1000_0005);
+const test_finisher: *volatile u32 =
+    @ptrFromInt(0x0010_0000);
+const finisher_pass: u32 = 0x5555;
+
+// -- Entry point ------------------------------------------------------
+export fn _start()
+    linksection(".text.init") callconv(.naked) noreturn
+{
+    asm volatile (
+        \\ li sp, 0x80100000
+        \\ j kmain
+    );
+}
+
+// -- UART I/O ---------------------------------------------------------
+
+fn uart_print(msg: []const u8) void {
+    for (msg) |byte| uart_tx.* = byte;
+}
+
+fn uart_putc(c: u8) void {
+    uart_tx.* = c;
+}
+
+fn print_u32(val: u32) void {
+    if (val == 0) {
+        uart_tx.* = '0';
+        return;
+    }
+    var buf: [10]u8 = undefined;
+    var n = val;
+    var i: u32 = 0;
+    while (n > 0) {
+        buf[i] = @intCast(n % 10 + '0');
+        n = n / 10;
+        i += 1;
+    }
+    while (i > 0) {
+        i -= 1;
+        uart_tx.* = buf[i];
+    }
+}
+
+fn emit_hex_u32(val: u32) void {
+    const hex_table = "0123456789abcdef";
+    var shift: u32 = 28;
+    while (true) {
+        const nibble: u4 =
+            @intCast((val >> @intCast(shift)) & 0xF);
+        uart_tx.* = hex_table[nibble];
+        if (shift == 0) break;
+        shift -= 4;
+    }
+}
+
+fn uart_data_ready() bool {
+    return (uart_lsr.* & 0x01) != 0;
+}
+
+const poll_limit: u32 = 200_000_000;
+const resp_max: u32 = 4096;
+
+fn uart_read_line(buf: []u8) u32 {
+    var i: u32 = 0;
+    var polls: u32 = 0;
+    while (polls < poll_limit) : (polls += 1) {
+        if (uart_data_ready()) {
+            const c = uart_rx.*;
+            if (c == '\n') return i;
+            if (i < buf.len) {
+                buf[i] = c;
+                i += 1;
+            }
+            polls = 0;
+        }
+    }
+    return i;
+}
+
+fn uart_read_bytes(buf: []u8, count: u32) u32 {
+    var i: u32 = 0;
+    var polls: u32 = 0;
+    while (i < count and polls < poll_limit) :
+        (polls += 1)
+    {
+        if (uart_data_ready()) {
+            buf[i] = uart_rx.*;
+            i += 1;
+            polls = 0;
+        }
+    }
+    return i;
+}
+
+fn halt_pass() noreturn {
+    test_finisher.* = finisher_pass;
+    while (true) {}
+}
+
+fn halt_error(msg: []const u8) noreturn {
+    uart_print("RED: ");
+    uart_print(msg);
+    uart_putc('\n');
+    test_finisher.* = finisher_pass;
+    while (true) {}
+}
+
+// -- djb2 hash --------------------------------------------------------
+
+fn djb2(data: []const u8) u32 {
+    var h: u32 = 5381;
+    for (data) |byte| {
+        h = h *% 33 +% byte;
+    }
+    return h;
+}
+
+// -- Hex parsing ------------------------------------------------------
+
+fn hex_val(c: u8) u32 {
+    if (c >= '0' and c <= '9') return c - '0';
+    if (c >= 'a' and c <= 'f') return c - 'a' + 10;
+    if (c >= 'A' and c <= 'F') return c - 'A' + 10;
+    return 0;
+}
+
+fn parse_hex_u32(s: []const u8) u32 {
+    var val: u32 = 0;
+    for (s) |c| {
+        val = (val << 4) | hex_val(c);
+    }
+    return val;
+}
+
+fn parse_decimal(s: []const u8) u32 {
+    var val: u32 = 0;
+    for (s) |c| {
+        if (c >= '0' and c <= '9') {
+            val = val * 10 + (c - '0');
+        }
+    }
+    return val;
+}
+
+// -- String helpers ---------------------------------------------------
+
+fn str_eq(a: []const u8, b: []const u8) bool {
+    if (a.len != b.len) return false;
+    for (a, 0..) |c, i| {
+        if (c != b[i]) return false;
+    }
+    return true;
+}
+
+fn find_char(s: []const u8, c: u8) u32 {
+    for (s, 0..) |ch, i| {
+        if (ch == c) return @intCast(i);
+    }
+    return @intCast(s.len);
+}
+
+// -- Content request --------------------------------------------------
+
+fn send_creq(
+    peer: []const u8,
+    bolt: []const u8,
+    path: []const u8,
+) void {
+    uart_print("CREQ:");
+    uart_print(peer);
+    uart_putc(',');
+    uart_print(bolt);
+    uart_putc(',');
+    uart_print(path);
+    uart_putc('\n');
+}
+
+const ContentResult = struct {
+    ok: bool,
+    status: u32,
+    digest: u32,
+    payload_len: u32,
+};
+
+fn receive_cresp(payload_buf: []u8) ContentResult {
+    // invariant: header fits in 128 bytes
+    var hdr_buf: [128]u8 = undefined;
+    const hdr_len = uart_read_line(&hdr_buf);
+    const hdr = hdr_buf[0..hdr_len];
+
+    // expect "CRESP:<status>,<digest_hex>,<len>"
+    if (hdr_len < 7) return .{
+        .ok = false,
+        .status = 0,
+        .digest = 0,
+        .payload_len = 0,
+    };
+
+    // skip "CRESP:" prefix
+    if (!str_eq(hdr[0..6], "CRESP:")) return .{
+        .ok = false,
+        .status = 0,
+        .digest = 0,
+        .payload_len = 0,
+    };
+
+    const body = hdr[6..];
+
+    // parse status (first field before comma)
+    const c1 = find_char(body, ',');
+    if (c1 >= body.len) return .{
+        .ok = false,
+        .status = 0,
+        .digest = 0,
+        .payload_len = 0,
+    };
+    const status = parse_decimal(body[0..c1]);
+
+    // parse digest hex (second field)
+    const rest1 = body[c1 + 1 ..];
+    const c2 = find_char(rest1, ',');
+    if (c2 >= rest1.len) return .{
+        .ok = false,
+        .status = status,
+        .digest = 0,
+        .payload_len = 0,
+    };
+    const digest = parse_hex_u32(rest1[0..c2]);
+
+    // parse length (third field)
+    const rest2 = rest1[c2 + 1 ..];
+    const payload_len = parse_decimal(rest2);
+
+    if (payload_len == 0 or payload_len > resp_max) {
+        return .{
+            .ok = true,
+            .status = status,
+            .digest = digest,
+            .payload_len = 0,
+        };
+    }
+
+    // read payload bytes
+    const read_len = uart_read_bytes(
+        payload_buf[0..payload_len],
+        payload_len,
+    );
+
+    return .{
+        .ok = true,
+        .status = status,
+        .digest = digest,
+        .payload_len = read_len,
+    };
+}
+
+// -- Main entry -------------------------------------------------------
+
+export fn kmain() noreturn {
+    uart_print("Comlink Content Wire -- freestanding\n");
+    uart_print(
+        "content travels through the glass\n\n",
+    );
+
+    var payload_buf: [resp_max]u8 = undefined;
+    var claims: u32 = 0;
+
+    // -- Request 1: curriculum stage-01 from ~acme-star
+    uart_print("-- request 1: curriculum stage-01\n");
+    send_creq(
+        "~acme-star",
+        "curriculum",
+        "stage-01-meeting-the-dragons",
+    );
+    const r1 = receive_cresp(&payload_buf);
+    if (!r1.ok) halt_error("request 1 failed");
+    if (r1.status != 200)
+        halt_error("request 1 status not 200");
+
+    const d1 = djb2(payload_buf[0..r1.payload_len]);
+    uart_print("  status: ");
+    print_u32(r1.status);
+    uart_print(", len: ");
+    print_u32(r1.payload_len);
+    uart_print(", digest: ");
+    emit_hex_u32(d1);
+    uart_print(", expected: ");
+    emit_hex_u32(r1.digest);
+    uart_putc('\n');
+
+    if (d1 != r1.digest)
+        halt_error("request 1 digest mismatch");
+    uart_print("  digest verified\n");
+    claims += 1;
+
+    // -- Request 2: guides from ~acme-star
+    uart_print("-- request 2: guides/farm-management\n");
+    send_creq(
+        "~acme-star",
+        "guides",
+        "farm-management",
+    );
+    const r2 = receive_cresp(&payload_buf);
+    if (!r2.ok) halt_error("request 2 failed");
+    if (r2.status != 200)
+        halt_error("request 2 status not 200");
+
+    const d2 = djb2(payload_buf[0..r2.payload_len]);
+    uart_print("  status: ");
+    print_u32(r2.status);
+    uart_print(", len: ");
+    print_u32(r2.payload_len);
+    uart_print(", digest: ");
+    emit_hex_u32(d2);
+    uart_print(", expected: ");
+    emit_hex_u32(r2.digest);
+    uart_putc('\n');
+
+    if (d2 != r2.digest)
+        halt_error("request 2 digest mismatch");
+    uart_print("  digest verified\n");
+    claims += 1;
+
+    // -- Request 3: nonexistent path (expect 404)
+    uart_print("-- request 3: nonexistent path\n");
+    send_creq(
+        "~acme-star",
+        "curriculum",
+        "no-such-page",
+    );
+    const r3 = receive_cresp(&payload_buf);
+    if (!r3.ok) halt_error("request 3 failed");
+    if (r3.status != 404)
+        halt_error("request 3 expected 404");
+    uart_print("  status: ");
+    print_u32(r3.status);
+    uart_print(" (correctly refused)\n");
+    claims += 1;
+
+    // -- Verdict
+    uart_print("\nclaims proven: ");
+    print_u32(claims);
+    uart_print("\n");
+    uart_print(
+        "GREEN: content travels through the glass"
+        ++ " -- djb2 verified\n",
+    );
+    halt_pass();
+}

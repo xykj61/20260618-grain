@@ -1,0 +1,32 @@
+# terrarium/comlink_content_witness.rish
+# content travels through the glass -- freestanding djb2 verified
+
+say "comlink_content_witness: content wire through the glass"
+say ""
+
+# -- Build guest ELF
+let build_guest = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/comlink_content.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/content_wire.elf 2>&1"]
+assert build_guest.code == 0 else "guest build failed"
+say "  guest ELF built"
+
+# -- Build Swift Terrarium app (SkateCore then app)
+let build_skate = run ["sh" "-c" "swiftc -parse-as-library -module-name SkateCore -emit-module -emit-module-path terrarium/.build/SkateCore.swiftmodule -emit-library -o terrarium/.build/libSkateCore.dylib -swift-version 6 skate/Sources/SkateCore/*.swift 2>&1"]
+assert build_skate.code == 0 else "SkateCore build failed"
+
+let build_app = run ["sh" "-c" "swiftc -I terrarium/.build -L terrarium/.build -lSkateCore -o terrarium/.build/Terrarium terrarium/app/main.swift -framework AppKit 2>&1"]
+assert build_app.code == 0 else "Terrarium app build failed"
+say "  Terrarium app built"
+
+# -- Run content_wire stage
+let run_cw = run ["sh" "-c" "DYLD_LIBRARY_PATH=terrarium/.build timeout 30 terrarium/.build/Terrarium content_wire 2>&1"]
+say "  exit code: "
+say run_cw.code
+say "  output:"
+say run_cw.out
+
+assert run_cw.out contains "GREEN" else "content wire must report GREEN"
+assert run_cw.out contains "djb2 verified" else "djb2 verification required"
+assert run_cw.out contains "claims proven: 3" else "3 claims required"
+
+say ""
+say "GREEN: content travels through the glass -- djb2 verified"

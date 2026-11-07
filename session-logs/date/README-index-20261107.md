@@ -2,6 +2,8 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.124005 | [M13 -- QEMU content wire GREEN](20261107/20261107-124005_m13-qemu-content-wire-green.kyri.md) | 3 claims: djb2-verified curriculum, guides, 404 refusal over UART wire |
+| 20261107.121814 | [M13 scoping -- QEMU content wire protocol design](20261107/20261107-121814_m13-qemu-content-wire-scoping.kyri.md) | UART relay approach, check-in before building |
 | 20261107.121243 | [Sender witness GREEN, fence sweep, send](20261107/20261107-121243_sender-witness-fence-sweep-send.kyri.md) | 7 claims, tablecloth fence swept from 8 files, pushed |
 | 20261107.115538 | [Mantra SLC M11 -- Caravan-supervised UDP listener GREEN](20261107/20261107-115538_mantra-slc-m11-caravan-listener-green.kyri.md) | 6 claims, Tally Region bounded at 16384 bytes, Caravan supervised |
 | 20261107.112721 | [Mantra SLC M10 -- integration witness GREEN](20261107/20261107-112721_mantra-slc-m10-integration-green.kyri.md) | 24 pages from 4 galaxies, 25 claims, wire invisible to reader |
