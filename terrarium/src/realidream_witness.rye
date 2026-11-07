@@ -1,0 +1,490 @@
+//! terrarium/src/realidream_witness.rye -- Siya requests
+//! Bloom content from all 8 content galaxies inside QEMU.
+//! Every page arrives, djb2-verified. The Realidream vision
+//! is working.
+//!
+//!   env RYE_ZIG=vendor/zig-toolchain/zig \
+//!     rye/bin/rye build terrarium/src/realidream_witness.rye \
+//!       -target riscv32-freestanding-none -fno-entry \
+//!       -T terrarium/layout.ld \
+//!       -femit-bin=terrarium/.build/realidream.elf
+//!
+//! Claims:
+//!   1. 47 pages across 8 galaxies, all djb2-verified.
+//!   2. One 404 refusal from a nonexistent path.
+
+const std = @import("std");
+
+// -- UART I/O (QEMU 16550) ----------------------------------------
+
+const uart_base: [*]volatile u8 = @ptrFromInt(
+    0x10000000,
+);
+const uart_lsr: [*]volatile u8 = @ptrFromInt(
+    0x10000005,
+);
+
+fn uart_putc(c: u8) void {
+    while (uart_lsr[0] & 0x20 == 0) {}
+    uart_base[0] = c;
+}
+
+fn uart_print(s: []const u8) void {
+    for (s) |c| uart_putc(c);
+}
+
+fn print_u32(v: u32) void {
+    var buf: [10]u8 = undefined;
+    var n = v;
+    var i: u32 = 0;
+    if (n == 0) {
+        uart_putc('0');
+        return;
+    }
+    while (n > 0) : (i += 1) {
+        buf[i] = @intCast(n % 10 + '0');
+        n /= 10;
+    }
+    while (i > 0) {
+        i -= 1;
+        uart_putc(buf[i]);
+    }
+}
+
+fn emit_hex_u32(v: u32) void {
+    const hex = "0123456789abcdef";
+    var i: u5 = 8;
+    while (i > 0) {
+        i -= 1;
+        uart_putc(hex[@intCast((v >> (i * 4)) & 0xf)]);
+    }
+}
+
+// -- UART receive --------------------------------------------------
+
+const poll_limit: u32 = 2_000_000_000;
+
+fn uart_read_line(
+    buf: []u8,
+) struct { len: u32, ok: bool } {
+    var pos: u32 = 0;
+    var polls: u32 = 0;
+    while (pos < buf.len) {
+        if (uart_lsr[0] & 0x01 != 0) {
+            const c = uart_base[0];
+            if (c == '\n') return .{
+                .len = pos,
+                .ok = true,
+            };
+            buf[pos] = c;
+            pos += 1;
+            polls = 0;
+        } else {
+            polls += 1;
+            if (polls >= poll_limit) return .{
+                .len = pos,
+                .ok = false,
+            };
+        }
+    }
+    return .{ .len = pos, .ok = false };
+}
+
+fn uart_read_bytes(
+    buf: []u8,
+    count: u32,
+) bool {
+    var pos: u32 = 0;
+    var polls: u32 = 0;
+    while (pos < count) {
+        if (uart_lsr[0] & 0x01 != 0) {
+            buf[pos] = uart_base[0];
+            pos += 1;
+            polls = 0;
+        } else {
+            polls += 1;
+            if (polls >= poll_limit) return false;
+        }
+    }
+    return true;
+}
+
+// -- djb2 hash -----------------------------------------------------
+
+fn djb2(data: []const u8) u32 {
+    var h: u32 = 5381;
+    for (data) |b| {
+        h = h *% 33 +% b;
+    }
+    return h;
+}
+
+// -- Hex and decimal parsing ---------------------------------------
+
+fn hex_val(c: u8) u32 {
+    if (c >= '0' and c <= '9') return c - '0';
+    if (c >= 'a' and c <= 'f') return c - 'a' + 10;
+    return 0;
+}
+
+fn parse_hex_u32(s: []const u8) u32 {
+    var v: u32 = 0;
+    for (s) |c| v = v *% 16 +% hex_val(c);
+    return v;
+}
+
+fn parse_decimal(s: []const u8) u32 {
+    var v: u32 = 0;
+    for (s) |c| {
+        if (c < '0' or c > '9') break;
+        v = v * 10 + (c - '0');
+    }
+    return v;
+}
+
+// -- String helpers ------------------------------------------------
+
+fn find_char(s: []const u8, c: u8) u32 {
+    var i: u32 = 0;
+    while (i < s.len) : (i += 1) {
+        if (s[i] == c) return i;
+    }
+    return @intCast(s.len);
+}
+
+fn str_eql(a: []const u8, b: []const u8) bool {
+    if (a.len != b.len) return false;
+    var i: u32 = 0;
+    while (i < a.len) : (i += 1) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
+}
+
+// -- CREQ/CRESP protocol -------------------------------------------
+
+fn send_creq(
+    peer: []const u8,
+    bolt: []const u8,
+    path: []const u8,
+) void {
+    uart_print("CREQ:");
+    uart_print(peer);
+    uart_putc(',');
+    uart_print(bolt);
+    uart_putc(',');
+    uart_print(path);
+    uart_putc('\n');
+}
+
+const ContentResult = struct {
+    ok: bool,
+    status: u32,
+    digest: u32,
+    payload_len: u32,
+};
+
+fn receive_cresp(
+    payload_buf: []u8,
+) ContentResult {
+    var hdr_buf: [128]u8 = undefined;
+    const hdr = uart_read_line(&hdr_buf);
+    if (!hdr.ok) return .{
+        .ok = false,
+        .status = 0,
+        .digest = 0,
+        .payload_len = 0,
+    };
+
+    const line = hdr_buf[0..hdr.len];
+    // invariant: response starts with CRESP:
+    if (line.len < 6) return .{
+        .ok = false,
+        .status = 0,
+        .digest = 0,
+        .payload_len = 0,
+    };
+    if (!str_eql(line[0..6], "CRESP:")) return .{
+        .ok = false,
+        .status = 0,
+        .digest = 0,
+        .payload_len = 0,
+    };
+
+    const after = line[6..];
+    const c1 = find_char(after, ',');
+    if (c1 >= after.len) return .{
+        .ok = false,
+        .status = 0,
+        .digest = 0,
+        .payload_len = 0,
+    };
+    const status = parse_decimal(after[0..c1]);
+    const rest = after[c1 + 1 ..];
+    const c2 = find_char(rest, ',');
+    if (c2 >= rest.len) return .{
+        .ok = false,
+        .status = 0,
+        .digest = 0,
+        .payload_len = 0,
+    };
+    const digest = parse_hex_u32(rest[0..c2]);
+    const plen = parse_decimal(rest[c2 + 1 ..]);
+
+    if (plen > 0) {
+        if (plen > payload_buf.len) return .{
+            .ok = false,
+            .status = status,
+            .digest = digest,
+            .payload_len = plen,
+        };
+        if (!uart_read_bytes(payload_buf, plen))
+            return .{
+                .ok = false,
+                .status = status,
+                .digest = digest,
+                .payload_len = plen,
+            };
+    }
+
+    return .{
+        .ok = true,
+        .status = status,
+        .digest = digest,
+        .payload_len = plen,
+    };
+}
+
+// -- Halt ----------------------------------------------------------
+
+const test_finisher: [*]volatile u32 = @ptrFromInt(
+    0x00100000,
+);
+const finisher_pass: u32 = 0x5555;
+
+fn halt_pass() noreturn {
+    test_finisher[0] = finisher_pass;
+    while (true) {}
+}
+
+fn halt_error(msg: []const u8) noreturn {
+    uart_print("ERROR: ");
+    uart_print(msg);
+    uart_putc('\n');
+    test_finisher[0] = finisher_pass + 1;
+    while (true) {}
+}
+
+// -- Page table (galaxy, bolt, page name) --------------------------
+
+const PageEntry = struct {
+    bolt: []const u8,
+    path: []const u8,
+};
+
+const GalaxyPages = struct {
+    peer: []const u8,
+    bolt: []const u8,
+    pages: []const []const u8,
+};
+
+// 8 galaxies, 47 pages total
+const galaxies = [_]GalaxyPages{
+    .{
+        .peer = "~sunflower",
+        .bolt = "curriculum",
+        .pages = &.{
+            "stage-01-meeting-the-dragons",
+            "stage-02-roots-and-trees",
+            "stage-03-memory-as-garden",
+            "stage-04-orchestra-of-processes",
+            "stage-05-garden-of-files",
+            "stage-06-rivers-of-networks",
+            "stage-07-treasure-of-identity",
+            "stage-08-ecology-and-stewardship",
+            "stage-09-right-to-repair",
+            "stage-10-the-technical-vision",
+        },
+    },
+    .{
+        .peer = "~rosemary",
+        .bolt = "ecology",
+        .pages = &.{
+            "biocyclic-vegan-principles",
+            "energy-and-fuel",
+            "materials-and-supply-chain",
+            "rail-infrastructure",
+            "water-and-stewardship",
+            "whole-system-farming",
+        },
+    },
+    .{
+        .peer = "~oregano",
+        .bolt = "guides",
+        .pages = &.{
+            "distribution-operations",
+            "factory-operations",
+            "farm-management",
+            "staff-coordination",
+        },
+    },
+    .{
+        .peer = "~thyme",
+        .bolt = "hardware",
+        .pages = &.{
+            "handheld-surface",
+            "home-forge",
+        },
+    },
+    .{
+        .peer = "~lavender",
+        .bolt = "lineage",
+        .pages = &.{
+            "dual-description",
+            "one-carrier-many-flows",
+            "silicon-torus-hardware",
+            "state-at-center",
+            "the-place-and-its-patterns",
+            "toroidal-bounded-optimization",
+            "whole-in-every-part",
+        },
+    },
+    .{
+        .peer = "~sage",
+        .bolt = "essays",
+        .pages = &.{
+            "cooperative-networks",
+            "right-to-repair-software",
+            "vortex-economics",
+            "why-personal-servers",
+        },
+    },
+    .{
+        .peer = "~fennel",
+        .bolt = "terrarium-lessons",
+        .pages = &.{
+            "launching-the-app",
+            "queries-and-mantra",
+            "the-bloom-tab",
+            "the-dimeroll-dashboard",
+            "the-terminal-tab",
+        },
+    },
+    .{
+        .peer = "~marjoram",
+        .bolt = "demos",
+        .pages = &.{
+            "blake2s-sha3-evaluation",
+            "comlink-sessions",
+            "galaxy-registry",
+            "kumara-identity",
+            "mur-token-transfer",
+            "mycelium-consensus",
+            "pond-quickstart",
+            "surf-social-design",
+            "surf-social-walkthrough",
+        },
+    },
+};
+
+// -- Main entry ----------------------------------------------------
+
+const resp_max: u32 = 16384;
+
+export fn kmain() noreturn {
+    uart_print(
+        "Realidream witness"
+        ++ " -- the vision is working\n",
+    );
+    uart_print(
+        "Siya requests Bloom content"
+        ++ " from all 8 content galaxies\n\n",
+    );
+
+    var payload_buf: [resp_max]u8 = undefined;
+    var total_claims: u32 = 0;
+    var total_bytes: u32 = 0;
+
+    for (galaxies) |gal| {
+        uart_print("-- galaxy ");
+        uart_print(gal.peer);
+        uart_print(" (");
+        uart_print(gal.bolt);
+        uart_print(", ");
+        print_u32(@intCast(gal.pages.len));
+        uart_print(" pages)\n");
+
+        for (gal.pages) |page| {
+            uart_print("  ");
+            uart_print(page);
+            uart_print(":\n");
+            send_creq(gal.peer, gal.bolt, page);
+            const r = receive_cresp(&payload_buf);
+
+            if (!r.ok) halt_error("receive failed");
+            if (r.status != 200) {
+                uart_print("status ");
+                print_u32(r.status);
+                uart_print(" -- ");
+                halt_error("expected 200");
+            }
+
+            const d = djb2(
+                payload_buf[0..r.payload_len],
+            );
+            if (d != r.digest) {
+                uart_print("digest mismatch ");
+                emit_hex_u32(d);
+                uart_print(" != ");
+                emit_hex_u32(r.digest);
+                uart_print(" -- ");
+                halt_error("djb2 mismatch");
+            }
+
+            print_u32(r.payload_len);
+            uart_print(" bytes, djb2 ");
+            emit_hex_u32(d);
+            uart_print(" ok\n");
+
+            total_claims += 1;
+            total_bytes += r.payload_len;
+        }
+    }
+
+    // -- Claim 2: 404 refusal
+    uart_print("\n-- refusal test\n");
+    uart_print("  nonexistent-page:\n");
+    send_creq(
+        "~sunflower",
+        "curriculum",
+        "no-such-page",
+    );
+    const r_bad = receive_cresp(&payload_buf);
+    if (!r_bad.ok) halt_error("refusal receive fail");
+    if (r_bad.status != 404)
+        halt_error("expected 404");
+    uart_print("404 (correctly refused)\n");
+    total_claims += 1;
+
+    // -- Verdict
+    uart_print("\nclaims proven: ");
+    print_u32(total_claims);
+    uart_print("\ntotal bytes received: ");
+    print_u32(total_bytes);
+    uart_print("\n");
+    uart_print(
+        "GREEN: Realidream -- 47 pages across"
+        ++ " 8 galaxies, djb2 verified."
+        ++ " The vision is working.\n",
+    );
+    halt_pass();
+}
+
+// -- Entry ---------------------------------------------------------
+
+export fn _start() linksection(".text.init") callconv(.naked) noreturn {
+    asm volatile (
+        "li sp, 0x80100000\n" ++
+            "j kmain"
+    );
+}

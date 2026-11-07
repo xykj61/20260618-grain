@@ -32,6 +32,7 @@ let isWireStage = stage == "wire"
 let isMantraWireStage = stage == "mantra_wire"
     || stage == "mantra_wire64"
 let isContentWireStage = stage == "content_wire"
+    || stage == "realidream"
 let is64Bit = stage.hasSuffix("64")
     || stage.hasSuffix("_g")
 let isMultiHart = stage.hasPrefix("multi_hart")
@@ -2495,7 +2496,8 @@ class AppDelegate: NSObject,
 
             if !isInteractive {
                 let timeout: Double =
-                    isFramebufStage ? 20
+                    stage == "realidream" ? 210
+                    : isFramebufStage ? 20
                     : isMantraWireStage ? 30
                     : isContentWireStage ? 30
                     : 10

@@ -1,0 +1,33 @@
+# terrarium/realidream_witness.rish
+# the Realidream vision is working -- 47 pages, 8 galaxies, djb2 verified
+
+say "realidream_witness: Siya requests Bloom from all 8 content galaxies (47 pages)"
+say ""
+
+# -- Build guest ELF
+let build_guest = run ["sh" "-c" "env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build terrarium/src/realidream_witness.rye -target riscv32-freestanding-none -fno-entry -T terrarium/layout.ld -femit-bin=terrarium/.build/realidream.elf 2>&1"]
+assert build_guest.code == 0 else "guest build failed"
+say "  guest ELF built"
+
+# -- Build Swift Terrarium app (SkateCore then app)
+let build_skate = run ["sh" "-c" "swiftc -parse-as-library -module-name SkateCore -emit-module -emit-module-path terrarium/.build/SkateCore.swiftmodule -emit-library -o terrarium/.build/libSkateCore.dylib -swift-version 6 skate/Sources/SkateCore/*.swift 2>&1"]
+assert build_skate.code == 0 else "SkateCore build failed"
+
+let build_app = run ["sh" "-c" "swiftc -I terrarium/.build -L terrarium/.build -lSkateCore -o terrarium/.build/Terrarium terrarium/app/main.swift -framework AppKit 2>&1"]
+assert build_app.code == 0 else "Terrarium app build failed"
+say "  Terrarium app built"
+
+# -- Run realidream stage (longer timeout for 46 pages)
+let run_rd = run ["sh" "-c" "DYLD_LIBRARY_PATH=terrarium/.build timeout 240 terrarium/.build/Terrarium realidream 2>&1"]
+say "  exit code: "
+say run_rd.code
+say "  output:"
+say run_rd.out
+
+assert run_rd.out contains "GREEN" else "realidream must report GREEN"
+assert run_rd.out contains "djb2" else "djb2 verification required"
+assert run_rd.out contains "claims proven: 48" else "48 claims required (47 pages + 1 refusal)"
+assert run_rd.out contains "The vision is working" else "Realidream vision banner required"
+
+say ""
+say "GREEN: Realidream -- 47 pages across 8 galaxies, djb2 verified. The vision is working."
