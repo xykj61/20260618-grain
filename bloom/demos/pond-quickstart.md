@@ -132,11 +132,11 @@ layer of Grain's network:
 - **Identity** -- `~rosemary` generates keys and `~basil` verifies
   a signature (see [Kumara Identity](kumara-identity.md))
 - **Communication** -- `~lavender` relays a sealed message between
-  `~chamomile` and `~oregano` (see [Comlink Session](comlink-session.md))
+  `~chamomile` and `~oregano` (see [Comlink Session](comlink-sessions.md))
 - **Consensus** -- all fourteen vote on a shared fact
-  (see [Mycelium and MUR](mycelium-mur-design.md))
+  (see [Mycelium and MUR](mycelium-consensus.md))
 - **Transactions** -- `~sunflower` sends 100 MUR to `~basil`
-  (see [MUR Token Demo](mur-token-demo.md))
+  (see [MUR Token Demo](mur-token-transfer.md))
 - **Social** -- `~marjoram` posts a message and `~tarragon` follows
   (see [Surf Social Walkthrough](surf-social-walkthrough.md))
 
