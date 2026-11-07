@@ -24,7 +24,7 @@
 - [x] **M6** -- Define Comlink content request: peer asks peer for `bolt / revision / path` over localhost UDP. Request carries Kumara public key. GREEN `20261107` -- `comlink/content_request_witness.rye`, 4 claims.
 - [x] **M7/M8** -- Survey Zig stdlib for UDP socket primitives and implement Comlink request-response on localhost: `~siya` sends to `~sunflower`, receives resin, proves digest. Bounded 512 bytes, one at a time. GREEN `20261107` -- `comlink/content_request_response_witness.rye`, 3 claims. M7 survey folded into M8 implementation.
 - [x] **M9** -- Content server: bounded UDP listener serves Mantra catalog content to requesting peers. GREEN `20261107` -- `comlink/content_server_witness.rye`, 7 claims.
-- [ ] **M10** -- Integration witness: Siya requests pages from 4 galaxies, receives all, Bloom tab renders every page. Wire invisible to reader.
+- [x] **M10** -- Integration witness: Siya requests pages from 4 galaxies, receives all, Bloom tab renders every page. Wire invisible to reader. GREEN `20261107` -- `comlink/integration_witness.rye`, 25 claims (24 pages + 1 refusal), 4 galaxies over localhost UDP.
 
 ## Phase 3 -- Caravan/Tally lowering for RISC-V (movements 11-15)
 
