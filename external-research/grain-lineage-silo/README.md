@@ -41,6 +41,7 @@ Where a source used another project's vocabulary, the silo uses this fork's own,
 - [`one-carrier-many-flows.md`](one-carrier-many-flows.md) -- "Silken Ground," siloed: one shared carrier for several utility flows, with the speculative materials science labeled as such.
 - [`dual-description-design-principle.md`](dual-description-design-principle.md) -- the Langlands/mirror-symmetry material, siloed into a plain, reusable design rule this fork already half-practices.
 - [`whole-in-every-part.md`](whole-in-every-part.md) -- the topos/sheaf convergence essay, siloed to its one engineering claim (local data that agrees glues into a global whole) and its tie to Kyri and Mantra, with the devotional register set aside.
+- [`the-topos-and-faithful-transformations.md`](the-topos-and-faithful-transformations.md) -- the topos principle (the system IS its data) and faithful transformations (structure-preserving maps between systems), siloed from the Topos-Aether-Agni essay's deeper geometry.
 
 ## How This Informs Designs, Foundations, and Context
 
