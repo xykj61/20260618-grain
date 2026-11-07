@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.195400 | [Mantra tab placeholder -- Movement 29 landed](20261106/20261106-195400_mantra-tab-placeholder-movement29.kyri.md) | focusMantra lazy tab, soft purple on near-black, sidebar routing, closeTab protection |
 | 20261106.194645 | [Dimeroll dashboard -- Movement 28 landed](20261106/20261106-194645_dimeroll-dashboard-movement28.kyri.md) | pseudo-module chains 3 ELFs, phase tracking, 2-column dashboard with bold section headers |
 | 20261106.192737 | [Query results display -- Movement 27 landed](20261106/20261106-192737_query-results-movement27.kyri.md) | parseDimerollQueryLine, 4 query column layouts, numberOfRows/dimerollCellView query branches |
 | 20261106.191235 | [Query panel -- Movement 26 landed](20261106/20261106-191235_query-panel-movement26.kyri.md) | NSPopUpButton query type, NSTextField placeholder, Run Query button, two handlers |

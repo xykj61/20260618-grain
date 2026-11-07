@@ -244,10 +244,11 @@
   - Dashboard is a pseudo-module at popup index 0 -- no real ELF, chains inventory/cashflow/seal
   - Build clean, dashboard symbols confirmed in binary
 
-- [ ] **Movement 29: Mantra tab -- placeholder for the next act**
+- [x] **Movement 29: Mantra tab -- placeholder for the next act** -- `20261106.195400`
   - SLC gate: clicking "Mantra" in the sidebar creates a Mantra tab with placeholder content
-  - Same pattern as Movement 16 but for the Mantra module family
-  - Prepares the fourth sidebar entry for Act III
+  - focusMantra() lazy-creates tab with identifier "mantra", soft purple on near-black
+  - closeTab() protects "mantra" alongside the three existing built-in tabs
+  - Build clean, focusMantra symbol confirmed in binary
 
 - [ ] **Movement 30: Act II integration witness -- the field ledger**
   - SLC gate: witness proves the full Dimeroll composition -- tab, launcher, selector, views, queries, dashboard

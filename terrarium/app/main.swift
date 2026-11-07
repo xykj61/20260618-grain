@@ -857,6 +857,82 @@ class AppDelegate: NSObject,
         launchDimerollDashboard()
     }
 
+    @objc func focusMantra() {
+        guard let tv = tabView else { return }
+        for i in 0..<tv.numberOfTabViewItems {
+            let item = tv.tabViewItem(at: i)
+            if let ident = item.identifier as? String,
+               ident == "mantra"
+            {
+                tv.selectTabViewItem(at: i)
+                return
+            }
+        }
+        let item = NSTabViewItem(
+            identifier: "mantra"
+        )
+        item.label = "Mantra"
+
+        let container = NSView()
+        container.wantsLayer = true
+        container.layer?.backgroundColor =
+            NSColor(
+                red: 0.06, green: 0.04, blue: 0.08,
+                alpha: 1.0
+            ).cgColor
+
+        let label = NSTextField(labelWithString:
+            "Mantra -- coming in Act III"
+        )
+        label.font = NSFont.systemFont(
+            ofSize: 18, weight: .medium
+        )
+        label.textColor = NSColor(
+            red: 0.7, green: 0.5, blue: 0.9,
+            alpha: 1.0
+        )
+        label.alignment = .center
+        label.translatesAutoresizingMaskIntoConstraints
+            = false
+        container.addSubview(label)
+
+        let sub = NSTextField(labelWithString:
+            "Signed, sealed, and witnessed"
+        )
+        sub.font = NSFont.systemFont(
+            ofSize: 13, weight: .regular
+        )
+        sub.textColor = NSColor(
+            red: 0.5, green: 0.4, blue: 0.6,
+            alpha: 0.8
+        )
+        sub.alignment = .center
+        sub.translatesAutoresizingMaskIntoConstraints
+            = false
+        container.addSubview(sub)
+
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor
+            ),
+            label.centerYAnchor.constraint(
+                equalTo: container.centerYAnchor,
+                constant: -12
+            ),
+            sub.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor
+            ),
+            sub.topAnchor.constraint(
+                equalTo: label.bottomAnchor,
+                constant: 8
+            ),
+        ])
+
+        item.view = container
+        tv.addTabViewItem(item)
+        tv.selectTabViewItem(item)
+    }
+
     func launchDimerollStage(_ name: String) {
         if let p = dimerollProcess,
            p.isRunning
@@ -1703,7 +1779,8 @@ class AppDelegate: NSObject,
               let ident = sel.identifier as? String,
               ident != "terminal",
               ident != "grid",
-              ident != "dimeroll"
+              ident != "dimeroll",
+              ident != "mantra"
         else {
             showShortcutStatus(
                 "Cmd+W: cannot close built-in tab"
@@ -2520,6 +2597,8 @@ extension AppDelegate: NSTableViewDelegate {
             focusGrid()
         case "Dimeroll":
             focusDimeroll()
+        case "Mantra":
+            focusMantra()
         default:
             break
         }
