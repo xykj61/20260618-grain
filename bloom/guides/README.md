@@ -18,3 +18,5 @@ experience with Grain and explains every step from first principles.
   control, batch tracking for a value-added food facility
 - [Distribution operations](distribution-operations.md) -- logistics,
   cold chain, delivery coordination for a regional food hub
+- [Staff coordination](staff-coordination.md) -- hiring, training,
+  shift handoffs, multi-site communication

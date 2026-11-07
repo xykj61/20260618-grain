@@ -1054,7 +1054,7 @@ class AppDelegate: NSObject,
         bloomLessons.append((
             "--- Operational Guides ---",
             "# Bloom Guides\n\n"
-                + "Three operational manuals "
+                + "Four operational manuals "
                 + "for a food business using "
                 + "Grain as its record-keeping "
                 + "system.\n\n"
@@ -1067,10 +1067,48 @@ class AppDelegate: NSObject,
             "farm-management.md",
             "factory-operations.md",
             "distribution-operations.md",
+            "staff-coordination.md",
         ]
         for file in guideFiles {
             let path =
                 "\(guidesDir)/\(file)"
+            if let text = try? String(
+                contentsOfFile: path,
+                encoding: .utf8
+            ) {
+                let lines = text.components(
+                    separatedBy: "\n"
+                )
+                let title = lines.first?
+                    .replacingOccurrences(
+                        of: "# ", with: ""
+                    ) ?? file
+                bloomLessons.append(
+                    (title, text)
+                )
+            }
+        }
+
+        bloomLessons.append((
+            "--- Essays ---",
+            "# Bloom Essays\n\n"
+                + "Four essays on the ideas "
+                + "behind Grain's design "
+                + "choices.\n\n"
+                + "Use Next to read each one."
+        ))
+
+        let essaysDir =
+            "\(repoRoot)/bloom/essays"
+        let essayFiles = [
+            "why-personal-servers.md",
+            "right-to-repair-software.md",
+            "cooperative-networks.md",
+            "vortex-economics.md",
+        ]
+        for file in essayFiles {
+            let path =
+                "\(essaysDir)/\(file)"
             if let text = try? String(
                 contentsOfFile: path,
                 encoding: .utf8
