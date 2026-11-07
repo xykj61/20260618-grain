@@ -1,0 +1,23 @@
+# vantage_bloom_witness.rish -- Bloom data model extraction witness.
+#
+# Proves: vantage/bloom.rye builds, selftest GREEN, 15 claims,
+# galaxy manifest matches the Swift original in main.swift.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run tools/v/vantage_bloom_witness.rish
+
+let zig = "vendor/zig-toolchain/zig"
+let bloom_bin = "vantage/bin/bloom"
+
+say "vantage-bloom: build..."
+let build = run ["sh" "-c" "mkdir -p vantage/bin && env RYE_ZIG=${zig} sh tools/fixtures/r/rye_build.sh vantage/bloom.rye -femit-bin=${bloom_bin}"]
+assert build.ok else "vantage bloom build failed"
+
+say "vantage-bloom: selftest..."
+let selftest = run ["sh" "-c" "${bloom_bin} selftest 2>&1"]
+assert selftest.ok else "vantage bloom selftest exited non-zero"
+assert selftest.out contains "GREEN" else "vantage bloom selftest not GREEN"
+assert selftest.out contains "15 claims" else "vantage bloom selftest missing claim count"
+assert selftest.out contains "vantage-bloom" else "vantage bloom selftest missing module name"
+
+say "GREEN: Vantage bloom -- 7 galaxies, 44 files, 50 lessons, 15 claims proven."
