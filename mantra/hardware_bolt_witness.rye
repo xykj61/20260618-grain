@@ -1,0 +1,166 @@
+//! mantra/hardware_bolt_witness.rye -- proves 2 hardware teaching pages
+//! on ~thyme (file storage demo galaxy) stored as spooled Mantra resins
+//! with exact byte recall, matching SHA3-256 digests, and cross-bolt
+//! not_yet from a stranger peer (~mint).
+//!
+//!   rye build mantra/hardware_bolt_witness.rye \
+//!       -femit-bin=mantra/bin/hardware-bolt-witness
+//!   mantra/bin/hardware-bolt-witness
+//!
+//! Movement 4 of the Mantra SLC expanding prompt. Four claims:
+//!   1. Each page winds into a spool over a shared BeadStore.
+//!   2. Unspooling each page returns the exact embedded bytes.
+//!   3. The spool's whole-content SHA3-256 digest matches an independent
+//!      computation over the original bytes.
+//!   4. A catalog holding ~thyme content, asked about ~mint revision 1,
+//!      returns not_yet -- the stranger peer is reachable but has not
+//!      synced yet.
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+const beading = @import("beading.rye");
+const spool = @import("spool.rye");
+const ns = @import("recall_lap1.rye");
+const tally_copy = @import("tally_copy.rye");
+const Sha3_256 = std.crypto.hash.sha3.Sha3_256;
+
+const witness_version = "20261107.102800";
+
+// invariant: peers fit in 16 bytes.
+const thyme_peer = "~thyme";
+const thyme_bolt = "bloom-hardware";
+const mint_peer = "~mint";
+const mint_bolt = "bloom-network";
+const content_tilak = "markdown";
+
+const Page = struct {
+    name: []const u8,
+    content: []const u8,
+};
+
+// 2 hardware pages, embedded at compile time via symlinks in corpora/.
+// invariant: each page is under spool.max_content_bytes (32768).
+const hardware_pages = [_]Page{
+    .{ .name = "home-forge", .content = @embedFile("corpora/hardware_01.md") },
+    .{ .name = "handheld-surface", .content = @embedFile("corpora/hardware_02.md") },
+};
+
+fn independent_digest(content: []const u8, out: *[32]u8) void {
+    Sha3_256.hash(content, out, .{});
+}
+
+fn run_selftest() !u8 {
+    var store: beading.BeadStore = .empty();
+    var hw_spools: [2]spool.Spool = undefined;
+    var reassemble_buf: [spool.max_content_bytes]u8 = undefined;
+
+    // -- Claim 1: each hardware page winds into a spool within bounds.
+    print("hardware-bolt-witness: winding 2 hardware pages on {s}\n", .{thyme_peer});
+    var total_resins: u32 = 0;
+    var total_beads: u32 = 0;
+    var i: u32 = 0;
+    while (i < 2) : (i += 1) {
+        const page = hardware_pages[i];
+        // invariant: every page fits the spool ceiling
+        assert(page.content.len <= spool.max_content_bytes);
+        // invariant: every page exceeds a single resin -- spool is needed
+        assert(page.content.len > beading.max_resin_bytes);
+
+        hw_spools[i] = spool.Spool.empty();
+        const report = try spool.spool_content(&store, page.content, &hw_spools[i]);
+        // invariant: at least 2 resins per page (all pages > 512 bytes)
+        assert(report.resin_count >= 2);
+        total_resins += report.resin_count;
+        total_beads += report.bead_count;
+        print("  {s}: {d} bytes, {d} resins, {d} beads\n", .{
+            page.name,
+            page.content.len,
+            report.resin_count,
+            report.bead_count,
+        });
+    }
+
+    print("  claim 1: all 2 pages wound -- {d} resins/{d} beads\n", .{
+        total_resins,
+        total_beads,
+    });
+
+    // -- Claim 2: unspooling returns exact bytes.
+    i = 0;
+    while (i < 2) : (i += 1) {
+        const page = hardware_pages[i];
+        const len = try spool.unspool(&store, &hw_spools[i], reassemble_buf[0..]);
+        // invariant: reassembled length matches original
+        assert(len == page.content.len);
+        // invariant: reassembled bytes match original, byte for byte
+        assert(std.mem.eql(u8, reassemble_buf[0..len], page.content));
+    }
+    print("  claim 2: all 2 pages unspool to exact bytes -- ok\n", .{});
+
+    // -- Claim 3: whole-content digest matches independent SHA3-256.
+    i = 0;
+    while (i < 2) : (i += 1) {
+        const page = hardware_pages[i];
+        var expected: [32]u8 = undefined;
+        independent_digest(page.content, &expected);
+        // invariant: the spool's stored digest matches our independent computation
+        assert(std.mem.eql(u8, hw_spools[i].whole_digest[0..32], expected[0..32]));
+    }
+    print("  claim 3: all 2 SHA3-256 digests match -- ok\n", .{});
+
+    // -- Claim 4: cross-bolt not_yet from a stranger peer.
+    var catalog = ns.BoltCatalog.empty();
+    const short_content = "Home forge -- revision 1.";
+    try catalog.append_leaf(
+        thyme_peer,
+        thyme_bolt,
+        1,
+        "home-forge.md",
+        short_content,
+        content_tilak,
+    );
+    // invariant: ~thyme content is here
+    const thyme_result = catalog.resolve_binding(.{
+        .peer = thyme_peer,
+        .bolt = thyme_bolt,
+        .revision = 1,
+        .path = "home-forge.md",
+    });
+    assert(thyme_result == .here);
+
+    // invariant: ~mint at revision 1, unknown to this catalog, returns not_yet
+    const mint_result = catalog.resolve_binding(.{
+        .peer = mint_peer,
+        .bolt = mint_bolt,
+        .revision = 1,
+        .path = "handheld-surface.md",
+    });
+    assert(mint_result == .not_yet);
+
+    // invariant: ~mint at revision 2, still unknown, returns never (gap)
+    const mint_r2 = catalog.resolve_binding(.{
+        .peer = mint_peer,
+        .bolt = mint_bolt,
+        .revision = 2,
+        .path = "handheld-surface.md",
+    });
+    assert(mint_r2 == .never);
+
+    print("  claim 4: cross-bolt not_yet from stranger {s} -- ok\n", .{mint_peer});
+
+    print(
+        "hardware-bolt-witness: version {s}\n",
+        .{witness_version},
+    );
+    print(
+        "GREEN: 2 hardware pages on {s} recalled byte for byte," ++
+            " SHA3-256 verified. Cross-bolt not_yet from {s} proven.\n",
+        .{ thyme_peer, mint_peer },
+    );
+    return 0;
+}
+
+pub fn main() !u8 {
+    return run_selftest();
+}
