@@ -90,6 +90,10 @@ class AppDelegate: NSObject,
         String, String, String
     )] = []
     var dimerollSeal: [(String, String)] = []
+    var dimerollQueryResults: [(
+        String, String, String,
+        String, String
+    )] = []
     var dimerollRawBuffer: String = ""
     var dimerollActiveElf: String = ""
     var dimerollInLedgerTable: Bool = false
@@ -996,6 +1000,10 @@ class AppDelegate: NSObject,
                 == "dimeroll_seal_g"
             {
                 parseDimerollSealLine(line)
+            } else if dimerollActiveElf
+                .hasPrefix("dimeroll_query_")
+            {
+                parseDimerollQueryLine(line)
             } else {
                 parseDimerollLine(line)
             }
@@ -1267,6 +1275,33 @@ class AppDelegate: NSObject,
         }
     }
 
+    func parseDimerollQueryLine(
+        _ line: String
+    ) {
+        let trimmed = line.trimmingCharacters(
+            in: .whitespaces
+        )
+        guard trimmed.contains("|") else { return }
+        let cells = trimmed.split(
+            separator: "|",
+            omittingEmptySubsequences: true
+        ).map {
+            $0.trimmingCharacters(in: .whitespaces)
+        }
+        guard cells.count >= 5 else { return }
+        if cells[0] == "#"
+            || cells[0].hasPrefix("-")
+        {
+            return
+        }
+        guard let _ = Int(cells[0]) else { return }
+        dimerollQueryResults.append((
+            cells[0], cells[1], cells[2],
+            cells[3], cells[4]
+        ))
+        dimerollTableView?.reloadData()
+    }
+
     @objc func dimerollModuleChanged(
         _ sender: NSPopUpButton
     ) {
@@ -1289,6 +1324,7 @@ class AppDelegate: NSObject,
         dimerollLedger.removeAll()
         dimerollPrice.removeAll()
         dimerollSeal.removeAll()
+        dimerollQueryResults.removeAll()
         dimerollRawBuffer = ""
         dimerollInLedgerTable = false
         dimerollActiveElf = elfName
@@ -1346,6 +1382,46 @@ class AppDelegate: NSObject,
                 ("Field", "field", 120),
                 ("Value", "value", 200),
             ]
+        } else if dimerollActiveElf
+            == "dimeroll_query_verb_g"
+        {
+            cols = [
+                ("#", "num", 40),
+                ("Subject", "col1", 100),
+                ("Qty", "col2", 70),
+                ("Unit", "col3", 70),
+                ("Price", "col4", 80),
+            ]
+        } else if dimerollActiveElf
+            == "dimeroll_query_subject_g"
+        {
+            cols = [
+                ("#", "num", 40),
+                ("Verb", "col1", 80),
+                ("Qty", "col2", 70),
+                ("Unit", "col3", 70),
+                ("Price", "col4", 80),
+            ]
+        } else if dimerollActiveElf
+            == "dimeroll_query_date_g"
+        {
+            cols = [
+                ("#", "num", 40),
+                ("Day", "col1", 100),
+                ("Verb", "col2", 80),
+                ("Subject", "col3", 100),
+                ("Qty", "col4", 70),
+            ]
+        } else if dimerollActiveElf
+            == "dimeroll_query_account_g"
+        {
+            cols = [
+                ("#", "num", 40),
+                ("Verb", "col1", 80),
+                ("Qty", "col2", 70),
+                ("Unit", "col3", 70),
+                ("Price", "col4", 80),
+            ]
         } else {
             cols = [
                 ("#", "num", 40),
@@ -1400,9 +1476,28 @@ class AppDelegate: NSObject,
         guard idx >= 0,
               idx < dimerollQueryTypes.count
         else { return }
-        let elfName = dimerollQueryTypes[idx].1
+        let (label, elfName, _) =
+            dimerollQueryTypes[idx]
+        guard let dtv = dimerollTextView
+        else { return }
+        dtv.string = "Dimeroll -- Query \(label)\n"
+            + String(
+                repeating: "=",
+                count: 18 + label.count
+            )
+            + "\n\n"
+        dimerollTransactions.removeAll()
+        dimerollInventory.removeAll()
+        dimerollCashflow.removeAll()
+        dimerollLedger.removeAll()
+        dimerollPrice.removeAll()
+        dimerollSeal.removeAll()
+        dimerollQueryResults.removeAll()
+        dimerollRawBuffer = ""
+        dimerollInLedgerTable = false
         dimerollActiveElf = elfName
         rebuildDimerollColumns()
+        dimerollTableView?.reloadData()
         if let mp = dimerollModulePopUp {
             let moduleIdx =
                 dimerollModules.firstIndex {
@@ -2073,6 +2168,11 @@ extension AppDelegate: NSTableViewDataSource {
             {
                 return dimerollSeal.count
             }
+            if dimerollActiveElf
+                .hasPrefix("dimeroll_query_")
+            {
+                return dimerollQueryResults.count
+            }
             return dimerollTransactions.count
         }
         return sidebarModules.count
@@ -2178,6 +2278,20 @@ extension AppDelegate: NSTableViewDelegate {
             switch colId {
             case "field": val = sl.0
             case "value": val = sl.1
+            default: val = ""
+            }
+        } else if dimerollActiveElf
+            .hasPrefix("dimeroll_query_")
+        {
+            guard row < dimerollQueryResults.count
+            else { return nil }
+            let qr = dimerollQueryResults[row]
+            switch colId {
+            case "num": val = qr.0
+            case "col1": val = qr.1
+            case "col2": val = qr.2
+            case "col3": val = qr.3
+            case "col4": val = qr.4
             default: val = ""
             }
         } else {

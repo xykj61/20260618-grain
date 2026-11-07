@@ -228,10 +228,14 @@
   - Second toolbar row below module selector, content area anchored to query row bottom
   - Build clean, all symbols in binary
 
-- [ ] **Movement 27: Query results display**
+- [x] **Movement 27: Query results display** -- DONE `20261106.192737`
   - SLC gate: query results appear in the Dimeroll tab as filtered transaction rows
   - NSTableView populated from parsed QEMU output
   - Each of the four query types produces correctly filtered results
+  - `parseDimerollQueryLine` splits pipe-delimited rows, skips headers, stores 5-tuple
+  - Four query-specific column layouts in `rebuildDimerollColumns`, col1-col4 identifiers
+  - `numberOfRows` and `dimerollCellView` branch on `hasPrefix("dimeroll_query_")`
+  - Build clean, all symbols in binary
 
 - [ ] **Movement 28: Dimeroll dashboard -- combined summary view**
   - SLC gate: a dashboard tab shows inventory, cash flow, and seal at a glance

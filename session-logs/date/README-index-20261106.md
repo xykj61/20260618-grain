@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.192737 | [Query results display -- Movement 27 landed](20261106/20261106-192737_query-results-movement27.kyri.md) | parseDimerollQueryLine, 4 query column layouts, numberOfRows/dimerollCellView query branches |
 | 20261106.191235 | [Query panel -- Movement 26 landed](20261106/20261106-191235_query-panel-movement26.kyri.md) | NSPopUpButton query type, NSTextField placeholder, Run Query button, two handlers |
 | 20261106.185955 | [Quest 2 integration witness -- Movement 25 GREEN](20261106/20261106-185955_quest2-integration-witness-movement25.kyri.md) | 43 assertions: 7 symbols, 6 parsers, 6 QEMU modules, all GREEN |
 | 20261106.184025 | [Price arithmetic and seal display -- Movement 24 landed](20261106/20261106-184025_price-seal-movement24.kyri.md) | Pattern-matching price parser, marker-based seal parser, two new column layouts |
