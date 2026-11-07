@@ -16,12 +16,12 @@ into the work.
 
 ## Links
 
-- **Calfive schedule:** [`../../active-designing/date/20261103/20261103-005021_lotus-daw-calfive-schedule.md`](../../active-designing/date/20261103/20261103-005021_lotus-daw-calfive-schedule.md)
-- **RFC proposal:** [`../../active-designing/date/20261103/20261103-003744_lotus-daw-expansion-proposal.md`](../../active-designing/date/20261103/20261103-003744_lotus-daw-expansion-proposal.md)
-- **ITINERARY:** [`../../construction/ITINERARY.md`](../../construction/ITINERARY.md)
+- **Calfive schedule:** [`../../../../../active-designing/date/20261103/20261103-005021_lotus-daw-calfive-schedule.md`](../../../../../active-designing/date/20261103/20261103-005021_lotus-daw-calfive-schedule.md)
+- **RFC proposal:** [`../../../../../active-designing/date/20261103/20261103-003744_lotus-daw-expansion-proposal.md`](../../../../../active-designing/date/20261103/20261103-003744_lotus-daw-expansion-proposal.md)
+- **ITINERARY:** [`../../../../../construction/ITINERARY.md`](../../../../../construction/ITINERARY.md)
 - **Checklist:** [`CHECKLIST.md`](CHECKLIST.md)
 - **Progress log:** [`PROGRESS.md`](PROGRESS.md)
-- **Lotus modules:** [`../../lotus/MODULES.md`](../../lotus/MODULES.md) (240 modules, 241 witnesses)
+- **Lotus modules:** [`../../../../../lotus/MODULES.md`](../../../../../lotus/MODULES.md) (240 modules, 241 witnesses)
 
 ## Standing waymarks
 

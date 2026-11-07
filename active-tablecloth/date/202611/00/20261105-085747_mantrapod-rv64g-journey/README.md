@@ -209,13 +209,13 @@ witnesses prove, carried to a smaller stage and then to real silicon.
 ## 7. Design links
 
 - [Terrarium boot journey](../20261104-161857_terrarium-boot-journey/README.md) -- the foundation this grows from
-- [RV64G horizon scoping](../../active-development/date/20261105/20261105-014745_rv64g-horizon-scoping.md) -- the six known gaps
-- [The Mantrapod and the Terrarium](../../composition/20261102-211750_the-mantrapod-and-the-terrarium.md)
-- [The Grain and the Crossing](../../foundations/20260826-024942_the-grain-and-the-crossing.md)
-- [Single-stranded foundation](../../foundations/20260823-204456_single-stranded.md)
-- [Fascia health model](../../context/specs/20261103-201746_fascia-health-model.md)
-- [ITINERARY](../../construction/ITINERARY.md)
-- [Lila and the Long Return](../../foundations/20261002-111449_lila-and-the-long-return.md)
+- [RV64G horizon scoping](../../../../../active-development/date/20261105/20261105-014745_rv64g-horizon-scoping.md) -- the six known gaps
+- [The Mantrapod and the Terrarium](../../../../../composition/20261102-211750_the-mantrapod-and-the-terrarium.md)
+- [The Grain and the Crossing](../../../../../foundations/20260826-024942_the-grain-and-the-crossing.md)
+- [Single-stranded foundation](../../../../../foundations/20260823-204456_single-stranded.md)
+- [Fascia health model](../../../../../context/specs/20261103-201746_fascia-health-model.md)
+- [ITINERARY](../../../../../construction/ITINERARY.md)
+- [Lila and the Long Return](../../../../../foundations/20261002-111449_lila-and-the-long-return.md)
 
 May the working hart carry the field ledger home, and may the first grower who plugs
 in the Mantrapod find their records whole, their balances honest, and their shelf glad

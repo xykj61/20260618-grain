@@ -6,8 +6,8 @@
 **Voice:** Kyri
 **Status:** Living
 **Room:** checkable
-**Expanding prompt:** [`../../expanding-prompts/date/20261107/20261107-085813_mantra-slc-comlink-realidream.md`](../../expanding-prompts/date/20261107/20261107-085813_mantra-slc-comlink-realidream.md)
-**Calfive review:** [`../../active-development/date/20261107/20261107-085816_calfive-stack-checkin.md`](../../active-development/date/20261107/20261107-085816_calfive-stack-checkin.md)
+**Expanding prompt:** [`../../../../../expanding-prompts/date/20261107/20261107-085813_mantra-slc-comlink-realidream.md`](../../../../../expanding-prompts/date/20261107/20261107-085813_mantra-slc-comlink-realidream.md)
+**Calfive review:** [`../../../../../active-development/date/20261107/20261107-085816_calfive-stack-checkin.md`](../../../../../active-development/date/20261107/20261107-085816_calfive-stack-checkin.md)
 
 ---
 

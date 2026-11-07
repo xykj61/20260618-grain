@@ -177,14 +177,14 @@ stage.
 
 ## 7. Design links
 
-- [Mantrapod and Terrarium](../../composition/20261102-211750_the-mantrapod-and-the-terrarium.md)
-- [DJINN public repositories read](../../external-research/date/20260825/20260825-235138_djinn-public-repositories-read-against-grain.md)
-- [Terrarium and the stack that breathes](../../active-development/20261031-232638_terrarium-and-the-stack-that-breathes.md)
-- [seL4 userlevel license read](../../external-research/date/20260821/20260821-041056_the-microkernel-license-read.md)
-- [Single-stranded foundation](../../foundations/20260823-204456_single-stranded.md)
-- [Fascia health model](../../context/specs/20261103-201746_fascia-health-model.md)
-- [ITINERARY](../../construction/ITINERARY.md)
-- [Lotus DAW proposal (sister RFC)](../../active-designing/date/20261103/20261103-003744_lotus-daw-expansion-proposal.md)
+- [Mantrapod and Terrarium](../../../../../composition/20261102-211750_the-mantrapod-and-the-terrarium.md)
+- [DJINN public repositories read](../../../../../external-research/date/20260825/20260825-235138_djinn-public-repositories-read-against-grain.md)
+- [Terrarium and the stack that breathes](../../../../../active-development/20261031-232638_terrarium-and-the-stack-that-breathes.md)
+- [seL4 userlevel license read](../../../../../external-research/date/20260821/20260821-041056_the-microkernel-license-read.md)
+- [Single-stranded foundation](../../../../../foundations/20260823-204456_single-stranded.md)
+- [Fascia health model](../../../../../context/specs/20261103-201746_fascia-health-model.md)
+- [ITINERARY](../../../../../construction/ITINERARY.md)
+- [Lotus DAW proposal (sister RFC)](../../../../../active-designing/date/20261103/20261103-003744_lotus-daw-expansion-proposal.md)
 
 ## Incense captain assignment
 

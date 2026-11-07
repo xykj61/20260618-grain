@@ -35,14 +35,14 @@ side of the years, while a workaround decays the moment it ships.
 
 - **Checklist:** [`CHECKLIST.md`](CHECKLIST.md)
 - **Progress log:** [`PROGRESS.md`](PROGRESS.md)
-- **ITINERARY:** [`../../construction/ITINERARY.md`](../../construction/ITINERARY.md)
-- **Stamp-and-name law:** [`../../.claude/rules/stamp-and-name.md`](../../.claude/rules/stamp-and-name.md)
-- **Comlink tendency:** [`../../.claude/rules/comlink-tendency.md`](../../.claude/rules/comlink-tendency.md)
-- **Single-stranded:** [`../../foundations/20260823-204456_single-stranded.md`](../../foundations/20260823-204456_single-stranded.md)
-- **Lila and the Long Return:** [`../../foundations/20261002-111449_lila-and-the-long-return.md`](../../foundations/20261002-111449_lila-and-the-long-return.md)
+- **ITINERARY:** [`../../../../../construction/ITINERARY.md`](../../../../../construction/ITINERARY.md)
+- **Stamp-and-name law:** [`../../../../../.claude/rules/stamp-and-name.md`](../../../../../.claude/rules/stamp-and-name.md)
+- **Comlink tendency:** [`../../../../../.claude/rules/comlink-tendency.md`](../../../../../.claude/rules/comlink-tendency.md)
+- **Single-stranded:** [`../../../../../foundations/20260823-204456_single-stranded.md`](../../../../../foundations/20260823-204456_single-stranded.md)
+- **Lila and the Long Return:** [`../../../../../foundations/20261002-111449_lila-and-the-long-return.md`](../../../../../foundations/20261002-111449_lila-and-the-long-return.md)
 - **Glow modules:** 128 authored modules + 70 witnesses in `glow/`
 - **Lotus board:** [`../20261103-005948_lotus-working-studio/README.md`](../20261103-005948_lotus-working-studio/README.md)
-- **docs-geode/cookbook/ (renamed from pleac/):** [`../../docs-geode/cookbook/README.md`](../../docs-geode/cookbook/README.md)
+- **docs-geode/cookbook/ (renamed from pleac/):** [`../../../../../docs-geode/cookbook/README.md`](../../../../../docs-geode/cookbook/README.md)
 
 ## The order
 

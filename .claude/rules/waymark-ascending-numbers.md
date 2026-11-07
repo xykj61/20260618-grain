@@ -4,7 +4,7 @@
 **Kin:** [`stamp-and-name`](stamp-and-name.md) - [`waymark-ladders`](waymark-ladders.md) - [`comlink-tendency`](comlink-tendency.md) - [`debride`](debride.md)
 **Gate:** [`../../tools/fixtures/w/waymark_rung_drift_scan.sh`](../../tools/fixtures/w/waymark_rung_drift_scan.sh)
 **Census:** [`../../tools/fixtures/w/waymark_ascending_census_scan.sh`](../../tools/fixtures/w/waymark_ascending_census_scan.sh)
-**Journey:** `active-tablecloth/20261103-184811_glow-language-journey/` (Orbit 2 of Quest 1.1)
+**Journey:** `active-tablecloth/date/202611/00/20261103-184811_glow-language-journey/` (Orbit 2 of Quest 1.1)
 
 **Every `WAYMARK[0-9]+` pattern in this tree is a subject of the stamp-and-name law.** `lotus-audio`,
 `glow-language`, `pixel-glass`, `compass-surface` -- each is a counted rung on planned work, which is exactly what
@@ -86,7 +86,7 @@ is the enforcement.
 
 Sweep living surfaces on touch. Dated testimony and commit history keep every word they wrote.
 This rule governs what is written from here forward. The deep debride that reaches commit
-history is a separate journey ([`../../active-tablecloth/20261103-184811_glow-language-journey/CHECKLIST.md`](../../active-tablecloth/20261103-184811_glow-language-journey/CHECKLIST.md),
+history is a separate journey ([`../../active-tablecloth/date/202611/00/20261103-184811_glow-language-journey/CHECKLIST.md`](../../active-tablecloth/date/202611/00/20261103-184811_glow-language-journey/CHECKLIST.md),
 Quest 1.2).
 
 ## Why the rule exists
