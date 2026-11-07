@@ -213,7 +213,7 @@
   - Price view: per-unit calculations with integer arithmetic shown
   - Seal view: Amphora hash (0xb3db1acd) and the sealed data it covers
 
-- [ ] **Movement 25: Quest 2 integration witness**
+- [x] **Movement 25: Quest 2 integration witness**
   - SLC gate: witness proves all four ledger views parse and display correctly
   - Headless harness tests inventory, cash flow, ledger, and price/seal data models
   - QEMU integration: each Dimeroll module launched and output verified

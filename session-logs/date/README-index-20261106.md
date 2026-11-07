@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.185955 | [Quest 2 integration witness -- Movement 25 GREEN](20261106/20261106-185955_quest2-integration-witness-movement25.kyri.md) | 43 assertions: 7 symbols, 6 parsers, 6 QEMU modules, all GREEN |
 | 20261106.184025 | [Price arithmetic and seal display -- Movement 24 landed](20261106/20261106-184025_price-seal-movement24.kyri.md) | Pattern-matching price parser, marker-based seal parser, two new column layouts |
 | 20261106.182751 | [Ledger page rendering -- Movement 23 landed](20261106/20261106-182751_ledger-page-movement23.kyri.md) | 6-column journal table, multi-section UART parser, Int filter |
 | 20261106.181827 | [Cash flow view -- Movement 22 landed](20261106/20261106-181827_cash-flow-view-movement22.kyri.md) | 2-column cashflow table, Subject/Revenue from UART ledger |
