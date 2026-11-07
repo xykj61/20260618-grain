@@ -94,6 +94,10 @@ class AppDelegate: NSObject,
         String, String, String,
         String, String
     )] = []
+    var dimerollDashInv: [(String, String)] = []
+    var dimerollDashCF: [(String, String)] = []
+    var dimerollDashSeal: [(String, String)] = []
+    var dimerollDashPhase: Int = 0
     var dimerollRawBuffer: String = ""
     var dimerollActiveElf: String = ""
     var dimerollInLedgerTable: Bool = false
@@ -114,6 +118,7 @@ class AppDelegate: NSObject,
          "farm-main"),
     ]
     let dimerollModules: [(String, String)] = [
+        ("Dashboard", "dimeroll_dashboard"),
         ("Transactions", "dimeroll_tx_g"),
         ("Inventory", "dimeroll_inventory_g"),
         ("Cash Flow", "dimeroll_cashflow_g"),
@@ -847,7 +852,9 @@ class AppDelegate: NSObject,
         tv.addTabViewItem(item)
         tv.selectTabViewItem(item)
         window.makeFirstResponder(dtv)
-        launchDimerollStage("dimeroll_tx_g")
+        dimerollActiveElf = "dimeroll_dashboard"
+        rebuildDimerollColumns()
+        launchDimerollDashboard()
     }
 
     func launchDimerollStage(_ name: String) {
@@ -923,6 +930,15 @@ class AppDelegate: NSObject,
                     "\n--- dimeroll exited "
                     + "(\(p.terminationStatus))\n"
                 )
+                let idx = self?
+                    .dimerollModulePopUp?
+                    .indexOfSelectedItem ?? -1
+                if idx == 0
+                    && (self?.dimerollDashPhase ?? 3)
+                        < 3
+                {
+                    self?.dimerollDashboardPhaseComplete()
+                }
             }
         }
 
@@ -1325,12 +1341,121 @@ class AppDelegate: NSObject,
         dimerollPrice.removeAll()
         dimerollSeal.removeAll()
         dimerollQueryResults.removeAll()
+        dimerollDashInv.removeAll()
+        dimerollDashCF.removeAll()
+        dimerollDashSeal.removeAll()
+        dimerollDashPhase = 3
         dimerollRawBuffer = ""
         dimerollInLedgerTable = false
         dimerollActiveElf = elfName
         rebuildDimerollColumns()
         dimerollTableView?.reloadData()
-        launchDimerollStage(elfName)
+        if elfName == "dimeroll_dashboard" {
+            launchDimerollDashboard()
+        } else {
+            launchDimerollStage(elfName)
+        }
+    }
+
+    func launchDimerollDashboard() {
+        dimerollDashInv.removeAll()
+        dimerollDashCF.removeAll()
+        dimerollDashSeal.removeAll()
+        dimerollDashPhase = 0
+        dimerollActiveElf = "dimeroll_inventory_g"
+        launchDimerollStage(
+            "dimeroll_inventory_g"
+        )
+    }
+
+    func dimerollDashboardPhaseComplete() {
+        dimerollDashPhase += 1
+        if dimerollDashPhase == 1 {
+            dimerollDashInv = dimerollInventory
+            dimerollInventory.removeAll()
+            dimerollRawBuffer = ""
+            dimerollInLedgerTable = false
+            dimerollActiveElf =
+                "dimeroll_cashflow_g"
+            dimerollTableView?.reloadData()
+            launchDimerollStage(
+                "dimeroll_cashflow_g"
+            )
+        } else if dimerollDashPhase == 2 {
+            dimerollDashCF = dimerollCashflow
+            dimerollCashflow.removeAll()
+            dimerollRawBuffer = ""
+            dimerollInLedgerTable = false
+            dimerollActiveElf = "dimeroll_seal_g"
+            dimerollTableView?.reloadData()
+            launchDimerollStage(
+                "dimeroll_seal_g"
+            )
+        } else {
+            dimerollDashSeal = dimerollSeal
+            dimerollSeal.removeAll()
+            dimerollActiveElf =
+                "dimeroll_dashboard"
+            rebuildDimerollColumns()
+            dimerollTableView?.reloadData()
+        }
+    }
+
+    func dashboardRowCount() -> Int {
+        var n = 0
+        if !dimerollDashInv.isEmpty {
+            n += 1 + dimerollDashInv.count
+        }
+        if !dimerollDashCF.isEmpty {
+            n += 1 + dimerollDashCF.count
+        }
+        if !dimerollDashSeal.isEmpty {
+            n += 1 + dimerollDashSeal.count
+        }
+        if n == 0 && dimerollDashPhase < 3 {
+            n = 1
+        }
+        return n
+    }
+
+    func dashboardRowData(
+        _ row: Int
+    ) -> (String, String, Bool) {
+        var r = row
+        if !dimerollDashInv.isEmpty {
+            if r == 0 {
+                return ("INVENTORY", "", true)
+            }
+            r -= 1
+            if r < dimerollDashInv.count {
+                let d = dimerollDashInv[r]
+                return (d.0, d.1, false)
+            }
+            r -= dimerollDashInv.count
+        }
+        if !dimerollDashCF.isEmpty {
+            if r == 0 {
+                return ("CASH FLOW", "", true)
+            }
+            r -= 1
+            if r < dimerollDashCF.count {
+                let d = dimerollDashCF[r]
+                return (d.0, d.1, false)
+            }
+            r -= dimerollDashCF.count
+        }
+        if !dimerollDashSeal.isEmpty {
+            if r == 0 {
+                return ("SEAL", "", true)
+            }
+            r -= 1
+            if r < dimerollDashSeal.count {
+                let d = dimerollDashSeal[r]
+                return (d.0, d.1, false)
+            }
+            r -= dimerollDashSeal.count
+        }
+        return ("Loading...", "", false)
     }
 
     func rebuildDimerollColumns() {
@@ -1343,6 +1468,13 @@ class AppDelegate: NSObject,
         }
         let cols: [(String, String, CGFloat)]
         if dimerollActiveElf
+            == "dimeroll_dashboard"
+        {
+            cols = [
+                ("Label", "label", 160),
+                ("Value", "value", 200),
+            ]
+        } else if dimerollActiveElf
             == "dimeroll_inventory_g"
         {
             cols = [
@@ -2144,6 +2276,11 @@ extension AppDelegate: NSTableViewDataSource {
     ) -> Int {
         if tableView === dimerollTableView {
             if dimerollActiveElf
+                == "dimeroll_dashboard"
+            {
+                return dashboardRowCount()
+            }
+            if dimerollActiveElf
                 == "dimeroll_inventory_g"
             {
                 return dimerollInventory.count
@@ -2221,6 +2358,35 @@ extension AppDelegate: NSTableViewDelegate {
         else { return nil }
         let val: String
         if dimerollActiveElf
+            == "dimeroll_dashboard"
+        {
+            let d = dashboardRowData(row)
+            let tf = NSTextField(
+                labelWithString: ""
+            )
+            tf.textColor = NSColor(
+                red: 0.95, green: 0.88,
+                blue: 0.62, alpha: 1.0
+            )
+            tf.font = NSFont.monospacedSystemFont(
+                ofSize: 12, weight: .regular
+            )
+            if d.2 {
+                tf.font =
+                    NSFont.monospacedSystemFont(
+                        ofSize: 12, weight: .bold
+                    )
+                tf.stringValue =
+                    colId == "label" ? d.0 : ""
+            } else {
+                switch colId {
+                case "label": tf.stringValue = d.0
+                case "value": tf.stringValue = d.1
+                default: break
+                }
+            }
+            return tf
+        } else if dimerollActiveElf
             == "dimeroll_inventory_g"
         {
             guard row < dimerollInventory.count

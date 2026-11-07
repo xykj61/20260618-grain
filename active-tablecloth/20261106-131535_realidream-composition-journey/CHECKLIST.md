@@ -237,10 +237,12 @@
   - `numberOfRows` and `dimerollCellView` branch on `hasPrefix("dimeroll_query_")`
   - Build clean, all symbols in binary
 
-- [ ] **Movement 28: Dimeroll dashboard -- combined summary view**
+- [x] **Movement 28: Dimeroll dashboard -- combined summary view** -- LANDED `20261106.194645`
   - SLC gate: a dashboard tab shows inventory, cash flow, and seal at a glance
   - Three sections in one scrollable view: inventory table, cash flow totals, Amphora seal hash
-  - Driven by running three Dimeroll modules in sequence
+  - Driven by running three Dimeroll modules in sequence via phase chaining in terminationHandler
+  - Dashboard is a pseudo-module at popup index 0 -- no real ELF, chains inventory/cashflow/seal
+  - Build clean, dashboard symbols confirmed in binary
 
 - [ ] **Movement 29: Mantra tab -- placeholder for the next act**
   - SLC gate: clicking "Mantra" in the sidebar creates a Mantra tab with placeholder content
