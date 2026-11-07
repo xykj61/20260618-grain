@@ -1,0 +1,4 @@
+module VantageBloom {
+    header "vantage_bloom.h"
+    export *
+}

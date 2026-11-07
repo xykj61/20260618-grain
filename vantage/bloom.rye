@@ -268,6 +268,92 @@ pub fn galaxy_file_path(
     return result;
 }
 
+// -- FFI bridge: C-compatible exports for the platform shell.
+// Each function uses callconv(.c) so Swift (or any C caller)
+// can link against the compiled library. String returns are
+// null-terminated pointers into static comptime data.
+
+export fn bloom_galaxy_count() callconv(.c) u32 {
+    return galaxy_count;
+}
+
+export fn bloom_total_files() callconv(.c) u32 {
+    return total_files;
+}
+
+export fn bloom_separator_count() callconv(.c) u32 {
+    return separator_count;
+}
+
+export fn bloom_total_lessons() callconv(.c) u32 {
+    return total_lessons;
+}
+
+export fn bloom_galaxy_name(
+    index: u32,
+) callconv(.c) [*:0]const u8 {
+    if (index >= galaxy_count) return "";
+    return @ptrCast(galaxies[index].name.ptr);
+}
+
+export fn bloom_galaxy_directory(
+    index: u32,
+) callconv(.c) [*:0]const u8 {
+    if (index >= galaxy_count) return "";
+    return @ptrCast(
+        galaxies[index].directory.ptr,
+    );
+}
+
+export fn bloom_galaxy_file_count(
+    index: u32,
+) callconv(.c) u32 {
+    if (index >= galaxy_count) return 0;
+    return @intCast(galaxies[index].files.len);
+}
+
+export fn bloom_galaxy_file_name(
+    galaxy_idx: u32,
+    file_idx: u32,
+) callconv(.c) [*:0]const u8 {
+    if (galaxy_idx >= galaxy_count) return "";
+    const g = galaxies[galaxy_idx];
+    if (file_idx >= g.files.len) return "";
+    return @ptrCast(g.files[file_idx].ptr);
+}
+
+export fn bloom_galaxy_separator_title(
+    index: u32,
+) callconv(.c) [*:0]const u8 {
+    if (index >= galaxy_count) return "";
+    const t = galaxies[index].separator_title;
+    if (t.len == 0) return "";
+    return @ptrCast(t.ptr);
+}
+
+export fn bloom_galaxy_separator_body(
+    index: u32,
+) callconv(.c) [*:0]const u8 {
+    if (index >= galaxy_count) return "";
+    const b = galaxies[index].separator_body;
+    if (b.len == 0) return "";
+    return @ptrCast(b.ptr);
+}
+
+export fn bloom_can_prev_ffi(
+    index: u32,
+) callconv(.c) bool {
+    return can_prev(index);
+}
+
+export fn bloom_can_next_ffi(
+    index: u32,
+    count: u32,
+) callconv(.c) bool {
+    if (count == 0) return false;
+    return can_next(index, count);
+}
+
 // -- Selftest: proves the data model matches the Swift
 // original.
 pub fn selftest() void {

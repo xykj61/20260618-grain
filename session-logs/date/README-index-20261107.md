@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.151749 | [Bloom FFI bridge wired into Terrarium](20261107/20261107-151749_bloom-ffi-bridge-wired.kyri.md) | 270-line loadBloomLessons() replaced with 45-line FFI version, full build GREEN |
 | 20261107.145431 | [Vantage bloom extraction -- selftest GREEN, 15 claims](20261107/20261107-145431_vantage-bloom-extract-green.kyri.md) | Bloom data model extracted from main.swift into vantage/bloom.rye, witness GREEN |
 | 20261107.143845 | [Vantage RFC approved -- all seven seated, send](20261107/20261107-143845_vantage-rfc-approved-send.kyri.md) | All 7 recommendations approved on Keaton's word, 75-movement journey seated |
 | 20261107.143100 | [Vantage/Station/Carry RFC with recommended answers](20261107/20261107-143100_vantage-carry-rfc-recommendations.kyri.md) | 7 design questions answered from TAME/foundations, Option B recommended, 75-movement journey |

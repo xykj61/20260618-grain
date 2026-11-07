@@ -8,15 +8,22 @@
 //           -emit-module-path terrarium/.build/SkateCore.swiftmodule \
 //           -emit-library -o terrarium/.build/libSkateCore.dylib \
 //           -swift-version 6 skate/Sources/SkateCore/*.swift
-//         swiftc -I terrarium/.build -L terrarium/.build -lSkateCore \
-//           -o terrarium/.build/Terrarium terrarium/app/main.swift
-// Run:    terrarium/.build/Terrarium [stage]
+//         rye/bin/rye build-lib vantage/bloom.rye -dynamic \
+//           -femit-bin=vantage/lib/libbloom.dylib
+//         swiftc -I terrarium/.build -I vantage/include \
+//           -L terrarium/.build -L vantage/lib \
+//           -lSkateCore -lbloom \
+//           -o terrarium/.build/Terrarium terrarium/app/main.swift \
+//           -framework AppKit
+// Run:    DYLD_LIBRARY_PATH=terrarium/.build:vantage/lib \
+//           terrarium/.build/Terrarium [stage]
 //         (defaults to "hello")
 
 import AppKit
 import Darwin
 import Foundation
 import SkateCore
+import VantageBloom
 
 // -- Configuration --------------------------------------------------
 
@@ -944,275 +951,54 @@ class AppDelegate: NSObject,
     }
 
     func loadBloomLessons() {
-        let dir = "\(repoRoot)/bloom/curriculum"
-        let files = [
-            "stage-01-meeting-the-dragons.md",
-            "stage-02-roots-and-trees.md",
-            "stage-03-memory-as-garden.md",
-            "stage-04-orchestra-of-processes.md",
-            "stage-05-garden-of-files.md",
-            "stage-06-rivers-of-networks.md",
-            "stage-07-treasure-of-identity.md",
-            "stage-08-ecology-and-stewardship.md",
-            "stage-09-right-to-repair.md",
-            "stage-10-the-technical-vision.md",
-        ]
         bloomLessons = []
-        for file in files {
-            let path = "\(dir)/\(file)"
-            if let text = try? String(
-                contentsOfFile: path,
-                encoding: .utf8
-            ) {
-                let lines = text.components(
-                    separatedBy: "\n"
+        let gc = bloom_galaxy_count()
+        for gi: UInt32 in 0..<gc {
+            let sepTitle = String(
+                cString: bloom_galaxy_separator_title(gi)
+            )
+            if !sepTitle.isEmpty {
+                let sepBody = String(
+                    cString:
+                        bloom_galaxy_separator_body(gi)
                 )
-                let title = lines.first?
-                    .replacingOccurrences(
-                        of: "# ", with: ""
-                    ) ?? file
-                bloomLessons.append((title, text))
-            }
-        }
-        bloomLessons.append((
-            "--- Lineage Teachings ---",
-            "# Grain Lineage Teachings\n\n"
-                + "The following seven teachings "
-                + "explore the design principles "
-                + "that shaped Grain as an "
-                + "operating system.\n\n"
-                + "Use Next to read each one."
-        ))
-
-        let lineageDir =
-            "\(repoRoot)/bloom/lineage"
-        let lineageFiles = [
-            "dual-description.md",
-            "one-carrier-many-flows.md",
-            "state-at-center.md",
-            "whole-in-every-part.md",
-            "toroidal-bounded-optimization.md",
-            "silicon-torus-hardware.md",
-            "the-place-and-its-patterns.md",
-        ]
-        for file in lineageFiles {
-            let path =
-                "\(lineageDir)/\(file)"
-            if let text = try? String(
-                contentsOfFile: path,
-                encoding: .utf8
-            ) {
-                let lines = text.components(
-                    separatedBy: "\n"
-                )
-                let title = lines.first?
-                    .replacingOccurrences(
-                        of: "# ", with: ""
-                    ) ?? file
                 bloomLessons.append(
-                    (title, text)
+                    (sepTitle, sepBody)
                 )
             }
-        }
-
-        bloomLessons.append((
-            "--- Ecology ---",
-            "# Bloom Ecology\n\n"
-                + "The following pages explore "
-                + "the ecological foundation "
-                + "that gives Grain its purpose."
-                + "\n\nUse Next to read each one."
-        ))
-
-        let ecologyDir =
-            "\(repoRoot)/bloom/ecology"
-        let ecologyFiles = [
-            "whole-system-farming.md",
-            "biocyclic-vegan-principles.md",
-            "energy-and-fuel.md",
-            "water-and-stewardship.md",
-            "materials-and-supply-chain.md",
-            "rail-infrastructure.md",
-        ]
-        for file in ecologyFiles {
-            let path =
-                "\(ecologyDir)/\(file)"
-            if let text = try? String(
-                contentsOfFile: path,
-                encoding: .utf8
-            ) {
-                let lines = text.components(
-                    separatedBy: "\n"
+            let dir = String(
+                cString: bloom_galaxy_directory(gi)
+            )
+            let fc = bloom_galaxy_file_count(gi)
+            for fi: UInt32 in 0..<fc {
+                let file = String(
+                    cString:
+                        bloom_galaxy_file_name(gi, fi)
                 )
-                let title = lines.first?
-                    .replacingOccurrences(
-                        of: "# ", with: ""
-                    ) ?? file
-                bloomLessons.append(
-                    (title, text)
-                )
+                let path = "\(repoRoot)/bloom"
+                    + "/\(dir)/\(file)"
+                if let text = try? String(
+                    contentsOfFile: path,
+                    encoding: .utf8
+                ) {
+                    let lines = text.components(
+                        separatedBy: "\n"
+                    )
+                    let title = lines.first?
+                        .replacingOccurrences(
+                            of: "# ", with: ""
+                        ) ?? file
+                    bloomLessons.append(
+                        (title, text)
+                    )
+                }
             }
         }
-
-        bloomLessons.append((
-            "--- Operational Guides ---",
-            "# Bloom Guides\n\n"
-                + "Four operational manuals "
-                + "for a food business using "
-                + "Grain as its record-keeping "
-                + "system.\n\n"
-                + "Use Next to read each one."
-        ))
-
-        let guidesDir =
-            "\(repoRoot)/bloom/guides"
-        let guideFiles = [
-            "farm-management.md",
-            "factory-operations.md",
-            "distribution-operations.md",
-            "staff-coordination.md",
-        ]
-        for file in guideFiles {
-            let path =
-                "\(guidesDir)/\(file)"
-            if let text = try? String(
-                contentsOfFile: path,
-                encoding: .utf8
-            ) {
-                let lines = text.components(
-                    separatedBy: "\n"
-                )
-                let title = lines.first?
-                    .replacingOccurrences(
-                        of: "# ", with: ""
-                    ) ?? file
-                bloomLessons.append(
-                    (title, text)
-                )
-            }
-        }
-
-        bloomLessons.append((
-            "--- Essays ---",
-            "# Bloom Essays\n\n"
-                + "Four essays on the ideas "
-                + "behind Grain's design "
-                + "choices.\n\n"
-                + "Use Next to read each one."
-        ))
-
-        let essaysDir =
-            "\(repoRoot)/bloom/essays"
-        let essayFiles = [
-            "why-personal-servers.md",
-            "right-to-repair-software.md",
-            "cooperative-networks.md",
-            "vortex-economics.md",
-        ]
-        for file in essayFiles {
-            let path =
-                "\(essaysDir)/\(file)"
-            if let text = try? String(
-                contentsOfFile: path,
-                encoding: .utf8
-            ) {
-                let lines = text.components(
-                    separatedBy: "\n"
-                )
-                let title = lines.first?
-                    .replacingOccurrences(
-                        of: "# ", with: ""
-                    ) ?? file
-                bloomLessons.append(
-                    (title, text)
-                )
-            }
-        }
-
-        bloomLessons.append((
-            "--- Terrarium Tutorials ---",
-            "# Terrarium Tutorials\n\n"
-                + "Four tutorials for the "
-                + "native macOS application.\n\n"
-                + "Use Next to read each one."
-        ))
-
-        let tutorialsDir =
-            "\(repoRoot)/bloom/terrarium-lessons"
-        let tutorialFiles = [
-            "launching-the-app.md",
-            "the-terminal-tab.md",
-            "the-dimeroll-dashboard.md",
-            "queries-and-mantra.md",
-        ]
-        for file in tutorialFiles {
-            let path =
-                "\(tutorialsDir)/\(file)"
-            if let text = try? String(
-                contentsOfFile: path,
-                encoding: .utf8
-            ) {
-                let lines = text.components(
-                    separatedBy: "\n"
-                )
-                let title = lines.first?
-                    .replacingOccurrences(
-                        of: "# ", with: ""
-                    ) ?? file
-                bloomLessons.append(
-                    (title, text)
-                )
-            }
-        }
-
-        bloomLessons.append((
-            "--- Network Demos ---",
-            "# Pond/Puddle Network Demos\n\n"
-                + "Nine walkthroughs exploring "
-                + "the 14-galaxy test network, "
-                + "identity, consensus, tokens, "
-                + "and social.\n\n"
-                + "Use Next to read each one."
-        ))
-
-        let demosDir =
-            "\(repoRoot)/bloom/demos"
-        let demoFiles = [
-            "galaxy-registry.md",
-            "pond-quickstart.md",
-            "kumara-identity.md",
-            "blake2s-sha3-evaluation.md",
-            "comlink-sessions.md",
-            "mycelium-consensus.md",
-            "mur-token-transfer.md",
-            "surf-social-design.md",
-            "surf-social-walkthrough.md",
-        ]
-        for file in demoFiles {
-            let path =
-                "\(demosDir)/\(file)"
-            if let text = try? String(
-                contentsOfFile: path,
-                encoding: .utf8
-            ) {
-                let lines = text.components(
-                    separatedBy: "\n"
-                )
-                let title = lines.first?
-                    .replacingOccurrences(
-                        of: "# ", with: ""
-                    ) ?? file
-                bloomLessons.append(
-                    (title, text)
-                )
-            }
-        }
-
         if bloomLessons.isEmpty {
             bloomLessons.append((
                 "No lessons found",
                 "Could not load curriculum from "
-                    + "\(dir)"
+                    + "\(repoRoot)/bloom"
             ))
         }
     }
