@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.121243 | [Sender witness GREEN, fence sweep, send](20261107/20261107-121243_sender-witness-fence-sweep-send.kyri.md) | 7 claims, tablecloth fence swept from 8 files, pushed |
 | 20261107.115538 | [Mantra SLC M11 -- Caravan-supervised UDP listener GREEN](20261107/20261107-115538_mantra-slc-m11-caravan-listener-green.kyri.md) | 6 claims, Tally Region bounded at 16384 bytes, Caravan supervised |
 | 20261107.112721 | [Mantra SLC M10 -- integration witness GREEN](20261107/20261107-112721_mantra-slc-m10-integration-green.kyri.md) | 24 pages from 4 galaxies, 25 claims, wire invisible to reader |
 | 20261107.111504 | [Checklist catch-up -- M4 through M9 landed](20261107/20261107-111504_checklist-catchup-m4-m9.kyri.md) | checklist updated to match 5 landed commits |
