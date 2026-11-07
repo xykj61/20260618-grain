@@ -20,6 +20,8 @@ import SkateCore
 
 // -- Configuration --------------------------------------------------
 
+let isInteractive = CommandLine.arguments.count <= 1
+
 let stage: String = CommandLine.arguments.count > 1
     ? CommandLine.arguments[1]
     : "hello"
@@ -1971,9 +1973,11 @@ class AppDelegate: NSObject,
                     "--- qemu exited "
                     + "(\(p.terminationStatus))"
                 )
-                self?.dumpAndExit(
-                    status: p.terminationStatus
-                )
+                if !isInteractive {
+                    self?.dumpAndExit(
+                        status: p.terminationStatus
+                    )
+                }
             }
         }
 
@@ -1986,19 +1990,21 @@ class AppDelegate: NSObject,
                 + "(pid \(proc.processIdentifier))"
             )
 
-            let timeout: Double =
-                isFramebufStage ? 20
-                : isMantraWireStage ? 30
-                : 10
-            DispatchQueue.global().asyncAfter(
-                deadline: .now() + timeout
-            ) { [weak self] in
-                if proc.isRunning {
-                    proc.terminate()
-                    DispatchQueue.main.async {
-                        self?.appendLine(
-                            "--- \(Int(timeout))s timeout"
-                        )
+            if !isInteractive {
+                let timeout: Double =
+                    isFramebufStage ? 20
+                    : isMantraWireStage ? 30
+                    : 10
+                DispatchQueue.global().asyncAfter(
+                    deadline: .now() + timeout
+                ) { [weak self] in
+                    if proc.isRunning {
+                        proc.terminate()
+                        DispatchQueue.main.async {
+                            self?.appendLine(
+                                "--- \(Int(timeout))s timeout"
+                            )
+                        }
                     }
                 }
             }
