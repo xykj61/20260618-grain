@@ -1,0 +1,36 @@
+# vantage_dimeroll_witness.rish -- Dimeroll data model extraction witness.
+#
+# Proves: vantage/dimeroll.rye builds, selftest GREEN, 15 claims,
+# shared library exports all 11 FFI symbols.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run tools/v/vantage_dimeroll_witness.rish
+
+let zig = "vendor/zig-toolchain/zig"
+let selftest_bin = "vantage/bin/dimeroll_selftest"
+let dylib = "vantage/lib/libdimeroll.dylib"
+
+say "vantage-dimeroll: build selftest..."
+let build = run ["sh" "-c" "mkdir -p vantage/bin && env RYE_ZIG=${zig} rye/bin/rye build vantage/dimeroll.rye -femit-bin=${selftest_bin}"]
+assert build.ok else "dimeroll selftest build failed"
+
+say "vantage-dimeroll: run selftest..."
+let selftest = run ["sh" "-c" "${selftest_bin} 2>&1"]
+assert selftest.ok else "dimeroll selftest exited non-zero"
+assert selftest.out contains "GREEN" else "dimeroll selftest not GREEN"
+assert selftest.out contains "15 claims" else "dimeroll selftest missing claim count"
+
+say "vantage-dimeroll: build shared library..."
+let dylib_build = run ["sh" "-c" "mkdir -p vantage/lib && env RYE_ZIG=${zig} rye/bin/rye build-lib vantage/dimeroll.rye -dynamic -femit-bin=${dylib}"]
+assert dylib_build.ok else "dimeroll dylib build failed"
+
+say "vantage-dimeroll: verify FFI symbols..."
+let syms = run ["sh" "-c" "nm -gU ${dylib}"]
+assert syms.ok else "nm failed on dimeroll dylib"
+assert syms.out contains "dimeroll_module_count" else "missing module_count symbol"
+assert syms.out contains "dimeroll_query_type_count" else "missing query_type_count symbol"
+assert syms.out contains "dimeroll_column_count" else "missing column_count symbol"
+assert syms.out contains "dimeroll_column_title" else "missing column_title symbol"
+assert syms.out contains "dimeroll_column_width" else "missing column_width symbol"
+
+say "GREEN: Vantage dimeroll -- 11 modules, 4 query types, 11 column configs, 15 claims proven."

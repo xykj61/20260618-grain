@@ -10,9 +10,11 @@
 //           -swift-version 6 skate/Sources/SkateCore/*.swift
 //         rye/bin/rye build-lib vantage/bloom.rye -dynamic \
 //           -femit-bin=vantage/lib/libbloom.dylib
+//         rye/bin/rye build-lib vantage/dimeroll.rye -dynamic \
+//           -femit-bin=vantage/lib/libdimeroll.dylib
 //         swiftc -I terrarium/.build -I vantage/include \
 //           -L terrarium/.build -L vantage/lib \
-//           -lSkateCore -lbloom \
+//           -lSkateCore -lbloom -ldimeroll \
 //           -o terrarium/.build/Terrarium terrarium/app/main.swift \
 //           -framework AppKit
 // Run:    DYLD_LIBRARY_PATH=terrarium/.build:vantage/lib \
@@ -24,6 +26,7 @@ import Darwin
 import Foundation
 import SkateCore
 import VantageBloom
+import VantageDimeroll
 
 // -- Configuration --------------------------------------------------
 
@@ -120,36 +123,25 @@ class AppDelegate: NSObject,
     var dimerollInLedgerTable: Bool = false
     var dimerollQueryTypePopUp: NSPopUpButton?
     var dimerollQueryParamField: NSTextField?
-    let dimerollQueryTypes: [(
+    var dimerollQueryTypes: [(
         String, String, String
-    )] = [
-        ("By Verb", "dimeroll_query_verb_g",
-         "sell"),
-        ("By Subject",
-         "dimeroll_query_subject_g",
-         "tomatoes"),
-        ("By Date", "dimeroll_query_date_g",
-         "2026-01-01"),
-        ("By Account",
-         "dimeroll_query_account_g",
-         "farm-main"),
-    ]
-    let dimerollModules: [(String, String)] = [
-        ("Dashboard", "dimeroll_dashboard"),
-        ("Transactions", "dimeroll_tx_g"),
-        ("Inventory", "dimeroll_inventory_g"),
-        ("Cash Flow", "dimeroll_cashflow_g"),
-        ("Ledger", "dimeroll_ledger_g"),
-        ("Seal", "dimeroll_seal_g"),
-        ("Price", "dimeroll_price_g"),
-        ("Query by Verb", "dimeroll_query_verb_g"),
-        ("Query by Subject",
-         "dimeroll_query_subject_g"),
-        ("Query by Date",
-         "dimeroll_query_date_g"),
-        ("Query by Account",
-         "dimeroll_query_account_g"),
-    ]
+    )] {
+        (0..<dimeroll_query_type_count()).map { i in
+            (
+                String(cString: dimeroll_query_type_label(i)),
+                String(cString: dimeroll_query_type_elf(i)),
+                String(cString: dimeroll_query_type_placeholder(i))
+            )
+        }
+    }
+    var dimerollModules: [(String, String)] {
+        (0..<dimeroll_module_count()).map { i in
+            (
+                String(cString: dimeroll_module_label(i)),
+                String(cString: dimeroll_module_elf(i))
+            )
+        }
+    }
     var nextTabId = 3
     var shortcutStatusLabel: NSTextField?
     var connectionLabel: NSTextField?
@@ -1818,105 +1810,26 @@ class AppDelegate: NSObject,
                 tbl.tableColumns[0]
             )
         }
-        let cols: [(String, String, CGFloat)]
-        if dimerollActiveElf
-            == "dimeroll_dashboard"
-        {
-            cols = [
-                ("Label", "label", 160),
-                ("Value", "value", 200),
-            ]
-        } else if dimerollActiveElf
-            == "dimeroll_inventory_g"
-        {
-            cols = [
-                ("Subject", "subject", 160),
-                ("On Hand", "qty", 100),
-            ]
-        } else if dimerollActiveElf
-            == "dimeroll_cashflow_g"
-        {
-            cols = [
-                ("Subject", "subject", 160),
-                ("Revenue", "revenue", 100),
-            ]
-        } else if dimerollActiveElf
-            == "dimeroll_ledger_g"
-        {
-            cols = [
-                ("#", "num", 40),
-                ("Verb", "verb", 80),
-                ("Subject", "subject", 100),
-                ("Qty", "qty", 70),
-                ("Price", "price", 70),
-                ("Total", "total", 80),
-            ]
-        } else if dimerollActiveElf
-            == "dimeroll_price_g"
-        {
-            cols = [
-                ("Item", "item", 80),
-                ("Calculation", "calc", 200),
-                ("Cents", "cents", 80),
-            ]
-        } else if dimerollActiveElf
-            == "dimeroll_seal_g"
-        {
-            cols = [
-                ("Field", "field", 120),
-                ("Value", "value", 200),
-            ]
-        } else if dimerollActiveElf
-            == "dimeroll_query_verb_g"
-        {
-            cols = [
-                ("#", "num", 40),
-                ("Subject", "col1", 100),
-                ("Qty", "col2", 70),
-                ("Unit", "col3", 70),
-                ("Price", "col4", 80),
-            ]
-        } else if dimerollActiveElf
-            == "dimeroll_query_subject_g"
-        {
-            cols = [
-                ("#", "num", 40),
-                ("Verb", "col1", 80),
-                ("Qty", "col2", 70),
-                ("Unit", "col3", 70),
-                ("Price", "col4", 80),
-            ]
-        } else if dimerollActiveElf
-            == "dimeroll_query_date_g"
-        {
-            cols = [
-                ("#", "num", 40),
-                ("Day", "col1", 100),
-                ("Verb", "col2", 80),
-                ("Subject", "col3", 100),
-                ("Qty", "col4", 70),
-            ]
-        } else if dimerollActiveElf
-            == "dimeroll_query_account_g"
-        {
-            cols = [
-                ("#", "num", 40),
-                ("Verb", "col1", 80),
-                ("Qty", "col2", 70),
-                ("Unit", "col3", 70),
-                ("Price", "col4", 80),
-            ]
-        } else {
-            cols = [
-                ("#", "num", 40),
-                ("Verb", "verb", 80),
-                ("Subject", "subject", 100),
-                ("Quantity", "qty", 80),
-                ("Price", "price", 80),
-                ("Unit", "unit", 70),
-            ]
-        }
-        for (title, ident, width) in cols {
+        let mi: UInt32 = {
+            let mods = dimerollModules
+            if let found = mods.firstIndex(
+                where: { $0.1 == dimerollActiveElf }
+            ) {
+                return UInt32(found)
+            }
+            return 1
+        }()
+        let cc = dimeroll_column_count(mi)
+        for ci: UInt32 in 0..<cc {
+            let title = String(
+                cString: dimeroll_column_title(mi, ci)
+            )
+            let ident = String(
+                cString: dimeroll_column_ident(mi, ci)
+            )
+            let width = CGFloat(
+                dimeroll_column_width(mi, ci)
+            )
             let col = NSTableColumn(
                 identifier:
                     NSUserInterfaceItemIdentifier(

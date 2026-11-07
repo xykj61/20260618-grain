@@ -1,0 +1,290 @@
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+// -- Dimeroll module manifest --
+// Each module is one view in the Dimeroll tab: a label
+// the user sees and the ELF binary QEMU launches.
+
+const Module = struct {
+    label: [*:0]const u8,
+    elf_name: [*:0]const u8,
+};
+
+const modules = [_]Module{
+    .{ .label = "Dashboard", .elf_name = "dimeroll_dashboard" },
+    .{ .label = "Transactions", .elf_name = "dimeroll_tx_g" },
+    .{ .label = "Inventory", .elf_name = "dimeroll_inventory_g" },
+    .{ .label = "Cash Flow", .elf_name = "dimeroll_cashflow_g" },
+    .{ .label = "Ledger", .elf_name = "dimeroll_ledger_g" },
+    .{ .label = "Seal", .elf_name = "dimeroll_seal_g" },
+    .{ .label = "Price", .elf_name = "dimeroll_price_g" },
+    .{ .label = "Query by Verb", .elf_name = "dimeroll_query_verb_g" },
+    .{ .label = "Query by Subject", .elf_name = "dimeroll_query_subject_g" },
+    .{ .label = "Query by Date", .elf_name = "dimeroll_query_date_g" },
+    .{ .label = "Query by Account", .elf_name = "dimeroll_query_account_g" },
+};
+
+// -- Query types --
+// Each query type maps to a specialized query ELF and
+// carries a placeholder hint for the parameter field.
+
+const QueryType = struct {
+    label: [*:0]const u8,
+    elf_name: [*:0]const u8,
+    placeholder: [*:0]const u8,
+};
+
+const query_types = [_]QueryType{
+    .{ .label = "By Verb", .elf_name = "dimeroll_query_verb_g", .placeholder = "sell" },
+    .{ .label = "By Subject", .elf_name = "dimeroll_query_subject_g", .placeholder = "tomatoes" },
+    .{ .label = "By Date", .elf_name = "dimeroll_query_date_g", .placeholder = "2026-01-01" },
+    .{ .label = "By Account", .elf_name = "dimeroll_query_account_g", .placeholder = "farm-main" },
+};
+
+// -- Column configurations --
+// Each module has its own table column layout. The index
+// into column_configs matches the index into modules.
+
+const Column = struct {
+    title: [*:0]const u8,
+    ident: [*:0]const u8,
+    width: u32,
+};
+
+const column_configs = [modules.len][]const Column{
+    // 0: Dashboard
+    &[_]Column{
+        .{ .title = "Label", .ident = "label", .width = 160 },
+        .{ .title = "Value", .ident = "value", .width = 200 },
+    },
+    // 1: Transactions (default layout)
+    &[_]Column{
+        .{ .title = "#", .ident = "num", .width = 40 },
+        .{ .title = "Verb", .ident = "verb", .width = 80 },
+        .{ .title = "Subject", .ident = "subject", .width = 100 },
+        .{ .title = "Quantity", .ident = "qty", .width = 80 },
+        .{ .title = "Price", .ident = "price", .width = 80 },
+        .{ .title = "Unit", .ident = "unit", .width = 70 },
+    },
+    // 2: Inventory
+    &[_]Column{
+        .{ .title = "Subject", .ident = "subject", .width = 160 },
+        .{ .title = "On Hand", .ident = "qty", .width = 100 },
+    },
+    // 3: Cash Flow
+    &[_]Column{
+        .{ .title = "Subject", .ident = "subject", .width = 160 },
+        .{ .title = "Revenue", .ident = "revenue", .width = 100 },
+    },
+    // 4: Ledger
+    &[_]Column{
+        .{ .title = "#", .ident = "num", .width = 40 },
+        .{ .title = "Verb", .ident = "verb", .width = 80 },
+        .{ .title = "Subject", .ident = "subject", .width = 100 },
+        .{ .title = "Qty", .ident = "qty", .width = 70 },
+        .{ .title = "Price", .ident = "price", .width = 70 },
+        .{ .title = "Total", .ident = "total", .width = 80 },
+    },
+    // 5: Seal
+    &[_]Column{
+        .{ .title = "Field", .ident = "field", .width = 120 },
+        .{ .title = "Value", .ident = "value", .width = 200 },
+    },
+    // 6: Price
+    &[_]Column{
+        .{ .title = "Item", .ident = "item", .width = 80 },
+        .{ .title = "Calculation", .ident = "calc", .width = 200 },
+        .{ .title = "Cents", .ident = "cents", .width = 80 },
+    },
+    // 7: Query by Verb
+    &[_]Column{
+        .{ .title = "#", .ident = "num", .width = 40 },
+        .{ .title = "Subject", .ident = "col1", .width = 100 },
+        .{ .title = "Qty", .ident = "col2", .width = 70 },
+        .{ .title = "Unit", .ident = "col3", .width = 70 },
+        .{ .title = "Price", .ident = "col4", .width = 80 },
+    },
+    // 8: Query by Subject
+    &[_]Column{
+        .{ .title = "#", .ident = "num", .width = 40 },
+        .{ .title = "Verb", .ident = "col1", .width = 80 },
+        .{ .title = "Qty", .ident = "col2", .width = 70 },
+        .{ .title = "Unit", .ident = "col3", .width = 70 },
+        .{ .title = "Price", .ident = "col4", .width = 80 },
+    },
+    // 9: Query by Date
+    &[_]Column{
+        .{ .title = "#", .ident = "num", .width = 40 },
+        .{ .title = "Day", .ident = "col1", .width = 100 },
+        .{ .title = "Verb", .ident = "col2", .width = 80 },
+        .{ .title = "Subject", .ident = "col3", .width = 100 },
+        .{ .title = "Qty", .ident = "col4", .width = 70 },
+    },
+    // 10: Query by Account
+    &[_]Column{
+        .{ .title = "#", .ident = "num", .width = 40 },
+        .{ .title = "Verb", .ident = "col1", .width = 80 },
+        .{ .title = "Qty", .ident = "col2", .width = 70 },
+        .{ .title = "Unit", .ident = "col3", .width = 70 },
+        .{ .title = "Price", .ident = "col4", .width = 80 },
+    },
+};
+
+// -- empty sentinel for out-of-bounds returns --
+const empty: [*:0]const u8 = "";
+
+// ---- FFI exports: modules ----
+
+export fn dimeroll_module_count() callconv(.c) u32 {
+    return modules.len;
+}
+
+export fn dimeroll_module_label(
+    index: u32,
+) callconv(.c) [*:0]const u8 {
+    if (index >= modules.len) return empty;
+    return modules[index].label;
+}
+
+export fn dimeroll_module_elf(
+    index: u32,
+) callconv(.c) [*:0]const u8 {
+    if (index >= modules.len) return empty;
+    return modules[index].elf_name;
+}
+
+// ---- FFI exports: query types ----
+
+export fn dimeroll_query_type_count() callconv(.c) u32 {
+    return query_types.len;
+}
+
+export fn dimeroll_query_type_label(
+    index: u32,
+) callconv(.c) [*:0]const u8 {
+    if (index >= query_types.len) return empty;
+    return query_types[index].label;
+}
+
+export fn dimeroll_query_type_elf(
+    index: u32,
+) callconv(.c) [*:0]const u8 {
+    if (index >= query_types.len) return empty;
+    return query_types[index].elf_name;
+}
+
+export fn dimeroll_query_type_placeholder(
+    index: u32,
+) callconv(.c) [*:0]const u8 {
+    if (index >= query_types.len) return empty;
+    return query_types[index].placeholder;
+}
+
+// ---- FFI exports: column configurations ----
+
+export fn dimeroll_column_count(
+    module_index: u32,
+) callconv(.c) u32 {
+    if (module_index >= modules.len) return 0;
+    return @intCast(
+        column_configs[module_index].len,
+    );
+}
+
+export fn dimeroll_column_title(
+    module_index: u32,
+    col_index: u32,
+) callconv(.c) [*:0]const u8 {
+    if (module_index >= modules.len) return empty;
+    const cols = column_configs[module_index];
+    if (col_index >= cols.len) return empty;
+    return cols[col_index].title;
+}
+
+export fn dimeroll_column_ident(
+    module_index: u32,
+    col_index: u32,
+) callconv(.c) [*:0]const u8 {
+    if (module_index >= modules.len) return empty;
+    const cols = column_configs[module_index];
+    if (col_index >= cols.len) return empty;
+    return cols[col_index].ident;
+}
+
+export fn dimeroll_column_width(
+    module_index: u32,
+    col_index: u32,
+) callconv(.c) u32 {
+    if (module_index >= modules.len) return 0;
+    const cols = column_configs[module_index];
+    if (col_index >= cols.len) return 0;
+    return cols[col_index].width;
+}
+
+// ---- selftest ----
+
+pub fn main(init: std.process.Init) !u8 {
+    _ = init;
+
+    // invariant: module count matches manifest
+    assert(dimeroll_module_count() == 11);
+
+    // invariant: query type count matches manifest
+    assert(dimeroll_query_type_count() == 4);
+
+    // invariant: first module is Dashboard
+    const label0 = dimeroll_module_label(0);
+    assert(std.mem.orderZ(u8, label0, "Dashboard") == .eq);
+    const elf0 = dimeroll_module_elf(0);
+    assert(std.mem.orderZ(u8, elf0, "dimeroll_dashboard") == .eq);
+
+    // invariant: last module is Query by Account
+    const label10 = dimeroll_module_label(10);
+    assert(std.mem.orderZ(u8, label10, "Query by Account") == .eq);
+
+    // invariant: out-of-bounds returns empty
+    const oob = dimeroll_module_label(99);
+    assert(std.mem.orderZ(u8, oob, "") == .eq);
+
+    // invariant: first query type is By Verb with sell
+    const ql0 = dimeroll_query_type_label(0);
+    assert(std.mem.orderZ(u8, ql0, "By Verb") == .eq);
+    const qp0 = dimeroll_query_type_placeholder(0);
+    assert(std.mem.orderZ(u8, qp0, "sell") == .eq);
+
+    // invariant: last query type is By Account
+    const ql3 = dimeroll_query_type_label(3);
+    assert(std.mem.orderZ(u8, ql3, "By Account") == .eq);
+
+    // invariant: Dashboard has 2 columns
+    assert(dimeroll_column_count(0) == 2);
+    const ct00 = dimeroll_column_title(0, 0);
+    assert(std.mem.orderZ(u8, ct00, "Label") == .eq);
+    const ci00 = dimeroll_column_ident(0, 0);
+    assert(std.mem.orderZ(u8, ci00, "label") == .eq);
+    assert(dimeroll_column_width(0, 0) == 160);
+
+    // invariant: Transactions has 6 columns (max)
+    assert(dimeroll_column_count(1) == 6);
+
+    // invariant: Ledger has 6 columns
+    assert(dimeroll_column_count(4) == 6);
+    const ct40 = dimeroll_column_title(4, 0);
+    assert(std.mem.orderZ(u8, ct40, "#") == .eq);
+    const ct45 = dimeroll_column_title(4, 5);
+    assert(std.mem.orderZ(u8, ct45, "Total") == .eq);
+
+    // invariant: Price has 3 columns
+    assert(dimeroll_column_count(6) == 3);
+
+    // invariant: out-of-bounds module returns 0
+    assert(dimeroll_column_count(99) == 0);
+
+    // invariant: out-of-bounds column returns empty
+    const oob_col = dimeroll_column_title(0, 99);
+    assert(std.mem.orderZ(u8, oob_col, "") == .eq);
+
+    print("dimeroll_selftest GREEN -- 15 claims\n", .{});
+    return 0;
+}

@@ -2,3 +2,8 @@ module VantageBloom {
     header "vantage_bloom.h"
     export *
 }
+
+module VantageDimeroll {
+    header "vantage_dimeroll.h"
+    export *
+}
