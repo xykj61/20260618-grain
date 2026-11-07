@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.133406 | [Realidream witness GREEN](20261107/20261107-133406_realidream-witness-green.kyri.md) | 47 pages across 8 galaxies, 48 claims, Mantra SLC complete |
 | 20261107.125250 | [Remaining bolt witness GREEN](20261107/20261107-125250_remaining-bolt-witness-green.kyri.md) | 25 pages across 4 galaxies, 262 resins, 509 beads, 12 stranger pairs |
 | 20261107.124005 | [M13 -- QEMU content wire GREEN](20261107/20261107-124005_m13-qemu-content-wire-green.kyri.md) | 3 claims: djb2-verified curriculum, guides, 404 refusal over UART wire |
 | 20261107.121814 | [M13 scoping -- QEMU content wire protocol design](20261107/20261107-121814_m13-qemu-content-wire-scoping.kyri.md) | UART relay approach, check-in before building |
