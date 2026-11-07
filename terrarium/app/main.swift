@@ -1012,6 +1012,82 @@ class AppDelegate: NSObject,
             }
         }
 
+        bloomLessons.append((
+            "--- Ecology ---",
+            "# Bloom Ecology\n\n"
+                + "The following pages explore "
+                + "the ecological foundation "
+                + "that gives Grain its purpose."
+                + "\n\nUse Next to read each one."
+        ))
+
+        let ecologyDir =
+            "\(repoRoot)/bloom/ecology"
+        let ecologyFiles = [
+            "whole-system-farming.md",
+            "biocyclic-vegan-principles.md",
+            "energy-and-fuel.md",
+            "water-and-stewardship.md",
+            "materials-and-supply-chain.md",
+            "rail-infrastructure.md",
+        ]
+        for file in ecologyFiles {
+            let path =
+                "\(ecologyDir)/\(file)"
+            if let text = try? String(
+                contentsOfFile: path,
+                encoding: .utf8
+            ) {
+                let lines = text.components(
+                    separatedBy: "\n"
+                )
+                let title = lines.first?
+                    .replacingOccurrences(
+                        of: "# ", with: ""
+                    ) ?? file
+                bloomLessons.append(
+                    (title, text)
+                )
+            }
+        }
+
+        bloomLessons.append((
+            "--- Operational Guides ---",
+            "# Bloom Guides\n\n"
+                + "Three operational manuals "
+                + "for a food business using "
+                + "Grain as its record-keeping "
+                + "system.\n\n"
+                + "Use Next to read each one."
+        ))
+
+        let guidesDir =
+            "\(repoRoot)/bloom/guides"
+        let guideFiles = [
+            "farm-management.md",
+            "factory-operations.md",
+            "distribution-operations.md",
+        ]
+        for file in guideFiles {
+            let path =
+                "\(guidesDir)/\(file)"
+            if let text = try? String(
+                contentsOfFile: path,
+                encoding: .utf8
+            ) {
+                let lines = text.components(
+                    separatedBy: "\n"
+                )
+                let title = lines.first?
+                    .replacingOccurrences(
+                        of: "# ", with: ""
+                    ) ?? file
+                bloomLessons.append(
+                    (title, text)
+                )
+            }
+        }
+
         if bloomLessons.isEmpty {
             bloomLessons.append((
                 "No lessons found",

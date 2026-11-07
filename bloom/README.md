@@ -17,8 +17,8 @@ and this platform exists to create those conditions for every learner who arrive
 bloom/
   curriculum/     Ten teaching stages, from first principles to technical vision
   ecology/        Whole-system ecology, biocyclic vegan agriculture, water and soil
-  civic/          Organizational manuals -- farm, factory, distribution, coordination
-  lineage/        Six design principles from Grain's own lineage
+  guides/         Operational manuals -- farm, factory, distribution
+  lineage/        Seven design principles from Grain's own lineage
   demos/          Live Pond/Puddle test network walkthroughs
   terrarium-lessons/  GUI tutorials for the native Terrarium application
   assets/         The Guardian Dragon logo and shared artwork

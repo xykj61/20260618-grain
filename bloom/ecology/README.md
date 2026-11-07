@@ -18,6 +18,12 @@ is for.
   energy a small farm can produce for itself
 - [Water and stewardship](water-and-stewardship.md) -- closed-loop water
   systems, constructed wetlands, responsible irrigation
+- [Biocyclic vegan principles](biocyclic-vegan-principles.md) -- the
+  international standard, humus soil, plant-based fertility
+- [Materials and supply chain](materials-and-supply-chain.md) -- what a
+  farm buys and sells, traceability, inventory
+- [Rail infrastructure](rail-infrastructure.md) -- efficient food
+  transport, regional short lines, shared records
 
 ## How these pages relate to the curriculum
 
