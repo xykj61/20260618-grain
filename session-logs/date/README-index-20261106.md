@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.211355 | [Bloom lessons tab in Terrarium -- Movement 5](20261106/20261106-211355_bloom-lessons-tab-movement5.kyri.md) | focusBloom with nav, dark green, three curriculum stages navigable |
 | 20261106.205949 | [Bloom synthesis and hash corrections](20261106/20261106-205949_bloom-synthesis-and-corrections.kyri.md) | repoint CHECKLIST to definitive plan, correct blake2b to Blake2s/SHA3 |
 | 20261106.205233 | [Bloom onboarding platform -- M1 expanding-prompt and tablecloth board](20261106/20261106-205233_bloom-onboarding-platform-m1.kyri.md) | vision plan, 30-movement journey, bloom/ allow-back, blake2b fix |
 | 20261106.205049 | [Bloom educational ecosystem -- Movements 1-4 landed](20261106/20261106-205049_bloom-educational-ecosystem-movements-1-4.kyri.md) | expanding-prompt, bloom/ front door, three curriculum stages siloed from Guardian Dragon school |
