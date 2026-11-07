@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.213121 | [Bloom Act I send -- 17 files, Movements 5-15 shipped](20261106/20261106-213121_bloom-act-i-send.kyri.md) | single-clone send, nib bd878c8ac0, fast-forward to 58490cb93 |
 | 20261106.212545 | [Bloom Act I complete -- ten curriculum stages, three ecology pages](20261106/20261106-212545_bloom-act-i-complete.kyri.md) | M11-M15: Stages 8-10, ecology room, Act I integration witness |
 | 20261106.211355 | [Bloom lessons tab in Terrarium -- Movement 5](20261106/20261106-211355_bloom-lessons-tab-movement5.kyri.md) | focusBloom with nav, dark green, three curriculum stages navigable |
 | 20261106.205949 | [Bloom synthesis and hash corrections](20261106/20261106-205949_bloom-synthesis-and-corrections.kyri.md) | repoint CHECKLIST to definitive plan, correct blake2b to Blake2s/SHA3 |
