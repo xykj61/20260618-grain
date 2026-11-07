@@ -2,6 +2,9 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.161353 | [FrameGridView extraction -- multi-file build GREEN](20261107/20261107-161353_framegridview-extraction-build-green.kyri.md) | 394 lines extracted, *.swift glob build proven |
+| 20261107.155516 | [main.swift static data extraction survey complete](20261107/20261107-155516_main-swift-extraction-survey-complete.kyri.md) | Full 3,530-line scan -- Bloom and Dimeroll were the two major clusters, both extracted |
+| 20261107.154107 | [Dimeroll FFI bridge wired into Terrarium](20261107/20261107-154107_dimeroll-ffi-bridge-wired.kyri.md) | 129 lines replaced with 42-line FFI version, full build GREEN |
 | 20261107.151749 | [Bloom FFI bridge wired into Terrarium](20261107/20261107-151749_bloom-ffi-bridge-wired.kyri.md) | 270-line loadBloomLessons() replaced with 45-line FFI version, full build GREEN |
 | 20261107.145431 | [Vantage bloom extraction -- selftest GREEN, 15 claims](20261107/20261107-145431_vantage-bloom-extract-green.kyri.md) | Bloom data model extracted from main.swift into vantage/bloom.rye, witness GREEN |
 | 20261107.143845 | [Vantage RFC approved -- all seven seated, send](20261107/20261107-143845_vantage-rfc-approved-send.kyri.md) | All 7 recommendations approved on Keaton's word, 75-movement journey seated |
