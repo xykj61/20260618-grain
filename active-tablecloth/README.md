@@ -32,3 +32,13 @@ what is next, and works from there.
 | [`20261104-161857_terrarium-boot-journey/`](20261104-161857_terrarium-boot-journey/README.md) | Terrarium Boot Journey -- From a Cold Hart to a Living World Under Glass | Complete |
 | [`20261105-085747_mantrapod-rv64g-journey/`](20261105-085747_mantrapod-rv64g-journey/README.md) | Mantrapod RV64G Journey -- From a Working Hart to a Living Server | Active |
 | [`20261106-131535_realidream-composition-journey/`](20261106-131535_realidream-composition-journey/README.md) | Realidream Composition Journey -- From Proven Pieces to One Living Surface | Active |
+| [`20261106-204953_bloom-onboarding-journey/`](20261106-204953_bloom-onboarding-journey/README.md) | Bloom Onboarding Journey -- 15 open movements remain | Active |
+| [`20261107-090000_mantra-slc-comlink-realidream/`](20261107-090000_mantra-slc-comlink-realidream/README.md) | Mantra SLC -- Comlink Realidream Content Network | Active -- TOP of Calfive stack |
+
+## Folding convention
+
+When this room approaches the 256 flat-entry bound, it folds by month into
+`date/YYYYMM/`, e.g. `active-tablecloth/date/202611/20261103-005948_lotus-working-studio/`.
+Monthly grouping matches the rate new SLC projects start -- roughly one to three per month --
+and the basename stays globally unique per the stamp-and-name law. At 8 entries today, the fold
+waits for its own day rather than running ahead of need.

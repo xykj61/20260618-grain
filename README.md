@@ -288,6 +288,10 @@ one reason: **thinking and building are filed separately, so each has space to b
   round, planning a lap, recording what a survey found. Notes about *what we did*.
   One question sorts the two: *would this still be worth reading if the code it describes were
   deleted?* Yes goes to designing, otherwise to development.
+- **[`active-tablecloth/`](active-tablecloth/)** -- project boards for living work. Each board
+  carries a checklist, progress log, and links so a new session picks up the work cold. The
+  Calfive stack lives here: Mantra SLC at the top, Bloom onboarding behind it, Mantrapod and
+  Lotus waiting on their horizons.
 - **[`docs-geode/`](docs-geode/)** -- the shipped documentation shelf, and an ambition we are
   growing into. A geode is plain outside and crystalline within, and that is the aim: a reference
   that rewards cracking open. It holds the
