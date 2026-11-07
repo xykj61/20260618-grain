@@ -946,6 +946,13 @@ class AppDelegate: NSObject,
             "stage-01-meeting-the-dragons.md",
             "stage-02-roots-and-trees.md",
             "stage-03-memory-as-garden.md",
+            "stage-04-orchestra-of-processes.md",
+            "stage-05-garden-of-files.md",
+            "stage-06-rivers-of-networks.md",
+            "stage-07-treasure-of-identity.md",
+            "stage-08-ecology-and-stewardship.md",
+            "stage-09-right-to-repair.md",
+            "stage-10-the-technical-vision.md",
         ]
         bloomLessons = []
         for file in files {
