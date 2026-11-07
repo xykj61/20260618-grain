@@ -1,0 +1,296 @@
+//! comlink/content_request_response_witness.rye -- proves a content
+//! request crosses localhost UDP and returns the correct resin bytes
+//! with a matching SHA3-256 digest.
+//!
+//!   rye build comlink/content_request_response_witness.rye \
+//!       -lc -femit-bin=comlink/bin/content-request-response-witness
+//!   comlink/bin/content-request-response-witness
+//!
+//! Movement 8 of the Mantra SLC expanding prompt. Three claims:
+//!   1. ~sunflower serves a curriculum page over localhost UDP.
+//!   2. ~siya receives the page bytes, and the content matches.
+//!   3. The SHA3-256 digest of the received bytes matches an
+//!      independent computation over the original content.
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+const c_std = std.c;
+const cr = @import("content_request.rye");
+const kumara = @import("kumara.rye");
+const Sha3_256 = std.crypto.hash.sha3.Sha3_256;
+
+const witness_version = "20261107.120000";
+
+// -- Network constants --
+
+const AF_INET: c_uint = 2;
+const SOCK_DGRAM: c_uint = 2;
+const SOL_SOCKET: c_int = c_std.SOL.SOCKET;
+const SO_REUSEADDR: c_int = c_std.SO.REUSEADDR;
+
+// invariant: port distinct from hosted_wire's 38472
+const content_port: u16 = 38480;
+
+const sockaddr_in = c_std.sockaddr.in;
+
+fn localhost_addr(port: u16) sockaddr_in {
+    return .{
+        .port = std.mem.nativeToBig(u16, port),
+        .addr = @bitCast([4]u8{ 127, 0, 0, 1 }),
+    };
+}
+
+fn open_socket() !c_std.fd_t {
+    const fd = c_std.socket(AF_INET, SOCK_DGRAM, 0);
+    if (fd < 0) return error.SocketFailed;
+    const yes: c_int = 1;
+    if (c_std.setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, &yes, @sizeOf(c_int)) < 0) {
+        _ = c_std.close(fd);
+        return error.SetSockOptFailed;
+    }
+    return fd;
+}
+
+// -- Fixture data --
+
+// invariant: seed is a fixture, not a production key
+const siya_seed = [_]u8{
+    0xa1, 0xb2, 0xc3, 0xd4, 0xe5, 0xf6, 0x07, 0x18,
+    0x29, 0x3a, 0x4b, 0x5c, 0x6d, 0x7e, 0x8f, 0x90,
+    0x01, 0x12, 0x23, 0x34, 0x45, 0x56, 0x67, 0x78,
+    0x89, 0x9a, 0xab, 0xbc, 0xcd, 0xde, 0xef, 0xf0,
+};
+
+const curriculum_bolt = "bloom-curriculum";
+const curriculum_path = "stage-01";
+const curriculum_revision: u32 = 1;
+
+// invariant: page content fits in one resin (under 512 bytes)
+const page_content =
+    \\# Stage 1 -- Meeting the Dragons
+    \\
+    \\Welcome to the first lesson. A dragon in Grain is a module
+    \\that remembers every fact a grower records. Each dragon
+    \\carries a bolt -- a named, versioned collection of pages.
+    \\
+    \\The curriculum bolt holds ten stages, each a single page.
+    \\This is stage one.
+;
+
+// -- Server: serve one request from ~sunflower's catalog --
+
+fn run_serve() !u8 {
+    const fd = try open_socket();
+    defer _ = c_std.close(fd);
+
+    var bind_addr = localhost_addr(content_port);
+    if (c_std.bind(fd, @ptrCast(&bind_addr), @sizeOf(sockaddr_in)) < 0) {
+        return error.BindFailed;
+    }
+
+    // Wait for one request
+    var req_buf: [cr.max_request_bytes]u8 = undefined;
+    var from: sockaddr_in = undefined;
+    var from_len: c_std.socklen_t = @sizeOf(sockaddr_in);
+    const n = c_std.recvfrom(
+        fd,
+        &req_buf,
+        cr.max_request_bytes,
+        0,
+        @ptrCast(&from),
+        &from_len,
+    );
+    if (n < 0) return error.RecvFailed;
+    const req_len: u32 = @intCast(n);
+
+    // Decode the request
+    const req = cr.decode_request(req_buf[0..req_len]) catch {
+        // Send a never response for malformed requests
+        var resp_buf: [cr.max_response_bytes]u8 = undefined;
+        const resp_len = try cr.encode_response(.{
+            .status = cr.status_never,
+            .payload = "",
+        }, &resp_buf);
+        _ = c_std.sendto(
+            fd,
+            &resp_buf,
+            resp_len,
+            0,
+            @ptrCast(&from),
+            @sizeOf(sockaddr_in),
+        );
+        return 1;
+    };
+
+    // Look up in our catalog (simple: we serve one bolt, one path)
+    var status: u8 = cr.status_never;
+    var payload: []const u8 = "";
+
+    if (std.mem.eql(u8, req.bolt, curriculum_bolt) and
+        req.revision == curriculum_revision and
+        std.mem.eql(u8, req.path, curriculum_path))
+    {
+        status = cr.status_ok;
+        payload = page_content;
+    } else if (std.mem.eql(u8, req.bolt, curriculum_bolt) and
+        req.revision == 1)
+    {
+        // Known bolt, unknown path
+        status = cr.status_not_yet;
+    }
+
+    // invariant: payload fits the response bound
+    assert(payload.len <= cr.max_payload_bytes);
+
+    var resp_buf: [cr.max_response_bytes]u8 = undefined;
+    const resp_len = try cr.encode_response(.{
+        .status = status,
+        .payload = payload,
+    }, &resp_buf);
+
+    const sent = c_std.sendto(
+        fd,
+        &resp_buf,
+        resp_len,
+        0,
+        @ptrCast(&from),
+        @sizeOf(sockaddr_in),
+    );
+    if (sent < 0) return error.SendFailed;
+
+    print("  serve: responded with {d} bytes, status={d}\n", .{ resp_len, status });
+    return 0;
+}
+
+// -- Client: request one page from ~sunflower --
+
+fn run_request() !u8 {
+    const fd = try open_socket();
+    defer _ = c_std.close(fd);
+
+    const kp = kumara.keypair_from_seed(&siya_seed);
+    const pubkey_bytes = kp.public_key.toBytes();
+
+    const req = cr.ContentRequest{
+        .sender_pubkey = pubkey_bytes,
+        .bolt = curriculum_bolt,
+        .revision = curriculum_revision,
+        .path = curriculum_path,
+    };
+
+    var req_buf: [cr.max_request_bytes]u8 = undefined;
+    const req_len = try cr.encode_request(req, &req_buf);
+
+    const dest = localhost_addr(content_port);
+    const sent = c_std.sendto(
+        fd,
+        &req_buf,
+        req_len,
+        0,
+        @ptrCast(&dest),
+        @sizeOf(sockaddr_in),
+    );
+    if (sent < 0 or @as(u32, @intCast(sent)) != req_len) return error.SendFailed;
+
+    // Receive response
+    var resp_buf: [cr.max_response_bytes]u8 = undefined;
+    var from: sockaddr_in = undefined;
+    var from_len: c_std.socklen_t = @sizeOf(sockaddr_in);
+    const n = c_std.recvfrom(
+        fd,
+        &resp_buf,
+        cr.max_response_bytes,
+        0,
+        @ptrCast(&from),
+        &from_len,
+    );
+    if (n < 0) return error.RecvFailed;
+    const resp_len: u32 = @intCast(n);
+
+    const resp = try cr.decode_response(resp_buf[0..resp_len]);
+
+    // invariant: response is ok
+    assert(resp.status == cr.status_ok);
+    // invariant: payload matches page content byte for byte
+    assert(resp.payload.len == page_content.len);
+    assert(std.mem.eql(u8, resp.payload, page_content));
+
+    // Prove SHA3-256 digest
+    var received_digest: [32]u8 = undefined;
+    Sha3_256.hash(resp.payload, &received_digest, .{});
+    var expected_digest: [32]u8 = undefined;
+    Sha3_256.hash(page_content, &expected_digest, .{});
+    assert(std.mem.eql(u8, received_digest[0..32], expected_digest[0..32]));
+
+    print("  request: received {d} bytes, SHA3-256 verified\n", .{resp.payload.len});
+    return 0;
+}
+
+// -- Demo: spawn server then client, prove both green --
+
+fn run_demo(allocator: std.mem.Allocator, io: std.Io, self_path: []const u8) !u8 {
+    const serve_argv = try allocator.alloc([]const u8, 2);
+    serve_argv[0] = self_path;
+    serve_argv[1] = "serve";
+
+    var serve_child = try std.process.spawn(io, .{ .argv = serve_argv });
+
+    // Brief pause so server binds before client sends
+    var pause = c_std.timespec{ .sec = 0, .nsec = 50_000_000 };
+    _ = c_std.nanosleep(&pause, null);
+
+    const request_argv = try allocator.alloc([]const u8, 2);
+    request_argv[0] = self_path;
+    request_argv[1] = "request";
+
+    var request_child = try std.process.spawn(io, .{ .argv = request_argv });
+
+    const serve_term = try serve_child.wait(io);
+    const request_term = try request_child.wait(io);
+
+    const serve_code: u8 = switch (serve_term) {
+        .exited => |code| code,
+        else => 255,
+    };
+    const request_code: u8 = switch (request_term) {
+        .exited => |code| code,
+        else => 255,
+    };
+
+    // -- Claim 1: server exited cleanly
+    assert(serve_code == 0);
+    print("  claim 1: ~sunflower served curriculum page over localhost UDP -- ok\n", .{});
+
+    // -- Claim 2: client received correct content
+    assert(request_code == 0);
+    print("  claim 2: ~siya received page bytes, content matches -- ok\n", .{});
+
+    // -- Claim 3: digest proven (inside request process, but we verify exit 0)
+    print("  claim 3: SHA3-256 digest of received bytes matches -- ok\n", .{});
+
+    print(
+        "content-request-response-witness: version {s}\n",
+        .{witness_version},
+    );
+    print(
+        "GREEN: ~siya requested stage-01 from ~sunflower over localhost" ++
+            " UDP, received {d} bytes, SHA3-256 verified.\n",
+        .{page_content.len},
+    );
+    return 0;
+}
+
+pub fn main(init: std.process.Init) !u8 {
+    const garden = init.arena.allocator();
+    const io = init.io;
+    const args = try init.minimal.args.toSlice(garden);
+
+    if (args.len >= 2) {
+        if (std.mem.eql(u8, args[1], "serve")) return run_serve();
+        if (std.mem.eql(u8, args[1], "request")) return run_request();
+    }
+
+    if (args.len >= 1) return run_demo(garden, io, args[0]);
+    return 1;
+}
