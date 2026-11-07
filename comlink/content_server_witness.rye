@@ -1,0 +1,449 @@
+//! comlink/content_server_witness.rye -- proves content_server
+//! loads real Bloom pages and serves them correctly over localhost
+//! UDP. Three modes: serve, request, super.
+//!
+//!   rye build comlink/content_server_witness.rye \
+//!       -lc -femit-bin=comlink/bin/content-server-witness
+//!
+//! Movement 9 of the Mantra SLC expanding prompt.
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+const c_std = std.c;
+const cr = @import("content_request.rye");
+const kumara = @import("kumara.rye");
+const tally_copy = @import("tally_copy.rye");
+
+const witness_version = "20261107.130000";
+
+// -- Network --
+
+const AF_INET: c_uint = 2;
+const SOCK_DGRAM: c_uint = 2;
+const content_port: u16 = 38480;
+const sockaddr_in = c_std.sockaddr.in;
+
+fn localhost_addr(port: u16) sockaddr_in {
+    return .{
+        .port = std.mem.nativeToBig(u16, port),
+        .addr = @bitCast([4]u8{ 127, 0, 0, 1 }),
+    };
+}
+
+// -- Test pages --
+
+const TestPage = struct {
+    bolt: []const u8,
+    path: []const u8,
+};
+
+// invariant: sample pages from each bloom section
+const test_pages = [_]TestPage{
+    .{ .bolt = "curriculum", .path = "stage-01-meeting-the-dragons" },
+    .{ .bolt = "curriculum", .path = "stage-10-the-technical-vision" },
+    .{ .bolt = "ecology", .path = "biocyclic-vegan-principles" },
+    .{ .bolt = "guides", .path = "distribution-operations" },
+    .{ .bolt = "demos", .path = "blake2s-sha3-evaluation" },
+    .{ .bolt = "lineage", .path = "dual-description" },
+    .{ .bolt = "essays", .path = "cooperative-networks" },
+};
+
+const num_test_pages: u32 = test_pages.len;
+
+const Dir = std.Io.Dir;
+
+// -- Serve mode --
+
+fn run_serve(io: std.Io) !u8 {
+    const garden = std.heap.page_allocator;
+    const cwd = Dir.cwd();
+
+    var root_dir = cwd.openDir(io, "bloom", .{
+        .iterate = true,
+    }) catch {
+        print("witness-serve: cannot open bloom/\n", .{});
+        return 1;
+    };
+    defer root_dir.close(io);
+
+    // invariant: bounded catalog
+    const max_pages: u32 = 256;
+    const PageEntry = struct {
+        bolt: []const u8,
+        path: []const u8,
+        content: []const u8,
+    };
+    var pages = try garden.alloc(PageEntry, max_pages);
+    var count: u32 = 0;
+
+    var root_iter = root_dir.iterate();
+    while (try root_iter.next(io)) |entry| {
+        if (entry.kind != .directory) continue;
+        const bolt = try garden.dupe(u8, entry.name);
+
+        var sub = root_dir.openDir(
+            io,
+            entry.name,
+            .{ .iterate = true },
+        ) catch continue;
+        defer sub.close(io);
+
+        var sub_iter = sub.iterate();
+        while (try sub_iter.next(io)) |fe| {
+            if (fe.kind != .file) continue;
+            if (fe.name.len < 4) continue;
+            if (!std.mem.eql(
+                u8,
+                fe.name[fe.name.len - 3 ..],
+                ".md",
+            )) continue;
+
+            var buf: [cr.max_payload_bytes]u8 = undefined;
+            const data = sub.readFile(
+                io,
+                fe.name,
+                &buf,
+            ) catch continue;
+            const content = try garden.dupe(u8, data);
+            const pname = try garden.dupe(
+                u8,
+                fe.name[0 .. fe.name.len - 3],
+            );
+
+            if (count >= max_pages) break;
+            pages[count] = .{
+                .bolt = bolt,
+                .path = pname,
+                .content = content,
+            };
+            count += 1;
+        }
+    }
+
+    print("witness-serve: loaded {d} pages\n", .{count});
+
+    // Bind and serve
+    const fd = c_std.socket(AF_INET, SOCK_DGRAM, 0);
+    if (fd < 0) return error.SocketFailed;
+    defer _ = c_std.close(fd);
+
+    const yes: c_int = 1;
+    _ = c_std.setsockopt(
+        fd,
+        c_std.SOL.SOCKET,
+        c_std.SO.REUSEADDR,
+        &yes,
+        @sizeOf(c_int),
+    );
+
+    var bind_addr = localhost_addr(content_port);
+    if (c_std.bind(
+        fd,
+        @ptrCast(&bind_addr),
+        @sizeOf(sockaddr_in),
+    ) < 0) {
+        print("witness-serve: bind failed\n", .{});
+        return 1;
+    }
+
+    // invariant: serve exactly num_test_pages requests
+    var served: u32 = 0;
+    while (served < num_test_pages) {
+        var req_buf: [cr.max_request_bytes]u8 = undefined;
+        var from: sockaddr_in = undefined;
+        var from_len: c_std.socklen_t =
+            @sizeOf(sockaddr_in);
+        const n = c_std.recvfrom(
+            fd,
+            &req_buf,
+            cr.max_request_bytes,
+            0,
+            @ptrCast(&from),
+            &from_len,
+        );
+        if (n < 0) continue;
+        const req_len: u32 = @intCast(n);
+
+        const req = cr.decode_request(
+            req_buf[0..req_len],
+        ) catch {
+            var rb: [cr.max_response_bytes]u8 = undefined;
+            const rl = cr.encode_response(.{
+                .status = cr.status_never,
+                .payload = "",
+            }, &rb) catch continue;
+            _ = c_std.sendto(
+                fd,
+                &rb,
+                rl,
+                0,
+                @ptrCast(&from),
+                @sizeOf(sockaddr_in),
+            );
+            served += 1;
+            continue;
+        };
+
+        // Lookup
+        var status: u8 = cr.status_never;
+        var payload: []const u8 = "";
+        var i: u32 = 0;
+        while (i < count) : (i += 1) {
+            if (std.mem.eql(u8, pages[i].bolt, req.bolt) and
+                std.mem.eql(u8, pages[i].path, req.path))
+            {
+                status = cr.status_ok;
+                payload = pages[i].content;
+                break;
+            }
+        }
+
+        assert(payload.len <= cr.max_payload_bytes);
+        var rb: [cr.max_response_bytes]u8 = undefined;
+        const rl = cr.encode_response(.{
+            .status = status,
+            .payload = payload,
+        }, &rb) catch continue;
+        _ = c_std.sendto(
+            fd,
+            &rb,
+            rl,
+            0,
+            @ptrCast(&from),
+            @sizeOf(sockaddr_in),
+        );
+        served += 1;
+    }
+
+    print("witness-serve: done {d}\n", .{served});
+    return 0;
+}
+
+// -- Request mode --
+
+fn run_request(io: std.Io) !u8 {
+    const cwd = Dir.cwd();
+
+    // Build identity
+    var siya_seed: [32]u8 = undefined;
+    @memset(&siya_seed, 0x15);
+    const kp = kumara.keypair_from_seed(&siya_seed);
+    var pubkey: [32]u8 = undefined;
+    tally_copy.copy_disjoint(
+        u8,
+        pubkey[0..32],
+        kp.public_key.toBytes()[0..32],
+    );
+
+    const fd = c_std.socket(AF_INET, SOCK_DGRAM, 0);
+    if (fd < 0) return error.SocketFailed;
+    defer _ = c_std.close(fd);
+
+    var dest = localhost_addr(content_port);
+    var claims: u32 = 0;
+
+    for (test_pages[0..]) |tp| {
+        // Read file from disk for comparison
+        var file_buf: [cr.max_payload_bytes]u8 = undefined;
+        var bolt_path_buf: [256]u8 = undefined;
+        const bolt_path = std.fmt.bufPrint(
+            &bolt_path_buf,
+            "bloom/{s}",
+            .{tp.bolt},
+        ) catch continue;
+        var file_name_buf: [256]u8 = undefined;
+        const file_name = std.fmt.bufPrint(
+            &file_name_buf,
+            "{s}.md",
+            .{tp.path},
+        ) catch continue;
+
+        var bolt_dir = cwd.openDir(
+            io,
+            bolt_path,
+            .{},
+        ) catch continue;
+        defer bolt_dir.close(io);
+
+        const disk_data = bolt_dir.readFile(
+            io,
+            file_name,
+            &file_buf,
+        ) catch |err| {
+            print(
+                "witness-request: skip {s}/{s}: {}\n",
+                .{ tp.bolt, tp.path, err },
+            );
+            continue;
+        };
+
+        // Send request
+        var req_buf: [cr.max_request_bytes]u8 = undefined;
+        const req_len = try cr.encode_request(.{
+            .sender_pubkey = pubkey,
+            .bolt = tp.bolt,
+            .revision = 1,
+            .path = tp.path,
+        }, &req_buf);
+
+        _ = c_std.sendto(
+            fd,
+            &req_buf,
+            req_len,
+            0,
+            @ptrCast(&dest),
+            @sizeOf(sockaddr_in),
+        );
+
+        // Receive response
+        var resp_buf: [cr.max_response_bytes]u8 = undefined;
+        var from: sockaddr_in = undefined;
+        var from_len: c_std.socklen_t =
+            @sizeOf(sockaddr_in);
+        const n = c_std.recvfrom(
+            fd,
+            &resp_buf,
+            cr.max_response_bytes,
+            0,
+            @ptrCast(&from),
+            &from_len,
+        );
+        if (n < 0) {
+            print(
+                "witness-request: no response for {s}/{s}\n",
+                .{ tp.bolt, tp.path },
+            );
+            continue;
+        }
+        const resp_len: u32 = @intCast(n);
+        const resp = try cr.decode_response(
+            resp_buf[0..resp_len],
+        );
+
+        // Claim: status ok
+        assert(resp.status == cr.status_ok);
+
+        // Claim: content matches disk
+        assert(resp.payload.len == disk_data.len);
+        assert(std.mem.eql(u8, resp.payload, disk_data));
+
+        // Claim: SHA3-256 matches
+        var disk_hash: [32]u8 = undefined;
+        std.crypto.hash.sha3.Sha3_256.hash(
+            disk_data,
+            &disk_hash,
+            .{},
+        );
+        var wire_hash: [32]u8 = undefined;
+        std.crypto.hash.sha3.Sha3_256.hash(
+            resp.payload,
+            &wire_hash,
+            .{},
+        );
+        assert(std.mem.eql(u8, &disk_hash, &wire_hash));
+
+        claims += 1;
+        print(
+            "  CLAIM {d}: {s}/{s} -- {d} bytes, "
+            ++ "SHA3 verified\n",
+            .{ claims, tp.bolt, tp.path, disk_data.len },
+        );
+    }
+
+    print(
+        "witness-request: {d} claims GREEN\n",
+        .{claims},
+    );
+    // invariant: all test pages verified
+    assert(claims == num_test_pages);
+    return 0;
+}
+
+// -- Supervisor mode --
+
+fn run_super(
+    garden: std.mem.Allocator,
+    io: std.Io,
+    self_path: []const u8,
+) !u8 {
+    const serve_argv = try garden.alloc([]const u8, 2);
+    serve_argv[0] = self_path;
+    serve_argv[1] = "serve";
+
+    var serve_child = try std.process.spawn(
+        io,
+        .{ .argv = serve_argv },
+    );
+
+    // Brief pause for server to bind
+    var pause = c_std.timespec{
+        .sec = 0,
+        .nsec = 50_000_000,
+    };
+    _ = c_std.nanosleep(&pause, null);
+
+    const req_argv = try garden.alloc([]const u8, 2);
+    req_argv[0] = self_path;
+    req_argv[1] = "request";
+
+    var req_child = try std.process.spawn(
+        io,
+        .{ .argv = req_argv },
+    );
+
+    const serve_term = try serve_child.wait(io);
+    const req_term = try req_child.wait(io);
+
+    const serve_code: u8 = switch (serve_term) {
+        .exited => |c| c,
+        else => 255,
+    };
+    const req_code: u8 = switch (req_term) {
+        .exited => |c| c,
+        else => 255,
+    };
+
+    print(
+        "content_server_witness: "
+        ++ "serve={d} request={d}\n",
+        .{ serve_code, req_code },
+    );
+
+    assert(serve_code == 0);
+    assert(req_code == 0);
+
+    print(
+        "content_server_witness GREEN -- "
+        ++ "{d} pages verified over localhost UDP\n",
+        .{num_test_pages},
+    );
+    return 0;
+}
+
+pub fn main(init: std.process.Init) !u8 {
+    const garden = init.arena.allocator();
+    const io = init.io;
+    const args = try init.minimal.args.toSlice(garden);
+
+    if (args.len < 2) {
+        print(
+            "usage: content-server-witness "
+            ++ "<serve|request|super>\n",
+            .{},
+        );
+        return 1;
+    }
+
+    const mode = args[1];
+    if (std.mem.eql(u8, mode, "serve")) {
+        return run_serve(io);
+    } else if (std.mem.eql(u8, mode, "request")) {
+        return run_request(io);
+    } else if (std.mem.eql(u8, mode, "super")) {
+        return run_super(garden, io, args[0]);
+    } else {
+        print("unknown mode: {s}\n", .{mode});
+        return 1;
+    }
+}

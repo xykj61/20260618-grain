@@ -42,7 +42,9 @@ pub const max_path_len: u32 = 128;
 // invariant: response header is 3 bytes (status + u16 length)
 pub const response_header: u32 = 3;
 // invariant: resin payload bounded at 512 bytes
-pub const max_payload_bytes: u32 = 512;
+pub const max_resin_bytes: u32 = 512;
+// invariant: page payload bounded at 8192 bytes for localhost
+pub const max_payload_bytes: u32 = 8192;
 // invariant: total response bounded
 pub const max_response_bytes: u32 = response_header + max_payload_bytes;
 

@@ -1,0 +1,310 @@
+//! comlink/content_server.rye -- localhost UDP content server for Bloom
+//! pages. Reads all .md files from subdirectories of a root directory,
+//! registers them as bolt=subdir-name path=filename-without-ext, and
+//! serves content requests on port 38480.
+//!
+//!   rye build comlink/content_server.rye \
+//!       -lc -femit-bin=comlink/bin/content-server
+//!   comlink/bin/content-server bloom/ 44
+//!
+//! Arguments: <root-dir> <request-count>
+//! Serves exactly request-count requests then exits cleanly.
+//!
+//! Movement 9 of the Mantra SLC expanding prompt.
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+const c_std = std.c;
+const cr = @import("content_request.rye");
+const tally_copy = @import("tally_copy.rye");
+
+const server_version = "20261107.130000";
+
+// -- Network constants --
+
+const AF_INET: c_uint = 2;
+const SOCK_DGRAM: c_uint = 2;
+const SOL_SOCKET: c_int = c_std.SOL.SOCKET;
+const SO_REUSEADDR: c_int = c_std.SO.REUSEADDR;
+
+// invariant: port matches content_request_response_witness
+const content_port: u16 = 38480;
+
+const sockaddr_in = c_std.sockaddr.in;
+
+fn localhost_addr(port: u16) sockaddr_in {
+    return .{
+        .port = std.mem.nativeToBig(u16, port),
+        .addr = @bitCast([4]u8{ 127, 0, 0, 1 }),
+    };
+}
+
+fn open_socket() !c_std.fd_t {
+    const fd = c_std.socket(AF_INET, SOCK_DGRAM, 0);
+    if (fd < 0) return error.SocketFailed;
+    const yes: c_int = 1;
+    if (c_std.setsockopt(
+        fd,
+        SOL_SOCKET,
+        SO_REUSEADDR,
+        &yes,
+        @sizeOf(c_int),
+    ) < 0) {
+        _ = c_std.close(fd);
+        return error.SetSockOptFailed;
+    }
+    return fd;
+}
+
+// -- Catalog --
+
+// invariant: bounded catalog
+const max_pages: u32 = 256;
+// invariant: bounded content per page
+const max_page_bytes: u32 = cr.max_payload_bytes;
+// invariant: bounded name lengths
+const max_name_len: u32 = 128;
+
+const Page = struct {
+    bolt: []const u8,
+    path: []const u8,
+    content: []const u8,
+};
+
+const Dir = std.Io.Dir;
+
+fn load_catalog(
+    io: std.Io,
+    garden: std.mem.Allocator,
+    root_path: []const u8,
+) !struct { pages: []Page, count: u32 } {
+    var pages = try garden.alloc(Page, max_pages);
+    var count: u32 = 0;
+
+    // invariant: cwd cannot iterate, open root with iterate
+    const cwd = Dir.cwd();
+    var root_dir = cwd.openDir(io, root_path, .{
+        .iterate = true,
+    }) catch |err| {
+        print(
+            "content-server: cannot open root {s}: {}\n",
+            .{ root_path, err },
+        );
+        return error.RootNotFound;
+    };
+    defer root_dir.close(io);
+
+    // Walk subdirectories
+    var root_iter = root_dir.iterate();
+    while (try root_iter.next(io)) |entry| {
+        if (entry.kind != .directory) continue;
+        const bolt_name = try garden.dupe(u8, entry.name);
+
+        var sub_dir = root_dir.openDir(
+            io,
+            entry.name,
+            .{ .iterate = true },
+        ) catch continue;
+        defer sub_dir.close(io);
+
+        // Read .md files in this subdirectory
+        var sub_iter = sub_dir.iterate();
+        while (try sub_iter.next(io)) |file_entry| {
+            if (file_entry.kind != .file) continue;
+            const name = file_entry.name;
+            // invariant: only .md files
+            if (name.len < 4) continue;
+            if (!std.mem.eql(
+                u8,
+                name[name.len - 3 ..],
+                ".md",
+            )) continue;
+
+            // path = filename without .md
+            const path_name = try garden.dupe(
+                u8,
+                name[0 .. name.len - 3],
+            );
+
+            // Read file content into arena
+            var buf: [max_page_bytes]u8 = undefined;
+            const data = sub_dir.readFile(
+                io,
+                name,
+                &buf,
+            ) catch |err| {
+                print(
+                    "content-server: skip {s}/{s}: {}\n",
+                    .{ bolt_name, name, err },
+                );
+                continue;
+            };
+            const content = try garden.dupe(u8, data);
+
+            if (count >= max_pages) {
+                print(
+                    "content-server: catalog full at {d}\n",
+                    .{max_pages},
+                );
+                return .{ .pages = pages, .count = count };
+            }
+
+            pages[count] = .{
+                .bolt = bolt_name,
+                .path = path_name,
+                .content = content,
+            };
+            count += 1;
+        }
+    }
+
+    return .{ .pages = pages, .count = count };
+}
+
+fn lookup(
+    pages: []const Page,
+    count: u32,
+    bolt: []const u8,
+    path: []const u8,
+) ?[]const u8 {
+    var i: u32 = 0;
+    while (i < count) : (i += 1) {
+        if (std.mem.eql(u8, pages[i].bolt, bolt) and
+            std.mem.eql(u8, pages[i].path, path))
+        {
+            return pages[i].content;
+        }
+    }
+    return null;
+}
+
+pub fn main(init: std.process.Init) !u8 {
+    const garden = init.arena.allocator();
+    const io = init.io;
+    const args = try init.minimal.args.toSlice(garden);
+
+    if (args.len < 3) {
+        print(
+            "usage: content-server <root-dir> <count>\n",
+            .{},
+        );
+        return 1;
+    }
+
+    const root_path = args[1];
+    const request_count = std.fmt.parseInt(
+        u32,
+        args[2],
+        10,
+    ) catch {
+        print("content-server: bad request-count\n", .{});
+        return 1;
+    };
+
+    // Load catalog
+    const catalog = try load_catalog(io, garden, root_path);
+    print(
+        "content-server: loaded {d} pages from {s}\n",
+        .{ catalog.count, root_path },
+    );
+
+    // Bind socket
+    const fd = try open_socket();
+    defer _ = c_std.close(fd);
+
+    var bind_addr = localhost_addr(content_port);
+    if (c_std.bind(
+        fd,
+        @ptrCast(&bind_addr),
+        @sizeOf(sockaddr_in),
+    ) < 0) {
+        print(
+            "content-server: bind failed on port {d}\n",
+            .{content_port},
+        );
+        return 1;
+    }
+    print(
+        "content-server: listening on port {d}\n",
+        .{content_port},
+    );
+
+    // Serve requests
+    var served: u32 = 0;
+    while (served < request_count) {
+        var req_buf: [cr.max_request_bytes]u8 = undefined;
+        var from: sockaddr_in = undefined;
+        var from_len: c_std.socklen_t = @sizeOf(sockaddr_in);
+        const n = c_std.recvfrom(
+            fd,
+            &req_buf,
+            cr.max_request_bytes,
+            0,
+            @ptrCast(&from),
+            &from_len,
+        );
+        if (n < 0) continue;
+        const req_len: u32 = @intCast(n);
+
+        const req = cr.decode_request(
+            req_buf[0..req_len],
+        ) catch {
+            var resp_buf: [cr.max_response_bytes]u8 =
+                undefined;
+            const resp_len = cr.encode_response(.{
+                .status = cr.status_never,
+                .payload = "",
+            }, &resp_buf) catch continue;
+            _ = c_std.sendto(
+                fd,
+                &resp_buf,
+                resp_len,
+                0,
+                @ptrCast(&from),
+                @sizeOf(sockaddr_in),
+            );
+            served += 1;
+            continue;
+        };
+
+        // Look up content
+        var status: u8 = cr.status_never;
+        var payload: []const u8 = "";
+
+        if (lookup(
+            catalog.pages,
+            catalog.count,
+            req.bolt,
+            req.path,
+        )) |content| {
+            status = cr.status_ok;
+            payload = content;
+        }
+
+        // invariant: payload fits the response bound
+        assert(payload.len <= cr.max_payload_bytes);
+
+        var resp_buf: [cr.max_response_bytes]u8 = undefined;
+        const resp_len = cr.encode_response(.{
+            .status = status,
+            .payload = payload,
+        }, &resp_buf) catch continue;
+
+        _ = c_std.sendto(
+            fd,
+            &resp_buf,
+            resp_len,
+            0,
+            @ptrCast(&from),
+            @sizeOf(sockaddr_in),
+        );
+        served += 1;
+    }
+
+    print(
+        "content-server: served {d} requests, exiting\n",
+        .{served},
+    );
+    return 0;
+}
