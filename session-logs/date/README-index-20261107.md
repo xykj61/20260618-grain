@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.171543 | [Dimeroll engine extraction -- send](20261107/20261107-171543_dimeroll-engine-extraction-send.kyri.md) | 20 methods into DimerollEngine.swift, 1,983 lines remain |
 | 20261107.163349 | [Wire protocol extraction -- send](20261107/20261107-163349_wire-protocol-extraction-send.kyri.md) | 5 UART handlers into WireProtocol.swift, 2,702 lines remain |
 | 20261107.162357 | [QemuUtilities extraction -- send](20261107/20261107-162357_qemu-utilities-extraction-send.kyri.md) | QMP/PPM utilities into own Swift file, 2,966 lines remain |
 | 20261107.161353 | [FrameGridView extraction -- multi-file build GREEN](20261107/20261107-161353_framegridview-extraction-build-green.kyri.md) | 394 lines extracted, *.swift glob build proven |
