@@ -971,6 +971,47 @@ class AppDelegate: NSObject,
                 bloomLessons.append((title, text))
             }
         }
+        bloomLessons.append((
+            "--- Lineage Teachings ---",
+            "# Grain Lineage Teachings\n\n"
+                + "The following seven teachings "
+                + "explore the design principles "
+                + "that shaped Grain as an "
+                + "operating system.\n\n"
+                + "Use Next to read each one."
+        ))
+
+        let lineageDir =
+            "\(repoRoot)/bloom/lineage"
+        let lineageFiles = [
+            "dual-description.md",
+            "one-carrier-many-flows.md",
+            "state-at-center.md",
+            "whole-in-every-part.md",
+            "toroidal-bounded-optimization.md",
+            "silicon-torus-hardware.md",
+            "the-place-and-its-patterns.md",
+        ]
+        for file in lineageFiles {
+            let path =
+                "\(lineageDir)/\(file)"
+            if let text = try? String(
+                contentsOfFile: path,
+                encoding: .utf8
+            ) {
+                let lines = text.components(
+                    separatedBy: "\n"
+                )
+                let title = lines.first?
+                    .replacingOccurrences(
+                        of: "# ", with: ""
+                    ) ?? file
+                bloomLessons.append(
+                    (title, text)
+                )
+            }
+        }
+
         if bloomLessons.isEmpty {
             bloomLessons.append((
                 "No lessons found",
