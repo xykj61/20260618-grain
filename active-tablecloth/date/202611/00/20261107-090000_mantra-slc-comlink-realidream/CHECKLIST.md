@@ -31,7 +31,7 @@
 - [x] **M11** -- Caravan-supervised UDP listener: bounded process accepts content requests, looks up Mantra catalog, responds with resin or `never`. Tally region, named errors. GREEN `20261107`.
 - [x] **M12** -- Caravan-supervised UDP sender: bounded process sends requests, waits with timeout. Named errors on timeout, digest mismatch, oversize. GREEN `20261107` -- `comlink/caravan_sender_witness.rye`, 7 claims.
 - [x] **M13** -- Prove both on QEMU RISC-V: same request-response from M10 runs inside Terrarium emulator. Content reaches the screen. GREEN `20261107` -- `terrarium/comlink_content_witness.rish`, 3 claims: djb2-verified curriculum (3,767 bytes), guides (3,764 bytes), 404 refusal. UART wire protocol CREQ/CRESP between freestanding guest and Swift host.
-- [ ] **M14** -- Silo remaining Bloom rooms (lineage, essays, terrarium-lessons, demos) onto remaining galaxies per registry roles.
+- [x] **M14** -- Silo remaining Bloom rooms (lineage, essays, terrarium-lessons, demos) onto remaining galaxies per registry roles. GREEN `20261107` -- `mantra/remaining_bolt_witness.rye`, 25 pages across 4 galaxies (~lavender/lineage 7, ~sage/essays 4, ~fennel/terrarium-lessons 5, ~marjoram/demos 9), 262 resins, 509 beads, 12 stranger pairs proven.
 - [ ] **M15** -- Final witness: Siya inside QEMU requests Bloom content from all 14 galaxies as Caravan-supervised processes. Bloom tab renders full curriculum. The Realidream vision is working.
 
 ---

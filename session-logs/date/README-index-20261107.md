@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.125250 | [Remaining bolt witness GREEN](20261107/20261107-125250_remaining-bolt-witness-green.kyri.md) | 25 pages across 4 galaxies, 262 resins, 509 beads, 12 stranger pairs |
 | 20261107.124005 | [M13 -- QEMU content wire GREEN](20261107/20261107-124005_m13-qemu-content-wire-green.kyri.md) | 3 claims: djb2-verified curriculum, guides, 404 refusal over UART wire |
 | 20261107.121814 | [M13 scoping -- QEMU content wire protocol design](20261107/20261107-121814_m13-qemu-content-wire-scoping.kyri.md) | UART relay approach, check-in before building |
 | 20261107.121243 | [Sender witness GREEN, fence sweep, send](20261107/20261107-121243_sender-witness-fence-sweep-send.kyri.md) | 7 claims, tablecloth fence swept from 8 files, pushed |
