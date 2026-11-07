@@ -250,11 +250,12 @@
   - closeTab() protects "mantra" alongside the three existing built-in tabs
   - Build clean, focusMantra symbol confirmed in binary
 
-- [ ] **Movement 30: Act II integration witness -- the field ledger**
+- [x] **Movement 30: Act II integration witness -- the field ledger** (`20261106.200349`)
   - SLC gate: witness proves the full Dimeroll composition -- tab, launcher, selector, views, queries, dashboard
   - Composes Quest 1, Quest 2, and Quest 3 in one pass
   - All Dimeroll modules proven through Terrarium: 10 ELFs launched, output parsed, views rendered
   - Act II (The Field Ledger): all movements proven on metal
+  - `terrarium_act2_witness.rish` GREEN: 24 symbols, 10 QEMU modules, all 30 movements proven
 
 ---
 

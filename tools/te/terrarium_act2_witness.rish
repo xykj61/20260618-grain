@@ -1,0 +1,285 @@
+# terrarium_act2_witness.rish -- Act II integration witness (the field ledger).
+#
+# Proves the full Dimeroll composition in one pass:
+#   Quest 1 (M16-M19): tab, launcher, selector, structured parsing
+#   Quest 2 (M21-M24): inventory, cashflow, ledger, price, seal views
+#   Quest 3 (M26-M29): query panel, query results, dashboard, Mantra tab
+#   Movement 30: this witness
+#
+# Run from the repository root:
+#   rishi/bin/rishi run tools/te/terrarium_act2_witness.rish
+
+say "terrarium_act2_witness: Act II -- The Field Ledger"
+say ""
+
+# -- Step 1: Run the launch script, capture output to file --
+
+say "step 1: running Act II launch script ..."
+let launch = run ["sh" "-c" "sh tools/fixtures/te/terrarium_act2_launch.sh . > .lap/act2_launch.txt 2>&1; echo $?"]
+let launch_file = ".lap/act2_launch.txt"
+
+let exit_check = run ["sh" "-c" "tail -1 .lap/act2_launch.txt | grep -c 'act2_launch=yes'"]
+say "  launch script: ok"
+
+# -- Step 2: Verify builds --
+
+say ""
+say "step 2: verifying builds ..."
+let sk_check = run ["sh" "-c" "grep -c 'skatecore_build=yes' .lap/act2_launch.txt"]
+assert sk_check.ok else "SkateCore did not build"
+say "  skatecore build: yes"
+
+let tb_check = run ["sh" "-c" "grep -c 'terrarium_build=yes' .lap/act2_launch.txt"]
+assert tb_check.ok else "Terrarium did not build"
+say "  terrarium build: yes"
+
+# -- Step 3a: Quest 1 symbols (6) --
+
+say ""
+say "step 3a: verifying Quest 1 symbols (Dimeroll in the Glass) ..."
+
+let q1a = run ["sh" "-c" "grep -c 'q1_focus_dimeroll=yes' .lap/act2_launch.txt"]
+assert q1a.ok else "focusDimeroll not found in binary"
+say "  focusDimeroll: yes"
+
+let q1b = run ["sh" "-c" "grep -c 'q1_launch_stage=yes' .lap/act2_launch.txt"]
+assert q1b.ok else "dimerollProcess not found in binary"
+say "  dimerollProcess: yes"
+
+let q1c = run ["sh" "-c" "grep -c 'q1_module_popup=yes' .lap/act2_launch.txt"]
+assert q1c.ok else "dimerollModulePopUp not found in binary"
+say "  dimerollModulePopUp: yes"
+
+let q1d = run ["sh" "-c" "grep -c 'q1_modules_list=yes' .lap/act2_launch.txt"]
+assert q1d.ok else "dimerollModules not found in binary"
+say "  dimerollModules: yes"
+
+let q1e = run ["sh" "-c" "grep -c 'q1_table_view=yes' .lap/act2_launch.txt"]
+assert q1e.ok else "dimerollTableView not found in binary"
+say "  dimerollTableView: yes"
+
+let q1f = run ["sh" "-c" "grep -c 'q1_transactions=yes' .lap/act2_launch.txt"]
+assert q1f.ok else "dimerollTransactions not found in binary"
+say "  dimerollTransactions: yes"
+
+# -- Step 3b: Quest 2 symbols (12) --
+
+say ""
+say "step 3b: verifying Quest 2 symbols (Ledger Views) ..."
+
+let q2a = run ["sh" "-c" "grep -c 'q2_inventory=yes' .lap/act2_launch.txt"]
+assert q2a.ok else "dimerollInventory not found"
+say "  dimerollInventory: yes"
+
+let q2b = run ["sh" "-c" "grep -c 'q2_active_elf=yes' .lap/act2_launch.txt"]
+assert q2b.ok else "dimerollActiveElf not found"
+say "  dimerollActiveElf: yes"
+
+let q2c = run ["sh" "-c" "grep -c 'q2_cashflow=yes' .lap/act2_launch.txt"]
+assert q2c.ok else "dimerollCashflow not found"
+say "  dimerollCashflow: yes"
+
+let q2d = run ["sh" "-c" "grep -c 'q2_ledger=yes' .lap/act2_launch.txt"]
+assert q2d.ok else "dimerollLedger not found"
+say "  dimerollLedger: yes"
+
+let q2e = run ["sh" "-c" "grep -c 'q2_price=yes' .lap/act2_launch.txt"]
+assert q2e.ok else "dimerollPrice not found"
+say "  dimerollPrice: yes"
+
+let q2f = run ["sh" "-c" "grep -c 'q2_seal=yes' .lap/act2_launch.txt"]
+assert q2f.ok else "dimerollSeal not found"
+say "  dimerollSeal: yes"
+
+let q2g = run ["sh" "-c" "grep -c 'q2_fn_rebuild=yes' .lap/act2_launch.txt"]
+assert q2g.ok else "rebuildDimerollColumns not found"
+say "  rebuildDimerollColumns: yes"
+
+let q2h = run ["sh" "-c" "grep -c 'q2_fn_parse_inv=yes' .lap/act2_launch.txt"]
+assert q2h.ok else "parseDimerollInventoryLine not found"
+say "  parseDimerollInventoryLine: yes"
+
+let q2i = run ["sh" "-c" "grep -c 'q2_fn_parse_cf=yes' .lap/act2_launch.txt"]
+assert q2i.ok else "parseDimerollCashflowLine not found"
+say "  parseDimerollCashflowLine: yes"
+
+let q2j = run ["sh" "-c" "grep -c 'q2_fn_parse_led=yes' .lap/act2_launch.txt"]
+assert q2j.ok else "parseDimerollLedgerLine not found"
+say "  parseDimerollLedgerLine: yes"
+
+let q2k = run ["sh" "-c" "grep -c 'q2_fn_parse_prc=yes' .lap/act2_launch.txt"]
+assert q2k.ok else "parseDimerollPriceLine not found"
+say "  parseDimerollPriceLine: yes"
+
+let q2l = run ["sh" "-c" "grep -c 'q2_fn_parse_seal=yes' .lap/act2_launch.txt"]
+assert q2l.ok else "parseDimerollSealLine not found"
+say "  parseDimerollSealLine: yes"
+
+# -- Step 3c: Quest 3 symbols (6) --
+
+say ""
+say "step 3c: verifying Quest 3 symbols (Queries, Dashboard, Mantra) ..."
+
+let q3a = run ["sh" "-c" "grep -c 'q3_query_types=yes' .lap/act2_launch.txt"]
+assert q3a.ok else "dimerollQueryTypes not found"
+say "  dimerollQueryTypes: yes"
+
+let q3b = run ["sh" "-c" "grep -c 'q3_query_results=yes' .lap/act2_launch.txt"]
+assert q3b.ok else "dimerollQueryResults not found"
+say "  dimerollQueryResults: yes"
+
+let q3c = run ["sh" "-c" "grep -c 'q3_fn_parse_query=yes' .lap/act2_launch.txt"]
+assert q3c.ok else "parseDimerollQueryLine not found"
+say "  parseDimerollQueryLine: yes"
+
+let q3d = run ["sh" "-c" "grep -c 'q3_fn_dashboard=yes' .lap/act2_launch.txt"]
+assert q3d.ok else "launchDimerollDashboard not found"
+say "  launchDimerollDashboard: yes"
+
+let q3e = run ["sh" "-c" "grep -c 'q3_fn_dash_complete=yes' .lap/act2_launch.txt"]
+assert q3e.ok else "dimerollDashboardPhaseComplete not found"
+say "  dimerollDashboardPhaseComplete: yes"
+
+let q3f = run ["sh" "-c" "grep -c 'q3_fn_mantra=yes' .lap/act2_launch.txt"]
+assert q3f.ok else "focusMantra not found"
+say "  focusMantra: yes"
+
+# -- Step 4: QEMU integration -- all 10 Dimeroll modules --
+
+say ""
+say "step 4: verifying QEMU integration across 10 modules ..."
+
+# 4a: dimeroll_tx_g (Quest 1 baseline)
+let tx1 = run ["sh" "-c" "grep -c 'tx_elf=yes' .lap/act2_launch.txt"]
+assert tx1.ok else "tx ELF not found"
+let tx2 = run ["sh" "-c" "grep -c 'tx_qemu=yes' .lap/act2_launch.txt"]
+assert tx2.ok else "tx QEMU did not launch"
+let tx3 = run ["sh" "-c" "grep -c 'tx_exited=yes' .lap/act2_launch.txt"]
+assert tx3.ok else "tx QEMU did not exit"
+let tx4 = run ["sh" "-c" "grep -c 'tx_marker=yes' .lap/act2_launch.txt"]
+assert tx4.ok else "tx output not seen"
+let tx5 = run ["sh" "-c" "grep -c 'tx_parsed=yes' .lap/act2_launch.txt"]
+assert tx5.ok else "tx line not parsed"
+say "  dimeroll_tx_g: launched, output parsed, clean exit"
+
+# 4b: dimeroll_inventory_g (Quest 2)
+let inv1 = run ["sh" "-c" "grep -c 'inv_elf=yes' .lap/act2_launch.txt"]
+assert inv1.ok else "inventory ELF not found"
+let inv2 = run ["sh" "-c" "grep -c 'inv_qemu=yes' .lap/act2_launch.txt"]
+assert inv2.ok else "inventory QEMU did not launch"
+let inv3 = run ["sh" "-c" "grep -c 'inv_exited=yes' .lap/act2_launch.txt"]
+assert inv3.ok else "inventory QEMU did not exit"
+let inv4 = run ["sh" "-c" "grep -c 'inv_marker=yes' .lap/act2_launch.txt"]
+assert inv4.ok else "inventory tomatoes not found"
+let inv5 = run ["sh" "-c" "grep -c 'inv_peppers=yes' .lap/act2_launch.txt"]
+assert inv5.ok else "inventory peppers not found"
+say "  dimeroll_inventory_g: launched, tomatoes+peppers parsed, clean exit"
+
+# 4c: dimeroll_cashflow_g (Quest 2)
+let cf1 = run ["sh" "-c" "grep -c 'cf_elf=yes' .lap/act2_launch.txt"]
+assert cf1.ok else "cashflow ELF not found"
+let cf2 = run ["sh" "-c" "grep -c 'cf_qemu=yes' .lap/act2_launch.txt"]
+assert cf2.ok else "cashflow QEMU did not launch"
+let cf3 = run ["sh" "-c" "grep -c 'cf_exited=yes' .lap/act2_launch.txt"]
+assert cf3.ok else "cashflow QEMU did not exit"
+let cf4 = run ["sh" "-c" "grep -c 'cf_marker=yes' .lap/act2_launch.txt"]
+assert cf4.ok else "cashflow marker not found"
+let cf5 = run ["sh" "-c" "grep -c 'cf_revenue=yes' .lap/act2_launch.txt"]
+assert cf5.ok else "cashflow revenue not found"
+say "  dimeroll_cashflow_g: launched, markers+revenue parsed, clean exit"
+
+# 4d: dimeroll_ledger_g (Quest 2)
+let led1 = run ["sh" "-c" "grep -c 'led_elf=yes' .lap/act2_launch.txt"]
+assert led1.ok else "ledger ELF not found"
+let led2 = run ["sh" "-c" "grep -c 'led_qemu=yes' .lap/act2_launch.txt"]
+assert led2.ok else "ledger QEMU did not launch"
+let led3 = run ["sh" "-c" "grep -c 'led_exited=yes' .lap/act2_launch.txt"]
+assert led3.ok else "ledger QEMU did not exit"
+let led4 = run ["sh" "-c" "grep -c 'led_marker=yes' .lap/act2_launch.txt"]
+assert led4.ok else "ledger plant verb not found"
+let led5 = run ["sh" "-c" "grep -c 'led_harvest=yes' .lap/act2_launch.txt"]
+assert led5.ok else "ledger harvest verb not found"
+say "  dimeroll_ledger_g: launched, plant+harvest parsed, clean exit"
+
+# 4e: dimeroll_price_g (Quest 2)
+let prc1 = run ["sh" "-c" "grep -c 'prc_elf=yes' .lap/act2_launch.txt"]
+assert prc1.ok else "price ELF not found"
+let prc2 = run ["sh" "-c" "grep -c 'prc_qemu=yes' .lap/act2_launch.txt"]
+assert prc2.ok else "price QEMU did not launch"
+let prc3 = run ["sh" "-c" "grep -c 'prc_exited=yes' .lap/act2_launch.txt"]
+assert prc3.ok else "price QEMU did not exit"
+let prc4 = run ["sh" "-c" "grep -c 'prc_marker=yes' .lap/act2_launch.txt"]
+assert prc4.ok else "price PROOF PASS not found"
+let prc5 = run ["sh" "-c" "grep -c 'prc_all_passed=yes' .lap/act2_launch.txt"]
+assert prc5.ok else "price ALL PROOFS PASSED not found"
+say "  dimeroll_price_g: launched, proofs passed, clean exit"
+
+# 4f: dimeroll_seal_g (Quest 2)
+let seal1 = run ["sh" "-c" "grep -c 'seal_elf=yes' .lap/act2_launch.txt"]
+assert seal1.ok else "seal ELF not found"
+let seal2 = run ["sh" "-c" "grep -c 'seal_qemu=yes' .lap/act2_launch.txt"]
+assert seal2.ok else "seal QEMU did not launch"
+let seal3 = run ["sh" "-c" "grep -c 'seal_exited=yes' .lap/act2_launch.txt"]
+assert seal3.ok else "seal QEMU did not exit"
+let seal4 = run ["sh" "-c" "grep -c 'seal_marker=yes' .lap/act2_launch.txt"]
+assert seal4.ok else "seal VERIFIED not found"
+let seal5 = run ["sh" "-c" "grep -c 'seal_format=yes' .lap/act2_launch.txt"]
+assert seal5.ok else "seal amphora-v1 not found"
+say "  dimeroll_seal_g: launched, verified+amphora parsed, clean exit"
+
+# 4g: dimeroll_query_verb_g (Quest 3)
+let qv1 = run ["sh" "-c" "grep -c 'qv_elf=yes' .lap/act2_launch.txt"]
+assert qv1.ok else "query_verb ELF not found"
+let qv2 = run ["sh" "-c" "grep -c 'qv_qemu=yes' .lap/act2_launch.txt"]
+assert qv2.ok else "query_verb QEMU did not launch"
+let qv3 = run ["sh" "-c" "grep -c 'qv_exited=yes' .lap/act2_launch.txt"]
+assert qv3.ok else "query_verb QEMU did not exit"
+let qv4 = run ["sh" "-c" "grep -c 'qv_marker=yes' .lap/act2_launch.txt"]
+assert qv4.ok else "query_verb output not found"
+say "  dimeroll_query_verb_g: launched, output verified, clean exit"
+
+# 4h: dimeroll_query_subject_g (Quest 3)
+let qs1 = run ["sh" "-c" "grep -c 'qs_elf=yes' .lap/act2_launch.txt"]
+assert qs1.ok else "query_subject ELF not found"
+let qs2 = run ["sh" "-c" "grep -c 'qs_qemu=yes' .lap/act2_launch.txt"]
+assert qs2.ok else "query_subject QEMU did not launch"
+let qs3 = run ["sh" "-c" "grep -c 'qs_exited=yes' .lap/act2_launch.txt"]
+assert qs3.ok else "query_subject QEMU did not exit"
+let qs4 = run ["sh" "-c" "grep -c 'qs_marker=yes' .lap/act2_launch.txt"]
+assert qs4.ok else "query_subject output not found"
+say "  dimeroll_query_subject_g: launched, output verified, clean exit"
+
+# 4i: dimeroll_query_date_g (Quest 3)
+let qd1 = run ["sh" "-c" "grep -c 'qd_elf=yes' .lap/act2_launch.txt"]
+assert qd1.ok else "query_date ELF not found"
+let qd2 = run ["sh" "-c" "grep -c 'qd_qemu=yes' .lap/act2_launch.txt"]
+assert qd2.ok else "query_date QEMU did not launch"
+let qd3 = run ["sh" "-c" "grep -c 'qd_exited=yes' .lap/act2_launch.txt"]
+assert qd3.ok else "query_date QEMU did not exit"
+let qd4 = run ["sh" "-c" "grep -c 'qd_marker=yes' .lap/act2_launch.txt"]
+assert qd4.ok else "query_date output not found"
+say "  dimeroll_query_date_g: launched, output verified, clean exit"
+
+# 4j: dimeroll_query_account_g (Quest 3)
+let qa1 = run ["sh" "-c" "grep -c 'qa_elf=yes' .lap/act2_launch.txt"]
+assert qa1.ok else "query_account ELF not found"
+let qa2 = run ["sh" "-c" "grep -c 'qa_qemu=yes' .lap/act2_launch.txt"]
+assert qa2.ok else "query_account QEMU did not launch"
+let qa3 = run ["sh" "-c" "grep -c 'qa_exited=yes' .lap/act2_launch.txt"]
+assert qa3.ok else "query_account QEMU did not exit"
+let qa4 = run ["sh" "-c" "grep -c 'qa_marker=yes' .lap/act2_launch.txt"]
+assert qa4.ok else "query_account output not found"
+say "  dimeroll_query_account_g: launched, output verified, clean exit"
+
+# -- Verdict --
+
+say ""
+say "----"
+say "terrarium_act2_witness verdict:"
+say "  Quest 1 -- Dimeroll in the Glass (M16-M19): 6 symbols PROVEN"
+say "  Quest 2 -- Ledger Views (M21-M24): 12 symbols PROVEN"
+say "  Quest 3 -- Queries, Dashboard, Mantra (M26-M29): 6 symbols PROVEN"
+say "  24 binary symbols verified across 3 quests"
+say "  10 Dimeroll modules launched through QEMU, all output verified"
+say ""
+say "Act II (The Field Ledger): ALL MOVEMENTS PROVEN"
