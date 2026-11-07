@@ -2,6 +2,8 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.224831 | [Quest 4 tutorials and Act II integration -- send](20261106/20261106-224831_quest4-tutorials-send.kyri.md) | 4 tutorials, essays + tutorials in Terrarium, Act II complete |
+| 20261106.223040 | [Quest 3 ecology and guides send](20261106/20261106-223040_quest3-ecology-guides-send.kyri.md) | 3 ecology pages, 3 operational guides, Terrarium updated, pushed |
 | 20261106.221623 | [Movement 20 -- Act I full integration check](20261106/20261106-221623_bloom-act1-integration-check.kyri.md) | lineage teachings in Terrarium, ASCII-clean, cross-linked |
 | 20261106.220707 | [Bloom lineage teachings and Topos silo](20261106/20261106-220707_bloom-lineage-and-topos-silo.kyri.md) | seven lineage teachings, seventh silo source from Topos essay |
 | 20261106.214527 | [Bloom tab loads all ten curriculum stages](20261106/20261106-214527_bloom-all-ten-lessons.kyri.md) | loadBloomLessons expanded from 3 to 10 stages |
