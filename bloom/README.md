@@ -36,8 +36,8 @@ The curriculum follows a path from first encounter to full participation:
    graceful starts and stops
 5. **Garden of Files** -- Mantra weave, Amphora seals, content-addressed storage
 6. **Rivers of Networks** -- Comlink wire, sealed datagrams, the Noise handshake
-7. **Treasure of Identity** -- Kumara naming, Monocypher signatures, blake2b
-   for speed on constrained hardware (SHA3 as compliance fallback)
+7. **Treasure of Identity** -- Kumara naming, Monocypher signatures, SHA3
+   for identity (Blake2s for wire protocol where speed on constrained hardware matters)
 8. **Ecology and Stewardship** -- Whole-system care, soil as investment,
    biocyclic vegan principles
 9. **Repair and Dharma** -- Right to repair, civic custody, the owned machine

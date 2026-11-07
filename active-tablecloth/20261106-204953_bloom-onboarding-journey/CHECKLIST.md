@@ -2,7 +2,7 @@
 
 **Stamp:** `20261106.204953`
 **Style:** Gauge at the Field setting
-**Expanding-prompt:** `expanding-prompts/date/20261106/20261106-204430_bloom-educational-platform.md`
+**Expanding-prompt:** `expanding-prompts/date/20261106/20261106-204913_bloom-educational-ecosystem-definitive.md`
 
 ---
 
@@ -21,7 +21,7 @@
 - [ ] **M6** -- Lesson 4: Orchestra of Processes
 - [ ] **M7** -- Lesson 5: Garden of Files
 - [ ] **M8** -- Lesson 6: Rivers of Networks
-- [ ] **M9** -- Lesson 7: Treasure of Identity (blake2b evaluation)
+- [ ] **M9** -- Lesson 7: Treasure of Identity (SHA3 for Kumara, Blake2s for wire)
 - [ ] **M10** -- Quest 2 integration: all seven lessons navigable
 
 ### Quest 3: Final Lessons and Ecology (Movements 11-15)
@@ -45,7 +45,7 @@
 ### Quest 5: Network Demos (Movements 21-25)
 
 - [ ] **M21** -- Pond infrastructure: containerized galaxy launcher
-- [ ] **M22** -- Kumara identity generation with blake2b
+- [ ] **M22** -- Kumara identity generation with SHA3 (Blake2s wire handshake)
 - [ ] **M23** -- Comlink peer-to-peer messaging between two galaxies
 - [ ] **M24** -- Mantra log replication across the testnet
 - [ ] **M25** -- Quest 5 integration: 14 galaxies running, basic messaging proven

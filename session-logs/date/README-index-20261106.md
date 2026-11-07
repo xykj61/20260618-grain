@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.205949 | [Bloom synthesis and hash corrections](20261106/20261106-205949_bloom-synthesis-and-corrections.kyri.md) | repoint CHECKLIST to definitive plan, correct blake2b to Blake2s/SHA3 |
 | 20261106.205233 | [Bloom onboarding platform -- M1 expanding-prompt and tablecloth board](20261106/20261106-205233_bloom-onboarding-platform-m1.kyri.md) | vision plan, 30-movement journey, bloom/ allow-back, blake2b fix |
 | 20261106.205049 | [Bloom educational ecosystem -- Movements 1-4 landed](20261106/20261106-205049_bloom-educational-ecosystem-movements-1-4.kyri.md) | expanding-prompt, bloom/ front door, three curriculum stages siloed from Guardian Dragon school |
 | 20261106.201733 | [Terrarium interactive launch fix](20261106/20261106-201733_terrarium-interactive-launch-fix.kyri.md) | isInteractive flag, conditional dumpAndExit and timeout, app stays open |
