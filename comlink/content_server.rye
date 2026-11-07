@@ -10,7 +10,6 @@
 //! Arguments: <root-dir> <request-count>
 //! Serves exactly request-count requests then exits cleanly.
 //!
-//! Movement 9 of the Mantra SLC expanding prompt.
 
 const std = @import("std");
 const assert = std.debug.assert;

@@ -8,8 +8,6 @@
 //!       -lc -femit-bin=comlink/bin/integration-witness
 //!   comlink/bin/integration-witness super
 //!
-//! Movement 10 of the Mantra SLC expanding prompt.
-//!
 //! Claims:
 //!   1. All 24 pages from 4 galaxies served and received over
 //!      localhost UDP with status ok.

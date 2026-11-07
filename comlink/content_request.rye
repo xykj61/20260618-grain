@@ -8,7 +8,6 @@
 //! this SLC carries content in the clear because the transport is
 //! trusted (localhost or QEMU-internal).
 //!
-//! Movement 6 of the Mantra SLC expanding prompt.
 //!
 //! Request frame layout (bounded at 512 bytes):
 //!   [0..32)    sender Kumara public key (Ed25519, 32 bytes)

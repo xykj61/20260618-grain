@@ -6,7 +6,7 @@
 //!       -femit-bin=comlink/bin/content-request-witness
 //!   comlink/bin/content-request-witness
 //!
-//! Movement 6 of the Mantra SLC expanding prompt. Four claims:
+//! Four claims:
 //!   1. A content request encodes and decodes to identical fields.
 //!   2. The sender's Kumara public key survives the round-trip.
 //!   3. All three response statuses (ok, not_yet, never) encode and

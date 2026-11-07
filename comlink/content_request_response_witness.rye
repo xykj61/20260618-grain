@@ -6,7 +6,7 @@
 //!       -lc -femit-bin=comlink/bin/content-request-response-witness
 //!   comlink/bin/content-request-response-witness
 //!
-//! Movement 8 of the Mantra SLC expanding prompt. Three claims:
+//! Three claims:
 //!   1. ~sunflower serves a curriculum page over localhost UDP.
 //!   2. ~siya receives the page bytes, and the content matches.
 //!   3. The SHA3-256 digest of the received bytes matches an
