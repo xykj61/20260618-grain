@@ -1126,6 +1126,42 @@ class AppDelegate: NSObject,
             }
         }
 
+        bloomLessons.append((
+            "--- Terrarium Tutorials ---",
+            "# Terrarium Tutorials\n\n"
+                + "Four tutorials for the "
+                + "native macOS application.\n\n"
+                + "Use Next to read each one."
+        ))
+
+        let tutorialsDir =
+            "\(repoRoot)/bloom/terrarium-lessons"
+        let tutorialFiles = [
+            "launching-the-app.md",
+            "the-terminal-tab.md",
+            "the-dimeroll-dashboard.md",
+            "queries-and-mantra.md",
+        ]
+        for file in tutorialFiles {
+            let path =
+                "\(tutorialsDir)/\(file)"
+            if let text = try? String(
+                contentsOfFile: path,
+                encoding: .utf8
+            ) {
+                let lines = text.components(
+                    separatedBy: "\n"
+                )
+                let title = lines.first?
+                    .replacingOccurrences(
+                        of: "# ", with: ""
+                    ) ?? file
+                bloomLessons.append(
+                    (title, text)
+                )
+            }
+        }
+
         if bloomLessons.isEmpty {
             bloomLessons.append((
                 "No lessons found",
