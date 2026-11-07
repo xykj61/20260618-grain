@@ -1,0 +1,178 @@
+//! comlink/content_request.rye -- Comlink content request frame for
+//! localhost UDP. A peer asks another peer for a bolt / revision / path,
+//! carrying its Kumara public key. The response carries the resin bytes
+//! or a `never` refusal.
+//!
+//! This is the plaintext localhost format. Comlink's Noise handshake
+//! and ChaCha20Poly1305 encryption ride on a later Kumara integration;
+//! this SLC carries content in the clear because the transport is
+//! trusted (localhost or QEMU-internal).
+//!
+//! Movement 6 of the Mantra SLC expanding prompt.
+//!
+//! Request frame layout (bounded at 512 bytes):
+//!   [0..32)    sender Kumara public key (Ed25519, 32 bytes)
+//!   [32)       bolt name length (u8, max 64)
+//!   [33..33+N) bolt name (UTF-8 bytes)
+//!   [33+N]     revision (u32 little-endian, 4 bytes)
+//!   [37+N]     path length (u8, max 128)
+//!   [38+N..)   path (UTF-8 bytes)
+//!
+//! Response frame layout (bounded at 516 bytes):
+//!   [0)        status: 0 = ok, 1 = not_yet, 2 = never
+//!   [1..3)     payload length (u16 little-endian)
+//!   [3..3+L)   payload bytes (resin content when status=ok)
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+const kumara = @import("kumara.rye");
+const tally_copy = @import("tally_copy.rye");
+
+pub const content_request_version = "20261107.110000";
+
+// -- Capacity bounds --
+
+// invariant: request fits in one UDP datagram on localhost
+pub const max_request_bytes: u32 = 512;
+// invariant: bolt name is short
+pub const max_bolt_len: u32 = 64;
+// invariant: path is short
+pub const max_path_len: u32 = 128;
+// invariant: response header is 3 bytes (status + u16 length)
+pub const response_header: u32 = 3;
+// invariant: resin payload bounded at 512 bytes
+pub const max_payload_bytes: u32 = 512;
+// invariant: total response bounded
+pub const max_response_bytes: u32 = response_header + max_payload_bytes;
+
+// -- Status codes --
+
+pub const status_ok: u8 = 0;
+pub const status_not_yet: u8 = 1;
+pub const status_never: u8 = 2;
+
+// -- Request --
+
+pub const ContentRequest = struct {
+    sender_pubkey: [32]u8,
+    bolt: []const u8,
+    revision: u32,
+    path: []const u8,
+};
+
+pub fn encode_request(req: ContentRequest, buf: *[max_request_bytes]u8) !u32 {
+    // invariant: bolt name fits the bound
+    assert(req.bolt.len <= max_bolt_len);
+    // invariant: path fits the bound
+    assert(req.path.len <= max_path_len);
+
+    const bolt_len: u8 = @intCast(req.bolt.len);
+    const path_len: u8 = @intCast(req.path.len);
+
+    // invariant: total frame fits the capacity
+    const total: u32 = 32 + 1 + @as(u32, bolt_len) + 4 + 1 + @as(u32, path_len);
+    if (total > max_request_bytes) return error.RequestTooLarge;
+
+    // sender pubkey
+    tally_copy.copy_disjoint(u8, buf[0..32], req.sender_pubkey[0..32]);
+
+    // bolt name length + bolt name
+    buf[32] = bolt_len;
+    if (bolt_len > 0) {
+        tally_copy.copy_disjoint(u8, buf[33..][0..bolt_len], req.bolt[0..bolt_len]);
+    }
+
+    // revision (u32 little-endian)
+    const rev_off: u32 = 33 + @as(u32, bolt_len);
+    std.mem.writeInt(u32, buf[rev_off..][0..4], req.revision, .little);
+
+    // path length + path
+    const path_off: u32 = rev_off + 4;
+    buf[path_off] = path_len;
+    if (path_len > 0) {
+        const path_start: u32 = path_off + 1;
+        tally_copy.copy_disjoint(u8, buf[path_start..][0..path_len], req.path[0..path_len]);
+    }
+
+    return total;
+}
+
+pub fn decode_request(buf: []const u8) !ContentRequest {
+    // invariant: at minimum 32 (pubkey) + 1 (bolt_len) + 4 (revision) + 1 (path_len)
+    if (buf.len < 38) return error.RequestTooShort;
+
+    var sender_pubkey: [32]u8 = undefined;
+    tally_copy.copy_disjoint(u8, sender_pubkey[0..32], buf[0..32]);
+
+    const bolt_len: u32 = @intCast(buf[32]);
+    if (bolt_len > max_bolt_len) return error.BoltNameTooLong;
+
+    // invariant: buffer holds bolt + revision + path_len
+    if (buf.len < 33 + bolt_len + 4 + 1) return error.RequestTruncated;
+
+    const bolt = buf[33..][0..bolt_len];
+    const rev_off: u32 = 33 + bolt_len;
+    const revision = std.mem.readInt(u32, buf[rev_off..][0..4], .little);
+
+    const path_off: u32 = rev_off + 4;
+    const path_len: u32 = @intCast(buf[path_off]);
+    if (path_len > max_path_len) return error.PathTooLong;
+
+    // invariant: buffer holds the full path
+    const path_start: u32 = path_off + 1;
+    if (buf.len < path_start + path_len) return error.RequestTruncated;
+
+    const path = buf[path_start..][0..path_len];
+
+    return .{
+        .sender_pubkey = sender_pubkey,
+        .bolt = bolt,
+        .revision = revision,
+        .path = path,
+    };
+}
+
+// -- Response --
+
+pub const ContentResponse = struct {
+    status: u8,
+    payload: []const u8,
+};
+
+pub fn encode_response(resp: ContentResponse, buf: *[max_response_bytes]u8) !u32 {
+    // invariant: payload fits the bound
+    assert(resp.payload.len <= max_payload_bytes);
+    // invariant: status is one of the three known values
+    assert(resp.status <= status_never);
+
+    const payload_len: u16 = @intCast(resp.payload.len);
+
+    buf[0] = resp.status;
+    std.mem.writeInt(u16, buf[1..3], payload_len, .little);
+    if (payload_len > 0) {
+        tally_copy.copy_disjoint(u8, buf[3..][0..payload_len], resp.payload[0..payload_len]);
+    }
+
+    return response_header + @as(u32, payload_len);
+}
+
+pub fn decode_response(buf: []const u8) !ContentResponse {
+    // invariant: at minimum the 3-byte header
+    if (buf.len < response_header) return error.ResponseTooShort;
+
+    const status = buf[0];
+    if (status > status_never) return error.UnknownStatus;
+
+    const payload_len: u32 = @intCast(std.mem.readInt(u16, buf[1..3], .little));
+    if (payload_len > max_payload_bytes) return error.PayloadTooLarge;
+
+    // invariant: buffer holds the declared payload
+    if (buf.len < response_header + payload_len) return error.ResponseTruncated;
+
+    const payload = buf[response_header..][0..payload_len];
+    return .{
+        .status = status,
+        .payload = payload,
+    };
+}

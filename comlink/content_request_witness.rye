@@ -1,0 +1,160 @@
+//! comlink/content_request_witness.rye -- proves the Comlink content
+//! request frame round-trips correctly: encode, decode, identity
+//! preserved, every status code decoded, and edge cases refused.
+//!
+//!   rye build comlink/content_request_witness.rye \
+//!       -femit-bin=comlink/bin/content-request-witness
+//!   comlink/bin/content-request-witness
+//!
+//! Movement 6 of the Mantra SLC expanding prompt. Four claims:
+//!   1. A content request encodes and decodes to identical fields.
+//!   2. The sender's Kumara public key survives the round-trip.
+//!   3. All three response statuses (ok, not_yet, never) encode and
+//!      decode correctly, with payload intact for ok.
+//!   4. Malformed frames are refused with named errors.
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+const cr = @import("content_request.rye");
+const kumara = @import("kumara.rye");
+
+const witness_version = "20261107.110500";
+
+// Witness fixture seed -- unpredictable bytes, not a production key.
+const siya_seed = [_]u8{
+    0xa1, 0xb2, 0xc3, 0xd4, 0xe5, 0xf6, 0x07, 0x18,
+    0x29, 0x3a, 0x4b, 0x5c, 0x6d, 0x7e, 0x8f, 0x90,
+    0x01, 0x12, 0x23, 0x34, 0x45, 0x56, 0x67, 0x78,
+    0x89, 0x9a, 0xab, 0xbc, 0xcd, 0xde, 0xef, 0xf0,
+};
+
+fn run_selftest() !u8 {
+    // -- Claim 1: request round-trip preserves all fields.
+    const kp = kumara.keypair_from_seed(&siya_seed);
+    const pubkey_bytes = kp.public_key.toBytes();
+
+    const original = cr.ContentRequest{
+        .sender_pubkey = pubkey_bytes,
+        .bolt = "bloom-curriculum",
+        .revision = 1,
+        .path = "stage-01-meeting-the-dragons",
+    };
+
+    var req_buf: [cr.max_request_bytes]u8 = undefined;
+    const req_len = try cr.encode_request(original, &req_buf);
+
+    // invariant: encoded length is exactly header + field lengths
+    const expected_len: u32 = 32 + 1 + @as(u32, @intCast(original.bolt.len)) + 4 + 1 + @as(u32, @intCast(original.path.len));
+    assert(req_len == expected_len);
+
+    const decoded = try cr.decode_request(req_buf[0..req_len]);
+
+    // invariant: bolt round-trips
+    assert(std.mem.eql(u8, decoded.bolt, original.bolt));
+    // invariant: revision round-trips
+    assert(decoded.revision == original.revision);
+    // invariant: path round-trips
+    assert(std.mem.eql(u8, decoded.path, original.path));
+
+    print("  claim 1: request round-trip -- bolt={s} rev={d} path={s} -- ok\n", .{
+        decoded.bolt,
+        decoded.revision,
+        decoded.path,
+    });
+
+    // -- Claim 2: Kumara public key survives the round-trip.
+    // invariant: decoded pubkey matches the original byte for byte
+    assert(std.mem.eql(u8, decoded.sender_pubkey[0..32], pubkey_bytes[0..32]));
+
+    // Verify we can reconstruct the public key from the decoded bytes
+    const recovered = kumara.PublicKey.fromBytes(decoded.sender_pubkey) catch unreachable;
+    const recovered_bytes = recovered.toBytes();
+    assert(std.mem.eql(u8, recovered_bytes[0..32], pubkey_bytes[0..32]));
+
+    print("  claim 2: Kumara pubkey survives round-trip -- 32 bytes match -- ok\n", .{});
+
+    // -- Claim 3: all three response statuses round-trip correctly.
+    const test_payload = "Meet me where the rye grows.";
+
+    // status ok with payload
+    var resp_buf: [cr.max_response_bytes]u8 = undefined;
+    const ok_len = try cr.encode_response(.{
+        .status = cr.status_ok,
+        .payload = test_payload,
+    }, &resp_buf);
+    const ok_resp = try cr.decode_response(resp_buf[0..ok_len]);
+    assert(ok_resp.status == cr.status_ok);
+    assert(std.mem.eql(u8, ok_resp.payload, test_payload));
+
+    // status not_yet with empty payload
+    const ny_len = try cr.encode_response(.{
+        .status = cr.status_not_yet,
+        .payload = "",
+    }, &resp_buf);
+    const ny_resp = try cr.decode_response(resp_buf[0..ny_len]);
+    assert(ny_resp.status == cr.status_not_yet);
+    assert(ny_resp.payload.len == 0);
+
+    // status never with empty payload
+    const nv_len = try cr.encode_response(.{
+        .status = cr.status_never,
+        .payload = "",
+    }, &resp_buf);
+    const nv_resp = try cr.decode_response(resp_buf[0..nv_len]);
+    assert(nv_resp.status == cr.status_never);
+    assert(nv_resp.payload.len == 0);
+
+    print("  claim 3: ok/not_yet/never all round-trip -- ok\n", .{});
+
+    // -- Claim 4: malformed frames are refused.
+    var refused: u32 = 0;
+
+    // too short for a request
+    if (cr.decode_request(&[_]u8{ 0, 1, 2 })) |_| {
+        unreachable;
+    } else |err| {
+        assert(err == error.RequestTooShort);
+        refused += 1;
+    }
+
+    // too short for a response
+    if (cr.decode_response(&[_]u8{ 0, 1 })) |_| {
+        unreachable;
+    } else |err| {
+        assert(err == error.ResponseTooShort);
+        refused += 1;
+    }
+
+    // unknown status code
+    var bad_status: [3]u8 = undefined;
+    bad_status[0] = 99;
+    std.mem.writeInt(u16, bad_status[1..3], 0, .little);
+    if (cr.decode_response(bad_status[0..3])) |_| {
+        unreachable;
+    } else |err| {
+        assert(err == error.UnknownStatus);
+        refused += 1;
+    }
+
+    // invariant: all three refusals fired
+    assert(refused == 3);
+
+    print("  claim 4: 3 malformed frames refused with named errors -- ok\n", .{});
+
+    print(
+        "content-request-witness: version {s}\n",
+        .{witness_version},
+    );
+    print(
+        "GREEN: Comlink content request frame round-trips correctly." ++
+            " Kumara identity preserved. All three statuses decoded." ++
+            " Malformed frames refused.\n",
+        .{},
+    );
+    return 0;
+}
+
+pub fn main() !u8 {
+    return run_selftest();
+}

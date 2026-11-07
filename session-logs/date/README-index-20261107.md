@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.103729 | [Mantra SLC Movement 6 -- content request format witness GREEN](20261107/20261107-103729_mantra-slc-m6-content-request-green.kyri.md) | 4 claims: request round-trip, Kumara pubkey, 3 status codes, 3 refusal paths |
 | 20261107.102947 | [Mantra SLC Movement 5 -- integration bolt witness GREEN](20261107/20261107-102947_mantra-slc-m5-integration-bolt-green.kyri.md) | 24 pages across 4 galaxies, 209 resins, 407 beads, 12 stranger pairs proven |
 | 20261107.102513 | [Mantra SLC Movement 4 -- hardware bolt witness GREEN](20261107/20261107-102513_mantra-slc-m4-hardware-bolt-green.kyri.md) | 2 pages on ~thyme, 15 resins, 30 beads, cross-bolt not_yet from ~mint |
 | 20261107.101626 | [Fleet decouple -- move 3 files to fleet/, repoint 131 living refs, send](20261107/20261107-101626_fleet-decouple-repoint-send.kyri.md) | 132 files changed, 371 substitutions |
