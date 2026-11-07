@@ -13,7 +13,7 @@
 
 ## Phase 1 -- Mantra content addressing (movements 1-5)
 
-- [ ] **M1** -- ContentBolt: wrap Markdown page as Mantra resin with Kumara peer and date-stamp revision. Prove recall and SHA3-256 digest.
+- [x] **M1** -- ContentBolt: wrap Markdown page as Mantra resin with Kumara peer and date-stamp revision. Prove recall and SHA3-256 digest. GREEN `20261107` -- `mantra/content_bolt_witness.rye`, `~siya` seated in galaxy registry.
 - [ ] **M2** -- Convert Bloom curriculum (10 pages) into ContentBolt resins on `~sunflower`. Prove all ten recall.
 - [ ] **M3** -- Convert ecology (7) and guides (5) onto `~rosemary` and `~oregano`. Prove cross-bolt `not_yet` from a stranger peer.
 - [ ] **M4** -- Silo Minisforum and Grainphone research into teaching pages on `~thyme` and `~mint`. ASCII-first, Bhakta at Door.

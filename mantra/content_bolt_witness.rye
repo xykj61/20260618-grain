@@ -1,0 +1,156 @@
+//! mantra/content_bolt_witness.rye -- proves a Markdown page stored as
+//! a Mantra resin recalls with matching bytes and SHA3-256 digest.
+//!
+//!   rye build mantra/content_bolt_witness.rye \
+//!       -femit-bin=mantra/bin/content-bolt-witness
+//!   mantra/bin/content-bolt-witness
+//!
+//! Movement 1 of the Mantra SLC expanding prompt. Four claims:
+//!   1. A Markdown page under 512 bytes appends as a plain-text resin
+//!      with Kumara peer (~siya) and bolt "content".
+//!   2. Recall returns the exact page bytes, byte for byte.
+//!   3. The stored digest matches an independent SHA3-256 of the content.
+//!   4. Revision density holds: revision 1 then 2, and a gap to 3 is
+//!      refused with RevisionOutOfOrder.
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+const ns = @import("recall_lap1.rye");
+const tally_copy = @import("tally_copy.rye");
+const Sha3_256 = std.crypto.hash.sha3.Sha3_256;
+
+const witness_version = "20261107.100000";
+
+// invariant: peer fits in 16 bytes (5 bytes for ~siya).
+const content_peer = "~siya";
+// invariant: bolt fits in 32 bytes (7 bytes for content).
+const content_bolt = "content";
+const content_tilak = "plain-text";
+
+const page_r1 =
+    \\# Welcome to Grain
+    \\
+    \\Grain is a biocyclic vegan operating system. It remembers every
+    \\fact a grower records, seals each day's work in an Amphora vessel,
+    \\and carries the sealed record to every peer in the network.
+    \\
+    \\May the field remember what the season taught.
+;
+
+const page_r2 =
+    \\# Welcome to Grain
+    \\
+    \\Grain is a biocyclic vegan operating system. It remembers every
+    \\fact a grower records, seals each day's work in an Amphora vessel,
+    \\and carries the sealed record to every peer in the network.
+    \\
+    \\This revision adds the Bloom curriculum -- fifteen lessons that
+    \\teach the system by using it.
+    \\
+    \\May the field remember what the season taught.
+;
+
+fn independent_digest(content: []const u8, out: *[64]u8) void {
+    var raw: [32]u8 = undefined;
+    Sha3_256.hash(content, &raw, .{});
+    var i: u32 = 0;
+    while (i < 32) : (i += 1) {
+        _ = std.fmt.bufPrint(
+            out[i * 2 ..][0..2],
+            "{x:0>2}",
+            .{raw[i]},
+        ) catch unreachable;
+    }
+}
+
+fn run_selftest() !u8 {
+    // invariant: both pages fit inside max_resin_bytes.
+    assert(page_r1.len <= ns.max_resin_bytes);
+    assert(page_r2.len <= ns.max_resin_bytes);
+    // invariant: peer and bolt fit their bounds.
+    assert(content_peer.len <= 16);
+    assert(content_bolt.len <= 32);
+
+    var catalog = ns.BoltCatalog.empty();
+    var buf: [ns.max_resin_bytes]u8 = undefined;
+
+    // -- Claim 1: append a Markdown page as a plain-text resin.
+    try catalog.append_leaf(
+        content_peer,
+        content_bolt,
+        1,
+        "welcome.md",
+        page_r1,
+        content_tilak,
+    );
+    print("  claim 1: append Markdown as resin -- ok\n", .{});
+
+    // -- Claim 2: recall returns exact bytes.
+    const name_r1 = ns.Name{
+        .peer = content_peer,
+        .bolt = content_bolt,
+        .revision = 1,
+        .path = "welcome.md",
+    };
+    const result = try catalog.recall(name_r1, &buf);
+    assert(result.outcome == .here);
+    assert(result.len == page_r1.len);
+    assert(std.mem.eql(u8, buf[0..result.len], page_r1));
+    assert(std.mem.eql(u8, result.tilak, content_tilak));
+    print("  claim 2: recall returns exact bytes -- ok\n", .{});
+
+    // -- Claim 3: digest matches independent SHA3-256.
+    var expected_hex: [64]u8 = undefined;
+    independent_digest(page_r1, &expected_hex);
+    const leaf = catalog.leaves[0];
+    assert(std.mem.eql(u8, leaf.digest_hex[0..64], expected_hex[0..64]));
+    print("  claim 3: SHA3-256 digest matches -- ok\n", .{});
+
+    // -- Claim 4: revision density -- r2 appends, gap to r3 refuses.
+    try catalog.append_leaf(
+        content_peer,
+        content_bolt,
+        2,
+        "welcome.md",
+        page_r2,
+        content_tilak,
+    );
+    const r3_err = catalog.append_leaf(
+        content_peer,
+        content_bolt,
+        4,
+        "welcome.md",
+        page_r1,
+        content_tilak,
+    );
+    assert(r3_err == error.RevisionOutOfOrder);
+    print("  claim 4: revision density enforced -- ok\n", .{});
+
+    // -- Verify r2 recall too.
+    const name_r2 = ns.Name{
+        .peer = content_peer,
+        .bolt = content_bolt,
+        .revision = 2,
+        .path = "welcome.md",
+    };
+    const result2 = try catalog.recall(name_r2, &buf);
+    assert(result2.outcome == .here);
+    assert(result2.len == page_r2.len);
+    assert(std.mem.eql(u8, buf[0..result2.len], page_r2));
+
+    print(
+        "content-bolt-witness: version {s}\n",
+        .{witness_version},
+    );
+    print(
+        "GREEN: a Markdown page recalled from Mantra matches" ++
+            " byte for byte, SHA3-256 verified.\n",
+        .{},
+    );
+    return 0;
+}
+
+pub fn main() !u8 {
+    return run_selftest();
+}

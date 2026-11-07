@@ -73,6 +73,7 @@ convention about which names are "reserved."
 | `~tarragon` | Tarragon -- essential in cooking | A single leaf changes the whole dish | Query engine demo |
 | `~chive` | Chive -- allium companion | Grows in clusters; stronger together | MUR token demo |
 | `~dill` | Dill -- fermentation friend | Helps things transform and agree | Mycelium consensus demo |
+| `~siya` | Siya -- turmeric relative, sacred root | A golden rhizome that asks the soil what it holds | Content peer -- the one who recalls |
 
 ## How to read the demos
 
