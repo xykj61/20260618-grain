@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.163349 | [Wire protocol extraction -- send](20261107/20261107-163349_wire-protocol-extraction-send.kyri.md) | 5 UART handlers into WireProtocol.swift, 2,702 lines remain |
 | 20261107.162357 | [QemuUtilities extraction -- send](20261107/20261107-162357_qemu-utilities-extraction-send.kyri.md) | QMP/PPM utilities into own Swift file, 2,966 lines remain |
 | 20261107.161353 | [FrameGridView extraction -- multi-file build GREEN](20261107/20261107-161353_framegridview-extraction-build-green.kyri.md) | 394 lines extracted, *.swift glob build proven |
 | 20261107.155516 | [main.swift static data extraction survey complete](20261107/20261107-155516_main-swift-extraction-survey-complete.kyri.md) | Full 3,530-line scan -- Bloom and Dimeroll were the two major clusters, both extracted |
