@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.220707 | [Bloom lineage teachings and Topos silo](20261106/20261106-220707_bloom-lineage-and-topos-silo.kyri.md) | seven lineage teachings, seventh silo source from Topos essay |
 | 20261106.214527 | [Bloom tab loads all ten curriculum stages](20261106/20261106-214527_bloom-all-ten-lessons.kyri.md) | loadBloomLessons expanded from 3 to 10 stages |
 | 20261106.213121 | [Bloom Act I send -- 17 files, Movements 5-15 shipped](20261106/20261106-213121_bloom-act-i-send.kyri.md) | single-clone send, nib bd878c8ac0, fast-forward to 58490cb93 |
 | 20261106.212545 | [Bloom Act I complete -- ten curriculum stages, three ecology pages](20261106/20261106-212545_bloom-act-i-complete.kyri.md) | M11-M15: Stages 8-10, ecology room, Act I integration witness |
