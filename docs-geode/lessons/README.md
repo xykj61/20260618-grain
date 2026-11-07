@@ -69,6 +69,36 @@ are named in `gratitude/`.
 
 ---
 
+## Related Bloom pages
+
+The **Bloom** educational platform at `bloom/` covers many of the same
+concepts from a different angle -- written for someone meeting
+computing for the first time, with concrete examples and exercises at
+every stage. Where these lessons are reading walks beside the tree,
+Bloom's curriculum is a self-contained course:
+
+- Lessons 1-2 (the house, the front door) pair with
+  [Stage 1 -- Meeting the Dragons](../../bloom/curriculum/stage-01-meeting-the-dragons.md)
+- Lesson 3 (the why) pairs with
+  [Stage 8 -- Ecology and Stewardship](../../bloom/curriculum/stage-08-ecology-and-stewardship.md)
+- Lesson 4 (joy has a rank) pairs with
+  [Stage 9 -- Right to Repair](../../bloom/curriculum/stage-09-right-to-repair.md)
+- Lessons 5-6 (the order, two pockets) pair with
+  [Stage 10 -- The Technical Vision](../../bloom/curriculum/stage-10-the-technical-vision.md)
+- Lesson 7 (dawn, kernels) pairs with
+  [Stage 2 -- Roots and Trees](../../bloom/curriculum/stage-02-roots-and-trees.md)
+- Lesson 8 (the painted face) pairs with the
+  [Bloom Terrarium tutorials](../../bloom/terrarium-lessons/README.md)
+
+Five docs-geode tutorials cover Bloom navigation directly:
+[Bloom Curriculum Guide](../tutorials/bloom-curriculum-guide.md),
+[Bloom Ecology and Essays](../tutorials/bloom-ecology-and-essays.md),
+[Bloom Demos in Terrarium](../tutorials/bloom-demos-in-terrarium.md),
+[Reading Network Demos](../tutorials/reading-network-demos.md), and
+[Understanding Placeholder Galaxies](../tutorials/understanding-placeholder-galaxies.md).
+
+---
+
 ## With thanks
 
 These eight were drafted with **Grok** as a teaching partner, then read against the tree, labelled

@@ -21,6 +21,8 @@ reading the financial ledger and querying the event log.
   financial ledger: transactions, inventory, and cash flow
 - [Queries and Mantra](queries-and-mantra.md) -- Asking the records a
   question, and understanding the append-only event log
+- [The Bloom Tab](the-bloom-tab.md) -- Navigating curriculum, ecology,
+  guides, demos, and essays inside Terrarium
 
 ## How to read these
 
