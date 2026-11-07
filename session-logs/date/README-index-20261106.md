@@ -2,6 +2,8 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261106.205233 | [Bloom onboarding platform -- M1 expanding-prompt and tablecloth board](20261106/20261106-205233_bloom-onboarding-platform-m1.kyri.md) | vision plan, 30-movement journey, bloom/ allow-back, blake2b fix |
+| 20261106.205049 | [Bloom educational ecosystem -- Movements 1-4 landed](20261106/20261106-205049_bloom-educational-ecosystem-movements-1-4.kyri.md) | expanding-prompt, bloom/ front door, three curriculum stages siloed from Guardian Dragon school |
 | 20261106.201733 | [Terrarium interactive launch fix](20261106/20261106-201733_terrarium-interactive-launch-fix.kyri.md) | isInteractive flag, conditional dumpAndExit and timeout, app stays open |
 | 20261106.200349 | [Act II integration witness -- Movement 30 GREEN](20261106/20261106-200349_act2-integration-witness-movement30.kyri.md) | 24 symbols, 10 QEMU modules, all 30 movements proven, the field ledger complete |
 | 20261106.195400 | [Mantra tab placeholder -- Movement 29 landed](20261106/20261106-195400_mantra-tab-placeholder-movement29.kyri.md) | focusMantra lazy tab, soft purple on near-black, sidebar routing, closeTab protection |
