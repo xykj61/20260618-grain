@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.111504 | [Checklist catch-up -- M4 through M9 landed](20261107/20261107-111504_checklist-catchup-m4-m9.kyri.md) | checklist updated to match 5 landed commits |
 | 20261107.110729 | [Mantra SLC M9 -- content server witness GREEN](20261107/20261107-110729_mantra-slc-m9-content-server-green.kyri.md) | 53 pages loaded, 7 verified over localhost UDP with SHA3-256 |
 | 20261107.104605 | [Mantra SLC Movement 8 -- content request-response witness GREEN](20261107/20261107-104605_mantra-slc-m8-content-wire-green.kyri.md) | 3 claims: ~sunflower serves over localhost UDP, ~siya receives matching bytes, SHA3-256 verified |
 | 20261107.103729 | [Mantra SLC Movement 6 -- content request format witness GREEN](20261107/20261107-103729_mantra-slc-m6-content-request-green.kyri.md) | 4 claims: request round-trip, Kumara pubkey, 3 status codes, 3 refusal paths |

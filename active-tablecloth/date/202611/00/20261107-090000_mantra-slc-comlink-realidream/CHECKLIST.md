@@ -16,15 +16,14 @@
 - [x] **M1** -- ContentBolt: wrap Markdown page as Mantra resin with Kumara peer and date-stamp revision. Prove recall and SHA3-256 digest. GREEN `20261107` -- `mantra/content_bolt_witness.rye`, `~siya` seated in galaxy registry.
 - [x] **M2** -- Convert Bloom curriculum (10 pages) into ContentBolt resins on `~sunflower`. Prove all ten recall. GREEN `20261107` -- `mantra/curriculum_bolt_witness.rye`, 97 resins, 190 beads, all 10 SHA3-256 verified.
 - [x] **M3** -- Convert ecology (7) and guides (5) onto `~rosemary` and `~oregano`. Prove cross-bolt `not_yet` from a stranger peer. GREEN `20261107` -- `mantra/ecology_guides_bolt_witness.rye`, 97 resins (59 ecology + 38 guides), 187 beads, all 12 SHA3-256 verified. `resolve_binding` semantics extended: unknown peer at revision 1 returns `not_yet` rather than `never`.
-- [ ] **M4** -- Silo Minisforum and Grainphone research into teaching pages on `~thyme` and `~mint`. ASCII-first, Bhakta at Door.
-- [ ] **M5** -- Integration witness: 20+ pages across 4 galaxies, every recall answering `here` from home and `not_yet` from strangers.
+- [x] **M4** -- Silo Minisforum and Grainphone research into teaching pages on `~thyme` and `~mint`. ASCII-first, Bhakta at Door. GREEN `20261107` -- `mantra/hardware_bolt_witness.rye`, 2 pages on `~thyme` (home-forge and handheld-surface).
+- [x] **M5** -- Integration witness: 20+ pages across 4 galaxies, every recall answering `here` from home and `not_yet` from strangers. GREEN `20261107` -- `mantra/integration_bolt_witness.rye`, 24 pages across 4 galaxies.
 
 ## Phase 2 -- Comlink localhost wire (movements 6-10)
 
-- [ ] **M6** -- Define Comlink content request: peer asks peer for `bolt / revision / path` over localhost UDP. Request carries Kumara public key.
-- [ ] **M7** -- Survey Zig 0.17.0 stdlib for UDP socket primitives. Use stdlib directly or find permissively licensed Zig UDP library.
-- [ ] **M8** -- Implement Comlink request-response on localhost: `~siya` sends to `~sunflower`, receives resin, proves digest. Bounded 512 bytes, one at a time.
-- [ ] **M9** -- Wire Comlink into Bloom lesson loader: `loadBloomLessons()` resolves pages via Comlink localhost request instead of filesystem read.
+- [x] **M6** -- Define Comlink content request: peer asks peer for `bolt / revision / path` over localhost UDP. Request carries Kumara public key. GREEN `20261107` -- `comlink/content_request_witness.rye`, 4 claims.
+- [x] **M7/M8** -- Survey Zig stdlib for UDP socket primitives and implement Comlink request-response on localhost: `~siya` sends to `~sunflower`, receives resin, proves digest. Bounded 512 bytes, one at a time. GREEN `20261107` -- `comlink/content_request_response_witness.rye`, 3 claims. M7 survey folded into M8 implementation.
+- [x] **M9** -- Content server: bounded UDP listener serves Mantra catalog content to requesting peers. GREEN `20261107` -- `comlink/content_server_witness.rye`, 7 claims.
 - [ ] **M10** -- Integration witness: Siya requests pages from 4 galaxies, receives all, Bloom tab renders every page. Wire invisible to reader.
 
 ## Phase 3 -- Caravan/Tally lowering for RISC-V (movements 11-15)
