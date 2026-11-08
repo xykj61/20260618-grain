@@ -1,0 +1,467 @@
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+pub const bridge_version = "20261108.155213";
+
+// invariant: digest is always 32 bytes, hex-encoded to 64 characters.
+const Sha3 = std.crypto.hash.sha3.Sha3_256;
+const digest_len = Sha3.digest_length;
+const hex_len = digest_len * 2;
+
+const hex_chars = "0123456789abcdef";
+
+fn hex_encode(bytes: *const [digest_len]u8, out: *[hex_len]u8) void {
+    for (bytes.*, 0..) |b, i| {
+        out[i * 2] = hex_chars[b >> 4];
+        out[i * 2 + 1] = hex_chars[b & 0x0f];
+    }
+}
+
+// --- catalog: in-memory entries, bounded -----------------------------------
+
+const max_entries: u32 = 256;
+const max_path_len: u32 = 255;
+
+const Entry = struct {
+    path: [max_path_len]u8,
+    path_len: u32,
+    digest: [hex_len]u8,
+    size: u64,
+    used: bool,
+};
+
+// invariant: catalog holds at most max_entries, each with a unique path.
+var catalog: [max_entries]Entry = undefined;
+var catalog_count: u32 = 0;
+var initialized: bool = false;
+
+fn find_entry(path: []const u8) ?u32 {
+    var i: u32 = 0;
+    while (i < catalog_count) : (i += 1) {
+        if (catalog[i].used and catalog[i].path_len == path.len and
+            std.mem.eql(u8, catalog[i].path[0..catalog[i].path_len], path))
+            return i;
+    }
+    return null;
+}
+
+// --- C exports: init -------------------------------------------------------
+
+export fn mantra_init() callconv(.c) void {
+    catalog_count = 0;
+    var i: u32 = 0;
+    while (i < max_entries) : (i += 1) {
+        catalog[i].used = false;
+    }
+    initialized = true;
+}
+
+// --- C exports: digest -----------------------------------------------------
+
+// invariant: computes SHA3-256 of data, writes 64-char hex to digest_out.
+export fn mantra_digest(
+    data_ptr: [*]const u8,
+    data_len: u32,
+    digest_out: [*]u8,
+) callconv(.c) void {
+    if (data_len == 0) {
+        @memset(digest_out[0..hex_len], '0');
+        return;
+    }
+    const data = data_ptr[0..data_len];
+    var raw: [digest_len]u8 = undefined;
+    Sha3.hash(data, &raw, .{});
+    var hex: [hex_len]u8 = undefined;
+    hex_encode(&raw, &hex);
+    @memcpy(digest_out[0..hex_len], &hex);
+}
+
+// --- C exports: verify -----------------------------------------------------
+
+// invariant: returns true iff SHA3-256(data) matches the 64-char hex name.
+export fn mantra_verify(
+    name_ptr: [*]const u8,
+    data_ptr: [*]const u8,
+    data_len: u32,
+) callconv(.c) bool {
+    var computed: [hex_len]u8 = undefined;
+    mantra_digest(data_ptr, data_len, &computed);
+    return std.mem.eql(u8, computed[0..hex_len], name_ptr[0..hex_len]);
+}
+
+// --- C exports: catalog operations -----------------------------------------
+
+// invariant: adds or updates entry. returns 0 on success, -1 on full, -2 on path too long.
+export fn mantra_catalog_add(
+    digest_ptr: [*]const u8,
+    path_ptr: [*]const u8,
+    path_len: u32,
+    size: u64,
+) callconv(.c) i32 {
+    if (path_len == 0 or path_len > max_path_len) return -2;
+    const path = path_ptr[0..path_len];
+
+    if (find_entry(path)) |idx| {
+        @memcpy(catalog[idx].digest[0..hex_len], digest_ptr[0..hex_len]);
+        catalog[idx].size = size;
+        return 0;
+    }
+
+    if (catalog_count >= max_entries) return -1;
+
+    var e = &catalog[catalog_count];
+    @memcpy(e.path[0..path_len], path);
+    e.path_len = path_len;
+    @memcpy(e.digest[0..hex_len], digest_ptr[0..hex_len]);
+    e.size = size;
+    e.used = true;
+    catalog_count += 1;
+    return 0;
+}
+
+export fn mantra_catalog_count() callconv(.c) u32 {
+    return catalog_count;
+}
+
+// invariant: writes entries as newline-separated "digest path size" lines.
+// returns bytes written, or 0 if buffer too small.
+export fn mantra_catalog_list(
+    buf_ptr: [*]u8,
+    buf_len: u32,
+) callconv(.c) u32 {
+    var pos: u32 = 0;
+    var i: u32 = 0;
+    while (i < catalog_count) : (i += 1) {
+        if (!catalog[i].used) continue;
+        const path = catalog[i].path[0..catalog[i].path_len];
+        // "digest path size\n"
+        const needed = hex_len + 1 + catalog[i].path_len + 1 + 20 + 1;
+        if (pos + needed > buf_len) return 0;
+        @memcpy(buf_ptr[pos .. pos + hex_len], catalog[i].digest[0..hex_len]);
+        pos += hex_len;
+        buf_ptr[pos] = ' ';
+        pos += 1;
+        @memcpy(buf_ptr[pos .. pos + catalog[i].path_len], path);
+        pos += catalog[i].path_len;
+        buf_ptr[pos] = ' ';
+        pos += 1;
+        const size_slice = std.fmt.bufPrint(
+            buf_ptr[pos .. buf_len],
+            "{d}",
+            .{catalog[i].size},
+        ) catch return 0;
+        pos += @intCast(size_slice.len);
+        buf_ptr[pos] = '\n';
+        pos += 1;
+    }
+    return pos;
+}
+
+// invariant: returns the digest for a path, or false if not found.
+export fn mantra_catalog_get_digest(
+    path_ptr: [*]const u8,
+    path_len: u32,
+    digest_out: [*]u8,
+) callconv(.c) bool {
+    if (path_len == 0 or path_len > max_path_len) return false;
+    const idx = find_entry(path_ptr[0..path_len]) orelse return false;
+    @memcpy(digest_out[0..hex_len], catalog[idx].digest[0..hex_len]);
+    return true;
+}
+
+// --- C exports: catalog serialization (Kyri format) ------------------------
+
+// invariant: serializes catalog to Kyri. returns bytes written, 0 if too small.
+export fn mantra_catalog_save(
+    out_ptr: [*]u8,
+    out_len: u32,
+) callconv(.c) u32 {
+    var pos: u32 = 0;
+    const header = "format mantra-catalog-v1\n";
+    if (pos + header.len > out_len) return 0;
+    @memcpy(out_ptr[pos .. pos + header.len], header);
+    pos += header.len;
+
+    var i: u32 = 0;
+    while (i < catalog_count) : (i += 1) {
+        if (!catalog[i].used) continue;
+        const path = catalog[i].path[0..catalog[i].path_len];
+
+        // "entry <path>\n"
+        const entry_prefix = "entry ";
+        if (pos + entry_prefix.len + path.len + 1 > out_len) return 0;
+        @memcpy(out_ptr[pos .. pos + entry_prefix.len], entry_prefix);
+        pos += entry_prefix.len;
+        @memcpy(out_ptr[pos .. pos + path.len], path);
+        pos += @intCast(path.len);
+        out_ptr[pos] = '\n';
+        pos += 1;
+
+        // "digest <hex64>\n"
+        const digest_prefix = "digest ";
+        if (pos + digest_prefix.len + hex_len + 1 > out_len) return 0;
+        @memcpy(out_ptr[pos .. pos + digest_prefix.len], digest_prefix);
+        pos += digest_prefix.len;
+        @memcpy(out_ptr[pos .. pos + hex_len], catalog[i].digest[0..hex_len]);
+        pos += hex_len;
+        out_ptr[pos] = '\n';
+        pos += 1;
+
+        // "size <n>\n"
+        const size_prefix = "size ";
+        if (pos + size_prefix.len + 20 + 1 > out_len) return 0;
+        @memcpy(out_ptr[pos .. pos + size_prefix.len], size_prefix);
+        pos += size_prefix.len;
+        const size_str = std.fmt.bufPrint(
+            out_ptr[pos..out_len],
+            "{d}\n",
+            .{catalog[i].size},
+        ) catch return 0;
+        pos += @intCast(size_str.len);
+    }
+    return pos;
+}
+
+// invariant: deserializes Kyri catalog. returns true on success.
+export fn mantra_catalog_load(
+    data_ptr: [*]const u8,
+    data_len: u32,
+) callconv(.c) bool {
+    if (data_len == 0) return false;
+    const data = data_ptr[0..data_len];
+
+    // invariant: must start with format line.
+    const header = "format mantra-catalog-v1\n";
+    if (data.len < header.len) return false;
+    if (!std.mem.eql(u8, data[0..header.len], header)) return false;
+
+    mantra_init();
+
+    var rest = data[header.len..];
+    var current_path: ?[]const u8 = null;
+    var current_digest: ?[hex_len]u8 = null;
+    var current_size: u64 = 0;
+
+    while (rest.len > 0) {
+        const nl = std.mem.indexOfScalar(u8, rest, '\n') orelse break;
+        const line = rest[0..nl];
+        rest = rest[nl + 1 ..];
+
+        if (std.mem.startsWith(u8, line, "entry ")) {
+            if (current_path != null and current_digest != null) {
+                const path = current_path.?;
+                if (path.len <= max_path_len) {
+                    _ = mantra_catalog_add(
+                        &current_digest.?,
+                        path.ptr,
+                        @intCast(path.len),
+                        current_size,
+                    );
+                }
+            }
+            current_path = line[6..];
+            current_digest = null;
+            current_size = 0;
+        } else if (std.mem.startsWith(u8, line, "digest ")) {
+            const val = line[7..];
+            if (val.len == hex_len) {
+                var d: [hex_len]u8 = undefined;
+                @memcpy(&d, val);
+                current_digest = d;
+            }
+        } else if (std.mem.startsWith(u8, line, "size ")) {
+            const val = line[5..];
+            current_size = std.fmt.parseInt(u64, val, 10) catch 0;
+        }
+    }
+
+    if (current_path != null and current_digest != null) {
+        const path = current_path.?;
+        if (path.len <= max_path_len) {
+            _ = mantra_catalog_add(
+                &current_digest.?,
+                path.ptr,
+                @intCast(path.len),
+                current_size,
+            );
+        }
+    }
+
+    return true;
+}
+
+// --- selftest --------------------------------------------------------------
+
+fn prove_init_empty() !void {
+    mantra_init();
+    if (!initialized) return error.NotInitialized;
+    if (mantra_catalog_count() != 0) return error.CountNotZero;
+}
+
+fn prove_digest_deterministic() !void {
+    const data = "hello mantra";
+    var d1: [hex_len]u8 = undefined;
+    var d2: [hex_len]u8 = undefined;
+    mantra_digest(data.ptr, data.len, &d1);
+    mantra_digest(data.ptr, data.len, &d2);
+    if (!std.mem.eql(u8, &d1, &d2)) return error.DigestNotDeterministic;
+    if (d1[0] == '0' and d1[1] == '0' and d1[2] == '0' and d1[3] == '0')
+        return error.DigestSuspiciouslyZero;
+}
+
+fn prove_verify_matches() !void {
+    const data = "content addressed";
+    var digest: [hex_len]u8 = undefined;
+    mantra_digest(data.ptr, data.len, &digest);
+    if (!mantra_verify(&digest, data.ptr, data.len))
+        return error.VerifyRejectedCorrect;
+    const bad = "content modified";
+    if (mantra_verify(&digest, bad.ptr, bad.len))
+        return error.VerifyAcceptedWrong;
+}
+
+fn prove_catalog_add_and_get() !void {
+    mantra_init();
+    const data = "test blob";
+    var digest: [hex_len]u8 = undefined;
+    mantra_digest(data.ptr, data.len, &digest);
+    const path = "settings.kyri";
+    const rc = mantra_catalog_add(&digest, path.ptr, path.len, data.len);
+    if (rc != 0) return error.AddFailed;
+    if (mantra_catalog_count() != 1) return error.CountNotOne;
+    var got: [hex_len]u8 = undefined;
+    if (!mantra_catalog_get_digest(path.ptr, path.len, &got))
+        return error.GetDigestFailed;
+    if (!std.mem.eql(u8, &got, &digest))
+        return error.DigestMismatch;
+}
+
+fn prove_catalog_update() !void {
+    mantra_init();
+    const path = "doc.kyri";
+    const data1 = "version one";
+    var d1: [hex_len]u8 = undefined;
+    mantra_digest(data1.ptr, data1.len, &d1);
+    _ = mantra_catalog_add(&d1, path.ptr, path.len, data1.len);
+
+    const data2 = "version two";
+    var d2: [hex_len]u8 = undefined;
+    mantra_digest(data2.ptr, data2.len, &d2);
+    _ = mantra_catalog_add(&d2, path.ptr, path.len, data2.len);
+
+    if (mantra_catalog_count() != 1) return error.UpdateCreatedDuplicate;
+    var got: [hex_len]u8 = undefined;
+    _ = mantra_catalog_get_digest(path.ptr, path.len, &got);
+    if (!std.mem.eql(u8, &got, &d2)) return error.UpdateDigestWrong;
+}
+
+fn prove_save_load_roundtrip() !void {
+    mantra_init();
+    const data = "roundtrip content";
+    var digest: [hex_len]u8 = undefined;
+    mantra_digest(data.ptr, data.len, &digest);
+    const path = "test/roundtrip.kyri";
+    _ = mantra_catalog_add(&digest, path.ptr, path.len, data.len);
+
+    var buf: [4096]u8 = undefined;
+    const saved = mantra_catalog_save(&buf, 4096);
+    if (saved == 0) return error.SaveReturnedZero;
+
+    mantra_init();
+    if (mantra_catalog_count() != 0) return error.InitDidNotClear;
+    if (!mantra_catalog_load(&buf, saved)) return error.LoadFailed;
+    if (mantra_catalog_count() != 1) return error.LoadCountWrong;
+
+    var got: [hex_len]u8 = undefined;
+    if (!mantra_catalog_get_digest(path.ptr, path.len, &got))
+        return error.LoadPathMissing;
+    if (!std.mem.eql(u8, &got, &digest))
+        return error.LoadDigestMismatch;
+}
+
+fn prove_load_refuses_bad_format() !void {
+    mantra_init();
+    const bad = "format baton-v1\nname test\n";
+    if (mantra_catalog_load(bad.ptr, bad.len))
+        return error.BadFormatAccepted;
+}
+
+fn prove_catalog_list() !void {
+    mantra_init();
+    const data = "list test";
+    var digest: [hex_len]u8 = undefined;
+    mantra_digest(data.ptr, data.len, &digest);
+    _ = mantra_catalog_add(&digest, "alpha.kyri", 10, 9);
+    _ = mantra_catalog_add(&digest, "beta.kyri", 9, 9);
+    if (mantra_catalog_count() != 2) return error.ListCountWrong;
+    var buf: [4096]u8 = undefined;
+    const len = mantra_catalog_list(&buf, 4096);
+    if (len == 0) return error.ListEmpty;
+    const text = buf[0..len];
+    if (std.mem.indexOf(u8, text, "alpha.kyri") == null)
+        return error.ListMissingAlpha;
+    if (std.mem.indexOf(u8, text, "beta.kyri") == null)
+        return error.ListMissingBeta;
+}
+
+fn run_selftest() u8 {
+    prove_init_empty() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_digest_deterministic() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_verify_matches() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_catalog_add_and_get() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_catalog_update() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_save_load_roundtrip() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_load_refuses_bad_format() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_catalog_list() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+
+    print("mantra vantage: init empty -- catalog starts at zero.\n", .{});
+    print("mantra vantage: digest deterministic -- same data, same SHA3-256.\n", .{});
+    print("mantra vantage: verify matches -- correct data accepted, modified refused.\n", .{});
+    print("mantra vantage: catalog add and get -- entry stored, digest retrieved.\n", .{});
+    print("mantra vantage: catalog update -- same path replaces digest, count stays 1.\n", .{});
+    print("mantra vantage: save-load roundtrip -- Kyri serialize, reinit, deserialize, path and digest match.\n", .{});
+    print("mantra vantage: load refuses bad format -- baton-v1 rejected.\n", .{});
+    print("mantra vantage: catalog list -- two entries, both present in output.\n", .{});
+    print("mantra vantage: version {s}\n", .{bridge_version});
+    print("GREEN: mantra vantage -- FFI bridge: init, digest, verify, catalog, serialize, list.\n", .{});
+    return 0;
+}
+
+export fn mantra_selftest() callconv(.c) i32 {
+    return @intCast(run_selftest());
+}
+
+pub fn main(init: std.process.Init) !u8 {
+    const allocator = init.arena.allocator();
+    const args = try init.minimal.args.toSlice(allocator);
+    if (args.len == 2 and std.mem.eql(u8, args[1], "selftest"))
+        return run_selftest();
+    if (args.len == 1) return run_selftest();
+    print("usage: mantra_vantage [selftest]\n", .{});
+    return 1;
+}

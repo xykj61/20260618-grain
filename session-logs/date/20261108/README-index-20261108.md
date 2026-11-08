@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| `20261108.160008` | [Mantra store Vantage bridge -- 10 exports, 8 proves GREEN](20261108-160008_mantra-store-vantage-bridge-green.kyri.md) | SHA3-256 content-addressing, in-memory catalog, Kyri serialization, fascia 60.146 |
 | `20261108.145419` | [Scribe Settings integration witness GREEN -- SLC complete](20261108-145419_scribe-settings-witness-green.kyri.md) | 12 proves GREEN across writer and FFI bridge, Scribe SLC complete, fascia 60.145 |
 | `20261108.144007` | [Scribe live persistence -- save on change, load on launch](20261108-144007_scribe-live-persistence.kyri.md) | Live persistence landed, save on change, load on launch, fascia 60.144 |
 | `20261108.141106` | [Scribe settings tab scaffold -- five controls, Cmd+7](20261108-141106_scribe-settings-tab-scaffold.kyri.md) | Settings tab landed, five controls, Cmd+7, fascia 60.143 |

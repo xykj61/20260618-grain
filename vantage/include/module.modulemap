@@ -17,3 +17,8 @@ module VantageScribe {
     header "vantage_scribe.h"
     export *
 }
+
+module VantageMantra {
+    header "vantage_mantra.h"
+    export *
+}
