@@ -1,0 +1,144 @@
+//! lotus/lotus_vantage_audio.rye -- Vantage FFI bridge for Lotus
+//! CoreAudio playback. C-ABI exports that Swift calls through the
+//! VantageLotus module map. Lives in lotus/ so it can import
+//! coreaudio.rye and siblings by bare name.
+//!
+//! Build:
+//!   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build-lib \
+//!     lotus/lotus_vantage_audio.rye -dynamic \
+//!     -femit-bin=vantage/lib/liblotus_audio.dylib \
+//!     -lc -framework AudioToolbox
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+const coreaudio = @import("coreaudio.rye");
+const coreaudio_c = @import("coreaudio_c.rye");
+const timeline = @import("timeline.rye");
+const clock_mod = @import("clock.rye");
+
+// -- module-level mutable state (one engine per process) --------
+
+var engine: coreaudio.Engine = coreaudio.Engine.init();
+var master: timeline.Clip = timeline.Clip{};
+var clock: ?clock_mod.Clock = null;
+var initialized: bool = false;
+
+// -- FFI exports ------------------------------------------------
+
+// invariant: every export is callconv(.c) and uses only
+// C-safe types (u32, bool). No allocation crosses the boundary.
+
+export fn lotus_audio_init_test_tone(
+    num_samples: u32,
+    sample_rate: u32,
+) callconv(.c) bool {
+    if (initialized) return false;
+    if (num_samples == 0) return false;
+
+    // invariant: num_samples is bounded by max_clip.
+    const capped: u32 =
+        if (num_samples > timeline.max_clip)
+            timeline.max_clip
+        else
+            num_samples;
+
+    // Fill master with alternating 1000/-1000 square wave.
+    var i: u32 = 0;
+    while (i < capped) : (i += 1) {
+        master.buf[i] = if (i % 2 == 0)
+            @as(i16, 1000)
+        else
+            @as(i16, -1000);
+    }
+    master.len = capped;
+
+    // Build clock.
+    const clk = clock_mod.make(sample_rate) catch
+        return false;
+    clock = clk;
+
+    // Open the engine with the master and clock.
+    coreaudio.open(&engine, &master, clk) catch return false;
+    initialized = true;
+    return true;
+}
+
+export fn lotus_audio_start() callconv(.c) bool {
+    if (!initialized) return false;
+    coreaudio.start(&engine) catch return false;
+    return true;
+}
+
+export fn lotus_audio_stop() callconv(.c) bool {
+    if (!initialized) return false;
+    coreaudio.stop(&engine) catch return false;
+    return true;
+}
+
+export fn lotus_audio_close() callconv(.c) void {
+    if (!initialized) return;
+    coreaudio.close(&engine);
+    clock = null;
+    initialized = false;
+}
+
+export fn lotus_audio_is_open() callconv(.c) bool {
+    return engine.open;
+}
+
+export fn lotus_audio_is_playing() callconv(.c) bool {
+    return engine.playing;
+}
+
+export fn lotus_audio_position() callconv(.c) u32 {
+    return engine.state.trx.position();
+}
+
+export fn lotus_audio_callback_count() callconv(.c) u32 {
+    return engine.state.callback_count;
+}
+
+export fn lotus_audio_sample_rate() callconv(.c) u32 {
+    if (clock) |clk| return clk.hz();
+    return 0;
+}
+
+// -- selftest ---------------------------------------------------
+
+pub fn main() !void {
+    print("lotus_vantage_audio selftest\n", .{});
+
+    // 1. init with a test tone.
+    assert(!initialized);
+    const ok = lotus_audio_init_test_tone(512, 44100);
+    assert(ok);
+    assert(initialized);
+    assert(lotus_audio_is_open());
+    assert(!lotus_audio_is_playing());
+    assert(lotus_audio_sample_rate() == 44100);
+
+    // 2. double init refuses.
+    assert(!lotus_audio_init_test_tone(512, 44100));
+
+    // 3. start playback.
+    assert(lotus_audio_start());
+    assert(lotus_audio_is_playing());
+
+    // invariant: 80ms is enough for several callback invocations at 44100 Hz.
+    _ = coreaudio_c.usleep(80_000);
+    assert(lotus_audio_callback_count() >= 1);
+    assert(lotus_audio_position() > 0);
+
+    // 5. stop.
+    assert(lotus_audio_stop());
+    assert(!lotus_audio_is_playing());
+
+    // 6. close.
+    lotus_audio_close();
+    assert(!initialized);
+    assert(!lotus_audio_is_open());
+
+    print("lotus_vantage_audio selftest: 6 claims GREEN\n", .{});
+}

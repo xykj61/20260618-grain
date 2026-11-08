@@ -7,3 +7,8 @@ module VantageDimeroll {
     header "vantage_dimeroll.h"
     export *
 }
+
+module VantageLotus {
+    header "vantage_lotus_audio.h"
+    export *
+}

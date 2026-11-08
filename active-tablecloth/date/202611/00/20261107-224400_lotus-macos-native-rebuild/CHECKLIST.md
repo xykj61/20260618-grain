@@ -19,9 +19,9 @@ Add Lotus Audio to the existing Terrarium Station and prove audio plays.
   Added `"Audio"` to `sidebarModules` in main.swift, `focusAudio()` in TabSetup.swift (warm amber theme), `case "Audio"` dispatch in TableViewDelegate.swift. Build GREEN with existing `swiftc` command.
   **SLC gate:** Audio tab appears in sidebar, selects to a placeholder panel, build GREEN -- **PROVEN**.
 
-- [ ] **Movement 3 -- Vantage audio FFI bridge**
-  `vantage/lotus_audio.rye` with C-ABI exports for CoreAudio playback. Header and module map. Build `liblotus_audio.dylib`.
-  **SLC gate:** audio plays through the Station via FFI bridge.
+- [x] **Movement 3 -- Vantage audio FFI bridge**
+  `lotus/lotus_vantage_audio.rye` with 9 C-ABI exports for CoreAudio playback. Header at `vantage/include/vantage_lotus_audio.h`, VantageLotus module map entry. `liblotus_audio.dylib` built and linked. Selftest 6 claims GREEN, play/stop buttons wired in Audio tab, full Terrarium build GREEN. Bridge lives in `lotus/` (Zig package root restriction blocks cross-directory imports).
+  **SLC gate:** audio plays through the Station via FFI bridge -- **PROVEN**.
 
 - [ ] **Movement 4 -- Waveform panel**
   Pixel-buffer waveform rendering in the Audio tab. Draw a sine wave to prove the surface.

@@ -1,6 +1,7 @@
 import AppKit
 import VantageBloom
 import VantageDimeroll
+import VantageLotus
 
 extension AppDelegate {
 
@@ -715,10 +716,7 @@ extension AppDelegate {
         container.addSubview(titleLbl)
 
         let statusLbl = NSTextField(
-            labelWithString:
-                "Audio engine ready"
-                + " -- Vantage FFI bridge"
-                + " arrives next movement"
+            labelWithString: "Stopped"
         )
         statusLbl.font =
             NSFont.monospacedSystemFont(
@@ -734,13 +732,40 @@ extension AppDelegate {
             false
         container.addSubview(statusLbl)
 
+        let playBtn = NSButton(
+            title: "Play Test Tone",
+            target: nil,
+            action: nil
+        )
+        playBtn
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(playBtn)
+
+        let stopBtn = NSButton(
+            title: "Stop",
+            target: nil,
+            action: nil
+        )
+        stopBtn
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(stopBtn)
+
+        playBtn.target = self
+        playBtn.action =
+            #selector(audioPlayPressed(_:))
+        stopBtn.target = self
+        stopBtn.action =
+            #selector(audioStopPressed(_:))
+
         NSLayoutConstraint.activate([
             titleLbl.centerXAnchor.constraint(
                 equalTo: container.centerXAnchor
             ),
             titleLbl.centerYAnchor.constraint(
                 equalTo: container.centerYAnchor,
-                constant: -20
+                constant: -50
             ),
             statusLbl.centerXAnchor.constraint(
                 equalTo: container.centerXAnchor
@@ -749,11 +774,92 @@ extension AppDelegate {
                 equalTo: titleLbl.bottomAnchor,
                 constant: 12
             ),
+            playBtn.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor,
+                constant: -60
+            ),
+            playBtn.topAnchor.constraint(
+                equalTo: statusLbl.bottomAnchor,
+                constant: 16
+            ),
+            stopBtn.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor,
+                constant: 60
+            ),
+            stopBtn.topAnchor.constraint(
+                equalTo: statusLbl.bottomAnchor,
+                constant: 16
+            ),
         ])
 
         item.view = container
         tv.addTabViewItem(item)
         tv.selectTabViewItem(item)
+    }
+
+    @objc func audioPlayPressed(
+        _ sender: NSButton
+    ) {
+        if !lotus_audio_is_open() {
+            let ok = lotus_audio_init_test_tone(
+                44100, 44100
+            )
+            if !ok {
+                updateAudioStatus("Init failed")
+                return
+            }
+        }
+        if lotus_audio_start() {
+            updateAudioStatus(
+                "Playing -- 44100 Hz square wave"
+            )
+        } else {
+            updateAudioStatus("Start failed")
+        }
+    }
+
+    @objc func audioStopPressed(
+        _ sender: NSButton
+    ) {
+        if lotus_audio_is_playing() {
+            if lotus_audio_stop() {
+                updateAudioStatus("Stopped")
+            } else {
+                updateAudioStatus("Stop failed")
+            }
+        } else if lotus_audio_is_open() {
+            lotus_audio_close()
+            updateAudioStatus("Closed")
+        }
+    }
+
+    private func updateAudioStatus(
+        _ text: String
+    ) {
+        guard let tv = tabView else { return }
+        for i in 0..<tv.numberOfTabViewItems {
+            let item = tv.tabViewItem(at: i)
+            if let ident = item.identifier
+                as? String,
+               ident == "audio",
+               let v = item.view
+            {
+                for sub in v.subviews {
+                    if let lbl = sub
+                        as? NSTextField,
+                       lbl.font?
+                        .fontDescriptor
+                        .symbolicTraits
+                        .contains(
+                            .monoSpace
+                        ) == true
+                    {
+                        lbl.stringValue = text
+                        return
+                    }
+                }
+            }
+        }
     }
 
 }

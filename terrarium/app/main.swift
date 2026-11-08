@@ -12,9 +12,14 @@
 //           -femit-bin=vantage/lib/libbloom.dylib
 //         rye/bin/rye build-lib vantage/dimeroll.rye -dynamic \
 //           -femit-bin=vantage/lib/libdimeroll.dylib
+//         env RYE_ZIG=vendor/zig-toolchain/zig \
+//           rye/bin/rye build-lib \
+//           lotus/lotus_vantage_audio.rye -dynamic \
+//           -femit-bin=vantage/lib/liblotus_audio.dylib \
+//           -lc -framework AudioToolbox
 //         swiftc -I terrarium/.build -I vantage/include \
 //           -L terrarium/.build -L vantage/lib \
-//           -lSkateCore -lbloom -ldimeroll \
+//           -lSkateCore -lbloom -ldimeroll -llotus_audio \
 //           -o terrarium/.build/Terrarium terrarium/app/*.swift \
 //           -framework AppKit
 // Run:    DYLD_LIBRARY_PATH=terrarium/.build:vantage/lib \
@@ -27,6 +32,7 @@ import Foundation
 import SkateCore
 import VantageBloom
 import VantageDimeroll
+import VantageLotus
 
 // -- Configuration --------------------------------------------------
 
