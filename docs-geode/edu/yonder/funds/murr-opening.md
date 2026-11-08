@@ -1,6 +1,6 @@
 # Murr Fund — Opening (Aries · fire · seat 1 · was Mala)
 
-**Style:** Bhakta at the Door setting, with Radiant warmth (see `../../../../context/BHAKTA_STYLE.md`)
+**Style:** Teacher at the Door setting, with Radiant warmth (see `../../../../context/TEACHER_STYLE.md`)
 
 
 **Stamp:** `20260728.025220` · executive refresh `20260730.150702` (djinn-exec)  

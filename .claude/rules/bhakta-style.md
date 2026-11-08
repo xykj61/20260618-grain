@@ -18,8 +18,9 @@ makes a reader.
 inferring it. `SOURCE.md`, `CONTRIBUTING.md`, the `manual/` room, `docs-geode/` reference pages,
 `docs/redacted/` generalisations, and any first-hour or onboarding page.
 
-`docs-geode/` declares **Bhakta** on every page, held by
-[`docs-geode-bhakta.md`](docs-geode-bhakta.md) from `20261002.114619`. The other rooms named above
+`docs-geode/` declares **Teacher Style** on every page from `20261107` on Keaton's word, held by
+[`docs-geode-teacher.md`](docs-geode-teacher.md). The molt-breach from Bhakta to Teacher is recorded
+at `construction/CHECKPOINTS.md` checkpoint `20261107.211138`. The other rooms named above
 still adopt Bhakta when a hand next writes in them. Until that write, a Gauge declaration on those
 pages is an honest record of the register they were written in.
 

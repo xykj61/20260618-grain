@@ -1,6 +1,6 @@
 # Lessons -- reading walks for someone meeting computing itself
 
-**Language:** EN - **Style:** Bhakta at the Door setting, with Radiant warmth (see `../../context/BHAKTA_STYLE.md`) - **Voice:** Kyri
+**Language:** EN - **Style:** Teacher at the Door setting, with Radiant warmth (see `../../context/TEACHER_STYLE.md`) - **Voice:** Kyri
 **Stamp:** `20260910.060225` - **Updated:** `20260911.122211` -- declared an index, so the room is read against this page every lap - **Status:** Living - **Room:** mixed -- an index to pages that are checkable, vision and mixed in turn
 **Kind:** crushed index of [`./`](./)
 **Where this sits:** home is [`../../README.md`](../../README.md) - the hands-on hour is [`../tutorials/the-first-hour.md`](../tutorials/the-first-hour.md) - how to read the tree is [`../study/README.md`](../study/README.md)
@@ -10,7 +10,7 @@
 ## What these are
 
 Reading walks, written for someone who has **never written a line of code** and is trusted with
-the whole truth anyway. That register has a name here: **Bhakta**, the open door.
+the whole truth anyway. That register has a name here: **Teacher Style**, the open door.
 
 They are **reading walks** rather than exercises. Hands come in the first-hour tutorial. These
 build the map a pair of hands will want.

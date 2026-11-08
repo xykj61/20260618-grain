@@ -3,7 +3,7 @@
 *From a song on suno.com to a hashed Mixea HD wav and a square mp4 you can share.*
 
 **Language:** EN
-**Style:** Bhakta at the Door setting, with Radiant warmth
+**Style:** Teacher at the Door setting, with Radiant warmth
 **Voices:** Kyri and Kyli, jointly
 **Sprig:** `the-suno-stems-reaper-mixea-hash-walk`
 **Written:** `20261007.084500`

@@ -3,8 +3,8 @@
 *How to start `cursor-agent` from this tree, and how Kyri and Kyli teach a prompt.*
 
 **Language:** EN
-**Style:** Bhakta at the Door setting, with Radiant warmth
-**Guide:** [`../../context/BHAKTA_STYLE.md`](../../context/BHAKTA_STYLE.md) - [`../../context/TEACHER_STYLE.md`](../../context/TEACHER_STYLE.md)
+**Style:** Teacher at the Door setting, with Radiant warmth
+**Guide:** [`../../context/TEACHER_STYLE.md`](../../context/TEACHER_STYLE.md) - [`../../context/TEACHER_STYLE.md`](../../context/TEACHER_STYLE.md)
 **Voices:** Kyri and Kyli, jointly
 **Written:** `20261007.085102`
 **Status:** Living -- launch paths read from the tree; print-mode examples are the documented flags
@@ -84,8 +84,8 @@ Push only with sh publish-seed.sh --push when the user has already asked.
 
 ```
 Write for a generic Acme employee.
-docs-geode pages declare Bhakta at the Door setting, with Radiant warmth.
-Teacher Style may speak in the body. The style line stays Bhakta.
+docs-geode pages declare Teacher at the Door setting, with Radiant warmth.
+Teacher Style speaks on every page. The style line declares it.
 Do not rewrite every geode page in one lap. Audit, then touch the doors you opened.
 ```
 

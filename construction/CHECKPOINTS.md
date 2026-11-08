@@ -1,5 +1,10 @@
 # Checkpoints -- the walk-back markers before every debride
 
+**Checkpoint `20261107.211138` -- Bhakta -> Teacher Style W2 molt-breach.**
+- **Walk-back nib:** `86b198dda0` -- `git show 86b198dda0` restores the tree before the molt.
+- **Swept:** `.claude/rules/docs-geode-bhakta.md` molted to `docs-geode-teacher.md` (W2 shape). Guard triad renamed from `bhakta` to `teacher` in filenames. Bhakta retired from `docs-geode/` style declarations; Teacher Style governs from here forward. Rule files `.claude/rules/bhakta-style.md`, `teacher-style.md`, `redact-technique.md` updated. Cursor twins updated.
+- **What waits there, worth recalling:** the Bhakta register's full description and its docs-geode declaration rule, both serving the tree faithfully from `20261002.114619` through `20261107`. Teacher Style carries forward every move Bhakta held, in plain American English.
+
 **Checkpoint `20261103.202637` -- Orbits 4-5: waymark retirement deep debride.**
 - **Walk-back nib:** `df413e111b` -- `git show df413e111b` restores the tree before the waymark sweep, shed, and history rewrite.
 - **Swept:** all bare waymark names (lotus-audio, glow-language, pixel-glass, etc.) and ascending-number patterns (lotus-audio, glow-language, etc.) from living files. Warm descriptive strings replace them. `waymark-ladders.md` molted. `waymark-registry.kyri` retired to archive. Class O orphans (1,165 across 10 rooms) and Class H/M fossils (9) shed. Deep debride rewrites entire git history and re-signs every commit.

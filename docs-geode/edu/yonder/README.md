@@ -2,7 +2,7 @@
 
 **Language:** EN
 **Last updated:** 2026-10-07 (`20261007.085102` -- Acme voice audit draft)
-**Style:** Bhakta at the Door setting, with Radiant warmth (see `../../../context/BHAKTA_STYLE.md`)
+**Style:** Teacher at the Door setting, with Radiant warmth (see `../../../context/TEACHER_STYLE.md`)
 **Status:** Living -- the learning floor: puzzles, first steps, and worked examples
 **Where this sits:** home is [`../README.md`](../../../README.md) - a first hour in your hands is
 [`../../tutorials/the-first-hour.md`](../../../docs-geode/tutorials/the-first-hour.md) - the whole

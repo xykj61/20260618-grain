@@ -1,6 +1,6 @@
 # Terrarium -- Your First RV32I Program
 
-**Style:** Bhakta at the Door setting, with Radiant warmth
+**Style:** Teacher at the Door setting, with Radiant warmth
 
 This page walks you through building and running a bare-metal program
 on a 32-bit RISC-V machine. By the end you will have compiled a small

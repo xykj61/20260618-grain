@@ -2,7 +2,7 @@
 
 **Language:** EN
 **Status:** Living -- strings `20260811.190026` - lists `20260811.190458` - numbers `20260811.190916`
-**Style:** Bhakta at the Door setting, with Radiant warmth (see [`../../context/BHAKTA_STYLE.md`](../../context/BHAKTA_STYLE.md))
+**Style:** Teacher at the Door setting, with Radiant warmth (see [`../../context/TEACHER_STYLE.md`](../../context/TEACHER_STYLE.md))
 **Where this sits:** home is [`../../README.md`](../../README.md) - a first hour in your hands is
 [`../tutorials/the-first-hour.md`](../tutorials/the-first-hour.md) - the whole
 path from nothing to a signed, sandboxed home is [`../../SOURCE.md`](../../SOURCE.md)

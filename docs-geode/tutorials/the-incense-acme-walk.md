@@ -3,8 +3,8 @@
 *Rename the public seed subject, teach the Cursor sitting, blend the style guides, and leave an audit for the next possession.*
 
 **Language:** EN
-**Style:** Bhakta at the Door setting, with Radiant warmth
-**Guide:** [`../../context/BHAKTA_STYLE.md`](../../context/BHAKTA_STYLE.md) - [`../../context/TEACHER_STYLE.md`](../../context/TEACHER_STYLE.md)
+**Style:** Teacher at the Door setting, with Radiant warmth
+**Guide:** [`../../context/TEACHER_STYLE.md`](../../context/TEACHER_STYLE.md) - [`../../context/TEACHER_STYLE.md`](../../context/TEACHER_STYLE.md)
 **Voices:** Kyri and Kyli, jointly
 **Written:** `20261007.085102`
 **Status:** Living -- the walk this sitting ran
@@ -59,7 +59,7 @@ The private field still signs every commit with GPG. The public seed stays the o
 |---|---|
 | Gauge fossil | `context/archive/20261007-085102_GAUGE_STYLE.md` |
 | Radiant fossil | `context/archive/20261007-085102_RADIANT_STYLE.md` |
-| Bhakta fossil | `context/archive/20261007-085102_BHAKTA_STYLE.md` |
+| Bhakta fossil | `context/archive/20261007-085102_TEACHER_STYLE.md` |
 | Resin record | `context/archive/20261007-085102_style-blend-resin.md` |
 | Class H rows | `construction/SHRED_PREP.md` |
 
@@ -74,7 +74,7 @@ Teacher Style is almost Bhakta. It uses plain American English. It may speak of 
 - Three fossils on disk, each pointing at the living guide.
 - `shipped_subject` equal to `incense`.
 - A session log on today's shelf.
-- docs-geode style lines still reading **Bhakta at the Door setting, with Radiant warmth**.
+- docs-geode style lines still reading **Teacher at the Door setting, with Radiant warmth**.
 
 ## Kyli -- when the seed will not publish
 

@@ -1,6 +1,6 @@
 # Shyu Fund — Opening (Libra · air · seat 7)
 
-**Style:** Bhakta at the Door setting, with Radiant warmth (see `../../../../context/BHAKTA_STYLE.md`)
+**Style:** Teacher at the Door setting, with Radiant warmth (see `../../../../context/TEACHER_STYLE.md`)
 
 
 **Stamp:** `20260728.033820` (sponsor) · seat `20260728.033404`  

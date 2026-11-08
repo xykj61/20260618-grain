@@ -9,7 +9,7 @@ path from nothing to a signed, sandboxed home is [`../../SOURCE.md`](../../SOURC
 
 *Not a tour of the code. A short account of how the reading is meant to go, and which room answers which kind of question.*
 
-**Language:** EN - **Style:** Bhakta at the Door setting, with Radiant warmth (see `../../context/BHAKTA_STYLE.md`)
+**Language:** EN - **Style:** Teacher at the Door setting, with Radiant warmth (see `../../context/TEACHER_STYLE.md`)
 **Written:** `20260821.190149` - **Last refreshed:** `20261002.145010` (the front door is named in plain words; the `20260916.183325` pass let the gratitude room's typed count leave, after it had read *more than two hundred* from its birth commit, when the room held 110) - **Status:** Living - **Kind:** crushed study guide
 
 ---

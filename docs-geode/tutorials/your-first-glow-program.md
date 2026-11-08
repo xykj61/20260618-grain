@@ -2,7 +2,7 @@
 
 *From nothing to a running Glow program. One path, straight through.*
 
-**Language:** EN - **Style:** Bhakta at the Door setting, with Radiant warmth (see `../../context/BHAKTA_STYLE.md`)
+**Language:** EN - **Style:** Teacher at the Door setting, with Radiant warmth (see `../../context/TEACHER_STYLE.md`)
 **Written:** `20261104.154500` - **Status:** Living tutorial
 **Room:** checkable -- every quoted output block is read off a real run
 **You will need:** a working Grain tree (see [The First Hour](the-first-hour.md)) with the Zig toolchain at `vendor/zig-toolchain/zig`

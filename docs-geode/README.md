@@ -1,6 +1,6 @@
 # docs-geode -- crystallized prod docs (shipping shelf)
 
-**Language:** EN - **Style:** Bhakta at the Door setting, with Radiant warmth (see `../context/BHAKTA_STYLE.md`)
+**Language:** EN - **Style:** Teacher at the Door setting, with Radiant warmth (see `../context/TEACHER_STYLE.md`)
 **Stamp:** `20260728.031722`
 **Last refreshed:** `20260910.073603` -- the doorway sentence's two typed numbers leave, the second such pair in as many days: `20260909.151033` freed the library row and the room-separation reading, and this pass freed a page count the shelf's own eight new lessons had already outgrown
 **Voice:** Kyri
@@ -17,7 +17,7 @@ path from nothing to a signed, sandboxed home is [`../SOURCE.md`](../SOURCE.md)
 
 ## What this is
 
-**docs-geode** is the root **prod** shelf. It holds the docs that ship. Every page here is written in **Bhakta**, Radiant's open door, so a person meeting the work for the first time can follow it. The rule that keeps the shelf that way is [`../.claude/rules/docs-geode-bhakta.md`](../.claude/rules/docs-geode-bhakta.md).
+**docs-geode** is the root **prod** shelf. It holds the docs that ship. Every page here is written in **Teacher Style**, the open door, so a person meeting the work for the first time can follow it. The rule that keeps the shelf that way is [`../.claude/rules/docs-geode-teacher.md`](../.claude/rules/docs-geode-teacher.md).
 
 **Three prose rooms stand in this tree, and which one you want follows from who you are when you arrive.** This shelf serves the reader who **receives** the product: pages crushed from what already stands, so you can read Grain before you run it. [`../manual/`](../manual/README.md) serves the reader who **operates their own machine** -- disk encryption, a VPN, an enclosure, a phone, keys in their own hand. [`../docs/`](../docs/README.md) serves the reader **already mid-ladder**: one compressed operator page per chapter, each declaring its own line ceiling. `counsel/` holds dated counsel and is closed to new pieces. The two rooms stand apart in fact as well as in intent: a handful of living pages cite across them, against the couple of hundred that cite this shelf at all. Nothing holds either reading still, so run it rather than trusting it -- `git grep -l 'manual/' -- docs-geode` beside `git grep -l 'docs-geode/' -- manual` for the crossings, and `git grep -l 'docs-geode/'` for the whole inbound set, each read past `date/`, `archive/`, `yonder/`, and stamped basenames, which are testimony rather than living pages.
 
@@ -35,7 +35,7 @@ Two words on this shelf are our own, and the Lexicon seats both. **Crush** means
 | [`demos/`](demos/README.md) | Demos | **living** -- five checks you can run, with dated example output; the fifth compares an announced plan with its recorded steps |
 | [`templates/`](templates/README.md) | Templates | **pointer crush** -- Acme personalize and Kyri |
 | [`blog/`](blog/README.md) | Blog posts | **living** -- [Eighteen times, two agents did the same job](blog/20260908-081630_eighteen-times-two-agents-did-the-same-job.md), the room's first piece, landed against the entry criterion the door names |
-| [`lessons/`](lessons/README.md) | Reading walks for someone meeting computing itself | **living** -- [the house from above](lessons/20260910-060225_lesson-1-the-house-from-above.md) through [the painted face](lessons/20260910-060225_lesson-8-the-painted-face.md), written in [Bhakta](../context/BHAKTA_STYLE.md): no assumed background, first principles in order, one honest sentence about why it matters |
+| [`lessons/`](lessons/README.md) | Reading walks for someone meeting computing itself | **living** -- [the house from above](lessons/20260910-060225_lesson-1-the-house-from-above.md) through [the painted face](lessons/20260910-060225_lesson-8-the-painted-face.md), written in [Teacher](../context/TEACHER_STYLE.md): no assumed background, first principles in order, one honest sentence about why it matters |
 | [`press/`](press/README.md) | Press releases | **living** -- announcements, a magazine piece, a public projection and a paired telling, each indexed with its honest scope; the table on that page is the count |
 | [`etc/`](etc/README.md) | Further shipping genres as seated | **open, empty on purpose** -- a waiting area, rather than a destination |
 | [`sangha/`](sangha/README.md) | Sangha patterns (page-zero, three patterns) | **living** |

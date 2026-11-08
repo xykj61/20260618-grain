@@ -1,6 +1,6 @@
 # Gates -- functions that take input
 
-**Language:** EN - **Style:** Bhakta at the Door setting, with Radiant warmth (see `../../context/BHAKTA_STYLE.md`)
+**Language:** EN - **Style:** Teacher at the Door setting, with Radiant warmth (see `../../context/TEACHER_STYLE.md`)
 **Written:** `20261104.154500` - **Status:** Living recipe
 
 ---

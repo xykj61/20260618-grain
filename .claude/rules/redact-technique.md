@@ -2,7 +2,7 @@
 
 **Seated:** `20260908` on Keaton's word - **Status:** Living - **Room:** vision (the technique is
 seated; the manifest verdict it proposes is not built)
-**Full guide:** `context/REDACT_TECHNIQUE.md` - **Sibling:** [`silo technique`](../../context/SILO_TECHNIQUE.md) - **Register:** [`bhakta-style`](bhakta-style.md)
+**Full guide:** `context/REDACT_TECHNIQUE.md` - **Sibling:** [`silo technique`](../../context/SILO_TECHNIQUE.md) - **Register:** [`teacher-style`](teacher-style.md)
 
 **Redacting is siloing pointed the other way.** Silo receives an idea from the world and sets it down
 in our own words, so a particular method becomes a general principle we own. Redact takes *our own*
@@ -37,7 +37,7 @@ kind of calculation honestly does with them, and where it stops.
 
 ## Register and discipline
 
-Written in **Bhakta**: no assumed background, first principles in order, one honest sentence about
+Written in **Teacher Style**: no assumed background, first principles in order, one honest sentence about
 why it matters. Gauge still holds -- a figure carries unit, date, source, and what holds it still; a
 projection carries horizon, assumptions, falsifier, confidence.
 

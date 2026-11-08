@@ -1,6 +1,6 @@
 # Linn Fund — Opening (Capricorn · earth · seat 10) — retired name
 
-**Style:** Bhakta at the Door setting, with Radiant warmth (see `../../../../context/BHAKTA_STYLE.md`)
+**Style:** Teacher at the Door setting, with Radiant warmth (see `../../../../context/TEACHER_STYLE.md`)
 
 
 **Stamp:** `20260728.035025` (Helen dedication) · seat `20260728.034317`  

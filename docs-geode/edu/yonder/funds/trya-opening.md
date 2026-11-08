@@ -1,6 +1,6 @@
 # Trya Fund — Opening (Virgo · earth · seat 6)
 
-**Style:** Bhakta at the Door setting, with Radiant warmth (see `../../../../context/BHAKTA_STYLE.md`)
+**Style:** Teacher at the Door setting, with Radiant warmth (see `../../../../context/TEACHER_STYLE.md`)
 
 
 **Stamp:** `20260728.024417`  

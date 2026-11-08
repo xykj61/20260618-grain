@@ -3,8 +3,8 @@
 *Two voices, one sentence, and a count you can print yourself.*
 
 **Language:** EN
-**Style:** Bhakta at the Door setting, with Radiant warmth
-**Guide:** [`../../context/BHAKTA_STYLE.md`](../../context/BHAKTA_STYLE.md) - [`../../context/TEACHER_STYLE.md`](../../context/TEACHER_STYLE.md)
+**Style:** Teacher at the Door setting, with Radiant warmth
+**Guide:** [`../../context/TEACHER_STYLE.md`](../../context/TEACHER_STYLE.md) - [`../../context/TEACHER_STYLE.md`](../../context/TEACHER_STYLE.md)
 **Voices:** Kyri and Kyli, jointly
 **Written:** `20261007.100840`
 **Status:** Living -- the one command below was run at that stamp

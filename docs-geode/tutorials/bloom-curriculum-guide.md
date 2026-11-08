@@ -1,6 +1,6 @@
 # Bloom Curriculum Guide -- Ten Stages from First Principles
 
-**Style:** Bhakta at the Door setting, with Radiant warmth
+**Style:** Teacher at the Door setting, with Radiant warmth
 **Status:** Living
 **Room:** vision
 

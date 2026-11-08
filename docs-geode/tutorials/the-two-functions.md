@@ -3,8 +3,8 @@
 *The event, the picture, and the ceiling, copied from the file a witness still reads.*
 
 **Language:** EN
-**Style:** Bhakta at the Door setting, with Radiant warmth
-**Guide:** [`../../context/BHAKTA_STYLE.md`](../../context/BHAKTA_STYLE.md)
+**Style:** Teacher at the Door setting, with Radiant warmth
+**Guide:** [`../../context/TEACHER_STYLE.md`](../../context/TEACHER_STYLE.md)
 **Voices:** Kyri and Kyli, jointly
 **Written:** `20261007.114657`
 **Status:** Living -- the span scan below was the check

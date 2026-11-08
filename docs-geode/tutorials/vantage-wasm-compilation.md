@@ -1,6 +1,6 @@
 # Vantage WASM Compilation
 
-**Style:** Bhakta at the Door setting, with Radiant warmth
+**Style:** Teacher at the Door setting, with Radiant warmth
 **Status:** Living
 **Room:** checkable
 

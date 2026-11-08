@@ -13,6 +13,10 @@ Bhakta is Radiant teaching someone who has never written a line of code, and who
 truth anyway. The name is the Sanskrit for one who walks the path of devotion, whose discipline is
 that the path opens to anyone and needs no scholarship to enter.
 
+`docs-geode/` declares **Teacher Style** on every page from `20261107` on Keaton's word, held by
+[`docs-geode-teacher.mdc`](docs-geode-teacher.mdc). The other rooms named above still adopt Bhakta
+when a hand next writes in them.
+
 **Reach for it:** specification and design reference, API documentation, the OS user manual,
 onboarding and first-hour pages. Radiant carries the day, Twilight the threshold, Bhakta the open
 door.

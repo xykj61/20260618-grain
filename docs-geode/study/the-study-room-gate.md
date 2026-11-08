@@ -1,6 +1,6 @@
 # The study room -- what comes in, and how
 
-**Language:** EN - **Style:** Bhakta at the Door setting, with Radiant warmth (see `../../context/BHAKTA_STYLE.md`)
+**Language:** EN - **Style:** Teacher at the Door setting, with Radiant warmth (see `../../context/TEACHER_STYLE.md`)
 **Written:** `20261018.220007` - **Status:** Living - **Kind:** study guide
 
 ---

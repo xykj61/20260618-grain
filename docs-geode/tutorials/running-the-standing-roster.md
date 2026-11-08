@@ -3,7 +3,7 @@
 *Your tree carries a set of guards. Each one checks that something the tree promises is still
 true. Running them all at once is called a **cold endurance run**, and this page is how you do it.*
 
-**Language:** EN - **Style:** Bhakta at the Door setting, with Radiant warmth (see `../../context/BHAKTA_STYLE.md`)
+**Language:** EN - **Style:** Teacher at the Door setting, with Radiant warmth (see `../../context/TEACHER_STYLE.md`)
 **Written:** `20261103.145835`
 **Status:** Living
 **Room:** mixed -- the commands are checkable; the workflow advice is judged

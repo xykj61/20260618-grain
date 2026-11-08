@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.212902 | [Bhakta to Teacher Style molt-breach -- send](20261107/20261107-212902_bhakta-teacher-molt-breach-send.kyri.md) | W2 molt: guard triad renamed, rule files molted, cursor twins, reference sweep |
 | 20261107.205343 | [docs-geode Vantage tutorials and bloom-demos update -- send](20261107/20261107-205343_docs-geode-vantage-tutorials-send.kyri.md) | 3 tutorial pages: building-vantage, WASM compilation, bloom-demos update with ~siya |
 | 20261107.202622 | [Quest 2 close recommendation -- Long Return points at WASM](20261107/20261107-202622_quest2-close-recommend-quest3.kyri.md) | Quest 2 complete at 10/15; Long Return and Lila point at Quest 3 WASM |
 | 20261107.201802 | [Tablecloth fence sweep -- send](20261107/20261107-201802_tablecloth-fence-sweep-send.kyri.md) | 6 Movement violations swept from Swift comments |

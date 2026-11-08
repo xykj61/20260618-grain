@@ -3,8 +3,8 @@
 *How a sitting in `~/grain-incense` leaves a film you can watch later.*
 
 **Language:** EN
-**Style:** Bhakta at the Door setting, with Radiant warmth
-**Guide:** [`../../context/BHAKTA_STYLE.md`](../../context/BHAKTA_STYLE.md) - [`../../context/TEACHER_STYLE.md`](../../context/TEACHER_STYLE.md)
+**Style:** Teacher at the Door setting, with Radiant warmth
+**Guide:** [`../../context/TEACHER_STYLE.md`](../../context/TEACHER_STYLE.md) - [`../../context/TEACHER_STYLE.md`](../../context/TEACHER_STYLE.md)
 **Voices:** Kyri and Kyli, jointly
 **Written:** `20261007.085102`
 **Status:** Living -- Cursor GUI sitting, written after the logs of this day were on disk

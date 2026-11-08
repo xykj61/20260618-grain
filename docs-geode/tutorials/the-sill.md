@@ -1,7 +1,7 @@
 # The sill
 
 **Language:** EN
-**Style:** Bhakta at the Door
+**Style:** Teacher at the Door
 **Voice:** Kyli
 **Stamp:** `20261009.103404`
 **Room:** checkable -- the name is seated; the program is a plan
