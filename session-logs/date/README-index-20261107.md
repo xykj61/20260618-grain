@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.200237 | [Menu actions extraction -- send](20261107/20261107-200237_menu-actions-extraction-send.kyri.md) | 8 methods into MenuActions.swift, 610 lines remain |
 | 20261107.180152 | [Tab setup extraction -- send](20261107/20261107-180152_tab-setup-extraction-send.kyri.md) | 7 methods into TabSetup.swift, 796 lines remain |
 | 20261107.174255 | [QEMU launcher extraction -- send](20261107/20261107-174255_qemu-launcher-extraction-send.kyri.md) | 4 methods into QemuLauncher.swift, 1,464 lines remain |
 | 20261107.172643 | [Table view delegate extraction -- send](20261107/20261107-172643_table-view-delegate-extraction-send.kyri.md) | 4 methods into TableViewDelegate.swift, 1,722 lines remain |
