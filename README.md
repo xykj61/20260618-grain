@@ -15,7 +15,7 @@
   <a href="context/TAME_GUIDANCE.md"><img alt="Code: TAME discipline" src="https://img.shields.io/badge/code-TAME-9a6f22"></a>
   <a href="tools/"><img alt="Proof: witnesses on metal" src="https://img.shields.io/badge/proof-witnesses%20on%20metal-2f7d4f"></a>
   <a href="context/TWO_ROOMS.md"><img alt="Status: incense, honest register" src="https://img.shields.io/badge/status-incense-b9954a"></a>
-  <a href="context/specs/20261103-201746_fascia-health-model.md"><img alt="Fascia: 60.128 -- Act I 25 orbits, Act II 15 movements, Quest 3 WASM 3 movements, Vantage audio FFI bridge GREEN, governed 20261103" src="https://img.shields.io/badge/fascia-60.129-b9954a"></a>
+  <a href="context/specs/20261103-201746_fascia-health-model.md"><img alt="Fascia: 60.130 -- Phase 1 Audio Tab complete (5 movements PROVEN), transport controls with looping D2 tone, governed 20261103" src="https://img.shields.io/badge/fascia-60.130-b9954a"></a>
 </p>
 
 <!-- **Voice:** Kyri -- **Style:** Bhakta, Door setting -- full note at the foot of this page. -->

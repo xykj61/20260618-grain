@@ -27,9 +27,9 @@ Add Lotus Audio to the existing Terrarium Station and prove audio plays.
   `terrarium/app/WaveformView.swift` -- NSView subclass following FrameGridView pixel-buffer pattern. `override func draw` gets CGContext, renders 512-sample sine wave (3 cycles) with amber stroke, translucent fill, and grid lines (center line + quarter lines). Wired into `focusAudio()` in TabSetup.swift with Auto Layout below play/stop buttons, full-width with 24px margins, 120pt height. Dark amber theme matching the Lotus Audio tab. Build GREEN, waveform visible on screen.
   **SLC gate:** waveform draws in the Audio tab -- **PROVEN**.
 
-- [ ] **Movement 5 -- Transport controls**
-  Play/stop/record buttons wired to the audio FFI bridge. Transport state machine in the tab.
-  **SLC gate:** buttons control playback.
+- [x] **Movement 5 -- Transport controls** (landed `20261108`)
+  Loop toggle, D2 144.16 Hz tone (A=432 tuning), seek-to-start on play, looping render callback that resets transport position at clip end. WaveformView draws matching square wave (period 306). Three new FFI exports (`set_loop`, `is_looping`, `seek_start`), selftest 8 claims GREEN. Terrarium build GREEN, app launched, D2 tone loops continuously.
+  **SLC gate:** buttons control playback -- **PROVEN**.
 
 ## Phase 2 -- Recording and Display (Movements 6-10)
 
@@ -85,6 +85,6 @@ The mixer, the timeline, integration.
 
 | Phase | Movements | Status |
 |---|---|---|
-| 1 Audio Tab in Station | 1-5 | **Active** -- survey landed |
+| 1 Audio Tab in Station | 1-5 | **COMPLETE** -- all 5 movements PROVEN |
 | 2 Recording and Display | 6-10 | Waiting on Phase 1 |
 | 3 Multi-track and Polish | 11-15 | Waiting on Phase 2 |

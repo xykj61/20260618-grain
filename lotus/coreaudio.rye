@@ -49,6 +49,7 @@ pub const CallbackState = struct {
     master: *const timeline.Clip,
     clk: clock_mod.Clock,
     callback_count: u32,
+    looping: bool,
 };
 
 /// The CoreAudio playback engine. Holds the AudioUnit handle and the callback state. One engine
@@ -99,7 +100,20 @@ fn render_callback(
 
     // invariant: stack buffer for the i16 pull -- bounded, no allocation.
     var i16_buf: [max_callback_frames]i16 = @splat(0);
-    const n = transport.read_block(&state.trx, state.master, i16_buf[0..clamped]);
+    var n = transport.read_block(&state.trx, state.master, i16_buf[0..clamped]);
+
+    // invariant: when looping, reset position at clip end and fill remaining frames.
+    if (n < clamped and state.looping and transport.at_end(&state.trx, state.master)) {
+        state.trx.pos = 0;
+        const rest = clamped - n;
+        var loop_buf: [max_callback_frames]i16 = @splat(0);
+        const m = transport.read_block(&state.trx, state.master, loop_buf[0..rest]);
+        var j: u32 = 0;
+        while (j < m) : (j += 1) {
+            i16_buf[n + j] = loop_buf[j];
+        }
+        n = n + m;
+    }
 
     // invariant: convert i16 [-32768, 32767] to Float32 [-1.0, 1.0] -- the standard normalization.
     var i: u32 = 0;
@@ -171,6 +185,7 @@ pub fn open(eng: *Engine, master: *const timeline.Clip, clk: clock_mod.Clock) En
         .master = master,
         .clk = clk,
         .callback_count = 0,
+        .looping = false,
     };
 
     var cb = c.AURenderCallbackStruct{

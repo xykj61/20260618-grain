@@ -1,4 +1,4 @@
-// WaveformView -- pixel-buffer sine wave rendering for the
+// WaveformView -- pixel-buffer waveform rendering for the
 // Lotus Audio tab. Follows the FrameGridView pattern: NSView
 // subclass, override draw, CGContext, needsDisplay = true.
 
@@ -27,7 +27,7 @@ class WaveformView: NSView {
         wantsLayer = true
         layer?.backgroundColor = bgColor.cgColor
         layer?.cornerRadius = 4
-        generateSineWave()
+        generateSquareWave()
     }
 
     @available(*, unavailable)
@@ -35,13 +35,12 @@ class WaveformView: NSView {
         fatalError()
     }
 
-    private func generateSineWave() {
+    private func generateSquareWave() {
         let count = 512
+        let period = 306
         samples = (0..<count).map { i in
-            let phase =
-                Float(i) / Float(count)
-                * Float.pi * 6.0
-            return sinf(phase)
+            return (i % period) < (period / 2)
+                ? Float(1.0) : Float(-1.0)
         }
         needsDisplay = true
     }

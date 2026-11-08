@@ -759,6 +759,56 @@ extension AppDelegate {
         stopBtn.action =
             #selector(audioStopPressed(_:))
 
+        let loopBtn = NSButton(
+            title: "Loop: On",
+            target: nil,
+            action: nil
+        )
+        loopBtn
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        loopBtn.tag = 900
+        container.addSubview(loopBtn)
+        loopBtn.target = self
+        loopBtn.action =
+            #selector(audioLoopToggled(_:))
+
+        let tempoLbl = NSTextField(
+            labelWithString: "BPM:"
+        )
+        tempoLbl.font = NSFont.systemFont(
+            ofSize: 13, weight: .regular
+        )
+        tempoLbl.textColor = NSColor(
+            red: 0.7, green: 0.6,
+            blue: 0.45, alpha: 1.0
+        )
+        tempoLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(tempoLbl)
+
+        let tempoField = NSTextField(string: "120")
+        tempoField.font =
+            NSFont.monospacedSystemFont(
+                ofSize: 13, weight: .regular
+            )
+        tempoField.textColor = NSColor(
+            red: 0.9, green: 0.8,
+            blue: 0.6, alpha: 1.0
+        )
+        tempoField.backgroundColor = NSColor(
+            red: 0.12, green: 0.09,
+            blue: 0.05, alpha: 1.0
+        )
+        tempoField.isBordered = true
+        tempoField.alignment = .center
+        tempoField
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        tempoField.tag = 901
+        container.addSubview(tempoField)
+
         let waveform = WaveformView(
             frame: NSRect(
                 x: 0, y: 0,
@@ -801,6 +851,31 @@ extension AppDelegate {
                 equalTo: statusLbl.bottomAnchor,
                 constant: 16
             ),
+            loopBtn.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor,
+                constant: -40
+            ),
+            loopBtn.topAnchor.constraint(
+                equalTo: playBtn.bottomAnchor,
+                constant: 12
+            ),
+            tempoLbl.leadingAnchor.constraint(
+                equalTo: loopBtn.trailingAnchor,
+                constant: 16
+            ),
+            tempoLbl.centerYAnchor.constraint(
+                equalTo: loopBtn.centerYAnchor
+            ),
+            tempoField.leadingAnchor.constraint(
+                equalTo: tempoLbl.trailingAnchor,
+                constant: 6
+            ),
+            tempoField.centerYAnchor.constraint(
+                equalTo: loopBtn.centerYAnchor
+            ),
+            tempoField.widthAnchor.constraint(
+                equalToConstant: 60
+            ),
             waveform.leadingAnchor.constraint(
                 equalTo: container.leadingAnchor,
                 constant: 24
@@ -810,8 +885,8 @@ extension AppDelegate {
                 constant: -24
             ),
             waveform.topAnchor.constraint(
-                equalTo: playBtn.bottomAnchor,
-                constant: 24
+                equalTo: loopBtn.bottomAnchor,
+                constant: 16
             ),
             waveform.heightAnchor.constraint(
                 equalToConstant: 120
@@ -827,6 +902,7 @@ extension AppDelegate {
         _ sender: NSButton
     ) {
         if !lotus_audio_is_open() {
+            lotus_audio_set_loop(true)
             let ok = lotus_audio_init_test_tone(
                 44100, 44100
             )
@@ -835,12 +911,31 @@ extension AppDelegate {
                 return
             }
         }
+        lotus_audio_seek_start()
         if lotus_audio_start() {
+            let loopTxt = lotus_audio_is_looping()
+                ? " (loop)" : ""
             updateAudioStatus(
-                "Playing -- 44100 Hz square wave"
+                "Playing -- D2 144.16 Hz\(loopTxt)"
             )
         } else {
             updateAudioStatus("Start failed")
+        }
+    }
+
+    @objc func audioLoopToggled(
+        _ sender: NSButton
+    ) {
+        let nowOn = !lotus_audio_is_looping()
+        lotus_audio_set_loop(nowOn)
+        sender.title = nowOn
+            ? "Loop: On" : "Loop: Off"
+        if lotus_audio_is_playing() {
+            let loopTxt = nowOn
+                ? " (loop)" : ""
+            updateAudioStatus(
+                "Playing -- D2 144.16 Hz\(loopTxt)"
+            )
         }
     }
 

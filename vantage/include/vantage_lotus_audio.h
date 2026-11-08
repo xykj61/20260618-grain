@@ -21,4 +21,8 @@ uint32_t lotus_audio_position(void);
 uint32_t lotus_audio_callback_count(void);
 uint32_t lotus_audio_sample_rate(void);
 
+void lotus_audio_set_loop(bool on);
+bool lotus_audio_is_looping(void);
+void lotus_audio_seek_start(void);
+
 #endif

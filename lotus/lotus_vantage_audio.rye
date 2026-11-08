@@ -24,6 +24,7 @@ var engine: coreaudio.Engine = coreaudio.Engine.init();
 var master: timeline.Clip = timeline.Clip{};
 var clock: ?clock_mod.Clock = null;
 var initialized: bool = false;
+var looping: bool = true;
 
 // -- FFI exports ------------------------------------------------
 
@@ -44,13 +45,14 @@ export fn lotus_audio_init_test_tone(
         else
             num_samples;
 
-    // Fill master with alternating 1000/-1000 square wave.
+    // D2 square wave at A=432 tuning (144.16 Hz).
+    // Period = 44100 / 144.16 ~ 306. Half = 153 high, 153 low.
     var i: u32 = 0;
     while (i < capped) : (i += 1) {
-        master.buf[i] = if (i % 2 == 0)
-            @as(i16, 1000)
+        master.buf[i] = if ((i % 306) < 153)
+            @as(i16, 24000)
         else
-            @as(i16, -1000);
+            @as(i16, -24000);
     }
     master.len = capped;
 
@@ -61,18 +63,21 @@ export fn lotus_audio_init_test_tone(
 
     // Open the engine with the master and clock.
     coreaudio.open(&engine, &master, clk) catch return false;
+    engine.state.looping = looping;
     initialized = true;
     return true;
 }
 
 export fn lotus_audio_start() callconv(.c) bool {
     if (!initialized) return false;
+    if (engine.playing) return true;
     coreaudio.start(&engine) catch return false;
     return true;
 }
 
 export fn lotus_audio_stop() callconv(.c) bool {
     if (!initialized) return false;
+    if (!engine.playing) return true;
     coreaudio.stop(&engine) catch return false;
     return true;
 }
@@ -105,6 +110,25 @@ export fn lotus_audio_sample_rate() callconv(.c) u32 {
     return 0;
 }
 
+export fn lotus_audio_set_loop(
+    on: bool,
+) callconv(.c) void {
+    looping = on;
+    if (initialized) {
+        engine.state.looping = on;
+    }
+}
+
+export fn lotus_audio_is_looping() callconv(.c) bool {
+    return looping;
+}
+
+export fn lotus_audio_seek_start() callconv(.c) void {
+    if (initialized) {
+        engine.state.trx.pos = 0;
+    }
+}
+
 // -- selftest ---------------------------------------------------
 
 pub fn main() !void {
@@ -121,6 +145,10 @@ pub fn main() !void {
 
     // 2. double init refuses.
     assert(!lotus_audio_init_test_tone(512, 44100));
+
+    // invariant: looping defaults to true.
+    assert(lotus_audio_is_looping());
+    assert(engine.state.looping);
 
     // 3. start playback.
     assert(lotus_audio_start());
@@ -140,5 +168,11 @@ pub fn main() !void {
     assert(!initialized);
     assert(!lotus_audio_is_open());
 
-    print("lotus_vantage_audio selftest: 6 claims GREEN\n", .{});
+    // 7. loop toggle.
+    lotus_audio_set_loop(false);
+    assert(!lotus_audio_is_looping());
+    lotus_audio_set_loop(true);
+    assert(lotus_audio_is_looping());
+
+    print("lotus_vantage_audio selftest: 8 claims GREEN\n", .{});
 }
