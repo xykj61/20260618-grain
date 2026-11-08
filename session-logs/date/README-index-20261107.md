@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.201802 | [Tablecloth fence sweep -- send](20261107/20261107-201802_tablecloth-fence-sweep-send.kyri.md) | 6 Movement violations swept from Swift comments |
 | 20261107.200621 | [Status bar and helpers extraction -- send](20261107/20261107-200621_status-helpers-extraction-send.kyri.md) | 6 methods into StatusAndHelpers.swift, 504 lines remain |
 | 20261107.200237 | [Menu actions extraction -- send](20261107/20261107-200237_menu-actions-extraction-send.kyri.md) | 8 methods into MenuActions.swift, 610 lines remain |
 | 20261107.180152 | [Tab setup extraction -- send](20261107/20261107-180152_tab-setup-extraction-send.kyri.md) | 7 methods into TabSetup.swift, 796 lines remain |
