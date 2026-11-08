@@ -686,6 +686,8 @@ extension AppDelegate {
             }
         }
 
+        loadAudioSession()
+
         let item = NSTabViewItem(
             identifier: "audio"
         )
@@ -1733,6 +1735,7 @@ extension AppDelegate {
             IndexSet(integer: audioTracks.count - 1),
             byExtendingSelection: false
         )
+        saveAudioSession()
     }
 
     @objc func audioGainSliderChanged(
@@ -1753,6 +1756,7 @@ extension AppDelegate {
             tag: 921,
             text: String(format: "%.2f", val)
         )
+        saveAudioSession()
     }
 
     @objc func audioPanSliderChanged(
@@ -1777,6 +1781,7 @@ extension AppDelegate {
             txt = "C"
         }
         setStatusPanelField(tag: 923, text: txt)
+        saveAudioSession()
     }
 
     @objc func audioSoloPressed(
@@ -1790,6 +1795,7 @@ extension AppDelegate {
               row < audioTracks.count
         else { return }
         audioTracks[row].solo.toggle()
+        saveAudioSession()
     }
 
     @objc func audioMutePressed(
@@ -1810,6 +1816,7 @@ extension AppDelegate {
                 audioTracks[row].gain
             )
         }
+        saveAudioSession()
     }
 
     @objc func audioRemoveTrackPressed(
@@ -1832,6 +1839,62 @@ extension AppDelegate {
             IndexSet(integer: newSel),
             byExtendingSelection: false
         )
+        saveAudioSession()
+    }
+
+    func saveAudioSession() {
+        let tracks = audioTracks.map {
+            [
+                "name": $0.name,
+                "gain": $0.gain,
+                "pan": $0.pan,
+                "solo": $0.solo,
+                "mute": $0.mute,
+            ] as [String: Any]
+        }
+        let ud = UserDefaults.standard
+        ud.set(tracks, forKey: "lotusAudioTracks")
+        ud.set(
+            lotus_audio_is_looping(),
+            forKey: "lotusAudioLoop"
+        )
+    }
+
+    func loadAudioSession() {
+        let ud = UserDefaults.standard
+        guard let arr = ud.array(
+            forKey: "lotusAudioTracks"
+        ) as? [[String: Any]],
+              !arr.isEmpty
+        else { return }
+        audioTracks = arr.compactMap { d in
+            guard let name = d["name"] as? String
+            else { return nil }
+            let gain = (d["gain"] as? Float) ?? 1.0
+            let pan = (d["pan"] as? Float) ?? 0.0
+            let solo = (d["solo"] as? Bool) ?? false
+            let mute = (d["mute"] as? Bool) ?? false
+            return (
+                name: name, gain: gain,
+                pan: pan, solo: solo, mute: mute
+            )
+        }
+        if audioTracks.isEmpty {
+            audioTracks = [(
+                name: "Track 1", gain: 1.0,
+                pan: 0.0, solo: false, mute: false
+            )]
+        }
+        let loopOn = ud.bool(
+            forKey: "lotusAudioLoop"
+        )
+        lotus_audio_set_loop(loopOn)
+        let first = audioTracks[0]
+        if first.mute {
+            lotus_audio_set_gain(0.0)
+        } else {
+            lotus_audio_set_gain(first.gain)
+        }
     }
 
 }
