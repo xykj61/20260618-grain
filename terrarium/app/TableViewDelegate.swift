@@ -353,6 +353,8 @@ extension AppDelegate: NSTableViewDelegate {
             focusBloom()
         case "Audio":
             focusAudio()
+        case "Social":
+            focusSocial()
         default:
             break
         }

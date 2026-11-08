@@ -3,6 +3,7 @@ import VantageBloom
 import VantageDimeroll
 import VantageLotus
 import VantageMantra
+import VantageSurf
 import VantageScribe
 
 extension AppDelegate {
@@ -2738,6 +2739,398 @@ extension AppDelegate {
             + "/" + hexDigest
         return FileManager.default
             .contents(atPath: blobPath)
+    }
+
+    @objc func focusSocial() {
+        guard let tv = tabView else { return }
+        for i in 0..<tv.numberOfTabViewItems {
+            let item = tv.tabViewItem(at: i)
+            if let ident = item.identifier
+                as? String,
+               ident == "social"
+            {
+                tv.selectTabViewItem(at: i)
+                return
+            }
+        }
+
+        surf_init()
+
+        if surfPubkeyHex.isEmpty {
+            var seed = [UInt8](repeating: 0, count: 32)
+            arc4random_buf(&seed, 32)
+            var pubkey = [UInt8](
+                repeating: 0, count: 32
+            )
+            var secret = [UInt8](
+                repeating: 0, count: 64
+            )
+            let rc = surf_keypair_from_seed(
+                seed, &pubkey, &secret
+            )
+            if rc == 0 {
+                surfSecretBytes = secret
+                surfPubkeyHex = pubkey.map {
+                    String(format: "%02x", $0)
+                }.joined()
+            }
+        }
+
+        let item = NSTabViewItem(
+            identifier: "social"
+        )
+        item.label = "Social"
+
+        let container = NSView()
+        container.wantsLayer = true
+        container.layer?.backgroundColor =
+            NSColor(
+                red: 0.05, green: 0.05, blue: 0.07,
+                alpha: 1.0
+            ).cgColor
+
+        let titleLbl = NSTextField(
+            labelWithString: "Social"
+        )
+        titleLbl.font = NSFont.systemFont(
+            ofSize: 18, weight: .medium
+        )
+        titleLbl.textColor = NSColor(
+            red: 0.4, green: 0.7, blue: 0.9,
+            alpha: 1.0
+        )
+        titleLbl.alignment = .center
+        titleLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(titleLbl)
+
+        let short = surfPubkeyHex.isEmpty
+            ? "no identity"
+            : String(surfPubkeyHex.prefix(16))
+                + "..."
+        let idLbl = NSTextField(
+            labelWithString: short
+        )
+        idLbl.font = NSFont.monospacedSystemFont(
+            ofSize: 11, weight: .regular
+        )
+        idLbl.textColor = NSColor(
+            red: 0.5, green: 0.5, blue: 0.6,
+            alpha: 0.8
+        )
+        idLbl.alignment = .center
+        idLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(idLbl)
+
+        let compose = NSTextField()
+        compose.placeholderString =
+            "Write a post..."
+        compose.font = NSFont.systemFont(
+            ofSize: 13
+        )
+        compose.textColor = .white
+        compose.backgroundColor = NSColor(
+            red: 0.1, green: 0.1, blue: 0.14,
+            alpha: 1.0
+        )
+        compose.isBordered = true
+        compose.focusRingType = .none
+        compose
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        compose.target = self
+        compose.action =
+            #selector(surfComposeAction(_:))
+        container.addSubview(compose)
+        surfComposeField = compose
+
+        let count = surf_feed_count()
+        let countLbl = NSTextField(
+            labelWithString:
+                "\(count) posts"
+        )
+        countLbl.font = NSFont.systemFont(
+            ofSize: 12, weight: .medium
+        )
+        countLbl.textColor = NSColor(
+            red: 0.5, green: 0.5, blue: 0.6,
+            alpha: 0.8
+        )
+        countLbl.alignment = .left
+        countLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(countLbl)
+        surfCountLabel = countLbl
+
+        let scroll = NSScrollView()
+        scroll.hasVerticalScroller = true
+        scroll.borderType = .noBorder
+        scroll.drawsBackground = false
+        scroll
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+
+        let stack = NSStackView()
+        stack.orientation = .vertical
+        stack.alignment = .leading
+        stack.spacing = 8
+        stack
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        scroll.documentView = stack
+        surfTimelineStack = stack
+        surfTimelineScroll = scroll
+
+        surfReloadTimeline()
+
+        container.addSubview(scroll)
+
+        let emptyLbl = NSTextField(
+            labelWithString: count == 0
+                ? "No posts yet -- type above"
+                    + " and press Return"
+                : ""
+        )
+        emptyLbl.font = NSFont.systemFont(
+            ofSize: 13, weight: .regular
+        )
+        emptyLbl.textColor = NSColor(
+            red: 0.5, green: 0.5, blue: 0.6,
+            alpha: 0.5
+        )
+        emptyLbl.alignment = .center
+        emptyLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(emptyLbl)
+
+        NSLayoutConstraint.activate([
+            titleLbl.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor
+            ),
+            titleLbl.topAnchor.constraint(
+                equalTo: container.topAnchor,
+                constant: 16
+            ),
+            idLbl.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor
+            ),
+            idLbl.topAnchor.constraint(
+                equalTo: titleLbl.bottomAnchor,
+                constant: 4
+            ),
+            compose.topAnchor.constraint(
+                equalTo: idLbl.bottomAnchor,
+                constant: 12
+            ),
+            compose.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 20
+            ),
+            compose.trailingAnchor.constraint(
+                equalTo: container.trailingAnchor,
+                constant: -20
+            ),
+            compose.heightAnchor.constraint(
+                equalToConstant: 28
+            ),
+            countLbl.topAnchor.constraint(
+                equalTo: compose.bottomAnchor,
+                constant: 12
+            ),
+            countLbl.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 20
+            ),
+            scroll.topAnchor.constraint(
+                equalTo: countLbl.bottomAnchor,
+                constant: 8
+            ),
+            scroll.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 20
+            ),
+            scroll.trailingAnchor.constraint(
+                equalTo: container.trailingAnchor,
+                constant: -20
+            ),
+            scroll.bottomAnchor.constraint(
+                equalTo: container.bottomAnchor,
+                constant: -20
+            ),
+            emptyLbl.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor
+            ),
+            emptyLbl.centerYAnchor.constraint(
+                equalTo: scroll.centerYAnchor
+            ),
+            stack.leadingAnchor.constraint(
+                equalTo: scroll.contentView
+                    .leadingAnchor
+            ),
+            stack.trailingAnchor.constraint(
+                equalTo: scroll.contentView
+                    .trailingAnchor
+            ),
+            stack.topAnchor.constraint(
+                equalTo: scroll.contentView
+                    .topAnchor
+            ),
+        ])
+
+        item.view = container
+        tv.addTabViewItem(item)
+        tv.selectTabViewItem(item)
+    }
+
+    @objc func surfComposeAction(
+        _ sender: NSTextField
+    ) {
+        let text = sender.stringValue
+        guard !text.isEmpty,
+              !surfSecretBytes.isEmpty
+        else { return }
+
+        let content = Array(
+            text.utf8.prefix(4096)
+        )
+        let now = UInt64(
+            Date().timeIntervalSince1970
+        )
+        let kind: UInt32 = 1
+        let pubkey = surfPubkeyBytes()
+
+        var eventId = [UInt8](
+            repeating: 0, count: 64
+        )
+        surf_event_id(
+            pubkey, kind, now,
+            content, UInt32(content.count),
+            &eventId
+        )
+
+        var sig = [UInt8](
+            repeating: 0, count: 64
+        )
+        let rc = surf_sign_event(
+            eventId, surfSecretBytes, &sig
+        )
+        guard rc == 0 else { return }
+
+        let addRc = surf_feed_add(
+            pubkey, kind, now,
+            content, UInt32(content.count),
+            sig, eventId
+        )
+        guard addRc == 0 else { return }
+
+        sender.stringValue = ""
+        surfReloadTimeline()
+    }
+
+    func surfPubkeyBytes() -> [UInt8] {
+        var out = [UInt8](
+            repeating: 0, count: 32
+        )
+        let hex = surfPubkeyHex
+        var i = hex.startIndex
+        for idx in 0..<32 {
+            let hi = hex.index(i, offsetBy: 0)
+            let lo = hex.index(i, offsetBy: 1)
+            let byte = UInt8(
+                String(hex[hi...lo]),
+                radix: 16
+            ) ?? 0
+            out[idx] = byte
+            i = hex.index(i, offsetBy: 2)
+        }
+        return out
+    }
+
+    func surfReloadTimeline() {
+        guard let stack = surfTimelineStack
+        else { return }
+        for v in stack.arrangedSubviews {
+            stack.removeArrangedSubview(v)
+            v.removeFromSuperview()
+        }
+
+        let count = surf_feed_count()
+        surfCountLabel?.stringValue =
+            "\(count) posts"
+
+        for idx in (0..<count).reversed() {
+            var buf = [UInt8](
+                repeating: 0, count: 4096
+            )
+            let len = surf_feed_get_content(
+                idx, &buf, UInt32(buf.count)
+            )
+            guard len > 0 else { continue }
+            let text = String(
+                bytes: buf[0..<Int(len)],
+                encoding: .utf8
+            ) ?? ""
+
+            let card = NSView()
+            card.wantsLayer = true
+            card.layer?.backgroundColor =
+                NSColor(
+                    red: 0.1, green: 0.1,
+                    blue: 0.14, alpha: 1.0
+                ).cgColor
+            card.layer?.cornerRadius = 6
+            card
+                .translatesAutoresizingMaskIntoConstraints =
+                false
+
+            let lbl = NSTextField(
+                labelWithString: text
+            )
+            lbl.font = NSFont.systemFont(
+                ofSize: 13
+            )
+            lbl.textColor = NSColor(
+                red: 0.85, green: 0.85,
+                blue: 0.9, alpha: 1.0
+            )
+            lbl.lineBreakMode = .byWordWrapping
+            lbl.maximumNumberOfLines = 0
+            lbl.preferredMaxLayoutWidth = 500
+            lbl
+                .translatesAutoresizingMaskIntoConstraints =
+                false
+            card.addSubview(lbl)
+
+            NSLayoutConstraint.activate([
+                lbl.topAnchor.constraint(
+                    equalTo: card.topAnchor,
+                    constant: 10
+                ),
+                lbl.leadingAnchor.constraint(
+                    equalTo: card.leadingAnchor,
+                    constant: 12
+                ),
+                lbl.trailingAnchor.constraint(
+                    equalTo: card.trailingAnchor,
+                    constant: -12
+                ),
+                lbl.bottomAnchor.constraint(
+                    equalTo: card.bottomAnchor,
+                    constant: -10
+                ),
+                card.widthAnchor.constraint(
+                    greaterThanOrEqualToConstant:
+                        200
+                ),
+            ])
+
+            stack.addArrangedSubview(card)
+        }
     }
 
 }

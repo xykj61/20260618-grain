@@ -36,6 +36,7 @@ import VantageDimeroll
 import VantageLotus
 import VantageMantra
 import VantageScribe
+import VantageSurf
 
 // -- Configuration --------------------------------------------------
 
@@ -95,6 +96,7 @@ class AppDelegate: NSObject,
         "Terminal", "Grid",
         "Dimeroll", "Mantra",
         "Bloom", "Audio",
+        "Social",
     ]
     var bloomTextView: NSTextView?
     var bloomLessonIndex: Int = 0
@@ -167,6 +169,12 @@ class AppDelegate: NSObject,
     var audioTrackTable: NSTableView?
     var mantraCatalogRows: [(String, String, String)]
         = []
+    var surfPubkeyHex: String = ""
+    var surfSecretBytes: [UInt8] = []
+    var surfComposeField: NSTextField?
+    var surfTimelineScroll: NSScrollView?
+    var surfTimelineStack: NSStackView?
+    var surfCountLabel: NSTextField?
     var nextTabId = 3
     var shortcutStatusLabel: NSTextField?
     var connectionLabel: NSTextField?
