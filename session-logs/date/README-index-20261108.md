@@ -2,6 +2,7 @@
 
 | Stamp | Title | Summary |
 |---|---|---|
+| 20261108.164530 | [Mantra filesystem witness GREEN](20261108/20261108-164530_mantra-filesystem-witness-green.kyri.md) | Integration witness 13 proves GREEN, Mantra Filesystem SLC complete (5/5), fascia 60.150 |
 | 20261108.164004 | [Mantra save integration](20261108/20261108-164004_mantra-save-integration.kyri.md) | Scribe settings routed through Mantra blob store with migration fallback, fascia 60.149 |
 | 20261108.163207 | [Mantra blob persistence](20261108/20261108-163207_mantra-blob-persistence.kyri.md) | Swift reads/writes content-addressed blobs, catalog load at launch, fascia 60.148 |
 | 20261108.162005 | [Mantra tab scaffold](20261108/20261108-162005_mantra-tab-scaffold.kyri.md) | Store browser replaces placeholder, three-column catalog table, fascia 60.147 |

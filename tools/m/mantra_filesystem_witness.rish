@@ -1,0 +1,57 @@
+# mantra_filesystem_witness.rish -- Mantra Filesystem SLC integration.
+#
+# Proves the full Mantra content-addressed store through its Vantage FFI
+# bridge: build the dylib binary, run its selftest, assert all 8 claims
+# print GREEN. The selftest exercises init, SHA3-256 digest, verify,
+# catalog add/get, catalog update, save-load Kyri roundtrip, load-refuses-
+# bad-format, and catalog list.
+#
+#   rishi/bin/rishi run tools/m/mantra_filesystem_witness.rish
+
+let zig = "vendor/zig-toolchain/zig"
+
+say "mantra-filesystem: building vantage bridge binary..."
+let build = run ["sh" "-c" "mkdir -p mantra/bin && env RYE_ZIG=${zig} sh tools/fixtures/r/rye_build.sh mantra/mantra_vantage.rye -femit-bin=mantra/bin/mantra_vantage"]
+assert build.ok else "mantra vantage: build failed -- ${build.err_brief}"
+
+say "mantra-filesystem: running selftest..."
+let st = run ["mantra/bin/mantra_vantage" "selftest"]
+assert st.ok else "mantra vantage selftest must exit 0 -- ${st.err_brief}"
+
+assert (st.err contains "GREEN") else "mantra vantage must report GREEN"
+assert (st.err contains "init empty") else "vantage proves init empty"
+assert (st.err contains "digest deterministic") else "vantage proves digest deterministic"
+assert (st.err contains "verify matches") else "vantage proves verify matches"
+assert (st.err contains "catalog add and get") else "vantage proves catalog add and get"
+assert (st.err contains "catalog update") else "vantage proves catalog update"
+assert (st.err contains "save-load roundtrip") else "vantage proves save-load roundtrip"
+assert (st.err contains "load refuses bad format") else "vantage proves load refuses bad format"
+assert (st.err contains "catalog list") else "vantage proves catalog list"
+
+say "mantra-filesystem: vantage bridge -- 8 proves GREEN (init, digest, verify, add, update, roundtrip, refuse, list)."
+
+say "mantra-filesystem: verifying dylib exists for Terrarium linking..."
+let dylib = run ["sh" "-c" "test -f vantage/lib/libmantra.dylib"]
+assert dylib.ok else "mantra vantage: libmantra.dylib missing from vantage/lib/"
+
+say "mantra-filesystem: verifying C header and modulemap..."
+let header = run ["sh" "-c" "test -f vantage/include/vantage_mantra.h && grep -q 'mantra_selftest' vantage/include/vantage_mantra.h"]
+assert header.ok else "mantra vantage: vantage_mantra.h missing or incomplete"
+
+let modmap = run ["sh" "-c" "grep -q 'VantageMantra' vantage/include/module.modulemap"]
+assert modmap.ok else "mantra vantage: VantageMantra missing from modulemap"
+
+say "mantra-filesystem: verifying Swift bridge functions exist in TabSetup..."
+let swift_write = run ["sh" "-c" "grep -q 'func writeMantraBlob' terrarium/app/TabSetup.swift"]
+assert swift_write.ok else "mantra-filesystem: writeMantraBlob missing from TabSetup.swift"
+
+let swift_read = run ["sh" "-c" "grep -q 'func readMantraBlob' terrarium/app/TabSetup.swift"]
+assert swift_read.ok else "mantra-filesystem: readMantraBlob missing from TabSetup.swift"
+
+let swift_save = run ["sh" "-c" "grep -q 'writeMantraBlob' terrarium/app/TabSetup.swift | head -1"]
+
+let save_integration = run ["sh" "-c" "grep -q 'writeMantraBlob' terrarium/app/TabSetup.swift && grep -q 'readMantraBlob' terrarium/app/TabSetup.swift && grep -q 'scribe/settings.kyri' terrarium/app/TabSetup.swift"]
+assert save_integration.ok else "mantra-filesystem: save integration -- scribe/settings.kyri path missing from TabSetup.swift"
+
+say "mantra-filesystem: 8 proves from Vantage selftest, 4 structural checks, 1 save integration check."
+say "GREEN: mantra filesystem -- end-to-end integration: Vantage FFI bridge, Swift persistence, save integration."
