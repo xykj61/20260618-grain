@@ -12,3 +12,8 @@ module VantageLotus {
     header "vantage_lotus_audio.h"
     export *
 }
+
+module VantageScribe {
+    header "vantage_scribe.h"
+    export *
+}

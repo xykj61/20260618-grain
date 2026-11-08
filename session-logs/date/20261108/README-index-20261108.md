@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| `20261108.135617` | [Scribe Vantage FFI bridge -- 13 exports, six proves GREEN](20261108-135617_scribe-vantage-ffi-bridge-green.kyri.md) | FFI bridge landed, 13 C exports, libscribe.dylib, fascia 60.142 |
 | `20261108.133227` | [Scribe settings writer -- format, serializer, and round-trip GREEN](20261108-133227_scribe-settings-writer-green.kyri.md) | Settings writer landed, six proves GREEN, fascia 60.141 |
 | `20261108.131200` | [Brix-infuse correction -- composable, not monolith](20261108-131200_brix-infuse-correction-scribe-ready.kyri.md) | Brix follows infuse.nix pattern; all six questions answered; awaiting Keaton's word on Scribe tablecloth |
 | `20261108.125817` | [Module composition tablecloth proposal](20261108-125817_module-composition-tablecloth-proposal.kyri.md) | Lotus paused, expanding prompt with six questions for Keaton |

@@ -6,7 +6,7 @@ const reader = @import("reader.rye");
 pub const writer_version = "20261108.140000";
 
 // invariant: settings file stays well under the reader's bound.
-const max_settings_len: u32 = 4096;
+pub const max_settings_len: u32 = 4096;
 
 pub const SettingsError = error{
     ThemeInvalid,
@@ -32,10 +32,10 @@ pub const Settings = struct {
     };
 
     // invariant: font size is bounded to a readable range.
-    const min_font_size: u32 = 8;
-    const max_font_size: u32 = 72;
+    pub const min_font_size: u32 = 8;
+    pub const max_font_size: u32 = 72;
     // invariant: recent limit is bounded.
-    const max_recent: u32 = 100;
+    pub const max_recent: u32 = 100;
 
     pub fn validate(self: *const Settings) SettingsError!void {
         // invariant: theme is one of three named values.

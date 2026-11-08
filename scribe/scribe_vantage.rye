@@ -1,0 +1,289 @@
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+const reader = @import("reader.rye");
+const writer = @import("writer.rye");
+
+pub const bridge_version = "20261108.140500";
+
+// invariant: module state holds exactly one Settings value.
+var current: writer.Settings = writer.Settings.defaults;
+var initialized: bool = false;
+
+// invariant: save buffer is large enough for any valid settings.
+var save_buf: [writer.max_settings_len]u8 = undefined;
+
+// invariant: theme must resolve to a static literal that outlives
+// any input buffer. These three are comptime string literals.
+const theme_system = "system";
+const theme_light = "light";
+const theme_dark = "dark";
+
+fn resolve_theme(raw: []const u8) []const u8 {
+    if (std.mem.eql(u8, raw, "light")) return theme_light;
+    if (std.mem.eql(u8, raw, "dark")) return theme_dark;
+    return theme_system;
+}
+
+// --- C exports: init / load / save -----------------------------------------
+
+export fn scribe_settings_init() callconv(.c) void {
+    current = writer.Settings.defaults;
+    initialized = true;
+}
+
+// invariant: Swift reads the file and hands us the bytes.
+export fn scribe_settings_load(
+    ptr: [*]const u8,
+    len: u32,
+) callconv(.c) bool {
+    if (len == 0 or len > reader.max_source_len) return false;
+    const text = ptr[0..len];
+    const doc = reader.parse(text);
+    if (!reader.is_settings(&doc)) return false;
+    current = writer.read_settings(&doc);
+    // invariant: resolve theme to a static literal so the pointer
+    // outlives the input buffer Swift handed us.
+    current.theme = resolve_theme(current.theme);
+    initialized = true;
+    return true;
+}
+
+// invariant: Swift owns the output buffer and writes it to disk.
+export fn scribe_settings_save(
+    out: [*]u8,
+    max: u32,
+) callconv(.c) u32 {
+    if (max < writer.max_settings_len) return 0;
+    const slice = writer.write_settings(&current, &save_buf);
+    // invariant: serialized output fits the caller's buffer.
+    assert(slice.len <= max);
+    @memcpy(out[0..slice.len], slice);
+    return @intCast(slice.len);
+}
+
+// --- C exports: getters ----------------------------------------------------
+
+export fn scribe_settings_theme() callconv(.c) [*:0]const u8 {
+    // invariant: theme is always one of three static literals,
+    // each of which is null-terminated by the compiler.
+    if (std.mem.eql(u8, current.theme, "light"))
+        return @ptrCast(theme_light.ptr);
+    if (std.mem.eql(u8, current.theme, "dark"))
+        return @ptrCast(theme_dark.ptr);
+    return @ptrCast(theme_system.ptr);
+}
+
+export fn scribe_settings_font_size() callconv(.c) u32 {
+    return current.font_size;
+}
+
+export fn scribe_settings_sidebar_visible() callconv(.c) bool {
+    return current.sidebar_visible;
+}
+
+export fn scribe_settings_recent_limit() callconv(.c) u32 {
+    return current.recent_limit;
+}
+
+export fn scribe_settings_audio_monitor() callconv(.c) bool {
+    return current.audio_monitor;
+}
+
+// --- C exports: setters (return false on invalid input) --------------------
+
+export fn scribe_settings_set_theme(
+    ptr: [*:0]const u8,
+) callconv(.c) bool {
+    const slice = std.mem.span(ptr);
+    if (!std.mem.eql(u8, slice, "system") and
+        !std.mem.eql(u8, slice, "light") and
+        !std.mem.eql(u8, slice, "dark"))
+        return false;
+    current.theme = resolve_theme(slice);
+    return true;
+}
+
+export fn scribe_settings_set_font_size(size: u32) callconv(.c) bool {
+    if (size < writer.Settings.min_font_size) return false;
+    if (size > writer.Settings.max_font_size) return false;
+    current.font_size = size;
+    return true;
+}
+
+export fn scribe_settings_set_sidebar_visible(v: bool) callconv(.c) void {
+    current.sidebar_visible = v;
+}
+
+export fn scribe_settings_set_recent_limit(
+    limit: u32,
+) callconv(.c) bool {
+    if (limit > writer.Settings.max_recent) return false;
+    current.recent_limit = limit;
+    return true;
+}
+
+export fn scribe_settings_set_audio_monitor(v: bool) callconv(.c) void {
+    current.audio_monitor = v;
+}
+
+// --- selftest --------------------------------------------------------------
+
+fn prove_init_defaults() !void {
+    scribe_settings_init();
+    if (!initialized) return error.NotInitialized;
+    if (scribe_settings_font_size() != 13)
+        return error.DefaultFontSizeWrong;
+    if (scribe_settings_sidebar_visible() != true)
+        return error.DefaultSidebarWrong;
+    if (scribe_settings_recent_limit() != 10)
+        return error.DefaultRecentLimitWrong;
+    if (scribe_settings_audio_monitor() != false)
+        return error.DefaultAudioMonitorWrong;
+    const theme = std.mem.span(scribe_settings_theme());
+    if (!std.mem.eql(u8, theme, "system"))
+        return error.DefaultThemeWrong;
+}
+
+fn prove_setters_and_getters() !void {
+    scribe_settings_init();
+    if (!scribe_settings_set_theme(@ptrCast("dark")))
+        return error.SetThemeFailed;
+    const theme = std.mem.span(scribe_settings_theme());
+    if (!std.mem.eql(u8, theme, "dark"))
+        return error.ThemeNotDark;
+    if (!scribe_settings_set_font_size(24))
+        return error.SetFontSizeFailed;
+    if (scribe_settings_font_size() != 24)
+        return error.FontSizeNot24;
+    scribe_settings_set_sidebar_visible(false);
+    if (scribe_settings_sidebar_visible() != false)
+        return error.SidebarNotFalse;
+    if (!scribe_settings_set_recent_limit(50))
+        return error.SetRecentLimitFailed;
+    if (scribe_settings_recent_limit() != 50)
+        return error.RecentLimitNot50;
+    scribe_settings_set_audio_monitor(true);
+    if (scribe_settings_audio_monitor() != true)
+        return error.AudioMonitorNotTrue;
+}
+
+fn prove_validation_refuses() !void {
+    scribe_settings_init();
+    // invariant: invalid theme is refused.
+    if (scribe_settings_set_theme(@ptrCast("neon")))
+        return error.BadThemeAccepted;
+    // invariant: font size below floor is refused.
+    if (scribe_settings_set_font_size(4))
+        return error.SmallFontAccepted;
+    // invariant: font size above ceiling is refused.
+    if (scribe_settings_set_font_size(200))
+        return error.BigFontAccepted;
+    // invariant: recent limit above ceiling is refused.
+    if (scribe_settings_set_recent_limit(999))
+        return error.BigRecentAccepted;
+}
+
+fn prove_load_save_roundtrip() !void {
+    scribe_settings_init();
+    _ = scribe_settings_set_theme(@ptrCast("dark"));
+    _ = scribe_settings_set_font_size(18);
+    scribe_settings_set_sidebar_visible(false);
+    _ = scribe_settings_set_recent_limit(25);
+    scribe_settings_set_audio_monitor(true);
+
+    // invariant: save produces a nonzero length.
+    var out: [writer.max_settings_len]u8 = undefined;
+    const len = scribe_settings_save(&out, writer.max_settings_len);
+    if (len == 0) return error.SaveReturnedZero;
+
+    // invariant: loading the saved bytes restores every field.
+    scribe_settings_init();
+    if (!scribe_settings_load(&out, len))
+        return error.LoadFailed;
+    const theme = std.mem.span(scribe_settings_theme());
+    if (!std.mem.eql(u8, theme, "dark"))
+        return error.RoundtripThemeFailed;
+    if (scribe_settings_font_size() != 18)
+        return error.RoundtripFontSizeFailed;
+    if (scribe_settings_sidebar_visible() != false)
+        return error.RoundtripSidebarFailed;
+    if (scribe_settings_recent_limit() != 25)
+        return error.RoundtripRecentLimitFailed;
+    if (scribe_settings_audio_monitor() != true)
+        return error.RoundtripAudioMonitorFailed;
+}
+
+fn prove_load_refuses_bad_format() !void {
+    scribe_settings_init();
+    const bad = "format baton-v1\nname test\n";
+    if (scribe_settings_load(@ptrCast(bad.ptr), bad.len))
+        return error.BadFormatAccepted;
+    // invariant: failed load leaves state unchanged.
+    if (scribe_settings_font_size() != 13)
+        return error.StateCorruptedOnBadLoad;
+}
+
+fn prove_theme_pointer_safety() !void {
+    // invariant: after load from a stack buffer that will be
+    // reused, the theme pointer still resolves correctly
+    // because it was resolved to a static literal.
+    var input_buf: [256]u8 = undefined;
+    const text = "format scribe-settings-v1\ntheme light\n";
+    @memcpy(input_buf[0..text.len], text);
+    if (!scribe_settings_load(&input_buf, text.len))
+        return error.LoadLightFailed;
+    // overwrite the input buffer to prove the theme pointer
+    // does not dangle into it.
+    @memset(&input_buf, 0);
+    const theme = std.mem.span(scribe_settings_theme());
+    if (!std.mem.eql(u8, theme, "light"))
+        return error.ThemeDanglingPointer;
+}
+
+fn run_selftest() u8 {
+    prove_init_defaults() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_setters_and_getters() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_validation_refuses() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_load_save_roundtrip() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_load_refuses_bad_format() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_theme_pointer_safety() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+
+    print("scribe vantage: init defaults -- system theme, font 13, sidebar true, recent 10, audio off.\n", .{});
+    print("scribe vantage: setters and getters -- dark theme, font 24, sidebar hidden, recent 50, audio on.\n", .{});
+    print("scribe vantage: validation refuses -- invalid theme, font below 8, font above 72, recent above 100.\n", .{});
+    print("scribe vantage: load-save roundtrip -- save, reinit, load, every field matches.\n", .{});
+    print("scribe vantage: load refuses bad format -- baton-v1 rejected, state unchanged.\n", .{});
+    print("scribe vantage: theme pointer safety -- input buffer overwritten, static literal survives.\n", .{});
+    print("scribe vantage: version {s}\n", .{bridge_version});
+    print("GREEN: scribe vantage -- FFI bridge: init, load, save, get, set, validate, theme pointer safe.\n", .{});
+    return 0;
+}
+
+pub fn main(init: std.process.Init) !u8 {
+    const allocator = init.arena.allocator();
+    const args = try init.minimal.args.toSlice(allocator);
+    if (args.len == 2 and std.mem.eql(u8, args[1], "selftest"))
+        return run_selftest();
+    if (args.len == 1) return run_selftest();
+    print("usage: scribe_vantage [selftest]\n", .{});
+    return 1;
+}
