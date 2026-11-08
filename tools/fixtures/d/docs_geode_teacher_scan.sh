@@ -1,15 +1,15 @@
 #!/bin/sh
-# tools/fixtures/d/docs_geode_bhakta_scan.sh -- every docs-geode page declares Bhakta at Door.
+# tools/fixtures/d/docs_geode_teacher_scan.sh -- every docs-geode page declares Teacher at Door.
 #
-#   sh tools/fixtures/d/docs_geode_bhakta_scan.sh
-#   sh tools/fixtures/d/docs_geode_bhakta_scan.sh /path/to/a/pen
+#   sh tools/fixtures/d/docs_geode_teacher_scan.sh
+#   sh tools/fixtures/d/docs_geode_teacher_scan.sh /path/to/a/pen
 #
-# A miss is a Markdown file whose first **Style:** line omits Bhakta, omits Door,
+# A miss is a Markdown file whose first **Style:** line omits Teacher, omits Door,
 # or names Gauge as the register. A file with no style line is a miss too.
 set -eu
 
 root=${1:-docs-geode}
-[ -d "$root" ] || { echo "docs-geode-bhakta: missing $root"; exit 2; }
+[ -d "$root" ] || { echo "docs-geode-teacher: missing $root"; exit 2; }
 
 pages=0
 miss=0
@@ -20,19 +20,19 @@ find "$root" -type f -name '*.md' | sort | while IFS= read -r f; do
     reason=no_style_line
   elif printf '%s\n' "$style" | grep -q 'Gauge'; then
     reason=style_names_gauge
-  elif ! printf '%s\n' "$style" | grep -q 'Bhakta'; then
-    reason=style_omits_bhakta
+  elif ! printf '%s\n' "$style" | grep -q 'Teacher'; then
+    reason=style_omits_teacher
   elif ! printf '%s\n' "$style" | grep -q 'Door'; then
     reason=style_omits_door
   fi
   if [ -n "$reason" ]; then
     printf 'miss %s %s\n' "$f" "$reason"
   fi
-done > "${TMPDIR:-/tmp}/docs-geode-bhakta.$$"
+done > "${TMPDIR:-/tmp}/docs-geode-teacher.$$"
 pages=$(find "$root" -type f -name '*.md' | wc -l | tr -d ' ')
-miss=$(grep -c '^miss ' "${TMPDIR:-/tmp}/docs-geode-bhakta.$$" || true)
-cat "${TMPDIR:-/tmp}/docs-geode-bhakta.$$"
-rm -f "${TMPDIR:-/tmp}/docs-geode-bhakta.$$"
+miss=$(grep -c '^miss ' "${TMPDIR:-/tmp}/docs-geode-teacher.$$" || true)
+cat "${TMPDIR:-/tmp}/docs-geode-teacher.$$"
+rm -f "${TMPDIR:-/tmp}/docs-geode-teacher.$$"
 echo "pages=$pages miss=$miss"
 if [ "$miss" = 0 ] && [ "$pages" -gt 0 ]; then
   echo "verdict=ok"

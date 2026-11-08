@@ -3,7 +3,7 @@
 *A citizen's door. The same beginning, in any country, from the public copy of Grain.*
 
 **Language:** EN
-**Style:** Bhakta at the Door setting, with Radiant warmth (see `../../../context/BHAKTA_STYLE.md`)
+**Style:** Teacher at the Door setting, with Radiant warmth (see `../../../context/TEACHER_STYLE.md`)
 **Voice:** Kyri
 **Status:** Living draft -- teaching. It ships to the tutorial shelf on the day a fresh reader has run its path. The commands it points at already live in the first hour.
 **Room:** mixed -- the links and the standard's public record are checkable; the invitation is judged

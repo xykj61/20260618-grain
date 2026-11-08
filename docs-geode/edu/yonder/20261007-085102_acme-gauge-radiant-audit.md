@@ -1,8 +1,8 @@
 # Acme voice audit -- docs-geode, Gauge at the dial, Radiant at the door
 
 **Language:** EN
-**Style:** Bhakta at the Door setting, with Radiant warmth
-**Guide:** [`../../../context/BHAKTA_STYLE.md`](../../../context/BHAKTA_STYLE.md) - [`../../../context/TEACHER_STYLE.md`](../../../context/TEACHER_STYLE.md)
+**Style:** Teacher at the Door setting, with Radiant warmth
+**Guide:** [`../../../context/TEACHER_STYLE.md`](../../../context/TEACHER_STYLE.md) - [`../../../context/TEACHER_STYLE.md`](../../../context/TEACHER_STYLE.md)
 **Voices:** Kyri and Kyli, jointly
 **Written:** `20261007.085102`
 **Status:** Draft -- first audit pass. Later laps rewrite pages when a hand next touches them.
@@ -41,7 +41,7 @@ This sitting does **not** crush every page under `docs-geode/`. A full rewrite i
 
 Every Markdown page under `docs-geode/` declares:
 
-`**Style:** Bhakta at the Door setting, with Radiant warmth`
+`**Style:** Teacher at the Door setting, with Radiant warmth`
 
 The scan `tools/fixtures/d/docs_geode_bhakta_scan.sh` refuses a page that names Gauge on that line. Teacher Style may live in the body and in a `**Guide:**` line. The register on the door stays Bhakta.
 

@@ -2,7 +2,7 @@
 
 **Stamp:** `20261017.185218`
 **Status:** Living -- **Room:** checkable
-**Style:** Bhakta at the Door setting, with Radiant warmth (see `../../context/BHAKTA_STYLE.md`)
+**Style:** Teacher at the Door setting, with Radiant warmth (see `../../context/TEACHER_STYLE.md`)
 **Audience:** someone who has just been given access to a shared project and wants to know what they may touch
 
 ## What a permission is

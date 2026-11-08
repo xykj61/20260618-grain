@@ -1,6 +1,6 @@
 # Lesson 2 -- The front door
 
-**Language:** EN - **Style:** Bhakta at the Door setting, with Radiant warmth (see `../../context/BHAKTA_STYLE.md`) - **Voice:** Kyri
+**Language:** EN - **Style:** Teacher at the Door setting, with Radiant warmth (see `../../context/TEACHER_STYLE.md`) - **Voice:** Kyri
 **Stamp:** `20260910.060225` - **Status:** Living - **Room:** checkable -- every page it walks exists and can be opened
 **Index:** [`README.md`](README.md) - **Back:** [Lesson 1](20260910-060225_lesson-1-the-house-from-above.md) - **Next:** [Lesson 3](20260910-060225_lesson-3-the-why.md)
 
@@ -28,8 +28,8 @@ and saves.
 A **folder** (this tree often says **room** when the folder has a job) is a named place holding
 files and other folders. `context/` is a folder. The slash is a path mark: "look inside."
 
-`context/BHAKTA_STYLE.md` means: start at the tree's root, enter `context`, open the file
-`BHAKTA_STYLE.md`.
+`context/TEACHER_STYLE.md` means: start at the tree's root, enter `context`, open the file
+`TEACHER_STYLE.md`.
 
 A **path** is that address. Absolute paths start from the whole machine. Relative paths start from
 where you are standing.

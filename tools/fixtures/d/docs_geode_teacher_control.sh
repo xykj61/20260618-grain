@@ -1,13 +1,13 @@
 #!/bin/sh
-# tools/fixtures/d/docs_geode_bhakta_control.sh -- the declaration reading, proven both ways.
+# tools/fixtures/d/docs_geode_teacher_control.sh -- the Teacher declaration reading, proven both ways.
 set -eu
 
-scan=$(CDPATH= cd -- "$(dirname "$0")" && pwd)/docs_geode_bhakta_scan.sh
+scan=$(CDPATH= cd -- "$(dirname "$0")" && pwd)/docs_geode_teacher_scan.sh
 pen=$(mktemp -d)
 trap 'rm -rf "$pen"' EXIT
 
 mkdir -p "$pen/ok" "$pen/bad"
-printf '%s\n' '# Ok' '' '**Style:** Bhakta at the Door setting, with Radiant warmth' > "$pen/ok/a.md"
+printf '%s\n' '# Ok' '' '**Style:** Teacher at the Door setting, with Radiant warmth' > "$pen/ok/a.md"
 printf '%s\n' '# Gauge' '' '**Style:** Gauge, Door setting' > "$pen/bad/gauge.md"
 printf '%s\n' '# Bare' '' 'Hello.' > "$pen/bad/bare.md"
 
