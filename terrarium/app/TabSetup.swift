@@ -1961,6 +1961,51 @@ extension AppDelegate {
 
     // MARK: - Scribe Settings
 
+    func scribeSettingsPath() -> String {
+        let home = FileManager.default
+            .homeDirectoryForCurrentUser.path
+        return home + "/.grain/scribe/settings.kyri"
+    }
+
+    func scribeLoadFromDisk() {
+        let path = scribeSettingsPath()
+        guard let data = FileManager.default
+            .contents(atPath: path)
+        else { return }
+        data.withUnsafeBytes { raw in
+            guard let ptr = raw
+                .baseAddress?
+                .assumingMemoryBound(to: UInt8.self)
+            else { return }
+            _ = scribe_settings_load(
+                ptr, UInt32(raw.count)
+            )
+        }
+    }
+
+    func scribeSaveToDisk() {
+        let path = scribeSettingsPath()
+        let dir = (path as NSString)
+            .deletingLastPathComponent
+        try? FileManager.default
+            .createDirectory(
+                atPath: dir,
+                withIntermediateDirectories: true
+            )
+        let maxLen: UInt32 = 4096
+        var buf = [UInt8](
+            repeating: 0, count: Int(maxLen)
+        )
+        let wrote = scribe_settings_save(
+            &buf, maxLen
+        )
+        guard wrote > 0 else { return }
+        let data = Data(buf[0..<Int(wrote)])
+        FileManager.default.createFile(
+            atPath: path, contents: data
+        )
+    }
+
     @objc func focusScribe() {
         guard let tv = tabView else { return }
         for i in 0..<tv.numberOfTabViewItems {
@@ -1975,6 +2020,7 @@ extension AppDelegate {
         }
 
         scribe_settings_init()
+        scribeLoadFromDisk()
 
         let item = NSTabViewItem(
             identifier: "scribe"
@@ -2329,6 +2375,7 @@ extension AppDelegate {
             return
         }
         _ = scribe_settings_set_theme(values[idx])
+        scribeSaveToDisk()
     }
 
     @objc func scribeFontStepChanged(
@@ -2350,6 +2397,7 @@ extension AppDelegate {
                 }
             }
         }
+        scribeSaveToDisk()
     }
 
     @objc func scribeSidebarToggled(
@@ -2358,6 +2406,7 @@ extension AppDelegate {
         scribe_settings_set_sidebar_visible(
             sender.state == .on
         )
+        scribeSaveToDisk()
     }
 
     @objc func scribeRecentStepChanged(
@@ -2379,6 +2428,7 @@ extension AppDelegate {
                 }
             }
         }
+        scribeSaveToDisk()
     }
 
     @objc func scribeAudioMonToggled(
@@ -2387,6 +2437,7 @@ extension AppDelegate {
         scribe_settings_set_audio_monitor(
             sender.state == .on
         )
+        scribeSaveToDisk()
     }
 
 }

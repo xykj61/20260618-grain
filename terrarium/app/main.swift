@@ -33,6 +33,7 @@ import SkateCore
 import VantageBloom
 import VantageDimeroll
 import VantageLotus
+import VantageScribe
 
 // -- Configuration --------------------------------------------------
 
@@ -434,6 +435,9 @@ class AppDelegate: NSObject,
         window.contentView?.addSubview(statusContainer)
 
         window.makeKeyAndOrderFront(nil)
+
+        scribe_settings_init()
+        scribeLoadFromDisk()
 
         setupMenu()
         updateFocusIndicator()
