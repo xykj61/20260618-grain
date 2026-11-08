@@ -38,5 +38,8 @@ uint32_t lotus_record_read_buf(
     int16_t *out, uint32_t max_out
 );
 bool lotus_record_to_playback(void);
+uint32_t lotus_record_export_wav(
+    uint8_t *out, uint32_t max_out
+);
 
 #endif

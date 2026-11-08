@@ -43,9 +43,9 @@ Wire recording, show the waveform, export WAV.
   Added `lotus_record_read_buf` FFI export to bridge (copies i16 samples from RecordBuf to caller buffer, bounded by min of available and max_out). C header updated. Swift timer-based polling at 20Hz: `startRecordWaveformTimer()` creates a repeating Timer that calls `pollRecordingBuffer()`, which reads i16 via FFI, converts to Float via `/32768.0`, feeds `WaveformView.update(buffer:)`. Status label shows sample count and peak meter during recording. Selftest 14 claims GREEN. Terrarium build GREEN.
   **SLC gate:** waveform scrolls during recording -- **PROVEN**.
 
-- [ ] **Movement 8 -- Audio utilities**
-  Sample format helpers, buffer management, WAV export through the FFI bridge.
-  **SLC gate:** export a recorded take as WAV.
+- [x] **Movement 8 -- Audio utilities** (landed `20261108`)
+  Added `lotus_record_export_wav` FFI export bridging `lotus/wav.rye` encoder -- calls `wav.encode` on the recording buffer with the shared clock's sample rate, returns byte length through C-ABI boundary. C header updated. Swift "Export WAV" button in Audio tab with NSSavePanel-based file save dialog, proper error handling and status feedback. Selftest 15 claims GREEN (RIFF header verification when samples > 0, returns 0 on empty buffer).
+  **SLC gate:** export a recorded take as WAV -- **PROVEN**.
 
 - [ ] **Movement 9 -- Audio menu items**
   Audio-specific menu actions wired into the existing MenuActions.swift.
@@ -86,5 +86,5 @@ The mixer, the timeline, integration.
 | Phase | Movements | Status |
 |---|---|---|
 | 1 Audio Tab in Station | 1-5 | **COMPLETE** -- all 5 movements PROVEN |
-| 2 Recording and Display | 6-10 | **IN PROGRESS** -- 2/5 PROVEN |
+| 2 Recording and Display | 6-10 | **IN PROGRESS** -- 3/5 PROVEN |
 | 3 Multi-track and Polish | 11-15 | Waiting on Phase 2 |

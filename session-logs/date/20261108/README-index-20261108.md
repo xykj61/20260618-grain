@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| `20261108.104123` | [WAV export through FFI bridge](20261108/20261108-104123_wav-export-ffi-bridge.kyri.md) | Movement 8 PROVEN, 15 claims GREEN, fascia 60.133 |
 | `20261108.102718` | [Live waveform timer polling](20261108/20261108-102718_live-waveform-timer-polling.kyri.md) | Movement 7 PROVEN, 14 claims GREEN, fascia 60.132 |
 | `20261108.100955` | [Recording bridge landed, Movement 6 PROVEN](20261108/20261108-100955_recording-bridge-proven.kyri.md) | 9 recording FFI exports, selftest 13 claims GREEN, fascia 60.131 |
 | `20261108.094928` | [Transport controls landed, Phase 1 complete](20261108/20261108-094928_transport-controls-phase1-complete.kyri.md) | Square wave fix, Movement 5 PROVEN, fascia 60.130 |

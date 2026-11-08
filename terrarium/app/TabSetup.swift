@@ -846,6 +846,18 @@ extension AppDelegate {
             false
         container.addSubview(recStopBtn)
 
+        let exportBtn = NSButton(
+            title: "Export WAV",
+            target: self,
+            action: #selector(
+                audioExportWavPressed(_:)
+            )
+        )
+        exportBtn
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(exportBtn)
+
         NSLayoutConstraint.activate([
             titleLbl.centerXAnchor.constraint(
                 equalTo: container.centerXAnchor
@@ -932,6 +944,13 @@ extension AppDelegate {
             recStopBtn.topAnchor.constraint(
                 equalTo: waveform.bottomAnchor,
                 constant: 16
+            ),
+            exportBtn.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor
+            ),
+            exportBtn.topAnchor.constraint(
+                equalTo: recBtn.bottomAnchor,
+                constant: 12
             ),
         ])
 
@@ -1042,6 +1061,59 @@ extension AppDelegate {
         } else if lotus_record_is_open() {
             lotus_record_close()
             updateAudioStatus("Record closed")
+        }
+    }
+
+    @objc func audioExportWavPressed(
+        _ sender: NSButton
+    ) {
+        let count = lotus_record_sample_count()
+        guard count > 0 else {
+            updateAudioStatus("Nothing to export")
+            return
+        }
+        // invariant: max WAV file size is bounded by
+        // header (44) + samples * 2.
+        let maxBytes = 44 + Int(count) * 2
+        var wavBuf = [UInt8](
+            repeating: 0, count: maxBytes
+        )
+        let wrote = lotus_record_export_wav(
+            &wavBuf, UInt32(maxBytes)
+        )
+        guard wrote > 0 else {
+            updateAudioStatus("WAV encode failed")
+            return
+        }
+        let panel = NSSavePanel()
+        panel.allowedContentTypes = [
+            .init(
+                filenameExtension: "wav"
+            ) ?? .data
+        ]
+        panel.nameFieldStringValue =
+            "recording.wav"
+        panel.canCreateDirectories = true
+        let resp = panel.runModal()
+        guard resp == .OK,
+              let url = panel.url
+        else {
+            updateAudioStatus("Export cancelled")
+            return
+        }
+        let data = Data(
+            wavBuf[0..<Int(wrote)]
+        )
+        do {
+            try data.write(to: url)
+            updateAudioStatus(
+                "Exported \(wrote) bytes"
+                    + " to \(url.lastPathComponent)"
+            )
+        } catch {
+            updateAudioStatus(
+                "Write failed: \(error)"
+            )
         }
     }
 

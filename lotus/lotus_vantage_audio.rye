@@ -19,6 +19,7 @@ const timeline = @import("timeline.rye");
 const clock_mod = @import("clock.rye");
 const record = @import("record.rye");
 const meter_mod = @import("meter.rye");
+const wav = @import("wav.rye");
 
 // -- module-level mutable state (one engine per process) --------
 
@@ -222,6 +223,22 @@ export fn lotus_record_to_playback() callconv(.c) bool {
     return true;
 }
 
+export fn lotus_record_export_wav(
+    out: [*]u8,
+    max_out: u32,
+) callconv(.c) u32 {
+    // invariant: refuse when nothing has been recorded.
+    if (rec_buf.len == 0) return 0;
+    // invariant: sample rate comes from the shared clock.
+    const rate: u32 = if (clock) |clk| clk.hz() else 44100;
+    const samples = rec_buf.buf[0..rec_buf.len];
+    const out_slice = out[0..max_out];
+    const byte_len = wav.encode(
+        rate, samples, out_slice,
+    ) catch return 0;
+    return byte_len;
+}
+
 // -- selftest ---------------------------------------------------
 
 pub fn main() !void {
@@ -321,10 +338,33 @@ pub fn main() !void {
         print("  read_buf: {} samples\n", .{got});
     }
 
-    // 14. close recording.
+    // 14. WAV export through FFI.
+    {
+        // invariant: wav header + samples must fit the output buffer.
+        const wav_max: u32 = wav.header_len + rec_buf.len * wav.sample_bytes;
+        var wav_out: [wav.max_file]u8 = undefined;
+        const wav_len = lotus_record_export_wav(
+            &wav_out, wav_max,
+        );
+        if (samples > 0) {
+            // invariant: returned length is at least the header.
+            assert(wav_len >= wav.header_len);
+            // invariant: RIFF tag at offset 0.
+            assert(wav_out[0] == 'R');
+            assert(wav_out[1] == 'I');
+            assert(wav_out[2] == 'F');
+            assert(wav_out[3] == 'F');
+            print("  wav export: {} bytes\n", .{wav_len});
+        } else {
+            assert(wav_len == 0);
+            print("  no samples -- wav export returns 0 (expected)\n", .{});
+        }
+    }
+
+    // 15. close recording.
     lotus_record_close();
     assert(!rec_initialized);
     assert(!lotus_record_is_open());
 
-    print("lotus_vantage_audio selftest: 14 claims GREEN\n", .{});
+    print("lotus_vantage_audio selftest: 15 claims GREEN\n", .{});
 }
