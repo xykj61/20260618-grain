@@ -47,9 +47,9 @@ Wire recording, show the waveform, export WAV.
   Added `lotus_record_export_wav` FFI export bridging `lotus/wav.rye` encoder -- calls `wav.encode` on the recording buffer with the shared clock's sample rate, returns byte length through C-ABI boundary. C header updated. Swift "Export WAV" button in Audio tab with NSSavePanel-based file save dialog, proper error handling and status feedback. Selftest 15 claims GREEN (RIFF header verification when samples > 0, returns 0 on empty buffer).
   **SLC gate:** export a recorded take as WAV -- **PROVEN**.
 
-- [ ] **Movement 9 -- Audio menu items**
-  Audio-specific menu actions wired into the existing MenuActions.swift.
-  **SLC gate:** menu items work end to end.
+- [x] **Movement 9 -- Audio menu items** (landed `20261108`)
+  Added Audio submenu to the menu bar with six items: Play Test Tone (Cmd+Shift+P), Stop Playback (Cmd+Shift+.), Start Recording (Cmd+Shift+R), Stop Recording (Cmd+Shift+Opt+R), Export WAV (Cmd+Shift+E). Added Focus items for Dimeroll (Cmd+3), Mantra (Cmd+4), Bloom (Cmd+5), and Audio (Cmd+6) to the View menu. Audio tab protected from Cmd+W close. Each menu action delegates to the existing button handlers. Terrarium build GREEN.
+  **SLC gate:** menu items work end to end -- **PROVEN**.
 
 - [ ] **Movement 10 -- Audio status panel**
   Sample rate, recording time, peak meter in the Audio tab's status area.
@@ -86,5 +86,5 @@ The mixer, the timeline, integration.
 | Phase | Movements | Status |
 |---|---|---|
 | 1 Audio Tab in Station | 1-5 | **COMPLETE** -- all 5 movements PROVEN |
-| 2 Recording and Display | 6-10 | **IN PROGRESS** -- 3/5 PROVEN |
+| 2 Recording and Display | 6-10 | **IN PROGRESS** -- 4/5 PROVEN |
 | 3 Multi-track and Polish | 11-15 | Waiting on Phase 2 |

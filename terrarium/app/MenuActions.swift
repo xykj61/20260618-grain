@@ -43,6 +43,38 @@ extension AppDelegate {
         gridItem.keyEquivalentModifierMask = [.command]
         viewMenu.addItem(gridItem)
 
+        let dimItem = NSMenuItem(
+            title: "Focus Dimeroll",
+            action: #selector(focusDimeroll),
+            keyEquivalent: "3"
+        )
+        dimItem.keyEquivalentModifierMask = [.command]
+        viewMenu.addItem(dimItem)
+
+        let manItem = NSMenuItem(
+            title: "Focus Mantra",
+            action: #selector(focusMantra),
+            keyEquivalent: "4"
+        )
+        manItem.keyEquivalentModifierMask = [.command]
+        viewMenu.addItem(manItem)
+
+        let blmItem = NSMenuItem(
+            title: "Focus Bloom",
+            action: #selector(focusBloom),
+            keyEquivalent: "5"
+        )
+        blmItem.keyEquivalentModifierMask = [.command]
+        viewMenu.addItem(blmItem)
+
+        let audItem = NSMenuItem(
+            title: "Focus Audio",
+            action: #selector(focusAudio),
+            keyEquivalent: "6"
+        )
+        audItem.keyEquivalentModifierMask = [.command]
+        viewMenu.addItem(audItem)
+
         viewMenu.addItem(NSMenuItem.separator())
 
         let sidebarItem = NSMenuItem(
@@ -93,6 +125,73 @@ extension AppDelegate {
 
         shortcutsMenuItem.submenu = shortcutsMenu
         mainMenu.addItem(shortcutsMenuItem)
+
+        // -- Audio menu -----------------------
+
+        let audioMenuItem = NSMenuItem()
+        let audioMenu = NSMenu(title: "Audio")
+
+        let aPlayItem = NSMenuItem(
+            title: "Play Test Tone",
+            action: #selector(
+                audioMenuPlay
+            ),
+            keyEquivalent: "p"
+        )
+        aPlayItem.keyEquivalentModifierMask =
+            [.command, .shift]
+        audioMenu.addItem(aPlayItem)
+
+        let aStopItem = NSMenuItem(
+            title: "Stop Playback",
+            action: #selector(
+                audioMenuStop
+            ),
+            keyEquivalent: "."
+        )
+        aStopItem.keyEquivalentModifierMask =
+            [.command, .shift]
+        audioMenu.addItem(aStopItem)
+
+        audioMenu.addItem(NSMenuItem.separator())
+
+        let aRecItem = NSMenuItem(
+            title: "Start Recording",
+            action: #selector(
+                audioMenuRecord
+            ),
+            keyEquivalent: "r"
+        )
+        aRecItem.keyEquivalentModifierMask =
+            [.command, .shift]
+        audioMenu.addItem(aRecItem)
+
+        let aRecStopItem = NSMenuItem(
+            title: "Stop Recording",
+            action: #selector(
+                audioMenuRecordStop
+            ),
+            keyEquivalent: "r"
+        )
+        aRecStopItem.keyEquivalentModifierMask =
+            [.command, .shift, .option]
+        audioMenu.addItem(aRecStopItem)
+
+        audioMenu.addItem(NSMenuItem.separator())
+
+        let aExportItem = NSMenuItem(
+            title: "Export WAV...",
+            action: #selector(
+                audioMenuExport
+            ),
+            keyEquivalent: "e"
+        )
+        aExportItem.keyEquivalentModifierMask =
+            [.command, .shift]
+        audioMenu.addItem(aExportItem)
+
+        audioMenuItem.submenu = audioMenu
+        mainMenu.addItem(audioMenuItem)
 
         NSApp.mainMenu = mainMenu
     }
@@ -159,7 +258,8 @@ extension AppDelegate {
               ident != "grid",
               ident != "dimeroll",
               ident != "mantra",
-              ident != "bloom"
+              ident != "bloom",
+              ident != "audio"
         else {
             showShortcutStatus(
                 "Cmd+W: cannot close built-in tab"
@@ -182,6 +282,31 @@ extension AppDelegate {
         showShortcutStatus(
             "Cmd+[: Previous Tab"
         )
+    }
+
+    // -- Audio menu actions -------------------------
+
+    @objc func audioMenuPlay() {
+        focusAudio()
+        audioPlayPressed(NSButton())
+    }
+
+    @objc func audioMenuStop() {
+        audioStopPressed(NSButton())
+    }
+
+    @objc func audioMenuRecord() {
+        focusAudio()
+        audioRecordPressed(NSButton())
+    }
+
+    @objc func audioMenuRecordStop() {
+        audioRecordStopPressed(NSButton())
+    }
+
+    @objc func audioMenuExport() {
+        focusAudio()
+        audioExportWavPressed(NSButton())
     }
 
     func showShortcutStatus(_ text: String) {
