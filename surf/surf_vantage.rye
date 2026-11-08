@@ -2,7 +2,7 @@ const std = @import("std");
 const assert = std.debug.assert;
 const print = std.debug.print;
 
-pub const bridge_version = "20261108.170013";
+pub const bridge_version = "20261108.174903";
 
 // --- Ed25519 identity at the std seam ---------------------------------------
 
@@ -45,6 +45,14 @@ var feed: [max_events]Event = undefined;
 var feed_count: u32 = 0;
 var initialized: bool = false;
 
+// --- follow list: pubkeys this identity subscribes to ----------------------
+
+const max_follows: u32 = 64;
+
+// invariant: follows holds at most max_follows pubkeys.
+var follows: [max_follows][pubkey_len]u8 = undefined;
+var follow_count: u32 = 0;
+
 // --- C exports: init --------------------------------------------------------
 
 export fn surf_init() callconv(.c) void {
@@ -53,6 +61,7 @@ export fn surf_init() callconv(.c) void {
     while (i < max_events) : (i += 1) {
         feed[i].used = false;
     }
+    follow_count = 0;
     initialized = true;
 }
 
@@ -371,6 +380,164 @@ export fn surf_feed_deserialize(
     return 0;
 }
 
+// --- C exports: follow list ------------------------------------------------
+
+// invariant: adds pubkey to follow list. returns 0 ok, -1 full, -2 already following.
+export fn surf_follow(
+    pubkey_ptr: [*]const u8,
+) callconv(.c) i32 {
+    const pk: [pubkey_len]u8 = pubkey_ptr[0..pubkey_len].*;
+    var i: u32 = 0;
+    while (i < follow_count) : (i += 1) {
+        if (std.mem.eql(u8, &follows[i], &pk)) return -2;
+    }
+    if (follow_count >= max_follows) return -1;
+    follows[follow_count] = pk;
+    follow_count += 1;
+    return 0;
+}
+
+// invariant: removes pubkey from follow list. returns 0 ok, -1 not found.
+export fn surf_unfollow(
+    pubkey_ptr: [*]const u8,
+) callconv(.c) i32 {
+    const pk: [pubkey_len]u8 = pubkey_ptr[0..pubkey_len].*;
+    var i: u32 = 0;
+    while (i < follow_count) : (i += 1) {
+        if (std.mem.eql(u8, &follows[i], &pk)) {
+            var j: u32 = i;
+            while (j + 1 < follow_count) : (j += 1) {
+                follows[j] = follows[j + 1];
+            }
+            follow_count -= 1;
+            return 0;
+        }
+    }
+    return -1;
+}
+
+export fn surf_follow_count() callconv(.c) u32 {
+    return follow_count;
+}
+
+export fn surf_follow_is_following(
+    pubkey_ptr: [*]const u8,
+) callconv(.c) bool {
+    const pk: [pubkey_len]u8 = pubkey_ptr[0..pubkey_len].*;
+    var i: u32 = 0;
+    while (i < follow_count) : (i += 1) {
+        if (std.mem.eql(u8, &follows[i], &pk)) return true;
+    }
+    return false;
+}
+
+// --- C exports: filtered feed (by follow list) -----------------------------
+
+fn is_followed(pubkey: *const [pubkey_len]u8) bool {
+    var i: u32 = 0;
+    while (i < follow_count) : (i += 1) {
+        if (std.mem.eql(u8, &follows[i], pubkey)) return true;
+    }
+    return false;
+}
+
+// invariant: counts feed events whose author is in the follow list.
+export fn surf_feed_count_followed() callconv(.c) u32 {
+    var count: u32 = 0;
+    var i: u32 = 0;
+    while (i < feed_count) : (i += 1) {
+        if (!feed[i].used) continue;
+        if (is_followed(&feed[i].pubkey)) count += 1;
+    }
+    return count;
+}
+
+// invariant: copies content of the nth followed event into buf.
+// returns content_len or 0 on out-of-range / overflow.
+export fn surf_feed_get_content_followed(
+    index: u32,
+    buf_ptr: [*]u8,
+    buf_len: u32,
+) callconv(.c) u32 {
+    var seen: u32 = 0;
+    var i: u32 = 0;
+    while (i < feed_count) : (i += 1) {
+        if (!feed[i].used) continue;
+        if (!is_followed(&feed[i].pubkey)) continue;
+        if (seen == index) {
+            const clen = feed[i].content_len;
+            if (clen > buf_len) return 0;
+            @memcpy(buf_ptr[0..clen], feed[i].content[0..clen]);
+            return clen;
+        }
+        seen += 1;
+    }
+    return 0;
+}
+
+// invariant: returns the feed-global index of the nth followed event,
+// or max_events (sentinel) if out of range.
+export fn surf_feed_followed_global_index(
+    followed_index: u32,
+) callconv(.c) u32 {
+    var seen: u32 = 0;
+    var i: u32 = 0;
+    while (i < feed_count) : (i += 1) {
+        if (!feed[i].used) continue;
+        if (!is_followed(&feed[i].pubkey)) continue;
+        if (seen == followed_index) return i;
+        seen += 1;
+    }
+    return max_events;
+}
+
+// --- C exports: follow list serialization ----------------------------------
+
+// format: u32 count, then count * pubkey_len bytes.
+export fn surf_follow_serialize(
+    buf_ptr: [*]u8,
+    buf_len: u32,
+) callconv(.c) u32 {
+    const needed = 4 + follow_count * pubkey_len;
+    if (needed > buf_len) return 0;
+    const count_be = std.mem.toBytes(
+        std.mem.nativeTo(u32, follow_count, .big),
+    );
+    @memcpy(buf_ptr[0..4], &count_be);
+    var pos: u32 = 4;
+    var i: u32 = 0;
+    while (i < follow_count) : (i += 1) {
+        @memcpy(buf_ptr[pos .. pos + pubkey_len], &follows[i]);
+        pos += pubkey_len;
+    }
+    return pos;
+}
+
+// invariant: deserializes follow list from buf. returns 0 ok, -1 on error.
+export fn surf_follow_deserialize(
+    buf_ptr: [*]const u8,
+    buf_len: u32,
+) callconv(.c) i32 {
+    if (buf_len < 4) return -1;
+    const count_bytes: [4]u8 = buf_ptr[0..4].*;
+    const count = std.mem.nativeTo(
+        u32,
+        std.mem.bytesAsValue(u32, &count_bytes).*,
+        .big,
+    );
+    if (count > max_follows) return -1;
+    if (4 + count * pubkey_len > buf_len) return -1;
+    follow_count = 0;
+    var pos: u32 = 4;
+    var i: u32 = 0;
+    while (i < count) : (i += 1) {
+        @memcpy(&follows[follow_count], buf_ptr[pos .. pos + pubkey_len]);
+        follow_count += 1;
+        pos += pubkey_len;
+    }
+    return 0;
+}
+
 // --- selftest ---------------------------------------------------------------
 
 fn prove_keypair_deterministic() !void {
@@ -592,9 +759,128 @@ fn prove_get_event() !void {
         return error.GetEventIdMismatch;
 }
 
+fn prove_follow_and_unfollow() !void {
+    surf_init();
+    var seed: [seed_len]u8 = undefined;
+    for (&seed, 0..) |*b, i| b.* = @intCast(i);
+    var pk: [pubkey_len]u8 = undefined;
+    var sk: [sig_len]u8 = undefined;
+    _ = surf_keypair_from_seed(&seed, &pk, &sk);
+
+    // invariant: follow adds pubkey, is_following confirms.
+    if (surf_follow(&pk) != 0) return error.FollowFailed;
+    if (surf_follow_count() != 1) return error.FollowCountNotOne;
+    if (!surf_follow_is_following(&pk))
+        return error.NotFollowingAfterFollow;
+
+    // invariant: duplicate follow returns -2.
+    if (surf_follow(&pk) != -2)
+        return error.DuplicateFollowAccepted;
+
+    // invariant: unfollow removes, count drops.
+    if (surf_unfollow(&pk) != 0) return error.UnfollowFailed;
+    if (surf_follow_count() != 0)
+        return error.FollowCountNotZeroAfterUnfollow;
+    if (surf_follow_is_following(&pk))
+        return error.StillFollowingAfterUnfollow;
+}
+
+fn prove_feed_filter_by_follow() !void {
+    surf_init();
+
+    // two identities: alice and bob.
+    var seed_a: [seed_len]u8 = undefined;
+    for (&seed_a, 0..) |*b, i| b.* = @intCast(i);
+    var pk_a: [pubkey_len]u8 = undefined;
+    var sk_a: [sig_len]u8 = undefined;
+    _ = surf_keypair_from_seed(&seed_a, &pk_a, &sk_a);
+
+    var seed_b: [seed_len]u8 = undefined;
+    for (&seed_b, 0..) |*b, i| b.* = @intCast(i + 100);
+    var pk_b: [pubkey_len]u8 = undefined;
+    var sk_b: [sig_len]u8 = undefined;
+    _ = surf_keypair_from_seed(&seed_b, &pk_b, &sk_b);
+
+    // add one event from alice, one from bob.
+    const ca = "alice says hello";
+    var id_a: [hex_len]u8 = undefined;
+    surf_event_id(&pk_a, 1, 1700000001, ca.ptr, ca.len, &id_a);
+    var sig_a: [sig_len]u8 = undefined;
+    _ = surf_sign_event(&id_a, &sk_a, &sig_a);
+    _ = surf_feed_add(
+        &pk_a, 1, 1700000001, ca.ptr, ca.len, &sig_a, &id_a,
+    );
+
+    const cb = "bob says hi";
+    var id_b: [hex_len]u8 = undefined;
+    surf_event_id(&pk_b, 1, 1700000002, cb.ptr, cb.len, &id_b);
+    var sig_b: [sig_len]u8 = undefined;
+    _ = surf_sign_event(&id_b, &sk_b, &sig_b);
+    _ = surf_feed_add(
+        &pk_b, 1, 1700000002, cb.ptr, cb.len, &sig_b, &id_b,
+    );
+
+    // invariant: with no follows, count_followed is 0.
+    if (surf_feed_count_followed() != 0)
+        return error.FollowedCountNotZeroEmpty;
+
+    // follow alice only.
+    _ = surf_follow(&pk_a);
+
+    // invariant: count_followed is 1 (alice).
+    if (surf_feed_count_followed() != 1)
+        return error.FollowedCountNotOne;
+
+    // invariant: get_content_followed(0) returns alice's content.
+    var buf: [max_content_len]u8 = undefined;
+    const got = surf_feed_get_content_followed(0, &buf, max_content_len);
+    if (got != ca.len) return error.FollowedContentLenMismatch;
+    if (!std.mem.eql(u8, buf[0..got], ca))
+        return error.FollowedContentMismatch;
+
+    // invariant: global index maps correctly.
+    const gi = surf_feed_followed_global_index(0);
+    if (gi != 0) return error.FollowedGlobalIndexWrong;
+}
+
+fn prove_follow_serialize_roundtrip() !void {
+    surf_init();
+    var seed_a: [seed_len]u8 = undefined;
+    for (&seed_a, 0..) |*b, i| b.* = @intCast(i);
+    var pk_a: [pubkey_len]u8 = undefined;
+    var sk_a: [sig_len]u8 = undefined;
+    _ = surf_keypair_from_seed(&seed_a, &pk_a, &sk_a);
+
+    var seed_b: [seed_len]u8 = undefined;
+    for (&seed_b, 0..) |*b, i| b.* = @intCast(i + 50);
+    var pk_b: [pubkey_len]u8 = undefined;
+    var sk_b: [sig_len]u8 = undefined;
+    _ = surf_keypair_from_seed(&seed_b, &pk_b, &sk_b);
+
+    _ = surf_follow(&pk_a);
+    _ = surf_follow(&pk_b);
+
+    // invariant: serialize captures both follows.
+    var buf: [4096]u8 = undefined;
+    const written = surf_follow_serialize(&buf, 4096);
+    if (written == 0) return error.FollowSerializeFailed;
+
+    // invariant: deserialize restores both follows intact.
+    surf_init();
+    if (surf_follow_deserialize(&buf, written) != 0)
+        return error.FollowDeserializeFailed;
+    if (surf_follow_count() != 2)
+        return error.FollowRoundtripCountNotTwo;
+    if (!surf_follow_is_following(&pk_a))
+        return error.FollowRoundtripMissingA;
+    if (!surf_follow_is_following(&pk_b))
+        return error.FollowRoundtripMissingB;
+}
+
 fn prove_init_clears_feed() !void {
     surf_init();
     if (surf_feed_count() != 0) return error.InitCountNotZero;
+    if (surf_follow_count() != 0) return error.InitFollowNotZero;
     if (!initialized) return error.NotInitialized;
 }
 
@@ -639,8 +925,20 @@ fn run_selftest() u8 {
         print("FAILED: {s}\n", .{@errorName(e)});
         return 1;
     };
+    prove_follow_and_unfollow() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_feed_filter_by_follow() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_follow_serialize_roundtrip() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
 
-    print("surf vantage: init clears -- feed starts at zero.\n", .{});
+    print("surf vantage: init clears -- feed and follows start at zero.\n", .{});
     print("surf vantage: keypair deterministic -- same seed, same Ed25519 keys.\n", .{});
     print("surf vantage: event id deterministic -- same inputs, same SHA3-256 id.\n", .{});
     print("surf vantage: sign and verify -- valid signature accepted.\n", .{});
@@ -650,8 +948,11 @@ fn run_selftest() u8 {
     print("surf vantage: feed get content -- stored content retrieved correctly.\n", .{});
     print("surf vantage: serialize roundtrip -- feed survives serialize and deserialize.\n", .{});
     print("surf vantage: get event -- all fields returned intact.\n", .{});
+    print("surf vantage: follow and unfollow -- add, duplicate refused, remove.\n", .{});
+    print("surf vantage: feed filter -- followed author events only.\n", .{});
+    print("surf vantage: follow serialize roundtrip -- follow list survives persistence.\n", .{});
     print("surf vantage: version {s}\n", .{bridge_version});
-    print("GREEN: surf vantage -- FFI bridge: keypair, sign, verify, feed, persistence.\n", .{});
+    print("GREEN: surf vantage -- FFI bridge: keypair, sign, verify, feed, follows, persistence.\n", .{});
     return 0;
 }
 

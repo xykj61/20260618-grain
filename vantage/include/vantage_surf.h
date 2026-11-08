@@ -75,6 +75,30 @@ int32_t surf_feed_deserialize(
     uint32_t buf_len
 );
 
+int32_t surf_follow(const uint8_t *pubkey);
+int32_t surf_unfollow(const uint8_t *pubkey);
+uint32_t surf_follow_count(void);
+bool surf_follow_is_following(const uint8_t *pubkey);
+
+uint32_t surf_feed_count_followed(void);
+uint32_t surf_feed_get_content_followed(
+    uint32_t index,
+    uint8_t *buf,
+    uint32_t buf_len
+);
+uint32_t surf_feed_followed_global_index(
+    uint32_t followed_index
+);
+
+uint32_t surf_follow_serialize(
+    uint8_t *buf,
+    uint32_t buf_len
+);
+int32_t surf_follow_deserialize(
+    const uint8_t *buf,
+    uint32_t buf_len
+);
+
 int32_t surf_selftest(void);
 
 #endif

@@ -175,6 +175,9 @@ class AppDelegate: NSObject,
     var surfTimelineScroll: NSScrollView?
     var surfTimelineStack: NSStackView?
     var surfCountLabel: NSTextField?
+    var surfFollowField: NSTextField?
+    var surfFollowCountLabel: NSTextField?
+    var surfFilterMode: Int = 0
     var nextTabId = 3
     var shortcutStatusLabel: NSTextField?
     var connectionLabel: NSTextField?

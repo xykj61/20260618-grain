@@ -2761,6 +2761,7 @@ extension AppDelegate {
         }
 
         surfLoadFeed()
+        surfLoadFollows()
 
         let item = NSTabViewItem(
             identifier: "social"
@@ -2832,6 +2833,72 @@ extension AppDelegate {
             #selector(surfComposeAction(_:))
         container.addSubview(compose)
         surfComposeField = compose
+
+        let followField = NSTextField()
+        followField.placeholderString =
+            "Pubkey hex to follow..."
+        followField.font =
+            NSFont.monospacedSystemFont(
+                ofSize: 11, weight: .regular
+            )
+        followField.textColor = .white
+        followField.backgroundColor = NSColor(
+            red: 0.1, green: 0.1, blue: 0.14,
+            alpha: 1.0
+        )
+        followField.isBordered = true
+        followField.focusRingType = .none
+        followField
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(followField)
+        surfFollowField = followField
+
+        let followBtn = NSButton(
+            title: "Follow",
+            target: self,
+            action: #selector(
+                surfFollowAction(_:)
+            )
+        )
+        followBtn.bezelStyle = .rounded
+        followBtn
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(followBtn)
+
+        let fc = surf_follow_count()
+        let followCntLbl = NSTextField(
+            labelWithString:
+                "following \(fc)"
+        )
+        followCntLbl.font = NSFont.systemFont(
+            ofSize: 11, weight: .regular
+        )
+        followCntLbl.textColor = NSColor(
+            red: 0.5, green: 0.5, blue: 0.6,
+            alpha: 0.8
+        )
+        followCntLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(followCntLbl)
+        surfFollowCountLabel = followCntLbl
+
+        let filterSeg = NSSegmentedControl(
+            labels: ["All", "Following"],
+            trackingMode: .selectOne,
+            target: self,
+            action: #selector(
+                surfFilterChanged(_:)
+            )
+        )
+        filterSeg.selectedSegment =
+            surfFilterMode
+        filterSeg
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(filterSeg)
 
         let count = surf_feed_count()
         let countLbl = NSTextField(
@@ -2924,16 +2991,51 @@ extension AppDelegate {
             compose.heightAnchor.constraint(
                 equalToConstant: 28
             ),
-            countLbl.topAnchor.constraint(
+            followField.topAnchor.constraint(
                 equalTo: compose.bottomAnchor,
-                constant: 12
+                constant: 8
             ),
-            countLbl.leadingAnchor.constraint(
+            followField.leadingAnchor.constraint(
                 equalTo: container.leadingAnchor,
                 constant: 20
             ),
+            followField.widthAnchor.constraint(
+                equalToConstant: 320
+            ),
+            followField.heightAnchor.constraint(
+                equalToConstant: 24
+            ),
+            followBtn.centerYAnchor.constraint(
+                equalTo: followField.centerYAnchor
+            ),
+            followBtn.leadingAnchor.constraint(
+                equalTo: followField.trailingAnchor,
+                constant: 8
+            ),
+            followCntLbl.centerYAnchor.constraint(
+                equalTo: followField.centerYAnchor
+            ),
+            followCntLbl.leadingAnchor.constraint(
+                equalTo: followBtn.trailingAnchor,
+                constant: 12
+            ),
+            filterSeg.topAnchor.constraint(
+                equalTo: followField.bottomAnchor,
+                constant: 8
+            ),
+            filterSeg.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 20
+            ),
+            countLbl.centerYAnchor.constraint(
+                equalTo: filterSeg.centerYAnchor
+            ),
+            countLbl.leadingAnchor.constraint(
+                equalTo: filterSeg.trailingAnchor,
+                constant: 12
+            ),
             scroll.topAnchor.constraint(
-                equalTo: countLbl.bottomAnchor,
+                equalTo: filterSeg.bottomAnchor,
                 constant: 8
             ),
             scroll.leadingAnchor.constraint(
@@ -3115,6 +3217,72 @@ extension AppDelegate {
         return out
     }
 
+    @objc func surfFollowAction(
+        _ sender: Any
+    ) {
+        guard let hex = surfFollowField?
+            .stringValue,
+              hex.count == 64
+        else { return }
+        var pk = [UInt8](
+            repeating: 0, count: 32
+        )
+        var i = hex.startIndex
+        for idx in 0..<32 {
+            let hi = hex.index(i, offsetBy: 0)
+            let lo = hex.index(i, offsetBy: 1)
+            let byte = UInt8(
+                String(hex[hi...lo]),
+                radix: 16
+            ) ?? 0
+            pk[idx] = byte
+            i = hex.index(i, offsetBy: 2)
+        }
+        let rc = surf_follow(pk)
+        if rc == 0 {
+            surfFollowField?.stringValue = ""
+            surfSaveFollows()
+            surfReloadTimeline()
+        }
+    }
+
+    @objc func surfFilterChanged(
+        _ sender: NSSegmentedControl
+    ) {
+        surfFilterMode = sender.selectedSegment
+        surfReloadTimeline()
+    }
+
+    func surfSaveFollows() {
+        let bufSize: UInt32 = 4096
+        var buf = [UInt8](
+            repeating: 0, count: Int(bufSize)
+        )
+        let written = surf_follow_serialize(
+            &buf, bufSize
+        )
+        guard written > 0 else { return }
+        let data = Data(buf[0..<Int(written)])
+        let _ = writeMantraBlob(
+            data: data, path: "surf/follows"
+        )
+    }
+
+    func surfLoadFollows() {
+        guard let data = readMantraBlob(
+            path: "surf/follows"
+        ), data.count >= 4 else { return }
+        let bytes = [UInt8](data)
+        let rc = surf_follow_deserialize(
+            bytes, UInt32(bytes.count)
+        )
+        if rc != 0 {
+            NSLog(
+                "surf: follows deserialize failed"
+            )
+        }
+    }
+
     func surfReloadTimeline() {
         guard let stack = surfTimelineStack
         else { return }
@@ -3123,22 +3291,63 @@ extension AppDelegate {
             v.removeFromSuperview()
         }
 
-        let count = surf_feed_count()
-        surfCountLabel?.stringValue =
-            "\(count) posts"
+        let total = surf_feed_count()
+        let filtered = surfFilterMode == 1
+        let shown = filtered
+            ? surf_feed_count_followed()
+            : total
+        surfCountLabel?.stringValue = filtered
+            ? "\(shown) of \(total) posts"
+            : "\(total) posts"
+        surfFollowCountLabel?.stringValue =
+            "following \(surf_follow_count())"
 
-        for idx in (0..<count).reversed() {
+        for i in (0..<shown).reversed() {
             var buf = [UInt8](
                 repeating: 0, count: 4096
             )
-            let len = surf_feed_get_content(
-                idx, &buf, UInt32(buf.count)
-            )
+            let globalIdx: UInt32
+            let len: UInt32
+            if filtered {
+                len =
+                    surf_feed_get_content_followed(
+                        i, &buf,
+                        UInt32(buf.count)
+                    )
+                globalIdx =
+                    surf_feed_followed_global_index(
+                        i
+                    )
+            } else {
+                len = surf_feed_get_content(
+                    i, &buf, UInt32(buf.count)
+                )
+                globalIdx = i
+            }
             guard len > 0 else { continue }
             let text = String(
                 bytes: buf[0..<Int(len)],
                 encoding: .utf8
             ) ?? ""
+
+            var pk = [UInt8](
+                repeating: 0, count: 32
+            )
+            var kind: UInt32 = 0
+            var ts: UInt64 = 0
+            var sig = [UInt8](
+                repeating: 0, count: 64
+            )
+            var eid = [UInt8](
+                repeating: 0, count: 64
+            )
+            surf_feed_get_event(
+                globalIdx, &pk, &kind,
+                &ts, &sig, &eid
+            )
+            let authorHex = pk.prefix(8).map {
+                String(format: "%02x", $0)
+            }.joined()
 
             let card = NSView()
             card.wantsLayer = true
@@ -3151,6 +3360,23 @@ extension AppDelegate {
             card
                 .translatesAutoresizingMaskIntoConstraints =
                 false
+
+            let authorLbl = NSTextField(
+                labelWithString: authorHex
+                    + "..."
+            )
+            authorLbl.font =
+                NSFont.monospacedSystemFont(
+                    ofSize: 10, weight: .regular
+                )
+            authorLbl.textColor = NSColor(
+                red: 0.4, green: 0.6,
+                blue: 0.8, alpha: 0.7
+            )
+            authorLbl
+                .translatesAutoresizingMaskIntoConstraints =
+                false
+            card.addSubview(authorLbl)
 
             let lbl = NSTextField(
                 labelWithString: text
@@ -3171,9 +3397,20 @@ extension AppDelegate {
             card.addSubview(lbl)
 
             NSLayoutConstraint.activate([
-                lbl.topAnchor.constraint(
+                authorLbl.topAnchor.constraint(
                     equalTo: card.topAnchor,
-                    constant: 10
+                    constant: 8
+                ),
+                authorLbl.leadingAnchor
+                    .constraint(
+                        equalTo:
+                            card.leadingAnchor,
+                        constant: 12
+                    ),
+                lbl.topAnchor.constraint(
+                    equalTo:
+                        authorLbl.bottomAnchor,
+                    constant: 4
                 ),
                 lbl.leadingAnchor.constraint(
                     equalTo: card.leadingAnchor,
