@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terrarium</title>
+<style>
+:root {
+  --bg: #1a1a2e;
+  --fg: #e0e0e0;
+  --accent: #16213e;
+  --border: #333;
+  --green: #4ec9b0;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #fafafa;
+    --fg: #222;
+    --accent: #eee;
+    --border: #ccc;
+    --green: #0a6640;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1a1a2e;
+  --fg: #e0e0e0;
+  --accent: #16213e;
+  --border: #333;
+  --green: #4ec9b0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  padding: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+h1 { font-size: 1.4rem; margin-bottom: 8px; }
+.status { font-size: 0.9rem; color: var(--green); margin-bottom: 12px; }
+#console {
+  background: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  min-height: 200px;
+  max-height: 60vh;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.controls { margin: 12px 0; display: flex; gap: 8px; flex-wrap: wrap; }
+select, button {
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--accent);
+  color: var(--fg);
+  cursor: pointer;
+}
+button:hover { opacity: 0.85; }
+</style>
+</head>
+<body>
+<h1>Terrarium</h1>
+<p class="status" id="status">ready</p>
+<div class="controls">
+  <select id="image">
+    <option value="hello64.elf">hello64 -- a hart speaks and halts</option>
+  </select>
+  <button id="boot">Boot</button>
+  <button id="stop" disabled>Stop</button>
+</div>
+<div id="console"></div>
+<script>
+const con = document.getElementById('console');
+const status = document.getElementById('status');
+const bootBtn = document.getElementById('boot');
+const stopBtn = document.getElementById('stop');
+const imageSelect = document.getElementById('image');
+let worker = null;
+
+function append(text) {
+  con.textContent += text;
+  con.scrollTop = con.scrollHeight;
+}
+
+function setStatus(s) { status.textContent = s; }
+
+bootBtn.onclick = () => {
+  con.textContent = '';
+  setStatus('booting...');
+  bootBtn.disabled = true;
+  stopBtn.disabled = false;
+
+  worker = new Worker('worker.js');
+  worker.onmessage = (e) => {
+    const m = e.data;
+    if (m.type === 'started') {
+      setStatus('running');
+    } else if (m.type === 'log') {
+      append(m.text);
+    } else if (m.type === 'output') {
+      append(m.text);
+    } else if (m.type === 'exit') {
+      setStatus('exited (code ' + m.code + ')');
+      cleanup();
+    } else if (m.type === 'error') {
+      setStatus('error: ' + m.message);
+      append('\n[error] ' + m.message + '\n');
+      cleanup();
+    }
+  };
+
+  worker.postMessage({
+    type: 'start',
+    image: imageSelect.value,
+    harts: 1,
+    ram_mib: 128,
+  });
+};
+
+stopBtn.onclick = () => {
+  if (worker) {
+    worker.postMessage({ type: 'stop' });
+    setStatus('stopped');
+    cleanup();
+  }
+};
+
+function cleanup() {
+  bootBtn.disabled = false;
+  stopBtn.disabled = true;
+  if (worker) { worker.terminate(); worker = null; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+# terrarium_build_web.rish -- build a soft-float RV64 ELF for the browser.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run tools/te/terrarium_build_web.rish
+#   rishi/bin/rishi run tools/te/terrarium_build_web.rish hello64
+#
+# Builds with -mcpu=generic_rv64-d-f (no F/D extensions, soft-float
+# ABI) to match grain-emu.wasm's rv64imac ISA. Copies the ELF and
+# grain-emu.wasm into terrarium/web/ so the browser host can fetch them.
+
+let zig_raw = env "RYE_ZIG"
+if zig_raw == "" then let zig = "vendor/zig-toolchain/zig" else let zig = zig_raw
+let stage_arg = join args ""
+if stage_arg == "" then let stage = "hello64" else let stage = stage_arg
+
+let src = "terrarium/src/${stage}.rye"
+let elf = "terrarium/.build/${stage}_soft.elf"
+
+let check = run ["test" "-f" "${src}"]
+if check.ok == false then say "terrarium: no such stage: ${src}"
+if check.ok == false then exit 2
+
+let prep = run ["sh" "-c" "mkdir -p terrarium/.build terrarium/web"]
+assert prep.ok else "terrarium build-web mkdir failed"
+
+say "building '${stage}' (soft-float rv64imac for grain-emu) ..."
+let build = run ["sh" "-c" "env RYE_ZIG=${zig} rye/bin/rye build ${src} -target riscv64-freestanding-none -fno-entry -T terrarium/layout64.ld -OReleaseSmall -mcmodel=medany -mcpu=generic_rv64-d-f -femit-bin=${elf}"]
+assert build.ok else "terrarium build-web failed:\n${build.out_brief}\n${build.err_brief}"
+
+let verify = run ["file" "${elf}"]
+say verify.out
+
+let cp_elf = run ["cp" "${elf}" "terrarium/web/${stage}.elf"]
+assert cp_elf.ok else "copy ELF to web/ failed"
+
+let wasm_src = "gratitude/grain-www/grain-emu.wasm"
+let wasm_check = run ["test" "-f" "${wasm_src}"]
+if wasm_check.ok == true then let cp_wasm = run ["cp" "${wasm_src}" "terrarium/web/grain-emu.wasm"]
+if wasm_check.ok == true then assert cp_wasm.ok else "copy grain-emu.wasm failed"
+if wasm_check.ok == false then say "warning: ${wasm_src} not found -- copy grain-emu.wasm manually"
+
+say "terrarium/web/ ready -- serve with: python3 -m http.server -d terrarium/web 8080"
