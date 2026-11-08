@@ -31,7 +31,9 @@ you can check with your own eyes, and that ending is the whole reason this room 
 | [The sill](the-sill.md) | someone who wants a window where one line can rest | the name Sill, the 24 by 80 grid, and a program that is still a plan |
 | [Running the standing roster](running-the-standing-roster.md) | someone ready to check the tree's own promises | the five verdicts, standfast, `--full`, evidence files, and a day-to-day workflow |
 | [Your First Glow Program](your-first-glow-program.md) | someone who has never written Glow | from nothing to a running program -- bound-tick, face-lit, gate, the six standard operations, and an exercise |
-| [Glow Meets the Screen](glow-meets-the-screen.md) | someone who has run a Glow program and wants to see a window | build the REPL and layout demo, read the layout code, change what appears on screen |
+| [Glow Meets the Screen](glow-meets-the-screen.md) | someone who has run a Glow and wants to see a window | build the REPL and layout demo, read the layout code, change what appears on screen |
+| [Building Vantage](building-vantage.md) | someone ready to build the platform-agnostic Rye modules | what Vantage is, the FFI surface, native build, selftest GREEN with 15 claims |
+| [Vantage WASM Compilation](vantage-wasm-compilation.md) | someone who wants Vantage in a browser | WASM and WASI, the build command, what the binary exports, reading C strings from memory |
 
 Once you have run a few Glow programs, the [Glow cookbook](../cookbook/README.md#glow-recipes)
 has standalone recipes for each standard library module, and the

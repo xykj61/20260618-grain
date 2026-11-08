@@ -12,7 +12,25 @@ This page shows you how to find and read the Bloom educational
 content inside Terrarium, the macOS application that hosts Grain's
 development tools. You will learn where the Lessons tab lives, how
 to move between sections, and how to reach the network demos that
-use a fourteen-galaxy test network.
+use a fifteen-galaxy test network.
+
+## Where the content comes from
+
+The lessons, demos, and section headers you see in the Bloom tab
+are defined in `vantage/bloom.rye`, a Rye module that holds the
+content structure for every platform. The Swift shell in Terrarium
+calls twelve functions across the language boundary to ask what
+galaxies exist, how many files each one holds, and what the
+navigation rules are. The module answers; the shell draws.
+
+This means the content is written once, in Rye, and every platform
+that shows Bloom lessons -- macOS, a browser, or a future surface
+-- calls the same functions and gets the same answers.
+
+To learn how that module is built and tested, see
+[Building Vantage](building-vantage.md). To learn how the same
+module compiles to WebAssembly for a browser, see
+[Vantage WASM Compilation](vantage-wasm-compilation.md).
 
 ## Opening the Lessons tab
 
@@ -58,7 +76,7 @@ separated by a header line. Here is what you will find, in order:
    read UART output.
 
 7. **Network demos** -- nine walkthroughs that explore a
-   fourteen-galaxy test network called a Puddle. These demos
+   fifteen-galaxy test network called a Puddle. These demos
    cover identity, encrypted messaging, consensus, token
    transfers, and social networking -- all using placeholder
    galaxy names that can never reach a real ship.
@@ -78,15 +96,16 @@ what you need without reading everything in order.
 The network demos appear at the end of the Lessons tab, after the
 tutorials section. A separator header reads **Pond/Puddle Network
 Demos**. The first page in this section is the Galaxy Registry,
-which introduces the fourteen placeholder galaxies. From there,
+which introduces the fifteen placeholder galaxies. From there,
 the demos walk through progressively deeper layers of the network.
 
-The fourteen galaxies are named for garden plants: `~sunflower`,
+The fifteen galaxies are named for garden plants: `~sunflower`,
 `~rosemary`, `~lavender`, `~basil`, `~chamomile`, `~oregano`,
 `~thyme`, `~sage`, `~mint`, `~fennel`, `~marjoram`, `~tarragon`,
-`~chive`, and `~dill`. Each name uses segments of four to nine
-letters, which makes them structurally impossible to confuse with
-a real Urbit address. You can copy any of them safely.
+`~chive`, `~dill`, and `~siya`. Each name uses segments of four
+to nine letters, which makes them structurally impossible to
+confuse with a real Urbit address. You can copy any of them
+safely.
 
 ## Reading at your own pace
 
