@@ -59,9 +59,9 @@ Wire recording, show the waveform, export WAV.
 
 The mixer, the timeline, integration.
 
-- [ ] **Movement 11 -- Track list**
-  NSTableView inside the Audio tab for multiple tracks. Add, remove, reorder.
-  **SLC gate:** multiple tracks visible and selectable.
+- [x] **Movement 11 -- Track list** (landed `20261108`)
+  NSTableView inside the Audio tab below the status panel with two columns (Name width 200, Gain width 60), NSScrollView wrapper (height 120, dark amber theme), "+ Track" and "- Track" buttons. Data model: `audioTracks: [(name: String, gain: Float)]` initialized with one default track. TableViewDelegate dispatches via `=== audioTrackTable` identity check. Minimum-one-track enforcement on remove, selection management on add/remove. Terrarium build GREEN.
+  **SLC gate:** multiple tracks visible and selectable -- **PROVEN**.
 
 - [ ] **Movement 12 -- Mixer panel**
   Channel strip per track: gain fader, pan knob, solo/mute. Stereo mix bus.

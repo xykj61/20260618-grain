@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| `20261108.111540` | [Track list landed -- Phase 3 started](20261108/20261108-111540_track-list-landed.kyri.md) | Movement 11 PROVEN, Phase 3 open (1/5), fascia 60.136 |
 | `20261108.110248` | [Audio status panel with live recording stats](20261108/20261108-110248_audio-status-panel.kyri.md) | Movement 10 PROVEN, Phase 2 COMPLETE, fascia 60.135 |
 | `20261108.105155` | [Audio menu items wired into MenuActions](20261108/20261108-105155_audio-menu-items.kyri.md) | Movement 9 PROVEN, Audio submenu + Focus keys, fascia 60.134 |
 | `20261108.104123` | [WAV export through FFI bridge](20261108/20261108-104123_wav-export-ffi-bridge.kyri.md) | Movement 8 PROVEN, 15 claims GREEN, fascia 60.133 |

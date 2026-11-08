@@ -922,6 +922,98 @@ extension AppDelegate {
         peakLbl.tag = 912
         panelBox.addSubview(peakLbl)
 
+        let trackLabel = NSTextField(
+            labelWithString: "Tracks"
+        )
+        trackLabel.font = NSFont.systemFont(
+            ofSize: 14, weight: .medium
+        )
+        trackLabel.textColor = NSColor(
+            red: 0.9, green: 0.75,
+            blue: 0.5, alpha: 1.0
+        )
+        trackLabel
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(trackLabel)
+
+        let nameCol = NSTableColumn(
+            identifier: NSUserInterfaceItemIdentifier(
+                "name"
+            )
+        )
+        nameCol.title = "Name"
+        nameCol.width = 200
+
+        let gainCol = NSTableColumn(
+            identifier: NSUserInterfaceItemIdentifier(
+                "gain"
+            )
+        )
+        gainCol.title = "Gain"
+        gainCol.width = 60
+
+        let trackTable = NSTableView()
+        trackTable.addTableColumn(nameCol)
+        trackTable.addTableColumn(gainCol)
+        trackTable.headerView = NSTableHeaderView()
+        trackTable.usesAlternatingRowBackgroundColors =
+            false
+        trackTable.backgroundColor = NSColor(
+            red: 0.08, green: 0.06,
+            blue: 0.03, alpha: 1.0
+        )
+        trackTable.gridColor = NSColor(
+            red: 0.2, green: 0.16,
+            blue: 0.1, alpha: 1.0
+        )
+        trackTable.gridStyleMask = .solidHorizontalGridLineMask
+        trackTable.rowHeight = 24
+        trackTable.allowsMultipleSelection = false
+        trackTable.dataSource = self
+        trackTable.delegate = self
+        audioTrackTable = trackTable
+
+        let scrollView = NSScrollView()
+        scrollView.documentView = trackTable
+        scrollView.hasVerticalScroller = true
+        scrollView.hasHorizontalScroller = false
+        scrollView.autohidesScrollers = true
+        scrollView.borderType = .bezelBorder
+        scrollView.drawsBackground = true
+        scrollView.backgroundColor = NSColor(
+            red: 0.08, green: 0.06,
+            blue: 0.03, alpha: 1.0
+        )
+        scrollView
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(scrollView)
+
+        let addTrackBtn = NSButton(
+            title: "+ Track",
+            target: self,
+            action: #selector(
+                audioAddTrackPressed(_:)
+            )
+        )
+        addTrackBtn
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(addTrackBtn)
+
+        let removeTrackBtn = NSButton(
+            title: "- Track",
+            target: self,
+            action: #selector(
+                audioRemoveTrackPressed(_:)
+            )
+        )
+        removeTrackBtn
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(removeTrackBtn)
+
         NSLayoutConstraint.activate([
             panelBox.leadingAnchor.constraint(
                 equalTo: container.leadingAnchor,
@@ -961,6 +1053,45 @@ extension AppDelegate {
             peakLbl.topAnchor.constraint(
                 equalTo: timeLbl.bottomAnchor,
                 constant: 4
+            ),
+            trackLabel.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 24
+            ),
+            trackLabel.topAnchor.constraint(
+                equalTo: panelBox.bottomAnchor,
+                constant: 16
+            ),
+            scrollView.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 24
+            ),
+            scrollView.trailingAnchor.constraint(
+                equalTo: container.trailingAnchor,
+                constant: -24
+            ),
+            scrollView.topAnchor.constraint(
+                equalTo: trackLabel.bottomAnchor,
+                constant: 8
+            ),
+            scrollView.heightAnchor.constraint(
+                equalToConstant: 120
+            ),
+            addTrackBtn.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 24
+            ),
+            addTrackBtn.topAnchor.constraint(
+                equalTo: scrollView.bottomAnchor,
+                constant: 8
+            ),
+            removeTrackBtn.leadingAnchor.constraint(
+                equalTo: addTrackBtn.trailingAnchor,
+                constant: 12
+            ),
+            removeTrackBtn.topAnchor.constraint(
+                equalTo: scrollView.bottomAnchor,
+                constant: 8
             ),
         ])
 
@@ -1376,6 +1507,42 @@ extension AppDelegate {
                 }
             }
         }
+    }
+
+    @objc func audioAddTrackPressed(
+        _ sender: Any?
+    ) {
+        let n = audioTracks.count + 1
+        audioTracks.append(
+            (name: "Track \(n)", gain: 1.0)
+        )
+        audioTrackTable?.reloadData()
+        audioTrackTable?.selectRowIndexes(
+            IndexSet(integer: audioTracks.count - 1),
+            byExtendingSelection: false
+        )
+    }
+
+    @objc func audioRemoveTrackPressed(
+        _ sender: Any?
+    ) {
+        guard let table = audioTrackTable else {
+            return
+        }
+        let row = table.selectedRow
+        guard row >= 0,
+              row < audioTracks.count,
+              audioTracks.count > 1
+        else { return }
+        audioTracks.remove(at: row)
+        table.reloadData()
+        let newSel = min(
+            row, audioTracks.count - 1
+        )
+        table.selectRowIndexes(
+            IndexSet(integer: newSel),
+            byExtendingSelection: false
+        )
     }
 
 }

@@ -7,6 +7,9 @@ extension AppDelegate: NSTableViewDataSource {
     func numberOfRows(
         in tableView: NSTableView
     ) -> Int {
+        if tableView === audioTrackTable {
+            return audioTracks.count
+        }
         if tableView === dimerollTableView {
             if dimerollActiveElf
                 == "dimeroll_dashboard"
@@ -55,6 +58,12 @@ extension AppDelegate: NSTableViewDelegate {
         viewFor tableColumn: NSTableColumn?,
         row: Int
     ) -> NSView? {
+        if tableView === audioTrackTable {
+            return audioTrackCellView(
+                tableColumn: tableColumn,
+                row: row
+            )
+        }
         if tableView === dimerollTableView {
             return dimerollCellView(
                 tableColumn: tableColumn,
@@ -231,6 +240,51 @@ extension AppDelegate: NSTableViewDelegate {
             cell = tf
         }
         cell?.stringValue = val
+        return cell
+    }
+
+    func audioTrackCellView(
+        tableColumn: NSTableColumn?,
+        row: Int
+    ) -> NSView? {
+        guard let colId = tableColumn?.identifier
+                  .rawValue,
+              row < audioTracks.count
+        else { return nil }
+        let cellId = NSUserInterfaceItemIdentifier(
+            "TrackCell"
+        )
+        var cell = audioTrackTable?.makeView(
+            withIdentifier: cellId, owner: nil
+        ) as? NSTextField
+        if cell == nil {
+            let tf = NSTextField(
+                labelWithString: ""
+            )
+            tf.identifier = cellId
+            tf.isBordered = false
+            tf.drawsBackground = false
+            tf.textColor = NSColor(
+                red: 0.9, green: 0.8,
+                blue: 0.6, alpha: 1.0
+            )
+            tf.font = NSFont
+                .monospacedSystemFont(
+                    ofSize: 12, weight: .regular
+                )
+            cell = tf
+        }
+        let track = audioTracks[row]
+        switch colId {
+        case "name":
+            cell?.stringValue = track.name
+        case "gain":
+            cell?.stringValue = String(
+                format: "%.1f", track.gain
+            )
+        default:
+            break
+        }
         return cell
     }
 
