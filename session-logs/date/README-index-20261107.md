@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.221436 | [First browser boot proven -- grain-emu.wasm runs hello64 in Brave](20261107/20261107-221436_first-browser-boot-proven.kyri.md) | hello64 UART output in Brave, exit code 0, under 83 KiB total |
 | 20261107.220429 | [Quest 3 browser host and soft-float build -- send](20261107/20261107-220429_quest3-browser-host-and-softfloat-build.kyri.md) | browser host, soft-float build, grain-emu WASM station |
 | 20261107.214211 | [Sweep 13 dated style lines and guard triad text -- send](20261107/20261107-214211_teacher-sweep-dated-pages-send.kyri.md) | 13 dated pages Bhakta -> Teacher, guard triad content fixed, witness GREEN |
 | 20261107.212902 | [Bhakta to Teacher Style molt-breach -- send](20261107/20261107-212902_bhakta-teacher-molt-breach-send.kyri.md) | W2 molt: guard triad renamed, rule files molted, cursor twins, reference sweep |
