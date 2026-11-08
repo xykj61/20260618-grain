@@ -1,0 +1,441 @@
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+pub const bridge_version = "20261108.170013";
+
+// --- Ed25519 identity at the std seam ---------------------------------------
+
+const Ed25519 = std.crypto.sign.Ed25519;
+const Sha3 = std.crypto.hash.sha3.Sha3_256;
+
+const seed_len: u32 = 32;
+const pubkey_len: u32 = 32;
+const sig_len: u32 = 64;
+const digest_len: u32 = 32;
+const hex_len: u32 = 64;
+
+const hex_chars = "0123456789abcdef";
+
+fn hex_encode(bytes: []const u8, out: []u8) void {
+    for (bytes, 0..) |b, i| {
+        out[i * 2] = hex_chars[b >> 4];
+        out[i * 2 + 1] = hex_chars[b & 0x0f];
+    }
+}
+
+// --- event: the signed fact -------------------------------------------------
+
+const max_content_len: u32 = 4096;
+const max_events: u32 = 256;
+
+const Event = struct {
+    pubkey: [pubkey_len]u8,
+    created_at: u64,
+    kind: u32,
+    content: [max_content_len]u8,
+    content_len: u32,
+    signature: [sig_len]u8,
+    id: [hex_len]u8,
+    used: bool,
+};
+
+// invariant: feed holds at most max_events.
+var feed: [max_events]Event = undefined;
+var feed_count: u32 = 0;
+var initialized: bool = false;
+
+// --- C exports: init --------------------------------------------------------
+
+export fn surf_init() callconv(.c) void {
+    feed_count = 0;
+    var i: u32 = 0;
+    while (i < max_events) : (i += 1) {
+        feed[i].used = false;
+    }
+    initialized = true;
+}
+
+// --- C exports: keypair from seed -------------------------------------------
+
+// invariant: seed is 32 bytes, pubkey_out receives 32 bytes, secret_out 64.
+export fn surf_keypair_from_seed(
+    seed_ptr: [*]const u8,
+    pubkey_out: [*]u8,
+    secret_out: [*]u8,
+) callconv(.c) i32 {
+    const seed: [seed_len]u8 = seed_ptr[0..seed_len].*;
+    const kp = Ed25519.KeyPair.generateDeterministic(seed) catch
+        return -1;
+    @memcpy(pubkey_out[0..pubkey_len], &kp.public_key.bytes);
+    @memcpy(secret_out[0..sig_len], &kp.secret_key.bytes);
+    return 0;
+}
+
+// --- C exports: event id (content hash) -------------------------------------
+
+// invariant: id is SHA3-256 of (pubkey ++ kind_be ++ created_at_be ++ content).
+fn compute_event_id(
+    pubkey: *const [pubkey_len]u8,
+    kind: u32,
+    created_at: u64,
+    content: []const u8,
+    id_out: *[hex_len]u8,
+) void {
+    var hasher = Sha3.init(.{});
+    hasher.update(pubkey);
+    const kind_be = std.mem.toBytes(std.mem.nativeTo(u32, kind, .big));
+    hasher.update(&kind_be);
+    const ts_be = std.mem.toBytes(std.mem.nativeTo(u64, created_at, .big));
+    hasher.update(&ts_be);
+    hasher.update(content);
+    var raw: [digest_len]u8 = undefined;
+    hasher.final(&raw);
+    hex_encode(&raw, id_out);
+}
+
+export fn surf_event_id(
+    pubkey_ptr: [*]const u8,
+    kind: u32,
+    created_at: u64,
+    content_ptr: [*]const u8,
+    content_len: u32,
+    id_out: [*]u8,
+) callconv(.c) void {
+    const clen = if (content_len > max_content_len)
+        max_content_len
+    else
+        content_len;
+    var id: [hex_len]u8 = undefined;
+    compute_event_id(
+        pubkey_ptr[0..pubkey_len],
+        kind,
+        created_at,
+        content_ptr[0..clen],
+        &id,
+    );
+    @memcpy(id_out[0..hex_len], &id);
+}
+
+// --- C exports: sign event --------------------------------------------------
+
+// invariant: signs the event id bytes with the secret key.
+export fn surf_sign_event(
+    id_ptr: [*]const u8,
+    secret_ptr: [*]const u8,
+    sig_out: [*]u8,
+) callconv(.c) i32 {
+    const secret_bytes: [sig_len]u8 = secret_ptr[0..sig_len].*;
+    const secret = Ed25519.SecretKey.fromBytes(secret_bytes) catch return -1;
+    const kp = Ed25519.KeyPair.fromSecretKey(secret) catch return -2;
+    const sig = kp.sign(id_ptr[0..hex_len], null) catch return -3;
+    @memcpy(sig_out[0..sig_len], &sig.toBytes());
+    return 0;
+}
+
+// --- C exports: verify event ------------------------------------------------
+
+export fn surf_verify_event(
+    id_ptr: [*]const u8,
+    sig_ptr: [*]const u8,
+    pubkey_ptr: [*]const u8,
+) callconv(.c) bool {
+    const sig_bytes: [sig_len]u8 = sig_ptr[0..sig_len].*;
+    const sig = Ed25519.Signature.fromBytes(sig_bytes);
+    const pk_bytes: [pubkey_len]u8 = pubkey_ptr[0..pubkey_len].*;
+    const pk = Ed25519.PublicKey.fromBytes(pk_bytes) catch return false;
+    sig.verify(id_ptr[0..hex_len], pk) catch return false;
+    return true;
+}
+
+// --- C exports: feed operations ---------------------------------------------
+
+// invariant: adds a signed event to the feed. returns 0 ok, -1 full, -2 content too long.
+export fn surf_feed_add(
+    pubkey_ptr: [*]const u8,
+    kind: u32,
+    created_at: u64,
+    content_ptr: [*]const u8,
+    content_len: u32,
+    sig_ptr: [*]const u8,
+    id_ptr: [*]const u8,
+) callconv(.c) i32 {
+    if (content_len > max_content_len) return -2;
+    if (feed_count >= max_events) return -1;
+
+    var e = &feed[feed_count];
+    @memcpy(&e.pubkey, pubkey_ptr[0..pubkey_len]);
+    e.created_at = created_at;
+    e.kind = kind;
+    @memcpy(e.content[0..content_len], content_ptr[0..content_len]);
+    e.content_len = content_len;
+    @memcpy(&e.signature, sig_ptr[0..sig_len]);
+    @memcpy(&e.id, id_ptr[0..hex_len]);
+    e.used = true;
+    feed_count += 1;
+    return 0;
+}
+
+export fn surf_feed_count() callconv(.c) u32 {
+    return feed_count;
+}
+
+// invariant: writes events as newline-separated records to buffer.
+// format: "id pubkey_hex kind created_at content_len\n" per event.
+export fn surf_feed_list(
+    buf_ptr: [*]u8,
+    buf_len: u32,
+) callconv(.c) u32 {
+    var pos: u32 = 0;
+    var i: u32 = 0;
+    while (i < feed_count) : (i += 1) {
+        if (!feed[i].used) continue;
+        var pk_hex: [pubkey_len * 2]u8 = undefined;
+        hex_encode(&feed[i].pubkey, &pk_hex);
+        // "id pk_hex kind created_at content_len\n"
+        const needed = hex_len + 1 + pk_hex.len + 1 + 10 + 1 + 20 + 1 + 10 + 1;
+        if (pos + needed > buf_len) return 0;
+        @memcpy(buf_ptr[pos .. pos + hex_len], &feed[i].id);
+        pos += hex_len;
+        buf_ptr[pos] = ' ';
+        pos += 1;
+        @memcpy(buf_ptr[pos .. pos + pk_hex.len], &pk_hex);
+        pos += @intCast(pk_hex.len);
+        buf_ptr[pos] = ' ';
+        pos += 1;
+        const rest = std.fmt.bufPrint(
+            buf_ptr[pos..buf_len],
+            "{d} {d} {d}\n",
+            .{ feed[i].kind, feed[i].created_at, feed[i].content_len },
+        ) catch return 0;
+        pos += @intCast(rest.len);
+    }
+    return pos;
+}
+
+// --- C exports: get event content -------------------------------------------
+
+// invariant: copies content of event at index into buf. returns content_len or 0.
+export fn surf_feed_get_content(
+    index: u32,
+    buf_ptr: [*]u8,
+    buf_len: u32,
+) callconv(.c) u32 {
+    if (index >= feed_count) return 0;
+    if (!feed[index].used) return 0;
+    const clen = feed[index].content_len;
+    if (clen > buf_len) return 0;
+    @memcpy(buf_ptr[0..clen], feed[index].content[0..clen]);
+    return clen;
+}
+
+// --- selftest ---------------------------------------------------------------
+
+fn prove_keypair_deterministic() !void {
+    var seed: [seed_len]u8 = undefined;
+    for (&seed, 0..) |*b, i| b.* = @intCast(i);
+    var pk1: [pubkey_len]u8 = undefined;
+    var sk1: [sig_len]u8 = undefined;
+    var pk2: [pubkey_len]u8 = undefined;
+    var sk2: [sig_len]u8 = undefined;
+    if (surf_keypair_from_seed(&seed, &pk1, &sk1) != 0)
+        return error.KeypairFailed;
+    if (surf_keypair_from_seed(&seed, &pk2, &sk2) != 0)
+        return error.KeypairFailed;
+    if (!std.mem.eql(u8, &pk1, &pk2))
+        return error.PubkeyNotDeterministic;
+    if (!std.mem.eql(u8, &sk1, &sk2))
+        return error.SecretNotDeterministic;
+}
+
+fn prove_sign_and_verify() !void {
+    var seed: [seed_len]u8 = undefined;
+    for (&seed, 0..) |*b, i| b.* = @intCast(i);
+    var pk: [pubkey_len]u8 = undefined;
+    var sk: [sig_len]u8 = undefined;
+    _ = surf_keypair_from_seed(&seed, &pk, &sk);
+
+    const content = "hello surf";
+    const kind: u32 = 1;
+    const ts: u64 = 1700000000;
+    var id: [hex_len]u8 = undefined;
+    surf_event_id(&pk, kind, ts, content.ptr, content.len, &id);
+
+    var sig: [sig_len]u8 = undefined;
+    if (surf_sign_event(&id, &sk, &sig) != 0)
+        return error.SignFailed;
+    if (!surf_verify_event(&id, &sig, &pk))
+        return error.VerifyRejectedValid;
+}
+
+fn prove_verify_rejects_tamper() !void {
+    var seed: [seed_len]u8 = undefined;
+    for (&seed, 0..) |*b, i| b.* = @intCast(i);
+    var pk: [pubkey_len]u8 = undefined;
+    var sk: [sig_len]u8 = undefined;
+    _ = surf_keypair_from_seed(&seed, &pk, &sk);
+
+    const content = "authentic post";
+    var id: [hex_len]u8 = undefined;
+    surf_event_id(&pk, 1, 1700000000, content.ptr, content.len, &id);
+
+    var sig: [sig_len]u8 = undefined;
+    _ = surf_sign_event(&id, &sk, &sig);
+
+    // tamper with one id byte
+    var bad_id = id;
+    bad_id[0] ^= 0xff;
+    if (surf_verify_event(&bad_id, &sig, &pk))
+        return error.VerifyAcceptedTampered;
+}
+
+fn prove_event_id_deterministic() !void {
+    var seed: [seed_len]u8 = undefined;
+    for (&seed, 0..) |*b, i| b.* = @intCast(i);
+    var pk: [pubkey_len]u8 = undefined;
+    var sk: [sig_len]u8 = undefined;
+    _ = surf_keypair_from_seed(&seed, &pk, &sk);
+
+    const content = "same content";
+    var id1: [hex_len]u8 = undefined;
+    var id2: [hex_len]u8 = undefined;
+    surf_event_id(&pk, 1, 1700000000, content.ptr, content.len, &id1);
+    surf_event_id(&pk, 1, 1700000000, content.ptr, content.len, &id2);
+    if (!std.mem.eql(u8, &id1, &id2))
+        return error.EventIdNotDeterministic;
+}
+
+fn prove_feed_add_and_count() !void {
+    surf_init();
+    var seed: [seed_len]u8 = undefined;
+    for (&seed, 0..) |*b, i| b.* = @intCast(i);
+    var pk: [pubkey_len]u8 = undefined;
+    var sk: [sig_len]u8 = undefined;
+    _ = surf_keypair_from_seed(&seed, &pk, &sk);
+
+    const content = "first post";
+    var id: [hex_len]u8 = undefined;
+    surf_event_id(&pk, 1, 1700000000, content.ptr, content.len, &id);
+    var sig: [sig_len]u8 = undefined;
+    _ = surf_sign_event(&id, &sk, &sig);
+
+    const rc = surf_feed_add(&pk, 1, 1700000000, content.ptr, content.len, &sig, &id);
+    if (rc != 0) return error.FeedAddFailed;
+    if (surf_feed_count() != 1) return error.FeedCountNotOne;
+}
+
+fn prove_feed_list() !void {
+    surf_init();
+    var seed: [seed_len]u8 = undefined;
+    for (&seed, 0..) |*b, i| b.* = @intCast(i);
+    var pk: [pubkey_len]u8 = undefined;
+    var sk: [sig_len]u8 = undefined;
+    _ = surf_keypair_from_seed(&seed, &pk, &sk);
+
+    const c1 = "post one";
+    const c2 = "post two";
+    var id1: [hex_len]u8 = undefined;
+    var id2: [hex_len]u8 = undefined;
+    surf_event_id(&pk, 1, 1700000001, c1.ptr, c1.len, &id1);
+    surf_event_id(&pk, 1, 1700000002, c2.ptr, c2.len, &id2);
+    var sig1: [sig_len]u8 = undefined;
+    var sig2: [sig_len]u8 = undefined;
+    _ = surf_sign_event(&id1, &sk, &sig1);
+    _ = surf_sign_event(&id2, &sk, &sig2);
+    _ = surf_feed_add(&pk, 1, 1700000001, c1.ptr, c1.len, &sig1, &id1);
+    _ = surf_feed_add(&pk, 1, 1700000002, c2.ptr, c2.len, &sig2, &id2);
+
+    if (surf_feed_count() != 2) return error.FeedCountNotTwo;
+    var buf: [8192]u8 = undefined;
+    const len = surf_feed_list(&buf, 8192);
+    if (len == 0) return error.ListEmpty;
+}
+
+fn prove_feed_get_content() !void {
+    surf_init();
+    var seed: [seed_len]u8 = undefined;
+    for (&seed, 0..) |*b, i| b.* = @intCast(i);
+    var pk: [pubkey_len]u8 = undefined;
+    var sk: [sig_len]u8 = undefined;
+    _ = surf_keypair_from_seed(&seed, &pk, &sk);
+
+    const content = "readable content";
+    var id: [hex_len]u8 = undefined;
+    surf_event_id(&pk, 1, 1700000000, content.ptr, content.len, &id);
+    var sig: [sig_len]u8 = undefined;
+    _ = surf_sign_event(&id, &sk, &sig);
+    _ = surf_feed_add(&pk, 1, 1700000000, content.ptr, content.len, &sig, &id);
+
+    var buf: [max_content_len]u8 = undefined;
+    const got = surf_feed_get_content(0, &buf, max_content_len);
+    if (got != content.len) return error.ContentLenMismatch;
+    if (!std.mem.eql(u8, buf[0..got], content))
+        return error.ContentMismatch;
+}
+
+fn prove_init_clears_feed() !void {
+    surf_init();
+    if (surf_feed_count() != 0) return error.InitCountNotZero;
+    if (!initialized) return error.NotInitialized;
+}
+
+fn run_selftest() u8 {
+    prove_init_clears_feed() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_keypair_deterministic() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_event_id_deterministic() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_sign_and_verify() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_verify_rejects_tamper() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_feed_add_and_count() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_feed_list() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_feed_get_content() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+
+    print("surf vantage: init clears -- feed starts at zero.\n", .{});
+    print("surf vantage: keypair deterministic -- same seed, same Ed25519 keys.\n", .{});
+    print("surf vantage: event id deterministic -- same inputs, same SHA3-256 id.\n", .{});
+    print("surf vantage: sign and verify -- valid signature accepted.\n", .{});
+    print("surf vantage: verify rejects tamper -- altered id refused.\n", .{});
+    print("surf vantage: feed add and count -- event stored, count incremented.\n", .{});
+    print("surf vantage: feed list -- two events, both present in output.\n", .{});
+    print("surf vantage: feed get content -- stored content retrieved correctly.\n", .{});
+    print("surf vantage: version {s}\n", .{bridge_version});
+    print("GREEN: surf vantage -- FFI bridge: keypair, sign, verify, feed.\n", .{});
+    return 0;
+}
+
+export fn surf_selftest() callconv(.c) i32 {
+    return @intCast(run_selftest());
+}
+
+pub fn main(init: std.process.Init) !u8 {
+    const allocator = init.arena.allocator();
+    const args = try init.minimal.args.toSlice(allocator);
+    if (args.len == 2 and std.mem.eql(u8, args[1], "selftest"))
+        return run_selftest();
+    if (args.len == 1) return run_selftest();
+    print("usage: surf_vantage [selftest]\n", .{});
+    return 1;
+}

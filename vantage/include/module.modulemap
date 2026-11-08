@@ -22,3 +22,8 @@ module VantageMantra {
     header "vantage_mantra.h"
     export *
 }
+
+module VantageSurf {
+    header "vantage_surf.h"
+    export *
+}

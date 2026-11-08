@@ -19,4 +19,4 @@
 | Mantra tab scaffold | `20261108.162005` | `2f1135ec6` | 60.147 |
 | Blob persistence | `20261108.163207` | `faf1e1007` | 60.148 |
 | Save integration | `20261108.164004` | `38b963694` | 60.149 |
-| Integration witness | `20261108.164530` | `--` | 60.150 |
+| Integration witness | `20261108.164530` | `54d836d51` | 60.150 |
