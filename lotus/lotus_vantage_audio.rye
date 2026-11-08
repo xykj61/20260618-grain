@@ -110,6 +110,10 @@ export fn lotus_audio_position() callconv(.c) u32 {
     return engine.state.trx.position();
 }
 
+export fn lotus_audio_clip_length() callconv(.c) u32 {
+    return master.len;
+}
+
 export fn lotus_audio_callback_count() callconv(.c) u32 {
     return engine.state.callback_count;
 }

@@ -149,7 +149,9 @@ class AppDelegate: NSObject,
         }
     }
     var audioWaveformView: WaveformView?
+    var audioTimelineView: TimelineView?
     var audioRecordTimer: Timer?
+    var audioPlaybackTimer: Timer?
     var audioTracks: [(
         name: String, gain: Float,
         pan: Float, solo: Bool, mute: Bool

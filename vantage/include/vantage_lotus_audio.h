@@ -18,6 +18,7 @@ void lotus_audio_close(void);
 bool lotus_audio_is_open(void);
 bool lotus_audio_is_playing(void);
 uint32_t lotus_audio_position(void);
+uint32_t lotus_audio_clip_length(void);
 uint32_t lotus_audio_callback_count(void);
 uint32_t lotus_audio_sample_rate(void);
 

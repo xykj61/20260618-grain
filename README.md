@@ -15,7 +15,7 @@
   <a href="context/TAME_GUIDANCE.md"><img alt="Code: TAME discipline" src="https://img.shields.io/badge/code-TAME-9a6f22"></a>
   <a href="tools/"><img alt="Proof: witnesses on metal" src="https://img.shields.io/badge/proof-witnesses%20on%20metal-2f7d4f"></a>
   <a href="context/TWO_ROOMS.md"><img alt="Status: incense, honest register" src="https://img.shields.io/badge/status-incense-b9954a"></a>
-  <a href="context/specs/20261103-201746_fascia-health-model.md"><img alt="Fascia: 60.138 -- Phase 3 progress (3/5), session persistence via UserDefaults (Movement 13 PROVEN), governed 20261103" src="https://img.shields.io/badge/fascia-60.138-b9954a"></a>
+  <a href="context/specs/20261103-201746_fascia-health-model.md"><img alt="Fascia: 60.139 -- Phase 3 progress (4/5), timeline view with playback position (Movement 14 PROVEN), governed 20261103" src="https://img.shields.io/badge/fascia-60.139-b9954a"></a>
 </p>
 
 <!-- **Voice:** Kyri -- **Style:** Bhakta, Door setting -- full note at the foot of this page. -->

@@ -823,6 +823,18 @@ extension AppDelegate {
         container.addSubview(waveform)
         audioWaveformView = waveform
 
+        let timeline = TimelineView(
+            frame: NSRect(
+                x: 0, y: 0,
+                width: 400, height: 20
+            )
+        )
+        timeline
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(timeline)
+        audioTimelineView = timeline
+
         let recBtn = NSButton(
             title: "Record",
             target: self,
@@ -1377,21 +1389,36 @@ extension AppDelegate {
             waveform.heightAnchor.constraint(
                 equalToConstant: 120
             ),
+            timeline.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 24
+            ),
+            timeline.trailingAnchor.constraint(
+                equalTo: container.trailingAnchor,
+                constant: -24
+            ),
+            timeline.topAnchor.constraint(
+                equalTo: waveform.bottomAnchor,
+                constant: 8
+            ),
+            timeline.heightAnchor.constraint(
+                equalToConstant: 20
+            ),
             recBtn.centerXAnchor.constraint(
                 equalTo: container.centerXAnchor,
                 constant: -60
             ),
             recBtn.topAnchor.constraint(
-                equalTo: waveform.bottomAnchor,
-                constant: 16
+                equalTo: timeline.bottomAnchor,
+                constant: 12
             ),
             recStopBtn.centerXAnchor.constraint(
                 equalTo: container.centerXAnchor,
                 constant: 60
             ),
             recStopBtn.topAnchor.constraint(
-                equalTo: waveform.bottomAnchor,
-                constant: 16
+                equalTo: timeline.bottomAnchor,
+                constant: 12
             ),
             exportBtn.centerXAnchor.constraint(
                 equalTo: container.centerXAnchor
@@ -1432,6 +1459,7 @@ extension AppDelegate {
                 tag: 910,
                 text: "Sample Rate: \(rate) Hz"
             )
+            startPlaybackTimer()
         } else {
             updateAudioStatus("Start failed")
         }
@@ -1456,15 +1484,22 @@ extension AppDelegate {
     @objc func audioStopPressed(
         _ sender: NSButton
     ) {
+        stopPlaybackTimer()
         if lotus_audio_is_playing() {
             if lotus_audio_stop() {
                 updateAudioStatus("Stopped")
+                audioTimelineView?.updatePosition(
+                    fraction: 0.0
+                )
             } else {
                 updateAudioStatus("Stop failed")
             }
         } else if lotus_audio_is_open() {
             lotus_audio_close()
             updateAudioStatus("Closed")
+            audioTimelineView?.updatePosition(
+                fraction: 0.0
+            )
         }
     }
 
@@ -1586,6 +1621,32 @@ extension AppDelegate {
     private func stopRecordWaveformTimer() {
         audioRecordTimer?.invalidate()
         audioRecordTimer = nil
+    }
+
+    private func startPlaybackTimer() {
+        stopPlaybackTimer()
+        audioPlaybackTimer = Timer.scheduledTimer(
+            withTimeInterval: 0.05,
+            repeats: true
+        ) { [weak self] _ in
+            self?.pollPlaybackPosition()
+        }
+    }
+
+    private func stopPlaybackTimer() {
+        audioPlaybackTimer?.invalidate()
+        audioPlaybackTimer = nil
+    }
+
+    private func pollPlaybackPosition() {
+        let pos = lotus_audio_position()
+        let len = lotus_audio_clip_length()
+        let frac: CGFloat = len > 0
+            ? CGFloat(pos) / CGFloat(len)
+            : 0.0
+        audioTimelineView?.updatePosition(
+            fraction: frac
+        )
     }
 
     private func pollRecordingBuffer() {
