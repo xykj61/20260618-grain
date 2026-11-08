@@ -33,13 +33,14 @@ pub const max_drawer_docs: u32 = 256;
 
 /// The shelves a document can land on, chosen by its format. Unread is the honest
 /// fall-through -- an unrecognized format is shown, never silently dropped.
-pub const Shelf = enum { logs, batons, inventory, unread };
+pub const Shelf = enum { logs, batons, inventory, settings, unread };
 
 /// The shelf a document belongs on, by the reader's own format dispatch.
 pub fn shelf_of(doc: *const reader.Document) Shelf {
     if (reader.is_session_log(doc)) return .logs;
     if (reader.is_baton(doc)) return .batons;
     if (reader.is_inventory(doc)) return .inventory;
+    if (reader.is_settings(doc)) return .settings;
     return .unread;
 }
 
@@ -49,6 +50,7 @@ pub fn shelf_name(s: Shelf) []const u8 {
         .logs => "Logs",
         .batons => "Batons",
         .inventory => "Inventory",
+        .settings => "Settings",
         .unread => "Unread",
     };
 }

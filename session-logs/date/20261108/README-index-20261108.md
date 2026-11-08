@@ -2,6 +2,8 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| `20261108.133227` | [Scribe settings writer -- format, serializer, and round-trip GREEN](20261108-133227_scribe-settings-writer-green.kyri.md) | Settings writer landed, six proves GREEN, fascia 60.141 |
+| `20261108.131200` | [Brix-infuse correction -- composable, not monolith](20261108-131200_brix-infuse-correction-scribe-ready.kyri.md) | Brix follows infuse.nix pattern; all six questions answered; awaiting Keaton's word on Scribe tablecloth |
 | `20261108.125817` | [Module composition tablecloth proposal](20261108-125817_module-composition-tablecloth-proposal.kyri.md) | Lotus paused, expanding prompt with six questions for Keaton |
 | `20261108.121626` | [Integration witness GREEN -- Phase 3 complete](20261108-121626_integration-witness-green.kyri.md) | Movement 15 PROVEN, Phase 3 COMPLETE (5/5), fascia 60.140 |
 | `20261108.120740` | [Timeline view with playback position](20261108-120740_timeline-playback-position.kyri.md) | Movement 14 PROVEN, Phase 3 progress (4/5), fascia 60.139 |

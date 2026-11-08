@@ -149,6 +149,13 @@ pub fn is_inventory(doc: *const Document) bool {
     return doc.get("stamp") != null;
 }
 
+/// Whether a document is a **settings** file -- `format scribe-settings-v1`.
+/// The Scribe settings SLC's own format: user preferences persisted as `.kyri`.
+pub fn is_settings(doc: *const Document) bool {
+    const fmt = doc.format() orelse return false;
+    return std.mem.eql(u8, fmt, "scribe-settings-v1");
+}
+
 // --- session-log field shape predicates --------------------------------
 // The `rota` and `loom` fields carry shapes the prose rule names (session-logs.md)
 // but that `is_session_log` does not verify: a malformed rota still passes. These
@@ -352,12 +359,32 @@ fn prove_dispatch() !void {
     const log = parse(sample_log);
     if (!is_session_log(&log)) return error.LogNotRecognized;
     if (is_baton(&log)) return error.LogSeenAsBaton;
+    if (is_settings(&log)) return error.LogSeenAsSettings;
 
     const baton = parse(sample_baton);
     if (!is_baton(&baton)) return error.BatonNotRecognized;
     if (is_session_log(&baton)) return error.BatonSeenAsLog;
+    if (is_settings(&baton)) return error.BatonSeenAsSettings;
     // A baton reads its own fields by the same reader.
     if (!std.mem.eql(u8, baton.get("next").?, "build scribe")) return error.BatonFieldWrong;
+
+    // A settings document dispatches to its own format.
+    const settings_text =
+        \\format scribe-settings-v1
+        \\theme system
+        \\font_size 13
+        \\sidebar_visible true
+        \\recent_limit 10
+        \\audio_monitor false
+    ;
+    const settings = parse(settings_text);
+    if (!is_settings(&settings)) return error.SettingsNotRecognized;
+    if (is_session_log(&settings)) return error.SettingsSeenAsLog;
+    if (is_baton(&settings)) return error.SettingsSeenAsBaton;
+    const theme = settings.get("theme") orelse
+        return error.SettingsThemeMissing;
+    if (!std.mem.eql(u8, theme, "system"))
+        return error.SettingsThemeWrong;
 }
 
 fn prove_fleet() !void {
@@ -488,7 +515,7 @@ fn run_selftest() !u8 {
     try prove_siblings();
 
     print("scribe reader: a Kyri document parses into key-value fields, zero-copy — each field slices into the source, never copied; a repeatable key keeps every occurrence.\n", .{});
-    print("scribe reader: Scribe reads by format — a session-log-v1 and a baton-v1 are told apart and read by one honest reader, the counsel's one-notation-many-formats made real.\n", .{});
+    print("scribe reader: Scribe reads by format — session-log-v1, baton-v1, inventory-v1, and scribe-settings-v1 are told apart and read by one honest reader.\n", .{});
     print("scribe reader: the bat fleet — a baton may declare an archetype (galleon·cutter·barque·holdfast·corsair·ledgerworks), and the reader validates each shape's required fields, refusing a short one.\n", .{});
     print("scribe reader: .kyri and .kyri are sibling extensions — the notation named Kyri, yet Scribe records both as one format family, neither a fossil.\n", .{});
     print("scribe reader: session-log field shapes — has_rota validates `lap N, row R -- ...` and `none -- <why>`; has_loom validates `key=value ...` pairs; both single-stranded from reader.rye.\n", .{});

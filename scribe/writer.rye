@@ -1,0 +1,286 @@
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+const reader = @import("reader.rye");
+
+pub const writer_version = "20261108.140000";
+
+// invariant: settings file stays well under the reader's bound.
+const max_settings_len: u32 = 4096;
+
+pub const SettingsError = error{
+    ThemeInvalid,
+    FontSizeTooSmall,
+    FontSizeTooLarge,
+    RecentLimitTooLarge,
+};
+
+pub const Settings = struct {
+    theme: []const u8,
+    font_size: u32,
+    sidebar_visible: bool,
+    recent_limit: u32,
+    audio_monitor: bool,
+
+    // invariant: defaults are always valid settings.
+    pub const defaults = Settings{
+        .theme = "system",
+        .font_size = 13,
+        .sidebar_visible = true,
+        .recent_limit = 10,
+        .audio_monitor = false,
+    };
+
+    // invariant: font size is bounded to a readable range.
+    const min_font_size: u32 = 8;
+    const max_font_size: u32 = 72;
+    // invariant: recent limit is bounded.
+    const max_recent: u32 = 100;
+
+    pub fn validate(self: *const Settings) SettingsError!void {
+        // invariant: theme is one of three named values.
+        if (!std.mem.eql(u8, self.theme, "system") and
+            !std.mem.eql(u8, self.theme, "light") and
+            !std.mem.eql(u8, self.theme, "dark"))
+            return SettingsError.ThemeInvalid;
+        // invariant: font size falls in a readable range.
+        if (self.font_size < min_font_size)
+            return SettingsError.FontSizeTooSmall;
+        if (self.font_size > max_font_size)
+            return SettingsError.FontSizeTooLarge;
+        // invariant: recent limit has a ceiling.
+        if (self.recent_limit > max_recent)
+            return SettingsError.RecentLimitTooLarge;
+    }
+};
+
+/// Write settings to a fixed buffer as Kyri text. Returns the
+/// written slice -- a view into `buf`.
+pub fn write_settings(
+    s: *const Settings,
+    buf: *[max_settings_len]u8,
+) []const u8 {
+    var pos: usize = 0;
+    pos = append(buf, pos, "format scribe-settings-v1\ntheme ");
+    pos = append(buf, pos, s.theme);
+    pos = append(buf, pos, "\nfont_size ");
+    pos = append_u32(buf, pos, s.font_size);
+    pos = append(buf, pos, "\nsidebar_visible ");
+    pos = append(buf, pos, if (s.sidebar_visible) "true" else "false");
+    pos = append(buf, pos, "\nrecent_limit ");
+    pos = append_u32(buf, pos, s.recent_limit);
+    pos = append(buf, pos, "\naudio_monitor ");
+    pos = append(buf, pos, if (s.audio_monitor) "true" else "false");
+    pos = append(buf, pos, "\n");
+    return buf[0..pos];
+}
+
+fn append(buf: *[max_settings_len]u8, pos: usize, text: []const u8) usize {
+    // invariant: written output fits the settings buffer.
+    assert(pos + text.len <= max_settings_len);
+    @memcpy(buf[pos..][0..text.len], text);
+    return pos + text.len;
+}
+
+fn append_u32(buf: *[max_settings_len]u8, pos: usize, val: u32) usize {
+    var tmp: [10]u8 = undefined;
+    const s = std.fmt.bufPrint(&tmp, "{d}", .{val}) catch unreachable;
+    return append(buf, pos, s);
+}
+
+/// Read a parsed settings document back into a Settings struct.
+/// Missing keys take their default; unknown keys are ignored.
+pub fn read_settings(doc: *const reader.Document) Settings {
+    var s = Settings.defaults;
+    if (doc.get("theme")) |v| s.theme = v;
+    if (doc.get("font_size")) |v| {
+        s.font_size = parse_u32(v) orelse Settings.defaults.font_size;
+    }
+    if (doc.get("sidebar_visible")) |v| {
+        s.sidebar_visible = parse_bool(v);
+    }
+    if (doc.get("recent_limit")) |v| {
+        s.recent_limit = parse_u32(v) orelse Settings.defaults.recent_limit;
+    }
+    if (doc.get("audio_monitor")) |v| {
+        s.audio_monitor = parse_bool(v);
+    }
+    return s;
+}
+
+fn parse_u32(text: []const u8) ?u32 {
+    if (text.len == 0) return null;
+    var result: u32 = 0;
+    for (text) |c| {
+        if (c < '0' or c > '9') return null;
+        const digit: u32 = c - '0';
+        result = result *% 10 +% digit;
+    }
+    return result;
+}
+
+fn parse_bool(text: []const u8) bool {
+    return std.mem.eql(u8, text, "true");
+}
+
+// --- selftest -----------------------------------------------------------
+
+fn prove_defaults_valid() !void {
+    const d = Settings.defaults;
+    d.validate() catch return error.DefaultsInvalid;
+}
+
+fn prove_write_read_roundtrip() !void {
+    // Write defaults, parse back, compare every field.
+    const original = Settings.defaults;
+    var buf: [max_settings_len]u8 = undefined;
+    const text = write_settings(&original, &buf);
+
+    // invariant: the written text is valid Kyri the reader parses.
+    const doc = reader.parse(text);
+    if (!reader.is_settings(&doc))
+        return error.WrittenDocNotSettings;
+
+    const restored = read_settings(&doc);
+    if (!std.mem.eql(u8, restored.theme, original.theme))
+        return error.ThemeRoundtripFailed;
+    if (restored.font_size != original.font_size)
+        return error.FontSizeRoundtripFailed;
+    if (restored.sidebar_visible != original.sidebar_visible)
+        return error.SidebarRoundtripFailed;
+    if (restored.recent_limit != original.recent_limit)
+        return error.RecentLimitRoundtripFailed;
+    if (restored.audio_monitor != original.audio_monitor)
+        return error.AudioMonitorRoundtripFailed;
+}
+
+fn prove_custom_roundtrip() !void {
+    // A non-default settings struct round-trips too.
+    const custom = Settings{
+        .theme = "dark",
+        .font_size = 24,
+        .sidebar_visible = false,
+        .recent_limit = 50,
+        .audio_monitor = true,
+    };
+    custom.validate() catch return error.CustomInvalid;
+
+    var buf: [max_settings_len]u8 = undefined;
+    const text = write_settings(&custom, &buf);
+    const doc = reader.parse(text);
+    if (!reader.is_settings(&doc))
+        return error.CustomDocNotSettings;
+
+    const restored = read_settings(&doc);
+    if (!std.mem.eql(u8, restored.theme, "dark"))
+        return error.CustomThemeFailed;
+    if (restored.font_size != 24)
+        return error.CustomFontSizeFailed;
+    if (restored.sidebar_visible != false)
+        return error.CustomSidebarFailed;
+    if (restored.recent_limit != 50)
+        return error.CustomRecentLimitFailed;
+    if (restored.audio_monitor != true)
+        return error.CustomAudioMonitorFailed;
+}
+
+fn prove_validation_refuses() !void {
+    // An invalid theme is caught.
+    var bad_theme = Settings.defaults;
+    bad_theme.theme = "neon";
+    if (bad_theme.validate()) |_|
+        return error.BadThemeAccepted
+    else |_| {}
+
+    // A font size below the floor is caught.
+    var small_font = Settings.defaults;
+    small_font.font_size = 4;
+    if (small_font.validate()) |_|
+        return error.SmallFontAccepted
+    else |_| {}
+
+    // A font size above the ceiling is caught.
+    var big_font = Settings.defaults;
+    big_font.font_size = 200;
+    if (big_font.validate()) |_|
+        return error.BigFontAccepted
+    else |_| {}
+
+    // A recent limit above the ceiling is caught.
+    var big_recent = Settings.defaults;
+    big_recent.font_size = Settings.defaults.font_size;
+    big_recent.recent_limit = 999;
+    if (big_recent.validate()) |_|
+        return error.BigRecentAccepted
+    else |_| {}
+}
+
+fn prove_missing_keys_default() !void {
+    // A settings file with only the format line fills defaults.
+    const minimal = "format scribe-settings-v1\n";
+    const doc = reader.parse(minimal);
+    if (!reader.is_settings(&doc))
+        return error.MinimalNotSettings;
+    const s = read_settings(&doc);
+    if (s.font_size != Settings.defaults.font_size)
+        return error.MinimalFontSizeWrong;
+    if (s.sidebar_visible != Settings.defaults.sidebar_visible)
+        return error.MinimalSidebarWrong;
+}
+
+fn prove_dashboard_shelf() !void {
+    const dashboard = @import("dashboard.rye");
+    const text = "format scribe-settings-v1\ntheme dark\n";
+    const doc = reader.parse(text);
+    const shelf = dashboard.shelf_of(&doc);
+    if (shelf != .settings) return error.SettingsShelfWrong;
+    if (!std.mem.eql(u8, dashboard.shelf_name(shelf), "Settings"))
+        return error.SettingsShelfNameWrong;
+}
+
+fn run_selftest() u8 {
+    prove_defaults_valid() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_write_read_roundtrip() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_custom_roundtrip() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_validation_refuses() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_missing_keys_default() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_dashboard_shelf() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+
+    print("scribe writer: defaults are valid -- theme system, font 13, sidebar true, recent 10, audio monitor false.\n", .{});
+    print("scribe writer: write-read round-trip -- defaults written as Kyri, parsed by reader, every field matches.\n", .{});
+    print("scribe writer: custom round-trip -- dark theme, font 24, sidebar hidden, recent 50, audio on -- all fields survive.\n", .{});
+    print("scribe writer: validation refuses -- invalid theme, font below 8, font above 72, recent above 100 -- all four caught.\n", .{});
+    print("scribe writer: missing keys default -- a minimal settings file fills every missing key from defaults.\n", .{});
+    print("scribe writer: dashboard shelf -- a settings document lands on the Settings shelf, told apart from logs, batons, inventory.\n", .{});
+    print("scribe writer: version {s}\n", .{writer_version});
+    print("GREEN: scribe writer -- settings round-trip through Kyri: write, parse, read back, validate, every field honest.\n", .{});
+    return 0;
+}
+
+pub fn main(init: std.process.Init) !u8 {
+    const allocator = init.arena.allocator();
+    const args = try init.minimal.args.toSlice(allocator);
+    if (args.len == 2 and std.mem.eql(u8, args[1], "selftest"))
+        return run_selftest();
+    if (args.len == 1) return run_selftest();
+    print("usage: writer [selftest]\n", .{});
+    return 1;
+}
