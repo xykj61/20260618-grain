@@ -19,4 +19,4 @@
 | Scribe Vantage FFI bridge | `20261108.135617` | `fa6d4405e6` | 60.142 |
 | Settings tab scaffold | `20261108.141106` | `5c9510c4ec` | 60.143 |
 | Live persistence | `20261108.144007` | `e05eb35d5a` | 60.144 |
-| Integration witness | `20261108.145419` | -- | 60.145 |
+| Integration witness | `20261108.145419` | `c99ebe4ad` | 60.145 |

@@ -7,6 +7,9 @@ extension AppDelegate: NSTableViewDataSource {
     func numberOfRows(
         in tableView: NSTableView
     ) -> Int {
+        if tableView.tag == 9001 {
+            return mantraCatalogRows.count
+        }
         if tableView === audioTrackTable {
             return audioTracks.count
         }
@@ -58,6 +61,12 @@ extension AppDelegate: NSTableViewDelegate {
         viewFor tableColumn: NSTableColumn?,
         row: Int
     ) -> NSView? {
+        if tableView.tag == 9001 {
+            return mantraCatalogCellView(
+                tableColumn: tableColumn,
+                row: row
+            )
+        }
         if tableView === audioTrackTable {
             return audioTrackCellView(
                 tableColumn: tableColumn,
@@ -286,6 +295,37 @@ extension AppDelegate: NSTableViewDelegate {
             break
         }
         return cell
+    }
+
+    func mantraCatalogCellView(
+        tableColumn: NSTableColumn?,
+        row: Int
+    ) -> NSView? {
+        guard let colId = tableColumn?.identifier
+                  .rawValue,
+              row < mantraCatalogRows.count
+        else { return nil }
+        let entry = mantraCatalogRows[row]
+        let val: String
+        switch colId {
+        case "path": val = entry.0
+        case "digest": val = entry.1
+        case "size": val = entry.2
+        default: val = ""
+        }
+        let tf = NSTextField(
+            labelWithString: val
+        )
+        tf.isBordered = false
+        tf.drawsBackground = false
+        tf.textColor = NSColor(
+            red: 0.8, green: 0.7,
+            blue: 0.95, alpha: 1.0
+        )
+        tf.font = NSFont.monospacedSystemFont(
+            ofSize: 12, weight: .regular
+        )
+        return tf
     }
 
     func tableViewSelectionDidChange(

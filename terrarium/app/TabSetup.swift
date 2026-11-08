@@ -2,6 +2,7 @@ import AppKit
 import VantageBloom
 import VantageDimeroll
 import VantageLotus
+import VantageMantra
 import VantageScribe
 
 extension AppDelegate {
@@ -343,13 +344,17 @@ extension AppDelegate {
         guard let tv = tabView else { return }
         for i in 0..<tv.numberOfTabViewItems {
             let item = tv.tabViewItem(at: i)
-            if let ident = item.identifier as? String,
+            if let ident = item.identifier
+                as? String,
                ident == "mantra"
             {
                 tv.selectTabViewItem(at: i)
                 return
             }
         }
+
+        mantra_init()
+
         let item = NSTabViewItem(
             identifier: "mantra"
         )
@@ -363,56 +368,207 @@ extension AppDelegate {
                 alpha: 1.0
             ).cgColor
 
-        let label = NSTextField(labelWithString:
-            "Mantra -- coming in Act III"
+        let titleLbl = NSTextField(
+            labelWithString: "Mantra Store"
         )
-        label.font = NSFont.systemFont(
+        titleLbl.font = NSFont.systemFont(
             ofSize: 18, weight: .medium
         )
-        label.textColor = NSColor(
+        titleLbl.textColor = NSColor(
             red: 0.7, green: 0.5, blue: 0.9,
             alpha: 1.0
         )
-        label.alignment = .center
-        label.translatesAutoresizingMaskIntoConstraints
-            = false
-        container.addSubview(label)
+        titleLbl.alignment = .center
+        titleLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(titleLbl)
 
-        let sub = NSTextField(labelWithString:
-            "Signed, sealed, and witnessed"
+        let home = FileManager.default
+            .homeDirectoryForCurrentUser.path
+        let storePath = "\(home)/.grain/mantra"
+        let pathLbl = NSTextField(
+            labelWithString: storePath
         )
-        sub.font = NSFont.systemFont(
-            ofSize: 13, weight: .regular
+        pathLbl.font = NSFont.monospacedSystemFont(
+            ofSize: 11, weight: .regular
         )
-        sub.textColor = NSColor(
+        pathLbl.textColor = NSColor(
             red: 0.5, green: 0.4, blue: 0.6,
             alpha: 0.8
         )
-        sub.alignment = .center
-        sub.translatesAutoresizingMaskIntoConstraints
-            = false
-        container.addSubview(sub)
+        pathLbl.alignment = .center
+        pathLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(pathLbl)
+
+        let count = mantra_catalog_count()
+        let countLbl = NSTextField(
+            labelWithString:
+                "\(count) catalog entries"
+        )
+        countLbl.font = NSFont.systemFont(
+            ofSize: 13, weight: .medium
+        )
+        countLbl.textColor = NSColor(
+            red: 0.6, green: 0.63,
+            blue: 0.7, alpha: 1.0
+        )
+        countLbl.alignment = .center
+        countLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(countLbl)
+
+        let entries = mantraCatalogEntries()
+        let scroll = NSScrollView()
+        scroll.hasVerticalScroller = true
+        scroll.borderType = .noBorder
+        scroll.drawsBackground = false
+        scroll
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+
+        let tv2 = NSTableView()
+        tv2.backgroundColor = .clear
+        tv2.style = .plain
+        tv2.usesAlternatingRowBackgroundColors = false
+        tv2.headerView = nil
+        tv2.rowHeight = 22
+
+        let colPath = NSTableColumn(
+            identifier: NSUserInterfaceItemIdentifier(
+                "path"
+            )
+        )
+        colPath.title = "Path"
+        colPath.width = 200
+        tv2.addTableColumn(colPath)
+
+        let colDigest = NSTableColumn(
+            identifier: NSUserInterfaceItemIdentifier(
+                "digest"
+            )
+        )
+        colDigest.title = "Digest"
+        colDigest.width = 160
+        tv2.addTableColumn(colDigest)
+
+        let colSize = NSTableColumn(
+            identifier: NSUserInterfaceItemIdentifier(
+                "size"
+            )
+        )
+        colSize.title = "Size"
+        colSize.width = 80
+        tv2.addTableColumn(colSize)
+
+        mantraCatalogRows = entries
+        tv2.dataSource = self
+        tv2.delegate = self
+        tv2.tag = 9001
+        scroll.documentView = tv2
+
+        container.addSubview(scroll)
+
+        let emptyLbl = NSTextField(
+            labelWithString: entries.isEmpty
+                ? "No blobs yet -- store content"
+                    + " through Mantra to see it here"
+                : ""
+        )
+        emptyLbl.font = NSFont.systemFont(
+            ofSize: 13, weight: .regular
+        )
+        emptyLbl.textColor = NSColor(
+            red: 0.5, green: 0.4, blue: 0.6,
+            alpha: 0.6
+        )
+        emptyLbl.alignment = .center
+        emptyLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(emptyLbl)
 
         NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(
+            titleLbl.centerXAnchor.constraint(
                 equalTo: container.centerXAnchor
             ),
-            label.centerYAnchor.constraint(
-                equalTo: container.centerYAnchor,
-                constant: -12
+            titleLbl.topAnchor.constraint(
+                equalTo: container.topAnchor,
+                constant: 20
             ),
-            sub.centerXAnchor.constraint(
+            pathLbl.centerXAnchor.constraint(
                 equalTo: container.centerXAnchor
             ),
-            sub.topAnchor.constraint(
-                equalTo: label.bottomAnchor,
+            pathLbl.topAnchor.constraint(
+                equalTo: titleLbl.bottomAnchor,
+                constant: 6
+            ),
+            countLbl.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor
+            ),
+            countLbl.topAnchor.constraint(
+                equalTo: pathLbl.bottomAnchor,
                 constant: 8
+            ),
+            scroll.topAnchor.constraint(
+                equalTo: countLbl.bottomAnchor,
+                constant: 16
+            ),
+            scroll.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 20
+            ),
+            scroll.trailingAnchor.constraint(
+                equalTo: container.trailingAnchor,
+                constant: -20
+            ),
+            scroll.bottomAnchor.constraint(
+                equalTo: container.bottomAnchor,
+                constant: -20
+            ),
+            emptyLbl.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor
+            ),
+            emptyLbl.centerYAnchor.constraint(
+                equalTo: scroll.centerYAnchor
             ),
         ])
 
         item.view = container
         tv.addTabViewItem(item)
         tv.selectTabViewItem(item)
+    }
+
+    func mantraCatalogEntries()
+        -> [(String, String, String)]
+    {
+        var buf = [UInt8](repeating: 0, count: 65536)
+        let len = mantra_catalog_list(
+            &buf, UInt32(buf.count)
+        )
+        guard len > 0 else { return [] }
+        let raw = String(
+            bytes: buf[0..<Int(len)],
+            encoding: .utf8
+        ) ?? ""
+        var results: [(String, String, String)] = []
+        for line in raw.split(separator: "\n") {
+            let parts = line.split(
+                separator: " ", maxSplits: 2
+            )
+            guard parts.count == 3 else { continue }
+            let digest = String(parts[0])
+            let path = String(parts[1])
+            let size = String(parts[2])
+            let short = String(
+                digest.prefix(16)
+            ) + "..."
+            results.append((path, short, size))
+        }
+        return results
     }
 
     func loadBloomLessons() {
