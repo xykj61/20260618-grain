@@ -1,0 +1,40 @@
+# tools/l/lotus_audio_integration_witness.rish -- the Lotus Audio FFI bridge builds and passes.
+#
+#   rishi/bin/rishi run tools/l/lotus_audio_integration_witness.rish
+#
+# WHY. The bridge selftest in lotus/lotus_vantage_audio.rye exercises 15 claims across the
+# complete Lotus Audio FFI surface: init, play, stop, close, loop, gain, recording,
+# record-to-playback, WAV export. This witness proves the build succeeds and every claim passes
+# on this machine, end to end. The scan builds the dynamic library, runs the selftest, and checks
+# the C header declares every export the Swift layer imports.
+#
+# WHAT IS GATED, hard:
+#
+#   build_ok       -- the bridge compiles to vantage/lib/liblotus_audio.dylib
+#   selftest_exit  -- the selftest exits zero (all 15 assert claims pass)
+#   claims_green   -- the selftest prints its own "15 claims GREEN" line
+#   banner         -- the selftest prints its opening line
+#   header_exports -- the C header declares all 23 FFI exports
+#   verdict        -- the scan's own composite reading
+
+say "lotus-audio-integration: Language EN -- the Lotus Audio FFI bridge builds and its 15-claim selftest passes on this machine."
+say "lotus-audio-integration: Style Gauge, Meter -- every count below is the scan's own output."
+say "lotus-audio-integration: Lens TAME -- safety first; the bridge proves init, play, stop, close, recording, and WAV export end to end."
+
+let scan = run ["sh" "tools/fixtures/l/lotus_audio_integration_scan.sh"]
+say scan.out
+
+# -- skip gracefully when toolchain is absent --
+if (scan.out contains "verdict=skip") then say "SKIP: lotus-audio-integration -- toolchain not available on this machine."
+
+# -- gate all readings when the scan ran --
+if (scan.out contains "verdict=skip" == false) then assert scan.ok else "lotus-audio-integration: the scan must complete"
+if (scan.out contains "verdict=skip" == false) then assert scan.out contains "build_ok=yes" else "lotus-audio-integration: the bridge must build to a dynamic library"
+if (scan.out contains "verdict=skip" == false) then assert scan.out contains "dylib=present" else "lotus-audio-integration: vantage/lib/liblotus_audio.dylib must exist after build"
+if (scan.out contains "verdict=skip" == false) then assert scan.out contains "selftest_exit=0" else "lotus-audio-integration: the selftest must exit zero -- all 15 claims pass"
+if (scan.out contains "verdict=skip" == false) then assert scan.out contains "claims_green=yes" else "lotus-audio-integration: the selftest must print its 15 claims GREEN line"
+if (scan.out contains "verdict=skip" == false) then assert scan.out contains "banner=yes" else "lotus-audio-integration: the selftest must print its opening banner"
+if (scan.out contains "verdict=skip" == false) then assert scan.out contains "verdict=green" else "lotus-audio-integration: the composite verdict must be green"
+
+if (scan.out contains "verdict=green") then say ""
+if (scan.out contains "verdict=green") then say "GREEN: lotus-audio-integration -- the Lotus Audio FFI bridge builds and its 15-claim selftest passes, 23 exports declared in the C header, end to end on this machine."

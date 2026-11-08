@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| `20261108.121626` | [Integration witness GREEN -- Phase 3 complete](20261108-121626_integration-witness-green.kyri.md) | Movement 15 PROVEN, Phase 3 COMPLETE (5/5), fascia 60.140 |
 | `20261108.120740` | [Timeline view with playback position](20261108-120740_timeline-playback-position.kyri.md) | Movement 14 PROVEN, Phase 3 progress (4/5), fascia 60.139 |
 | `20261108.111540` | [Track list landed -- Phase 3 started](20261108/20261108-111540_track-list-landed.kyri.md) | Movement 11 PROVEN, Phase 3 open (1/5), fascia 60.136 |
 | `20261108.110248` | [Audio status panel with live recording stats](20261108/20261108-110248_audio-status-panel.kyri.md) | Movement 10 PROVEN, Phase 2 COMPLETE, fascia 60.135 |
