@@ -2,6 +2,7 @@
 
 | Stamp | Title | Summary |
 |---|---|---|
+| 20261108.163207 | [Mantra blob persistence](20261108/20261108-163207_mantra-blob-persistence.kyri.md) | Swift reads/writes content-addressed blobs, catalog load at launch, fascia 60.148 |
 | 20261108.162005 | [Mantra tab scaffold](20261108/20261108-162005_mantra-tab-scaffold.kyri.md) | Store browser replaces placeholder, three-column catalog table, fascia 60.147 |
 | 20261108.115046 | [Session persistence via UserDefaults](20261108/20261108-115046_session-persistence-userdefaults.kyri.md) | audioTracks and loop state persisted across restarts, fascia 60.138 |
 | 20261108.113800 | [Mixer panel with gain fader through FFI bridge](20261108/20261108-113800_mixer-panel-gain-ffi.kyri.md) | Gain in render callback, mixer UI with pan/solo/mute, viewWithTag fix, fascia 60.137 |

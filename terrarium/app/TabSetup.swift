@@ -384,9 +384,9 @@ extension AppDelegate {
             false
         container.addSubview(titleLbl)
 
-        let home = FileManager.default
-            .homeDirectoryForCurrentUser.path
-        let storePath = "\(home)/.grain/mantra"
+        loadMantraCatalog()
+
+        let storePath = mantraStoreDir()
         let pathLbl = NSTextField(
             labelWithString: storePath
         )
@@ -2594,6 +2594,141 @@ extension AppDelegate {
             sender.state == .on
         )
         scribeSaveToDisk()
+    }
+
+    // -- Mantra persistence ----------------------------------------
+
+    func mantraStoreDir() -> String {
+        let home = FileManager.default
+            .homeDirectoryForCurrentUser.path
+        return home + "/.grain/mantra"
+    }
+
+    func mantraBlobDir() -> String {
+        mantraStoreDir() + "/blobs"
+    }
+
+    func mantraCatalogPath() -> String {
+        mantraStoreDir() + "/catalog.kyri"
+    }
+
+    func mantraEnsureDirs() {
+        let fm = FileManager.default
+        try? fm.createDirectory(
+            atPath: mantraBlobDir(),
+            withIntermediateDirectories: true
+        )
+    }
+
+    func loadMantraCatalog() {
+        mantra_init()
+        let path = mantraCatalogPath()
+        guard let data = FileManager.default
+            .contents(atPath: path)
+        else { return }
+        data.withUnsafeBytes { raw in
+            guard let ptr = raw
+                .baseAddress?
+                .assumingMemoryBound(to: UInt8.self)
+            else { return }
+            _ = mantra_catalog_load(
+                ptr, UInt32(raw.count)
+            )
+        }
+    }
+
+    func saveMantraCatalog() {
+        mantraEnsureDirs()
+        let maxLen: UInt32 = 65536
+        var buf = [UInt8](
+            repeating: 0, count: Int(maxLen)
+        )
+        let wrote = mantra_catalog_save(
+            &buf, maxLen
+        )
+        guard wrote > 0 else { return }
+        let data = Data(buf[0..<Int(wrote)])
+        FileManager.default.createFile(
+            atPath: mantraCatalogPath(),
+            contents: data
+        )
+    }
+
+    func writeMantraBlob(data: Data, path: String)
+        -> Bool
+    {
+        mantraEnsureDirs()
+
+        var digestOut = [UInt8](
+            repeating: 0, count: 64
+        )
+        data.withUnsafeBytes { raw in
+            guard let ptr = raw
+                .baseAddress?
+                .assumingMemoryBound(to: UInt8.self)
+            else { return }
+            mantra_digest(
+                ptr, UInt32(raw.count), &digestOut
+            )
+        }
+
+        let hexDigest = String(
+            bytes: digestOut, encoding: .utf8
+        ) ?? ""
+        guard !hexDigest.isEmpty else { return false }
+
+        let blobPath = mantraBlobDir()
+            + "/" + hexDigest
+        let fm = FileManager.default
+        if !fm.fileExists(atPath: blobPath) {
+            fm.createFile(
+                atPath: blobPath, contents: data
+            )
+        }
+
+        let pathBytes = Array(path.utf8)
+        let result = pathBytes.withUnsafeBufferPointer {
+            buf in
+            digestOut.withUnsafeBufferPointer {
+                dBuf in
+                mantra_catalog_add(
+                    dBuf.baseAddress!,
+                    buf.baseAddress!,
+                    UInt32(buf.count),
+                    UInt64(data.count)
+                )
+            }
+        }
+        guard result >= 0 else { return false }
+
+        saveMantraCatalog()
+        return true
+    }
+
+    func readMantraBlob(path: String) -> Data? {
+        var digestOut = [UInt8](
+            repeating: 0, count: 64
+        )
+        let pathBytes = Array(path.utf8)
+        let found = pathBytes.withUnsafeBufferPointer {
+            buf in
+            mantra_catalog_get_digest(
+                buf.baseAddress!,
+                UInt32(buf.count),
+                &digestOut
+            )
+        }
+        guard found else { return nil }
+
+        let hexDigest = String(
+            bytes: digestOut, encoding: .utf8
+        ) ?? ""
+        guard !hexDigest.isEmpty else { return nil }
+
+        let blobPath = mantraBlobDir()
+            + "/" + hexDigest
+        return FileManager.default
+            .contents(atPath: blobPath)
     }
 
 }

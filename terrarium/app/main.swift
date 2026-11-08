@@ -443,6 +443,8 @@ class AppDelegate: NSObject,
         scribe_settings_init()
         scribeLoadFromDisk()
 
+        loadMantraCatalog()
+
         setupMenu()
         updateFocusIndicator()
         updateStatusBar()
