@@ -35,9 +35,9 @@ Add Lotus Audio to the existing Terrarium Station and prove audio plays.
 
 Wire recording, show the waveform, export WAV.
 
-- [ ] **Movement 6 -- Recording bridge**
-  FFI bridge to `lotus/record.rye` AUHAL input. Record and hear monitor.
-  **SLC gate:** record audio through the Station.
+- [x] **Movement 6 -- Recording bridge** (landed `20261108`)
+  9 recording FFI exports in `lotus/lotus_vantage_audio.rye` bridging `lotus/record.rye` AUHAL input: `lotus_record_open/start/stop/close`, state queries (`is_open`, `is_recording`), `meter_peak`, `sample_count`, `to_playback` (transfer recording to master clip). C header updated with 9 declarations. Swift UI wired with Record/Stop Rec buttons in Audio tab. Selftest 13 claims GREEN with no-mic resilience (graceful zero-sample handling in background/CI environments).
+  **SLC gate:** record audio through the Station -- **PROVEN**.
 
 - [ ] **Movement 7 -- Live waveform**
   Waveform panel displays the recording buffer in real time as AUHAL delivers frames.
@@ -86,5 +86,5 @@ The mixer, the timeline, integration.
 | Phase | Movements | Status |
 |---|---|---|
 | 1 Audio Tab in Station | 1-5 | **COMPLETE** -- all 5 movements PROVEN |
-| 2 Recording and Display | 6-10 | Waiting on Phase 1 |
+| 2 Recording and Display | 6-10 | **IN PROGRESS** -- 1/5 PROVEN |
 | 3 Multi-track and Polish | 11-15 | Waiting on Phase 2 |

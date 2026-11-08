@@ -820,6 +820,31 @@ extension AppDelegate {
             false
         container.addSubview(waveform)
 
+        let recBtn = NSButton(
+            title: "Record",
+            target: self,
+            action: #selector(
+                audioRecordPressed(_:)
+            )
+        )
+        recBtn
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        recBtn.tag = 902
+        container.addSubview(recBtn)
+
+        let recStopBtn = NSButton(
+            title: "Stop Rec",
+            target: self,
+            action: #selector(
+                audioRecordStopPressed(_:)
+            )
+        )
+        recStopBtn
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(recStopBtn)
+
         NSLayoutConstraint.activate([
             titleLbl.centerXAnchor.constraint(
                 equalTo: container.centerXAnchor
@@ -891,6 +916,22 @@ extension AppDelegate {
             waveform.heightAnchor.constraint(
                 equalToConstant: 120
             ),
+            recBtn.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor,
+                constant: -60
+            ),
+            recBtn.topAnchor.constraint(
+                equalTo: waveform.bottomAnchor,
+                constant: 16
+            ),
+            recStopBtn.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor,
+                constant: 60
+            ),
+            recStopBtn.topAnchor.constraint(
+                equalTo: waveform.bottomAnchor,
+                constant: 16
+            ),
         ])
 
         item.view = container
@@ -951,6 +992,53 @@ extension AppDelegate {
         } else if lotus_audio_is_open() {
             lotus_audio_close()
             updateAudioStatus("Closed")
+        }
+    }
+
+    @objc func audioRecordPressed(
+        _ sender: NSButton
+    ) {
+        if !lotus_record_is_open() {
+            let ok = lotus_record_open(44100)
+            if !ok {
+                updateAudioStatus(
+                    "Record init failed"
+                )
+                return
+            }
+        }
+        if lotus_record_start() {
+            updateAudioStatus("Recording...")
+        } else {
+            updateAudioStatus("Record start failed")
+        }
+    }
+
+    @objc func audioRecordStopPressed(
+        _ sender: NSButton
+    ) {
+        if lotus_record_is_recording() {
+            if lotus_record_stop() {
+                let n = lotus_record_sample_count()
+                let pk = lotus_record_meter_peak()
+                if lotus_record_to_playback() {
+                    updateAudioStatus(
+                        "Recorded \(n) samples"
+                            + " (peak \(pk))"
+                    )
+                } else {
+                    updateAudioStatus(
+                        "Recorded 0 samples"
+                    )
+                }
+            } else {
+                updateAudioStatus(
+                    "Record stop failed"
+                )
+            }
+        } else if lotus_record_is_open() {
+            lotus_record_close()
+            updateAudioStatus("Record closed")
         }
     }
 

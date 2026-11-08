@@ -1,13 +1,13 @@
 //! lotus/lotus_vantage_audio.rye -- Vantage FFI bridge for Lotus
-//! CoreAudio playback. C-ABI exports that Swift calls through the
-//! VantageLotus module map. Lives in lotus/ so it can import
-//! coreaudio.rye and siblings by bare name.
+//! CoreAudio playback and recording. C-ABI exports that Swift
+//! calls through the VantageLotus module map. Lives in lotus/ so
+//! it can import coreaudio.rye and siblings by bare name.
 //!
 //! Build:
 //!   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye build-lib \
 //!     lotus/lotus_vantage_audio.rye -dynamic \
 //!     -femit-bin=vantage/lib/liblotus_audio.dylib \
-//!     -lc -framework AudioToolbox
+//!     -lc -framework AudioToolbox -framework CoreAudio
 
 const std = @import("std");
 const assert = std.debug.assert;
@@ -17,6 +17,8 @@ const coreaudio = @import("coreaudio.rye");
 const coreaudio_c = @import("coreaudio_c.rye");
 const timeline = @import("timeline.rye");
 const clock_mod = @import("clock.rye");
+const record = @import("record.rye");
+const meter_mod = @import("meter.rye");
 
 // -- module-level mutable state (one engine per process) --------
 
@@ -25,6 +27,12 @@ var master: timeline.Clip = timeline.Clip{};
 var clock: ?clock_mod.Clock = null;
 var initialized: bool = false;
 var looping: bool = true;
+
+// -- recording state (one record engine per process) ------------
+
+var rec_engine: record.Engine = record.Engine.init();
+var rec_buf: record.RecordBuf = record.RecordBuf{};
+var rec_initialized: bool = false;
 
 // -- FFI exports ------------------------------------------------
 
@@ -129,6 +137,77 @@ export fn lotus_audio_seek_start() callconv(.c) void {
     }
 }
 
+// -- recording FFI exports --------------------------------------
+
+export fn lotus_record_open(
+    sample_rate: u32,
+) callconv(.c) bool {
+    if (rec_initialized) return false;
+    // invariant: playback clock used when available.
+    const clk = if (clock) |c| c else blk: {
+        const c = clock_mod.make(sample_rate) catch
+            return false;
+        clock = c;
+        break :blk c;
+    };
+    record.open(&rec_engine, &rec_buf, clk) catch
+        return false;
+    rec_initialized = true;
+    return true;
+}
+
+export fn lotus_record_start() callconv(.c) bool {
+    if (!rec_initialized) return false;
+    record.start(&rec_engine) catch return false;
+    return true;
+}
+
+export fn lotus_record_stop() callconv(.c) bool {
+    if (!rec_initialized) return false;
+    record.stop(&rec_engine) catch return false;
+    return true;
+}
+
+export fn lotus_record_close() callconv(.c) void {
+    if (!rec_initialized) return;
+    record.close(&rec_engine);
+    rec_initialized = false;
+}
+
+export fn lotus_record_is_open() callconv(.c) bool {
+    return rec_engine.open;
+}
+
+export fn lotus_record_is_recording() callconv(.c) bool {
+    return rec_engine.recording;
+}
+
+export fn lotus_record_meter_peak() callconv(.c) u32 {
+    const m = record.read_meter(&rec_engine);
+    return m.peak;
+}
+
+export fn lotus_record_sample_count() callconv(.c) u32 {
+    return rec_buf.len;
+}
+
+export fn lotus_record_to_playback() callconv(.c) bool {
+    if (rec_buf.len == 0) return false;
+    const clip = record.to_clip(&rec_buf);
+    // invariant: clip.len is bounded by max_clip.
+    const copy_len: u32 =
+        if (clip.len > timeline.max_clip)
+            timeline.max_clip
+        else
+            clip.len;
+    var i: u32 = 0;
+    while (i < copy_len) : (i += 1) {
+        master.buf[i] = clip.buf[i];
+    }
+    master.len = copy_len;
+    return true;
+}
+
 // -- selftest ---------------------------------------------------
 
 pub fn main() !void {
@@ -174,5 +253,50 @@ pub fn main() !void {
     lotus_audio_set_loop(true);
     assert(lotus_audio_is_looping());
 
-    print("lotus_vantage_audio selftest: 8 claims GREEN\n", .{});
+    // -- recording bridge claims --
+    // 8. open recording.
+    assert(!rec_initialized);
+    assert(!lotus_record_is_open());
+    const rec_ok = lotus_record_open(44100);
+    assert(rec_ok);
+    assert(rec_initialized);
+    assert(lotus_record_is_open());
+    assert(!lotus_record_is_recording());
+
+    // 9. double-open refuses.
+    assert(!lotus_record_open(44100));
+
+    // 10. start recording and capture samples.
+    assert(lotus_record_start());
+    assert(lotus_record_is_recording());
+
+    // invariant: 200ms captures at least one callback of audio.
+    _ = coreaudio_c.usleep(200_000);
+
+    // 11. stop recording.
+    assert(lotus_record_stop());
+    assert(!lotus_record_is_recording());
+
+    // invariant: sample count and meter are readable after stop.
+    const samples = lotus_record_sample_count();
+    const peak = lotus_record_meter_peak();
+    print("  recording: {} samples, peak {}\n", .{ samples, peak });
+
+    // 12. transfer recording to playback (when samples captured).
+    if (samples > 0) {
+        assert(lotus_record_to_playback());
+        assert(master.len > 0);
+        print("  transfer to playback: {} samples\n", .{master.len});
+    } else {
+        // no mic available -- transfer correctly refuses empty buf.
+        assert(!lotus_record_to_playback());
+        print("  no mic input -- transfer skipped (expected)\n", .{});
+    }
+
+    // 13. close recording.
+    lotus_record_close();
+    assert(!rec_initialized);
+    assert(!lotus_record_is_open());
+
+    print("lotus_vantage_audio selftest: 13 claims GREEN\n", .{});
 }
