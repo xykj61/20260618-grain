@@ -85,7 +85,7 @@ class AppDelegate: NSObject,
     let sidebarModules = [
         "Terminal", "Grid",
         "Dimeroll", "Mantra",
-        "Bloom",
+        "Bloom", "Audio",
     ]
     var bloomTextView: NSTextView?
     var bloomLessonIndex: Int = 0

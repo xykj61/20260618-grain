@@ -672,4 +672,88 @@ extension AppDelegate {
         tv.selectTabViewItem(item)
     }
 
+    @objc func focusAudio() {
+        guard let tv = tabView else { return }
+        for i in 0..<tv.numberOfTabViewItems {
+            let item = tv.tabViewItem(at: i)
+            if let ident = item.identifier
+                as? String,
+               ident == "audio"
+            {
+                tv.selectTabViewItem(at: i)
+                return
+            }
+        }
+
+        let item = NSTabViewItem(
+            identifier: "audio"
+        )
+        item.label = "Audio"
+
+        let container = NSView()
+        container.wantsLayer = true
+        container.layer?.backgroundColor =
+            NSColor(
+                red: 0.06, green: 0.04,
+                blue: 0.02, alpha: 1.0
+            ).cgColor
+
+        let titleLbl = NSTextField(
+            labelWithString: "Lotus Audio"
+        )
+        titleLbl.font = NSFont.systemFont(
+            ofSize: 18, weight: .medium
+        )
+        titleLbl.textColor = NSColor(
+            red: 0.9, green: 0.75,
+            blue: 0.5, alpha: 1.0
+        )
+        titleLbl.alignment = .center
+        titleLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(titleLbl)
+
+        let statusLbl = NSTextField(
+            labelWithString:
+                "Audio engine ready"
+                + " -- Vantage FFI bridge"
+                + " arrives next movement"
+        )
+        statusLbl.font =
+            NSFont.monospacedSystemFont(
+                ofSize: 13, weight: .regular
+            )
+        statusLbl.textColor = NSColor(
+            red: 0.7, green: 0.6,
+            blue: 0.45, alpha: 1.0
+        )
+        statusLbl.alignment = .center
+        statusLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(statusLbl)
+
+        NSLayoutConstraint.activate([
+            titleLbl.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor
+            ),
+            titleLbl.centerYAnchor.constraint(
+                equalTo: container.centerYAnchor,
+                constant: -20
+            ),
+            statusLbl.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor
+            ),
+            statusLbl.topAnchor.constraint(
+                equalTo: titleLbl.bottomAnchor,
+                constant: 12
+            ),
+        ])
+
+        item.view = container
+        tv.addTabViewItem(item)
+        tv.selectTabViewItem(item)
+    }
+
 }

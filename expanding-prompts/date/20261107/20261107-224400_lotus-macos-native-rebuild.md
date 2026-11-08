@@ -1,15 +1,15 @@
-# Lotus macOS Native Rebuild -- Terrarium-informed architecture
+# Lotus macOS Native Rebuild -- composed inside Terrarium Station
 
-**Stamp:** `20261107.224400` - **Status:** Proposed - **Room:** checkable
+**Stamp:** `20261107.224400` - **Status:** Proposed, revised `20261107` - **Room:** checkable
 **Voice:** Kyri - **Style:** Gauge at Field
-**Grows from:** 240 Lotus Rye DSP modules, Terrarium extraction architecture (10 Swift modules from one 3,530-line monolith), `lotus/lotus_window.rye` visual surface proof, `lotus/coreaudio.rye` CoreAudio engine, `tools/rye/objc_seam.rye` Objective-C boundary
+**Grows from:** 240 Lotus Rye DSP modules, Terrarium Station (10 Swift modules, Vantage FFI pattern), `lotus/coreaudio.rye` CoreAudio engine, `lotus/record.rye` AUHAL capture
 **Prepended to Calfive stack on Keaton's word `20261107`.**
 
 ---
 
 ## What this is
 
-A native macOS application for Lotus -- Grain's creative suite -- built in Swift and AppKit from the start in the modular architecture Terrarium arrived at after eight extraction passes. Where Terrarium extracted ten modules from a 3,530-line monolith over ten movements, Lotus begins with those ten modules as the template and builds modular from day one.
+Lotus Audio composed inside Terrarium's Station as a Vantage module -- one AppDelegate, one build command, one tab system. Rather than building a standalone `lotus/app/`, Audio joins Terminal, Grid, Dimeroll, Mantra, and Bloom in the existing sidebar. The 240 Rye DSP modules stay as the audio backbone; a Vantage FFI bridge (`vantage/lotus_audio.rye` -> `vantage/include/vantage_lotus.h`) exposes them to Swift, following the same pattern Bloom and Dimeroll already use.
 
 ## What already stands
 
@@ -17,78 +17,74 @@ A native macOS application for Lotus -- Grain's creative suite -- built in Swift
 |---|---|---|
 | `lotus/coreaudio.rye` | 313 | CoreAudio engine: open/start/callback/stop/close, i16 -> Float32, real-time thread safe |
 | `lotus/record.rye` | 499 | AUHAL input capture, Float32-to-i16, RecordBuf, live metering, monitor playback |
-| `lotus/lotus_window.rye` | 579 | NSApplication + NSWindow + pixel-buffer waveform + recording + playback via objc_seam |
 | `lotus/transport.rye` | 205 | Play head: read the master forward, bounded block reads |
 | `lotus/timeline.rye` | 285 | Clip model -- the unit the timeline arranges |
 | `lotus/clock.rye` | 257 | Sample rate, timing, frame arithmetic |
-| `tools/rye/objc_seam.rye` | 194 | Verified Objective-C message boundary for AppKit |
 | 240 DSP modules | ~30,000 | The full audio processing ladder -- wire through catalog_verify |
+| `terrarium/app/` | 3,600 | The Station -- 10 Swift modules with sidebar, tabs, Vantage FFI |
+| `vantage/bloom.rye` | -- | Bloom Vantage bridge -- the pattern to follow |
+| `vantage/dimeroll.rye` | -- | Dimeroll Vantage bridge -- the pattern to follow |
 
-## What the rebuild gives us
+## Why composition inside Station
 
-`lotus_window.rye` proves the audio chain works through a macOS window. The rebuild replaces that single 579-line Rye module with a proper Swift application that:
+Single-stranded sameness: one native write-once implementation carries the compass rota and panchanga planning as one app. The Station already handles the window, sidebar, tab lifecycle, menu system, and build pipeline. Lotus adds a tab, not an app.
 
-1. **Starts modular** -- each concern in its own Swift file from movement one, rather than extracting later
-2. **Uses FFI to Rye** -- the same C-ABI bridge Terrarium uses for DimerollEngine and Bloom, calling into the proven Rye DSP modules
-3. **Follows TAME guidance** -- bounded allocations, named errors, safety first
-4. **Opens the door to Quest 1.2** -- multi-track mixer, timeline editing, FX chains all land in their own modules
+The tradeoff is named: CoreAudio's real-time audio thread shares a process with QEMU's CPU loop. They run on separate threads by construction, and CoreAudio's callback is a hardware interrupt that macOS delivers regardless of other thread activity.
 
-## The Terrarium pattern, applied to Lotus
+## The Vantage FFI pattern
 
-| Terrarium module | Lines | Lotus parallel | Purpose |
-|---|---|---|---|
-| `main.swift` | 504 | `main.swift` | AppDelegate, window, app lifecycle |
-| `FrameGridView.swift` | 401 | `WaveformView.swift` | Visual rendering surface -- waveform display |
-| `DimerollEngine.swift` | 730 | `AudioEngine.swift` | FFI bridge to Rye DSP -- CoreAudio + recording |
-| `TabSetup.swift` | 675 | `MixerPanel.swift` | Channel strips, faders, pan, solo/mute |
-| `QemuLauncher.swift` | 268 | `SessionManager.swift` | Session lifecycle -- open, save, close |
-| `WireProtocol.swift` | 269 | `TransportControls.swift` | Play/stop/record, timeline position |
-| `QemuUtilities.swift` | 176 | `AudioUtilities.swift` | Sample format conversion, buffer helpers |
-| `TableViewDelegate.swift` | 264 | `TrackListDelegate.swift` | Track list table view delegate |
-| `MenuActions.swift` | 195 | `MenuActions.swift` | Application menu items |
-| `StatusAndHelpers.swift` | 118 | `StatusAndHelpers.swift` | Status bar, utility helpers |
+Each Vantage module follows three steps, already proven by Bloom and Dimeroll:
+
+1. **Rye module** (`vantage/lotus_audio.rye`) -- exports C-ABI functions
+2. **C header** (`vantage/include/vantage_lotus.h`) -- declares those symbols
+3. **Module map entry** in `vantage/include/module.modulemap` -- Swift imports as `import VantageLotus`
+
+Swift files in `terrarium/app/` call the FFI bridge. The build command already compiles `terrarium/app/*.swift` with `-I vantage/include -L vantage/lib`.
 
 ## 15 movements
 
-**Phase 1 -- The scaffold (movements 1-5).** Build the app shell and prove audio plays.
+**Phase 1 -- Audio tab in Station (movements 1-5).** Add Lotus Audio to the existing app and prove audio plays.
 
-1. **Survey and architecture** -- this document. Name every module, its Terrarium parallel, and what it bridges.
-2. **main.swift scaffold** -- AppDelegate, NSWindow, NSApplication lifecycle. Build GREEN with `swiftc`.
-3. **AudioEngine.swift** -- FFI bridge to `lotus/coreaudio.rye` via C-ABI. Playback of a hardcoded buffer through CoreAudio.
-4. **WaveformView.swift** -- Pixel-buffer waveform rendering in an NSView. Draw a sine wave to prove the surface.
-5. **TransportControls.swift** -- Play/stop/record buttons wired to AudioEngine. Transport state machine.
+1. **Survey and architecture** -- this document. Map the composition approach: Lotus as a Vantage module inside Station.
+2. **Audio tab scaffold** -- add `"Audio"` to sidebar, `focusAudio()` in TabSetup.swift, build GREEN with existing `swiftc` command.
+3. **Vantage audio FFI bridge** -- `vantage/lotus_audio.rye` with C-ABI exports for CoreAudio playback. Header and module map. Build `liblotus_audio.dylib`.
+4. **Waveform panel** -- pixel-buffer waveform rendering in the Audio tab. Draw a sine wave to prove the surface.
+5. **Transport controls** -- play/stop/record buttons wired to the audio FFI bridge. Transport state machine in the tab.
 
 **Phase 2 -- Recording and display (movements 6-10).** Wire recording, show the waveform, export.
 
-6. **RecordingBridge** in AudioEngine -- FFI bridge to `lotus/record.rye` AUHAL input. Record and hear monitor.
-7. **Live waveform** -- WaveformView displays the recording buffer in real time as AUHAL delivers frames.
-8. **AudioUtilities.swift** -- Sample format helpers, buffer management, WAV export bridge.
-9. **MenuActions.swift** -- File menu (new session, open, save, export WAV), Edit menu, Window menu.
-10. **StatusAndHelpers.swift** -- Status bar (sample rate, recording time, peak meter), utility helpers.
+6. **Recording bridge** in the Vantage module -- FFI bridge to `lotus/record.rye` AUHAL input. Record and hear monitor.
+7. **Live waveform** -- waveform panel displays the recording buffer in real time as AUHAL delivers frames.
+8. **Audio utilities** -- sample format helpers, buffer management, WAV export through the FFI bridge.
+9. **Audio menu items** -- audio-specific menu actions wired into the existing MenuActions.swift.
+10. **Audio status panel** -- sample rate, recording time, peak meter in the Audio tab's status area.
 
 **Phase 3 -- Multi-track and polish (movements 11-15).** The mixer, the timeline, integration.
 
-11. **TrackListDelegate.swift** -- NSTableView for the track list. Add, remove, reorder tracks.
-12. **MixerPanel.swift** -- Channel strip per track: gain fader, pan knob, solo/mute. Stereo mix bus.
-13. **SessionManager.swift** -- Session save/load, multi-track WAV export of the stereo mix.
-14. **TimelineView.swift** -- Horizontal timeline with clips, playback cursor, region selection.
-15. **Integration and witness** -- Full session workflow end to end. Standing equipment GREEN with Lotus witnesses.
+11. **Track list** -- NSTableView inside the Audio tab for multiple tracks. Add, remove, reorder.
+12. **Mixer panel** -- channel strip per track: gain fader, pan knob, solo/mute. Stereo mix bus.
+13. **Session persistence** -- session save/load for multi-track state, stereo mix export.
+14. **Timeline view** -- horizontal timeline with clips, playback cursor, region selection.
+15. **Integration and witness** -- full session workflow end to end. Standing equipment GREEN with Lotus audio witnesses.
 
 ## Build command
 
-Following Terrarium's pattern -- all Swift files compiled together:
+The existing Station build, extended with the Lotus Vantage library when the FFI bridge lands:
 
 ```
-swiftc -o lotus/app/LotusApp lotus/app/*.swift \
-  -framework Cocoa -framework CoreGraphics \
-  -framework AudioToolbox -framework CoreAudio \
-  -import-objc-header lotus/app/bridge.h
+rye/bin/rye build-lib vantage/lotus_audio.rye -dynamic \
+  -femit-bin=vantage/lib/liblotus_audio.dylib
+swiftc -I terrarium/.build -I vantage/include \
+  -L terrarium/.build -L vantage/lib \
+  -lSkateCore -lbloom -ldimeroll -llotus_audio \
+  -o terrarium/.build/Terrarium terrarium/app/*.swift \
+  -framework AppKit
 ```
 
-The `bridge.h` header exposes the C-ABI symbols from the Rye modules that `AudioEngine.swift` calls through FFI.
+Until the FFI bridge lands (movement 3), the existing build command works unchanged -- the Audio tab is a pure Swift placeholder.
 
 ## What this does not reach
 
-- **The FX chain architecture** (Quest 2.1 orbits 8-10) -- that grows from the multi-track mixer this journey builds.
-- **Skate/Brushstroke integration** -- the Swift app uses AppKit directly; Skate integration is a later concern.
-- **The 240 DSP modules** -- they stay in Rye. The Swift app bridges to them through FFI rather than reimplementing them.
+- **The FX chain architecture** -- that grows from the multi-track mixer this journey builds.
+- **Standalone Lotus app** -- retired in favor of composition inside Station. The 240 DSP modules stay in Rye and are bridged through Vantage FFI.
+- **WASM audio** -- Web Audio API integration for grain-emu.wasm is a separate concern from macOS CoreAudio.

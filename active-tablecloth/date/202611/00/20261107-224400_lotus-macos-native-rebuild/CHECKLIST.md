@@ -1,83 +1,83 @@
-# Lotus macOS Native Rebuild -- Terrarium-Informed Architecture
+# Lotus macOS Native Rebuild -- Composed Inside Terrarium Station
 
 **Stamp:** `20261107.224400`
-**Grows from:** 240 Lotus Rye DSP modules, Terrarium extraction architecture, `lotus/lotus_window.rye` visual surface proof
+**Grows from:** 240 Lotus Rye DSP modules, Terrarium Station (10 Swift modules, Vantage FFI pattern)
 **Expanding prompt:** [`../../../../expanding-prompts/date/20261107/20261107-224400_lotus-macos-native-rebuild.md`](../../../../expanding-prompts/date/20261107/20261107-224400_lotus-macos-native-rebuild.md)
-**Prepended to Calfive stack on Keaton's word `20261107`.**
+**Prepended to Calfive stack on Keaton's word `20261107`. Revised to composition approach `20261107`.**
 
 ---
 
-## Phase 1 -- The Scaffold (Movements 1-5)
+## Phase 1 -- Audio Tab in Station (Movements 1-5)
 
-Build the app shell and prove audio plays through Swift/AppKit + Rye FFI.
+Add Lotus Audio to the existing Terrarium Station and prove audio plays.
 
 - [x] **Movement 1 -- Survey and architecture** (landed `20261107`)
-  Surveyed lotus/ (242 Rye files, zero Swift), read key modules (coreaudio.rye 313, record.rye 499, lotus_window.rye 579, objc_seam.rye 194, transport.rye 205, timeline.rye 285, clock.rye 257 -- 2,332 lines across 7 files). Mapped Terrarium extraction pattern (10 Swift modules from 3,530-line monolith) as the architecture template.
-  **SLC gate:** expanding prompt names every module, its Terrarium parallel, and what it bridges -- **PROVEN**.
+  Surveyed lotus/ (242 Rye files, zero Swift), read key modules (coreaudio.rye 313, record.rye 499, transport.rye 205, timeline.rye 285, clock.rye 257 -- 2,332 lines across 7 files). Mapped Terrarium extraction pattern. Revised to composition inside Station on Keaton's word.
+  **SLC gate:** expanding prompt names every module and its FFI bridge -- **PROVEN**.
 
-- [ ] **Movement 2 -- main.swift scaffold**
-  AppDelegate, NSWindow, NSApplication lifecycle. Build GREEN with `swiftc`.
-  **SLC gate:** window opens, app responds to quit.
+- [x] **Movement 2 -- Audio tab scaffold** (landed `20261107`)
+  Added `"Audio"` to `sidebarModules` in main.swift, `focusAudio()` in TabSetup.swift (warm amber theme), `case "Audio"` dispatch in TableViewDelegate.swift. Build GREEN with existing `swiftc` command.
+  **SLC gate:** Audio tab appears in sidebar, selects to a placeholder panel, build GREEN -- **PROVEN**.
 
-- [ ] **Movement 3 -- AudioEngine.swift**
-  FFI bridge to `lotus/coreaudio.rye` via C-ABI. Playback of a hardcoded buffer through CoreAudio.
-  **SLC gate:** audio plays through the Swift app.
+- [ ] **Movement 3 -- Vantage audio FFI bridge**
+  `vantage/lotus_audio.rye` with C-ABI exports for CoreAudio playback. Header and module map. Build `liblotus_audio.dylib`.
+  **SLC gate:** audio plays through the Station via FFI bridge.
 
-- [ ] **Movement 4 -- WaveformView.swift**
-  Pixel-buffer waveform rendering in an NSView. Draw a sine wave to prove the surface.
-  **SLC gate:** waveform draws in the window.
+- [ ] **Movement 4 -- Waveform panel**
+  Pixel-buffer waveform rendering in the Audio tab. Draw a sine wave to prove the surface.
+  **SLC gate:** waveform draws in the Audio tab.
 
-- [ ] **Movement 5 -- TransportControls.swift**
-  Play/stop/record buttons wired to AudioEngine. Transport state machine.
+- [ ] **Movement 5 -- Transport controls**
+  Play/stop/record buttons wired to the audio FFI bridge. Transport state machine in the tab.
   **SLC gate:** buttons control playback.
 
 ## Phase 2 -- Recording and Display (Movements 6-10)
 
 Wire recording, show the waveform, export WAV.
 
-- [ ] **Movement 6 -- RecordingBridge in AudioEngine**
+- [ ] **Movement 6 -- Recording bridge**
   FFI bridge to `lotus/record.rye` AUHAL input. Record and hear monitor.
-  **SLC gate:** record audio through the Swift app.
+  **SLC gate:** record audio through the Station.
 
 - [ ] **Movement 7 -- Live waveform**
-  WaveformView displays the recording buffer in real time as AUHAL delivers frames.
+  Waveform panel displays the recording buffer in real time as AUHAL delivers frames.
   **SLC gate:** waveform scrolls during recording.
 
-- [ ] **Movement 8 -- AudioUtilities.swift**
-  Sample format helpers, buffer management, WAV export bridge.
+- [ ] **Movement 8 -- Audio utilities**
+  Sample format helpers, buffer management, WAV export through the FFI bridge.
   **SLC gate:** export a recorded take as WAV.
 
-- [ ] **Movement 9 -- MenuActions.swift**
-  File menu (new session, open, save, export WAV), Edit menu, Window menu.
+- [ ] **Movement 9 -- Audio menu items**
+  Audio-specific menu actions wired into the existing MenuActions.swift.
   **SLC gate:** menu items work end to end.
 
-- [ ] **Movement 10 -- StatusAndHelpers.swift**
-  Status bar (sample rate, recording time, peak meter), utility helpers.
+- [ ] **Movement 10 -- Audio status panel**
+  Sample rate, recording time, peak meter in the Audio tab's status area.
   **SLC gate:** status bar shows live recording stats.
 
 ## Phase 3 -- Multi-track and Polish (Movements 11-15)
 
 The mixer, the timeline, integration.
 
-- [ ] **Movement 11 -- TrackListDelegate.swift**
-  NSTableView for the track list. Add, remove, reorder tracks.
+- [ ] **Movement 11 -- Track list**
+  NSTableView inside the Audio tab for multiple tracks. Add, remove, reorder.
   **SLC gate:** multiple tracks visible and selectable.
 
-- [ ] **Movement 12 -- MixerPanel.swift**
+- [ ] **Movement 12 -- Mixer panel**
   Channel strip per track: gain fader, pan knob, solo/mute. Stereo mix bus.
   **SLC gate:** adjust a fader and hear the mix change in real time.
 
-- [ ] **Movement 13 -- SessionManager.swift**
-  Session save/load, multi-track WAV export of the stereo mix.
+- [ ] **Movement 13 -- Session persistence**
+  Session save/load for multi-track state, stereo mix export.
   **SLC gate:** save a session, reopen it, export stereo mix.
 
-- [ ] **Movement 14 -- TimelineView.swift**
+- [ ] **Movement 14 -- Timeline view**
   Horizontal timeline with clips, playback cursor, region selection.
   **SLC gate:** timeline shows clips, cursor follows playback.
 
 - [ ] **Movement 15 -- Integration and witness**
-  Full session workflow end to end. Standing equipment GREEN with Lotus witnesses.
-  **SLC gate:** record, mix, export a finished stereo WAV through the Swift app.
+  Full session workflow end to end. Standing equipment GREEN with Lotus audio witnesses.
+  **SLC gate:** record, mix, export a finished stereo WAV through the Station.
 
 ---
 
@@ -85,6 +85,6 @@ The mixer, the timeline, integration.
 
 | Phase | Movements | Status |
 |---|---|---|
-| 1 Scaffold | 1-5 | **Active** -- survey landed |
+| 1 Audio Tab in Station | 1-5 | **Active** -- survey landed |
 | 2 Recording and Display | 6-10 | Waiting on Phase 1 |
 | 3 Multi-track and Polish | 11-15 | Waiting on Phase 2 |
