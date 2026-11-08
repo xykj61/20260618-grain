@@ -51,9 +51,9 @@ Wire recording, show the waveform, export WAV.
   Added Audio submenu to the menu bar with six items: Play Test Tone (Cmd+Shift+P), Stop Playback (Cmd+Shift+.), Start Recording (Cmd+Shift+R), Stop Recording (Cmd+Shift+Opt+R), Export WAV (Cmd+Shift+E). Added Focus items for Dimeroll (Cmd+3), Mantra (Cmd+4), Bloom (Cmd+5), and Audio (Cmd+6) to the View menu. Audio tab protected from Cmd+W close. Each menu action delegates to the existing button handlers. Terrarium build GREEN.
   **SLC gate:** menu items work end to end -- **PROVEN**.
 
-- [ ] **Movement 10 -- Audio status panel**
-  Sample rate, recording time, peak meter in the Audio tab's status area.
-  **SLC gate:** status bar shows live recording stats.
+- [x] **Movement 10 -- Audio status panel** (landed `20261108`)
+  Added a rounded dark status panel below the Export WAV button with three monospace labels: sample rate (Hz), recording time (M:SS.ss), and peak meter (raw + dB). Panel updates live at 20Hz during recording via `updateAudioStatusPanel()`. Shows sample rate on playback start, final stats on recording stop. Tags 910-912 for panel label lookup. Terrarium build GREEN.
+  **SLC gate:** status bar shows live recording stats -- **PROVEN**.
 
 ## Phase 3 -- Multi-track and Polish (Movements 11-15)
 
@@ -86,5 +86,5 @@ The mixer, the timeline, integration.
 | Phase | Movements | Status |
 |---|---|---|
 | 1 Audio Tab in Station | 1-5 | **COMPLETE** -- all 5 movements PROVEN |
-| 2 Recording and Display | 6-10 | **IN PROGRESS** -- 4/5 PROVEN |
+| 2 Recording and Display | 6-10 | **COMPLETE** -- all 5 movements PROVEN |
 | 3 Multi-track and Polish | 11-15 | Waiting on Phase 2 |

@@ -858,6 +858,112 @@ extension AppDelegate {
             false
         container.addSubview(exportBtn)
 
+        let panelBox = NSView()
+        panelBox.wantsLayer = true
+        panelBox.layer?.backgroundColor =
+            NSColor(
+                red: 0.09, green: 0.07,
+                blue: 0.04, alpha: 1.0
+            ).cgColor
+        panelBox.layer?.cornerRadius = 6
+        panelBox
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(panelBox)
+
+        let rateLbl = NSTextField(
+            labelWithString: "Sample Rate: --"
+        )
+        rateLbl.font =
+            NSFont.monospacedSystemFont(
+                ofSize: 12, weight: .regular
+            )
+        rateLbl.textColor = NSColor(
+            red: 0.7, green: 0.6,
+            blue: 0.45, alpha: 1.0
+        )
+        rateLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        rateLbl.tag = 910
+        panelBox.addSubview(rateLbl)
+
+        let timeLbl = NSTextField(
+            labelWithString: "Rec Time: --"
+        )
+        timeLbl.font =
+            NSFont.monospacedSystemFont(
+                ofSize: 12, weight: .regular
+            )
+        timeLbl.textColor = NSColor(
+            red: 0.7, green: 0.6,
+            blue: 0.45, alpha: 1.0
+        )
+        timeLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        timeLbl.tag = 911
+        panelBox.addSubview(timeLbl)
+
+        let peakLbl = NSTextField(
+            labelWithString: "Peak: --"
+        )
+        peakLbl.font =
+            NSFont.monospacedSystemFont(
+                ofSize: 12, weight: .regular
+            )
+        peakLbl.textColor = NSColor(
+            red: 0.7, green: 0.6,
+            blue: 0.45, alpha: 1.0
+        )
+        peakLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        peakLbl.tag = 912
+        panelBox.addSubview(peakLbl)
+
+        NSLayoutConstraint.activate([
+            panelBox.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 24
+            ),
+            panelBox.trailingAnchor.constraint(
+                equalTo: container.trailingAnchor,
+                constant: -24
+            ),
+            panelBox.topAnchor.constraint(
+                equalTo: exportBtn.bottomAnchor,
+                constant: 16
+            ),
+            panelBox.heightAnchor.constraint(
+                equalToConstant: 76
+            ),
+            rateLbl.leadingAnchor.constraint(
+                equalTo: panelBox.leadingAnchor,
+                constant: 12
+            ),
+            rateLbl.topAnchor.constraint(
+                equalTo: panelBox.topAnchor,
+                constant: 10
+            ),
+            timeLbl.leadingAnchor.constraint(
+                equalTo: panelBox.leadingAnchor,
+                constant: 12
+            ),
+            timeLbl.topAnchor.constraint(
+                equalTo: rateLbl.bottomAnchor,
+                constant: 4
+            ),
+            peakLbl.leadingAnchor.constraint(
+                equalTo: panelBox.leadingAnchor,
+                constant: 12
+            ),
+            peakLbl.topAnchor.constraint(
+                equalTo: timeLbl.bottomAnchor,
+                constant: 4
+            ),
+        ])
+
         NSLayoutConstraint.activate([
             titleLbl.centerXAnchor.constraint(
                 equalTo: container.centerXAnchor
@@ -979,6 +1085,11 @@ extension AppDelegate {
             updateAudioStatus(
                 "Playing -- D2 144.16 Hz\(loopTxt)"
             )
+            let rate = lotus_audio_sample_rate()
+            setStatusPanelField(
+                tag: 910,
+                text: "Sample Rate: \(rate) Hz"
+            )
         } else {
             updateAudioStatus("Start failed")
         }
@@ -1047,6 +1158,9 @@ extension AppDelegate {
                     updateAudioStatus(
                         "Recorded \(n) samples"
                             + " (peak \(pk))"
+                    )
+                    updateAudioStatusPanel(
+                        samples: n, peak: pk
                     )
                 } else {
                     updateAudioStatus(
@@ -1154,6 +1268,85 @@ extension AppDelegate {
             "Recording... \(n) samples"
                 + " (peak \(pk))"
         )
+        updateAudioStatusPanel(
+            samples: n, peak: pk
+        )
+    }
+
+    private func updateAudioStatusPanel(
+        samples: UInt32, peak: UInt32
+    ) {
+        let rate = lotus_audio_sample_rate()
+        let rateTxt: String
+        if rate > 0 {
+            rateTxt = "Sample Rate: \(rate) Hz"
+        } else {
+            rateTxt = "Sample Rate: --"
+        }
+        let timeTxt: String
+        if rate > 0 && samples > 0 {
+            let secs = Double(samples)
+                / Double(rate)
+            let mins = Int(secs) / 60
+            let remSecs = secs
+                - Double(mins * 60)
+            timeTxt = String(
+                format: "Rec Time: %d:%05.2f",
+                mins, remSecs
+            )
+        } else {
+            timeTxt = "Rec Time: --"
+        }
+        let peakDb: String
+        if peak > 0 {
+            let norm = Double(peak) / 32768.0
+            let db = 20.0 * log10(norm)
+            peakDb = String(
+                format: "Peak: %d (%.1f dB)",
+                peak, db
+            )
+        } else {
+            peakDb = "Peak: --"
+        }
+        setStatusPanelField(
+            tag: 910, text: rateTxt
+        )
+        setStatusPanelField(
+            tag: 911, text: timeTxt
+        )
+        setStatusPanelField(
+            tag: 912, text: peakDb
+        )
+    }
+
+    private func setStatusPanelField(
+        tag: Int, text: String
+    ) {
+        guard let tv = tabView else { return }
+        for i in 0..<tv.numberOfTabViewItems {
+            let item = tv.tabViewItem(at: i)
+            if let ident = item.identifier
+                as? String,
+               ident == "audio",
+               let v = item.view
+            {
+                if let lbl = v.viewWithTag(tag)
+                    as? NSTextField
+                {
+                    lbl.stringValue = text
+                    return
+                }
+                for sub in v.subviews {
+                    if let lbl = sub
+                        .viewWithTag(tag)
+                        as? NSTextField
+                    {
+                        lbl.stringValue = text
+                        return
+                    }
+                }
+            }
+        }
     }
 
     private func updateAudioStatus(
