@@ -56,6 +56,25 @@ uint32_t surf_feed_get_content(
     uint32_t buf_len
 );
 
+int32_t surf_feed_get_event(
+    uint32_t index,
+    uint8_t *pubkey_out,
+    uint32_t *kind_out,
+    uint64_t *created_at_out,
+    uint8_t *sig_out,
+    uint8_t *id_out
+);
+
+uint32_t surf_feed_serialize(
+    uint8_t *buf,
+    uint32_t buf_len
+);
+
+int32_t surf_feed_deserialize(
+    const uint8_t *buf,
+    uint32_t buf_len
+);
+
 int32_t surf_selftest(void);
 
 #endif

@@ -2757,24 +2757,10 @@ extension AppDelegate {
         surf_init()
 
         if surfPubkeyHex.isEmpty {
-            var seed = [UInt8](repeating: 0, count: 32)
-            arc4random_buf(&seed, 32)
-            var pubkey = [UInt8](
-                repeating: 0, count: 32
-            )
-            var secret = [UInt8](
-                repeating: 0, count: 64
-            )
-            let rc = surf_keypair_from_seed(
-                seed, &pubkey, &secret
-            )
-            if rc == 0 {
-                surfSecretBytes = secret
-                surfPubkeyHex = pubkey.map {
-                    String(format: "%02x", $0)
-                }.joined()
-            }
+            surfLoadIdentity()
         }
+
+        surfLoadFeed()
 
         let item = NSTabViewItem(
             identifier: "social"
@@ -3028,8 +3014,86 @@ extension AppDelegate {
         )
         guard addRc == 0 else { return }
 
+        surfSaveFeed()
+
         sender.stringValue = ""
         surfReloadTimeline()
+    }
+
+    func surfLoadIdentity() {
+        if let seedData = readMantraBlob(
+            path: "surf/identity/seed"
+        ), seedData.count == 32 {
+            let seed = [UInt8](seedData)
+            var pubkey = [UInt8](
+                repeating: 0, count: 32
+            )
+            var secret = [UInt8](
+                repeating: 0, count: 64
+            )
+            let rc = surf_keypair_from_seed(
+                seed, &pubkey, &secret
+            )
+            if rc == 0 {
+                surfSecretBytes = secret
+                surfPubkeyHex = pubkey.map {
+                    String(format: "%02x", $0)
+                }.joined()
+                return
+            }
+        }
+        var seed = [UInt8](
+            repeating: 0, count: 32
+        )
+        arc4random_buf(&seed, 32)
+        var pubkey = [UInt8](
+            repeating: 0, count: 32
+        )
+        var secret = [UInt8](
+            repeating: 0, count: 64
+        )
+        let rc = surf_keypair_from_seed(
+            seed, &pubkey, &secret
+        )
+        if rc == 0 {
+            surfSecretBytes = secret
+            surfPubkeyHex = pubkey.map {
+                String(format: "%02x", $0)
+            }.joined()
+            let seedData = Data(seed)
+            let _ = writeMantraBlob(
+                data: seedData,
+                path: "surf/identity/seed"
+            )
+        }
+    }
+
+    func surfSaveFeed() {
+        let bufSize: UInt32 = 262144
+        var buf = [UInt8](
+            repeating: 0, count: Int(bufSize)
+        )
+        let written = surf_feed_serialize(
+            &buf, bufSize
+        )
+        guard written > 0 else { return }
+        let data = Data(buf[0..<Int(written)])
+        let _ = writeMantraBlob(
+            data: data, path: "surf/feed"
+        )
+    }
+
+    func surfLoadFeed() {
+        guard let data = readMantraBlob(
+            path: "surf/feed"
+        ), data.count >= 4 else { return }
+        let bytes = [UInt8](data)
+        let rc = surf_feed_deserialize(
+            bytes, UInt32(bytes.count)
+        )
+        if rc != 0 {
+            NSLog("surf: feed deserialize failed")
+        }
     }
 
     func surfPubkeyBytes() -> [UInt8] {

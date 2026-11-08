@@ -2,6 +2,7 @@
 
 | Stamp | Title | Summary |
 |---|---|---|
+| 20261108.173707 | [Surf post persistence via Mantra blobs](20261108/20261108-173707_surf-post-persistence-mantra.kyri.md) | Identity and feed persisted as Mantra blobs -- 10 proves GREEN, fascia 60.153 |
 | 20261108.171940 | [Surf tab scaffold in Terrarium](20261108/20261108-171940_surf-tab-scaffold-terrarium.kyri.md) | Social sidebar, compose, timeline -- fascia 60.152 |
 | 20261108.170653 | [Surf Vantage bridge GREEN](20261108/20261108-170653_surf-vantage-bridge-green.kyri.md) | Ed25519 keypair, sign, verify, feed -- 8 proves GREEN, fascia 60.151 |
 | 20261108.164530 | [Mantra filesystem witness GREEN](20261108/20261108-164530_mantra-filesystem-witness-green.kyri.md) | Integration witness 13 proves GREEN, Mantra Filesystem SLC complete (5/5), fascia 60.150 |

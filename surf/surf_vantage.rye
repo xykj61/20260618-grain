@@ -229,6 +229,148 @@ export fn surf_feed_get_content(
     return clen;
 }
 
+// --- C exports: get event fields --------------------------------------------
+
+// invariant: copies pubkey, kind, created_at, sig, id for event at index.
+export fn surf_feed_get_event(
+    index: u32,
+    pubkey_out: [*]u8,
+    kind_out: *u32,
+    created_at_out: *u64,
+    sig_out: [*]u8,
+    id_out: [*]u8,
+) callconv(.c) i32 {
+    if (index >= feed_count) return -1;
+    if (!feed[index].used) return -1;
+    const e = &feed[index];
+    @memcpy(pubkey_out[0..pubkey_len], &e.pubkey);
+    kind_out.* = e.kind;
+    created_at_out.* = e.created_at;
+    @memcpy(sig_out[0..sig_len], &e.signature);
+    @memcpy(id_out[0..hex_len], &e.id);
+    return 0;
+}
+
+// --- C exports: feed serialization ------------------------------------------
+
+// format: u32 count, then per event:
+//   pubkey(32) kind(4,be) created_at(8,be) content_len(4,be)
+//   content(content_len) sig(64) id(64)
+const event_fixed: u32 = pubkey_len + 4 + 8 + 4 + sig_len + hex_len;
+
+// invariant: serializes feed to buf. returns bytes written or 0 on overflow.
+export fn surf_feed_serialize(
+    buf_ptr: [*]u8,
+    buf_len: u32,
+) callconv(.c) u32 {
+    if (buf_len < 4) return 0;
+    const count_be = std.mem.toBytes(
+        std.mem.nativeTo(u32, feed_count, .big),
+    );
+    @memcpy(buf_ptr[0..4], &count_be);
+    var pos: u32 = 4;
+
+    var i: u32 = 0;
+    while (i < feed_count) : (i += 1) {
+        if (!feed[i].used) continue;
+        const e = &feed[i];
+        const needed = event_fixed + e.content_len;
+        if (pos + needed > buf_len) return 0;
+
+        @memcpy(buf_ptr[pos .. pos + pubkey_len], &e.pubkey);
+        pos += pubkey_len;
+        const k_be = std.mem.toBytes(
+            std.mem.nativeTo(u32, e.kind, .big),
+        );
+        @memcpy(buf_ptr[pos .. pos + 4], &k_be);
+        pos += 4;
+        const ts_be = std.mem.toBytes(
+            std.mem.nativeTo(u64, e.created_at, .big),
+        );
+        @memcpy(buf_ptr[pos .. pos + 8], &ts_be);
+        pos += 8;
+        const cl_be = std.mem.toBytes(
+            std.mem.nativeTo(u32, e.content_len, .big),
+        );
+        @memcpy(buf_ptr[pos .. pos + 4], &cl_be);
+        pos += 4;
+        @memcpy(
+            buf_ptr[pos .. pos + e.content_len],
+            e.content[0..e.content_len],
+        );
+        pos += e.content_len;
+        @memcpy(buf_ptr[pos .. pos + sig_len], &e.signature);
+        pos += sig_len;
+        @memcpy(buf_ptr[pos .. pos + hex_len], &e.id);
+        pos += hex_len;
+    }
+    return pos;
+}
+
+// invariant: deserializes feed from buf. returns 0 ok, -1 on parse error.
+export fn surf_feed_deserialize(
+    buf_ptr: [*]const u8,
+    buf_len: u32,
+) callconv(.c) i32 {
+    if (buf_len < 4) return -1;
+    const count_bytes: [4]u8 = buf_ptr[0..4].*;
+    const count = std.mem.nativeTo(
+        u32,
+        std.mem.bytesAsValue(u32, &count_bytes).*,
+        .big,
+    );
+    if (count > max_events) return -1;
+
+    surf_init();
+    var pos: u32 = 4;
+    var i: u32 = 0;
+    while (i < count) : (i += 1) {
+        if (pos + pubkey_len + 4 + 8 + 4 > buf_len) return -1;
+        var e = &feed[feed_count];
+        @memcpy(&e.pubkey, buf_ptr[pos .. pos + pubkey_len]);
+        pos += pubkey_len;
+        var k_bytes: [4]u8 = undefined;
+        @memcpy(&k_bytes, buf_ptr[pos .. pos + 4]);
+        e.kind = std.mem.nativeTo(
+            u32,
+            std.mem.bytesAsValue(u32, &k_bytes).*,
+            .big,
+        );
+        pos += 4;
+        var ts_bytes: [8]u8 = undefined;
+        @memcpy(&ts_bytes, buf_ptr[pos .. pos + 8]);
+        e.created_at = std.mem.nativeTo(
+            u64,
+            std.mem.bytesAsValue(u64, &ts_bytes).*,
+            .big,
+        );
+        pos += 8;
+        var cl_bytes: [4]u8 = undefined;
+        @memcpy(&cl_bytes, buf_ptr[pos .. pos + 4]);
+        e.content_len = std.mem.nativeTo(
+            u32,
+            std.mem.bytesAsValue(u32, &cl_bytes).*,
+            .big,
+        );
+        pos += 4;
+        if (e.content_len > max_content_len) return -1;
+        if (pos + e.content_len + sig_len + hex_len > buf_len)
+            return -1;
+        @memcpy(
+            e.content[0..e.content_len],
+            buf_ptr[pos .. pos + e.content_len],
+        );
+        pos += e.content_len;
+        @memcpy(&e.signature, buf_ptr[pos .. pos + sig_len]);
+        pos += sig_len;
+        @memcpy(&e.id, buf_ptr[pos .. pos + hex_len]);
+        pos += hex_len;
+        e.used = true;
+        feed_count += 1;
+    }
+    return 0;
+}
+
 // --- selftest ---------------------------------------------------------------
 
 fn prove_keypair_deterministic() !void {
@@ -373,6 +515,83 @@ fn prove_feed_get_content() !void {
         return error.ContentMismatch;
 }
 
+fn prove_serialize_roundtrip() !void {
+    surf_init();
+    var seed: [seed_len]u8 = undefined;
+    for (&seed, 0..) |*b, i| b.* = @intCast(i);
+    var pk: [pubkey_len]u8 = undefined;
+    var sk: [sig_len]u8 = undefined;
+    _ = surf_keypair_from_seed(&seed, &pk, &sk);
+
+    const c1 = "round trip one";
+    const c2 = "round trip two";
+    var id1: [hex_len]u8 = undefined;
+    var id2: [hex_len]u8 = undefined;
+    surf_event_id(&pk, 1, 1700000001, c1.ptr, c1.len, &id1);
+    surf_event_id(&pk, 1, 1700000002, c2.ptr, c2.len, &id2);
+    var sig1: [sig_len]u8 = undefined;
+    var sig2: [sig_len]u8 = undefined;
+    _ = surf_sign_event(&id1, &sk, &sig1);
+    _ = surf_sign_event(&id2, &sk, &sig2);
+    _ = surf_feed_add(&pk, 1, 1700000001, c1.ptr, c1.len, &sig1, &id1);
+    _ = surf_feed_add(&pk, 1, 1700000002, c2.ptr, c2.len, &sig2, &id2);
+
+    // invariant: serialize captures both events.
+    var buf: [65536]u8 = undefined;
+    const written = surf_feed_serialize(&buf, 65536);
+    if (written == 0) return error.SerializeFailed;
+
+    // invariant: deserialize restores both events intact.
+    if (surf_feed_deserialize(&buf, written) != 0)
+        return error.DeserializeFailed;
+    if (surf_feed_count() != 2) return error.RoundtripCountNotTwo;
+
+    var content_buf: [max_content_len]u8 = undefined;
+    const got = surf_feed_get_content(0, &content_buf, max_content_len);
+    if (got != c1.len) return error.RoundtripContent0Len;
+    if (!std.mem.eql(u8, content_buf[0..got], c1))
+        return error.RoundtripContent0Mismatch;
+    const got2 = surf_feed_get_content(1, &content_buf, max_content_len);
+    if (got2 != c2.len) return error.RoundtripContent1Len;
+    if (!std.mem.eql(u8, content_buf[0..got2], c2))
+        return error.RoundtripContent1Mismatch;
+}
+
+fn prove_get_event() !void {
+    surf_init();
+    var seed: [seed_len]u8 = undefined;
+    for (&seed, 0..) |*b, i| b.* = @intCast(i);
+    var pk: [pubkey_len]u8 = undefined;
+    var sk: [sig_len]u8 = undefined;
+    _ = surf_keypair_from_seed(&seed, &pk, &sk);
+
+    const content = "get event test";
+    const kind: u32 = 1;
+    const ts: u64 = 1700000042;
+    var id: [hex_len]u8 = undefined;
+    surf_event_id(&pk, kind, ts, content.ptr, content.len, &id);
+    var sig: [sig_len]u8 = undefined;
+    _ = surf_sign_event(&id, &sk, &sig);
+    _ = surf_feed_add(&pk, kind, ts, content.ptr, content.len, &sig, &id);
+
+    // invariant: get_event returns all fields intact.
+    var pk_out: [pubkey_len]u8 = undefined;
+    var kind_out: u32 = 0;
+    var ts_out: u64 = 0;
+    var sig_out: [sig_len]u8 = undefined;
+    var id_out: [hex_len]u8 = undefined;
+    if (surf_feed_get_event(0, &pk_out, &kind_out, &ts_out, &sig_out, &id_out) != 0)
+        return error.GetEventFailed;
+    if (!std.mem.eql(u8, &pk_out, &pk))
+        return error.GetEventPubkeyMismatch;
+    if (kind_out != kind) return error.GetEventKindMismatch;
+    if (ts_out != ts) return error.GetEventTimestampMismatch;
+    if (!std.mem.eql(u8, &sig_out, &sig))
+        return error.GetEventSigMismatch;
+    if (!std.mem.eql(u8, &id_out, &id))
+        return error.GetEventIdMismatch;
+}
+
 fn prove_init_clears_feed() !void {
     surf_init();
     if (surf_feed_count() != 0) return error.InitCountNotZero;
@@ -412,6 +631,14 @@ fn run_selftest() u8 {
         print("FAILED: {s}\n", .{@errorName(e)});
         return 1;
     };
+    prove_serialize_roundtrip() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_get_event() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
 
     print("surf vantage: init clears -- feed starts at zero.\n", .{});
     print("surf vantage: keypair deterministic -- same seed, same Ed25519 keys.\n", .{});
@@ -421,8 +648,10 @@ fn run_selftest() u8 {
     print("surf vantage: feed add and count -- event stored, count incremented.\n", .{});
     print("surf vantage: feed list -- two events, both present in output.\n", .{});
     print("surf vantage: feed get content -- stored content retrieved correctly.\n", .{});
+    print("surf vantage: serialize roundtrip -- feed survives serialize and deserialize.\n", .{});
+    print("surf vantage: get event -- all fields returned intact.\n", .{});
     print("surf vantage: version {s}\n", .{bridge_version});
-    print("GREEN: surf vantage -- FFI bridge: keypair, sign, verify, feed.\n", .{});
+    print("GREEN: surf vantage -- FFI bridge: keypair, sign, verify, feed, persistence.\n", .{});
     return 0;
 }
 
