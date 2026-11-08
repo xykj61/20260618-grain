@@ -2124,6 +2124,22 @@ extension AppDelegate {
     }
 
     func scribeLoadFromDisk() {
+        if let data = readMantraBlob(
+            path: "scribe/settings.kyri"
+        ) {
+            data.withUnsafeBytes { raw in
+                guard let ptr = raw
+                    .baseAddress?
+                    .assumingMemoryBound(
+                        to: UInt8.self
+                    )
+                else { return }
+                _ = scribe_settings_load(
+                    ptr, UInt32(raw.count)
+                )
+            }
+            return
+        }
         let path = scribeSettingsPath()
         guard let data = FileManager.default
             .contents(atPath: path)
@@ -2140,14 +2156,6 @@ extension AppDelegate {
     }
 
     func scribeSaveToDisk() {
-        let path = scribeSettingsPath()
-        let dir = (path as NSString)
-            .deletingLastPathComponent
-        try? FileManager.default
-            .createDirectory(
-                atPath: dir,
-                withIntermediateDirectories: true
-            )
         let maxLen: UInt32 = 4096
         var buf = [UInt8](
             repeating: 0, count: Int(maxLen)
@@ -2157,8 +2165,9 @@ extension AppDelegate {
         )
         guard wrote > 0 else { return }
         let data = Data(buf[0..<Int(wrote)])
-        FileManager.default.createFile(
-            atPath: path, contents: data
+        _ = writeMantraBlob(
+            data: data,
+            path: "scribe/settings.kyri"
         )
     }
 
