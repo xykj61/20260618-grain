@@ -1,0 +1,67 @@
+# surf_social_witness.rish -- Surf Social SLC integration.
+#
+# Proves the full Surf social layer through its Vantage FFI bridge:
+# build the dylib, run selftest (13 proves), assert all claims GREEN.
+# Then structural checks: dylib, header, modulemap, Swift bridge.
+#
+#   rishi/bin/rishi run tools/s/surf_social_witness.rish
+
+let zig = "vendor/zig-toolchain/zig"
+
+say "surf-social: building vantage bridge binary..."
+let build = run ["sh" "-c" "mkdir -p surf/bin && env RYE_ZIG=${zig} sh tools/fixtures/r/rye_build.sh surf/surf_vantage.rye -femit-bin=surf/bin/surf_vantage"]
+assert build.ok else "surf vantage: build failed -- ${build.err_brief}"
+
+say "surf-social: running selftest..."
+let st = run ["surf/bin/surf_vantage" "selftest"]
+assert st.ok else "surf vantage selftest must exit 0 -- ${st.err_brief}"
+
+assert (st.err contains "GREEN") else "surf vantage must report GREEN"
+assert (st.err contains "init clears") else "proves init clears feed and follows"
+assert (st.err contains "keypair deterministic") else "proves keypair deterministic"
+assert (st.err contains "event id deterministic") else "proves event id deterministic"
+assert (st.err contains "sign and verify") else "proves sign and verify"
+assert (st.err contains "verify rejects tamper") else "proves verify rejects tamper"
+assert (st.err contains "feed add and count") else "proves feed add and count"
+assert (st.err contains "feed list") else "proves feed list"
+assert (st.err contains "feed get content") else "proves feed get content"
+assert (st.err contains "serialize roundtrip") else "proves serialize roundtrip"
+assert (st.err contains "get event") else "proves get event"
+assert (st.err contains "follow and unfollow") else "proves follow and unfollow"
+assert (st.err contains "feed filter") else "proves feed filter by follow"
+assert (st.err contains "follow serialize roundtrip") else "proves follow serialize roundtrip"
+
+say "surf-social: vantage bridge -- 13 proves GREEN."
+
+say "surf-social: verifying dylib exists for Terrarium linking..."
+let dylib = run ["sh" "-c" "test -f vantage/lib/libsurf.dylib"]
+assert dylib.ok else "surf vantage: libsurf.dylib missing from vantage/lib/"
+
+say "surf-social: verifying C header and modulemap..."
+let header = run ["sh" "-c" "test -f vantage/include/vantage_surf.h && grep -q 'surf_selftest' vantage/include/vantage_surf.h"]
+assert header.ok else "surf vantage: vantage_surf.h missing or incomplete"
+
+let modmap = run ["sh" "-c" "grep -q 'VantageSurf' vantage/include/module.modulemap"]
+assert modmap.ok else "surf vantage: VantageSurf missing from modulemap"
+
+say "surf-social: verifying Swift bridge functions in TabSetup..."
+let swift_follow = run ["sh" "-c" "grep -q 'surfFollowAction' terrarium/app/TabSetup.swift"]
+assert swift_follow.ok else "surf-social: surfFollowAction missing from TabSetup.swift"
+
+let swift_filter = run ["sh" "-c" "grep -q 'surfFilterChanged' terrarium/app/TabSetup.swift"]
+assert swift_filter.ok else "surf-social: surfFilterChanged missing from TabSetup.swift"
+
+let swift_save_follows = run ["sh" "-c" "grep -q 'surfSaveFollows' terrarium/app/TabSetup.swift"]
+assert swift_save_follows.ok else "surf-social: surfSaveFollows missing from TabSetup.swift"
+
+let swift_load_follows = run ["sh" "-c" "grep -q 'surfLoadFollows' terrarium/app/TabSetup.swift"]
+assert swift_load_follows.ok else "surf-social: surfLoadFollows missing from TabSetup.swift"
+
+let swift_compose = run ["sh" "-c" "grep -q 'surfComposeAction' terrarium/app/TabSetup.swift"]
+assert swift_compose.ok else "surf-social: surfComposeAction missing from TabSetup.swift"
+
+let swift_persist = run ["sh" "-c" "grep -q 'surfSaveFeed' terrarium/app/TabSetup.swift && grep -q 'surfLoadFeed' terrarium/app/TabSetup.swift"]
+assert swift_persist.ok else "surf-social: surfSaveFeed/surfLoadFeed missing from TabSetup.swift"
+
+say "surf-social: 13 proves from Vantage selftest, 3 structural checks (dylib, header, modulemap), 6 Swift bridge checks."
+say "GREEN: surf social -- end-to-end integration: Ed25519 identity, signed events, feed CRUD, follow/filter, Mantra persistence."

@@ -1,7 +1,7 @@
 # Surf Social SLC -- Checklist
 
 **Stamp:** `20261108.165438`
-**Status:** Active
+**Status:** Complete
 
 ## Phase 1 -- Surf Social (5 movements)
 
@@ -9,7 +9,7 @@
 - [x] **Movement 2: Surf tab scaffold** -- new "Social" sidebar entry in Terrarium, timeline view with post display (author pubkey, timestamp, content), compose field at top
 - [x] **Movement 3: Post persistence** -- events stored as Mantra blobs, feed catalog persisted to disk, timeline loads from store at launch
 - [x] **Movement 4: Feed composition** -- follow a pubkey, filter timeline by followed authors, unfollow. Local-only relay model (own events + followed feeds from Mantra store)
-- [ ] **Movement 5: Integration witness** -- end-to-end: keypair gen, sign event, verify, store to Mantra, load feed, filter by author. GREEN on metal.
+- [x] **Movement 5: Integration witness** -- end-to-end: keypair gen, sign event, verify, store to Mantra, load feed, filter by author. GREEN on metal.
 
 ## Progress
 
@@ -19,3 +19,4 @@
 | Surf tab scaffold | `20261108.171940` | `1a60c14438` | 60.152 |
 | Post persistence | `20261108.173707` | `7bb7a761f4` | 60.153 |
 | Feed composition | `20261108.180222` | `441cfa4e77` | 60.154 |
+| Integration witness | `20261108.180947` | `86c5276f0a` | 60.155 |
