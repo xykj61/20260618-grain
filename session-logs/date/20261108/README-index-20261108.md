@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| `20261108.145419` | [Scribe Settings integration witness GREEN -- SLC complete](20261108-145419_scribe-settings-witness-green.kyri.md) | 12 proves GREEN across writer and FFI bridge, Scribe SLC complete, fascia 60.145 |
 | `20261108.144007` | [Scribe live persistence -- save on change, load on launch](20261108-144007_scribe-live-persistence.kyri.md) | Live persistence landed, save on change, load on launch, fascia 60.144 |
 | `20261108.141106` | [Scribe settings tab scaffold -- five controls, Cmd+7](20261108-141106_scribe-settings-tab-scaffold.kyri.md) | Settings tab landed, five controls, Cmd+7, fascia 60.143 |
 | `20261108.135617` | [Scribe Vantage FFI bridge -- 13 exports, six proves GREEN](20261108-135617_scribe-vantage-ffi-bridge-green.kyri.md) | FFI bridge landed, 13 C exports, libscribe.dylib, fascia 60.142 |

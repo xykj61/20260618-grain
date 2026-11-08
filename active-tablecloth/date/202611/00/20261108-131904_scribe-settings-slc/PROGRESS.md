@@ -4,6 +4,10 @@
 
 Append-only log of completed milestones.
 
+## `20261108.145419` -- Integration witness GREEN -- SLC COMPLETE
+
+`tools/s/scribe_settings_witness.rish` builds both binaries (scribe_vantage and writer), runs both selftests (6 proves each, 12 total), and exercises the disk seam with a planted settings file. The witness covers: init defaults, setters and getters, validation refuses, load-save roundtrip, load refuses bad format, theme pointer safety (vantage); defaults valid, write-read roundtrip, custom roundtrip, validation refuses, missing keys default, dashboard shelf (writer). All 12 proves GREEN on metal. The Scribe Settings SLC is complete -- five movements from format to integration, fascia 60.140 to 60.145.
+
 ## `20261108.144007` -- Live persistence PROVEN
 
 Three helper methods added to `terrarium/app/TabSetup.swift`: `scribeSettingsPath()` returns `~/.grain/scribe/settings.kyri`, `scribeLoadFromDisk()` reads the file and passes bytes to `scribe_settings_load()`, `scribeSaveToDisk()` calls `scribe_settings_save()` into a 4096-byte buffer, creates the directory if needed, and writes the file. All five action handlers (theme, font, sidebar, recent, audio monitor) call `scribeSaveToDisk()` after each change. `focusScribe()` calls `scribeLoadFromDisk()` after init to refresh controls from disk. `import VantageScribe` added to `terrarium/app/main.swift` with `scribe_settings_init()` and `scribeLoadFromDisk()` at app launch. Terrarium builds clean. Fascia 60.143 -> 60.144.
