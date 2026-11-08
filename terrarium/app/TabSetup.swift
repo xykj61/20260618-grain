@@ -1014,6 +1014,135 @@ extension AppDelegate {
             false
         container.addSubview(removeTrackBtn)
 
+        // -- Mixer panel --
+        let mixerLabel = NSTextField(labelWithString: "Mixer")
+        mixerLabel.font = NSFont.boldSystemFont(ofSize: 13)
+        mixerLabel.textColor = NSColor(
+            red: 0.9, green: 0.75, blue: 0.5, alpha: 1.0
+        )
+        mixerLabel
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(mixerLabel)
+
+        let gainLabel = NSTextField(
+            labelWithString: "Gain"
+        )
+        gainLabel.font = NSFont.monospacedSystemFont(
+            ofSize: 11, weight: .regular
+        )
+        gainLabel.textColor = NSColor(
+            red: 0.8, green: 0.7, blue: 0.5, alpha: 1.0
+        )
+        gainLabel
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(gainLabel)
+
+        let gainSlider = NSSlider(
+            value: 1.0,
+            minValue: 0.0,
+            maxValue: 2.0,
+            target: self,
+            action: #selector(
+                audioGainSliderChanged(_:)
+            )
+        )
+        gainSlider.tag = 920
+        gainSlider
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(gainSlider)
+
+        let gainVal = NSTextField(
+            labelWithString: "1.00"
+        )
+        gainVal.tag = 921
+        gainVal.font = NSFont.monospacedSystemFont(
+            ofSize: 11, weight: .regular
+        )
+        gainVal.textColor = NSColor(
+            red: 0.9, green: 0.8, blue: 0.6, alpha: 1.0
+        )
+        gainVal
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(gainVal)
+
+        let panLabel = NSTextField(
+            labelWithString: "Pan"
+        )
+        panLabel.font = NSFont.monospacedSystemFont(
+            ofSize: 11, weight: .regular
+        )
+        panLabel.textColor = NSColor(
+            red: 0.8, green: 0.7, blue: 0.5, alpha: 1.0
+        )
+        panLabel
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(panLabel)
+
+        let panSlider = NSSlider(
+            value: 0.0,
+            minValue: -1.0,
+            maxValue: 1.0,
+            target: self,
+            action: #selector(
+                audioPanSliderChanged(_:)
+            )
+        )
+        panSlider.tag = 922
+        panSlider
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(panSlider)
+
+        let panVal = NSTextField(
+            labelWithString: "C"
+        )
+        panVal.tag = 923
+        panVal.font = NSFont.monospacedSystemFont(
+            ofSize: 11, weight: .regular
+        )
+        panVal.textColor = NSColor(
+            red: 0.9, green: 0.8, blue: 0.6, alpha: 1.0
+        )
+        panVal
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(panVal)
+
+        let soloBtn = NSButton(
+            title: "Solo",
+            target: self,
+            action: #selector(
+                audioSoloPressed(_:)
+            )
+        )
+        soloBtn.tag = 924
+        soloBtn.bezelStyle = .rounded
+        soloBtn.setButtonType(.toggle)
+        soloBtn
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(soloBtn)
+
+        let muteBtn = NSButton(
+            title: "Mute",
+            target: self,
+            action: #selector(
+                audioMutePressed(_:)
+            )
+        )
+        muteBtn.tag = 925
+        muteBtn.bezelStyle = .rounded
+        muteBtn.setButtonType(.toggle)
+        muteBtn
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(muteBtn)
+
         NSLayoutConstraint.activate([
             panelBox.leadingAnchor.constraint(
                 equalTo: container.leadingAnchor,
@@ -1092,6 +1221,86 @@ extension AppDelegate {
             removeTrackBtn.topAnchor.constraint(
                 equalTo: scrollView.bottomAnchor,
                 constant: 8
+            ),
+            mixerLabel.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 24
+            ),
+            mixerLabel.topAnchor.constraint(
+                equalTo: addTrackBtn.bottomAnchor,
+                constant: 16
+            ),
+            gainLabel.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 24
+            ),
+            gainLabel.topAnchor.constraint(
+                equalTo: mixerLabel.bottomAnchor,
+                constant: 10
+            ),
+            gainLabel.widthAnchor.constraint(
+                equalToConstant: 36
+            ),
+            gainSlider.leadingAnchor.constraint(
+                equalTo: gainLabel.trailingAnchor,
+                constant: 8
+            ),
+            gainSlider.centerYAnchor.constraint(
+                equalTo: gainLabel.centerYAnchor
+            ),
+            gainSlider.widthAnchor.constraint(
+                equalToConstant: 160
+            ),
+            gainVal.leadingAnchor.constraint(
+                equalTo: gainSlider.trailingAnchor,
+                constant: 8
+            ),
+            gainVal.centerYAnchor.constraint(
+                equalTo: gainLabel.centerYAnchor
+            ),
+            panLabel.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 24
+            ),
+            panLabel.topAnchor.constraint(
+                equalTo: gainLabel.bottomAnchor,
+                constant: 8
+            ),
+            panLabel.widthAnchor.constraint(
+                equalToConstant: 36
+            ),
+            panSlider.leadingAnchor.constraint(
+                equalTo: panLabel.trailingAnchor,
+                constant: 8
+            ),
+            panSlider.centerYAnchor.constraint(
+                equalTo: panLabel.centerYAnchor
+            ),
+            panSlider.widthAnchor.constraint(
+                equalToConstant: 160
+            ),
+            panVal.leadingAnchor.constraint(
+                equalTo: panSlider.trailingAnchor,
+                constant: 8
+            ),
+            panVal.centerYAnchor.constraint(
+                equalTo: panLabel.centerYAnchor
+            ),
+            soloBtn.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 24
+            ),
+            soloBtn.topAnchor.constraint(
+                equalTo: panLabel.bottomAnchor,
+                constant: 10
+            ),
+            muteBtn.leadingAnchor.constraint(
+                equalTo: soloBtn.trailingAnchor,
+                constant: 12
+            ),
+            muteBtn.topAnchor.constraint(
+                equalTo: panLabel.bottomAnchor,
+                constant: 10
             ),
         ])
 
@@ -1514,13 +1723,93 @@ extension AppDelegate {
     ) {
         let n = audioTracks.count + 1
         audioTracks.append(
-            (name: "Track \(n)", gain: 1.0)
+            (
+                name: "Track \(n)", gain: 1.0,
+                pan: 0.0, solo: false, mute: false
+            )
         )
         audioTrackTable?.reloadData()
         audioTrackTable?.selectRowIndexes(
             IndexSet(integer: audioTracks.count - 1),
             byExtendingSelection: false
         )
+    }
+
+    @objc func audioGainSliderChanged(
+        _ sender: Any?
+    ) {
+        guard let slider = sender as? NSSlider
+        else { return }
+        let val = Float(slider.doubleValue)
+        lotus_audio_set_gain(val)
+        guard let table = audioTrackTable else {
+            return
+        }
+        let row = table.selectedRow
+        if row >= 0, row < audioTracks.count {
+            audioTracks[row].gain = val
+        }
+        setStatusPanelField(
+            tag: 921,
+            text: String(format: "%.2f", val)
+        )
+    }
+
+    @objc func audioPanSliderChanged(
+        _ sender: Any?
+    ) {
+        guard let slider = sender as? NSSlider
+        else { return }
+        let val = Float(slider.doubleValue)
+        guard let table = audioTrackTable else {
+            return
+        }
+        let row = table.selectedRow
+        if row >= 0, row < audioTracks.count {
+            audioTracks[row].pan = val
+        }
+        let txt: String
+        if val < -0.05 {
+            txt = String(format: "L%.0f", -val * 100)
+        } else if val > 0.05 {
+            txt = String(format: "R%.0f", val * 100)
+        } else {
+            txt = "C"
+        }
+        setStatusPanelField(tag: 923, text: txt)
+    }
+
+    @objc func audioSoloPressed(
+        _ sender: Any?
+    ) {
+        guard let table = audioTrackTable else {
+            return
+        }
+        let row = table.selectedRow
+        guard row >= 0,
+              row < audioTracks.count
+        else { return }
+        audioTracks[row].solo.toggle()
+    }
+
+    @objc func audioMutePressed(
+        _ sender: Any?
+    ) {
+        guard let table = audioTrackTable else {
+            return
+        }
+        let row = table.selectedRow
+        guard row >= 0,
+              row < audioTracks.count
+        else { return }
+        audioTracks[row].mute.toggle()
+        if audioTracks[row].mute {
+            lotus_audio_set_gain(0.0)
+        } else {
+            lotus_audio_set_gain(
+                audioTracks[row].gain
+            )
+        }
     }
 
     @objc func audioRemoveTrackPressed(

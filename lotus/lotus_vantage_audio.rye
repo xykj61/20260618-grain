@@ -138,6 +138,26 @@ export fn lotus_audio_seek_start() callconv(.c) void {
     }
 }
 
+export fn lotus_audio_set_gain(
+    gain: f32,
+) callconv(.c) void {
+    // invariant: gain is clamped to [0.0, 2.0] at the boundary.
+    const clamped: f32 = if (gain < 0.0)
+        0.0
+    else if (gain > 2.0)
+        2.0
+    else
+        gain;
+    if (initialized) {
+        engine.state.gain = clamped;
+    }
+}
+
+export fn lotus_audio_get_gain() callconv(.c) f32 {
+    if (initialized) return engine.state.gain;
+    return 1.0;
+}
+
 // -- recording FFI exports --------------------------------------
 
 export fn lotus_record_open(

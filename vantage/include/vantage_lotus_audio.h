@@ -25,6 +25,9 @@ void lotus_audio_set_loop(bool on);
 bool lotus_audio_is_looping(void);
 void lotus_audio_seek_start(void);
 
+void lotus_audio_set_gain(float gain);
+float lotus_audio_get_gain(void);
+
 // -- recording --
 bool lotus_record_open(uint32_t sample_rate);
 bool lotus_record_start(void);

@@ -150,8 +150,14 @@ class AppDelegate: NSObject,
     }
     var audioWaveformView: WaveformView?
     var audioRecordTimer: Timer?
-    var audioTracks: [(name: String, gain: Float)] = [
-        (name: "Track 1", gain: 1.0),
+    var audioTracks: [(
+        name: String, gain: Float,
+        pan: Float, solo: Bool, mute: Bool
+    )] = [
+        (
+            name: "Track 1", gain: 1.0,
+            pan: 0.0, solo: false, mute: false
+        ),
     ]
     var audioTrackTable: NSTableView?
     var nextTabId = 3
