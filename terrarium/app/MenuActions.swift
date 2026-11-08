@@ -7,7 +7,7 @@ import AppKit
 
 extension AppDelegate {
 
-    // -- scene switching (Movement 9) --------------------------------
+    // -- scene switching ---------------------------------------------
 
     func setupMenu() {
         let mainMenu = NSMenu()
@@ -57,7 +57,7 @@ extension AppDelegate {
         viewMenuItem.submenu = viewMenu
         mainMenu.addItem(viewMenuItem)
 
-        // -- Shortcuts menu (Movement 13) ------
+        // -- Shortcuts menu -------------------
 
         let shortcutsMenuItem = NSMenuItem()
         let shortcutsMenu = NSMenu(
@@ -125,7 +125,7 @@ extension AppDelegate {
         sidebarVisible = !sidebarVisible
     }
 
-    // -- Shortcut actions (Movement 13) ---
+    // -- Shortcut actions -----------------
 
     @objc func newTab() {
         guard let tv = tabView else { return }

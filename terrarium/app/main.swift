@@ -198,7 +198,7 @@ class AppDelegate: NSObject,
             )
         }
 
-        // -- Tab bar (Movement 11) ---------------------
+        // -- Tab bar ----------------------------------
 
         let tv = NSTabView(frame: splitFrame)
         tv.tabViewType = .topTabsBezelBorder
@@ -289,7 +289,7 @@ class AppDelegate: NSObject,
         }
         tv.addTabViewItem(gridTab)
 
-        // -- Sidebar (Movement 12) --------------------
+        // -- Sidebar ----------------------------------
 
         let sidebarW: CGFloat = 180
 
@@ -339,7 +339,7 @@ class AppDelegate: NSObject,
             .defaultHigh, forSubviewAt: 0
         )
 
-        // -- Status bar (Movement 14) ---------
+        // -- Status bar ------------------------
 
         let statusH: CGFloat = 22
         let barW = splitFrame.width
