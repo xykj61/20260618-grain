@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.224821 | [Lotus macOS native rebuild -- Calfive prepend and survey](20261107/20261107-224821_lotus-macos-native-calfive-prepend.kyri.md) | Lotus prepended as NOW, Mantra SLC COMPLETE, 15-movement expanding prompt |
 | 20261107.223729 | [Fascia cleanup and bump to 60.126 -- send](20261107/20261107-223729_fascia-cleanup-and-bump.kyri.md) | 12K proof history archived, card condensed, badge and card both 60.126 |
 | 20261107.221436 | [First browser boot proven -- grain-emu.wasm runs hello64 in Brave](20261107/20261107-221436_first-browser-boot-proven.kyri.md) | hello64 UART output in Brave, exit code 0, under 83 KiB total |
 | 20261107.220429 | [Quest 3 browser host and soft-float build -- send](20261107/20261107-220429_quest3-browser-host-and-softfloat-build.kyri.md) | browser host, soft-float build, grain-emu WASM station |
