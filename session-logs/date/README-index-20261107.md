@@ -2,6 +2,7 @@
 
 | Stamp | Title | Note |
 |---|---|---|
+| 20261107.223729 | [Fascia cleanup and bump to 60.126 -- send](20261107/20261107-223729_fascia-cleanup-and-bump.kyri.md) | 12K proof history archived, card condensed, badge and card both 60.126 |
 | 20261107.221436 | [First browser boot proven -- grain-emu.wasm runs hello64 in Brave](20261107/20261107-221436_first-browser-boot-proven.kyri.md) | hello64 UART output in Brave, exit code 0, under 83 KiB total |
 | 20261107.220429 | [Quest 3 browser host and soft-float build -- send](20261107/20261107-220429_quest3-browser-host-and-softfloat-build.kyri.md) | browser host, soft-float build, grain-emu WASM station |
 | 20261107.214211 | [Sweep 13 dated style lines and guard triad text -- send](20261107/20261107-214211_teacher-sweep-dated-pages-send.kyri.md) | 13 dated pages Bhakta -> Teacher, guard triad content fixed, witness GREEN |
