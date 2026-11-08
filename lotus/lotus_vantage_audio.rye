@@ -191,6 +191,20 @@ export fn lotus_record_sample_count() callconv(.c) u32 {
     return rec_buf.len;
 }
 
+export fn lotus_record_read_buf(
+    out: [*]i16,
+    max_out: u32,
+) callconv(.c) u32 {
+    // invariant: copy at most min(rec_buf.len, max_out) samples.
+    const avail = rec_buf.len;
+    const n: u32 = if (avail < max_out) avail else max_out;
+    var i: u32 = 0;
+    while (i < n) : (i += 1) {
+        out[i] = rec_buf.buf[i];
+    }
+    return n;
+}
+
 export fn lotus_record_to_playback() callconv(.c) bool {
     if (rec_buf.len == 0) return false;
     const clip = record.to_clip(&rec_buf);
@@ -293,10 +307,24 @@ pub fn main() !void {
         print("  no mic input -- transfer skipped (expected)\n", .{});
     }
 
-    // 13. close recording.
+    // 13. read recording buffer through FFI.
+    {
+        var read_out: [64]i16 = @splat(0);
+        const got = lotus_record_read_buf(&read_out, 64);
+        // invariant: got is bounded by min(rec_buf.len, max_out).
+        assert(got <= 64);
+        if (samples > 0) {
+            assert(got > 0);
+        } else {
+            assert(got == 0);
+        }
+        print("  read_buf: {} samples\n", .{got});
+    }
+
+    // 14. close recording.
     lotus_record_close();
     assert(!rec_initialized);
     assert(!lotus_record_is_open());
 
-    print("lotus_vantage_audio selftest: 13 claims GREEN\n", .{});
+    print("lotus_vantage_audio selftest: 14 claims GREEN\n", .{});
 }

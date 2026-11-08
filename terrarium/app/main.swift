@@ -148,6 +148,8 @@ class AppDelegate: NSObject,
             )
         }
     }
+    var audioWaveformView: WaveformView?
+    var audioRecordTimer: Timer?
     var nextTabId = 3
     var shortcutStatusLabel: NSTextField?
     var connectionLabel: NSTextField?

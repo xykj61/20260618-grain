@@ -819,6 +819,7 @@ extension AppDelegate {
             .translatesAutoresizingMaskIntoConstraints =
             false
         container.addSubview(waveform)
+        audioWaveformView = waveform
 
         let recBtn = NSButton(
             title: "Record",
@@ -1009,6 +1010,7 @@ extension AppDelegate {
         }
         if lotus_record_start() {
             updateAudioStatus("Recording...")
+            startRecordWaveformTimer()
         } else {
             updateAudioStatus("Record start failed")
         }
@@ -1017,6 +1019,7 @@ extension AppDelegate {
     @objc func audioRecordStopPressed(
         _ sender: NSButton
     ) {
+        stopRecordWaveformTimer()
         if lotus_record_is_recording() {
             if lotus_record_stop() {
                 let n = lotus_record_sample_count()
@@ -1040,6 +1043,45 @@ extension AppDelegate {
             lotus_record_close()
             updateAudioStatus("Record closed")
         }
+    }
+
+    private func startRecordWaveformTimer() {
+        stopRecordWaveformTimer()
+        audioRecordTimer = Timer.scheduledTimer(
+            withTimeInterval: 0.05,
+            repeats: true
+        ) { [weak self] _ in
+            self?.pollRecordingBuffer()
+        }
+    }
+
+    private func stopRecordWaveformTimer() {
+        audioRecordTimer?.invalidate()
+        audioRecordTimer = nil
+    }
+
+    private func pollRecordingBuffer() {
+        let n = lotus_record_sample_count()
+        guard n > 0 else { return }
+        let displayCount = min(Int(n), 2048)
+        var raw = [Int16](
+            repeating: 0, count: displayCount
+        )
+        let got = lotus_record_read_buf(
+            &raw, UInt32(displayCount)
+        )
+        guard got > 0 else { return }
+        let floats = raw[0..<Int(got)].map {
+            Float($0) / 32768.0
+        }
+        audioWaveformView?.update(
+            buffer: Array(floats)
+        )
+        let pk = lotus_record_meter_peak()
+        updateAudioStatus(
+            "Recording... \(n) samples"
+                + " (peak \(pk))"
+        )
     }
 
     private func updateAudioStatus(

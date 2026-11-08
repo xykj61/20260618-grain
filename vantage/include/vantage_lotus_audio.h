@@ -34,6 +34,9 @@ bool lotus_record_is_open(void);
 bool lotus_record_is_recording(void);
 uint32_t lotus_record_meter_peak(void);
 uint32_t lotus_record_sample_count(void);
+uint32_t lotus_record_read_buf(
+    int16_t *out, uint32_t max_out
+);
 bool lotus_record_to_playback(void);
 
 #endif
