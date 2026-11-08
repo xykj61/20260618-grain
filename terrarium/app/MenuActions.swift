@@ -75,6 +75,14 @@ extension AppDelegate {
         audItem.keyEquivalentModifierMask = [.command]
         viewMenu.addItem(audItem)
 
+        let scrItem = NSMenuItem(
+            title: "Focus Settings",
+            action: #selector(focusScribe),
+            keyEquivalent: "7"
+        )
+        scrItem.keyEquivalentModifierMask = [.command]
+        viewMenu.addItem(scrItem)
+
         viewMenu.addItem(NSMenuItem.separator())
 
         let sidebarItem = NSMenuItem(

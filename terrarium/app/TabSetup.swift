@@ -2,6 +2,7 @@ import AppKit
 import VantageBloom
 import VantageDimeroll
 import VantageLotus
+import VantageScribe
 
 extension AppDelegate {
 
@@ -1956,6 +1957,436 @@ extension AppDelegate {
         } else {
             lotus_audio_set_gain(first.gain)
         }
+    }
+
+    // MARK: - Scribe Settings
+
+    @objc func focusScribe() {
+        guard let tv = tabView else { return }
+        for i in 0..<tv.numberOfTabViewItems {
+            let item = tv.tabViewItem(at: i)
+            if let ident = item.identifier
+                as? String,
+               ident == "scribe"
+            {
+                tv.selectTabViewItem(at: i)
+                return
+            }
+        }
+
+        scribe_settings_init()
+
+        let item = NSTabViewItem(
+            identifier: "scribe"
+        )
+        item.label = "Settings"
+
+        let container = NSView()
+        container.wantsLayer = true
+        container.layer?.backgroundColor =
+            NSColor(
+                red: 0.05, green: 0.05,
+                blue: 0.07, alpha: 1.0
+            ).cgColor
+
+        let titleLbl = NSTextField(
+            labelWithString: "Scribe Settings"
+        )
+        titleLbl.font = NSFont.systemFont(
+            ofSize: 18, weight: .medium
+        )
+        titleLbl.textColor = NSColor(
+            red: 0.75, green: 0.78,
+            blue: 0.85, alpha: 1.0
+        )
+        titleLbl.alignment = .center
+        titleLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(titleLbl)
+
+        let themeLabel = NSTextField(
+            labelWithString: "Theme"
+        )
+        themeLabel.font = NSFont.systemFont(
+            ofSize: 13, weight: .medium
+        )
+        themeLabel.textColor = NSColor(
+            red: 0.6, green: 0.63,
+            blue: 0.7, alpha: 1.0
+        )
+        themeLabel
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(themeLabel)
+
+        let themePop = NSPopUpButton(
+            frame: .zero, pullsDown: false
+        )
+        themePop.addItems(
+            withTitles: ["System", "Light", "Dark"]
+        )
+        let curTheme = String(
+            cString: scribe_settings_theme()
+        )
+        if curTheme == "light" {
+            themePop.selectItem(at: 1)
+        } else if curTheme == "dark" {
+            themePop.selectItem(at: 2)
+        } else {
+            themePop.selectItem(at: 0)
+        }
+        themePop.tag = 7001
+        themePop.target = self
+        themePop.action =
+            #selector(scribeThemeChanged(_:))
+        themePop
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(themePop)
+
+        let fontLabel = NSTextField(
+            labelWithString: "Font Size"
+        )
+        fontLabel.font = NSFont.systemFont(
+            ofSize: 13, weight: .medium
+        )
+        fontLabel.textColor = NSColor(
+            red: 0.6, green: 0.63,
+            blue: 0.7, alpha: 1.0
+        )
+        fontLabel
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(fontLabel)
+
+        let fontStepper = NSStepper()
+        fontStepper.minValue = 8
+        fontStepper.maxValue = 72
+        fontStepper.increment = 1
+        fontStepper.integerValue = Int(
+            scribe_settings_font_size()
+        )
+        fontStepper.valueWraps = false
+        fontStepper.tag = 7002
+        fontStepper.target = self
+        fontStepper.action =
+            #selector(scribeFontStepChanged(_:))
+        fontStepper
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(fontStepper)
+
+        let fontVal = NSTextField(
+            labelWithString: "\(fontStepper.integerValue)"
+        )
+        fontVal.font =
+            NSFont.monospacedSystemFont(
+                ofSize: 13, weight: .regular
+            )
+        fontVal.textColor = NSColor(
+            red: 0.75, green: 0.78,
+            blue: 0.85, alpha: 1.0
+        )
+        fontVal.tag = 7003
+        fontVal
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(fontVal)
+
+        let sidebarLabel = NSTextField(
+            labelWithString: "Sidebar Visible"
+        )
+        sidebarLabel.font = NSFont.systemFont(
+            ofSize: 13, weight: .medium
+        )
+        sidebarLabel.textColor = NSColor(
+            red: 0.6, green: 0.63,
+            blue: 0.7, alpha: 1.0
+        )
+        sidebarLabel
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(sidebarLabel)
+
+        let sidebarCheck = NSButton(
+            checkboxWithTitle: "",
+            target: self,
+            action: #selector(
+                scribeSidebarToggled(_:)
+            )
+        )
+        sidebarCheck.state =
+            scribe_settings_sidebar_visible()
+            ? .on : .off
+        sidebarCheck.tag = 7004
+        sidebarCheck
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(sidebarCheck)
+
+        let recentLabel = NSTextField(
+            labelWithString: "Recent Limit"
+        )
+        recentLabel.font = NSFont.systemFont(
+            ofSize: 13, weight: .medium
+        )
+        recentLabel.textColor = NSColor(
+            red: 0.6, green: 0.63,
+            blue: 0.7, alpha: 1.0
+        )
+        recentLabel
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(recentLabel)
+
+        let recentStepper = NSStepper()
+        recentStepper.minValue = 1
+        recentStepper.maxValue = 100
+        recentStepper.increment = 1
+        recentStepper.integerValue = Int(
+            scribe_settings_recent_limit()
+        )
+        recentStepper.valueWraps = false
+        recentStepper.tag = 7005
+        recentStepper.target = self
+        recentStepper.action =
+            #selector(
+                scribeRecentStepChanged(_:)
+            )
+        recentStepper
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(recentStepper)
+
+        let recentVal = NSTextField(
+            labelWithString:
+                "\(recentStepper.integerValue)"
+        )
+        recentVal.font =
+            NSFont.monospacedSystemFont(
+                ofSize: 13, weight: .regular
+            )
+        recentVal.textColor = NSColor(
+            red: 0.75, green: 0.78,
+            blue: 0.85, alpha: 1.0
+        )
+        recentVal.tag = 7006
+        recentVal
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(recentVal)
+
+        let audioMonLabel = NSTextField(
+            labelWithString: "Audio Monitor"
+        )
+        audioMonLabel.font = NSFont.systemFont(
+            ofSize: 13, weight: .medium
+        )
+        audioMonLabel.textColor = NSColor(
+            red: 0.6, green: 0.63,
+            blue: 0.7, alpha: 1.0
+        )
+        audioMonLabel
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(audioMonLabel)
+
+        let audioMonCheck = NSButton(
+            checkboxWithTitle: "",
+            target: self,
+            action: #selector(
+                scribeAudioMonToggled(_:)
+            )
+        )
+        audioMonCheck.state =
+            scribe_settings_audio_monitor()
+            ? .on : .off
+        audioMonCheck.tag = 7007
+        audioMonCheck
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(audioMonCheck)
+
+        NSLayoutConstraint.activate([
+            titleLbl.topAnchor.constraint(
+                equalTo: container.topAnchor,
+                constant: 24
+            ),
+            titleLbl.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor
+            ),
+
+            themeLabel.topAnchor.constraint(
+                equalTo: titleLbl.bottomAnchor,
+                constant: 32
+            ),
+            themeLabel.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 40
+            ),
+            themePop.centerYAnchor.constraint(
+                equalTo: themeLabel.centerYAnchor
+            ),
+            themePop.leadingAnchor.constraint(
+                equalTo: themeLabel.trailingAnchor,
+                constant: 16
+            ),
+
+            fontLabel.topAnchor.constraint(
+                equalTo: themeLabel.bottomAnchor,
+                constant: 20
+            ),
+            fontLabel.leadingAnchor.constraint(
+                equalTo: themeLabel.leadingAnchor
+            ),
+            fontStepper.centerYAnchor.constraint(
+                equalTo: fontLabel.centerYAnchor
+            ),
+            fontStepper.leadingAnchor.constraint(
+                equalTo: fontLabel.trailingAnchor,
+                constant: 16
+            ),
+            fontVal.centerYAnchor.constraint(
+                equalTo: fontLabel.centerYAnchor
+            ),
+            fontVal.leadingAnchor.constraint(
+                equalTo: fontStepper.trailingAnchor,
+                constant: 8
+            ),
+
+            sidebarLabel.topAnchor.constraint(
+                equalTo: fontLabel.bottomAnchor,
+                constant: 20
+            ),
+            sidebarLabel.leadingAnchor.constraint(
+                equalTo: themeLabel.leadingAnchor
+            ),
+            sidebarCheck.centerYAnchor.constraint(
+                equalTo: sidebarLabel.centerYAnchor
+            ),
+            sidebarCheck.leadingAnchor.constraint(
+                equalTo:
+                    sidebarLabel.trailingAnchor,
+                constant: 16
+            ),
+
+            recentLabel.topAnchor.constraint(
+                equalTo: sidebarLabel.bottomAnchor,
+                constant: 20
+            ),
+            recentLabel.leadingAnchor.constraint(
+                equalTo: themeLabel.leadingAnchor
+            ),
+            recentStepper.centerYAnchor
+                .constraint(
+                    equalTo:
+                        recentLabel.centerYAnchor
+                ),
+            recentStepper.leadingAnchor.constraint(
+                equalTo:
+                    recentLabel.trailingAnchor,
+                constant: 16
+            ),
+            recentVal.centerYAnchor.constraint(
+                equalTo: recentLabel.centerYAnchor
+            ),
+            recentVal.leadingAnchor.constraint(
+                equalTo:
+                    recentStepper.trailingAnchor,
+                constant: 8
+            ),
+
+            audioMonLabel.topAnchor.constraint(
+                equalTo: recentLabel.bottomAnchor,
+                constant: 20
+            ),
+            audioMonLabel.leadingAnchor.constraint(
+                equalTo: themeLabel.leadingAnchor
+            ),
+            audioMonCheck.centerYAnchor.constraint(
+                equalTo:
+                    audioMonLabel.centerYAnchor
+            ),
+            audioMonCheck.leadingAnchor.constraint(
+                equalTo:
+                    audioMonLabel.trailingAnchor,
+                constant: 16
+            ),
+        ])
+
+        item.view = container
+        tv.addTabViewItem(item)
+        tv.selectTabViewItem(item)
+    }
+
+    @objc func scribeThemeChanged(
+        _ sender: NSPopUpButton
+    ) {
+        let values = ["system", "light", "dark"]
+        let idx = sender.indexOfSelectedItem
+        guard idx >= 0, idx < values.count else {
+            return
+        }
+        _ = scribe_settings_set_theme(values[idx])
+    }
+
+    @objc func scribeFontStepChanged(
+        _ sender: NSStepper
+    ) {
+        let val = UInt32(sender.integerValue)
+        _ = scribe_settings_set_font_size(val)
+        guard let tv = tabView else { return }
+        for i in 0..<tv.numberOfTabViewItems {
+            let item = tv.tabViewItem(at: i)
+            if let ident = item.identifier
+                as? String, ident == "scribe",
+               let v = item.view
+            {
+                if let lbl = v.viewWithTag(7003)
+                    as? NSTextField
+                {
+                    lbl.stringValue = "\(val)"
+                }
+            }
+        }
+    }
+
+    @objc func scribeSidebarToggled(
+        _ sender: NSButton
+    ) {
+        scribe_settings_set_sidebar_visible(
+            sender.state == .on
+        )
+    }
+
+    @objc func scribeRecentStepChanged(
+        _ sender: NSStepper
+    ) {
+        let val = UInt32(sender.integerValue)
+        _ = scribe_settings_set_recent_limit(val)
+        guard let tv = tabView else { return }
+        for i in 0..<tv.numberOfTabViewItems {
+            let item = tv.tabViewItem(at: i)
+            if let ident = item.identifier
+                as? String, ident == "scribe",
+               let v = item.view
+            {
+                if let lbl = v.viewWithTag(7006)
+                    as? NSTextField
+                {
+                    lbl.stringValue = "\(val)"
+                }
+            }
+        }
+    }
+
+    @objc func scribeAudioMonToggled(
+        _ sender: NSButton
+    ) {
+        scribe_settings_set_audio_monitor(
+            sender.state == .on
+        )
     }
 
 }
