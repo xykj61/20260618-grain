@@ -759,13 +759,24 @@ extension AppDelegate {
         stopBtn.action =
             #selector(audioStopPressed(_:))
 
+        let waveform = WaveformView(
+            frame: NSRect(
+                x: 0, y: 0,
+                width: 400, height: 120
+            )
+        )
+        waveform
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(waveform)
+
         NSLayoutConstraint.activate([
             titleLbl.centerXAnchor.constraint(
                 equalTo: container.centerXAnchor
             ),
-            titleLbl.centerYAnchor.constraint(
-                equalTo: container.centerYAnchor,
-                constant: -50
+            titleLbl.topAnchor.constraint(
+                equalTo: container.topAnchor,
+                constant: 24
             ),
             statusLbl.centerXAnchor.constraint(
                 equalTo: container.centerXAnchor
@@ -789,6 +800,21 @@ extension AppDelegate {
             stopBtn.topAnchor.constraint(
                 equalTo: statusLbl.bottomAnchor,
                 constant: 16
+            ),
+            waveform.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 24
+            ),
+            waveform.trailingAnchor.constraint(
+                equalTo: container.trailingAnchor,
+                constant: -24
+            ),
+            waveform.topAnchor.constraint(
+                equalTo: playBtn.bottomAnchor,
+                constant: 24
+            ),
+            waveform.heightAnchor.constraint(
+                equalToConstant: 120
             ),
         ])
 
