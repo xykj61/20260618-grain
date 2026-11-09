@@ -1312,12 +1312,105 @@ export fn surf_selftest() callconv(.c) i32 {
     return @intCast(run_selftest());
 }
 
+// --- integration: relay roundtrip over real UDP ----------------
+
+fn prove_relay_roundtrip() !void {
+    // invariant: event published by identity A reaches the relay
+    // server over UDP and is retrieved by fetch. fetch for an
+    // unknown identity B returns zero events (pubkey isolation).
+    var seed_a: [seed_len]u8 = undefined;
+    for (&seed_a, 0..) |*b, i| b.* = @intCast(i);
+    var pk_a: [pubkey_len]u8 = undefined;
+    var sk_a: [sig_len]u8 = undefined;
+    _ = surf_keypair_from_seed(&seed_a, &pk_a, &sk_a);
+
+    var seed_b: [seed_len]u8 = undefined;
+    for (&seed_b, 0..) |*b, i| b.* = @intCast(i + 100);
+    var pk_b: [pubkey_len]u8 = undefined;
+    var sk_b: [sig_len]u8 = undefined;
+    _ = surf_keypair_from_seed(&seed_b, &pk_b, &sk_b);
+
+    const content = "relay roundtrip proof";
+    const kind: u32 = 1;
+    const ts: u64 = 1700000200;
+    var id: [hex_len]u8 = undefined;
+    surf_event_id(
+        &pk_a, kind, ts, content.ptr, content.len, &id,
+    );
+    var sig: [sig_len]u8 = undefined;
+    _ = surf_sign_event(&id, &sk_a, &sig);
+
+    const localhost = [4]u8{ 127, 0, 0, 1 };
+    const port: u16 = 38504;
+    const pub_rc = surf_relay_publish(
+        &pk_a, kind, ts, content.ptr,
+        @intCast(content.len),
+        &sig, &id, &localhost, port,
+    );
+    if (pub_rc != 0) return error.RelayPublishFailed;
+
+    surf_init();
+
+    const fetch_a = surf_relay_fetch(
+        &pk_a, 0, 10, &localhost, port,
+    );
+    if (fetch_a != 1) return error.RelayFetchCountWrong;
+
+    var buf: [1024]u8 = undefined;
+    const got_len = surf_feed_get_content(
+        0, &buf, 1024,
+    );
+    if (got_len == 0) return error.FeedGetFailed;
+    if (got_len != content.len)
+        return error.ContentLenMismatch;
+    if (!std.mem.eql(u8, buf[0..got_len], content))
+        return error.ContentMismatch;
+
+    const fetch_b = surf_relay_fetch(
+        &pk_b, 0, 10, &localhost, port,
+    );
+    if (fetch_b != 0) return error.RelayIsolationFailed;
+}
+
+fn run_relay_roundtrip() u8 {
+    prove_relay_roundtrip() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    print(
+        "surf relay: publish reaches server,"
+        ++ " fetch retrieves event.\n",
+        .{},
+    );
+    print(
+        "surf relay: fetch for unknown pubkey"
+        ++ " returns zero (isolation).\n",
+        .{},
+    );
+    print(
+        "GREEN: surf relay integration"
+        ++ " -- two identities, real UDP.\n",
+        .{},
+    );
+    return 0;
+}
+
 pub fn main(init: std.process.Init) !u8 {
     const allocator = init.arena.allocator();
     const args = try init.minimal.args.toSlice(allocator);
-    if (args.len == 2 and std.mem.eql(u8, args[1], "selftest"))
+    if (args.len == 2 and std.mem.eql(
+        u8, args[1], "selftest",
+    ))
         return run_selftest();
+    if (args.len == 2 and std.mem.eql(
+        u8, args[1], "relay-roundtrip",
+    ))
+        return run_relay_roundtrip();
     if (args.len == 1) return run_selftest();
-    print("usage: surf_vantage [selftest]\n", .{});
+    print(
+        "usage: surf_vantage"
+        ++ " [selftest|relay-roundtrip]\n",
+        .{},
+    );
     return 1;
 }

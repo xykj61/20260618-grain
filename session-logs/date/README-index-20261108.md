@@ -2,6 +2,7 @@
 
 | Stamp | Title | Summary |
 |---|---|---|
+| 20261108.212557 | [Surf Relay integration GREEN -- SLC complete](20261108/20261108-212557_surf-relay-integration-green.kyri.md) | Two identities, publish-fetch roundtrip over real UDP, pubkey isolation proven, fascia 60.160 |
 | 20261108.211303 | [Surf Relay Terrarium UI built](20261108/20261108-211303_surf-relay-terrarium-ui.kyri.md) | Address field, publish toggle, fetch button wired to C-ABI relay exports, fascia 60.159 |
 | 20261108.205327 | [Surf Relay client exports GREEN](20261108/20261108-205327_surf-relay-client-green.kyri.md) | 17 proves GREEN -- C-ABI relay publish and fetch exports, fascia 60.158 |
 | 20261108.203742 | [Surf Relay server GREEN](20261108/20261108-203742_surf-relay-server-green.kyri.md) | 8 proves GREEN -- store-and-forward relay, 256 pubkeys x 64 events ring buffer, fascia 60.157 |

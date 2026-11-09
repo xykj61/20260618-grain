@@ -1,0 +1,31 @@
+# surf_relay_integration_witness.rish
+#
+# Proves a real UDP roundtrip: identity A publishes an event
+# through the relay server, identity B fetches and finds
+# nothing (pubkey isolation), while A's fetch retrieves the
+# published event with matching content.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run tools/s/surf_relay_integration_witness.rish
+
+say "surf relay integration witness"
+
+let build_server = run ["./rye/bin/rye" "build" "surf/relay_server.rye" "-lc" "-femit-bin=surf/bin/relay-server"]
+assert build_server.ok else "relay server build failed: ${build_server.err}"
+say "relay server built"
+
+let build_client = run ["./rye/bin/rye" "build" "surf/surf_vantage.rye" "-lc" "-femit-bin=surf/bin/surf-vantage"]
+assert build_client.ok else "surf vantage build failed: ${build_client.err}"
+say "surf vantage built"
+
+let server = spawn ["timeout" "30" "surf/bin/relay-server" "serve" "3"]
+let pause = run ["sleep" "1"]
+assert pause.ok else "sleep failed"
+say "relay server started -- serving 3 frames"
+
+let client = run ["surf/bin/surf-vantage" "relay-roundtrip"]
+assert client.ok else "relay roundtrip failed (exit ${client.code}): ${client.err}"
+
+let server_done = wait-for server
+assert client.err contains "GREEN" else "surf relay integration RED: ${client.err}"
+say "GREEN: surf relay integration -- publish, fetch, isolation over real UDP"
