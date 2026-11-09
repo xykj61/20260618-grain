@@ -2,6 +2,8 @@
 
 | Stamp | Title | Summary |
 |---|---|---|
+| 20261108.202038 | [Surf Relay wire format GREEN](20261108/20261108-202038_surf-relay-wire-format-green.kyri.md) | 8 proves GREEN -- encode/decode for 4 frame types, MUR topology, fascia 60.156 |
+| 20261108.200529 | [Surf relay layer proposal](20261108/20261108-200529_surf-relay-layer-proposal.kyri.md) | Comlink wire for social feed exchange, 5-movement SLC shape proposed |
 | 20261108.180947 | [Surf Social integration witness GREEN -- SLC complete](20261108/20261108-180947_surf-social-integration-witness-green.kyri.md) | 22 checks GREEN on metal, Surf Social SLC complete (5/5), fascia 60.155 |
 | 20261108.180222 | [Surf feed composition -- follow, filter, persist](20261108/20261108-180222_surf-feed-composition-follows.kyri.md) | Follow/unfollow, filtered timeline, follow persistence -- 13 proves GREEN, fascia 60.154 |
 | 20261108.173707 | [Surf post persistence via Mantra blobs](20261108/20261108-173707_surf-post-persistence-mantra.kyri.md) | Identity and feed persisted as Mantra blobs -- 10 proves GREEN, fascia 60.153 |

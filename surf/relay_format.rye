@@ -1,0 +1,697 @@
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+// Surf relay wire format -- store-and-forward protocol for signed events.
+// Events self-authenticate via Ed25519 signatures; the relay adds no
+// crypto layer of its own. Frames carry up to 8192 bytes over localhost
+// UDP, following the content_server/content_request precedent.
+//
+// Testnet topology reference: Mycelium MUR -- 15 galaxies, 405 planets.
+
+pub const relay_version = "20261108.201501";
+
+// --- protocol constants -----------------------------------------------------
+
+// invariant: relay port is 38504, first clean free port above Comlink band.
+pub const relay_port: u16 = 38504;
+
+// invariant: relay frames bounded at 8192 bytes (content_request precedent).
+pub const max_relay_frame: u32 = 8192;
+
+// invariant: message types are single-byte discriminators.
+pub const msg_publish: u8 = 0x01;
+pub const msg_request: u8 = 0x02;
+pub const msg_events: u8 = 0x03;
+pub const msg_ack: u8 = 0x04;
+
+// invariant: ack status values.
+pub const ack_ok: u8 = 0;
+pub const ack_full: u8 = 1;
+pub const ack_invalid: u8 = 2;
+
+// --- Mycelium MUR testnet topology ------------------------------------------
+
+// invariant: MUR testnet has 15 galaxies and 405 planets.
+pub const mur_galaxy_count: u32 = 15;
+pub const mur_planet_count: u32 = 405;
+// invariant: planets per galaxy, average.
+pub const mur_planets_per_galaxy: u32 = mur_planet_count / mur_galaxy_count;
+
+// --- event wire sizes (shared with surf_vantage) ----------------------------
+
+pub const pubkey_len: u32 = 32;
+pub const sig_len: u32 = 64;
+pub const hex_len: u32 = 64;
+pub const max_content_len: u32 = 4096;
+
+// invariant: fixed bytes per event on wire = 32 + 4 + 8 + 4 + 64 + 64 = 176.
+pub const event_fixed: u32 = pubkey_len + 4 + 8 + 4 + sig_len + hex_len;
+
+// invariant: max single event wire size.
+pub const max_event_wire: u32 = event_fixed + max_content_len;
+
+// invariant: request frame is always 45 bytes.
+pub const request_frame_len: u32 = 1 + pubkey_len + 8 + 4;
+
+// invariant: ack frame is always 2 bytes.
+pub const ack_frame_len: u32 = 2;
+
+// --- relay errors -----------------------------------------------------------
+
+pub const RelayError = error{
+    FrameTooLarge,
+    FrameTooSmall,
+    ContentTooLong,
+    BadMessageType,
+    Truncated,
+    TooManyEvents,
+};
+
+// --- PUBLISH frame ----------------------------------------------------------
+// type(1) + event wire bytes
+// Carries one signed event from client to relay.
+
+pub fn encode_publish(
+    pubkey: *const [pubkey_len]u8,
+    kind: u32,
+    created_at: u64,
+    content: [*]const u8,
+    content_len: u32,
+    sig: *const [sig_len]u8,
+    id: *const [hex_len]u8,
+    buf: [*]u8,
+    buf_len: u32,
+) RelayError!u32 {
+    assert(content_len <= max_content_len);
+    const needed: u32 = 1 + event_fixed + content_len;
+    if (needed > buf_len) return error.FrameTooLarge;
+    if (needed > max_relay_frame) return error.FrameTooLarge;
+
+    var pos: u32 = 0;
+    buf[pos] = msg_publish;
+    pos += 1;
+
+    pos = write_event_wire(
+        pubkey,
+        kind,
+        created_at,
+        content,
+        content_len,
+        sig,
+        id,
+        buf,
+        pos,
+    );
+    return pos;
+}
+
+pub fn decode_publish(
+    buf: [*]const u8,
+    buf_len: u32,
+    pubkey_out: *[pubkey_len]u8,
+    kind_out: *u32,
+    created_at_out: *u64,
+    content_out: [*]u8,
+    content_len_out: *u32,
+    sig_out: *[sig_len]u8,
+    id_out: *[hex_len]u8,
+) RelayError!void {
+    if (buf_len < 1 + event_fixed) return error.Truncated;
+    if (buf[0] != msg_publish) return error.BadMessageType;
+
+    var pos: u32 = 1;
+    pos = try read_event_wire(
+        buf,
+        buf_len,
+        pos,
+        pubkey_out,
+        kind_out,
+        created_at_out,
+        content_out,
+        content_len_out,
+        sig_out,
+        id_out,
+    );
+}
+
+// --- REQUEST frame ----------------------------------------------------------
+// type(1) + pubkey(32) + since(8,be) + limit(4,be)
+// Client asks relay for events by pubkey since a timestamp.
+
+pub fn encode_request(
+    pubkey: *const [pubkey_len]u8,
+    since: u64,
+    limit: u32,
+    buf: [*]u8,
+    buf_len: u32,
+) RelayError!u32 {
+    if (request_frame_len > buf_len) return error.FrameTooLarge;
+
+    var pos: u32 = 0;
+    buf[pos] = msg_request;
+    pos += 1;
+
+    @memcpy(buf[pos .. pos + pubkey_len], pubkey);
+    pos += pubkey_len;
+
+    write_u64_be(buf, pos, since);
+    pos += 8;
+
+    write_u32_be(buf, pos, limit);
+    pos += 4;
+
+    return pos;
+}
+
+pub fn decode_request(
+    buf: [*]const u8,
+    buf_len: u32,
+    pubkey_out: *[pubkey_len]u8,
+    since_out: *u64,
+    limit_out: *u32,
+) RelayError!void {
+    if (buf_len < request_frame_len) return error.Truncated;
+    if (buf[0] != msg_request) return error.BadMessageType;
+
+    var pos: u32 = 1;
+    @memcpy(pubkey_out, buf[pos .. pos + pubkey_len]);
+    pos += pubkey_len;
+
+    since_out.* = read_u64_be(buf, pos);
+    pos += 8;
+
+    limit_out.* = read_u32_be(buf, pos);
+}
+
+// --- EVENTS frame -----------------------------------------------------------
+// type(1) + count(4,be) + [event wire bytes...]
+// Relay returns a batch of events to client.
+
+// invariant: max events per response frame, bounded by frame size.
+pub const max_events_per_frame: u32 = 16;
+
+pub const EventWire = struct {
+    pubkey: [pubkey_len]u8,
+    kind: u32,
+    created_at: u64,
+    content: [max_content_len]u8,
+    content_len: u32,
+    sig: [sig_len]u8,
+    id: [hex_len]u8,
+};
+
+pub fn encode_events(
+    events: []const EventWire,
+    buf: [*]u8,
+    buf_len: u32,
+) RelayError!u32 {
+    if (events.len > max_events_per_frame) return error.TooManyEvents;
+
+    var pos: u32 = 0;
+    buf[pos] = msg_events;
+    pos += 1;
+
+    const count: u32 = @intCast(events.len);
+    write_u32_be(buf, pos, count);
+    pos += 4;
+
+    for (events) |ev| {
+        const needed = pos + event_fixed + ev.content_len;
+        if (needed > buf_len) return error.FrameTooLarge;
+        if (needed > max_relay_frame) return error.FrameTooLarge;
+
+        pos = write_event_wire(
+            &ev.pubkey,
+            ev.kind,
+            ev.created_at,
+            @as([*]const u8, &ev.content),
+            ev.content_len,
+            &ev.sig,
+            &ev.id,
+            buf,
+            pos,
+        );
+    }
+    return pos;
+}
+
+pub fn decode_events(
+    buf: [*]const u8,
+    buf_len: u32,
+    events_out: []EventWire,
+    count_out: *u32,
+) RelayError!void {
+    if (buf_len < 5) return error.Truncated;
+    if (buf[0] != msg_events) return error.BadMessageType;
+
+    const count = read_u32_be(buf, 1);
+    if (count > max_events_per_frame) return error.TooManyEvents;
+    if (count > events_out.len) return error.TooManyEvents;
+
+    var pos: u32 = 5;
+    var i: u32 = 0;
+    while (i < count) : (i += 1) {
+        var clen: u32 = 0;
+        pos = try read_event_wire(
+            buf,
+            buf_len,
+            pos,
+            &events_out[i].pubkey,
+            &events_out[i].kind,
+            &events_out[i].created_at,
+            @as([*]u8, &events_out[i].content),
+            &clen,
+            &events_out[i].sig,
+            &events_out[i].id,
+        );
+        events_out[i].content_len = clen;
+    }
+    count_out.* = count;
+}
+
+// --- ACK frame --------------------------------------------------------------
+// type(1) + status(1)
+// Relay acknowledges a PUBLISH.
+
+pub fn encode_ack(
+    status: u8,
+    buf: [*]u8,
+    buf_len: u32,
+) RelayError!u32 {
+    if (ack_frame_len > buf_len) return error.FrameTooLarge;
+    buf[0] = msg_ack;
+    buf[1] = status;
+    return ack_frame_len;
+}
+
+pub fn decode_ack(
+    buf: [*]const u8,
+    buf_len: u32,
+    status_out: *u8,
+) RelayError!void {
+    if (buf_len < ack_frame_len) return error.Truncated;
+    if (buf[0] != msg_ack) return error.BadMessageType;
+    status_out.* = buf[1];
+}
+
+// --- event wire helpers (shared format with surf_vantage) -------------------
+
+fn write_u32_be(buf: [*]u8, pos: u32, val: u32) void {
+    const bytes = std.mem.toBytes(
+        std.mem.nativeTo(u32, val, .big),
+    );
+    @memcpy(buf[pos .. pos + 4], &bytes);
+}
+
+fn write_u64_be(buf: [*]u8, pos: u32, val: u64) void {
+    const bytes = std.mem.toBytes(
+        std.mem.nativeTo(u64, val, .big),
+    );
+    @memcpy(buf[pos .. pos + 8], &bytes);
+}
+
+fn read_u32_be(buf: [*]const u8, pos: u32) u32 {
+    var bytes: [4]u8 = undefined;
+    @memcpy(&bytes, buf[pos .. pos + 4]);
+    return std.mem.nativeTo(
+        u32,
+        std.mem.bytesAsValue(u32, &bytes).*,
+        .big,
+    );
+}
+
+fn read_u64_be(buf: [*]const u8, pos: u32) u64 {
+    var bytes: [8]u8 = undefined;
+    @memcpy(&bytes, buf[pos .. pos + 8]);
+    return std.mem.nativeTo(
+        u64,
+        std.mem.bytesAsValue(u64, &bytes).*,
+        .big,
+    );
+}
+
+fn write_event_wire(
+    pubkey: *const [pubkey_len]u8,
+    kind: u32,
+    created_at: u64,
+    content: [*]const u8,
+    content_len: u32,
+    sig: *const [sig_len]u8,
+    id: *const [hex_len]u8,
+    buf: [*]u8,
+    start: u32,
+) u32 {
+    var pos = start;
+
+    @memcpy(buf[pos .. pos + pubkey_len], pubkey);
+    pos += pubkey_len;
+
+    write_u32_be(buf, pos, kind);
+    pos += 4;
+
+    write_u64_be(buf, pos, created_at);
+    pos += 8;
+
+    write_u32_be(buf, pos, content_len);
+    pos += 4;
+
+    // content (variable length)
+    var ci: u32 = 0;
+    while (ci < content_len) : (ci += 1) {
+        buf[pos + ci] = content[ci];
+    }
+    pos += content_len;
+
+    @memcpy(buf[pos .. pos + sig_len], sig);
+    pos += sig_len;
+
+    @memcpy(buf[pos .. pos + hex_len], id);
+    pos += hex_len;
+
+    return pos;
+}
+
+fn read_event_wire(
+    buf: [*]const u8,
+    buf_len: u32,
+    start: u32,
+    pubkey_out: *[pubkey_len]u8,
+    kind_out: *u32,
+    created_at_out: *u64,
+    content_out: [*]u8,
+    content_len_out: *u32,
+    sig_out: *[sig_len]u8,
+    id_out: *[hex_len]u8,
+) RelayError!u32 {
+    var pos = start;
+
+    if (pos + pubkey_len > buf_len) return error.Truncated;
+    @memcpy(pubkey_out, buf[pos .. pos + pubkey_len]);
+    pos += pubkey_len;
+
+    if (pos + 4 > buf_len) return error.Truncated;
+    kind_out.* = read_u32_be(buf, pos);
+    pos += 4;
+
+    if (pos + 8 > buf_len) return error.Truncated;
+    created_at_out.* = read_u64_be(buf, pos);
+    pos += 8;
+
+    if (pos + 4 > buf_len) return error.Truncated;
+    const clen = read_u32_be(buf, pos);
+    pos += 4;
+
+    if (clen > max_content_len) return error.ContentTooLong;
+    if (pos + clen > buf_len) return error.Truncated;
+    var ci: u32 = 0;
+    while (ci < clen) : (ci += 1) {
+        content_out[ci] = buf[pos + ci];
+    }
+    content_len_out.* = clen;
+    pos += clen;
+
+    if (pos + sig_len > buf_len) return error.Truncated;
+    @memcpy(sig_out, buf[pos .. pos + sig_len]);
+    pos += sig_len;
+
+    if (pos + hex_len > buf_len) return error.Truncated;
+    @memcpy(id_out, buf[pos .. pos + hex_len]);
+    pos += hex_len;
+
+    return pos;
+}
+
+// --- selftest ---------------------------------------------------------------
+
+fn make_test_event(seed_byte: u8) EventWire {
+    var ev: EventWire = undefined;
+    for (&ev.pubkey) |*b| b.* = seed_byte;
+    ev.kind = @as(u32, seed_byte) + 1;
+    ev.created_at = 1700000000 + @as(u64, seed_byte);
+    const msg = "hello relay";
+    ev.content_len = msg.len;
+    for (msg, 0..) |c, i| ev.content[i] = c;
+    for (&ev.sig) |*b| b.* = seed_byte ^ 0xaa;
+    for (&ev.id) |*b| b.* = seed_byte ^ 0x55;
+    return ev;
+}
+
+fn prove_publish_roundtrip() !void {
+    const ev = make_test_event(0x42);
+    var buf: [max_relay_frame]u8 = undefined;
+
+    const written = try encode_publish(
+        &ev.pubkey,
+        ev.kind,
+        ev.created_at,
+        @as([*]const u8, &ev.content),
+        ev.content_len,
+        &ev.sig,
+        &ev.id,
+        &buf,
+        max_relay_frame,
+    );
+    assert(written == 1 + event_fixed + ev.content_len);
+    assert(buf[0] == msg_publish);
+
+    var pk: [pubkey_len]u8 = undefined;
+    var kind: u32 = 0;
+    var ts: u64 = 0;
+    var content: [max_content_len]u8 = undefined;
+    var clen: u32 = 0;
+    var sig: [sig_len]u8 = undefined;
+    var id: [hex_len]u8 = undefined;
+
+    try decode_publish(
+        &buf,
+        written,
+        &pk,
+        &kind,
+        &ts,
+        &content,
+        &clen,
+        &sig,
+        &id,
+    );
+    assert(std.mem.eql(u8, &pk, &ev.pubkey));
+    assert(kind == ev.kind);
+    assert(ts == ev.created_at);
+    assert(clen == ev.content_len);
+    assert(std.mem.eql(u8, content[0..clen], ev.content[0..ev.content_len]));
+    assert(std.mem.eql(u8, &sig, &ev.sig));
+    assert(std.mem.eql(u8, &id, &ev.id));
+}
+
+fn prove_request_roundtrip() !void {
+    var pk: [pubkey_len]u8 = undefined;
+    for (&pk) |*b| b.* = 0xab;
+    const since: u64 = 1700000100;
+    const limit: u32 = 50;
+
+    var buf: [max_relay_frame]u8 = undefined;
+    const written = try encode_request(
+        &pk,
+        since,
+        limit,
+        &buf,
+        max_relay_frame,
+    );
+    assert(written == request_frame_len);
+    assert(buf[0] == msg_request);
+
+    var pk_out: [pubkey_len]u8 = undefined;
+    var since_out: u64 = 0;
+    var limit_out: u32 = 0;
+    try decode_request(
+        &buf,
+        written,
+        &pk_out,
+        &since_out,
+        &limit_out,
+    );
+    assert(std.mem.eql(u8, &pk_out, &pk));
+    assert(since_out == since);
+    assert(limit_out == limit);
+}
+
+fn prove_events_roundtrip() !void {
+    var events: [3]EventWire = undefined;
+    events[0] = make_test_event(0x01);
+    events[1] = make_test_event(0x02);
+    events[2] = make_test_event(0x03);
+
+    var buf: [max_relay_frame]u8 = undefined;
+    const written = try encode_events(
+        events[0..3],
+        &buf,
+        max_relay_frame,
+    );
+    assert(buf[0] == msg_events);
+
+    var decoded: [max_events_per_frame]EventWire = undefined;
+    var count: u32 = 0;
+    try decode_events(&buf, written, &decoded, &count);
+    assert(count == 3);
+
+    var i: u32 = 0;
+    while (i < 3) : (i += 1) {
+        assert(std.mem.eql(u8, &decoded[i].pubkey, &events[i].pubkey));
+        assert(decoded[i].kind == events[i].kind);
+        assert(decoded[i].created_at == events[i].created_at);
+        assert(decoded[i].content_len == events[i].content_len);
+        assert(std.mem.eql(
+            u8,
+            decoded[i].content[0..decoded[i].content_len],
+            events[i].content[0..events[i].content_len],
+        ));
+        assert(std.mem.eql(u8, &decoded[i].sig, &events[i].sig));
+        assert(std.mem.eql(u8, &decoded[i].id, &events[i].id));
+    }
+}
+
+fn prove_ack_roundtrip() !void {
+    var buf: [max_relay_frame]u8 = undefined;
+
+    const written_ok = try encode_ack(ack_ok, &buf, max_relay_frame);
+    assert(written_ok == ack_frame_len);
+    var status: u8 = 0xff;
+    try decode_ack(&buf, written_ok, &status);
+    assert(status == ack_ok);
+
+    const written_full = try encode_ack(ack_full, &buf, max_relay_frame);
+    assert(written_full == ack_frame_len);
+    try decode_ack(&buf, written_full, &status);
+    assert(status == ack_full);
+
+    const written_inv = try encode_ack(ack_invalid, &buf, max_relay_frame);
+    assert(written_inv == ack_frame_len);
+    try decode_ack(&buf, written_inv, &status);
+    assert(status == ack_invalid);
+}
+
+fn prove_frame_bounds() !void {
+    // invariant: event_fixed is 176.
+    assert(event_fixed == 176);
+    // invariant: max single event fits in relay frame.
+    assert(1 + max_event_wire <= max_relay_frame);
+    // invariant: request frame is 45 bytes.
+    assert(request_frame_len == 45);
+    // invariant: ack frame is 2 bytes.
+    assert(ack_frame_len == 2);
+}
+
+fn prove_topology_constants() !void {
+    // invariant: MUR testnet -- 15 galaxies, 405 planets.
+    assert(mur_galaxy_count == 15);
+    assert(mur_planet_count == 405);
+    assert(mur_planets_per_galaxy == 27);
+}
+
+fn prove_bad_type_rejected() !void {
+    var buf: [max_relay_frame]u8 = undefined;
+    buf[0] = 0xff;
+
+    var pk: [pubkey_len]u8 = undefined;
+    var kind: u32 = 0;
+    var ts: u64 = 0;
+    var content: [max_content_len]u8 = undefined;
+    var clen: u32 = 0;
+    var sig: [sig_len]u8 = undefined;
+    var id: [hex_len]u8 = undefined;
+
+    const pub_err = decode_publish(
+        &buf,
+        max_relay_frame,
+        &pk,
+        &kind,
+        &ts,
+        &content,
+        &clen,
+        &sig,
+        &id,
+    );
+    assert(pub_err == error.BadMessageType);
+
+    var since: u64 = 0;
+    var limit: u32 = 0;
+    const req_err = decode_request(
+        &buf,
+        max_relay_frame,
+        &pk,
+        &since,
+        &limit,
+    );
+    assert(req_err == error.BadMessageType);
+
+    var status: u8 = 0;
+    const ack_err = decode_ack(&buf, max_relay_frame, &status);
+    assert(ack_err == error.BadMessageType);
+}
+
+fn prove_truncated_rejected() !void {
+    var buf: [1]u8 = undefined;
+    buf[0] = msg_publish;
+
+    var pk: [pubkey_len]u8 = undefined;
+    var kind: u32 = 0;
+    var ts: u64 = 0;
+    var content: [max_content_len]u8 = undefined;
+    var clen: u32 = 0;
+    var sig: [sig_len]u8 = undefined;
+    var id: [hex_len]u8 = undefined;
+
+    const pub_err = decode_publish(
+        &buf,
+        1,
+        &pk,
+        &kind,
+        &ts,
+        &content,
+        &clen,
+        &sig,
+        &id,
+    );
+    assert(pub_err == error.Truncated);
+}
+
+pub fn main(init: std.process.Init) !u8 {
+    const allocator = init.arena.allocator();
+    const args = try init.minimal.args.toSlice(allocator);
+    if (args.len == 2 and std.mem.eql(u8, args[1], "selftest"))
+        return run_selftest();
+    if (args.len == 1) return run_selftest();
+    print("usage: relay_format [selftest]\n", .{});
+    return 1;
+}
+
+fn run_selftest() u8 {
+    print("relay_format selftest\n", .{});
+
+    prove_frame_bounds() catch @panic("frame_bounds");
+    print("  prove frame_bounds GREEN\n", .{});
+
+    prove_topology_constants() catch @panic("topology_constants");
+    print("  prove topology_constants GREEN\n", .{});
+
+    prove_publish_roundtrip() catch @panic("publish_roundtrip");
+    print("  prove publish_roundtrip GREEN\n", .{});
+
+    prove_request_roundtrip() catch @panic("request_roundtrip");
+    print("  prove request_roundtrip GREEN\n", .{});
+
+    prove_events_roundtrip() catch @panic("events_roundtrip");
+    print("  prove events_roundtrip GREEN\n", .{});
+
+    prove_ack_roundtrip() catch @panic("ack_roundtrip");
+    print("  prove ack_roundtrip GREEN\n", .{});
+
+    prove_bad_type_rejected() catch @panic("bad_type_rejected");
+    print("  prove bad_type_rejected GREEN\n", .{});
+
+    prove_truncated_rejected() catch @panic("truncated_rejected");
+    print("  prove truncated_rejected GREEN\n", .{});
+
+    print("relay_format: 8 proves GREEN\n", .{});
+    return 0;
+}
