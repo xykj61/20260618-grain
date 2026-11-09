@@ -2,6 +2,7 @@
 
 | Stamp | Title | Summary |
 |---|---|---|
+| 20261108.205327 | [Surf Relay client exports GREEN](20261108/20261108-205327_surf-relay-client-green.kyri.md) | 17 proves GREEN -- C-ABI relay publish and fetch exports, fascia 60.158 |
 | 20261108.203742 | [Surf Relay server GREEN](20261108/20261108-203742_surf-relay-server-green.kyri.md) | 8 proves GREEN -- store-and-forward relay, 256 pubkeys x 64 events ring buffer, fascia 60.157 |
 | 20261108.202038 | [Surf Relay wire format GREEN](20261108/20261108-202038_surf-relay-wire-format-green.kyri.md) | 8 proves GREEN -- encode/decode for 4 frame types, MUR topology, fascia 60.156 |
 | 20261108.200529 | [Surf relay layer proposal](20261108/20261108-200529_surf-relay-layer-proposal.kyri.md) | Comlink wire for social feed exchange, 5-movement SLC shape proposed |

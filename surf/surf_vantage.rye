@@ -1,8 +1,10 @@
 const std = @import("std");
 const assert = std.debug.assert;
 const print = std.debug.print;
+const c = std.c;
+const rf = @import("relay_format.rye");
 
-pub const bridge_version = "20261108.174903";
+pub const bridge_version = "20261108.213500";
 
 // --- Ed25519 identity at the std seam ---------------------------------------
 
@@ -877,6 +879,336 @@ fn prove_follow_serialize_roundtrip() !void {
         return error.FollowRoundtripMissingB;
 }
 
+// --- C exports: relay client -----------------------------------------------
+
+const AF_INET: c_uint = 2;
+const SOCK_DGRAM: c_uint = 2;
+const sockaddr_in = c.sockaddr.in;
+
+fn make_addr(addr_bytes: [4]u8, port: u16) sockaddr_in {
+    return .{
+        .port = std.mem.nativeToBig(u16, port),
+        .addr = @bitCast(addr_bytes),
+    };
+}
+
+// invariant: opens a UDP socket with a 2-second receive timeout.
+// returns fd on success, -1 on failure.
+fn open_client_socket() c.fd_t {
+    const fd = c.socket(AF_INET, SOCK_DGRAM, 0);
+    if (fd < 0) return -1;
+    var tv = c.timeval{
+        .sec = 2,
+        .usec = 0,
+    };
+    _ = c.setsockopt(
+        fd,
+        c.SOL.SOCKET,
+        c.SO.RCVTIMEO,
+        &tv,
+        @sizeOf(c.timeval),
+    );
+    return fd;
+}
+
+// invariant: publishes one signed event to a relay server.
+// returns ack status (0=ok, 1=full, 2=invalid) or negative on
+// network/protocol error.
+export fn surf_relay_publish(
+    pubkey_ptr: [*]const u8,
+    kind: u32,
+    created_at: u64,
+    content_ptr: [*]const u8,
+    content_len: u32,
+    sig_ptr: [*]const u8,
+    id_ptr: [*]const u8,
+    addr_ptr: [*]const u8,
+    port: u16,
+) callconv(.c) i32 {
+    if (content_len > rf.max_content_len) return -1;
+
+    const pk: *const [rf.pubkey_len]u8 = pubkey_ptr[0..rf.pubkey_len];
+    const sig: *const [rf.sig_len]u8 = sig_ptr[0..rf.sig_len];
+    const id: *const [rf.hex_len]u8 = id_ptr[0..rf.hex_len];
+
+    var send_buf: [rf.max_relay_frame]u8 = undefined;
+    const frame_len = rf.encode_publish(
+        pk,
+        kind,
+        created_at,
+        content_ptr,
+        content_len,
+        sig,
+        id,
+        &send_buf,
+        rf.max_relay_frame,
+    ) catch return -2;
+
+    var addr_bytes: [4]u8 = undefined;
+    @memcpy(&addr_bytes, addr_ptr[0..4]);
+    const dest = make_addr(addr_bytes, port);
+
+    const fd = open_client_socket();
+    if (fd < 0) return -3;
+    defer _ = c.close(fd);
+
+    const sent: isize = c.sendto(
+        fd,
+        &send_buf,
+        frame_len,
+        0,
+        @ptrCast(&dest),
+        @sizeOf(sockaddr_in),
+    );
+    if (sent < 0) return -4;
+
+    var recv_buf: [rf.max_relay_frame]u8 = undefined;
+    var from: sockaddr_in = undefined;
+    var from_len: c.socklen_t = @sizeOf(sockaddr_in);
+    const got: isize = c.recvfrom(
+        fd,
+        &recv_buf,
+        rf.max_relay_frame,
+        0,
+        @ptrCast(&from),
+        &from_len,
+    );
+    if (got < 0) return -5;
+
+    var status: u8 = 0;
+    rf.decode_ack(
+        &recv_buf,
+        @intCast(got),
+        &status,
+    ) catch return -6;
+
+    return @intCast(status);
+}
+
+// invariant: fetches events for a pubkey from a relay server.
+// adds each received event to the local feed. returns number of
+// events added, or negative on error.
+export fn surf_relay_fetch(
+    pubkey_ptr: [*]const u8,
+    since: u64,
+    limit: u32,
+    addr_ptr: [*]const u8,
+    port: u16,
+) callconv(.c) i32 {
+    const pk: *const [rf.pubkey_len]u8 = pubkey_ptr[0..rf.pubkey_len];
+
+    var send_buf: [rf.max_relay_frame]u8 = undefined;
+    const frame_len = rf.encode_request(
+        pk,
+        since,
+        limit,
+        &send_buf,
+        rf.max_relay_frame,
+    ) catch return -2;
+
+    var addr_bytes: [4]u8 = undefined;
+    @memcpy(&addr_bytes, addr_ptr[0..4]);
+    const dest = make_addr(addr_bytes, port);
+
+    const fd = open_client_socket();
+    if (fd < 0) return -3;
+    defer _ = c.close(fd);
+
+    const sent: isize = c.sendto(
+        fd,
+        &send_buf,
+        frame_len,
+        0,
+        @ptrCast(&dest),
+        @sizeOf(sockaddr_in),
+    );
+    if (sent < 0) return -4;
+
+    var recv_buf: [rf.max_relay_frame]u8 = undefined;
+    var from: sockaddr_in = undefined;
+    var from_len: c.socklen_t = @sizeOf(sockaddr_in);
+    const got: isize = c.recvfrom(
+        fd,
+        &recv_buf,
+        rf.max_relay_frame,
+        0,
+        @ptrCast(&from),
+        &from_len,
+    );
+    if (got < 0) return -5;
+
+    var events: [rf.max_events_per_frame]rf.EventWire = undefined;
+    var count: u32 = 0;
+    rf.decode_events(
+        &recv_buf,
+        @intCast(got),
+        &events,
+        &count,
+    ) catch return -6;
+
+    var added: u32 = 0;
+    var i: u32 = 0;
+    while (i < count) : (i += 1) {
+        const ev = &events[i];
+        const rc = surf_feed_add(
+            &ev.pubkey,
+            ev.kind,
+            ev.created_at,
+            @as([*]const u8, &ev.content),
+            ev.content_len,
+            &ev.sig,
+            &ev.id,
+        );
+        if (rc == 0) added += 1;
+    }
+    return @intCast(added);
+}
+
+// --- selftest: relay client encode/decode roundtrip --------
+
+fn prove_relay_publish_encode() !void {
+    // invariant: encode_publish produces a valid frame that
+    // decode_publish reads back with matching fields.
+    var seed: [seed_len]u8 = undefined;
+    for (&seed, 0..) |*b, i| b.* = @intCast(i);
+    var pk: [pubkey_len]u8 = undefined;
+    var sk: [sig_len]u8 = undefined;
+    _ = surf_keypair_from_seed(&seed, &pk, &sk);
+
+    const content = "relay encode test";
+    const kind: u32 = 1;
+    const ts: u64 = 1700000099;
+    var id: [hex_len]u8 = undefined;
+    surf_event_id(&pk, kind, ts, content.ptr, content.len, &id);
+    var sig: [sig_len]u8 = undefined;
+    _ = surf_sign_event(&id, &sk, &sig);
+
+    var buf: [rf.max_relay_frame]u8 = undefined;
+    const frame_len = rf.encode_publish(
+        &pk, kind, ts, content.ptr, content.len, &sig, &id,
+        &buf, rf.max_relay_frame,
+    ) catch return error.EncodePublishFailed;
+
+    var pk_out: [rf.pubkey_len]u8 = undefined;
+    var kind_out: u32 = 0;
+    var ts_out: u64 = 0;
+    var content_out: [rf.max_content_len]u8 = undefined;
+    var clen_out: u32 = 0;
+    var sig_out: [rf.sig_len]u8 = undefined;
+    var id_out: [rf.hex_len]u8 = undefined;
+    rf.decode_publish(
+        &buf, frame_len,
+        &pk_out, &kind_out, &ts_out,
+        &content_out, &clen_out,
+        &sig_out, &id_out,
+    ) catch return error.DecodePublishFailed;
+
+    if (!std.mem.eql(u8, &pk_out, &pk))
+        return error.PublishPubkeyMismatch;
+    if (kind_out != kind) return error.PublishKindMismatch;
+    if (ts_out != ts) return error.PublishTimestampMismatch;
+    if (clen_out != content.len)
+        return error.PublishContentLenMismatch;
+    if (!std.mem.eql(u8, content_out[0..clen_out], content))
+        return error.PublishContentMismatch;
+    if (!std.mem.eql(u8, &sig_out, &sig))
+        return error.PublishSigMismatch;
+    if (!std.mem.eql(u8, &id_out, &id))
+        return error.PublishIdMismatch;
+}
+
+fn prove_relay_request_encode() !void {
+    // invariant: encode_request roundtrips through decode_request.
+    var pk: [rf.pubkey_len]u8 = undefined;
+    for (&pk, 0..) |*b, i| b.* = @intCast(i);
+
+    const since: u64 = 1700000001;
+    const limit: u32 = 10;
+
+    var buf: [rf.max_relay_frame]u8 = undefined;
+    const frame_len = rf.encode_request(
+        &pk, since, limit, &buf, rf.max_relay_frame,
+    ) catch return error.EncodeRequestFailed;
+
+    var pk_out: [rf.pubkey_len]u8 = undefined;
+    var since_out: u64 = 0;
+    var limit_out: u32 = 0;
+    rf.decode_request(
+        &buf, frame_len,
+        &pk_out, &since_out, &limit_out,
+    ) catch return error.DecodeRequestFailed;
+
+    if (!std.mem.eql(u8, &pk_out, &pk))
+        return error.RequestPubkeyMismatch;
+    if (since_out != since)
+        return error.RequestSinceMismatch;
+    if (limit_out != limit)
+        return error.RequestLimitMismatch;
+}
+
+fn prove_relay_events_encode() !void {
+    // invariant: encode_events roundtrips through decode_events.
+    var ev: rf.EventWire = undefined;
+    for (&ev.pubkey, 0..) |*b, i| b.* = @intCast(i);
+    ev.kind = 1;
+    ev.created_at = 1700000050;
+    const body = "events roundtrip";
+    @memcpy(ev.content[0..body.len], body);
+    ev.content_len = body.len;
+    @memset(&ev.sig, 0xaa);
+    @memset(&ev.id, 0x30);
+
+    const events_in = [_]rf.EventWire{ev};
+    var buf: [rf.max_relay_frame]u8 = undefined;
+    const frame_len = rf.encode_events(
+        &events_in, &buf, rf.max_relay_frame,
+    ) catch return error.EncodeEventsFailed;
+
+    var events_out: [rf.max_events_per_frame]rf.EventWire = undefined;
+    var count: u32 = 0;
+    rf.decode_events(
+        &buf, frame_len, &events_out, &count,
+    ) catch return error.DecodeEventsFailed;
+
+    if (count != 1) return error.EventsCountMismatch;
+    if (!std.mem.eql(u8, &events_out[0].pubkey, &ev.pubkey))
+        return error.EventsPubkeyMismatch;
+    if (events_out[0].kind != ev.kind)
+        return error.EventsKindMismatch;
+    if (events_out[0].created_at != ev.created_at)
+        return error.EventsTimestampMismatch;
+    if (events_out[0].content_len != ev.content_len)
+        return error.EventsContentLenMismatch;
+    const clen = events_out[0].content_len;
+    if (!std.mem.eql(u8, events_out[0].content[0..clen], body))
+        return error.EventsContentMismatch;
+}
+
+fn prove_relay_ack_encode() !void {
+    // invariant: encode_ack roundtrips through decode_ack.
+    var buf: [rf.max_relay_frame]u8 = undefined;
+    const frame_len = rf.encode_ack(
+        rf.ack_ok, &buf, rf.max_relay_frame,
+    ) catch return error.EncodeAckFailed;
+
+    var status: u8 = 0xff;
+    rf.decode_ack(
+        &buf, frame_len, &status,
+    ) catch return error.DecodeAckFailed;
+
+    if (status != rf.ack_ok) return error.AckStatusMismatch;
+
+    // invariant: ack_full roundtrips too.
+    _ = rf.encode_ack(
+        rf.ack_full, &buf, rf.max_relay_frame,
+    ) catch return error.EncodeAckFullFailed;
+    rf.decode_ack(
+        &buf, 2, &status,
+    ) catch return error.DecodeAckFullFailed;
+    if (status != rf.ack_full)
+        return error.AckFullStatusMismatch;
+}
+
 fn prove_init_clears_feed() !void {
     surf_init();
     if (surf_feed_count() != 0) return error.InitCountNotZero;
@@ -937,6 +1269,22 @@ fn run_selftest() u8 {
         print("FAILED: {s}\n", .{@errorName(e)});
         return 1;
     };
+    prove_relay_publish_encode() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_relay_request_encode() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_relay_events_encode() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
+    prove_relay_ack_encode() catch |e| {
+        print("FAILED: {s}\n", .{@errorName(e)});
+        return 1;
+    };
 
     print("surf vantage: init clears -- feed and follows start at zero.\n", .{});
     print("surf vantage: keypair deterministic -- same seed, same Ed25519 keys.\n", .{});
@@ -951,8 +1299,12 @@ fn run_selftest() u8 {
     print("surf vantage: follow and unfollow -- add, duplicate refused, remove.\n", .{});
     print("surf vantage: feed filter -- followed author events only.\n", .{});
     print("surf vantage: follow serialize roundtrip -- follow list survives persistence.\n", .{});
+    print("surf vantage: relay publish encode -- PUBLISH frame roundtrips through decode.\n", .{});
+    print("surf vantage: relay request encode -- REQUEST frame roundtrips through decode.\n", .{});
+    print("surf vantage: relay events encode -- EVENTS frame roundtrips through decode.\n", .{});
+    print("surf vantage: relay ack encode -- ACK frame roundtrips through decode.\n", .{});
     print("surf vantage: version {s}\n", .{bridge_version});
-    print("GREEN: surf vantage -- FFI bridge: keypair, sign, verify, feed, follows, persistence.\n", .{});
+    print("GREEN: surf vantage -- FFI bridge: keypair, sign, verify, feed, follows, persistence, relay.\n", .{});
     return 0;
 }
 
