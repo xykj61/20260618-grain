@@ -1,0 +1,607 @@
+//! surf/relay_server.rye -- relay server for Surf Social events.
+//!
+//! Stores events in memory keyed by pubkey. Accepts PUBLISH frames
+//! (store event, respond ACK) and REQUEST frames (look up events
+//! for the requested pubkey since a timestamp, respond EVENTS).
+//!
+//! Bounded: 256 pubkeys, 64 events per pubkey (ring buffer).
+//! When a pubkey's ring is full the oldest event is overwritten.
+//!
+//! Usage:
+//!   relay_server serve <count>   Serve <count> frames on port 38504
+//!   relay_server selftest        Prove store and dispatch logic
+//!
+//! Build:
+//!   rye build surf/relay_server.rye -lc \
+//!       -femit-bin=surf/bin/relay-server
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+const c = std.c;
+const rf = @import("relay_format.rye");
+
+const server_version = "20261108.210000";
+
+// -- Network constants -----------------------------------------------
+
+const AF_INET: c_uint = 2;
+const SOCK_DGRAM: c_uint = 2;
+const SOL_SOCKET: c_int = c.SOL.SOCKET;
+const SO_REUSEADDR: c_int = c.SO.REUSEADDR;
+const sockaddr_in = c.sockaddr.in;
+
+fn localhost_addr(port: u16) sockaddr_in {
+    return .{
+        .port = std.mem.nativeToBig(u16, port),
+        .addr = @bitCast([4]u8{ 127, 0, 0, 1 }),
+    };
+}
+
+fn open_socket() !c.fd_t {
+    const fd = c.socket(AF_INET, SOCK_DGRAM, 0);
+    if (fd < 0) return error.SocketFailed;
+    const yes: c_int = 1;
+    if (c.setsockopt(
+        fd,
+        SOL_SOCKET,
+        SO_REUSEADDR,
+        &yes,
+        @sizeOf(c_int),
+    ) < 0) {
+        _ = c.close(fd);
+        return error.SetSockOptFailed;
+    }
+    return fd;
+}
+
+// -- Event store -----------------------------------------------------
+
+// invariant: bounded pubkeys
+const max_pubkeys: u32 = 256;
+// invariant: bounded events per pubkey (ring buffer)
+const max_events_per_key: u32 = 64;
+
+const StoredEvent = struct {
+    created_at: u64,
+    kind: u32,
+    content_len: u32,
+    content: [rf.max_content_len]u8,
+    sig: [rf.sig_len]u8,
+    id: [rf.hex_len]u8,
+};
+
+const PubkeySlot = struct {
+    pubkey: [rf.pubkey_len]u8,
+    events: []StoredEvent,
+    count: u32,
+    active: bool,
+};
+
+const Store = struct {
+    slots: []PubkeySlot,
+    slot_count: u32,
+    garden: std.mem.Allocator,
+
+    fn create(garden: std.mem.Allocator) !*Store {
+        const s = try garden.create(Store);
+        s.slots = try garden.alloc(PubkeySlot, max_pubkeys);
+        s.slot_count = 0;
+        s.garden = garden;
+        var i: u32 = 0;
+        while (i < max_pubkeys) : (i += 1) {
+            s.slots[i].active = false;
+            s.slots[i].count = 0;
+        }
+        return s;
+    }
+
+    fn find_slot(
+        self: *Store,
+        pubkey: *const [rf.pubkey_len]u8,
+    ) ?*PubkeySlot {
+        var i: u32 = 0;
+        while (i < self.slot_count) : (i += 1) {
+            if (self.slots[i].active and
+                std.mem.eql(u8, &self.slots[i].pubkey, pubkey))
+            {
+                return &self.slots[i];
+            }
+        }
+        return null;
+    }
+
+    fn find_or_create(
+        self: *Store,
+        pubkey: *const [rf.pubkey_len]u8,
+    ) !?*PubkeySlot {
+        if (self.find_slot(pubkey)) |slot| return slot;
+        if (self.slot_count >= max_pubkeys) return null;
+        const slot = &self.slots[self.slot_count];
+        slot.active = true;
+        slot.pubkey = pubkey.*;
+        slot.events = try self.garden.alloc(
+            StoredEvent,
+            max_events_per_key,
+        );
+        slot.count = 0;
+        self.slot_count += 1;
+        return slot;
+    }
+
+    fn publish(
+        self: *Store,
+        ev: *const rf.EventWire,
+    ) u8 {
+        const slot = self.find_or_create(&ev.pubkey) catch
+            return rf.ack_full;
+        if (slot == null) return rf.ack_full;
+        const s = slot.?;
+        const idx = s.count % max_events_per_key;
+        s.events[idx] = .{
+            .created_at = ev.created_at,
+            .kind = ev.kind,
+            .content_len = ev.content_len,
+            .content = undefined,
+            .sig = ev.sig,
+            .id = ev.id,
+        };
+        var ci: u32 = 0;
+        while (ci < ev.content_len) : (ci += 1) {
+            s.events[idx].content[ci] = ev.content[ci];
+        }
+        s.count += 1;
+        return rf.ack_ok;
+    }
+
+    fn query(
+        self: *Store,
+        pubkey: *const [rf.pubkey_len]u8,
+        since: u64,
+        limit: u32,
+        out: []rf.EventWire,
+    ) u32 {
+        const slot = self.find_slot(pubkey) orelse return 0;
+        var found: u32 = 0;
+        const start = if (slot.count > max_events_per_key)
+            slot.count - max_events_per_key
+        else
+            @as(u32, 0);
+        var idx: u32 = start;
+        const cap: u32 = @intCast(out.len);
+        const bound = if (limit < cap) limit else cap;
+        while (idx < slot.count and found < bound) : (idx += 1) {
+            const ring = idx % max_events_per_key;
+            const ev = &slot.events[ring];
+            if (ev.created_at >= since) {
+                out[found] = .{
+                    .pubkey = slot.pubkey,
+                    .kind = ev.kind,
+                    .created_at = ev.created_at,
+                    .content_len = ev.content_len,
+                    .content = undefined,
+                    .sig = ev.sig,
+                    .id = ev.id,
+                };
+                var ci: u32 = 0;
+                while (ci < ev.content_len) : (ci += 1) {
+                    out[found].content[ci] = ev.content[ci];
+                }
+                found += 1;
+            }
+        }
+        return found;
+    }
+};
+
+// -- Frame dispatch --------------------------------------------------
+
+fn dispatch_frame(
+    store: *Store,
+    in_buf: [*]const u8,
+    in_len: u32,
+    out_buf: [*]u8,
+    out_cap: u32,
+) ?u32 {
+    if (in_len < 1) return null;
+    const msg_type = in_buf[0];
+
+    if (msg_type == rf.msg_publish) {
+        var ev: rf.EventWire = undefined;
+        rf.decode_publish(
+            in_buf,
+            in_len,
+            &ev.pubkey,
+            &ev.kind,
+            &ev.created_at,
+            @as([*]u8, &ev.content),
+            &ev.content_len,
+            &ev.sig,
+            &ev.id,
+        ) catch return encode_ack(rf.ack_invalid, out_buf, out_cap);
+        const status = store.publish(&ev);
+        return encode_ack(status, out_buf, out_cap);
+    }
+
+    if (msg_type == rf.msg_request) {
+        var pubkey: [rf.pubkey_len]u8 = undefined;
+        var since: u64 = 0;
+        var limit: u32 = 0;
+        rf.decode_request(
+            in_buf,
+            in_len,
+            &pubkey,
+            &since,
+            &limit,
+        ) catch return encode_ack(rf.ack_invalid, out_buf, out_cap);
+        var events: [rf.max_events_per_frame]rf.EventWire = undefined;
+        const count = store.query(&pubkey, since, limit, &events);
+        return rf.encode_events(
+            events[0..count],
+            out_buf,
+            out_cap,
+        ) catch return null;
+    }
+
+    return null;
+}
+
+fn encode_ack(status: u8, buf: [*]u8, cap: u32) ?u32 {
+    return rf.encode_ack(status, buf, cap) catch return null;
+}
+
+// -- Serve mode ------------------------------------------------------
+
+fn run_serve(
+    garden: std.mem.Allocator,
+    frame_count: u32,
+) !u8 {
+    const store = try Store.create(garden);
+
+    const fd = try open_socket();
+    defer _ = c.close(fd);
+
+    var bind_addr = localhost_addr(rf.relay_port);
+    if (c.bind(
+        fd,
+        @ptrCast(&bind_addr),
+        @sizeOf(sockaddr_in),
+    ) < 0) {
+        print(
+            "relay-server: bind failed on port {d}\n",
+            .{rf.relay_port},
+        );
+        return 1;
+    }
+    print(
+        "relay-server: listening on port {d}\n",
+        .{rf.relay_port},
+    );
+
+    var served: u32 = 0;
+    while (served < frame_count) {
+        var in_buf: [rf.max_relay_frame]u8 = undefined;
+        var from: sockaddr_in = undefined;
+        var from_len: c.socklen_t = @sizeOf(sockaddr_in);
+        const n = c.recvfrom(
+            fd,
+            &in_buf,
+            rf.max_relay_frame,
+            0,
+            @ptrCast(&from),
+            &from_len,
+        );
+        if (n < 0) continue;
+        const in_len: u32 = @intCast(n);
+
+        var out_buf: [rf.max_relay_frame]u8 = undefined;
+        const out_len = dispatch_frame(
+            store,
+            &in_buf,
+            in_len,
+            &out_buf,
+            rf.max_relay_frame,
+        );
+
+        if (out_len) |resp_len| {
+            _ = c.sendto(
+                fd,
+                &out_buf,
+                resp_len,
+                0,
+                @ptrCast(&from),
+                @sizeOf(sockaddr_in),
+            );
+        }
+        served += 1;
+    }
+
+    print(
+        "relay-server: served {d} frames ({d} pubkeys stored)\n",
+        .{ served, store.slot_count },
+    );
+    return 0;
+}
+
+// -- Selftest --------------------------------------------------------
+
+fn make_event(seed: u8, ts: u64, msg: []const u8) rf.EventWire {
+    var ev: rf.EventWire = undefined;
+    for (&ev.pubkey) |*b| b.* = seed;
+    ev.kind = @as(u32, seed) + 1;
+    ev.created_at = ts;
+    ev.content_len = @intCast(msg.len);
+    for (msg, 0..) |ch, i| ev.content[i] = ch;
+    for (&ev.sig) |*b| b.* = seed ^ 0xaa;
+    for (&ev.id) |*b| b.* = seed ^ 0x55;
+    return ev;
+}
+
+fn prove_publish_and_retrieve(garden: std.mem.Allocator) !void {
+    const store = try Store.create(garden);
+    const ev = make_event(0x42, 1700000000, "hello relay");
+
+    // invariant: publish succeeds
+    const status = store.publish(&ev);
+    assert(status == rf.ack_ok);
+
+    // invariant: query returns the event
+    var out: [rf.max_events_per_frame]rf.EventWire = undefined;
+    const count = store.query(&ev.pubkey, 0, 16, &out);
+    assert(count == 1);
+    assert(out[0].created_at == ev.created_at);
+    assert(out[0].kind == ev.kind);
+    assert(out[0].content_len == ev.content_len);
+    assert(std.mem.eql(
+        u8,
+        out[0].content[0..out[0].content_len],
+        ev.content[0..ev.content_len],
+    ));
+}
+
+fn prove_since_filter(garden: std.mem.Allocator) !void {
+    const store = try Store.create(garden);
+    const ev1 = make_event(0x10, 1700000100, "old");
+    const ev2 = make_event(0x10, 1700000200, "mid");
+    const ev3 = make_event(0x10, 1700000300, "new");
+
+    _ = store.publish(&ev1);
+    _ = store.publish(&ev2);
+    _ = store.publish(&ev3);
+
+    // invariant: since=200 returns events at 200 and 300
+    var out: [rf.max_events_per_frame]rf.EventWire = undefined;
+    const count = store.query(&ev1.pubkey, 1700000200, 16, &out);
+    assert(count == 2);
+    assert(out[0].created_at == 1700000200);
+    assert(out[1].created_at == 1700000300);
+}
+
+fn prove_pubkey_isolation(garden: std.mem.Allocator) !void {
+    const store = try Store.create(garden);
+    const alice = make_event(0xaa, 1700000000, "alice msg");
+    const bob = make_event(0xbb, 1700000000, "bob msg");
+
+    _ = store.publish(&alice);
+    _ = store.publish(&bob);
+
+    // invariant: alice's query returns only alice's event
+    var out: [rf.max_events_per_frame]rf.EventWire = undefined;
+    const a_count = store.query(&alice.pubkey, 0, 16, &out);
+    assert(a_count == 1);
+    assert(out[0].pubkey[0] == 0xaa);
+
+    // invariant: bob's query returns only bob's event
+    const b_count = store.query(&bob.pubkey, 0, 16, &out);
+    assert(b_count == 1);
+    assert(out[0].pubkey[0] == 0xbb);
+}
+
+fn prove_ring_overflow(garden: std.mem.Allocator) !void {
+    const store = try Store.create(garden);
+
+    // Fill ring past capacity
+    var i: u32 = 0;
+    while (i < max_events_per_key + 4) : (i += 1) {
+        const ev = make_event(
+            0xcc,
+            1700000000 + @as(u64, i),
+            "ring",
+        );
+        const status = store.publish(&ev);
+        assert(status == rf.ack_ok);
+    }
+
+    // invariant: only max_events_per_key events retained
+    var out: [rf.max_events_per_frame]rf.EventWire = undefined;
+    const count = store.query(
+        &make_event(0xcc, 0, "").pubkey,
+        0,
+        rf.max_events_per_frame,
+        &out,
+    );
+    // invariant: count capped at what fits in one EVENTS frame
+    assert(count == rf.max_events_per_frame);
+    // invariant: oldest surviving is index 4 (first 4 overwritten)
+    assert(out[0].created_at == 1700000004);
+}
+
+fn prove_ack_on_publish(garden: std.mem.Allocator) !void {
+    const store = try Store.create(garden);
+    const ev = make_event(0x42, 1700000000, "hello relay");
+
+    // Encode a PUBLISH frame
+    var in_buf: [rf.max_relay_frame]u8 = undefined;
+    const in_len = try rf.encode_publish(
+        &ev.pubkey,
+        ev.kind,
+        ev.created_at,
+        @as([*]const u8, &ev.content),
+        ev.content_len,
+        &ev.sig,
+        &ev.id,
+        &in_buf,
+        rf.max_relay_frame,
+    );
+
+    // Dispatch
+    var out_buf: [rf.max_relay_frame]u8 = undefined;
+    const out_len = dispatch_frame(
+        store,
+        &in_buf,
+        in_len,
+        &out_buf,
+        rf.max_relay_frame,
+    );
+
+    // invariant: response is an ACK with status ok
+    assert(out_len != null);
+    assert(out_len.? == rf.ack_frame_len);
+    var status: u8 = 0xff;
+    try rf.decode_ack(&out_buf, out_len.?, &status);
+    assert(status == rf.ack_ok);
+}
+
+fn prove_events_on_request(garden: std.mem.Allocator) !void {
+    const store = try Store.create(garden);
+
+    // Publish two events
+    const ev1 = make_event(0x42, 1700000100, "first");
+    const ev2 = make_event(0x42, 1700000200, "second");
+    _ = store.publish(&ev1);
+    _ = store.publish(&ev2);
+
+    // Encode a REQUEST frame
+    var in_buf: [rf.max_relay_frame]u8 = undefined;
+    const in_len = try rf.encode_request(
+        &ev1.pubkey,
+        0,
+        16,
+        &in_buf,
+        rf.max_relay_frame,
+    );
+
+    // Dispatch
+    var out_buf: [rf.max_relay_frame]u8 = undefined;
+    const out_len = dispatch_frame(
+        store,
+        &in_buf,
+        in_len,
+        &out_buf,
+        rf.max_relay_frame,
+    );
+
+    // invariant: response is EVENTS with 2 events
+    assert(out_len != null);
+    var decoded: [rf.max_events_per_frame]rf.EventWire = undefined;
+    var count: u32 = 0;
+    try rf.decode_events(&out_buf, out_len.?, &decoded, &count);
+    assert(count == 2);
+    assert(decoded[0].created_at == 1700000100);
+    assert(decoded[1].created_at == 1700000200);
+}
+
+fn prove_unknown_pubkey_empty(garden: std.mem.Allocator) !void {
+    const store = try Store.create(garden);
+
+    // Request for a pubkey that has no events
+    var pk: [rf.pubkey_len]u8 = undefined;
+    for (&pk) |*b| b.* = 0xff;
+
+    var in_buf: [rf.max_relay_frame]u8 = undefined;
+    const in_len = try rf.encode_request(
+        &pk,
+        0,
+        16,
+        &in_buf,
+        rf.max_relay_frame,
+    );
+
+    var out_buf: [rf.max_relay_frame]u8 = undefined;
+    const out_len = dispatch_frame(
+        store,
+        &in_buf,
+        in_len,
+        &out_buf,
+        rf.max_relay_frame,
+    );
+
+    // invariant: response is EVENTS with 0 events
+    assert(out_len != null);
+    var decoded: [rf.max_events_per_frame]rf.EventWire = undefined;
+    var count: u32 = 0;
+    try rf.decode_events(&out_buf, out_len.?, &decoded, &count);
+    assert(count == 0);
+}
+
+fn prove_store_bounds() void {
+    // invariant: store capacity constants
+    assert(max_pubkeys == 256);
+    assert(max_events_per_key == 64);
+    // invariant: pubkey slots fit the protocol's per-frame limit
+    assert(rf.max_events_per_frame <= max_events_per_key);
+}
+
+fn run_selftest(garden: std.mem.Allocator) u8 {
+    print("relay_server selftest\n", .{});
+
+    prove_store_bounds();
+    print("  prove store_bounds GREEN\n", .{});
+
+    prove_publish_and_retrieve(garden) catch
+        @panic("publish_and_retrieve");
+    print("  prove publish_and_retrieve GREEN\n", .{});
+
+    prove_since_filter(garden) catch
+        @panic("since_filter");
+    print("  prove since_filter GREEN\n", .{});
+
+    prove_pubkey_isolation(garden) catch
+        @panic("pubkey_isolation");
+    print("  prove pubkey_isolation GREEN\n", .{});
+
+    prove_ring_overflow(garden) catch
+        @panic("ring_overflow");
+    print("  prove ring_overflow GREEN\n", .{});
+
+    prove_ack_on_publish(garden) catch
+        @panic("ack_on_publish");
+    print("  prove ack_on_publish GREEN\n", .{});
+
+    prove_events_on_request(garden) catch
+        @panic("events_on_request");
+    print("  prove events_on_request GREEN\n", .{});
+
+    prove_unknown_pubkey_empty(garden) catch
+        @panic("unknown_pubkey_empty");
+    print("  prove unknown_pubkey_empty GREEN\n", .{});
+
+    print("relay_server: 8 proves GREEN\n", .{});
+    return 0;
+}
+
+// -- Entry -----------------------------------------------------------
+
+pub fn main(init: std.process.Init) !u8 {
+    const garden = init.arena.allocator();
+    const args = try init.minimal.args.toSlice(garden);
+
+    if (args.len == 2 and std.mem.eql(u8, args[1], "selftest"))
+        return run_selftest(garden);
+
+    if (args.len == 1) return run_selftest(garden);
+
+    if (args.len == 3 and std.mem.eql(u8, args[1], "serve")) {
+        const count = std.fmt.parseInt(u32, args[2], 10) catch {
+            print("relay-server: bad frame count\n", .{});
+            return 1;
+        };
+        return try run_serve(garden, count);
+    }
+
+    print(
+        "usage: relay_server [selftest | serve <count>]\n",
+        .{},
+    );
+    return 1;
+}

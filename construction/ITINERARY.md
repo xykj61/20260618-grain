@@ -139,8 +139,8 @@ The interface uses ASCII as structure, linen as material, and motion as a bounde
 Brushstroke declares each component's grid, role, state, tokens, and motion profile. Skate renders the fixed frame and bounded events. A correspondence witness forces meaning, description, and behavior to change together.
 
 ## Now -- the eight sailing ship itineraries
-**Git nib:** `f8a6bc0db5`
-**Fascia:** `60.156` -- Surf Relay wire format GREEN (8 proves: frame bounds, topology constants, publish/request/events/ack roundtrips, bad-type rejection, truncation rejection). Protocol: UDP port 38504, max frame 8192 bytes, four message types (PUBLISH, REQUEST, EVENTS, ACK), Mycelium MUR testnet topology (15 galaxies, 405 planets). Full proof history archived to `construction/archive/20261107-222635_fascia-description-history.md`. Governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.001 per proven movement (three decimal places from `20261104`), larger on Keaton's word.
+**Git nib:** `de90fdcba5`
+**Fascia:** `60.157` -- Surf Relay server GREEN (8 proves: store bounds, publish/retrieve, since filter, pubkey isolation, ring overflow, ack on publish, events on request, unknown pubkey empty). In-memory event store: 256 pubkeys, 64 events per key ring buffer. Frame dispatch routes PUBLISH to store+ACK, REQUEST to query+EVENTS. Full proof history archived to `construction/archive/20261107-222635_fascia-description-history.md`. Governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.001 per proven movement (three decimal places from `20261104`), larger on Keaton's word.
 
 
 ### Incense -- product captain
