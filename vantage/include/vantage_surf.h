@@ -101,4 +101,24 @@ int32_t surf_follow_deserialize(
 
 int32_t surf_selftest(void);
 
+int32_t surf_relay_publish(
+    const uint8_t *pubkey,
+    uint32_t kind,
+    uint64_t created_at,
+    const uint8_t *content,
+    uint32_t content_len,
+    const uint8_t *sig,
+    const uint8_t *id,
+    const uint8_t *addr,
+    uint16_t port
+);
+
+int32_t surf_relay_fetch(
+    const uint8_t *pubkey,
+    uint64_t since,
+    uint32_t limit,
+    const uint8_t *addr,
+    uint16_t port
+);
+
 #endif

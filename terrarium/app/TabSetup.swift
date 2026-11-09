@@ -2885,6 +2885,98 @@ extension AppDelegate {
         container.addSubview(followCntLbl)
         surfFollowCountLabel = followCntLbl
 
+        // -- Relay controls -------------------------
+
+        let relayLbl = NSTextField(
+            labelWithString: "Relay"
+        )
+        relayLbl.font = NSFont.systemFont(
+            ofSize: 11, weight: .medium
+        )
+        relayLbl.textColor = NSColor(
+            red: 0.5, green: 0.5, blue: 0.6,
+            alpha: 0.8
+        )
+        relayLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(relayLbl)
+
+        let relayAddr = NSTextField()
+        relayAddr.stringValue = "127.0.0.1:38504"
+        relayAddr.font =
+            NSFont.monospacedSystemFont(
+                ofSize: 11, weight: .regular
+            )
+        relayAddr.textColor = .white
+        relayAddr.backgroundColor = NSColor(
+            red: 0.1, green: 0.1, blue: 0.14,
+            alpha: 1.0
+        )
+        relayAddr.isBordered = true
+        relayAddr.focusRingType = .none
+        relayAddr
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(relayAddr)
+        surfRelayAddrField = relayAddr
+
+        let fetchBtn = NSButton(
+            title: "Fetch",
+            target: self,
+            action: #selector(
+                surfRelayFetchAction(_:)
+            )
+        )
+        fetchBtn.bezelStyle = .rounded
+        fetchBtn
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(fetchBtn)
+
+        let publishCheck = NSButton(
+            checkboxWithTitle: "Auto-publish",
+            target: self,
+            action: #selector(
+                surfRelayPublishToggled(_:)
+            )
+        )
+        publishCheck.state = surfRelayPublishOn
+            ? .on : .off
+        publishCheck
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        (publishCheck.cell as? NSButtonCell)?
+            .attributedTitle = NSAttributedString(
+                string: "Auto-publish",
+                attributes: [
+                    .foregroundColor: NSColor(
+                        red: 0.5, green: 0.5,
+                        blue: 0.6, alpha: 0.8
+                    ),
+                    .font: NSFont.systemFont(
+                        ofSize: 11
+                    ),
+                ]
+            )
+        container.addSubview(publishCheck)
+
+        let relayStatus = NSTextField(
+            labelWithString: ""
+        )
+        relayStatus.font = NSFont.systemFont(
+            ofSize: 11, weight: .regular
+        )
+        relayStatus.textColor = NSColor(
+            red: 0.5, green: 0.7, blue: 0.5,
+            alpha: 0.8
+        )
+        relayStatus
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(relayStatus)
+        surfRelayStatusLabel = relayStatus
+
         let filterSeg = NSSegmentedControl(
             labels: ["All", "Following"],
             trackingMode: .selectOne,
@@ -3019,8 +3111,51 @@ extension AppDelegate {
                 equalTo: followBtn.trailingAnchor,
                 constant: 12
             ),
-            filterSeg.topAnchor.constraint(
+            relayLbl.topAnchor.constraint(
                 equalTo: followField.bottomAnchor,
+                constant: 10
+            ),
+            relayLbl.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 20
+            ),
+            relayAddr.centerYAnchor.constraint(
+                equalTo: relayLbl.centerYAnchor
+            ),
+            relayAddr.leadingAnchor.constraint(
+                equalTo: relayLbl.trailingAnchor,
+                constant: 8
+            ),
+            relayAddr.widthAnchor.constraint(
+                equalToConstant: 180
+            ),
+            relayAddr.heightAnchor.constraint(
+                equalToConstant: 24
+            ),
+            fetchBtn.centerYAnchor.constraint(
+                equalTo: relayLbl.centerYAnchor
+            ),
+            fetchBtn.leadingAnchor.constraint(
+                equalTo: relayAddr.trailingAnchor,
+                constant: 8
+            ),
+            publishCheck.topAnchor.constraint(
+                equalTo: relayLbl.bottomAnchor,
+                constant: 4
+            ),
+            publishCheck.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 20
+            ),
+            relayStatus.centerYAnchor.constraint(
+                equalTo: publishCheck.centerYAnchor
+            ),
+            relayStatus.leadingAnchor.constraint(
+                equalTo: publishCheck.trailingAnchor,
+                constant: 12
+            ),
+            filterSeg.topAnchor.constraint(
+                equalTo: publishCheck.bottomAnchor,
                 constant: 8
             ),
             filterSeg.leadingAnchor.constraint(
@@ -3117,6 +3252,22 @@ extension AppDelegate {
         guard addRc == 0 else { return }
 
         surfSaveFeed()
+
+        if surfRelayPublishOn,
+           let parsed = surfParseRelayAddr()
+        {
+            let relayRc = surf_relay_publish(
+                pubkey, kind, now,
+                content,
+                UInt32(content.count),
+                sig, eventId,
+                parsed.addr, parsed.port
+            )
+            surfRelayStatusLabel?.stringValue =
+                relayRc >= 0
+                ? "published ok"
+                : "publish error \(relayRc)"
+        }
 
         sender.stringValue = ""
         surfReloadTimeline()
@@ -3251,6 +3402,68 @@ extension AppDelegate {
     ) {
         surfFilterMode = sender.selectedSegment
         surfReloadTimeline()
+    }
+
+    func surfParseRelayAddr()
+        -> (addr: [UInt8], port: UInt16)?
+    {
+        guard let text = surfRelayAddrField?
+            .stringValue, !text.isEmpty
+        else { return nil }
+        let parts = text.split(
+            separator: ":", maxSplits: 1
+        )
+        let host = String(parts[0])
+        let port: UInt16 = parts.count > 1
+            ? UInt16(parts[1]) ?? 38504
+            : 38504
+        let octets = host.split(separator: ".")
+        guard octets.count == 4 else { return nil }
+        var addr = [UInt8](
+            repeating: 0, count: 4
+        )
+        for i in 0..<4 {
+            guard let v = UInt8(octets[i])
+            else { return nil }
+            addr[i] = v
+        }
+        return (addr, port)
+    }
+
+    @objc func surfRelayFetchAction(
+        _ sender: Any
+    ) {
+        guard let parsed = surfParseRelayAddr()
+        else {
+            surfRelayStatusLabel?.stringValue =
+                "invalid address"
+            return
+        }
+        let pk = surfPubkeyBytes()
+        guard !pk.allSatisfy({ $0 == 0 })
+        else {
+            surfRelayStatusLabel?.stringValue =
+                "no identity"
+            return
+        }
+        let rc = surf_relay_fetch(
+            pk, 0, 64, parsed.addr, parsed.port
+        )
+        if rc >= 0 {
+            surfSaveFeed()
+            surfReloadTimeline()
+            surfRelayStatusLabel?.stringValue =
+                "fetched \(rc) events"
+        } else {
+            surfRelayStatusLabel?.stringValue =
+                "fetch error \(rc)"
+        }
+    }
+
+    @objc func surfRelayPublishToggled(
+        _ sender: NSButton
+    ) {
+        surfRelayPublishOn = sender.state == .on
     }
 
     func surfSaveFollows() {

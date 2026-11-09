@@ -139,8 +139,8 @@ The interface uses ASCII as structure, linen as material, and motion as a bounde
 Brushstroke declares each component's grid, role, state, tokens, and motion profile. Skate renders the fixed frame and bounded events. A correspondence witness forces meaning, description, and behavior to change together.
 
 ## Now -- the eight sailing ship itineraries
-**Git nib:** `a96b88ee64`
-**Fascia:** `60.158` -- Surf Relay client exports GREEN (17 proves: keypair, sign, verify, feed add/count/list/get/serialize, event get, follow/unfollow, feed filter, follow serialize, relay publish encode, relay request encode, relay events encode, relay ack encode). C-ABI exports surf_relay_publish and surf_relay_fetch in surf_vantage.rye: encode frame, UDP send, receive response, decode reply. Full proof history archived to `construction/archive/20261107-222635_fascia-description-history.md`. Governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.001 per proven movement (three decimal places from `20261104`), larger on Keaton's word.
+**Git nib:** `2b77ceff3f`
+**Fascia:** `60.159` -- Surf Relay Terrarium UI built: address field (default 127.0.0.1:38504), auto-publish checkbox, fetch button wired to surf_relay_publish and surf_relay_fetch C-ABI exports. Binary 805KB with all relay symbols. Full proof history archived to `construction/archive/20261107-222635_fascia-description-history.md`. Governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.001 per proven movement (three decimal places from `20261104`), larger on Keaton's word.
 
 
 ### Incense -- product captain

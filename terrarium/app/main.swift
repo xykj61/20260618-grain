@@ -178,6 +178,9 @@ class AppDelegate: NSObject,
     var surfFollowField: NSTextField?
     var surfFollowCountLabel: NSTextField?
     var surfFilterMode: Int = 0
+    var surfRelayAddrField: NSTextField?
+    var surfRelayStatusLabel: NSTextField?
+    var surfRelayPublishOn: Bool = false
     var nextTabId = 3
     var shortcutStatusLabel: NSTextField?
     var connectionLabel: NSTextField?
