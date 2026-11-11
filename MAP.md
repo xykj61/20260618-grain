@@ -99,6 +99,7 @@ The **module ring** is the machinery, each home with its own witnesses. Take the
 | [`scribe/`](scribe/README.md) | the voice's home |
 | [`sundial/`](sundial/README.md) | the health face |
 | [`docs-geode/cookbook/`](docs-geode/cookbook/README.md) | the cookbook stdlib |
+| [`colloquium/`](colloquium/README.md) | the civic-legislative module |
 | [`granary/`](granary/README.md) - [`mandi/`](mandi/README.md) - [`amphora/`](amphora/README.md) - [`mycelium/`](mycelium/README.md) - [`lantern/`](lantern/README.md) - [`lattice/`](lattice/README.md) - [`scribble/`](scribble/README.md) - [`cellar/`](cellar/README.md) - [`dimeroll/`](dimeroll/README.md) | Named here without a gloss; open the room's own README for what it proves |
 
 ### 5 - The Teaching

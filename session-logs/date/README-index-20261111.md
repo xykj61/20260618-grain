@@ -2,6 +2,7 @@
 
 | Stamp | Title | Summary |
 |---|---|---|
+| 20261111.142400 | [Colloquium born -- automobile-patent nullification bill](20261111/20261111-142400_colloquium-born-automobile-patent-bill.kyri.md) | founding bill in Civic Style: MMT funding, Job Guarantee, certification roles with provable safety outcomes |
 | 20261111.135242 | [mandate folds into tablecloth](20261111/20261111-135242_mandate-folds-into-tablecloth.kyri.md) | 15 source files, 7 witnesses, 21 living references -- the vector store migrates from mandate/ to tablecloth/ |
 | 20261111.121521 | [Mandate-Tablecloth fold and Colloquium birth seated](20261111/20261111-121521_mandate-tablecloth-fold-colloquium-birth-seated.kyri.md) | Design essay, Lexicon, and ITINERARY updated for the three approved decisions |
 | 20261111.120957 | [Mandate origin and Comlink audit](20261111/20261111-120957_mandate-origin-and-comlink-audit.kyri.md) | Mandate conceived 20260810 on Keaton's own prompt; Turbopuffer research was Tablecloth's; zero Terrarium connection; fails Comlink naming; three questions returned |
