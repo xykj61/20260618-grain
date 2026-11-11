@@ -2,6 +2,7 @@
 
 | Stamp | Title | Summary |
 |---|---|---|
+| 20261111.165950 | [Orbit 4 send](20261111/20261111-165950_orbit-4-send.kyri.md) | nib amend, push c73cbbce4 -- Orbit 4 complete |
 | 20261111.165528 | [multi-track visual and playback proven on metal](20261111/20261111-165528_multi-track-visual-playback.kyri.md) | two tracks, track list visual, master mix, coreaudio playback -- GREEN |
 | 20261111.162603 | [track.rye -- named tracks, remove, reorder](20261111/20261111-162603_track-named-remove-reorder.kyri.md) | Orbit 4 data model: name fields, remove-shift, swap, 6 new selftest cases, all 13 GREEN |
 | 20261111.145121 | [Radiant pass on the automobile-patent bill](20261111/20261111-145121_radiant-pass-automobile-patent-bill.kyri.md) | nine affirmative-contrast flips, Lotus pause lifted |
