@@ -24,22 +24,23 @@ const print = std.debug.print;
 const timeline = @import("timeline.rye");
 const clock = @import("clock.rye");
 
-pub const track_version = "20260814.114921";
+pub const track_version = "20261111.160000";
 
 /// The widest track table this rung proves -- a bounded small mixer. A real session is many such bounded tables; the bound
 /// keeps render's accumulator and the master both fixed.
 pub const max_tracks: u32 = 8;
+pub const max_track_name: u32 = 32;
 
 pub const TrackError = error{
-    /// Adding a track past the table's fixed bound -- refused, never a silent overwrite of the table.
     SessionFull,
+    BadIndex,
 };
 
-/// A clip placed at a real offset. The offset is a duration in milliseconds, converted through the lotus-audio clock at render --
-/// so a track's start is a real moment, not a bare sample index.
 pub const Track = struct {
     clip: timeline.Clip,
     at_ms: u32,
+    name: [max_track_name]u8 = @splat(0),
+    name_len: u32 = 0,
 };
 
 /// A bounded table of placed clips -- the multi-track session. Rendered into one master by summing every track at its offset.
@@ -64,6 +65,76 @@ pub fn add_track(session: *Session, clip: *const timeline.Clip, at_ms: u32) Trac
     session.count += 1;
     // invariant: the session grew by exactly one track and never past its bound.
     assert(session.count <= session.tracks.len);
+}
+
+pub fn name_track(
+    session: *Session,
+    index: u32,
+    raw: []const u8,
+) TrackError!void {
+    // invariant: index names a real track.
+    if (index >= session.count)
+        return error.BadIndex;
+    const capped = @min(raw.len, max_track_name);
+    // invariant: capped fits u32.
+    assert(capped <= max_track_name);
+    const len: u32 = @intCast(capped);
+    var i: u32 = 0;
+    while (i < len) : (i += 1)
+        session.tracks[index].name[i] = raw[i];
+    while (i < max_track_name) : (i += 1)
+        session.tracks[index].name[i] = 0;
+    session.tracks[index].name_len = len;
+    // invariant: name_len within bound.
+    assert(session.tracks[index].name_len
+        <= max_track_name);
+}
+
+pub fn track_name(
+    session: *const Session,
+    index: u32,
+) TrackError![]const u8 {
+    // invariant: index names a real track.
+    if (index >= session.count)
+        return error.BadIndex;
+    const t = &session.tracks[index];
+    // invariant: name_len within bound.
+    assert(t.name_len <= max_track_name);
+    return t.name[0..t.name_len];
+}
+
+pub fn remove_track(
+    session: *Session,
+    index: u32,
+) TrackError!void {
+    // invariant: index names a real track.
+    if (index >= session.count)
+        return error.BadIndex;
+    var i = index;
+    while (i + 1 < session.count) : (i += 1)
+        session.tracks[i] = session.tracks[i + 1];
+    session.count -= 1;
+    // invariant: count within table bound.
+    assert(session.count <= max_tracks);
+    session.tracks[session.count] = .{
+        .clip = .{},
+        .at_ms = 0,
+    };
+}
+
+pub fn swap_tracks(
+    session: *Session,
+    a: u32,
+    b: u32,
+) TrackError!void {
+    // invariant: both indices name real tracks.
+    if (a >= session.count)
+        return error.BadIndex;
+    if (b >= session.count)
+        return error.BadIndex;
+    const tmp = session.tracks[a];
+    session.tracks[a] = session.tracks[b];
+    session.tracks[b] = tmp;
 }
 
 /// Render every track into one master at its real offset, summing over a wide accumulator and saturating ONCE over the whole
@@ -211,6 +282,97 @@ fn run_selftest() !u8 {
         try add_track(&s, &a, timeline.max_clip - 1); // offset leaves one sample of room for a two-sample clip
         var out = timeline.Clip{};
         if (render(&s, c, &out)) |_| return error.OverflowSlipped else |e| if (e != error.ClipFull) return error.WrongOverflow;
+    }
+
+    // 8. name a track and read it back.
+    {
+        var a = timeline.Clip{};
+        try timeline.splice(&a, 0, &[_]i16{42});
+        var s = Session{};
+        try add_track(&s, &a, 0);
+        try name_track(&s, 0, "vocal");
+        const got = try track_name(&s, 0);
+        if (got.len != 5)
+            return error.NameWrong;
+        if (!std.mem.eql(u8, got, "vocal"))
+            return error.NameWrong;
+    }
+
+    // 9. remove middle track -- tail shifts down.
+    {
+        var a = timeline.Clip{};
+        var b = timeline.Clip{};
+        var d = timeline.Clip{};
+        try timeline.splice(&a, 0, &[_]i16{1});
+        try timeline.splice(&b, 0, &[_]i16{2});
+        try timeline.splice(&d, 0, &[_]i16{3});
+        var s = Session{};
+        try add_track(&s, &a, 0);
+        try add_track(&s, &b, 0);
+        try add_track(&s, &d, 0);
+        try remove_track(&s, 1);
+        if (s.count != 2)
+            return error.RemoveWrong;
+        if (s.tracks[0].clip.buf[0] != 1)
+            return error.RemoveWrong;
+        if (s.tracks[1].clip.buf[0] != 3)
+            return error.RemoveWrong;
+    }
+
+    // 10. swap two tracks -- both move.
+    {
+        var a = timeline.Clip{};
+        var b = timeline.Clip{};
+        var d = timeline.Clip{};
+        try timeline.splice(&a, 0, &[_]i16{10});
+        try timeline.splice(&b, 0, &[_]i16{20});
+        try timeline.splice(&d, 0, &[_]i16{30});
+        var s = Session{};
+        try add_track(&s, &a, 0);
+        try add_track(&s, &b, 0);
+        try add_track(&s, &d, 0);
+        try swap_tracks(&s, 0, 2);
+        if (s.tracks[0].clip.buf[0] != 30)
+            return error.SwapWrong;
+        if (s.tracks[2].clip.buf[0] != 10)
+            return error.SwapWrong;
+    }
+
+    // 11. remove out of bounds refuses BadIndex.
+    {
+        var s = Session{};
+        if (remove_track(&s, 0)) |_|
+            return error.RemoveSlipped
+        else |e|
+            if (e != error.BadIndex)
+                return error.WrongRemoveErr;
+    }
+
+    // 12. swap out of bounds refuses BadIndex.
+    {
+        var a = timeline.Clip{};
+        try timeline.splice(&a, 0, &[_]i16{1});
+        var s = Session{};
+        try add_track(&s, &a, 0);
+        if (swap_tracks(&s, 0, 1)) |_|
+            return error.SwapSlipped
+        else |e|
+            if (e != error.BadIndex)
+                return error.WrongSwapErr;
+    }
+
+    // 13. name truncation at max_track_name.
+    {
+        var a = timeline.Clip{};
+        try timeline.splice(&a, 0, &[_]i16{1});
+        var s = Session{};
+        try add_track(&s, &a, 0);
+        const long =
+            "abcdefghijklmnopqrstuvwxyz012345678";
+        try name_track(&s, 0, long);
+        const got = try track_name(&s, 0);
+        if (got.len != max_track_name)
+            return error.TruncateWrong;
     }
 
     print("GREEN ales-track: many placed clips render into one master, each at its real offset through the lotus-audio clock — " ++
