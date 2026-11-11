@@ -15,7 +15,7 @@
   <a href="context/TAME_GUIDANCE.md"><img alt="Code: TAME discipline" src="https://img.shields.io/badge/code-TAME-9a6f22"></a>
   <a href="tools/"><img alt="Proof: witnesses on metal" src="https://img.shields.io/badge/proof-witnesses%20on%20metal-2f7d4f"></a>
   <a href="context/TWO_ROOMS.md"><img alt="Status: incense, honest register" src="https://img.shields.io/badge/status-incense-b9954a"></a>
-  <a href="context/specs/20261103-201746_fascia-health-model.md"><img alt="Fascia: 60.162 -- feature docs sweep landed, governed 20261103" src="https://img.shields.io/badge/fascia-60.162-b9954a"></a>
+  <a href="context/specs/20261103-201746_fascia-health-model.md"><img alt="Fascia: 60.163 -- README concrete section landed, governed 20261103" src="https://img.shields.io/badge/fascia-60.163-b9954a"></a>
 </p>
 
 <!-- **Voice:** Kyri -- **Style:** Bhakta, Door setting -- full note at the foot of this page. -->
@@ -90,6 +90,16 @@ Your identity lives in a key you hold. Every line that runs is yours to read, an
 software makes is one a program has already checked.
 
 It is early, and it says so on every page. What already works is listed below.
+
+**What you see when you run it.** The fastest way in today is
+**[Terrarium](docs-geode/tutorials/terrarium-quick-start.md)**, a macOS
+desktop app you build from this tree in about ten minutes. It opens one
+window with five tabs: an audio mixer where you drag waveforms and layer
+tracks, a social feed where you compose posts under an Ed25519 identity
+only you hold, a content store that names everything by what it contains,
+a relay that carries posts between machines over UDP, and rooms for
+educational content and an accounting ledger. Each runs on your machine,
+against your data, with no account to create and no server to trust.
 
 **Two links, and they carry the whole of it for now.** Read
 **[why this exists](foundations/20260823-034321_the-return-that-feeds-everyone.md)** for the idea in
