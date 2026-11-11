@@ -2,6 +2,10 @@
 
 | Stamp | Title | Summary |
 |---|---|---|
+| 20261111.121521 | [Mandate-Tablecloth fold and Colloquium birth seated](20261111/20261111-121521_mandate-tablecloth-fold-colloquium-birth-seated.kyri.md) | Design essay, Lexicon, and ITINERARY updated for the three approved decisions |
+| 20261111.120957 | [Mandate origin and Comlink audit](20261111/20261111-120957_mandate-origin-and-comlink-audit.kyri.md) | Mandate conceived 20260810 on Keaton's own prompt; Turbopuffer research was Tablecloth's; zero Terrarium connection; fails Comlink naming; three questions returned |
+| 20261111.120512 | [next chapter survey -- Colloquium and the Long Return](20261111/20261111-120512_next-chapter-survey.kyri.md) | Mandate is the vector store not yet a law module; Colloquium passes Comlink tests; recommend land Mantra Comlink 14/15 then open Colloquium chapter with automobile-patent bill in Civic Style |
+| 20261111.115345 | [next chapter design direction](20261111/20261111-115345_next-chapter-design-direction.kyri.md) | SLC expansion vs Colloquium civic surface -- recommend composition tablecloth first, Colloquium born beside Mandate |
 | 20261111.114204 | [terrarium onboarding witness GREEN](20261111/20261111-114204_terrarium-onboarding-witness.kyri.md) | 10 claims 10 proven, tutorial's build chain asserted, lotus_audio docs-implementation sync, fascia 60.165 |
 | 20261111.113023 | [entry path streamline](20261111/20261111-113023_entry-path-streamline.kyri.md) | Local first, three shelves named -- SOURCE.md opens with try-it-locally, MAP.md distinguishes teaching shelves, fascia 60.164 |
 | 20261111.112045 | [README concrete section](20261111/20261111-112045_readme-concrete-section.kyri.md) | What you see when you run it -- names all five Terrarium tabs in the README, fascia 60.163 |

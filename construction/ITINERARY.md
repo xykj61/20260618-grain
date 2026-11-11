@@ -139,7 +139,7 @@ The interface uses ASCII as structure, linen as material, and motion as a bounde
 Brushstroke declares each component's grid, role, state, tokens, and motion profile. Skate renders the fixed frame and bounded events. A correspondence witness forces meaning, description, and behavior to change together.
 
 ## Now -- the eight sailing ship itineraries
-**Git nib:** `f1e3223d38`
+**Git nib:** `b3cc8d2a9f`
 **Fascia:** `60.165` -- terrarium onboarding witness GREEN: a Rishi witness builds the full Terrarium chain (SkateCore, six Vantage bridges, the Terrarium binary) from the tutorial's own commands and asserts every artifact exists. Docs-implementation sync: tutorial's lotus_audio step now includes `-framework CoreAudio`. Onboarding UX chapter complete (5 of 5). Full proof history archived to `construction/archive/20261107-222635_fascia-description-history.md`. Governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.001 per proven movement (three decimal places from `20261104`), larger on Keaton's word.
 
 
@@ -147,7 +147,9 @@ Brushstroke declares each component's grid, role, state, tokens, and motion prof
 
 **Priority:** VERY HIGH Long Return; VERY HIGH Lila.
 
-**PAUSED (`20261108`).** All 15 movements COMPLETE across 3 phases -- integration witness GREEN on metal. **Recording red:** UI shows 0 samples recorded; bridge selftest records in loopback (synthetic samples) yet the UI path needs macOS mic permission and a real AUHAL input callback. Bounded fix for when Lotus resumes. **Next tablecloth:** module composition -- Scribe settings, Mantra filesystem, Surf Social. Expanding prompt: [`../expanding-prompts/date/20261108/20261108-125817_grain-module-composition-tablecloth.md`](../expanding-prompts/date/20261108/20261108-125817_grain-module-composition-tablecloth.md). Project board: [`../active-tablecloth/date/202611/00/20261107-224400_lotus-macos-native-rebuild/CHECKLIST.md`](../active-tablecloth/date/202611/00/20261107-224400_lotus-macos-native-rebuild/CHECKLIST.md). Paused on Keaton's word `20261108`.
+**PAUSED (`20261108`).** All 15 movements COMPLETE across 3 phases -- integration witness GREEN on metal. **Recording red:** UI shows 0 samples recorded; bridge selftest records in loopback (synthetic samples) yet the UI path needs macOS mic permission and a real AUHAL input callback. Bounded fix for when Lotus resumes. Project board: [`../active-tablecloth/date/202611/00/20261107-224400_lotus-macos-native-rebuild/CHECKLIST.md`](../active-tablecloth/date/202611/00/20261107-224400_lotus-macos-native-rebuild/CHECKLIST.md). Paused on Keaton's word `20261108`.
+
+**NEW CHAPTER (`20261111`).** Mandate folds into Tablecloth; Colloquium born fresh. Design: [`../active-designing/date/20261111/20261111-121521_mandate-folds-into-tablecloth-colloquium-born.md`](../active-designing/date/20261111/20261111-121521_mandate-folds-into-tablecloth-colloquium-born.md). Sequence: (1) fold Mandate's vector search into Tablecloth as a capability, (2) birth Colloquium as civic-legislative module with automobile-patent nullification bill in Civic Style, (3) research treap/persistent vectors for Tablecloth internals.
 
 **COMPLETE: Mantra SLC -- Comlink Realidream content network.** Project board: [`../active-tablecloth/date/202611/00/20261107-090000_mantra-slc-comlink-realidream/CHECKLIST.md`](../active-tablecloth/date/202611/00/20261107-090000_mantra-slc-comlink-realidream/CHECKLIST.md).
 
