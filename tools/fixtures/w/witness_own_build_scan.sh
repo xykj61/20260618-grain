@@ -112,9 +112,9 @@ set -eu
 # clone even though the scan credited it.
 #
 # THE ELDER READINGS, kept so the fall stays followable. 38 was the reading earlier on 20260829,
-# after Mandate's seven witnesses took the
+# after Tablecloth's seven witnesses took the
 # build their Comlink sibling already carried -- store, serve, bucket, wal, keyed, named_serve
-# and comlink_serve, every one GREEN from an emptied mandate/bin/. Seven repairs and one
+# and comlink_serve, every one GREEN from an emptied tablecloth/bin/. Seven repairs and one
 # rename: amphora_dogfood_witness left the tree carrying three pairs and
 # amphora_first_resident_witness arrived carrying two, so 46 fell to 38 rather than to 39.
 # It read 46 on 20260828 and 48 before the two Comlink witnesses. It only ever falls: a

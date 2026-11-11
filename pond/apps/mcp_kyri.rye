@@ -8,7 +8,7 @@
 //! integer, every collection bounded, an unknown field refused rather than ignored.
 //!
 //! It reuses the tree's own flat-Kyri parsing idiom (kin to brix/infuse.rye) and the
-//! bounded request/response discipline (kin to mandate/serve.rye) -- no new transport,
+//! bounded request/response discipline (kin to tablecloth/serve.rye) -- no new transport,
 //! no new abstraction. Two demonstration tools (`add` over integers, `join` over
 //! strings) prove the manifest's argument grammar generalizes across value models.
 //! The Kyri<->JSON tiles are the named horizon; this rung proves the owned shape

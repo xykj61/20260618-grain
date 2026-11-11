@@ -43,7 +43,7 @@ Beside the allocator itself, Tally holds a second kind of thing: small, universa
 | `linengrow/` (mala - wov - disclosure) | `kumara` - `tally_copy` - `parse_int` - `bud` |
 | `caravan/` - `mantra/` - `comlink/` - `brushstroke/` | `tally_copy` - `parse_int` - `no_padding` (comlink wire) |
 | `rishi/` - `glow/` - `aurora/` - `amphora/` - `granary/` - `mand/` - `mandi/` - `pond/apps/*` | marks as each surface needs |
-| `mycelium/` - `image/` - `lotus/` - `mandate/` - `dimeroll/` - `kumara/` - `settlement/` - `vault/` | `kumara` - `tally_copy` - `parse_int`, as each room needs |
+| `mycelium/` - `image/` - `lotus/` - `tablecloth/` - `dimeroll/` - `kumara/` - `settlement/` - `vault/` | `kumara` - `tally_copy` - `parse_int`, as each room needs |
 | `tools/rye/kumara.rye` - `docs-geode/edu/yonder/tower/tally_stack.rye` | the Kumara seed path, and the learning floor's `stack` |
 
 Other season shelves cite this section rather than duplicating the rows.

@@ -246,7 +246,7 @@ nothing to convert. `rye_spoken_ascii_witness.rish` reads RED tree-wide, `chars=
 ceiling of `3863` set on `20260916.031248` at an exact fit -- a single character added somewhere
 since. Its own `--list-all` carries no `mantra/` or `tally/` path at all; the breach lives entirely
 in other lanes' files (`mycelium/pledge.rye`, `pond/apps/*`, `comlink/guest_roster_*`,
-`linengrow/*`, `mandate/store.rye`, `scribe/reader.rye`, and more), each carrying an em dash in a
+`linengrow/*`, `tablecloth/store.rye`, `scribe/reader.rye`, and more), each carrying an em dash in a
 `print`/`write_str` claim line added after the ceiling was set. This is the ratchet discipline
 working as designed -- *turns on touch, books nothing* -- and none of those files are this lane's
 custody to touch. Named here rather than booked as a red, since a ratchet breach outside the tree's

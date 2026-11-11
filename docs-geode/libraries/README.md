@@ -47,7 +47,7 @@ find tools -name '*_witness.rish' | tr '\n' '\0' | xargs -0 grep -l 'rishi/' | w
 | `linengrow/` | 157 | 85 |
 | [`lotus/`](../../lotus/README.md) | 238 | 250 |
 | [`mand/`](../../mand/README.md) | 6 | 6 |
-| [`mandate/`](../../mandate/README.md) | 7 | 10 |
+| [`tablecloth/`](../../tablecloth/README.md) | 7 | 10 |
 | [`mandi/`](../../mandi/README.md) | 5 | 1 |
 | [`mantra/`](../../mantra/README.md) | 52 | 73 |
 | [`manual/`](../../manual/README.md) | 1 | 14 |

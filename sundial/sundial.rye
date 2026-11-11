@@ -136,7 +136,7 @@ fn run_selftest() !u8 {
     try s.add("kumara", true, "witness-status", "20260829", "kumara-tilak");
     try s.add("vault", true, "witness-status", "20260829", "vault-split");
     try s.add("basin", true, "witness-status", "20260829", "basin-suite");
-    try s.add("mandate", false, "witness-status", "20260829", "mandate-suite");
+    try s.add("tablecloth", false, "witness-status", "20260829", "tablecloth-suite");
 
     if (s.count != 4) return error.CountWrong;
     if (s.green_count() != 3) return error.GreenCountWrong;
@@ -198,7 +198,7 @@ fn run_emit(io: std.Io) !u8 {
     try s.add("vault", true, "witness-status", "20260829", "vault-split");
     try s.add("basin", true, "witness-status", "20260829", "basin-suite");
     try s.add("scribe", true, "witness-status", "20260829", "scribe-reader");
-    try s.add("mandate", false, "witness-status", "20260829", "mandate-suite");
+    try s.add("tablecloth", false, "witness-status", "20260829", "tablecloth-suite");
     put_line(io, "format baton-v1\n", .{});
     put_line(io, "archetype ledgerworks\n", .{});
     put_line(io, "stamp {s}\n", .{sundial_version});

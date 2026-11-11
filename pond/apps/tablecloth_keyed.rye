@@ -4,7 +4,7 @@
 //! the bytes whose digest the name pins. This rung adds the provenance the artifact
 //! store's crux was always reaching for: a name does not merely pin bytes - a settled
 //! Kumara **identity** vouches for which bytes, and only that identity may publish under
-//! the catalog. The gate mirrors mandate/keyed.rye's (and the name registry's): the owner
+//! the catalog. The gate mirrors tablecloth/keyed.rye's (and the name registry's): the owner
 //! presents the point's **Deed**, verified against the constellation's shared surface,
 //! and **signs** the exact publication - the point, the name, the length, and the
 //! content's digest - so a stolen id cannot publish for another identity, a forged

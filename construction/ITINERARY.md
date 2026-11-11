@@ -139,7 +139,7 @@ The interface uses ASCII as structure, linen as material, and motion as a bounde
 Brushstroke declares each component's grid, role, state, tokens, and motion profile. Skate renders the fixed frame and bounded events. A correspondence witness forces meaning, description, and behavior to change together.
 
 ## Now -- the eight sailing ship itineraries
-**Git nib:** `b3cc8d2a9f`
+**Git nib:** `fb6c6b7c8d`
 **Fascia:** `60.165` -- terrarium onboarding witness GREEN: a Rishi witness builds the full Terrarium chain (SkateCore, six Vantage bridges, the Terrarium binary) from the tutorial's own commands and asserts every artifact exists. Docs-implementation sync: tutorial's lotus_audio step now includes `-framework CoreAudio`. Onboarding UX chapter complete (5 of 5). Full proof history archived to `construction/archive/20261107-222635_fascia-description-history.md`. Governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.001 per proven movement (three decimal places from `20261104`), larger on Keaton's word.
 
 

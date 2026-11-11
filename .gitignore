@@ -98,6 +98,7 @@
 !/kumara/
 !/settlement/
 !/mandate/
+!/tablecloth/
 !/mitra/
 !/vault/
 !/scribe/
@@ -218,6 +219,7 @@
 /comlink/bin/
 /settlement/bin/
 /mandate/bin/
+/tablecloth/bin/
 /vault/bin/
 /scribe/bin/
 /kumara/bin/

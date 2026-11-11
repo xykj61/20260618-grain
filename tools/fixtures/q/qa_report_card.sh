@@ -591,7 +591,7 @@ fi
 # that ends in a full stop is a sentence whatever it opens with. Measured across the same 45:
 # **22 unchanged, 13 up, 10 down, mean +0.58, worst fall 5 (`amphora/README.md`), best rise 8**
 # (`docs-geode/edu/yonder/pleac/README.md`). **No page crosses below the B door**, and two rise
-# above it -- `expanding-prompts/components/README.md` and `mandate/README.md` -- which were held
+# above it -- `expanding-prompts/components/README.md` and `tablecloth/README.md` -- which were held
 # under the door by a blindness rather than by their prose.
 #
 # THE RESIDUE, NAMED RATHER THAN SWALLOWED: the hold-out reads a colon INSIDE the bold run, so the

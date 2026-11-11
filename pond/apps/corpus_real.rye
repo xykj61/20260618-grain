@@ -5,7 +5,7 @@
 //! -- a markdown slice hand-tuned to sit inside every Scribble bound. This rung
 //! carries that same Lantern-contracted Scribble reading onto a **real tree
 //! document**, embedded at compile time (no network, no runtime filesystem -- the
-//! `@embedFile` idiom already lived-with in mandate/store.rye). The corpus is a
+//! `@embedFile` idiom already lived-with in tablecloth/store.rye). The corpus is a
 //! symlink to the living context/TAME_CORE.md, so the bytes read here are exactly
 //! the bytes a keeper reads, and can never drift into a stale copy.
 //!

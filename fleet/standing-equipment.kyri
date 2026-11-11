@@ -631,7 +631,7 @@ tier lap       # authored Rye style, named on touch by the same
 # reads TAME root rule 2 in two halves: 100 function-bearing files carry no `assert(` at all, and
 # 101 more assert without naming a single `// invariant:`. Both are ratchets whose ceilings only
 # fall, because a wall at zero would ask for two hundred files in one lap. What it found is that the
-# elder twelve are NOT a subset of the roster -- `mandate/store.rye`, `mandate/keyed.rye`,
+# elder twelve are NOT a subset of the roster -- `tablecloth/store.rye`, `tablecloth/keyed.rye`,
 # `kumara/tilak.rye`, `settlement/constellation.rye` and `sundial/sundial.rye` sit in four rooms
 # `tame_style_rooms.txt` does not name at all -- so deriving alone would have dropped five gated
 # files while the printed population grew a hundredfold. The twelve keep a wall of their own at
@@ -8783,7 +8783,7 @@ tier lap
 seated 20261002.004336
 
 # cion_module_labeling -- the cion-molt labeling law's own widened guard, unrostered since cion-living-molt
-# Journey 14 closed it: every swept module surface (mandate - scribe - vault - pond - granary -
+# Journey 14 closed it: every swept module surface (tablecloth - scribe - vault - pond - granary -
 # scribble - linengrow - amphora - comlink device guests - lattice - ember - lantern - mandi -
 # dimeroll - glow-nock-archive - mantra) names a capability by semantic label + stamp rather than a bare
 # lap ordinal, and the guard proves both directions on its own: a planted bare ordinal

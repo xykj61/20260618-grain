@@ -89,7 +89,7 @@ The **module ring** is the machinery, each home with its own witnesses. Take the
 | [`kumara/`](kumara/README.md) | identity |
 | [`vault/`](vault/README.md) | secrets |
 | [`settlement/`](settlement/README.md) | a point becomes an address |
-| [`mandate/`](mandate/README.md) | the store |
+| [`tablecloth/`](tablecloth/README.md) | the store and artifact database |
 | [`image/`](image/README.md) | a picture you own |
 | [`lotus/`](lotus/README.md) | the creative suite |
 | [`mikrophone/`](mikrophone/README.md) | the firmware that forgets |

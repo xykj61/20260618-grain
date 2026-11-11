@@ -2,6 +2,7 @@
 
 | Stamp | Title | Summary |
 |---|---|---|
+| 20261111.135242 | [mandate folds into tablecloth](20261111/20261111-135242_mandate-folds-into-tablecloth.kyri.md) | 15 source files, 7 witnesses, 21 living references -- the vector store migrates from mandate/ to tablecloth/ |
 | 20261111.121521 | [Mandate-Tablecloth fold and Colloquium birth seated](20261111/20261111-121521_mandate-tablecloth-fold-colloquium-birth-seated.kyri.md) | Design essay, Lexicon, and ITINERARY updated for the three approved decisions |
 | 20261111.120957 | [Mandate origin and Comlink audit](20261111/20261111-120957_mandate-origin-and-comlink-audit.kyri.md) | Mandate conceived 20260810 on Keaton's own prompt; Turbopuffer research was Tablecloth's; zero Terrarium connection; fails Comlink naming; three questions returned |
 | 20261111.120512 | [next chapter survey -- Colloquium and the Long Return](20261111/20261111-120512_next-chapter-survey.kyri.md) | Mandate is the vector store not yet a law module; Colloquium passes Comlink tests; recommend land Mantra Comlink 14/15 then open Colloquium chapter with automobile-patent bill in Civic Style |

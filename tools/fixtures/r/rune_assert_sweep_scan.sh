@@ -24,7 +24,7 @@
 # `opening_lines` and `tame_check`, so a room added once reaches all five.
 #
 # THE ELDER TWELVE ARE NOT A SUBSET, which is why they keep a leg of their own. Five of them --
-# `mandate/store.rye`, `mandate/keyed.rye`, `kumara/tilak.rye`, `settlement/constellation.rye`,
+# `tablecloth/store.rye`, `tablecloth/keyed.rye`, `kumara/tilak.rye`, `settlement/constellation.rye`,
 # `sundial/sundial.rye` -- sit in four rooms the roster does not name at all. Deriving alone would
 # have dropped five gated files while the printed population grew a hundredfold.
 #
@@ -241,7 +241,7 @@ echo "proving_assert=$proving_assert proving_unnamed=$proving_unnamed gated=no"
 # line so a regression names the file rather than moving a number. The block reads real tree paths,
 # so it runs on the default roster alone; a pen run reports it absent rather than reading a tree the
 # pen does not own.
-elder="mandate/store.rye mandate/keyed.rye tally/seed.rye tally/gardens.rye tally/kumara.rye caravan/seed.rye caravan/bounded.rye comlink/topology.rye kumara/tilak.rye settlement/constellation.rye sundial/sundial.rye glow/expr.rye"
+elder="tablecloth/store.rye tablecloth/keyed.rye tally/seed.rye tally/gardens.rye tally/kumara.rye caravan/seed.rye caravan/bounded.rye comlink/topology.rye kumara/tilak.rye settlement/constellation.rye sundial/sundial.rye glow/expr.rye"
 elder_faults=0
 if [ "$rooms_file" != "$default_rooms" ]; then
   echo "elder_roster=absent -- a pen roster reads its own files"
