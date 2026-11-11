@@ -78,7 +78,7 @@ rye/bin/rye build-lib vantage/dimeroll.rye -dynamic \
 env RYE_ZIG=vendor/zig-toolchain/zig \
   rye/bin/rye build-lib lotus/lotus_vantage_audio.rye -dynamic \
   -femit-bin=vantage/lib/liblotus_audio.dylib \
-  -lc -framework AudioToolbox
+  -lc -framework AudioToolbox -framework CoreAudio
 
 # Scribe -- settings and configuration
 rye/bin/rye build-lib scribe/scribe_vantage.rye -dynamic \

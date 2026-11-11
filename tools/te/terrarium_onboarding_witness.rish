@@ -1,0 +1,85 @@
+# terrarium_onboarding_witness.rish -- the tutorial builds what it claims.
+#
+# Proves the Terrarium Quick Start tutorial's five build steps produce
+# the expected artifacts: SkateCore dylib and swiftmodule, six Vantage
+# bridge dylibs, and the Terrarium binary itself.
+#
+# Run from the repository root:
+#   rishi/bin/rishi run tools/te/terrarium_onboarding_witness.rish
+
+say "terrarium_onboarding_witness: the tutorial builds what it claims"
+say ""
+
+# -- Run the build scan --
+
+say "step 1: building the full Terrarium chain ..."
+let build = run ["sh" "tools/fixtures/te/terrarium_onboarding_scan.sh" "."]
+assert build.ok else "onboarding scan failed:\n${build.err}"
+say "  scan completed"
+
+# -- SkateCore --
+
+say ""
+say "step 2: SkateCore ..."
+let sk_dylib = run ["sh" "-c" "echo '${build.out}' | grep -c 'skatecore_dylib=yes'"]
+assert sk_dylib.ok else "SkateCore dylib did not build"
+say "  libSkateCore.dylib: yes"
+
+let sk_mod = run ["sh" "-c" "echo '${build.out}' | grep -c 'skatecore_module=yes'"]
+assert sk_mod.ok else "SkateCore swiftmodule did not build"
+say "  SkateCore.swiftmodule: yes"
+
+# -- Vantage bridges --
+
+say ""
+say "step 3: Vantage bridges ..."
+
+let v_bloom = run ["sh" "-c" "echo '${build.out}' | grep -c 'vantage_bloom=yes'"]
+assert v_bloom.ok else "bloom bridge did not build"
+say "  libbloom.dylib: yes"
+
+let v_dimeroll = run ["sh" "-c" "echo '${build.out}' | grep -c 'vantage_dimeroll=yes'"]
+assert v_dimeroll.ok else "dimeroll bridge did not build"
+say "  libdimeroll.dylib: yes"
+
+let v_lotus = run ["sh" "-c" "echo '${build.out}' | grep -c 'vantage_lotus_audio=yes'"]
+assert v_lotus.ok else "lotus_audio bridge did not build"
+say "  liblotus_audio.dylib: yes"
+
+let v_scribe = run ["sh" "-c" "echo '${build.out}' | grep -c 'vantage_scribe=yes'"]
+assert v_scribe.ok else "scribe bridge did not build"
+say "  libscribe.dylib: yes"
+
+let v_mantra = run ["sh" "-c" "echo '${build.out}' | grep -c 'vantage_mantra=yes'"]
+assert v_mantra.ok else "mantra bridge did not build"
+say "  libmantra.dylib: yes"
+
+let v_surf = run ["sh" "-c" "echo '${build.out}' | grep -c 'vantage_surf=yes'"]
+assert v_surf.ok else "surf bridge did not build"
+say "  libsurf.dylib: yes"
+
+# -- Terrarium binary --
+
+say ""
+say "step 4: Terrarium binary ..."
+
+let tb = run ["sh" "-c" "echo '${build.out}' | grep -c 'terrarium_binary=yes'"]
+assert tb.ok else "Terrarium binary did not build"
+say "  Terrarium: yes"
+
+let te = run ["sh" "-c" "echo '${build.out}' | grep -c 'terrarium_executable=yes'"]
+assert te.ok else "Terrarium binary is not executable"
+say "  executable: yes"
+
+# -- Verdict --
+
+let vd = run ["sh" "-c" "echo '${build.out}' | grep -c 'verdict=ok'"]
+assert vd.ok else "scan verdict was not ok"
+
+say ""
+say "----"
+say "terrarium_onboarding_witness: GREEN"
+say "  SkateCore: dylib and swiftmodule built"
+say "  Vantage: all six bridges built (bloom, dimeroll, lotus_audio, scribe, mantra, surf)"
+say "  Terrarium: binary built and executable"
+say "  the tutorial's five steps produce a working Terrarium"
