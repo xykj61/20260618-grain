@@ -103,7 +103,7 @@ The **module ring** is the machinery, each home with its own witnesses. Take the
 
 ### 5 - The Teaching
 
-When a page here says GREEN, a machine said it first.
+When a page here says GREEN, a machine said it first. Three shelves, each for a different reader: **`docs-geode/`** serves the newcomer receiving the product, **`manual/`** serves the person operating their own machine, and **`docs/`** serves the operator already mid-ladder.
 
 | Floor | What it teaches |
 |---|---|

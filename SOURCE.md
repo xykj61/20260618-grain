@@ -42,6 +42,26 @@ its Door or Field setting, which means plain words first and a measurement behin
 Then **[your first hour](docs-geode/tutorials/the-first-hour.md)**: clone, run one witness, read the
 green line, write five lines of your own. One page, one path.
 
+## The quick way in -- build locally, right now
+
+Before the cloud pier, before the keys and the sandbox, before any of Part One:
+**clone the public seed and build [Terrarium](docs-geode/tutorials/terrarium-quick-start.md)**.
+It is a macOS desktop app you build from this tree in about ten minutes, and it
+shows five working pieces of the system -- an audio mixer, a social feed under
+an Ed25519 identity, a content-addressed store, a UDP relay, and rooms for
+educational content and accounting. Each runs on your machine, against your
+own data, with no account to create.
+
+```bash
+git clone https://github.com/grain-ww/grain.git ~/grain
+cd ~/grain
+```
+
+Follow the **[Terrarium Quick Start](docs-geode/tutorials/terrarium-quick-start.md)**
+from there. When you are ready for the full signed home -- forge accounts, GPG
+keys, and an AI working inside a gentle enclosure -- come back here and take
+Part One from the top.
+
 ## Part One -- The First Day
 
 A first day that ends with Cursor open inside the enclosure -- before any forge keys. Short moves here; depth lives in Part Two (Steps 5, 6, and 9).
