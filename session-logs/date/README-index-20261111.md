@@ -2,6 +2,7 @@
 
 | Stamp | Title | Summary |
 |---|---|---|
+| 20261111.143653 | [treap and persistent vector research for Tablecloth](20261111/20261111-143653_treap-persistent-vector-tablecloth-research.kyri.md) | two-structure answer: treap for naming catalog, persistent vector for record store; snapshot is two root pointers |
 | 20261111.142400 | [Colloquium born -- automobile-patent nullification bill](20261111/20261111-142400_colloquium-born-automobile-patent-bill.kyri.md) | founding bill in Civic Style: MMT funding, Job Guarantee, certification roles with provable safety outcomes |
 | 20261111.135242 | [mandate folds into tablecloth](20261111/20261111-135242_mandate-folds-into-tablecloth.kyri.md) | 15 source files, 7 witnesses, 21 living references -- the vector store migrates from mandate/ to tablecloth/ |
 | 20261111.121521 | [Mandate-Tablecloth fold and Colloquium birth seated](20261111/20261111-121521_mandate-tablecloth-fold-colloquium-birth-seated.kyri.md) | Design essay, Lexicon, and ITINERARY updated for the three approved decisions |

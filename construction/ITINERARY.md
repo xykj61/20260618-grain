@@ -52,7 +52,7 @@ for the watched inputs. That changes the roster runner's contract, so it waits o
 **Quest 1.1 CLOSED (`20261104`).** Record engine GREEN (Orbit 23), WAV encode/decode round-trip GREEN (Orbit 24). SLC met at the CLI boundary: a person can run Lotus, record a voice, and export a WAV -- proven on metal.
 
 **Quest 1.2 -- Brushstroke surface and multi-track.** Window orbit landed (Orbit 25): NSApplication + waveform + AUHAL recording + CoreAudio playback in one standalone selftest. GREEN on metal. Next: multi-track Weave (Orbits 4-7).
-**Paused while the Glow language journey closes rounds 11-15.** The Long Return orders it: the language is the lasting work, and Lotus will import Glow's stdlib. Lotus resumes at Calfive round 1 (Aries, cardinal fire, talent -- "Commence!"). Design: [`../active-designing/date/20261104/20261104-131232_glow-calfive-alignment-and-round-plan.md`](../active-designing/date/20261104/20261104-131232_glow-calfive-alignment-and-round-plan.md).
+**Glow language dependency CLEARED (`20261111`).** All 15 orbits landed, all deliverables verified on disk (tutorials, cookbook, stdlib reference). **Keaton's explicit pause (`20261108`) still holds** -- Lotus resumes on Keaton's word. Calfive round 1 (Aries, cardinal fire, talent -- "Commence!") when it does. Design: [`../active-designing/date/20261104/20261104-131232_glow-calfive-alignment-and-round-plan.md`](../active-designing/date/20261104/20261104-131232_glow-calfive-alignment-and-round-plan.md).
 
 **Grows from:** 240 Lotus modules (241 witnesses), lotus-audio wire shape, macos-native macOS native surface, Skate Swift shell.
 **Waymarks:** lotus-audio (`season-c-lotus-creative-suite-audio-wire-shape`) -- macos-native (`macos-native-surface-rye-backend`).
@@ -139,7 +139,7 @@ The interface uses ASCII as structure, linen as material, and motion as a bounde
 Brushstroke declares each component's grid, role, state, tokens, and motion profile. Skate renders the fixed frame and bounded events. A correspondence witness forces meaning, description, and behavior to change together.
 
 ## Now -- the eight sailing ship itineraries
-**Git nib:** `4722201bf3`
+**Git nib:** `5e8104abf7`
 **Fascia:** `60.165` -- terrarium onboarding witness GREEN: a Rishi witness builds the full Terrarium chain (SkateCore, six Vantage bridges, the Terrarium binary) from the tutorial's own commands and asserts every artifact exists. Docs-implementation sync: tutorial's lotus_audio step now includes `-framework CoreAudio`. Onboarding UX chapter complete (5 of 5). Full proof history archived to `construction/archive/20261107-222635_fascia-description-history.md`. Governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.001 per proven movement (three decimal places from `20261104`), larger on Keaton's word.
 
 
@@ -149,7 +149,7 @@ Brushstroke declares each component's grid, role, state, tokens, and motion prof
 
 **PAUSED (`20261108`).** All 15 movements COMPLETE across 3 phases -- integration witness GREEN on metal. **Recording red:** UI shows 0 samples recorded; bridge selftest records in loopback (synthetic samples) yet the UI path needs macOS mic permission and a real AUHAL input callback. Bounded fix for when Lotus resumes. Project board: [`../active-tablecloth/date/202611/00/20261107-224400_lotus-macos-native-rebuild/CHECKLIST.md`](../active-tablecloth/date/202611/00/20261107-224400_lotus-macos-native-rebuild/CHECKLIST.md). Paused on Keaton's word `20261108`.
 
-**NEW CHAPTER (`20261111`).** Mandate folds into Tablecloth; Colloquium born fresh. Design: [`../active-designing/date/20261111/20261111-121521_mandate-folds-into-tablecloth-colloquium-born.md`](../active-designing/date/20261111/20261111-121521_mandate-folds-into-tablecloth-colloquium-born.md). Sequence: (1) fold Mandate's vector search into Tablecloth as a capability, (2) birth Colloquium as civic-legislative module with automobile-patent nullification bill in Civic Style, (3) research treap/persistent vectors for Tablecloth internals.
+**NEW CHAPTER (`20261111`).** Mandate folds into Tablecloth; Colloquium born fresh. Design: [`../active-designing/date/20261111/20261111-121521_mandate-folds-into-tablecloth-colloquium-born.md`](../active-designing/date/20261111/20261111-121521_mandate-folds-into-tablecloth-colloquium-born.md). Sequence: (1) DONE -- fold Mandate's vector search into Tablecloth as a capability, (2) DONE -- birth Colloquium as civic-legislative module with automobile-patent nullification bill in Civic Style, (3) DONE -- research treap/persistent vectors for Tablecloth internals ([`../active-designing/date/20261111/20261111-143331_treap-persistent-vector-tablecloth-internals.md`](../active-designing/date/20261111/20261111-143331_treap-persistent-vector-tablecloth-internals.md)). **Awaiting Keaton's read** of the Colloquium automobile-patent bill and the treap research essay.
 
 **COMPLETE: Mantra SLC -- Comlink Realidream content network.** Project board: [`../active-tablecloth/date/202611/00/20261107-090000_mantra-slc-comlink-realidream/CHECKLIST.md`](../active-tablecloth/date/202611/00/20261107-090000_mantra-slc-comlink-realidream/CHECKLIST.md).
 
