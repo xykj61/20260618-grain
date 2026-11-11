@@ -32,6 +32,7 @@ you can check with your own eyes, and that ending is the whole reason this room 
 | [Running the standing roster](running-the-standing-roster.md) | someone ready to check the tree's own promises | the five verdicts, standfast, `--full`, evidence files, and a day-to-day workflow |
 | [Your First Glow Program](your-first-glow-program.md) | someone who has never written Glow | from nothing to a running program -- bound-tick, face-lit, gate, the six standard operations, and an exercise |
 | [Glow Meets the Screen](glow-meets-the-screen.md) | someone who has run a Glow and wants to see a window | build the REPL and layout demo, read the layout code, change what appears on screen |
+| [Terrarium Quick Start](terrarium-quick-start.md) | someone who wants to see the whole stack in a window | five build steps from clone to a living Terrarium on macOS, under ten minutes |
 | [Building Vantage](building-vantage.md) | someone ready to build the platform-agnostic Rye modules | what Vantage is, the FFI surface, native build, selftest GREEN with 15 claims |
 | [Vantage WASM Compilation](vantage-wasm-compilation.md) | someone who wants Vantage in a browser | WASM and WASI, the build command, what the binary exports, reading C strings from memory |
 

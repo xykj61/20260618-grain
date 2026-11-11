@@ -139,8 +139,8 @@ The interface uses ASCII as structure, linen as material, and motion as a bounde
 Brushstroke declares each component's grid, role, state, tokens, and motion profile. Skate renders the fixed frame and bounded events. A correspondence witness forces meaning, description, and behavior to change together.
 
 ## Now -- the eight sailing ship itineraries
-**Git nib:** `5e53e3a1ca`
-**Fascia:** `60.160` -- Surf Relay integration GREEN: two identities, publish-fetch roundtrip over real UDP, pubkey isolation proven. Surf Relay SLC complete (5/5). Full proof history archived to `construction/archive/20261107-222635_fascia-description-history.md`. Governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.001 per proven movement (three decimal places from `20261104`), larger on Keaton's word.
+**Git nib:** `e18bbffec1`
+**Fascia:** `60.161` -- Terrarium Quick Start tutorial: five build steps from clone to a living Terrarium, Teacher at the Door, added to tutorials index. Onboarding UX chapter movement 1 of 5. Full proof history archived to `construction/archive/20261107-222635_fascia-description-history.md`. Governed by `context/specs/20261103-201746_fascia-health-model.md`. Grade model: 60s are the pre-ship era, 0.001 per proven movement (three decimal places from `20261104`), larger on Keaton's word.
 
 
 ### Incense -- product captain
