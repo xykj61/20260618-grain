@@ -66,6 +66,7 @@ REDS %385 booked. A day's number is derived by counting its shelf on the lap tha
 
 | Day | Rows | Shelf |
 |---|---|---|
+| `20261111` **open** | **open** | [`date/README-index-20261111.md`](date/README-index-20261111.md) |
 | `20261108` **open** | **open** | [`date/README-index-20261108.md`](date/README-index-20261108.md) |
 | `20261107` **open** | **open** | [`date/README-index-20261107.md`](date/README-index-20261107.md) |
 | `20261106` **open** | **open** | [`date/README-index-20261106.md`](date/README-index-20261106.md) |
