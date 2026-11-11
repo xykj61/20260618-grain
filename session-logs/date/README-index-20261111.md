@@ -2,6 +2,7 @@
 
 | Stamp | Title | Summary |
 |---|---|---|
+| 20261111.145121 | [Radiant pass on the automobile-patent bill](20261111/20261111-145121_radiant-pass-automobile-patent-bill.kyri.md) | nine affirmative-contrast flips, Lotus pause lifted |
 | 20261111.143653 | [treap and persistent vector research for Tablecloth](20261111/20261111-143653_treap-persistent-vector-tablecloth-research.kyri.md) | two-structure answer: treap for naming catalog, persistent vector for record store; snapshot is two root pointers |
 | 20261111.142400 | [Colloquium born -- automobile-patent nullification bill](20261111/20261111-142400_colloquium-born-automobile-patent-bill.kyri.md) | founding bill in Civic Style: MMT funding, Job Guarantee, certification roles with provable safety outcomes |
 | 20261111.135242 | [mandate folds into tablecloth](20261111/20261111-135242_mandate-folds-into-tablecloth.kyri.md) | 15 source files, 7 witnesses, 21 living references -- the vector store migrates from mandate/ to tablecloth/ |

@@ -10,7 +10,7 @@
 
 ## The Outcome We Actually Want
 
-Cars that do not kill people. Cars that do not break down in ways their owners cannot understand or afford. Cars whose safety is a public fact rather than a trade secret. Cars whose repair is a right rather than a license.
+Cars that keep their passengers safe. Cars whose workings their owners can understand and whose repairs they can afford. Cars whose safety is a public fact rather than a trade secret. Cars whose repair is a right rather than a license.
 
 The automobile industry holds roughly 300,000 active US utility patents at any time. These patents protect designs, control systems, diagnostic interfaces, and structural geometries -- the knowledge a mechanic, an inspector, or a competing manufacturer would need to make a car safer, more repairable, and more transparent. The patent system was designed to promote the progress of useful arts by granting a temporary monopoly in exchange for public disclosure. In automotive engineering, the monopoly has delivered; the disclosure has not. The published patent is technically public; the practical ability to use it is gated behind licensing fees, cross-licensing agreements, and the threat of infringement litigation that only a large manufacturer can afford to defend.
 
@@ -28,9 +28,9 @@ This is not a taking. It is the same principle that allows a building inspector 
 
 ### 2. Sovereign funding through direct issuance
 
-The transition is funded by the federal government as the sovereign currency issuer, through direct appropriation rather than through taxation or borrowing from the private sector. The spending is the funding. The constraint on the program is not money -- a currency-issuing government cannot run out of its own currency -- but real resources: trained people, physical facilities, diagnostic equipment, and the institutional capacity to certify vehicles at scale.
+The transition is funded by the federal government as the sovereign currency issuer, through direct appropriation rather than through taxation or borrowing from the private sector. The spending is the funding. The constraint on the program is real resources -- trained people, physical facilities, diagnostic equipment, and the institutional capacity to certify vehicles at scale -- rather than money, since a currency-issuing government is the source of its own currency.
 
-The program therefore leads with capacity rather than with dollars. Each appropriation names the real resources it purchases: training seats, certification facilities, diagnostic tool grants, and the salaries of the people who do the work. The dollar figure follows from the resource plan, not the other way around. This is the discipline Modern Monetary Theory makes plain: the question is never "can we afford it?" but "do we have the people and the materials, and if not, how do we build them without bidding away resources the rest of the economy needs?"
+The program therefore leads with capacity rather than with dollars. Each appropriation names the real resources it purchases: training seats, certification facilities, diagnostic tool grants, and the salaries of the people who do the work. The dollar figure follows from the resource plan, not the other way around. This is the discipline Modern Monetary Theory makes plain: the standing question is always "do we have the people and the materials, and where we fall short, how do we build the capacity without bidding away resources the rest of the economy needs?"
 
 Inflation is managed by directing spending toward idle or underutilized capacity -- the unemployed and underemployed workforce in automotive repair, the shuttered dealership facilities, the community college programs running below enrollment -- rather than competing for resources already fully employed. The program's own capacity pipeline is its inflation anchor.
 
@@ -44,7 +44,7 @@ This is a Job Guarantee in the specific sense: a federally funded, locally admin
 
 The program's certification structure rewards what we actually want: fewer defects, fewer breakdowns, fewer injuries, fewer deaths.
 
-**Certified Safety Inspectors** conduct vehicle inspections under open, public protocols derived from the nullified patent knowledge. Their certification is renewed annually based on the defect-detection rate of the vehicles they have inspected -- not the number of inspections performed, but the safety outcomes of the vehicles that passed through their hands. An inspector whose vehicles show a measurably lower rate of safety-related failures in the twelve months following inspection earns a higher certification tier, a higher wage, and priority access to advanced training. An inspector whose vehicles show an elevated failure rate receives additional training and closer oversight before the next renewal.
+**Certified Safety Inspectors** conduct vehicle inspections under open, public protocols derived from the nullified patent knowledge. Their certification is renewed annually based on the defect-detection rate of the vehicles they have inspected. The measure is the safety outcomes of the vehicles that passed through their hands, rather than the number of inspections performed. An inspector whose vehicles show a measurably lower rate of safety-related failures in the twelve months following inspection earns a higher certification tier, a higher wage, and priority access to advanced training. An inspector whose vehicles show an elevated failure rate receives additional training and closer oversight before the next renewal.
 
 **Certified Repair Technicians** perform safety-critical repairs. Their renewal tracks the same outcome: the breakdown and defect rate of vehicles they have repaired, measured over a trailing twelve-month window. A technician whose repairs hold earns advancement. A technician whose repairs fail early receives retraining. The reward points at the outcome -- a car that stays safe on the road -- rather than at the activity -- a repair ticket closed.
 
@@ -69,7 +69,7 @@ The diagnostic interfaces, now unencumbered by patent restriction, stream live t
 
 ### Manufacturer retaliation through non-patent mechanisms
 
-Patent nullification alone leaves several levers untouched. A manufacturer could restrict access to replacement parts through trademark claims, refuse to sell components to independent repair shops, or design future systems around trade secrets rather than patents. The bill therefore includes:
+Patent nullification opens the knowledge; several non-patent levers remain. A manufacturer could restrict access to replacement parts through trademark claims, refuse to sell components to independent repair shops, or design future systems around trade secrets rather than patents. The bill therefore includes:
 
 - **A parts-supply obligation** for safety-critical components, requiring manufacturers to sell replacement parts to any certified repair facility at a published wholesale price, enforceable as a condition of vehicle type-certification
 - **An anti-circumvention provision** making it unlawful to use digital locks, proprietary diagnostic protocols, or contractual restrictions to prevent a certified technician from performing safety-critical inspection or repair
@@ -77,11 +77,11 @@ Patent nullification alone leaves several levers untouched. A manufacturer could
 
 ### The rural and underserved gap
 
-Automotive safety failures disproportionately affect rural communities, where repair facilities are sparse, inspection intervals are longer, and the vehicles on the road are older. The Automotive Safety Guarantee addresses this directly: the program's facility grants prioritize underserved areas, and the standing employment offer means a certified inspector can live and work in a community that the private market has written off as unprofitable. The facility grant formula weights population density inversely -- the fewer people per square mile, the higher the per-capita grant -- because the cost of reaching a rural vehicle is higher, not lower, than reaching an urban one.
+Automotive safety failures disproportionately affect rural communities, where repair facilities are sparse, inspection intervals are longer, and the vehicles on the road are older. The Automotive Safety Guarantee addresses this directly: the program's facility grants prioritize underserved areas, and the standing employment offer means a certified inspector can live and work in a community the private market has yet to reach. The facility grant formula weights population density inversely -- the fewer people per square mile, the higher the per-capita grant -- because the cost of reaching a rural vehicle is higher, not lower, than reaching an urban one.
 
 ### Transition support for patent holders
 
-The bill does not pretend that patent nullification is costless to patent holders. Manufacturers that held safety-critical patents receive a five-year transition payment, funded by the same sovereign appropriation that funds the rest of the program, calculated from the patent's remaining term and its historical licensing revenue. The payment is structured as a declining annual grant -- 100% of the calculated value in year one, falling to 20% in year five -- so the transition is gradual rather than abrupt. The payment is available only to manufacturers that comply with the parts-supply obligation and the anti-circumvention provision; a manufacturer that retaliates forfeits the transition support.
+The bill names the cost of patent nullification to patent holders directly. Manufacturers that held safety-critical patents receive a five-year transition payment, funded by the same sovereign appropriation that funds the rest of the program, calculated from the patent's remaining term and its historical licensing revenue. The payment is structured as a declining annual grant -- 100% of the calculated value in year one, falling to 20% in year five -- so the transition is gradual rather than abrupt. The payment is available only to manufacturers that comply with the parts-supply obligation and the anti-circumvention provision; a manufacturer that retaliates forfeits the transition support.
 
 ### Diagnostic data as a civil right
 
@@ -93,7 +93,7 @@ Any system that rewards measurable outcomes invites gaming. The trailing-window 
 
 ### Autonomous and semi-autonomous systems
 
-The fastest-growing category of safety-critical automotive patents covers autonomous driving systems -- perception, planning, control, and the machine-learning models that govern them. These systems present a transparency challenge that mechanical patents do not: a neural network's "design" is a set of learned weights, and inspecting the weights tells a human engineer very little about the system's behavior in a novel situation.
+The fastest-growing category of safety-critical automotive patents covers autonomous driving systems -- perception, planning, control, and the machine-learning models that govern them. These systems carry a deeper transparency challenge: a neural network's "design" is a set of learned weights, and the weights alone tell an inspector far less about behavior in a novel situation than a mechanical schematic would.
 
 The bill addresses this by requiring that autonomous and semi-autonomous systems certified for public roads meet an open behavioral specification -- a published set of scenarios the system must handle correctly, with pass/fail criteria a certified inspector can verify using standardized test equipment. The specification is the public standard; the implementation remains the manufacturer's. This is the same principle aviation uses for avionics: the performance specification is public and binding, and the manufacturer is free to meet it however they choose, provided the result passes the public test. The distinction between the open specification and the proprietary implementation is what makes this tractable.
 
@@ -119,7 +119,7 @@ This bill follows Civic Style's pattern in every section:
 - **A clear separation between those who build and those who audit** -- manufacturers make the cars; the certification authority and its inspectors verify them
 - **Dignity floors that protect people while performance incentives apply above them** -- the Automotive Safety Guarantee at a living wage, with benefits, as the floor beneath every certification tier
 
-The discipline is simple. The outcome we want is cars that do not kill people. The reward we offer tracks whether they do. The architecture keeps the two aligned, and the public record keeps the alignment visible.
+The discipline is simple. The outcome we want is cars that keep their passengers safe. The reward we offer tracks whether they do. The architecture keeps the two aligned, and the public record keeps the alignment visible.
 
 ---
 
