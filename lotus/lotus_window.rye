@@ -1,19 +1,25 @@
 //! lotus/lotus_window.rye -- Lotus in a window: record, see the waveform, play it back.
 //!
-//! Combines the app shell pattern (NSApplication, menu bar, bounded event pump) with the cell
-//! grid rasterization pattern (pixel buffer -> CGBitmapContext -> CGImage -> NSWindow layer) and
-//! the recording engine (RecordBuf as waveform source). SLC gate: "open Lotus in a window, see
-//! a waveform of the recording, play it back."
+//! Combines the app shell pattern (NSApplication, menu bar, bounded
+//! event pump) with the cell grid rasterization pattern (pixel buffer
+//! -> CGBitmapContext -> CGImage -> NSWindow layer), the recording
+//! engine (RecordBuf), and the track table (track.rye multi-track
+//! session). SLC gate: "record audio, build a multi-track session,
+//! see a track list, play back the mixed master."
 //!
-//! Quest 1.2, Orbit 25 -- the first visual surface orbit.
-//! Stands on: tools/rye/objc_seam.rye (the Objective-C boundary), lotus/record.rye (AUHAL input),
-//! lotus/coreaudio.rye (playback engine), lotus/timeline.rye (Clip), lotus/clock.rye (sample rate),
-//! lotus/meter.rye (peak/rms), lotus/coreaudio_c.rye (C declarations).
+//! The visual surface for the Lotus working studio.
+//! Stands on: tools/rye/objc_seam.rye (Objective-C boundary),
+//! lotus/record.rye (AUHAL input), lotus/coreaudio.rye (playback),
+//! lotus/timeline.rye (Clip), lotus/track.rye (Session),
+//! lotus/clock.rye (sample rate), lotus/meter.rye (peak/rms),
+//! lotus/coreaudio_c.rye (C declarations).
 //!
-//! HONEST SCOPE -- macOS only, native AppKit via objc_seam. Opens ONE window, records audio for
-//! a bounded duration, renders a waveform into a pixel buffer, displays it, then plays back the
-//! recording. No Swift, no Metal, no network, no file I/O. The waveform is rendered directly
-//! into a pixel buffer -- Skate grid integration waits for a later orbit.
+//! HONEST SCOPE -- macOS only, native AppKit via objc_seam. Opens
+//! ONE window, records audio for a bounded duration, builds a
+//! two-track session with named tracks, renders a multi-lane track
+//! list into a pixel buffer, mixes all tracks into one master via
+//! the render graph, and plays back the mixed master. No Swift, no
+//! Metal, no network, no file I/O.
 //!
 //!   env RYE_ZIG=vendor/zig-toolchain/zig rye/bin/rye run lotus/lotus_window.rye -lc -lobjc -framework Cocoa -framework CoreGraphics -framework AudioToolbox -framework CoreAudio
 
@@ -28,6 +34,7 @@ const c = @import("coreaudio_c.rye");
 const timeline = @import("timeline.rye");
 const clock_mod = @import("clock.rye");
 const meter_mod = @import("meter.rye");
+const track_mod = @import("track.rye");
 
 // --- Window geometry --------------------------------------------------------
 
@@ -51,6 +58,22 @@ const wave_b: u8 = 80;
 const center_r: u8 = 60;
 const center_g: u8 = 60;
 const center_b: u8 = 60;
+
+// --- Track colors (one per lane, dark theme) -----
+
+const TrackColor = struct { r: u8, g: u8, b: u8 };
+const track_colors = [track_mod.max_tracks]TrackColor{
+    .{ .r = 0, .g = 200, .b = 80 },
+    .{ .r = 0, .g = 180, .b = 220 },
+    .{ .r = 220, .g = 140, .b = 0 },
+    .{ .r = 160, .g = 80, .b = 200 },
+    .{ .r = 200, .g = 200, .b = 0 },
+    .{ .r = 220, .g = 60, .b = 60 },
+    .{ .r = 200, .g = 100, .b = 160 },
+    .{ .r = 180, .g = 180, .b = 180 },
+};
+// invariant: label bar width bounded.
+const label_w: u32 = 6;
 
 // --- AppKit constants -------------------------------------------------------
 
@@ -157,6 +180,169 @@ fn render_waveform(pixels: *[surface_bytes]u8, buf: []const i16, sample_count: u
                 pixels[down_base + 2] = wave_b;
                 pixels[down_base + 3] = 255;
             }
+        }
+    }
+}
+
+// --- Track list renderer ---------------------------------------------------
+
+fn draw_label_bar(
+    pixels: *[surface_bytes]u8,
+    y_start: u32,
+    y_end: u32,
+    color: TrackColor,
+) void {
+    // invariant: y range within view height.
+    assert(y_end <= view_h);
+    // invariant: non-empty vertical range.
+    assert(y_start < y_end);
+    var y: u32 = y_start;
+    while (y < y_end) : (y += 1) {
+        var x: u32 = 0;
+        while (x < label_w) : (x += 1) {
+            const base =
+                (y * view_w + x) * bytes_per_pixel;
+            pixels[base] = color.r;
+            pixels[base + 1] = color.g;
+            pixels[base + 2] = color.b;
+            pixels[base + 3] = 255;
+        }
+    }
+}
+
+fn draw_separator(
+    pixels: *[surface_bytes]u8,
+    y: u32,
+) void {
+    // invariant: separator row within view.
+    assert(y < view_h);
+    // invariant: separator spans full width.
+    var x: u32 = 0;
+    while (x < view_w) : (x += 1) {
+        const base =
+            (y * view_w + x) * bytes_per_pixel;
+        pixels[base] = center_r;
+        pixels[base + 1] = center_g;
+        pixels[base + 2] = center_b;
+        pixels[base + 3] = 255;
+    }
+}
+
+fn render_lane(
+    pixels: *[surface_bytes]u8,
+    trk: *const track_mod.Track,
+    clk: clock_mod.Clock,
+    y_start: u32,
+    y_end: u32,
+    color: TrackColor,
+) void {
+    _ = clk;
+    // invariant: lane band within view.
+    assert(y_end <= view_h);
+    // invariant: non-empty vertical band.
+    assert(y_start < y_end);
+    const lane_h = y_end - y_start;
+    const mid = y_start + lane_h / 2;
+    const half_h = lane_h / 2;
+    const sample_count = trk.clip.len;
+    if (sample_count == 0) return;
+
+    // Center line for this lane.
+    var cx: u32 = label_w;
+    while (cx < view_w) : (cx += 1) {
+        const base =
+            (mid * view_w + cx) * bytes_per_pixel;
+        pixels[base] = center_r;
+        pixels[base + 1] = center_g;
+        pixels[base + 2] = center_b;
+        pixels[base + 3] = 255;
+    }
+
+    // Mirrored peak waveform in the lane.
+    const draw_w = view_w - label_w;
+    var col: u32 = 0;
+    while (col < draw_w) : (col += 1) {
+        const start =
+            col * sample_count / draw_w;
+        const end_s =
+            (col + 1) * sample_count / draw_w;
+        if (end_s <= start) continue;
+
+        var peak: u32 = 0;
+        var s: u32 = start;
+        while (s < end_s) : (s += 1) {
+            const v = trk.clip.buf[s];
+            const abs_val: u32 = if (v < 0)
+                @intCast(-@as(i32, v))
+            else
+                @intCast(v);
+            if (abs_val > peak) peak = abs_val;
+        }
+        if (peak > meter_mod.sample_peak_max)
+            peak = meter_mod.sample_peak_max;
+        const bar_h =
+            peak * half_h / meter_mod.sample_peak_max;
+        if (bar_h == 0) continue;
+
+        var dy: u32 = 0;
+        while (dy < bar_h) : (dy += 1) {
+            if (mid > dy) {
+                const up = mid - 1 - dy;
+                if (up >= y_start) {
+                    const px = label_w + col;
+                    const b = (up * view_w + px)
+                        * bytes_per_pixel;
+                    pixels[b] = color.r;
+                    pixels[b + 1] = color.g;
+                    pixels[b + 2] = color.b;
+                    pixels[b + 3] = 255;
+                }
+            }
+            const dn = mid + 1 + dy;
+            if (dn < y_end) {
+                const px = label_w + col;
+                const b = (dn * view_w + px)
+                    * bytes_per_pixel;
+                pixels[b] = color.r;
+                pixels[b + 1] = color.g;
+                pixels[b + 2] = color.b;
+                pixels[b + 3] = 255;
+            }
+        }
+    }
+}
+
+fn render_track_list(
+    pixels: *[surface_bytes]u8,
+    session: *const track_mod.Session,
+    clk: clock_mod.Clock,
+) void {
+    // invariant: at least one track.
+    assert(session.count > 0);
+    // invariant: track count within bounds.
+    assert(session.count <= track_mod.max_tracks);
+    fill_background(pixels);
+    const n: u32 = session.count;
+    const lane_h: u32 = view_h / n;
+    var i: u32 = 0;
+    while (i < n) : (i += 1) {
+        const y0 = i * lane_h;
+        const y1 = if (i == n - 1)
+            view_h
+        else
+            (i + 1) * lane_h;
+        const color = track_colors[i];
+        draw_label_bar(pixels, y0, y1, color);
+        render_lane(
+            pixels,
+            &session.tracks[i],
+            clk,
+            y0,
+            y1,
+            color,
+        );
+        if (i > 0) {
+            draw_separator(pixels, y0);
         }
     }
 }
@@ -269,7 +455,7 @@ fn verify_app_sels(
 // --- Selftest ---------------------------------------------------------------
 
 fn run_selftest() u8 {
-    print("lotus_window selftest -- Quest 1.2\n", .{});
+    print("lotus_window selftest\n", .{});
 
     // 1. Look up ObjC classes.
     const app_cls = objc.objc_getClass("NSApplication") orelse {
@@ -483,20 +669,87 @@ fn run_selftest() u8 {
     };
     print("  waveform: rendered\n", .{});
 
-    // 12. Copy to a Clip and play back.
+    // 12. Copy recording into a Clip.
     const clip = rec_mod.to_clip(&rec_buf);
     print("  clip: {d} samples\n", .{clip.len});
 
+    // 13. Build a two-track Session.
+    var session = track_mod.Session{};
+    track_mod.add_track(
+        &session, &clip, 0,
+    ) catch {
+        print("  add track 1 failed\n", .{});
+        rec_mod.close(&rec_eng);
+        return 1;
+    };
+    track_mod.name_track(
+        &session, 0, "Record",
+    ) catch {};
+
+    // Echo track: attenuated copy at offset 0.
+    var echo = clip;
+    {
+        var si: u32 = 0;
+        while (si < echo.len) : (si += 1) {
+            const v = echo.buf[si];
+            echo.buf[si] = @divTrunc(v, 2);
+        }
+    }
+    track_mod.add_track(
+        &session, &echo, 0,
+    ) catch {
+        print("  add track 2 failed\n", .{});
+        rec_mod.close(&rec_eng);
+        return 1;
+    };
+    track_mod.name_track(
+        &session, 1, "Echo",
+    ) catch {};
+    // invariant: two tracks in session.
+    assert(session.count == 2);
+    print("  session: {d} tracks\n", .{
+        session.count,
+    });
+
+    // 14. Render multi-track visual.
+    render_track_list(
+        &pixels, &session, clk,
+    );
+    display_pixels(
+        &pixels, window, &disp_sels,
+    ) catch |e| {
+        print("  track list display: {}\n", .{e});
+        rec_mod.close(&rec_eng);
+        return 1;
+    };
+    print("  track list: rendered\n", .{});
+
+    // 15. Mix all tracks into a master Clip.
+    var master = timeline.Clip{};
+    track_mod.render(
+        &session, clk, &master,
+    ) catch {
+        print("  render failed\n", .{});
+        rec_mod.close(&rec_eng);
+        return 1;
+    };
+    print("  master: {d} samples\n", .{
+        master.len,
+    });
+
+    // 16. Play the mixed master.
     var play_eng = coreaudio.Engine.init();
     var playback_ok = false;
 
-    if (clip.len > 0) {
-        coreaudio.open(&play_eng, &clip, clk) catch |e| {
-            print("  playback open failed: {} -- skipping playback\n", .{e});
+    if (master.len > 0) {
+        coreaudio.open(
+            &play_eng, &master, clk,
+        ) catch |e| {
+            print("  playback open: {}\n", .{e});
         };
         if (play_eng.open) {
             coreaudio.start(&play_eng) catch |e| {
-                print("  playback start failed: {}\n", .{e});
+                print("  playback start: {}\n", .{e});
             };
             if (play_eng.playing) {
                 playback_ok = true;
@@ -504,38 +757,48 @@ fn run_selftest() u8 {
         }
     }
 
-    // 13. Display event pump while playback runs.
-    var display_turn: u32 = 0;
-    while (display_turn < max_event_turns) : (display_turn += 1) {
+    // 17. Event pump while playback runs.
+    var dt: u32 = 0;
+    while (dt < max_event_turns) : (dt += 1) {
         const pool = objc.objc_autoreleasePoolPush();
 
-        const event = objc.send(SendNextEvent)(shared, app_sels.next_event, event_mask_any, past, mode, true);
+        const event = objc.send(SendNextEvent)(
+            shared,
+            app_sels.next_event,
+            event_mask_any,
+            past,
+            mode,
+            true,
+        );
         if (event) |got| {
-            objc.send(objc.SendIdIdVoid)(shared, app_sels.send_event, got);
+            objc.send(objc.SendIdIdVoid)(
+                shared,
+                app_sels.send_event,
+                got,
+            );
         }
 
         objc.objc_autoreleasePoolPop(pool);
         _ = c.usleep(10_000);
     }
 
-    // 14. Stop playback.
+    // 18. Stop playback, close engines.
     if (playback_ok) {
         coreaudio.stop(&play_eng) catch {};
-        print("  playback: {d} callbacks\n", .{play_eng.state.callback_count});
+        print("  playback: {d} callbacks\n", .{
+            play_eng.state.callback_count,
+        });
     }
     if (play_eng.open) {
         coreaudio.close(&play_eng);
     }
-
-    // 15. Close the recording engine.
     rec_mod.close(&rec_eng);
-    // invariant: engine is closed.
+    // invariant: engines closed.
     assert(!rec_eng.open);
 
-    // 16. Verify the three claims.
-    // invariant: window was opened (we reached this point through window creation).
-    // invariant: waveform was rendered (samples were read from RecordBuf into pixels).
-    // invariant: playback happened (callback fired at least once).
+    // 19. Verify multi-track claims.
+    // invariant: two tracks built and rendered.
+    assert(session.count == 2);
     if (recorded > 0) {
         assert(m.count == recorded);
     }
@@ -543,7 +806,13 @@ fn run_selftest() u8 {
         assert(play_eng.state.callback_count >= 1);
     }
 
-    print("GREEN -- lotus window: record/waveform/playback proven on metal\n", .{});
+    print(
+        "GREEN -- lotus window: " ++
+            "multi-track record/" ++
+            "visual/playback " ++
+            "proven on metal\n",
+        .{},
+    );
     return 0;
 }
 

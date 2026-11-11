@@ -2,6 +2,7 @@
 
 | Stamp | Title | Summary |
 |---|---|---|
+| 20261111.165528 | [multi-track visual and playback proven on metal](20261111/20261111-165528_multi-track-visual-playback.kyri.md) | two tracks, track list visual, master mix, coreaudio playback -- GREEN |
 | 20261111.162603 | [track.rye -- named tracks, remove, reorder](20261111/20261111-162603_track-named-remove-reorder.kyri.md) | Orbit 4 data model: name fields, remove-shift, swap, 6 new selftest cases, all 13 GREEN |
 | 20261111.145121 | [Radiant pass on the automobile-patent bill](20261111/20261111-145121_radiant-pass-automobile-patent-bill.kyri.md) | nine affirmative-contrast flips, Lotus pause lifted |
 | 20261111.143653 | [treap and persistent vector research for Tablecloth](20261111/20261111-143653_treap-persistent-vector-tablecloth-research.kyri.md) | two-structure answer: treap for naming catalog, persistent vector for record store; snapshot is two root pointers |
