@@ -1,0 +1,510 @@
+//! lotus/kirtan_player.rye -- wire kirtan generation
+//! through the existing audio rendering chain.
+//! Generates a kirtan Clip, places it into a Session,
+//! renders through fader and pan, reads through
+//! transport -- proving the full pipeline on one path.
+//!
+//! Design: active-designing/date/20261111/
+//!   20261111-170815_kirtan-generation-midi-dial-
+//!   architecture.md
+//! Stands on: lotus/kirtan.rye (generation),
+//!   lotus/track.rye (session), lotus/fader.rye
+//!   (level), lotus/pan.rye (stereo),
+//!   lotus/transport.rye (playback),
+//!   lotus/clock.rye (time base).
+//!
+//! HONEST SCOPE -- software wiring only. No CoreAudio,
+//! no CoreMIDI, no network, no I/O. This module proves
+//! the rendering chain from kirtan generation to
+//! transport readout, entirely in memory.
+//!
+//!   env RYE_ZIG=vendor/zig-toolchain/zig \
+//!     rye/bin/rye run lotus/kirtan_player.rye
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+const timeline = @import("timeline.rye");
+const clock = @import("clock.rye");
+const kirtan = @import("kirtan.rye");
+const track = @import("track.rye");
+const fader = @import("fader.rye");
+const pan = @import("pan.rye");
+const transport = @import("transport.rye");
+
+pub const kirtan_player_version =
+    "20261112.235500";
+
+// -- bounds ------------------------------------------
+// Playback block size for transport reads.
+pub const block_size: u32 = 256;
+
+// -- player ------------------------------------------
+
+pub const PlayerError = error{
+    KirtanFailed,
+    SessionFailed,
+    ClockFailed,
+    FaderFailed,
+    PanFailed,
+    TransportFailed,
+};
+
+/// A kirtan player wired through the full chain.
+/// Holds the generated clip, the session it sits in,
+/// the fader and pan columns, the rendered masters,
+/// and the transport read head.
+pub const Player = struct {
+    source: timeline.Clip,
+    session: track.Session,
+    fad: fader.Fader,
+    panner: pan.Pan,
+    clk: clock.Clock,
+    mono_master: timeline.Clip,
+    stereo_master: pan.StereoClip,
+    trans: transport.Transport,
+};
+
+/// Build a player: generate kirtan, place into a
+/// one-track session, set up fader and pan at unity
+/// and center, render mono and stereo masters, and
+/// reset the transport.
+pub fn make_player(
+    root: u8,
+    bpm: u32,
+    rate: u32,
+    subdiv: u32,
+) PlayerError!Player {
+    var p = Player{
+        .source = .{},
+        .session = .{},
+        .fad = .{},
+        .panner = .{},
+        .clk = clock.make(rate) catch
+            return error.ClockFailed,
+        .mono_master = .{},
+        .stereo_master = .{},
+        .trans = .{},
+    };
+
+    // invariant: clock is valid.
+    assert(p.clk.rate >= 1);
+    assert(p.clk.rate <= clock.max_rate);
+
+    const cfg = kirtan.KirtanConfig{
+        .root = root,
+        .bpm = bpm,
+        .rate = rate,
+        .subdiv = subdiv,
+    };
+    kirtan.render_kirtan(&p.source, cfg) catch
+        return error.KirtanFailed;
+    // invariant: kirtan produced samples.
+    assert(p.source.len > 0);
+    assert(p.source.len <= timeline.max_clip);
+
+    track.add_track(&p.session, &p.source, 0) catch
+        return error.SessionFailed;
+    // invariant: session holds one track.
+    assert(p.session.count == 1);
+
+    return p;
+}
+
+/// Render the session through the fader column into
+/// a mono master clip. fader.render is the full
+/// mixer with per-track levels folded in -- it
+/// replaces track.render, not a post-process.
+pub fn render_mono(
+    p: *Player,
+) (track.TrackError ||
+    clock.ClockError ||
+    timeline.EditError)!void {
+    // invariant: session has tracks to render.
+    assert(p.session.count >= 1);
+    const faders = [_]fader.Fader{p.fad};
+    try fader.render(
+        &p.session,
+        &faders,
+        p.clk,
+        &p.mono_master,
+    );
+    // invariant: mono master has samples.
+    assert(p.mono_master.len > 0);
+}
+
+/// Render the session through fader and pan columns
+/// into a stereo master.
+pub fn render_stereo(
+    p: *Player,
+) (track.TrackError ||
+    clock.ClockError ||
+    timeline.EditError)!void {
+    // invariant: session has tracks to render.
+    assert(p.session.count >= 1);
+    const faders = [_]fader.Fader{p.fad};
+    const pans = [_]pan.Pan{p.panner};
+    try pan.render_stereo(
+        &p.session,
+        &faders,
+        &pans,
+        p.clk,
+        &p.stereo_master,
+    );
+    // invariant: stereo master has samples.
+    assert(p.stereo_master.left.len > 0);
+    assert(p.stereo_master.right.len > 0);
+}
+
+/// Read the mono master through the transport in
+/// blocks, returning the total samples read.
+pub fn read_all(p: *Player) u32 {
+    // invariant: mono master has content.
+    assert(p.mono_master.len > 0);
+    p.trans = .{};
+    var total: u32 = 0;
+    var buf: [block_size]i16 = @splat(0);
+    while (!transport.at_end(
+        &p.trans,
+        &p.mono_master,
+    )) {
+        const n = transport.read_block(
+            &p.trans,
+            &p.mono_master,
+            &buf,
+        );
+        total += n;
+        // invariant: progress on each read.
+        assert(n > 0);
+    }
+    // invariant: read exactly the master length.
+    assert(total == p.mono_master.len);
+    return total;
+}
+
+// -- selftest ----------------------------------------
+
+pub fn main(init: std.process.Init) !u8 {
+    _ = init;
+    print(
+        "kirtan_player_selftest: begin\n",
+        .{},
+    );
+
+    // Case 1: generate kirtan, place into session,
+    // render mono, read through transport.
+    {
+        @setEvalBranchQuota(10_000);
+        var p = try make_player(
+            60,
+            120,
+            8000,
+            8,
+        );
+        try render_mono(&p);
+        const total = read_all(&p);
+        // invariant: transport read the whole
+        // master.
+        assert(total == p.mono_master.len);
+        assert(total > 0);
+        print(
+            "  case 1: mono pipeline len={d}"
+                ++ " -- ok\n",
+            .{total},
+        );
+    }
+
+    // Case 2: mono master is non-silent.
+    {
+        @setEvalBranchQuota(10_000);
+        var p = try make_player(
+            60,
+            120,
+            8000,
+            8,
+        );
+        try render_mono(&p);
+        var nonzero: u32 = 0;
+        const samps = p.mono_master.samples();
+        var i: u32 = 0;
+        while (i < p.mono_master.len) : (i += 1) {
+            if (samps[i] != 0) nonzero += 1;
+        }
+        // invariant: kirtan produces audible
+        // output.
+        assert(nonzero > 0);
+        print(
+            "  case 2: nonzero={d}/{d}"
+                ++ " -- ok\n",
+            .{ nonzero, p.mono_master.len },
+        );
+    }
+
+    // Case 3: fader at half reduces peak level.
+    {
+        @setEvalBranchQuota(10_000);
+        var full = try make_player(
+            60,
+            120,
+            8000,
+            8,
+        );
+        try render_mono(&full);
+        var full_peak: i64 = 0;
+        const fs = full.mono_master.samples();
+        var fi: u32 = 0;
+        while (fi < full.mono_master.len) : (
+            fi += 1
+        ) {
+            const a: i64 = if (fs[fi] < 0)
+                -@as(i64, fs[fi])
+            else
+                @as(i64, fs[fi]);
+            if (a > full_peak) full_peak = a;
+        }
+
+        var half = try make_player(
+            60,
+            120,
+            8000,
+            8,
+        );
+        half.fad = fader.make(1, 2) catch
+            return 1;
+        try render_mono(&half);
+        var half_peak: i64 = 0;
+        const hs = half.mono_master.samples();
+        var hi: u32 = 0;
+        while (hi < half.mono_master.len) : (
+            hi += 1
+        ) {
+            const a: i64 = if (hs[hi] < 0)
+                -@as(i64, hs[hi])
+            else
+                @as(i64, hs[hi]);
+            if (a > half_peak) half_peak = a;
+        }
+        // invariant: half fader reduces peak.
+        assert(half_peak <= full_peak);
+        assert(half_peak > 0);
+        print(
+            "  case 3: full_peak={d}"
+                ++ " half_peak={d} -- ok\n",
+            .{ full_peak, half_peak },
+        );
+    }
+
+    // Case 4: stereo render produces output in
+    // both channels.
+    {
+        @setEvalBranchQuota(10_000);
+        var p = try make_player(
+            60,
+            120,
+            8000,
+            8,
+        );
+        try render_stereo(&p);
+        // invariant: both channels have content.
+        assert(p.stereo_master.left.len > 0);
+        assert(p.stereo_master.right.len > 0);
+        // invariant: center pan means equal
+        // channels.
+        assert(
+            p.stereo_master.left.len ==
+                p.stereo_master.right.len,
+        );
+        var left_nz: u32 = 0;
+        var right_nz: u32 = 0;
+        const ls = p.stereo_master.left.samples();
+        const rs =
+            p.stereo_master.right.samples();
+        var i: u32 = 0;
+        while (i < p.stereo_master.left.len) : (
+            i += 1
+        ) {
+            if (ls[i] != 0) left_nz += 1;
+            if (rs[i] != 0) right_nz += 1;
+        }
+        assert(left_nz > 0);
+        assert(right_nz > 0);
+        print(
+            "  case 4: stereo L={d} R={d}"
+                ++ " -- ok\n",
+            .{ left_nz, right_nz },
+        );
+    }
+
+    // Case 5: hard-left pan sends signal to left
+    // channel only.
+    {
+        @setEvalBranchQuota(10_000);
+        var p = try make_player(
+            60,
+            120,
+            8000,
+            8,
+        );
+        p.panner = pan.make(0, 2) catch return 1;
+        try render_stereo(&p);
+        // invariant: right channel is silent when
+        // panned hard left.
+        const rs =
+            p.stereo_master.right.samples();
+        var right_nz: u32 = 0;
+        var i: u32 = 0;
+        while (i < p.stereo_master.right.len) : (
+            i += 1
+        ) {
+            if (rs[i] != 0) right_nz += 1;
+        }
+        assert(right_nz == 0);
+        // invariant: left channel has signal.
+        const ls = p.stereo_master.left.samples();
+        var left_nz: u32 = 0;
+        i = 0;
+        while (i < p.stereo_master.left.len) : (
+            i += 1
+        ) {
+            if (ls[i] != 0) left_nz += 1;
+        }
+        assert(left_nz > 0);
+        print(
+            "  case 5: hard-left L={d} R=0"
+                ++ " -- ok\n",
+            .{left_nz},
+        );
+    }
+
+    // Case 6: transport seek and partial read.
+    {
+        @setEvalBranchQuota(10_000);
+        var p = try make_player(
+            60,
+            120,
+            8000,
+            8,
+        );
+        try render_mono(&p);
+        const mid = p.mono_master.len / 2;
+        // Seek to midpoint by sample position.
+        p.trans = .{};
+        p.trans.pos = mid;
+        var remaining: u32 = 0;
+        var buf: [block_size]i16 = @splat(0);
+        while (!transport.at_end(
+            &p.trans,
+            &p.mono_master,
+        )) {
+            const n = transport.read_block(
+                &p.trans,
+                &p.mono_master,
+                &buf,
+            );
+            remaining += n;
+        }
+        // invariant: read the second half.
+        assert(remaining == p.mono_master.len -
+            mid);
+        print(
+            "  case 6: seek mid={d}"
+                ++ " remaining={d} -- ok\n",
+            .{ mid, remaining },
+        );
+    }
+
+    // Case 7: different root note produces
+    // different audio.
+    {
+        @setEvalBranchQuota(10_000);
+        var p60 = try make_player(
+            60,
+            120,
+            8000,
+            8,
+        );
+        try render_mono(&p60);
+        var p72 = try make_player(
+            72,
+            120,
+            8000,
+            8,
+        );
+        try render_mono(&p72);
+        // invariant: different roots produce
+        // different samples.
+        var diffs: u32 = 0;
+        const s60 = p60.mono_master.samples();
+        const s72 = p72.mono_master.samples();
+        const cmp_len = @min(
+            p60.mono_master.len,
+            p72.mono_master.len,
+        );
+        var i: u32 = 0;
+        while (i < cmp_len) : (i += 1) {
+            if (s60[i] != s72[i]) diffs += 1;
+        }
+        assert(diffs > 0);
+        print(
+            "  case 7: root 60 vs 72"
+                ++ " diffs={d} -- ok\n",
+            .{diffs},
+        );
+    }
+
+    // Case 8: mute fader (0/1) produces silence.
+    {
+        @setEvalBranchQuota(10_000);
+        var p = try make_player(
+            60,
+            120,
+            8000,
+            8,
+        );
+        p.fad = fader.make(0, 1) catch return 1;
+        try render_mono(&p);
+        const samps = p.mono_master.samples();
+        var nonzero: u32 = 0;
+        var i: u32 = 0;
+        while (i < p.mono_master.len) : (i += 1) {
+            if (samps[i] != 0) nonzero += 1;
+        }
+        // invariant: muted fader yields silence.
+        assert(nonzero == 0);
+        print(
+            "  case 8: mute fader -> silence"
+                ++ " -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 9: invalid rate refused.
+    {
+        const r = make_player(60, 120, 0, 8);
+        assert(r == error.ClockFailed);
+        print(
+            "  case 9: rate=0 refused"
+                ++ " -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 10: invalid root refused.
+    {
+        const r = make_player(200, 120, 8000, 8);
+        assert(r == error.KirtanFailed);
+        print(
+            "  case 10: root=200 refused"
+                ++ " -- ok\n",
+            .{},
+        );
+    }
+
+    print(
+        "kirtan_player_selftest:"
+            ++ " 10 cases GREEN\n",
+        .{},
+    );
+    return 0;
+}
