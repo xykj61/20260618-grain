@@ -1,0 +1,307 @@
+//! lotus/note.rye -- pitch and scale for synthesis.
+//! A MIDI note number (u7, 0-127) maps to a frequency
+//! in millihertz (u32). A Scale is a bounded set of
+//! semitone intervals from a root. Named presets:
+//! natural minor, harmonic minor, major, pentatonic
+//! minor. scale_note() returns the MIDI note number
+//! for a given degree of a scale at a given octave
+//! offset, bounded and checked.
+//!
+//! Design: active-designing/date/20261111/
+//!   20261111-170815_kirtan-generation-midi-dial-
+//!   architecture.md
+//! Stands on: nothing -- foundational module.
+//!
+//! HONEST SCOPE -- pure arithmetic, no audio, no I/O.
+//! The frequency table is comptime. Every value is
+//! bounded. No floating point.
+//!
+//!   env RYE_ZIG=vendor/zig-toolchain/zig \
+//!     rye/bin/rye run lotus/note.rye
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+pub const note_version = "20261111.170815";
+
+// -- width vocabulary ---------------------------------
+// u7: 0-127, the MIDI note range. Rye has no u7, so
+// we bound a u8 at the edge and name the bound.
+pub const max_note: u8 = 127;
+// u32 millihertz: frequency without floating point.
+// Middle A (note 69) = 440 Hz = 440_000 mHz.
+// Note 127 = ~12543 Hz = 12_543_854 mHz. Fits u32.
+pub const max_mhz: u32 = 12_543_854;
+
+pub const NoteError = error{
+    BadNote,
+    BadDegree,
+    BadOctave,
+};
+
+// -- comptime frequency table -------------------------
+// 128 entries, one per MIDI note. Each is the frequency
+// in millihertz (thousandths of a Hz), computed from
+// A4 = 440 Hz using the equal-temperament formula:
+//   f = 440 * 2^((n - 69) / 12)
+// The comptime block uses f64 for the derivation; the
+// result is a [128]u32 baked into the binary.
+
+pub const freq_table: [128]u32 = blk: {
+    @setEvalBranchQuota(10_000);
+    var t: [128]u32 = undefined;
+    for (0..128) |i| {
+        const semitones: f64 = @as(f64, @floatFromInt(i)) - 69.0;
+        const ratio: f64 = std.math.pow(
+            f64,
+            2.0,
+            semitones / 12.0,
+        );
+        const hz: f64 = 440.0 * ratio;
+        const mhz: f64 = hz * 1000.0;
+        // invariant: every entry fits u32.
+        t[i] = @intFromFloat(@round(mhz));
+    }
+    break :blk t;
+};
+
+/// Look up the frequency for a MIDI note number.
+/// Returns millihertz (u32). Refuses BadNote past 127.
+pub fn freq_mhz(note: u8) NoteError!u32 {
+    // invariant: note is in the MIDI range.
+    if (note > max_note) return error.BadNote;
+    return freq_table[note];
+}
+
+// -- scales -------------------------------------------
+// A scale is a set of ascending semitone intervals from
+// a root. max_scale_len bounds the array; real scales
+// use 5-12 intervals.
+
+pub const max_scale_len: u32 = 12;
+
+pub const Scale = struct {
+    intervals: [max_scale_len]u8,
+    len: u32,
+};
+
+// Named presets. Each interval array lists the semitone
+// steps that sum to one octave (12).
+
+pub const natural_minor = Scale{
+    .intervals = .{ 2, 1, 2, 2, 1, 2, 2, 0, 0, 0, 0, 0 },
+    .len = 7,
+};
+
+pub const harmonic_minor = Scale{
+    .intervals = .{ 2, 1, 2, 2, 1, 3, 1, 0, 0, 0, 0, 0 },
+    .len = 7,
+};
+
+pub const major = Scale{
+    .intervals = .{ 2, 2, 1, 2, 2, 2, 1, 0, 0, 0, 0, 0 },
+    .len = 7,
+};
+
+pub const pentatonic_minor = Scale{
+    .intervals = .{ 3, 2, 2, 3, 2, 0, 0, 0, 0, 0, 0, 0 },
+    .len = 5,
+};
+
+/// Return the MIDI note number for a scale degree at
+/// an octave offset from a root note. degree is 0-based
+/// within the scale (0 = root, 1 = second, etc.).
+/// octave is the number of octaves above the root
+/// (0 = same octave). Refuses BadNote if the result
+/// exceeds 127, BadDegree if degree >= scale.len,
+/// BadOctave if octave > 10.
+pub fn scale_note(
+    root: u8,
+    scale: Scale,
+    degree: u32,
+    octave: u32,
+) NoteError!u8 {
+    // invariant: root is a valid MIDI note.
+    if (root > max_note) return error.BadNote;
+    // invariant: degree is within the scale.
+    if (degree >= scale.len) return error.BadDegree;
+    // invariant: octave is bounded (10 octaves is
+    // generous; MIDI spans ~10.5 octaves total).
+    if (octave > 10) return error.BadOctave;
+    // Sum the intervals up to the requested degree.
+    var semitones: u32 = 0;
+    var i: u32 = 0;
+    while (i < degree) : (i += 1) {
+        semitones += scale.intervals[i];
+    }
+    // Add octave offset (12 semitones per octave).
+    semitones += octave * 12;
+    // Compute the result note number.
+    const result: u32 = @as(u32, root) + semitones;
+    // invariant: the result must fit the MIDI range.
+    if (result > max_note) return error.BadNote;
+    return @intCast(result);
+}
+
+// -- selftest -----------------------------------------
+
+pub fn main() !void {
+    print("note_selftest: begin\n", .{});
+
+    // Case 1: A4 (note 69) = 440_000 mHz.
+    {
+        const f = try freq_mhz(69);
+        // invariant: A4 is exactly 440 Hz.
+        assert(f == 440_000);
+        print("  case 1: A4 = {d} mHz -- ok\n", .{f});
+    }
+
+    // Case 2: C4 (middle C, note 60) ~= 261_626 mHz.
+    {
+        const f = try freq_mhz(60);
+        // invariant: middle C within 1 mHz of 261626.
+        assert(f >= 261_625 and f <= 261_627);
+        print("  case 2: C4 = {d} mHz -- ok\n", .{f});
+    }
+
+    // Case 3: note 0 (C-1) ~= 8_176 mHz.
+    {
+        const f = try freq_mhz(0);
+        // invariant: lowest MIDI note is ~8.176 Hz.
+        assert(f >= 8_175 and f <= 8_177);
+        print("  case 3: note 0 = {d} mHz -- ok\n", .{f});
+    }
+
+    // Case 4: note 127 ~= 12_543_854 mHz.
+    {
+        const f = try freq_mhz(127);
+        // invariant: highest note within 10 mHz.
+        assert(f >= 12_543_844 and f <= 12_543_864);
+        print("  case 4: note 127 = {d} mHz -- ok\n", .{f});
+    }
+
+    // Case 5: note 128 refuses BadNote.
+    {
+        const r = freq_mhz(128);
+        // invariant: past 127 is refused.
+        assert(r == error.BadNote);
+        print("  case 5: note 128 refused -- ok\n", .{});
+    }
+
+    // Case 6: octave relationship -- note 69 and 81
+    // (A4 and A5) differ by exactly 2x.
+    {
+        const a4 = try freq_mhz(69);
+        const a5 = try freq_mhz(81);
+        // invariant: A5 = 2 * A4 (equal temperament).
+        assert(a5 == a4 * 2);
+        print(
+            "  case 6: A5/A4 = {d}/{d} -- ok\n",
+            .{ a5, a4 },
+        );
+    }
+
+    // Case 7: natural minor scale from C4 (note 60).
+    // C D Eb F G Ab Bb = degrees 0-6.
+    {
+        const c = try scale_note(60, natural_minor, 0, 0);
+        // invariant: degree 0 = root.
+        assert(c == 60);
+        const d = try scale_note(60, natural_minor, 1, 0);
+        // invariant: whole step up from C = D.
+        assert(d == 62);
+        const eb = try scale_note(
+            60,
+            natural_minor,
+            2,
+            0,
+        );
+        // invariant: half step from D = Eb.
+        assert(eb == 63);
+        const g = try scale_note(60, natural_minor, 4, 0);
+        // invariant: G is 7 semitones from C.
+        assert(g == 67);
+        print(
+            "  case 7: C min = {d} {d} {d} ... {d}"
+            ++ " -- ok\n",
+            .{ c, d, eb, g },
+        );
+    }
+
+    // Case 8: scale_note with octave offset.
+    {
+        const c4 = try scale_note(
+            60,
+            natural_minor,
+            0,
+            0,
+        );
+        const c5 = try scale_note(
+            60,
+            natural_minor,
+            0,
+            1,
+        );
+        // invariant: one octave up = 12 semitones.
+        assert(c5 == c4 + 12);
+        print(
+            "  case 8: C4={d} C5={d} -- ok\n",
+            .{ c4, c5 },
+        );
+    }
+
+    // Case 9: scale_note past max_note refuses.
+    {
+        const r = scale_note(120, natural_minor, 4, 1);
+        // invariant: 120 + 7 + 12 = 139 > 127.
+        assert(r == error.BadNote);
+        print("  case 9: overflow refused -- ok\n", .{});
+    }
+
+    // Case 10: bad degree refuses.
+    {
+        const r = scale_note(60, natural_minor, 7, 0);
+        // invariant: natural minor has 7 degrees (0-6).
+        assert(r == error.BadDegree);
+        print(
+            "  case 10: bad degree refused -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 11: pentatonic minor has 5 degrees.
+    {
+        const e = try scale_note(
+            64,
+            pentatonic_minor,
+            0,
+            0,
+        );
+        // invariant: root = E4.
+        assert(e == 64);
+        const g = try scale_note(
+            64,
+            pentatonic_minor,
+            1,
+            0,
+        );
+        // invariant: minor third up = G4 (3 semitones).
+        assert(g == 67);
+        const d = try scale_note(
+            64,
+            pentatonic_minor,
+            4,
+            0,
+        );
+        // invariant: degree 4 = 3+2+2+3 = 10 semi.
+        assert(d == 74);
+        print(
+            "  case 11: E pent min = {d} {d} ... {d}"
+            ++ " -- ok\n",
+            .{ e, g, d },
+        );
+    }
+
+    print("note_selftest: 11 cases GREEN\n", .{});
+}

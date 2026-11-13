@@ -1,0 +1,531 @@
+//! lotus/synth.rye -- wavetable oscillator for i16 PCM.
+//! A 256-entry i16 wavetable (sine, triangle, square,
+//! saw), a 16.16 fixed-point phase accumulator, and an
+//! ADSR envelope. render_note() takes a frequency in
+//! millihertz, a duration in samples, a velocity (u7),
+//! and writes i16 PCM into a Clip. No floating point
+//! in the audio path.
+//!
+//! Design: active-designing/date/20261111/
+//!   20261111-170815_kirtan-generation-midi-dial-
+//!   architecture.md
+//! Stands on: lotus/note.rye (frequency table),
+//!   lotus/timeline.rye (Clip, saturate).
+//!
+//! HONEST SCOPE -- pure synthesis, bounded buffers.
+//! No I/O, no CoreAudio, no network.
+//!
+//!   env RYE_ZIG=vendor/zig-toolchain/zig \
+//!     rye/bin/rye run lotus/synth.rye
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+const note_mod = @import("note.rye");
+const timeline = @import("timeline.rye");
+
+pub const synth_version = "20261111.170815";
+
+// -- wavetable ----------------------------------------
+// 256 entries, i16. The phase accumulator indexes into
+// this table with its upper 8 bits.
+
+pub const table_len: u32 = 256;
+
+pub const Waveform = enum {
+    sine,
+    triangle,
+    square,
+    saw,
+};
+
+/// Build a wavetable at comptime.
+pub const sine_table: [table_len]i16 = blk: {
+    @setEvalBranchQuota(10_000);
+    var t: [table_len]i16 = undefined;
+    for (0..table_len) |i| {
+        const phase: f64 = @as(
+            f64,
+            @floatFromInt(i),
+        ) / @as(f64, @floatFromInt(table_len));
+        const s: f64 = @sin(phase * 2.0 * std.math.pi);
+        // Scale to i16 range, leave headroom of 1.
+        const v: f64 = s * 32766.0;
+        t[i] = @intFromFloat(@round(v));
+    }
+    break :blk t;
+};
+
+pub const triangle_table: [table_len]i16 = blk: {
+    var t: [table_len]i16 = undefined;
+    for (0..table_len) |i| {
+        // Triangle: rises 0->max in first quarter,
+        // falls max->0->min in middle half, rises
+        // min->0 in last quarter.
+        const q: u32 = @intCast(i);
+        const half: u32 = table_len / 2;
+        const quarter: u32 = table_len / 4;
+        var v: i32 = 0;
+        if (q < quarter) {
+            v = @intCast(q * (32766 / quarter));
+        } else if (q < quarter + half) {
+            const d: i32 = @intCast(q - quarter);
+            v = 32766 - d * @as(
+                i32,
+                @intCast(2 * (32766 / quarter)),
+            );
+        } else {
+            const d: i32 = @intCast(q - quarter - half);
+            v = -32766 + d * @as(
+                i32,
+                @intCast(32766 / quarter),
+            );
+        }
+        t[i] = timeline.saturate(v);
+    }
+    break :blk t;
+};
+
+pub const square_table: [table_len]i16 = blk: {
+    var t: [table_len]i16 = undefined;
+    for (0..table_len) |i| {
+        if (i < table_len / 2) {
+            t[i] = 32766;
+        } else {
+            t[i] = -32766;
+        }
+    }
+    break :blk t;
+};
+
+pub const saw_table: [table_len]i16 = blk: {
+    var t: [table_len]i16 = undefined;
+    for (0..table_len) |i| {
+        // Linear ramp from -32766 to +32766.
+        const v: i32 = -32766 + @as(
+            i32,
+            @intCast(i),
+        ) * (2 * 32766) / @as(i32, @intCast(table_len));
+        t[i] = @intCast(v);
+    }
+    break :blk t;
+};
+
+fn wave_table(w: Waveform) *const [table_len]i16 {
+    return switch (w) {
+        .sine => &sine_table,
+        .triangle => &triangle_table,
+        .square => &square_table,
+        .saw => &saw_table,
+    };
+}
+
+// -- ADSR envelope ------------------------------------
+// Times in samples, levels 0-127 (u7).
+
+pub const max_env_level: u8 = 127;
+
+pub const Envelope = struct {
+    attack: u32,
+    decay: u32,
+    sustain: u8,
+    release: u32,
+};
+
+pub const default_env = Envelope{
+    .attack = 200,
+    .decay = 400,
+    .sustain = 100,
+    .release = 800,
+};
+
+/// Compute the envelope amplitude (0-127) at sample
+/// position `pos` within a note of `dur` samples.
+/// The release phase begins at `dur - env.release`.
+fn env_level(env: Envelope, pos: u32, dur: u32) u8 {
+    // Attack phase: ramp 0 -> max_env_level.
+    if (env.attack > 0 and pos < env.attack) {
+        const v: u32 = @as(u32, max_env_level) *
+            pos / env.attack;
+        return @intCast(v);
+    }
+    // Decay phase: ramp max_env_level -> sustain.
+    const decay_start = env.attack;
+    if (env.decay > 0 and pos < decay_start + env.decay) {
+        const elapsed = pos - decay_start;
+        const drop: u32 = (@as(
+            u32,
+            max_env_level,
+        ) - @as(u32, env.sustain)) *
+            elapsed / env.decay;
+        const v: u32 = @as(u32, max_env_level) - drop;
+        return @intCast(v);
+    }
+    // Release phase: ramp sustain -> 0.
+    if (env.release > 0 and dur > env.release) {
+        const rel_start = dur - env.release;
+        if (pos >= rel_start) {
+            const elapsed = pos - rel_start;
+            const v: u32 = @as(u32, env.sustain) -
+                @as(u32, env.sustain) *
+                elapsed / env.release;
+            return @intCast(v);
+        }
+    }
+    // Sustain phase.
+    return env.sustain;
+}
+
+// -- phase accumulator --------------------------------
+// 16.16 fixed-point. The upper 8 bits of the integer
+// part index into the 256-entry wavetable.
+
+/// Compute the phase increment for a frequency in
+/// millihertz at a given sample rate. Returns 16.16
+/// fixed-point. The formula:
+///   inc = (freq_mhz * table_len * 65536)
+///         / (rate * 1000)
+/// All in u64 to avoid overflow.
+fn phase_inc(freq_mhz: u32, rate: u32) u32 {
+    // invariant: rate is nonzero.
+    assert(rate >= 1);
+    const num: u64 = @as(u64, freq_mhz) *
+        @as(u64, table_len) * 65536;
+    const den: u64 = @as(u64, rate) * 1000;
+    const inc: u64 = num / den;
+    // invariant: the increment fits u32. At the
+    // highest note (12543854 mHz) and lowest rate
+    // (1 Hz): 12543854*256*65536/1000 =~ 2.1e14,
+    // but rate >= 1 keeps this in range for real
+    // sample rates. At rate=1 it would overflow,
+    // but clock.rye enforces rate >= 1 and our
+    // musical context uses >= 8000.
+    if (inc > std.math.maxInt(u32)) return 0;
+    return @intCast(inc);
+}
+
+// -- public API ---------------------------------------
+
+pub const SynthError = error{
+    BadNote,
+    BadDuration,
+    BadVelocity,
+    BadRate,
+};
+
+/// Render a single note into a Clip. freq_mhz is the
+/// frequency in millihertz, dur is duration in samples,
+/// vel is velocity (0-127), rate is the sample rate.
+/// The Clip is zeroed before rendering.
+pub fn render_note(
+    clip: *timeline.Clip,
+    waveform: Waveform,
+    freq_mhz: u32,
+    dur: u32,
+    vel: u8,
+    rate: u32,
+    env: Envelope,
+) SynthError!void {
+    // invariant: duration fits the clip.
+    if (dur < 1 or dur > timeline.max_clip)
+        return error.BadDuration;
+    // invariant: velocity in MIDI range.
+    if (vel > note_mod.max_note)
+        return error.BadVelocity;
+    // invariant: rate is valid.
+    if (rate < 1 or rate > 192_000)
+        return error.BadRate;
+    // invariant: frequency is nonzero.
+    if (freq_mhz < 1) return error.BadNote;
+
+    const tbl = wave_table(waveform);
+    const inc = phase_inc(freq_mhz, rate);
+
+    // Zero the clip buffer up to dur.
+    var z: u32 = 0;
+    while (z < dur) : (z += 1) {
+        clip.buf[z] = 0;
+    }
+    clip.len = dur;
+
+    var phase: u32 = 0;
+    var i: u32 = 0;
+    while (i < dur) : (i += 1) {
+        // Wavetable lookup: upper 8 bits of the
+        // integer part (bits 16-23) of the 16.16
+        // phase.
+        const idx: u8 = @intCast((phase >> 16) & 0xFF);
+        const raw: i64 = tbl[idx];
+        // Apply velocity (0-127) and envelope.
+        const e: i64 = env_level(env, i, dur);
+        const v: i64 = @as(i64, vel);
+        const sample: i64 = @divTrunc(
+            raw * v * e,
+            @as(i64, max_env_level) *
+                @as(i64, max_env_level),
+        );
+        clip.buf[i] = timeline.saturate(sample);
+        // Advance phase (wraps naturally in u32).
+        phase +%= inc;
+    }
+    // invariant: clip length matches requested dur.
+    assert(clip.len == dur);
+}
+
+/// Render a note by MIDI note number. Convenience
+/// wrapper that looks up the frequency.
+pub fn render_midi_note(
+    clip: *timeline.Clip,
+    waveform: Waveform,
+    midi_note: u8,
+    dur: u32,
+    vel: u8,
+    rate: u32,
+    env: Envelope,
+) (SynthError || note_mod.NoteError)!void {
+    const freq = try note_mod.freq_mhz(midi_note);
+    return render_note(
+        clip,
+        waveform,
+        freq,
+        dur,
+        vel,
+        rate,
+        env,
+    );
+}
+
+// -- selftest -----------------------------------------
+
+pub fn main() !void {
+    print("synth_selftest: begin\n", .{});
+
+    // Case 1: sine wave A4, check not silent.
+    {
+        var clip = std.mem.zeroes(timeline.Clip);
+        try render_note(
+            &clip,
+            .sine,
+            440_000,
+            2048,
+            100,
+            48000,
+            default_env,
+        );
+        // invariant: output is not silent.
+        var peak: i16 = 0;
+        for (clip.buf[0..clip.len]) |s| {
+            if (s > peak) peak = s;
+            if (-s > peak) peak = -s;
+        }
+        assert(peak > 1000);
+        assert(clip.len == 2048);
+        print(
+            "  case 1: sine A4 peak={d} -- ok\n",
+            .{peak},
+        );
+    }
+
+    // Case 2: square wave, louder peak than sine
+    // at same velocity.
+    {
+        var clip = std.mem.zeroes(timeline.Clip);
+        try render_note(
+            &clip,
+            .square,
+            440_000,
+            2048,
+            100,
+            48000,
+            default_env,
+        );
+        var peak: i16 = 0;
+        for (clip.buf[0..clip.len]) |s| {
+            if (s > peak) peak = s;
+            if (-s > peak) peak = -s;
+        }
+        // invariant: square wave is louder than sine
+        // because its table values are at max.
+        assert(peak > 5000);
+        print(
+            "  case 2: square A4 peak={d} -- ok\n",
+            .{peak},
+        );
+    }
+
+    // Case 3: render_midi_note for middle C.
+    {
+        var clip = std.mem.zeroes(timeline.Clip);
+        try render_midi_note(
+            &clip,
+            .sine,
+            60,
+            1024,
+            80,
+            48000,
+            default_env,
+        );
+        // invariant: not silent.
+        var peak: i16 = 0;
+        for (clip.buf[0..clip.len]) |s| {
+            if (s > peak) peak = s;
+            if (-s > peak) peak = -s;
+        }
+        assert(peak > 500);
+        assert(clip.len == 1024);
+        print(
+            "  case 3: midi C4 peak={d} -- ok\n",
+            .{peak},
+        );
+    }
+
+    // Case 4: velocity 0 = silence.
+    {
+        var clip = std.mem.zeroes(timeline.Clip);
+        try render_note(
+            &clip,
+            .sine,
+            440_000,
+            512,
+            0,
+            48000,
+            default_env,
+        );
+        // invariant: velocity 0 means silent.
+        var peak: i16 = 0;
+        for (clip.buf[0..clip.len]) |s| {
+            if (s > peak) peak = s;
+            if (-s > peak) peak = -s;
+        }
+        assert(peak == 0);
+        print("  case 4: vel 0 silent -- ok\n", .{});
+    }
+
+    // Case 5: bad duration refuses.
+    {
+        var clip = std.mem.zeroes(timeline.Clip);
+        const r = render_note(
+            &clip,
+            .sine,
+            440_000,
+            0,
+            100,
+            48000,
+            default_env,
+        );
+        // invariant: dur 0 is refused.
+        assert(r == error.BadDuration);
+        print(
+            "  case 5: dur 0 refused -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 6: bad MIDI note refuses.
+    {
+        var clip = std.mem.zeroes(timeline.Clip);
+        const r = render_midi_note(
+            &clip,
+            .sine,
+            128,
+            512,
+            100,
+            48000,
+            default_env,
+        );
+        assert(r == error.BadNote);
+        print(
+            "  case 6: midi 128 refused -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 7: envelope attack -- first sample < later.
+    {
+        var clip = std.mem.zeroes(timeline.Clip);
+        const env = Envelope{
+            .attack = 500,
+            .decay = 200,
+            .sustain = 100,
+            .release = 200,
+        };
+        try render_note(
+            &clip,
+            .sine,
+            440_000,
+            2048,
+            100,
+            48000,
+            env,
+        );
+        // invariant: sample near start is quieter
+        // than sample in sustain phase due to attack.
+        // (Compare absolute values at ~sample 10
+        // vs ~sample 800.)
+        const early = @as(
+            i32,
+            if (clip.buf[10] < 0)
+                -clip.buf[10]
+            else
+                clip.buf[10],
+        );
+        const later = @as(
+            i32,
+            if (clip.buf[800] < 0)
+                -clip.buf[800]
+            else
+                clip.buf[800],
+        );
+        // The envelope hasn't ramped up yet at 10,
+        // but is in sustain at 800.
+        assert(early <= later);
+        print(
+            "  case 7: attack envelope early={d}"
+            ++ " later={d} -- ok\n",
+            .{ early, later },
+        );
+    }
+
+    // Case 8: saw and triangle waves are not silent.
+    {
+        var clip = std.mem.zeroes(timeline.Clip);
+        try render_note(
+            &clip,
+            .saw,
+            440_000,
+            1024,
+            100,
+            48000,
+            default_env,
+        );
+        var saw_peak: i16 = 0;
+        for (clip.buf[0..clip.len]) |s| {
+            if (s > saw_peak) saw_peak = s;
+            if (-s > saw_peak) saw_peak = -s;
+        }
+        assert(saw_peak > 500);
+
+        try render_note(
+            &clip,
+            .triangle,
+            440_000,
+            1024,
+            100,
+            48000,
+            default_env,
+        );
+        var tri_peak: i16 = 0;
+        for (clip.buf[0..clip.len]) |s| {
+            if (s > tri_peak) tri_peak = s;
+            if (-s > tri_peak) tri_peak = -s;
+        }
+        assert(tri_peak > 500);
+        print(
+            "  case 8: saw={d} tri={d} -- ok\n",
+            .{ saw_peak, tri_peak },
+        );
+    }
+
+    print("synth_selftest: 8 cases GREEN\n", .{});
+}

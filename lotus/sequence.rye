@@ -1,0 +1,441 @@
+//! lotus/sequence.rye -- pattern sequencer.
+//! A pattern is a bounded array of steps. Each step
+//! carries a MIDI note, velocity, and gate (duration
+//! as a fraction of the step length). The sequencer
+//! walks the pattern at a tempo clock's pace, renders
+//! each step through the synth, and mixes the results
+//! into a Clip.
+//!
+//! Design: active-designing/date/20261111/
+//!   20261111-170815_kirtan-generation-midi-dial-
+//!   architecture.md
+//! Stands on: lotus/synth.rye (oscillator),
+//!   lotus/tempo.rye (beat clock),
+//!   lotus/note.rye (pitch),
+//!   lotus/timeline.rye (Clip, saturate).
+//!
+//! HONEST SCOPE -- pure synthesis, bounded buffers.
+//! No I/O, no CoreAudio, no network.
+//!
+//!   env RYE_ZIG=vendor/zig-toolchain/zig \
+//!     rye/bin/rye run lotus/sequence.rye
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+const note_mod = @import("note.rye");
+const tempo_mod = @import("tempo.rye");
+const synth_mod = @import("synth.rye");
+const timeline = @import("timeline.rye");
+
+pub const sequence_version = "20261111.170815";
+
+// -- step and pattern ---------------------------------
+// A step is one event in a pattern. A pattern is a
+// bounded array of steps. max_steps bounds all patterns.
+
+pub const max_steps: u32 = 64;
+
+// Gate as a fraction of the step duration, 0-255.
+// 255 = full step, 128 = half step (staccato),
+// 0 = rest (no sound).
+pub const max_gate: u8 = 255;
+
+pub const Step = struct {
+    note: u8,
+    vel: u8,
+    gate: u8,
+};
+
+// A rest step: velocity 0 or gate 0 means silence.
+pub const rest = Step{
+    .note = 0,
+    .vel = 0,
+    .gate = 0,
+};
+
+pub const Pattern = struct {
+    steps: [max_steps]Step,
+    len: u32,
+};
+
+pub const SeqError = error{
+    BadLength,
+    BadSubdiv,
+    ClipTooSmall,
+    SynthFailed,
+};
+
+/// Build a pattern from a slice of steps. Refuses if
+/// the slice is empty or longer than max_steps.
+pub fn make_pattern(
+    steps: []const Step,
+) SeqError!Pattern {
+    // invariant: pattern length is bounded.
+    if (steps.len < 1 or steps.len > max_steps)
+        return error.BadLength;
+    var p = Pattern{
+        .steps = undefined,
+        .len = @intCast(steps.len),
+    };
+    // Zero-init the full array first.
+    for (&p.steps) |*s| {
+        s.* = rest;
+    }
+    // Copy the input steps.
+    for (steps, 0..) |s, i| {
+        p.steps[i] = s;
+    }
+    // invariant: stored length matches input.
+    assert(p.len == steps.len);
+    return p;
+}
+
+/// Render a pattern into a Clip at a given tempo and
+/// subdivision. Each step occupies samples_per_step
+/// samples. Steps with gate > 0 and vel > 0 are
+/// rendered through the synth; rests are silence.
+/// The clip must be large enough to hold the entire
+/// pattern. Results are MIXED (summed with saturation)
+/// into the clip, so the caller can layer patterns.
+pub fn render_pattern(
+    clip: *timeline.Clip,
+    pattern: *const Pattern,
+    tempo: tempo_mod.Tempo,
+    subdiv: u32,
+    waveform: synth_mod.Waveform,
+    rate: u32,
+    env: synth_mod.Envelope,
+) SeqError!void {
+    // invariant: subdivision is valid.
+    const sps = tempo_mod.samples_per_step(
+        tempo,
+        subdiv,
+    ) catch return error.BadSubdiv;
+    // invariant: sps > 0.
+    if (sps < 1) return error.BadSubdiv;
+
+    // Total samples needed.
+    const total: u64 = @as(u64, sps) *
+        @as(u64, pattern.len);
+    // invariant: total fits the clip.
+    if (total > timeline.max_clip)
+        return error.ClipTooSmall;
+    const total_u32: u32 = @intCast(total);
+
+    // Ensure clip length covers the pattern.
+    if (clip.len < total_u32) {
+        // Extend with zeros.
+        var z: u32 = clip.len;
+        while (z < total_u32) : (z += 1) {
+            clip.buf[z] = 0;
+        }
+        clip.len = total_u32;
+    }
+
+    // Render each step.
+    var step_clip = std.mem.zeroes(timeline.Clip);
+    var i: u32 = 0;
+    while (i < pattern.len) : (i += 1) {
+        const s = pattern.steps[i];
+
+        // Skip rests.
+        if (s.vel == 0 or s.gate == 0) continue;
+
+        // Gate duration: gate/255 * sps.
+        const gate_dur: u32 = @as(u32, s.gate) *
+            sps / @as(u32, max_gate);
+        if (gate_dur < 1) continue;
+
+        // Look up frequency from note.
+        const freq = note_mod.freq_mhz(
+            s.note,
+        ) catch continue;
+
+        // Render the note into a scratch clip.
+        synth_mod.render_note(
+            &step_clip,
+            waveform,
+            freq,
+            gate_dur,
+            s.vel,
+            rate,
+            env,
+        ) catch continue;
+
+        // Mix into the output clip at the step
+        // offset with saturation.
+        const offset: u32 = i * sps;
+        var j: u32 = 0;
+        while (j < step_clip.len) : (j += 1) {
+            const pos = offset + j;
+            if (pos >= clip.len) break;
+            const sum: i64 = @as(i64, clip.buf[pos]) +
+                @as(i64, step_clip.buf[j]);
+            clip.buf[pos] = timeline.saturate(sum);
+        }
+    }
+    // invariant: clip length is at least total.
+    assert(clip.len >= total_u32);
+}
+
+// -- selftest -----------------------------------------
+
+pub fn main() !void {
+    print("sequence_selftest: begin\n", .{});
+
+    const rate: u32 = 8000;
+    const tempo = try tempo_mod.make(120, rate);
+
+    // Case 1: single note pattern, not silent.
+    {
+        const steps = [_]Step{
+            .{ .note = 69, .vel = 100, .gate = 200 },
+        };
+        var pat = try make_pattern(&steps);
+        var clip = std.mem.zeroes(timeline.Clip);
+        try render_pattern(
+            &clip,
+            &pat,
+            tempo,
+            4,
+            .sine,
+            rate,
+            synth_mod.default_env,
+        );
+        // invariant: output is not silent.
+        var peak: i16 = 0;
+        for (clip.buf[0..clip.len]) |s| {
+            if (s > peak) peak = s;
+            if (-s > peak) peak = -s;
+        }
+        assert(peak > 500);
+        assert(clip.len > 0);
+        print(
+            "  case 1: single A4 peak={d}"
+            ++ " len={d} -- ok\n",
+            .{ peak, clip.len },
+        );
+    }
+
+    // Case 2: rest step produces silence at that step.
+    {
+        const steps = [_]Step{
+            rest,
+            .{ .note = 69, .vel = 100, .gate = 200 },
+        };
+        var pat = try make_pattern(&steps);
+        var clip = std.mem.zeroes(timeline.Clip);
+        try render_pattern(
+            &clip,
+            &pat,
+            tempo,
+            4,
+            .sine,
+            rate,
+            synth_mod.default_env,
+        );
+        // The sps at 120 BPM, subdiv 4, 8kHz = 1000.
+        // First 1000 samples (step 0 = rest) should
+        // be silent.
+        var rest_peak: i16 = 0;
+        const sps: u32 = 1000;
+        for (clip.buf[0..sps]) |s| {
+            if (s > rest_peak) rest_peak = s;
+            if (-s > rest_peak) rest_peak = -s;
+        }
+        // invariant: rest region is silent.
+        assert(rest_peak == 0);
+        // Second step should have sound.
+        var note_peak: i16 = 0;
+        for (clip.buf[sps..clip.len]) |s| {
+            if (s > note_peak) note_peak = s;
+            if (-s > note_peak) note_peak = -s;
+        }
+        assert(note_peak > 500);
+        print(
+            "  case 2: rest then note,"
+            ++ " rest_peak={d} note_peak={d}"
+            ++ " -- ok\n",
+            .{ rest_peak, note_peak },
+        );
+    }
+
+    // Case 3: multi-step minor scale pattern.
+    {
+        const steps = [_]Step{
+            .{ .note = 60, .vel = 80, .gate = 200 },
+            .{ .note = 62, .vel = 80, .gate = 200 },
+            .{ .note = 63, .vel = 80, .gate = 200 },
+            .{ .note = 65, .vel = 80, .gate = 200 },
+        };
+        var pat = try make_pattern(&steps);
+        var clip = std.mem.zeroes(timeline.Clip);
+        try render_pattern(
+            &clip,
+            &pat,
+            tempo,
+            4,
+            .sine,
+            rate,
+            synth_mod.default_env,
+        );
+        // invariant: 4 steps x 1000 = 4000 samples.
+        assert(clip.len == 4000);
+        // invariant: not silent.
+        var peak: i16 = 0;
+        for (clip.buf[0..clip.len]) |s| {
+            if (s > peak) peak = s;
+            if (-s > peak) peak = -s;
+        }
+        assert(peak > 300);
+        print(
+            "  case 3: C minor 4-step peak={d}"
+            ++ " len={d} -- ok\n",
+            .{ peak, clip.len },
+        );
+    }
+
+    // Case 4: empty pattern refuses.
+    {
+        const steps = [_]Step{};
+        const r = make_pattern(&steps);
+        assert(r == error.BadLength);
+        print(
+            "  case 4: empty pattern refused"
+            ++ " -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 5: pattern longer than max_steps refuses.
+    {
+        // We can't make a 65-element array literal
+        // easily, so test the bound check directly.
+        var big: [max_steps + 1]Step = undefined;
+        for (&big) |*s| {
+            s.* = .{ .note = 60, .vel = 80, .gate = 200 };
+        }
+        const r = make_pattern(&big);
+        assert(r == error.BadLength);
+        print(
+            "  case 5: oversized pattern refused"
+            ++ " -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 6: velocity 0 step is silent (same as rest).
+    {
+        const steps = [_]Step{
+            .{ .note = 69, .vel = 0, .gate = 200 },
+        };
+        var pat = try make_pattern(&steps);
+        var clip = std.mem.zeroes(timeline.Clip);
+        try render_pattern(
+            &clip,
+            &pat,
+            tempo,
+            4,
+            .sine,
+            rate,
+            synth_mod.default_env,
+        );
+        var peak: i16 = 0;
+        for (clip.buf[0..clip.len]) |s| {
+            if (s > peak) peak = s;
+            if (-s > peak) peak = -s;
+        }
+        // invariant: vel 0 = silence.
+        assert(peak == 0);
+        print(
+            "  case 6: vel 0 silent -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 7: mixing -- two patterns layered.
+    {
+        const steps_a = [_]Step{
+            .{ .note = 60, .vel = 80, .gate = 200 },
+            rest,
+        };
+        const steps_b = [_]Step{
+            rest,
+            .{ .note = 67, .vel = 80, .gate = 200 },
+        };
+        var pat_a = try make_pattern(&steps_a);
+        var pat_b = try make_pattern(&steps_b);
+        var clip = std.mem.zeroes(timeline.Clip);
+        try render_pattern(
+            &clip,
+            &pat_a,
+            tempo,
+            4,
+            .sine,
+            rate,
+            synth_mod.default_env,
+        );
+        try render_pattern(
+            &clip,
+            &pat_b,
+            tempo,
+            4,
+            .triangle,
+            rate,
+            synth_mod.default_env,
+        );
+        // invariant: both steps have sound.
+        const sps: u32 = 1000;
+        var peak_a: i16 = 0;
+        for (clip.buf[0..sps]) |s| {
+            if (s > peak_a) peak_a = s;
+            if (-s > peak_a) peak_a = -s;
+        }
+        var peak_b: i16 = 0;
+        for (clip.buf[sps..clip.len]) |s| {
+            if (s > peak_b) peak_b = s;
+            if (-s > peak_b) peak_b = -s;
+        }
+        assert(peak_a > 300);
+        assert(peak_b > 300);
+        print(
+            "  case 7: layered peak_a={d}"
+            ++ " peak_b={d} -- ok\n",
+            .{ peak_a, peak_b },
+        );
+    }
+
+    // Case 8: square wave pattern -- louder peaks.
+    {
+        const steps = [_]Step{
+            .{ .note = 69, .vel = 100, .gate = 255 },
+        };
+        var pat = try make_pattern(&steps);
+        var clip = std.mem.zeroes(timeline.Clip);
+        try render_pattern(
+            &clip,
+            &pat,
+            tempo,
+            4,
+            .square,
+            rate,
+            synth_mod.default_env,
+        );
+        var peak: i16 = 0;
+        for (clip.buf[0..clip.len]) |s| {
+            if (s > peak) peak = s;
+            if (-s > peak) peak = -s;
+        }
+        // invariant: square wave at full gate is loud.
+        assert(peak > 5000);
+        print(
+            "  case 8: square full gate peak={d}"
+            ++ " -- ok\n",
+            .{peak},
+        );
+    }
+
+    print("sequence_selftest: 8 cases GREEN\n", .{});
+}

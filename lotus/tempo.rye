@@ -1,0 +1,229 @@
+//! lotus/tempo.rye -- beat clock for the sequencer.
+//! A BPM (u32, 20-300) and a sample rate yield a
+//! samples-per-beat count. The beat clock tells the
+//! sequencer where each beat and each subdivision
+//! falls, in samples. Builds on clock.rye's time
+//! base for sample rate validation.
+//!
+//! Design: active-designing/date/20261111/
+//!   20261111-170815_kirtan-generation-midi-dial-
+//!   architecture.md
+//! Stands on: lotus/clock.rye (sample rate validation).
+//!
+//! HONEST SCOPE -- pure arithmetic, no audio, no I/O.
+//! Every value is bounded. No floating point.
+//!
+//!   env RYE_ZIG=vendor/zig-toolchain/zig \
+//!     rye/bin/rye run lotus/tempo.rye
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+const clock_mod = @import("clock.rye");
+
+pub const tempo_version = "20261111.170815";
+
+pub const min_bpm: u32 = 20;
+pub const max_bpm: u32 = 300;
+
+// Subdivisions per beat -- 4 gives sixteenth notes.
+pub const max_subdiv: u32 = 16;
+
+pub const TempoError = error{
+    BadBpm,
+    BadSubdiv,
+    BadRate,
+};
+
+pub const Tempo = struct {
+    bpm: u32,
+    rate: u32,
+    samples_per_beat: u32,
+};
+
+/// Build a Tempo from a BPM and sample rate. The rate
+/// is validated against clock.rye's range. The BPM is
+/// bounded to [20, 300]. samples_per_beat is derived:
+///   rate * 60 / bpm
+/// The multiply runs in u64 to avoid overflow.
+pub fn make(bpm: u32, rate: u32) TempoError!Tempo {
+    // invariant: bpm within the musical range.
+    if (bpm < min_bpm or bpm > max_bpm)
+        return error.BadBpm;
+    // invariant: rate within clock.rye's range.
+    if (rate < 1 or rate > clock_mod.max_rate)
+        return error.BadRate;
+    const wide: u64 = @as(u64, rate) * 60;
+    const spb: u64 = wide / @as(u64, bpm);
+    // invariant: samples_per_beat fits u32. At 192kHz
+    // and 20 BPM: 192000*60/20 = 576000, well in u32.
+    assert(spb <= std.math.maxInt(u32));
+    const t = Tempo{
+        .bpm = bpm,
+        .rate = rate,
+        .samples_per_beat = @intCast(spb),
+    };
+    // invariant: constructed values match inputs.
+    assert(t.bpm == bpm and t.rate == rate);
+    assert(t.samples_per_beat >= 1);
+    return t;
+}
+
+/// Samples per subdivision (e.g. 4 = sixteenth notes).
+/// subdiv must be in [1, max_subdiv].
+pub fn samples_per_step(
+    tempo: Tempo,
+    subdiv: u32,
+) TempoError!u32 {
+    // invariant: subdivision is bounded and nonzero.
+    if (subdiv < 1 or subdiv > max_subdiv)
+        return error.BadSubdiv;
+    // invariant: tempo was constructed validly.
+    assert(tempo.samples_per_beat >= 1);
+    return tempo.samples_per_beat / subdiv;
+}
+
+/// The sample offset of beat number n. Beats are
+/// 0-indexed. The result is n * samples_per_beat,
+/// computed in u64 to avoid overflow.
+pub fn beat_offset(tempo: Tempo, n: u32) u64 {
+    // invariant: tempo was constructed validly.
+    assert(tempo.samples_per_beat >= 1);
+    return @as(u64, n) * @as(u64, tempo.samples_per_beat);
+}
+
+/// The sample offset of step number n at a given
+/// subdivision. Steps are 0-indexed.
+pub fn step_offset(
+    tempo: Tempo,
+    subdiv: u32,
+    n: u32,
+) TempoError!u64 {
+    const sps = try samples_per_step(tempo, subdiv);
+    return @as(u64, n) * @as(u64, sps);
+}
+
+// -- selftest -----------------------------------------
+
+pub fn main() !void {
+    print("tempo_selftest: begin\n", .{});
+
+    // Case 1: 120 BPM at 48000 Hz = 24000 samples/beat
+    {
+        const t = try make(120, 48000);
+        // invariant: 48000 * 60 / 120 = 24000.
+        assert(t.samples_per_beat == 24000);
+        print(
+            "  case 1: 120 BPM @ 48k = {d} spb"
+            ++ " -- ok\n",
+            .{t.samples_per_beat},
+        );
+    }
+
+    // Case 2: 60 BPM at 44100 Hz = 44100 samples/beat
+    {
+        const t = try make(60, 44100);
+        // invariant: 44100 * 60 / 60 = 44100.
+        assert(t.samples_per_beat == 44100);
+        print(
+            "  case 2: 60 BPM @ 44.1k = {d} spb"
+            ++ " -- ok\n",
+            .{t.samples_per_beat},
+        );
+    }
+
+    // Case 3: subdivision -- 4 = sixteenth notes.
+    {
+        const t = try make(120, 48000);
+        const sps = try samples_per_step(t, 4);
+        // invariant: 24000 / 4 = 6000.
+        assert(sps == 6000);
+        print(
+            "  case 3: 16th note = {d} samples"
+            ++ " -- ok\n",
+            .{sps},
+        );
+    }
+
+    // Case 4: beat offset.
+    {
+        const t = try make(120, 48000);
+        const off = beat_offset(t, 3);
+        // invariant: beat 3 = 3 * 24000 = 72000.
+        assert(off == 72000);
+        print(
+            "  case 4: beat 3 offset = {d} -- ok\n",
+            .{off},
+        );
+    }
+
+    // Case 5: step offset.
+    {
+        const t = try make(120, 48000);
+        const off = try step_offset(t, 4, 7);
+        // invariant: step 7 at subdiv 4 =
+        // 7 * 6000 = 42000.
+        assert(off == 42000);
+        print(
+            "  case 5: step 7 offset = {d} -- ok\n",
+            .{off},
+        );
+    }
+
+    // Case 6: BPM too low refuses.
+    {
+        const r = make(10, 48000);
+        // invariant: 10 BPM < min_bpm.
+        assert(r == error.BadBpm);
+        print("  case 6: BPM 10 refused -- ok\n", .{});
+    }
+
+    // Case 7: BPM too high refuses.
+    {
+        const r = make(301, 48000);
+        // invariant: 301 BPM > max_bpm.
+        assert(r == error.BadBpm);
+        print(
+            "  case 7: BPM 301 refused -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 8: bad rate refuses.
+    {
+        const r = make(120, 0);
+        // invariant: rate 0 is invalid.
+        assert(r == error.BadRate);
+        print(
+            "  case 8: rate 0 refused -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 9: bad subdivision refuses.
+    {
+        const t = try make(120, 48000);
+        const r = samples_per_step(t, 0);
+        // invariant: subdiv 0 is invalid.
+        assert(r == error.BadSubdiv);
+        print(
+            "  case 9: subdiv 0 refused -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 10: max BPM at max rate.
+    {
+        const t = try make(300, 192000);
+        // invariant: 192000*60/300 = 38400.
+        assert(t.samples_per_beat == 38400);
+        print(
+            "  case 10: 300 BPM @ 192k = {d} spb"
+            ++ " -- ok\n",
+            .{t.samples_per_beat},
+        );
+    }
+
+    print("tempo_selftest: 10 cases GREEN\n", .{});
+}

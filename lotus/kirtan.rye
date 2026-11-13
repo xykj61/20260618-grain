@@ -1,0 +1,464 @@
+//! lotus/kirtan.rye -- instrumental kirtan generator.
+//! Takes a root note, a scale (natural minor), a BPM,
+//! and renders an instrumental kirtan clip with three
+//! voices: tanpura drone (sustained root+fifth),
+//! harmonium melody (call-and-response pattern), and
+//! tabla rhythm (percussive pattern). Three tracks
+//! mixed into one Clip.
+//!
+//! Design: active-designing/date/20261111/
+//!   20261111-170815_kirtan-generation-midi-dial-
+//!   architecture.md
+//! Stands on: lotus/note.rye (pitch, scale),
+//!   lotus/tempo.rye (beat clock),
+//!   lotus/synth.rye (oscillator),
+//!   lotus/sequence.rye (pattern sequencer),
+//!   lotus/timeline.rye (Clip, saturate).
+//!
+//! HONEST SCOPE -- pure synthesis, bounded buffers.
+//! No I/O, no CoreAudio, no network.
+//!
+//!   env RYE_ZIG=vendor/zig-toolchain/zig \
+//!     rye/bin/rye run lotus/kirtan.rye
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+const note_mod = @import("note.rye");
+const tempo_mod = @import("tempo.rye");
+const synth_mod = @import("synth.rye");
+const seq_mod = @import("sequence.rye");
+const timeline = @import("timeline.rye");
+
+pub const kirtan_version = "20261111.170815";
+
+// -- kirtan parameters --------------------------------
+// Bounded configuration for the generator.
+
+pub const max_melody_len: u32 = 16;
+pub const max_kirtan_steps: u32 = 16;
+
+pub const KirtanError = error{
+    BadRoot,
+    BadRate,
+    PatternFailed,
+    RenderFailed,
+};
+
+pub const KirtanConfig = struct {
+    root: u8,
+    bpm: u32,
+    rate: u32,
+    subdiv: u32,
+};
+
+// -- drone voice (tanpura) ----------------------------
+// The tanpura sustains root and fifth as a continuous
+// tone. We render it as a low-velocity saw wave for
+// the root and a triangle wave for the fifth, each
+// spanning the full pattern length.
+
+fn render_drone(
+    clip: *timeline.Clip,
+    config: KirtanConfig,
+    steps: u32,
+) KirtanError!void {
+    const tempo = tempo_mod.make(
+        config.bpm,
+        config.rate,
+    ) catch return error.BadRate;
+    const sps = tempo_mod.samples_per_step(
+        tempo,
+        config.subdiv,
+    ) catch return error.RenderFailed;
+    if (sps < 1) return error.RenderFailed;
+
+    const total: u64 = @as(u64, sps) *
+        @as(u64, steps);
+    if (total > timeline.max_clip)
+        return error.RenderFailed;
+    const dur: u32 = @intCast(total);
+
+    // Root drone -- saw wave, low velocity for warmth.
+    const root_freq = note_mod.freq_mhz(
+        config.root,
+    ) catch return error.BadRoot;
+
+    const drone_env = synth_mod.Envelope{
+        .attack = dur / 4,
+        .decay = 0,
+        .sustain = 127,
+        .release = dur / 4,
+    };
+
+    var scratch = std.mem.zeroes(timeline.Clip);
+    synth_mod.render_note(
+        &scratch,
+        .saw,
+        root_freq,
+        dur,
+        40,
+        config.rate,
+        drone_env,
+    ) catch return error.RenderFailed;
+
+    // Mix drone into clip.
+    if (clip.len < dur) {
+        var z: u32 = clip.len;
+        while (z < dur) : (z += 1) {
+            clip.buf[z] = 0;
+        }
+        clip.len = dur;
+    }
+    var i: u32 = 0;
+    while (i < scratch.len) : (i += 1) {
+        if (i >= clip.len) break;
+        const sum: i64 = @as(i64, clip.buf[i]) +
+            @as(i64, scratch.buf[i]);
+        clip.buf[i] = timeline.saturate(sum);
+    }
+
+    // Fifth drone -- triangle wave.
+    const fifth_semi: u32 = 7;
+    const fifth_note: u32 = @as(u32, config.root) +
+        fifth_semi;
+    if (fifth_note > note_mod.max_note)
+        return error.BadRoot;
+    const fifth_freq = note_mod.freq_mhz(
+        @intCast(fifth_note),
+    ) catch return error.BadRoot;
+
+    synth_mod.render_note(
+        &scratch,
+        .triangle,
+        fifth_freq,
+        dur,
+        30,
+        config.rate,
+        drone_env,
+    ) catch return error.RenderFailed;
+
+    // Mix fifth into clip.
+    i = 0;
+    while (i < scratch.len) : (i += 1) {
+        if (i >= clip.len) break;
+        const sum: i64 = @as(i64, clip.buf[i]) +
+            @as(i64, scratch.buf[i]);
+        clip.buf[i] = timeline.saturate(sum);
+    }
+}
+
+// -- melody voice (harmonium) -------------------------
+// A call-and-response pattern in natural minor.
+// Call: ascending scale degrees. Response: descending
+// with a rest. Simple and devotional.
+
+fn render_melody(
+    clip: *timeline.Clip,
+    config: KirtanConfig,
+) KirtanError!void {
+    const scale = note_mod.natural_minor;
+    // Call: root, 2nd, 3rd, 5th (ascending).
+    // Response: 5th, 3rd, 2nd, root (descending).
+    // With rests for breathing.
+    const degrees = [_]u32{ 0, 1, 2, 4, 4, 2, 1, 0 };
+    const vels = [_]u8{ 80, 70, 75, 85, 80, 70, 65, 75 };
+    const gates = [_]u8{ 200, 180, 180, 220, 200, 180, 180, 220 };
+
+    var steps: [8]seq_mod.Step = undefined;
+    var s: u32 = 0;
+    while (s < 8) : (s += 1) {
+        const midi = note_mod.scale_note(
+            config.root,
+            scale,
+            degrees[s],
+            0,
+        ) catch return error.BadRoot;
+        steps[s] = seq_mod.Step{
+            .note = midi,
+            .vel = vels[s],
+            .gate = gates[s],
+        };
+    }
+
+    var pat = seq_mod.make_pattern(&steps) catch
+        return error.PatternFailed;
+
+    const tempo = tempo_mod.make(
+        config.bpm,
+        config.rate,
+    ) catch return error.BadRate;
+
+    seq_mod.render_pattern(
+        clip,
+        &pat,
+        tempo,
+        config.subdiv,
+        .sine,
+        config.rate,
+        synth_mod.default_env,
+    ) catch return error.RenderFailed;
+}
+
+// -- rhythm voice (tabla) -----------------------------
+// A simple percussive pattern using high-pitched
+// square wave bursts. Alternating strong and weak
+// beats with rests.
+
+fn render_rhythm(
+    clip: *timeline.Clip,
+    config: KirtanConfig,
+) KirtanError!void {
+    // Tabla-like: short, percussive hits on a
+    // high pitch. Strong beat, rest, weak, rest,
+    // strong, rest, weak, rest.
+    const tabla_note: u8 = 72;
+    const steps = [_]seq_mod.Step{
+        .{ .note = tabla_note, .vel = 90, .gate = 60 },
+        seq_mod.rest,
+        .{ .note = tabla_note, .vel = 50, .gate = 40 },
+        seq_mod.rest,
+        .{ .note = tabla_note, .vel = 85, .gate = 60 },
+        seq_mod.rest,
+        .{ .note = tabla_note, .vel = 45, .gate = 40 },
+        seq_mod.rest,
+    };
+
+    var pat = seq_mod.make_pattern(&steps) catch
+        return error.PatternFailed;
+
+    const tempo = tempo_mod.make(
+        config.bpm,
+        config.rate,
+    ) catch return error.BadRate;
+
+    const perc_env = synth_mod.Envelope{
+        .attack = 10,
+        .decay = 50,
+        .sustain = 20,
+        .release = 100,
+    };
+
+    seq_mod.render_pattern(
+        clip,
+        &pat,
+        tempo,
+        config.subdiv,
+        .square,
+        config.rate,
+        perc_env,
+    ) catch return error.RenderFailed;
+}
+
+// -- public API ---------------------------------------
+
+/// Render a complete kirtan clip. The three voices
+/// (drone, melody, rhythm) are mixed into one clip.
+/// The clip must be zeroed before calling.
+pub fn render_kirtan(
+    clip: *timeline.Clip,
+    config: KirtanConfig,
+) KirtanError!void {
+    // invariant: root is a valid MIDI note.
+    if (config.root > note_mod.max_note)
+        return error.BadRoot;
+    // invariant: rate is valid.
+    if (config.rate < 1 or config.rate > 192_000)
+        return error.BadRate;
+
+    // Layer 1: drone (tanpura).
+    try render_drone(clip, config, 8);
+
+    // Layer 2: melody (harmonium).
+    try render_melody(clip, config);
+
+    // Layer 3: rhythm (tabla).
+    try render_rhythm(clip, config);
+
+    // invariant: clip has content.
+    assert(clip.len > 0);
+}
+
+// -- selftest -----------------------------------------
+
+pub fn main() !void {
+    print("kirtan_selftest: begin\n", .{});
+
+    const config = KirtanConfig{
+        .root = 60,
+        .bpm = 120,
+        .rate = 8000,
+        .subdiv = 8,
+    };
+
+    // Case 1: full kirtan render is not silent.
+    {
+        var clip = std.mem.zeroes(timeline.Clip);
+        try render_kirtan(&clip, config);
+        // invariant: output is not silent.
+        var peak: i16 = 0;
+        for (clip.buf[0..clip.len]) |s| {
+            if (s > peak) peak = s;
+            if (s != -32768 and -s > peak)
+                peak = -s;
+        }
+        assert(peak > 500);
+        assert(clip.len > 0);
+        print(
+            "  case 1: kirtan peak={d}"
+            ++ " len={d} -- ok\n",
+            .{ peak, clip.len },
+        );
+    }
+
+    // Case 2: drone alone is not silent.
+    {
+        var clip = std.mem.zeroes(timeline.Clip);
+        try render_drone(&clip, config, 8);
+        var peak: i16 = 0;
+        for (clip.buf[0..clip.len]) |s| {
+            if (s > peak) peak = s;
+            if (s != -32768 and -s > peak)
+                peak = -s;
+        }
+        assert(peak > 100);
+        assert(clip.len > 0);
+        print(
+            "  case 2: drone peak={d}"
+            ++ " len={d} -- ok\n",
+            .{ peak, clip.len },
+        );
+    }
+
+    // Case 3: melody alone is not silent.
+    {
+        var clip = std.mem.zeroes(timeline.Clip);
+        try render_melody(&clip, config);
+        var peak: i16 = 0;
+        for (clip.buf[0..clip.len]) |s| {
+            if (s > peak) peak = s;
+            if (s != -32768 and -s > peak)
+                peak = -s;
+        }
+        assert(peak > 500);
+        assert(clip.len > 0);
+        print(
+            "  case 3: melody peak={d}"
+            ++ " len={d} -- ok\n",
+            .{ peak, clip.len },
+        );
+    }
+
+    // Case 4: rhythm alone is not silent.
+    {
+        var clip = std.mem.zeroes(timeline.Clip);
+        try render_rhythm(&clip, config);
+        var peak: i16 = 0;
+        for (clip.buf[0..clip.len]) |s| {
+            if (s > peak) peak = s;
+            if (s != -32768 and -s > peak)
+                peak = -s;
+        }
+        assert(peak > 100);
+        assert(clip.len > 0);
+        print(
+            "  case 4: rhythm peak={d}"
+            ++ " len={d} -- ok\n",
+            .{ peak, clip.len },
+        );
+    }
+
+    // Case 5: bad root refuses.
+    {
+        const bad = KirtanConfig{
+            .root = 128,
+            .bpm = 120,
+            .rate = 8000,
+            .subdiv = 4,
+        };
+        var clip = std.mem.zeroes(timeline.Clip);
+        const r = render_kirtan(&clip, bad);
+        assert(r == error.BadRoot);
+        print("  case 5: bad root refused -- ok\n", .{});
+    }
+
+    // Case 6: bad rate refuses.
+    {
+        const bad = KirtanConfig{
+            .root = 60,
+            .bpm = 120,
+            .rate = 0,
+            .subdiv = 4,
+        };
+        var clip = std.mem.zeroes(timeline.Clip);
+        const r = render_kirtan(&clip, bad);
+        assert(r == error.BadRate);
+        print("  case 6: bad rate refused -- ok\n", .{});
+    }
+
+    // Case 7: combined output is louder than any
+    // single voice (mixing adds amplitude).
+    {
+        var full = std.mem.zeroes(timeline.Clip);
+        try render_kirtan(&full, config);
+        var full_peak: i16 = 0;
+        for (full.buf[0..full.len]) |s| {
+            if (s > full_peak) full_peak = s;
+            if (s != -32768 and -s > full_peak)
+                full_peak = -s;
+        }
+
+        var drone_only = std.mem.zeroes(timeline.Clip);
+        try render_drone(&drone_only, config, 8);
+        var drone_peak: i16 = 0;
+        for (drone_only.buf[0..drone_only.len]) |s| {
+            if (s > drone_peak) drone_peak = s;
+            if (s != -32768 and -s > drone_peak)
+                drone_peak = -s;
+        }
+
+        // invariant: combined is louder than drone
+        // alone because melody and rhythm add energy.
+        assert(full_peak > drone_peak);
+        print(
+            "  case 7: full={d} > drone={d}"
+            ++ " -- ok\n",
+            .{ full_peak, drone_peak },
+        );
+    }
+
+    // Case 8: different roots produce different output.
+    {
+        var clip_c = std.mem.zeroes(timeline.Clip);
+        try render_kirtan(&clip_c, config);
+
+        const config_d = KirtanConfig{
+            .root = 62,
+            .bpm = 120,
+            .rate = 8000,
+            .subdiv = 8,
+        };
+        var clip_d = std.mem.zeroes(timeline.Clip);
+        try render_kirtan(&clip_d, config_d);
+
+        // invariant: different roots produce
+        // different waveforms.
+        var differ: bool = false;
+        const check_len = @min(clip_c.len, clip_d.len);
+        var i: u32 = 0;
+        while (i < check_len) : (i += 1) {
+            if (clip_c.buf[i] != clip_d.buf[i]) {
+                differ = true;
+                break;
+            }
+        }
+        assert(differ);
+        print(
+            "  case 8: C4 vs D4 differ -- ok\n",
+            .{},
+        );
+    }
+
+    print("kirtan_selftest: 8 cases GREEN\n", .{});
+}
