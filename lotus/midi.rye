@@ -1,0 +1,516 @@
+//! lotus/midi.rye -- MIDI message parsing.
+//! Parse and construct MIDI channel messages with
+//! naturally bounded types: u7 (0-127) for notes
+//! and velocities, u4 (0-15) for channels, u14
+//! (0-16383) for pitch bend. Every value names its
+//! own width per the MIDI 1.0 specification.
+//!
+//! Design: active-designing/date/20261111/
+//!   20261111-170815_kirtan-generation-midi-dial-
+//!   architecture.md
+//! Stands on: nothing -- pure parsing.
+//!
+//! HONEST SCOPE -- pure parsing, no I/O, no CoreMIDI,
+//! no CoreAudio, no network. This module understands
+//! MIDI bytes; connecting to hardware is a separate
+//! concern.
+//!
+//!   env RYE_ZIG=vendor/zig-toolchain/zig \
+//!     rye/bin/rye run lotus/midi.rye
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+pub const midi_version = "20261112.230000";
+
+// -- width vocabulary --------------------------------
+// u7: 0-127. MIDI note, velocity, controller, value.
+// Rye has no u7, so we bound a u8 at the edge.
+pub const max_data: u8 = 127;
+// u4: 0-15. MIDI channel.
+pub const max_channel: u8 = 15;
+// u14: 0-16383. Pitch bend range.
+pub const max_bend: u16 = 16383;
+// Pitch bend center (no bend). 8192 = 2^13.
+pub const bend_center: u16 = 8192;
+// Maximum bytes in a channel message.
+pub const max_msg_bytes: u32 = 3;
+
+// -- message types -----------------------------------
+
+pub const MsgKind = enum {
+    note_off,
+    note_on,
+    poly_pressure,
+    control_change,
+    program_change,
+    channel_pressure,
+    pitch_bend,
+};
+
+/// A parsed MIDI channel message. Channel is u4
+/// (0-15). data1 and data2 are u7 (0-127). For
+/// program_change and channel_pressure, data2 is
+/// unused (zero).
+pub const MidiMsg = struct {
+    kind: MsgKind,
+    channel: u8,
+    data1: u8,
+    data2: u8,
+};
+
+/// Serialized MIDI bytes. len is 2 (program_change,
+/// channel_pressure) or 3 (all others).
+pub const MidiBytes = struct {
+    buf: [max_msg_bytes]u8,
+    len: u8,
+};
+
+pub const MidiError = error{
+    BadStatus,
+    BadChannel,
+    BadData,
+    BadBend,
+    ShortMessage,
+    NotChannel,
+};
+
+// -- status byte parsing -----------------------------
+// Status byte high nibble -> message type:
+//   0x8 note_off, 0x9 note_on, 0xA poly_pressure,
+//   0xB control_change, 0xC program_change,
+//   0xD channel_pressure, 0xE pitch_bend.
+// Low nibble -> channel (0-15).
+// 0xF0+ are system messages, refused here.
+
+fn status_kind(status: u8) MidiError!MsgKind {
+    // invariant: status byte has bit 7 set.
+    if (status < 0x80) return error.BadStatus;
+    // invariant: channel message, not system.
+    if (status >= 0xF0) return error.NotChannel;
+    const hi = status >> 4;
+    return switch (hi) {
+        0x8 => .note_off,
+        0x9 => .note_on,
+        0xA => .poly_pressure,
+        0xB => .control_change,
+        0xC => .program_change,
+        0xD => .channel_pressure,
+        0xE => .pitch_bend,
+        else => error.BadStatus,
+    };
+}
+
+fn msg_data_len(kind: MsgKind) u8 {
+    return switch (kind) {
+        .program_change => 1,
+        .channel_pressure => 1,
+        else => 2,
+    };
+}
+
+// -- parse -------------------------------------------
+
+/// Parse a MIDI channel message from raw bytes.
+/// The slice must hold the status byte plus the
+/// required data bytes (2 or 3 total).
+pub fn parse(bytes: []const u8) MidiError!MidiMsg {
+    // invariant: at least one byte.
+    if (bytes.len < 1) return error.ShortMessage;
+    const status = bytes[0];
+    const kind = try status_kind(status);
+    const channel = status & 0x0F;
+    // invariant: channel is u4 by construction.
+    assert(channel <= max_channel);
+
+    const data_len = msg_data_len(kind);
+    const need: usize = 1 + @as(usize, data_len);
+    // invariant: enough bytes for this kind.
+    if (bytes.len < need)
+        return error.ShortMessage;
+
+    const d1 = bytes[1];
+    // invariant: data bytes have bit 7 clear.
+    if (d1 > max_data) return error.BadData;
+
+    var d2: u8 = 0;
+    if (data_len == 2) {
+        d2 = bytes[2];
+        if (d2 > max_data) return error.BadData;
+    }
+
+    return MidiMsg{
+        .kind = kind,
+        .channel = channel,
+        .data1 = d1,
+        .data2 = d2,
+    };
+}
+
+// -- serialize ---------------------------------------
+
+/// Serialize a MidiMsg into raw bytes.
+pub fn serialize(
+    msg: MidiMsg,
+) MidiError!MidiBytes {
+    // invariant: channel in u4 range.
+    if (msg.channel > max_channel)
+        return error.BadChannel;
+    // invariant: data in u7 range.
+    if (msg.data1 > max_data)
+        return error.BadData;
+    if (msg.data2 > max_data)
+        return error.BadData;
+
+    const hi: u8 = switch (msg.kind) {
+        .note_off => 0x80,
+        .note_on => 0x90,
+        .poly_pressure => 0xA0,
+        .control_change => 0xB0,
+        .program_change => 0xC0,
+        .channel_pressure => 0xD0,
+        .pitch_bend => 0xE0,
+    };
+    const status = hi | msg.channel;
+    const data_len = msg_data_len(msg.kind);
+
+    var out = MidiBytes{
+        .buf = .{ 0, 0, 0 },
+        .len = 1 + data_len,
+    };
+    out.buf[0] = status;
+    out.buf[1] = msg.data1;
+    if (data_len == 2) {
+        out.buf[2] = msg.data2;
+    }
+    // invariant: len is 2 or 3.
+    assert(out.len >= 2 and out.len <= 3);
+    return out;
+}
+
+// -- convenience constructors ------------------------
+
+/// Construct a Note On message.
+pub fn note_on(
+    channel: u8,
+    note: u8,
+    vel: u8,
+) MidiError!MidiMsg {
+    if (channel > max_channel)
+        return error.BadChannel;
+    if (note > max_data) return error.BadData;
+    if (vel > max_data) return error.BadData;
+    return MidiMsg{
+        .kind = .note_on,
+        .channel = channel,
+        .data1 = note,
+        .data2 = vel,
+    };
+}
+
+/// Construct a Note Off message.
+pub fn note_off(
+    channel: u8,
+    note: u8,
+    vel: u8,
+) MidiError!MidiMsg {
+    if (channel > max_channel)
+        return error.BadChannel;
+    if (note > max_data) return error.BadData;
+    if (vel > max_data) return error.BadData;
+    return MidiMsg{
+        .kind = .note_off,
+        .channel = channel,
+        .data1 = note,
+        .data2 = vel,
+    };
+}
+
+/// Construct a Control Change message.
+pub fn control_change(
+    channel: u8,
+    controller: u8,
+    value: u8,
+) MidiError!MidiMsg {
+    if (channel > max_channel)
+        return error.BadChannel;
+    if (controller > max_data)
+        return error.BadData;
+    if (value > max_data) return error.BadData;
+    return MidiMsg{
+        .kind = .control_change,
+        .channel = channel,
+        .data1 = controller,
+        .data2 = value,
+    };
+}
+
+/// Construct a Program Change message.
+pub fn program_change(
+    channel: u8,
+    program: u8,
+) MidiError!MidiMsg {
+    if (channel > max_channel)
+        return error.BadChannel;
+    if (program > max_data)
+        return error.BadData;
+    return MidiMsg{
+        .kind = .program_change,
+        .channel = channel,
+        .data1 = program,
+        .data2 = 0,
+    };
+}
+
+/// Construct a Pitch Bend message from a u14 value.
+/// Center (no bend) is 8192. Range 0-16383.
+pub fn pitch_bend(
+    channel: u8,
+    value: u16,
+) MidiError!MidiMsg {
+    if (channel > max_channel)
+        return error.BadChannel;
+    if (value > max_bend)
+        return error.BadBend;
+    // Split u14 into LSB and MSB, each u7.
+    const lsb: u8 = @intCast(value & 0x7F);
+    const msb: u8 = @intCast(
+        (value >> 7) & 0x7F,
+    );
+    return MidiMsg{
+        .kind = .pitch_bend,
+        .channel = channel,
+        .data1 = lsb,
+        .data2 = msb,
+    };
+}
+
+/// Combine pitch bend data1 (LSB) and data2 (MSB)
+/// into a u14 value. Center is 8192.
+pub fn bend_value(msg: MidiMsg) MidiError!u16 {
+    if (msg.kind != .pitch_bend)
+        return error.BadStatus;
+    // invariant: data bytes are u7.
+    assert(msg.data1 <= max_data);
+    assert(msg.data2 <= max_data);
+    const val: u16 = @as(u16, msg.data1) |
+        (@as(u16, msg.data2) << 7);
+    // invariant: result is u14.
+    assert(val <= max_bend);
+    return val;
+}
+
+// -- selftest ----------------------------------------
+
+pub fn main() !void {
+    print("midi_selftest: begin\n", .{});
+
+    // Case 1: parse note-on, channel 0.
+    {
+        const bytes = [_]u8{ 0x90, 60, 100 };
+        const msg = try parse(&bytes);
+        assert(msg.kind == .note_on);
+        assert(msg.channel == 0);
+        assert(msg.data1 == 60);
+        assert(msg.data2 == 100);
+        print(
+            "  case 1: note_on ch=0"
+            ++ " note=60 vel=100 -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 2: parse note-off, channel 9.
+    {
+        const bytes = [_]u8{ 0x89, 72, 64 };
+        const msg = try parse(&bytes);
+        assert(msg.kind == .note_off);
+        assert(msg.channel == 9);
+        assert(msg.data1 == 72);
+        assert(msg.data2 == 64);
+        print(
+            "  case 2: note_off ch=9"
+            ++ " note=72 vel=64 -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 3: parse control change, CC 7 = volume.
+    {
+        const bytes = [_]u8{ 0xB0, 7, 100 };
+        const msg = try parse(&bytes);
+        assert(msg.kind == .control_change);
+        assert(msg.channel == 0);
+        assert(msg.data1 == 7);
+        assert(msg.data2 == 100);
+        print(
+            "  case 3: cc ch=0"
+            ++ " ctrl=7 val=100 -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 4: program change is a 2-byte message.
+    {
+        const bytes = [_]u8{ 0xC3, 42 };
+        const msg = try parse(&bytes);
+        assert(msg.kind == .program_change);
+        assert(msg.channel == 3);
+        assert(msg.data1 == 42);
+        assert(msg.data2 == 0);
+        print(
+            "  case 4: program_change ch=3"
+            ++ " pgm=42 -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 5: pitch bend center round-trip.
+    {
+        const msg = try pitch_bend(0, 8192);
+        const val = try bend_value(msg);
+        // invariant: center encodes correctly.
+        assert(val == 8192);
+        // 8192 & 0x7F = 0, 8192 >> 7 = 64.
+        assert(msg.data1 == 0);
+        assert(msg.data2 == 64);
+        print(
+            "  case 5: pitch_bend center"
+            ++ " lsb=0 msb=64 -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 6: serialize and re-parse round-trip.
+    {
+        const orig = try note_on(5, 69, 127);
+        const raw = try serialize(orig);
+        // invariant: 3 bytes for note-on.
+        assert(raw.len == 3);
+        // invariant: status = 0x90 | 5 = 0x95.
+        assert(raw.buf[0] == 0x95);
+        assert(raw.buf[1] == 69);
+        assert(raw.buf[2] == 127);
+        const back = try parse(&raw.buf);
+        assert(back.kind == orig.kind);
+        assert(back.channel == orig.channel);
+        assert(back.data1 == orig.data1);
+        assert(back.data2 == orig.data2);
+        print(
+            "  case 6: round-trip note_on"
+            ++ " ch=5 A4 vel=127 -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 7: data byte > 127 refuses.
+    {
+        const bytes = [_]u8{ 0x90, 128, 100 };
+        const r = parse(&bytes);
+        assert(r == error.BadData);
+        print(
+            "  case 7: data>127 refused"
+            ++ " -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 8: system message (0xF0) refuses.
+    {
+        const bytes = [_]u8{ 0xF0, 0, 0 };
+        const r = parse(&bytes);
+        assert(r == error.NotChannel);
+        print(
+            "  case 8: system msg refused"
+            ++ " -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 9: too few bytes refuses.
+    {
+        const bytes = [_]u8{0x90};
+        const r = parse(&bytes);
+        assert(r == error.ShortMessage);
+        print(
+            "  case 9: short msg refused"
+            ++ " -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 10: channel 16 in constructor refuses.
+    {
+        const r = note_on(16, 60, 100);
+        assert(r == error.BadChannel);
+        print(
+            "  case 10: channel 16 refused"
+            ++ " -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 11: pitch bend extremes and overflow.
+    {
+        // Minimum (0).
+        const lo = try pitch_bend(0, 0);
+        const lo_val = try bend_value(lo);
+        assert(lo_val == 0);
+        assert(lo.data1 == 0);
+        assert(lo.data2 == 0);
+        // Maximum (16383).
+        const hi = try pitch_bend(0, max_bend);
+        const hi_val = try bend_value(hi);
+        assert(hi_val == max_bend);
+        // 16383 & 0x7F = 127, 16383 >> 7 = 127.
+        assert(hi.data1 == 127);
+        assert(hi.data2 == 127);
+        // Over max refuses.
+        const bad = pitch_bend(0, max_bend + 1);
+        assert(bad == error.BadBend);
+        print(
+            "  case 11: bend 0/16383/over"
+            ++ " -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 12: all seven kinds serialize with the
+    // correct byte length.
+    {
+        const kinds = [_]MsgKind{
+            .note_off,
+            .note_on,
+            .poly_pressure,
+            .control_change,
+            .program_change,
+            .channel_pressure,
+            .pitch_bend,
+        };
+        const expected = [_]u8{
+            3, 3, 3, 3, 2, 2, 3,
+        };
+        var i: u32 = 0;
+        while (i < 7) : (i += 1) {
+            const msg = MidiMsg{
+                .kind = kinds[i],
+                .channel = 0,
+                .data1 = 60,
+                .data2 = 64,
+            };
+            const raw = try serialize(msg);
+            assert(raw.len == expected[i]);
+        }
+        print(
+            "  case 12: all 7 kinds"
+            ++ " serialize -- ok\n",
+            .{},
+        );
+    }
+
+    print(
+        "midi_selftest: 12 cases GREEN\n",
+        .{},
+    );
+}
