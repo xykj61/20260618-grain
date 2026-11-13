@@ -1,0 +1,534 @@
+//! lotus/dial.rye -- control surface mapping.
+//! Maps MIDI CC messages to named controls (faders,
+//! knobs, buttons). Each control holds a u7 value
+//! (0-127) matching the MIDI CC range exactly, so a
+//! hardware knob at position 64 sets the control to
+//! 64 with no conversion.
+//!
+//! Design: active-designing/date/20261111/
+//!   20261111-170815_kirtan-generation-midi-dial-
+//!   architecture.md
+//! Stands on: lotus/midi.rye (CC message parsing).
+//!
+//! HONEST SCOPE -- pure mapping, no rendering, no
+//! I/O, no CoreMIDI, no network, no OSC. This module
+//! maps CC numbers to controls; drawing them on
+//! screen is a separate concern.
+//!
+//!   env RYE_ZIG=vendor/zig-toolchain/zig \
+//!     rye/bin/rye run lotus/dial.rye
+
+const std = @import("std");
+const assert = std.debug.assert;
+const print = std.debug.print;
+
+const midi = @import("midi.rye");
+
+pub const dial_version = "20261112.224638";
+
+// -- bounds ------------------------------------------
+pub const max_controls: u32 = 64;
+pub const max_label: u32 = 16;
+// u7 value range, matching MIDI CC.
+pub const max_value: u8 = 127;
+// Toggle threshold: CC value above this triggers
+// a toggle on button_toggle controls.
+pub const toggle_threshold: u8 = 63;
+
+// -- control kinds -----------------------------------
+
+pub const ControlKind = enum {
+    fader,
+    knob,
+    button_momentary,
+    button_toggle,
+};
+
+// -- label -------------------------------------------
+
+pub const Label = struct {
+    buf: [max_label]u8,
+    len: u32,
+};
+
+// -- control -----------------------------------------
+
+/// A single control in the surface. value is u7
+/// (0-127). midi_cc is the CC number this control
+/// listens to (u7, 0-127).
+pub const Control = struct {
+    kind: ControlKind,
+    value: u8,
+    label: [max_label]u8,
+    label_len: u32,
+    midi_cc: u8,
+};
+
+// -- control bank ------------------------------------
+
+/// A bounded bank of controls. len is the count
+/// of active controls, at most max_controls.
+pub const ControlBank = struct {
+    controls: [max_controls]Control,
+    len: u32,
+};
+
+pub const DialError = error{
+    BankFull,
+    BadValue,
+    BadCC,
+    BadLabel,
+    NotFound,
+    NotCC,
+};
+
+// -- label helper ------------------------------------
+
+/// Build a label from a string. Truncates to
+/// max_label bytes.
+pub fn make_label(
+    str: []const u8,
+) DialError!Label {
+    // invariant: label has content.
+    if (str.len < 1) return error.BadLabel;
+    var out = Label{
+        .buf = std.mem.zeroes([max_label]u8),
+        .len = 0,
+    };
+    const n: u32 = @intCast(@min(
+        str.len,
+        max_label,
+    ));
+    var i: u32 = 0;
+    while (i < n) : (i += 1) {
+        out.buf[i] = str[i];
+    }
+    out.len = n;
+    // invariant: len in bounds.
+    assert(out.len >= 1 and out.len <= max_label);
+    return out;
+}
+
+// -- bank operations ---------------------------------
+
+/// Create an empty control bank.
+pub fn make_bank() ControlBank {
+    return ControlBank{
+        .controls = std.mem.zeroes(
+            [max_controls]Control,
+        ),
+        .len = 0,
+    };
+}
+
+/// Add a control to the bank. Returns its index.
+pub fn add_control(
+    bank: *ControlBank,
+    kind: ControlKind,
+    label: Label,
+    cc: u8,
+) DialError!u32 {
+    // invariant: bank not full.
+    if (bank.len >= max_controls)
+        return error.BankFull;
+    // invariant: CC is u7.
+    if (cc > max_value) return error.BadCC;
+    // invariant: label has content.
+    if (label.len < 1) return error.BadLabel;
+
+    const idx = bank.len;
+    bank.controls[idx] = Control{
+        .kind = kind,
+        .value = 0,
+        .label = label.buf,
+        .label_len = label.len,
+        .midi_cc = cc,
+    };
+    bank.len += 1;
+    // invariant: len stays bounded.
+    assert(bank.len <= max_controls);
+    return idx;
+}
+
+/// Set a control's value directly, ignoring kind.
+pub fn set_value(
+    bank: *ControlBank,
+    index: u32,
+    value: u8,
+) DialError!void {
+    // invariant: index in bounds.
+    if (index >= bank.len)
+        return error.NotFound;
+    // invariant: value is u7.
+    if (value > max_value)
+        return error.BadValue;
+    bank.controls[index].value = value;
+}
+
+/// Read a control's current value.
+pub fn get_value(
+    bank: *const ControlBank,
+    index: u32,
+) DialError!u8 {
+    // invariant: index in bounds.
+    if (index >= bank.len)
+        return error.NotFound;
+    const v = bank.controls[index].value;
+    // invariant: stored value is u7.
+    assert(v <= max_value);
+    return v;
+}
+
+/// Apply a MIDI CC message to the bank. Finds the
+/// control whose midi_cc matches the message's CC
+/// number and updates its value. For button_toggle
+/// controls, a press (value > 63) flips between 0
+/// and 127; a release is ignored. For all other
+/// kinds, the value is set directly. Returns the
+/// matched index, or null if no control listens to
+/// that CC number.
+pub fn apply_cc(
+    bank: *ControlBank,
+    msg: midi.MidiMsg,
+) DialError!?u32 {
+    // invariant: message is a control change.
+    if (msg.kind != .control_change)
+        return error.NotCC;
+    // invariant: data bytes are u7.
+    assert(msg.data1 <= max_value);
+    assert(msg.data2 <= max_value);
+
+    const cc_num = msg.data1;
+    const cc_val = msg.data2;
+
+    var i: u32 = 0;
+    while (i < bank.len) : (i += 1) {
+        if (bank.controls[i].midi_cc == cc_num) {
+            if (bank.controls[i].kind ==
+                .button_toggle)
+            {
+                // Toggle on press only.
+                if (cc_val > toggle_threshold) {
+                    if (bank.controls[i].value ==
+                        0)
+                    {
+                        bank.controls[i].value =
+                            max_value;
+                    } else {
+                        bank.controls[i].value = 0;
+                    }
+                }
+            } else {
+                bank.controls[i].value = cc_val;
+            }
+            return i;
+        }
+    }
+    return null;
+}
+
+// -- selftest ----------------------------------------
+
+pub fn main() !void {
+    print("dial_selftest: begin\n", .{});
+
+    // Case 1: create bank, add fader, read value.
+    {
+        var bank = make_bank();
+        // invariant: empty bank.
+        assert(bank.len == 0);
+        const lbl = try make_label("Volume");
+        const idx = try add_control(
+            &bank,
+            .fader,
+            lbl,
+            7,
+        );
+        assert(idx == 0);
+        assert(bank.len == 1);
+        const val = try get_value(&bank, 0);
+        // invariant: initial value is zero.
+        assert(val == 0);
+        print(
+            "  case 1: add fader val=0"
+            ++ " -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 2: set value on a control.
+    {
+        var bank = make_bank();
+        const lbl = try make_label("Pan");
+        _ = try add_control(
+            &bank,
+            .knob,
+            lbl,
+            10,
+        );
+        try set_value(&bank, 0, 64);
+        const val = try get_value(&bank, 0);
+        assert(val == 64);
+        print(
+            "  case 2: set value=64"
+            ++ " -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 3: apply MIDI CC, value updates.
+    {
+        var bank = make_bank();
+        const lbl = try make_label("Volume");
+        _ = try add_control(
+            &bank,
+            .fader,
+            lbl,
+            7,
+        );
+        const msg = try midi.control_change(
+            0,
+            7,
+            100,
+        );
+        const hit = try apply_cc(&bank, msg);
+        // invariant: matched the control.
+        assert(hit != null);
+        assert(hit.? == 0);
+        const val = try get_value(&bank, 0);
+        assert(val == 100);
+        print(
+            "  case 3: apply CC7=100"
+            ++ " -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 4: CC with no matching control.
+    {
+        var bank = make_bank();
+        const lbl = try make_label("Volume");
+        _ = try add_control(
+            &bank,
+            .fader,
+            lbl,
+            7,
+        );
+        const msg = try midi.control_change(
+            0,
+            10,
+            64,
+        );
+        const hit = try apply_cc(&bank, msg);
+        // invariant: no match returns null.
+        assert(hit == null);
+        print(
+            "  case 4: unmatched CC"
+            ++ " returns null -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 5: value > 127 refused.
+    {
+        var bank = make_bank();
+        const lbl = try make_label("Fader");
+        _ = try add_control(
+            &bank,
+            .fader,
+            lbl,
+            1,
+        );
+        const r = set_value(&bank, 0, 128);
+        assert(r == error.BadValue);
+        print(
+            "  case 5: value>127 refused"
+            ++ " -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 6: CC > 127 refused.
+    {
+        var bank = make_bank();
+        const lbl = try make_label("Bad");
+        const r = add_control(
+            &bank,
+            .fader,
+            lbl,
+            128,
+        );
+        assert(r == error.BadCC);
+        print(
+            "  case 6: CC>127 refused"
+            ++ " -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 7: bank full refused.
+    {
+        var bank = make_bank();
+        var i: u32 = 0;
+        while (i < max_controls) : (i += 1) {
+            const lbl = try make_label("Ctrl");
+            _ = try add_control(
+                &bank,
+                .fader,
+                lbl,
+                @intCast(i),
+            );
+        }
+        // invariant: bank is full.
+        assert(bank.len == max_controls);
+        const lbl = try make_label("Over");
+        const r = add_control(
+            &bank,
+            .fader,
+            lbl,
+            65,
+        );
+        assert(r == error.BankFull);
+        print(
+            "  case 7: bank full refused"
+            ++ " -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 8: multiple controls, CC targets the
+    // right one.
+    {
+        var bank = make_bank();
+        const vol = try make_label("Volume");
+        const pan = try make_label("Pan");
+        const mod_l = try make_label("Mod");
+        _ = try add_control(
+            &bank,
+            .fader,
+            vol,
+            7,
+        );
+        _ = try add_control(
+            &bank,
+            .knob,
+            pan,
+            10,
+        );
+        _ = try add_control(
+            &bank,
+            .knob,
+            mod_l,
+            1,
+        );
+        const msg = try midi.control_change(
+            0,
+            10,
+            80,
+        );
+        const hit = try apply_cc(&bank, msg);
+        assert(hit != null);
+        // invariant: matched pan at index 1.
+        assert(hit.? == 1);
+        // invariant: only pan changed.
+        assert((try get_value(&bank, 0)) == 0);
+        assert((try get_value(&bank, 1)) == 80);
+        assert((try get_value(&bank, 2)) == 0);
+        print(
+            "  case 8: CC targets pan"
+            ++ " idx=1 -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 9: toggle button flips on press.
+    {
+        var bank = make_bank();
+        const lbl = try make_label("Mute");
+        _ = try add_control(
+            &bank,
+            .button_toggle,
+            lbl,
+            66,
+        );
+        // invariant: starts at 0.
+        assert((try get_value(&bank, 0)) == 0);
+        // Press (val=127 > 63) -> toggle to 127.
+        const press = try midi.control_change(
+            0,
+            66,
+            127,
+        );
+        _ = try apply_cc(&bank, press);
+        assert((try get_value(&bank, 0)) == 127);
+        // Press again -> toggle to 0.
+        _ = try apply_cc(&bank, press);
+        assert((try get_value(&bank, 0)) == 0);
+        // Light touch (val=32 <= 63) -> no toggle.
+        _ = try apply_cc(&bank, press);
+        assert((try get_value(&bank, 0)) == 127);
+        const light = try midi.control_change(
+            0,
+            66,
+            32,
+        );
+        _ = try apply_cc(&bank, light);
+        // invariant: still 127, no toggle.
+        assert((try get_value(&bank, 0)) == 127);
+        print(
+            "  case 9: toggle flips"
+            ++ " on press -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 10: non-CC message refused by apply_cc.
+    {
+        var bank = make_bank();
+        const lbl = try make_label("Vol");
+        _ = try add_control(
+            &bank,
+            .fader,
+            lbl,
+            7,
+        );
+        const note = try midi.note_on(0, 60, 100);
+        const r = apply_cc(&bank, note);
+        assert(r == error.NotCC);
+        print(
+            "  case 10: note-on refused"
+            ++ " by apply_cc -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 11: out of bounds index refused.
+    {
+        var bank = make_bank();
+        const r1 = get_value(&bank, 0);
+        assert(r1 == error.NotFound);
+        const r2 = set_value(&bank, 5, 64);
+        assert(r2 == error.NotFound);
+        print(
+            "  case 11: out of bounds"
+            ++ " refused -- ok\n",
+            .{},
+        );
+    }
+
+    // Case 12: empty label refused.
+    {
+        const r = make_label("");
+        assert(r == error.BadLabel);
+        print(
+            "  case 12: empty label"
+            ++ " refused -- ok\n",
+            .{},
+        );
+    }
+
+    print(
+        "dial_selftest: 12 cases GREEN\n",
+        .{},
+    );
+}
