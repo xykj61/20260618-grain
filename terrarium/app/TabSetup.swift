@@ -1,4 +1,5 @@
 import AppKit
+import SkateCore
 import VantageBloom
 import VantageDimeroll
 import VantageLotus
@@ -3645,6 +3646,505 @@ extension AppDelegate {
 
             stack.addArrangedSubview(card)
         }
+    }
+
+    // -- Linengrow tab ----------------------------------
+
+    @objc func focusLinengrow() {
+        guard let tv = tabView else { return }
+        for i in 0..<tv.numberOfTabViewItems {
+            let item = tv.tabViewItem(at: i)
+            if let ident = item.identifier
+                as? String,
+               ident == "linengrow"
+            {
+                tv.selectTabViewItem(at: i)
+                return
+            }
+        }
+
+        let item = NSTabViewItem(
+            identifier: "linengrow"
+        )
+        item.label = "Linengrow"
+
+        // Receipt Cloth palette -- dark mode
+        // page: Hearth #2A2520
+        // surface: Ember #3A332C
+        // ink: #E5DCC8
+        // ink-surface: #EAE1CC
+        let hearth = NSColor(
+            red: 0.165, green: 0.145,
+            blue: 0.125, alpha: 1.0
+        )
+        let ember = NSColor(
+            red: 0.227, green: 0.200,
+            blue: 0.172, alpha: 1.0
+        )
+        let ink = NSColor(
+            red: 0.898, green: 0.863,
+            blue: 0.784, alpha: 1.0
+        )
+        let inkSurface = NSColor(
+            red: 0.918, green: 0.882,
+            blue: 0.800, alpha: 1.0
+        )
+        let threadColor = NSColor(
+            red: 1.0, green: 0.941,
+            blue: 0.843, alpha: 0.045
+        )
+
+        let container = NSView()
+        container.wantsLayer = true
+        container.layer?.backgroundColor =
+            hearth.cgColor
+
+        // -- Title -----------------------------
+        let titleLbl = NSTextField(
+            labelWithString: "Linengrow"
+        )
+        titleLbl.font = NSFont.systemFont(
+            ofSize: 18, weight: .medium
+        )
+        titleLbl.textColor = ink
+        titleLbl.alignment = .center
+        titleLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(titleLbl)
+
+        let subtitleLbl = NSTextField(
+            labelWithString:
+                "the receipt you can read"
+        )
+        subtitleLbl.font = NSFont.systemFont(
+            ofSize: 11, weight: .regular
+        )
+        subtitleLbl.textColor = inkSurface
+        subtitleLbl.alignment = .center
+        subtitleLbl
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(subtitleLbl)
+
+        // -- Receipt card surface --------------
+        let cardBg = NSView()
+        cardBg.wantsLayer = true
+        cardBg.layer?.backgroundColor =
+            ember.cgColor
+        cardBg.layer?.cornerRadius = 4
+        cardBg
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(cardBg)
+
+        let receiptText = NSTextView()
+        receiptText.isEditable = false
+        receiptText.isSelectable = true
+        receiptText.drawsBackground = false
+        receiptText.font =
+            NSFont.monospacedSystemFont(
+                ofSize: 12, weight: .regular
+            )
+        receiptText.textColor = ink
+        receiptText
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        receiptText.textContainerInset =
+            NSSize(width: 12, height: 10)
+        container.addSubview(receiptText)
+
+        // -- Consent rail surface --------------
+        let railBg = NSView()
+        railBg.wantsLayer = true
+        railBg.layer?.backgroundColor =
+            ember.cgColor
+        railBg.layer?.cornerRadius = 4
+        railBg
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(railBg)
+
+        let consentText = NSTextView()
+        consentText.isEditable = false
+        consentText.isSelectable = true
+        consentText.drawsBackground = false
+        consentText.font =
+            NSFont.monospacedSystemFont(
+                ofSize: 12, weight: .regular
+            )
+        consentText.textColor = ink
+        consentText
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        consentText.textContainerInset =
+            NSSize(width: 12, height: 8)
+        container.addSubview(consentText)
+
+        // -- Disclosure toggle -----------------
+        let toggleBtn = NSButton(
+            title: "Expand consent",
+            target: self,
+            action: #selector(
+                linengrowToggleConsent(_:)
+            )
+        )
+        toggleBtn.bezelStyle = .rounded
+        toggleBtn
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(toggleBtn)
+
+        // -- Thread line -----------------------
+        let threadLine = NSView()
+        threadLine.wantsLayer = true
+        threadLine.layer?.backgroundColor =
+            threadColor.cgColor
+        threadLine
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(threadLine)
+
+        // -- Input fields ----------------------
+        let purposeField = NSTextField()
+        purposeField.placeholderString =
+            "Purpose..."
+        purposeField.font =
+            NSFont.monospacedSystemFont(
+                ofSize: 11, weight: .regular
+            )
+        purposeField.textColor = ink
+        purposeField.backgroundColor = ember
+        purposeField.isBordered = true
+        purposeField.focusRingType = .none
+        purposeField
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        purposeField.stringValue =
+            "annual share in the harvest"
+        container.addSubview(purposeField)
+
+        let valueField = NSTextField()
+        valueField.placeholderString =
+            "Value (integer)..."
+        valueField.font =
+            NSFont.monospacedSystemFont(
+                ofSize: 11, weight: .regular
+            )
+        valueField.textColor = ink
+        valueField.backgroundColor = ember
+        valueField.isBordered = true
+        valueField.focusRingType = .none
+        valueField
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        valueField.stringValue = "1200"
+        container.addSubview(valueField)
+
+        let recipientField = NSTextField()
+        recipientField.placeholderString =
+            "Recipient..."
+        recipientField.font =
+            NSFont.monospacedSystemFont(
+                ofSize: 11, weight: .regular
+            )
+        recipientField.textColor = ink
+        recipientField.backgroundColor = ember
+        recipientField.isBordered = true
+        recipientField.focusRingType = .none
+        recipientField
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        recipientField.stringValue =
+            "meadow-commons"
+        container.addSubview(recipientField)
+
+        let updateBtn = NSButton(
+            title: "Update preview",
+            target: self,
+            action: #selector(
+                linengrowUpdatePreview(_:)
+            )
+        )
+        updateBtn.bezelStyle = .rounded
+        updateBtn
+            .translatesAutoresizingMaskIntoConstraints =
+            false
+        container.addSubview(updateBtn)
+
+        // -- Constraints -----------------------
+        NSLayoutConstraint.activate([
+            titleLbl.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor
+            ),
+            titleLbl.topAnchor.constraint(
+                equalTo: container.topAnchor,
+                constant: 16
+            ),
+            subtitleLbl.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor
+            ),
+            subtitleLbl.topAnchor.constraint(
+                equalTo: titleLbl.bottomAnchor,
+                constant: 4
+            ),
+            cardBg.topAnchor.constraint(
+                equalTo: subtitleLbl.bottomAnchor,
+                constant: 16
+            ),
+            cardBg.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 20
+            ),
+            cardBg.trailingAnchor.constraint(
+                equalTo: container.trailingAnchor,
+                constant: -20
+            ),
+            receiptText.topAnchor.constraint(
+                equalTo: cardBg.topAnchor
+            ),
+            receiptText.leadingAnchor.constraint(
+                equalTo: cardBg.leadingAnchor
+            ),
+            receiptText.trailingAnchor.constraint(
+                equalTo: cardBg.trailingAnchor
+            ),
+            receiptText.bottomAnchor.constraint(
+                equalTo: cardBg.bottomAnchor
+            ),
+            receiptText.heightAnchor.constraint(
+                greaterThanOrEqualToConstant: 240
+            ),
+            cardBg.bottomAnchor.constraint(
+                equalTo: receiptText.bottomAnchor
+            ),
+            threadLine.topAnchor.constraint(
+                equalTo: cardBg.bottomAnchor,
+                constant: 2
+            ),
+            threadLine.centerXAnchor.constraint(
+                equalTo: container.centerXAnchor
+            ),
+            threadLine.widthAnchor.constraint(
+                equalToConstant: 1
+            ),
+            threadLine.heightAnchor.constraint(
+                equalToConstant: 12
+            ),
+            railBg.topAnchor.constraint(
+                equalTo: threadLine.bottomAnchor,
+                constant: 2
+            ),
+            railBg.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 20
+            ),
+            railBg.trailingAnchor.constraint(
+                equalTo: container.trailingAnchor,
+                constant: -20
+            ),
+            consentText.topAnchor.constraint(
+                equalTo: railBg.topAnchor
+            ),
+            consentText.leadingAnchor.constraint(
+                equalTo: railBg.leadingAnchor
+            ),
+            consentText.trailingAnchor.constraint(
+                equalTo: railBg.trailingAnchor
+            ),
+            consentText.bottomAnchor.constraint(
+                equalTo: railBg.bottomAnchor
+            ),
+            consentText.heightAnchor.constraint(
+                greaterThanOrEqualToConstant: 80
+            ),
+            railBg.bottomAnchor.constraint(
+                equalTo: consentText.bottomAnchor
+            ),
+            toggleBtn.topAnchor.constraint(
+                equalTo: railBg.bottomAnchor,
+                constant: 8
+            ),
+            toggleBtn.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 20
+            ),
+            purposeField.topAnchor.constraint(
+                equalTo: toggleBtn.bottomAnchor,
+                constant: 16
+            ),
+            purposeField.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 20
+            ),
+            purposeField.trailingAnchor.constraint(
+                equalTo: container.trailingAnchor,
+                constant: -20
+            ),
+            purposeField.heightAnchor.constraint(
+                equalToConstant: 24
+            ),
+            valueField.topAnchor.constraint(
+                equalTo: purposeField.bottomAnchor,
+                constant: 6
+            ),
+            valueField.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 20
+            ),
+            valueField.widthAnchor.constraint(
+                equalToConstant: 160
+            ),
+            valueField.heightAnchor.constraint(
+                equalToConstant: 24
+            ),
+            recipientField.topAnchor.constraint(
+                equalTo: purposeField.bottomAnchor,
+                constant: 6
+            ),
+            recipientField.leadingAnchor.constraint(
+                equalTo: valueField.trailingAnchor,
+                constant: 8
+            ),
+            recipientField.trailingAnchor
+                .constraint(
+                    equalTo: container
+                        .trailingAnchor,
+                    constant: -20
+                ),
+            recipientField.heightAnchor.constraint(
+                equalToConstant: 24
+            ),
+            updateBtn.topAnchor.constraint(
+                equalTo: valueField.bottomAnchor,
+                constant: 8
+            ),
+            updateBtn.leadingAnchor.constraint(
+                equalTo: container.leadingAnchor,
+                constant: 20
+            ),
+        ])
+
+        // Store references for update actions
+        linengrowReceiptText = receiptText
+        linengrowConsentText = consentText
+        linengrowPurposeField = purposeField
+        linengrowValueField = valueField
+        linengrowRecipientField = recipientField
+        linengrowConsentExpanded = false
+
+        // Render the initial Still frames
+        linengrowRenderPreview()
+
+        item.view = container
+        tv.addTabViewItem(item)
+        tv.selectTabViewItem(item)
+    }
+
+    func linengrowRenderPreview() {
+        guard let receiptTV = linengrowReceiptText,
+              let consentTV = linengrowConsentText
+        else { return }
+
+        let purpose = linengrowPurposeField?
+            .stringValue ?? "annual share"
+        let valueStr = linengrowValueField?
+            .stringValue ?? "1200"
+        let recipient = linengrowRecipientField?
+            .stringValue ?? "meadow-commons"
+        let value = UInt64(valueStr) ?? 1200
+
+        if #available(macOS 26.0, *) {
+            do {
+                let card = try ReceiptCard(
+                    receiptID: "rc-001",
+                    productID: "harvest-yield",
+                    purpose: purpose,
+                    recipientID: recipient,
+                    offeredValue: value,
+                    valueUnit: "grain-note",
+                    valueBasis:
+                        "seasonal harvest share",
+                    promisedReturn:
+                        "proportional yield",
+                    issuedAt: "20261113",
+                    expiresAt: "20271113",
+                    status: "offered"
+                )
+                let lines = card.stillFrame()
+                let text = lines.map {
+                    String(
+                        bytes: $0,
+                        encoding: .utf8
+                    ) ?? ""
+                }.joined(separator: "\n")
+                receiptTV.string = text
+            } catch {
+                receiptTV.string =
+                    "ReceiptCard error: \(error)"
+            }
+
+            let disclosure: ConsentRail.Disclosure =
+                linengrowConsentExpanded
+                    ? .expanded : .folded
+            do {
+                let rail = try ConsentRail(
+                    purpose: purpose,
+                    recipientID: recipient,
+                    expiresAt: "20271113",
+                    consentStatus: "pending"
+                )
+                let frame = rail.still(
+                    disclosure: disclosure
+                )
+                var lines: [String] = []
+                var row = 0
+                while row < frame.lineCount {
+                    if let bytes =
+                        frame.accessibilityLine(
+                            row: row
+                        )
+                    {
+                        lines.append(
+                            String(
+                                bytes: bytes,
+                                encoding: .utf8
+                            ) ?? ""
+                        )
+                    }
+                    row += 1
+                }
+                consentTV.string =
+                    lines.joined(
+                        separator: "\n"
+                    )
+            } catch {
+                consentTV.string =
+                    "ConsentRail error: \(error)"
+            }
+        } else {
+            receiptTV.string =
+                "ReceiptCard requires macOS 26.0"
+            consentTV.string =
+                "ConsentRail requires macOS 26.0"
+        }
+    }
+
+    @objc func linengrowToggleConsent(
+        _ sender: NSButton
+    ) {
+        linengrowConsentExpanded =
+            !linengrowConsentExpanded
+        sender.title = linengrowConsentExpanded
+            ? "Fold consent"
+            : "Expand consent"
+        linengrowRenderPreview()
+    }
+
+    @objc func linengrowUpdatePreview(
+        _ sender: NSButton
+    ) {
+        linengrowRenderPreview()
     }
 
 }

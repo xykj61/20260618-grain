@@ -96,7 +96,7 @@ class AppDelegate: NSObject,
         "Terminal", "Grid",
         "Dimeroll", "Mantra",
         "Bloom", "Audio",
-        "Social",
+        "Social", "Linengrow",
     ]
     var bloomTextView: NSTextView?
     var bloomLessonIndex: Int = 0
@@ -181,6 +181,12 @@ class AppDelegate: NSObject,
     var surfRelayAddrField: NSTextField?
     var surfRelayStatusLabel: NSTextField?
     var surfRelayPublishOn: Bool = false
+    var linengrowReceiptText: NSTextView?
+    var linengrowConsentText: NSTextView?
+    var linengrowPurposeField: NSTextField?
+    var linengrowValueField: NSTextField?
+    var linengrowRecipientField: NSTextField?
+    var linengrowConsentExpanded: Bool = false
     var nextTabId = 3
     var shortcutStatusLabel: NSTextField?
     var connectionLabel: NSTextField?

@@ -83,6 +83,14 @@ extension AppDelegate {
         scrItem.keyEquivalentModifierMask = [.command]
         viewMenu.addItem(scrItem)
 
+        let lngItem = NSMenuItem(
+            title: "Focus Linengrow",
+            action: #selector(focusLinengrow),
+            keyEquivalent: "8"
+        )
+        lngItem.keyEquivalentModifierMask = [.command]
+        viewMenu.addItem(lngItem)
+
         viewMenu.addItem(NSMenuItem.separator())
 
         let sidebarItem = NSMenuItem(
@@ -267,7 +275,8 @@ extension AppDelegate {
               ident != "dimeroll",
               ident != "mantra",
               ident != "bloom",
-              ident != "audio"
+              ident != "audio",
+              ident != "linengrow"
         else {
             showShortcutStatus(
                 "Cmd+W: cannot close built-in tab"
